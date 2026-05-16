@@ -1,193 +1,235 @@
 # Demo Setup EXT:visual_editor
 
-This repository provides a TYPO3 demo for `EXT:visual_editor`. The project is MySQL-only for both local DDEV development and the standalone Docker setup.
+[Jump to DDEV setup](#ddev-setup) ·
+[Project structure](#project-structure) ·
+[Documentation](#documentation)
 
-![Screenshot](./screenshot.png)
+[What is the Visual Editor?](https://github.com/andersundsehr/visual_editor)
 
-- Visual Editor project: [https://github.com/friendsoftypo3/visual_editor](https://github.com/FriendsOfTYPO3/visual_editor)
-- Standalone image: `ghcr.io/andersundsehr/ddev-demo-setup-visual-editor`
+This repository is a TYPO3 14.3 DDEV demo project for Visual Editor,
+workspace editing, API-driven content workflows, Desiderio site rendering,
+Solr search, and a companion News API Studio application.
+
+## What Is Included
+
+- `friendsoftypo3/visual-editor` for frontend page editing.
+- `supseven/inline-page-module` for TYPO3 14 inline `news` content elements.
+- `dirnbauer/visual-editor-news-addon`, which connects `news`,
+  `inline_page_module`, and `visual_editor`.
+- `dirnbauer/site-package`, the local provider/theme extension for shared
+  Site Sets, editor defaults, Solr defaults, Admin Panel defaults, and
+  Visual Editor Cowriter integration.
+- `webconsulting/desiderio` and TYPO3 `theme-camino` demo sites.
+- `apache-solr-for-typo3/solr` with numbered pagination defaults.
+- `sgalinski/sg-apicore`, MCP tooling, WorkOS auth, and workspace helpers for
+  API-based editorial workflows.
+- `apps/news-api-studio`, a Next.js/Electron client concept for editing
+  EXT:news records through the TYPO3 API layer.
+
+## Project Structure
+
+| Path | Purpose |
+|---|---|
+| `config/sites/` | TYPO3 site configurations and Site Set dependencies. |
+| `config/system/settings.php.example` | Template for local TYPO3 settings and secret loading. |
+| `packages/site_package/` | Main local TYPO3 provider/theme extension. |
+| `patches/` | Composer patches applied to vendor packages. |
+| `docs/` | Project documentation and product specs. |
+| `apps/news-api-studio/` | Shared Next.js/Electron editorial workstation. |
+| `public/` | TYPO3 public document root. |
+
+## Site Package
+
+The shared project defaults live in
+`packages/site_package`. The package replaces the former
+`packages/adminpanel_defaults` and `packages/visual_editor_defaults`
+extensions.
+
+The main Site Sets are:
+
+| Site Set | Used for |
+|---|---|
+| `dirnbauer/site-package` | Base defaults, Admin Panel, RTE, MCP table config, Cowriter preload middleware. |
+| `dirnbauer/site-package-search` | Shared Solr and numbered pagination defaults. |
+| `dirnbauer/site-package-blog` | Blog standalone pages with Desiderio template override. |
+| `dirnbauer/site-package-blog-bootstrap` | Blog Bootstrap demo pages. |
+| `dirnbauer/site-package-camino` | Camino theme demo site. |
+| `dirnbauer/site-package-desiderio-corporate` | Desiderio corporate demo sites. |
+
+See [packages/site_package/README.md](packages/site_package/README.md) for
+the package-specific documentation.
 
 ## DDEV Setup
 
-Use this workflow if you want to work on the project locally with DDEV.
-
 ### Prerequisites
 
-- [ddev](https://ddev.com/)
+- [DDEV](https://ddev.com/) installed
+- Docker or OrbStack running
 
-### How to set up the demo
-
-1. Clone the repository
-2. Run `ddev start`
-3. Run `ddev setup`
-4. Run `ddev launch /typo3/module/web/edit`
-5. If you want to update `EXT:visual_editor`, run `ddev composer u friendsoftypo3/visual-editor`
-6. Refresh the committed demo seed artifacts with `ddev update-seed`
-
-`ddev setup` installs Composer dependencies, restores `seed/demo.mysql.sql.gz` via `ddev import-db`, syncs `seed/fileadmin` into `public/fileadmin`, and runs the TYPO3 post-import tasks.
-
-`ddev update-seed` updates:
-
-- `seed/demo.mysql.sql.gz`
-- `seed/fileadmin`
-
-Its database export is produced via `ddev export-db`.
-
-## Standalone Docker Setup
-
-The standalone setup requires a MySQL service. Use the checked-in `docker-compose.yaml` to build locally:
+### First-Time Setup
 
 ```bash
-docker compose -f docker-compose.yaml up --build -d
+cp config/system/settings.php.example config/system/settings.php
+ddev start
+ddev composer install
+ddev import-db --file=dump.sql.gz
+ddev typo3 extension:setup
+ddev typo3 cache:flush
 ```
 
-Or run the published image with your own Compose stack:
+Open the TYPO3 backend:
+
+```bash
+ddev launch /typo3/module/web/edit
+```
+
+Demo credentials from the original setup:
+
+- User: `admin`
+- Password: `Demo123*`
+
+If you want to update `EXT:visual_editor`, run:
+
+```bash
+ddev composer u friendsoftypo3/visual-editor
+```
+
+### Settings and Secrets
+
+`config/system/settings.php` is gitignored. TYPO3's Install Tool writes plain
+values to this file when extension settings are saved. The committed
+`config/system/settings.php.example` keeps secrets behind `getenv()` calls.
+
+DDEV reads local secret values from `.ddev/config.local.yaml`, which is also
+gitignored.
+
+Create `.ddev/config.local.yaml` with the following content and fill in the
+actual values:
 
 ```yaml
-services:
-  mysql:
-    image: mysql:8.4
-    environment:
-      MYSQL_DATABASE: demo
-      MYSQL_USER: demo
-      MYSQL_PASSWORD: demo
-      MYSQL_ROOT_PASSWORD: root
-    healthcheck:
-      test: ["CMD-SHELL", "mysqladmin ping -h 127.0.0.1 -uroot -proot --silent"]
-      interval: 5s
-      timeout: 3s
-      retries: 20
-    volumes:
-      - mysql-data:/var/lib/mysql
-
-  web:
-    image: ghcr.io/andersundsehr/ddev-demo-setup-visual-editor:latest
-    depends_on:
-      mysql:
-        condition: service_healthy
-    ports:
-      - "8080:80"
-    environment:
-      DATABASE_URL: mysql://demo:demo@mysql:3306/demo
-      TYPO3_TRUST_ANY_PROXY: "0"
-      RESET_DEMO_CRON_SCHEDULE: "0 0 * * *"
-
-volumes:
-  mysql-data:
+web_environment:
+  - TYPO3_WORKOS_API_KEY=<workos-api-key>
+  - TYPO3_WORKOS_CLIENT_ID=<workos-client-id>
+  - TYPO3_WORKOS_COOKIE_PASSWORD=<workos-cookie-password>
+  - TYPO3_ENCRYPTION_KEY=<typo3-encryption-key>
 ```
 
-Start it with:
+| Variable | Where to find it |
+|---|---|
+| `TYPO3_WORKOS_API_KEY` | [WorkOS Dashboard](https://dashboard.workos.com/) -> API Keys |
+| `TYPO3_WORKOS_CLIENT_ID` | WorkOS Dashboard -> Configuration |
+| `TYPO3_WORKOS_COOKIE_PASSWORD` | Generate with `openssl rand -base64 32`. |
+| `TYPO3_ENCRYPTION_KEY` | From an existing setup or generate with `openssl rand -hex 48`. |
+
+After creating or updating `.ddev/config.local.yaml`, run:
 
 ```bash
-docker compose up -d
+ddev restart
 ```
 
-Open the site at:
+### Useful Local URLs
+
+DDEV exposes the project at:
+
+- Frontend: `https://ddev-demo-setup-visual-editor.ddev.site/`
+- Backend: `https://ddev-demo-setup-visual-editor.ddev.site/typo3/`
+- Camino demo: `https://ddev-demo-setup-visual-editor.ddev.site/`
+- Blog demo: `https://ddev-demo-setup-visual-editor.ddev.site/autogenerated-15/`
+- Blog Bootstrap demo: `https://ddev-demo-setup-visual-editor.ddev.site/14/`
+- Mattersburg demo: `https://ddev-demo-setup-visual-editor.ddev.site/mattersburg/`
+- TYPO3Camp Vienna demo:
+  `https://ddev-demo-setup-visual-editor.ddev.site/typo3-vienna-camp-2026/`
+
+### Disabling phpMyAdmin
+
+The phpMyAdmin DDEV addon is disabled by default by renaming its compose files
+to `.yaml.disabled`. To re-enable it:
+
+```bash
+mv .ddev/docker-compose.phpmyadmin.yaml.disabled .ddev/docker-compose.phpmyadmin.yaml
+mv .ddev/docker-compose.phpmyadmin_norouter.yaml.disabled .ddev/docker-compose.phpmyadmin_norouter.yaml
+ddev restart
+```
+
+## Editor Defaults
+
+The Cowriter RTE preset is enabled through the shared site package set:
 
 ```text
-http://localhost:8080
+packages/site_package/Configuration/Sets/SitePackage/page.tsconfig
 ```
 
-Follow the startup reset logs:
+```typoscript
+RTE.default.preset = cowriter
+```
+
+Visual Editor edit mode also gets the Cowriter JavaScript modules preloaded by:
+
+```text
+packages/site_package/Classes/Middleware/CowriterPreloadMiddleware.php
+```
+
+## News API Studio
+
+The News API Studio app lives in `apps/news-api-studio`.
 
 ```bash
-docker compose logs -f web
+cd apps/news-api-studio
+npm install
+npm run dev
+npm run electron:dev
 ```
 
-Stop the demo when you are done:
+More app-specific documentation:
+
+- [apps/news-api-studio/README.md](apps/news-api-studio/README.md)
+- [apps/news-api-studio/ARCHITECTURE.md](apps/news-api-studio/ARCHITECTURE.md)
+- [docs/news-api-studio-spec.md](docs/news-api-studio-spec.md)
+
+## Vendor Patches
+
+Vendor patches are managed with `cweagans/composer-patches`.
+
+Current patch documentation:
+
+- [patches/README.md](patches/README.md)
+- [patches/UPSTREAM_ISSUE.md](patches/UPSTREAM_ISSUE.md)
+
+Run `ddev composer install` after changing patch definitions.
+
+## Verification
+
+Useful checks before committing project configuration changes:
 
 ```bash
-docker compose down
+composer validate --no-check-publish
+ddev exec vendor/bin/typo3 lint:yaml config/sites packages/site_package/Configuration/Sets
+ddev exec vendor/bin/typo3 extension:setup
+ddev exec vendor/bin/typo3 cache:flush
 ```
 
-## Runtime Behavior
+Basic frontend smoke check:
 
-- `DATABASE_URL` is required for the standalone container and is parsed into TYPO3's `DB.Connections.Default` config at runtime.
-- On container startup, `/usr/local/bin/reset-demo-state startup` rebuilds the MySQL schema, imports `seed/demo.mysql.sql.gz`, restores `seed/fileadmin`, and clears TYPO3 transient state under `var/cache`, `var/lock`, and `public/typo3temp`.
-- The scheduled reset timing is controlled by `RESET_DEMO_CRON_SCHEDULE` and defaults to `0 0 * * *`.
-- Set `RESET_DEMO_DB_WAIT_TIMEOUT` if your MySQL service needs longer than 60 seconds to become reachable.
-- Set `TYPO3_TRUST_ANY_PROXY=1` if the demo runs behind a proxy whose forwarded host and HTTPS headers should be trusted by TYPO3.
+```bash
+for url in / /14/ /autogenerated-15/ /autogenerated-390/ /mattersburg/ /typo3-vienna-camp-2026/; do
+  ddev exec curl -k -s -o /dev/null -w "$url %{http_code}\n" "https://ddev-demo-setup-visual-editor.ddev.site$url"
+done
+```
 
-## Reset Semantics
+## Documentation
 
-- The scheduled reset runs hourly by default.
-- Override the timing by setting `RESET_DEMO_CRON_SCHEDULE` to any valid five-field cron expression.
-- Set `RESET_DEMO_CRON_SCHEDULE=disabled` to turn off scheduled resets.
-- MySQL reset drops all tables and views in the configured schema, runs `php vendor/bin/typo3 setup --force --no-interaction ...`, and imports `seed/demo.mysql.sql.gz`.
-- Manual execution uses the same restore script:
+- [docs/README.md](docs/README.md) - documentation index.
+- [packages/site_package/README.md](packages/site_package/README.md) -
+  provider/theme extension notes.
+- [apps/news-api-studio/README.md](apps/news-api-studio/README.md) -
+  app setup and build commands.
+- [apps/news-api-studio/ARCHITECTURE.md](apps/news-api-studio/ARCHITECTURE.md) -
+  app architecture reference.
+- [patches/README.md](patches/README.md) - vendor patch workflow.
 
-  ```bash
-  docker compose exec web /usr/local/bin/reset-demo-state manual-check
-  ```
+## Screenshot
 
-## Container Publishing
-
-GitHub Actions builds the image for pull requests and publishes a multi-architecture image to GHCR on pushes to `main`.
-
-Published tags:
-
-- `ghcr.io/andersundsehr/ddev-demo-setup-visual-editor:latest`
-- `ghcr.io/andersundsehr/ddev-demo-setup-visual-editor:sha-<shortsha>`
-
-Each published tag resolves to:
-
-- `linux/amd64`
-- `linux/arm64`
-
-## Manual Verification
-
-Use these checks if you want to confirm the demo state yourself.
-
-1. Confirm the services are running:
-
-   ```bash
-   docker compose ps
-   ```
-
-2. Confirm TYPO3 responds inside the container:
-
-   ```bash
-   docker compose exec web /bin/bash -lc 'curl -I -sS http://127.0.0.1'
-   ```
-
-3. Confirm the active database backend is seeded:
-
-   ```bash
-   docker compose exec web /bin/bash -lc 'php -m | grep -E "pdo_mysql"'
-   docker compose exec web env | grep '^DATABASE_URL='
-   docker compose exec web /bin/bash -lc 'mysql --protocol=TCP -hmysql -P3306 -udemo -pdemo demo -e "select uid,title from pages order by uid limit 5;"'
-   ```
-
-4. Confirm seeded files exist:
-
-   ```bash
-   docker compose exec web /bin/bash -lc 'find /app/public/fileadmin -maxdepth 2 -type f | sort | head -n 10'
-   ```
-
-5. Validate file reset behavior:
-
-   ```bash
-   docker compose exec web /bin/bash -lc 'printf "temp\n" > /app/public/fileadmin/user_upload/phase6-temp.txt'
-   docker compose exec web /bin/bash -lc '/usr/local/bin/reset-demo-state manual-check'
-   docker compose exec web /bin/bash -lc 'test ! -e /app/public/fileadmin/user_upload/phase6-temp.txt && echo restored'
-   ```
-
-6. Validate database reset behavior:
-
-   ```bash
-   docker compose exec web /bin/bash -lc "mysql --protocol=TCP -hmysql -P3306 -udemo -pdemo demo -e \"update pages set title = 'Manual Check Mutated' where uid = 1; select uid,title from pages where uid = 1;\""
-   docker compose exec web /bin/bash -lc '/usr/local/bin/reset-demo-state manual-check'
-   docker compose exec web /bin/bash -lc 'mysql --protocol=TCP -hmysql -P3306 -udemo -pdemo demo -e "select uid,title from pages where uid = 1;"'
-   ```
-
-## Validation Status
-
-Expected behavior after these changes:
-
-- `docker compose -f docker-compose.yaml up --build -d` builds the image from the local Dockerfile and starts the demo.
-- Startup reset restores the MySQL-backed demo state and `fileadmin`.
-- `DATABASE_URL=mysql://demo:demo@mysql:3306/demo` configures TYPO3 without editing PHP config files.
-- The scheduled reset cadence remains configurable and defaults to hourly.
+![Screenshot](./screenshot.png)
 
 # with ♥️ from ![anders und sehr logo](https://www.andersundsehr.com/logo-claim/anders-und-sehr-logo_350px.svg)
 
