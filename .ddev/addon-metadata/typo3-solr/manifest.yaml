@@ -1,0 +1,12 @@
+name: typo3-solr
+repository: ddev/ddev-typo3-solr
+version: 1.2.1
+install_date: "2026-05-01T11:28:59+02:00"
+project_files:
+    - docker-compose.typo3-solr.yaml
+    - typo3-solr/config.yaml
+    - commands/host/solrctl
+    - commands/web/solrctl-worker
+    - commands/typo3-solr/solr
+global_files: []
+removal_actions: []

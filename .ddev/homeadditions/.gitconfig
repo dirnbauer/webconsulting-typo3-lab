@@ -1,0 +1,17 @@
+[core]
+	autocrlf = input
+
+[user]
+	name = DDEV User
+	email = nobody@example.com
+
+[safe]
+	directory = *
+
+# Force HTTPS for all GitHub clones. Composer's VCS resolver may emit
+# `git@github.com:` SSH URLs which require keys not present in the DDEV
+# container (host SSH agent isn't forwarded). For public repos the HTTPS
+# clone needs no auth, so we just rewrite SSH → HTTPS transparently.
+[url "https://github.com/"]
+	insteadOf = git@github.com:
+	insteadOf = ssh://git@github.com/

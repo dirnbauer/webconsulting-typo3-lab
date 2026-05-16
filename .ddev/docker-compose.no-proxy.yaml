@@ -1,0 +1,5 @@
+services:
+  web:
+    environment:
+      NO_PROXY: "typo3-solr,ddev-${DDEV_SITENAME}-typo3-solr,localhost,127.0.0.1,127.0.0.0/8,::1,*.orb.internal,*.orb.local,vm.orb.internal,services.orb.internal,services2.orb.internal,proxyproxy.orb.internal,gateway.orb.internal,gateway.docker.internal,host.internal,host.orb.internal,host.docker.internal,host.lima.internal,docker.orb.internal,docker.orb.local,k8s.orb.local,docker.for.mac.localhost,docker.for.mac.host.internal"
+      no_proxy: "typo3-solr,ddev-${DDEV_SITENAME}-typo3-solr,localhost,127.0.0.1,127.0.0.0/8,::1,*.orb.internal,*.orb.local,vm.orb.internal,services.orb.internal,services2.orb.internal,proxyproxy.orb.internal,gateway.orb.internal,gateway.docker.internal,host.internal,host.orb.internal,host.docker.internal,host.lima.internal,docker.orb.internal,docker.orb.local,k8s.orb.local,docker.for.mac.localhost,docker.for.mac.host.internal"
