@@ -1,0 +1,4 @@
+plugin:
+  tx_solr:
+    view:
+      partialRootPath: 'EXT:solr_numbered_pagination/Resources/Private/Partials/'

@@ -1,0 +1,6 @@
+name: dirnbauer/site-package-desiderio-corporate
+label: 'Site Package: Desiderio Corporate'
+dependencies:
+  - dirnbauer/site-package-search
+  - webconsulting/desiderio-preset-corporate
+  - webconsulting/desiderio-shadcnui-templates

@@ -1,0 +1,5 @@
+name: dirnbauer/site-package-blog
+label: 'Site Package: Blog'
+dependencies:
+  - dirnbauer/site-package-search
+  - blog/standalone

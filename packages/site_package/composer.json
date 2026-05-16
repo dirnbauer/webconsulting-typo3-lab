@@ -1,0 +1,27 @@
+{
+    "name": "dirnbauer/site-package",
+    "description": "TYPO3 site package for the Visual Editor demo setup",
+    "type": "typo3-cms-extension",
+    "license": "GPL-2.0-or-later",
+    "require": {
+        "apache-solr-for-typo3/solr": "dev-main",
+        "friendsoftypo3/visual-editor": "^1.4",
+        "georgringer/news": "^14.0",
+        "studiomitte/solr-numbered-pagination": "dev-main",
+        "t3g/blog": "dev-master",
+        "typo3/cms-adminpanel": "^14.3",
+        "typo3/cms-core": "^14.3",
+        "typo3/theme-camino": "^14.3",
+        "webconsulting/desiderio": "dev-main"
+    },
+    "autoload": {
+        "psr-4": {
+            "Dirnbauer\\SitePackage\\": "Classes/"
+        }
+    },
+    "extra": {
+        "typo3/cms": {
+            "extension-key": "site_package"
+        }
+    }
+}

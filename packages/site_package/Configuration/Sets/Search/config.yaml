@@ -1,0 +1,6 @@
+name: dirnbauer/site-package-search
+label: 'Site Package: Search'
+hidden: true
+dependencies:
+  - dirnbauer/site-package
+  - dirnbauer/solr-defaults

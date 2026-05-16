@@ -1,0 +1,5 @@
+#
+# Make the TYPO3 Admin Panel available to all backend users, including
+# custom admin panel modules like agentation.
+#
+admPanel.enable.all = 1

@@ -1,0 +1,46 @@
+# TYPO3 extension local dependencies and build output
+/.build/
+/.ddev/
+/Build/testing-docker/.env
+/node_modules/
+/vendor/
+/composer.lock
+
+# TYPO3/runtime output
+/var/
+/logs/
+/public/
+/Documentation-GENERATED-temp/
+
+# Test, analysis, and coverage output
+/.phpunit.cache/
+/.phpunit.result.cache
+/coverage/
+/playwright-report/
+/test-results/
+/out.txt
+
+# Tool caches
+/.php-cs-fixer.cache
+/.php_cs.cache
+/.phplint.cache
+/.phpstan.cache
+/phpstan-baseline.neon
+
+# Generated reports and local tool files
+/*.REPORT.md
+/*_REPORT.md
+/.codex/
+/.mcp.json
+
+# IDE and editor files
+/.idea/
+/.vscode/
+/.fleet/
+*.swp
+*.swo
+*~
+
+# Operating system metadata
+.DS_Store
+Thumbs.db

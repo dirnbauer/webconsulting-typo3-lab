@@ -1,0 +1,7 @@
+#
+# Render the TYPO3 Admin Panel in the frontend for authenticated backend users.
+#
+config.admPanel = 1
+
+plugin.tx_news.view.partialRootPaths.100 = EXT:desiderio/Resources/Private/Partials/
+plugin.tx_blog.view.partialRootPaths.100 = EXT:desiderio/Resources/Private/Partials/
