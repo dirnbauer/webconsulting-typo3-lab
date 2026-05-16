@@ -1,9 +1,18 @@
 .DS_Store
+.ddev/config.local.yaml
 .idea
 nbproject
 /var/*
 !/var/labels
 /vendor
 /public/*
+# normally we would ignore the whole fileadmin folder. but for the demo we need to keep fileadmin
+!/public/fileadmin
+/public/fileadmin/*
+!/public/fileadmin/user_upload
+/public/fileadmin/user_upload/_temp_
 !/public/.htaccess
-/var/
+node_modules/*
+.cursor
+scripts/*
+/var/labels/*
