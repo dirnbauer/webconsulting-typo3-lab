@@ -1,0 +1,42 @@
+base: 'https://ddev-demo-setup-visual-editor.ddev.site/mattersburg/'
+dependencies:
+  - dirnbauer/site-package-desiderio-corporate
+languages:
+  -
+    languageId: 0
+    title: German
+    navigationTitle: Deutsch
+    locale: de_AT.UTF-8
+    base: /
+    flag: de
+    iso-639-1: de
+    fallbackType: strict
+    solr_core_read: core_de
+  -
+    languageId: 1
+    title: English
+    navigationTitle: English
+    locale: en_US.UTF-8
+    base: /en/
+    flag: us
+    iso-639-1: en
+    fallbackType: fallback
+    solr_core_read: core_en
+  -
+    languageId: 2
+    title: Hungarian
+    navigationTitle: Magyar
+    locale: hu_HU.UTF-8
+    base: /hu/
+    flag: hu
+    iso-639-1: hu
+    fallbackType: fallback
+    solr_core_read: core_hu
+rootPageId: 639
+solr_enabled_read: true
+solr_host_read: typo3-solr
+solr_path_read: /
+solr_port_read: '8983'
+solr_scheme_read: http
+solr_use_write_connection: false
+websiteTitle: 'Mattersburg — Sehenswürdigkeiten'

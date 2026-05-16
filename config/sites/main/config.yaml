@@ -1,27 +1,12 @@
-base: '/'
-baseVariants:
 dependencies:
-  - typo3/theme-camino
+  - dirnbauer/site-package
 languages:
   -
-    title: English
-    enabled: true
-    languageId: 0
-    base: /en/
-    locale: en_US.UTF-8
-    navigationTitle: English
-    flag: us
-  -
-    title: German
-    enabled: true
-    locale: de_DE
-    hreflang: ''
-    base: /de/
-    websiteTitle: ''
-    navigationTitle: Deutsch
-    fallbackType: strict
-    fallbacks: ''
-    flag: de
+    title: Chinese
     languageId: 1
-rootPageId: 1
-websiteTitle: ''
+    base: /zh/
+    locale: zh_CN.UTF-8
+    navigationTitle: Chinese
+    flag: cn
+    iso-639-1: zh
+    fallbackType: fallback

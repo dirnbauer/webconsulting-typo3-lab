@@ -1,16 +1,23 @@
-base: /camino/
+base: 'https://ddev-demo-setup-visual-editor.ddev.site/'
 dependencies:
-  - typo3/theme-camino
+  - dirnbauer/site-package-camino
 languages:
   -
     title: English
-    enabled: true
+    enabled: '1'
     locale: en-US
     hreflang: en-US
-    base: /en/
+    base: /
     websiteTitle: Camino
     navigationTitle: English
     flag: global
     languageId: 0
-rootPageId: 5
+    solr_core_read: core_en
+rootPageId: 99
+solr_enabled_read: true
+solr_host_read: typo3-solr
+solr_path_read: /
+solr_port_read: '8983'
+solr_scheme_read: http
+solr_use_write_connection: false
 websiteTitle: Camino

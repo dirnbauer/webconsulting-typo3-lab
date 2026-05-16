@@ -1,0 +1,45 @@
+capabilities:
+  version: "1.0"
+  subsystems:
+    - database:read
+    - database:write
+    - database:schema
+    - cache:read
+    - cache:write
+    - file:read
+    - file:write
+    - content:plugin
+    - content:contentElement
+    - typoscript:provider
+    - cli:command
+    - routing:enhancer
+    - tca:override
+  database:
+    own_tables:
+      - tx_news_domain_model_news
+      - tx_news_domain_model_tag
+      - tx_news_domain_model_link
+    reads:
+      - pages
+      - tt_content
+      - sys_file
+      - sys_file_reference
+      - sys_file_metadata
+      - sys_category
+      - sys_category_record_mm
+      - fe_users
+    writes:
+      - tx_news_domain_model_news
+      - tx_news_domain_model_tag
+      - sys_file
+      - sys_file_reference
+      - sys_file_metadata
+  network:
+    outbound: []
+  filesystem:
+    paths:
+      - public/fileadmin
+    writes: true
+  risk:
+    level: "medium"
+    justification: "Content extension with scoped database writes and FAL uploads limited by TYPO3 backend user permissions, no outbound network, and no XCLASS."
