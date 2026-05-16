@@ -15,6 +15,7 @@ local TYPO3 extension package.
 |---|---|
 | [../README.md](../README.md) | Main project setup, DDEV notes, site package overview, and verification commands. |
 | [../packages/site_package/README.md](../packages/site_package/README.md) | Local TYPO3 site package/provider extension documentation. |
+| [../packages/site_package/Documentation/Index.rst](../packages/site_package/Documentation/Index.rst) | TYPO3 RST documentation for the TYPO3 14-only site package. |
 | [../apps/news-api-studio/README.md](../apps/news-api-studio/README.md) | News API Studio setup, build commands, and app usage. |
 | [../apps/news-api-studio/ARCHITECTURE.md](../apps/news-api-studio/ARCHITECTURE.md) | News API Studio technical architecture. |
 | [../patches/README.md](../patches/README.md) | Composer patch workflow and current patch list. |
@@ -23,5 +24,6 @@ local TYPO3 extension package.
 
 - Keep the root README focused on repo setup and operational commands.
 - Keep package-specific behavior in the package README.
+- Keep TYPO3 extension manual content in `packages/site_package/Documentation/`.
 - Keep app-specific details in `apps/news-api-studio/`.
 - Update this index when adding new Markdown documents under `docs/`.

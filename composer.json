@@ -113,7 +113,7 @@
   "require": {
     "apache-solr-for-typo3/solr": "dev-main",
     "dirnbauer/api-capability-bridge": "dev-main",
-    "dirnbauer/site-package": "dev-main",
+    "dirnbauer/site-package": "^14.0",
     "dirnbauer/visual-editor-news-addon": "dev-main",
     "friendsoftypo3/tt-address": "^10.0",
     "friendsoftypo3/visual-editor": "^1.4",
@@ -177,6 +177,7 @@
     "cweagans/composer-patches": "^2.0",
     "phpstan/phpstan": "^2.1",
     "phpunit/phpunit": "^11.5",
+    "saschaegerer/phpstan-typo3": "^3.0.1",
     "typo3/testing-framework": "^9.5"
   },
   "extra": {

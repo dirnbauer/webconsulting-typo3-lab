@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7d8de385a1434946cd5633abdb3ddf0a",
+    "content-hash": "2af4ced5e2c9a7c7d34dc8864a8765ba",
     "packages": [
         {
             "name": "apache-solr-for-typo3/solr",
@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/ext-solr.git",
-                "reference": "72437bda70c207ae58d5a5a4e729e2840dba43d0"
+                "reference": "b4779657146b4db5427915b42a36dc26c2536d30"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/ext-solr/zipball/72437bda70c207ae58d5a5a4e729e2840dba43d0",
-                "reference": "72437bda70c207ae58d5a5a4e729e2840dba43d0",
+                "url": "https://api.github.com/repos/dirnbauer/ext-solr/zipball/b4779657146b4db5427915b42a36dc26c2536d30",
+                "reference": "b4779657146b4db5427915b42a36dc26c2536d30",
                 "shasum": ""
             },
             "require": {
@@ -179,7 +179,7 @@
                 "source": "https://github.com/TYPO3-Solr/ext-solr",
                 "docs": "https://docs.typo3.org/p/apache-solr-for-typo3/solr/main/en-us/"
             },
-            "time": "2026-05-07T12:14:29+00:00"
+            "time": "2026-05-16T18:32:24+00:00"
         },
         {
             "name": "bacon/bacon-qr-code",
@@ -463,22 +463,28 @@
         },
         {
             "name": "dirnbauer/site-package",
-            "version": "dev-main",
+            "version": "14.0.0",
             "dist": {
                 "type": "path",
                 "url": "packages/site_package",
-                "reference": "5912a0e366f57ac300879196c8e6e392557abdc8"
+                "reference": "365026900f7c68579375804c3d37e556a2f12173"
             },
             "require": {
                 "apache-solr-for-typo3/solr": "dev-main",
                 "friendsoftypo3/visual-editor": "^1.4",
                 "georgringer/news": "^14.0",
+                "php": "^8.2",
                 "studiomitte/solr-numbered-pagination": "dev-main",
                 "t3g/blog": "dev-master",
                 "typo3/cms-adminpanel": "^14.3",
                 "typo3/cms-core": "^14.3",
                 "typo3/theme-camino": "^14.3",
                 "webconsulting/desiderio": "dev-main"
+            },
+            "require-dev": {
+                "phpstan/phpstan": "^2.1",
+                "saschaegerer/phpstan-typo3": "^3.0.1",
+                "typo3/testing-framework": "^9.5"
             },
             "type": "typo3-cms-extension",
             "extra": {
@@ -1874,12 +1880,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/typo3-mcp-server.git",
-                "reference": "4ee2259ef752104d06120c2913cf5a1a29d26d35"
+                "reference": "13943ef27d4010a209db93abd4e8f163ed10e230"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/typo3-mcp-server/zipball/4ee2259ef752104d06120c2913cf5a1a29d26d35",
-                "reference": "4ee2259ef752104d06120c2913cf5a1a29d26d35",
+                "url": "https://api.github.com/repos/dirnbauer/typo3-mcp-server/zipball/13943ef27d4010a209db93abd4e8f163ed10e230",
+                "reference": "13943ef27d4010a209db93abd4e8f163ed10e230",
                 "shasum": ""
             },
             "require": {
@@ -1990,7 +1996,7 @@
             ],
             "description": "TYPO3 extension that provides a Model Context Protocol (MCP) server for interacting with TYPO3 pages and records",
             "homepage": "https://github.com/dirnbauer/typo3-mcp-server",
-            "time": "2026-05-16T12:52:06+00:00"
+            "time": "2026-05-16T19:25:17+00:00"
         },
         {
             "name": "logiscape/mcp-sdk-php",
@@ -8012,12 +8018,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/blog.git",
-                "reference": "45b9c518b9fe6cd6753cffa6be566efc6232372a"
+                "reference": "985539531ebccb239d1371171524aa9afc4f87c9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/blog/zipball/45b9c518b9fe6cd6753cffa6be566efc6232372a",
-                "reference": "45b9c518b9fe6cd6753cffa6be566efc6232372a",
+                "url": "https://api.github.com/repos/dirnbauer/blog/zipball/985539531ebccb239d1371171524aa9afc4f87c9",
+                "reference": "985539531ebccb239d1371171524aa9afc4f87c9",
                 "shasum": ""
             },
             "require": {
@@ -8027,14 +8033,14 @@
                 "psr/http-client": "^1.0",
                 "psr/http-factory": "^1.0",
                 "psr/http-message": "^1.1 || ^2.0",
-                "typo3/cms-backend": "^14.0",
-                "typo3/cms-core": "^14.0",
-                "typo3/cms-extbase": "^14.0",
-                "typo3/cms-extensionmanager": "^14.0",
-                "typo3/cms-fluid": "^14.0",
-                "typo3/cms-form": "^14.0",
-                "typo3/cms-frontend": "^14.0",
-                "typo3/cms-install": "^14.0"
+                "typo3/cms-backend": "^14.3",
+                "typo3/cms-core": "^14.3",
+                "typo3/cms-extbase": "^14.3",
+                "typo3/cms-extensionmanager": "^14.3",
+                "typo3/cms-fluid": "^14.3",
+                "typo3/cms-form": "^14.3",
+                "typo3/cms-frontend": "^14.3",
+                "typo3/cms-install": "^14.3"
             },
             "require-dev": {
                 "bk2k/bootstrap-package": "^15.0 || 16.*.*@dev",
@@ -8046,17 +8052,17 @@
                 "phpstan/phpstan-phpunit": "^2.0",
                 "phpstan/phpstan-strict-rules": "^2.0",
                 "saschaegerer/phpstan-typo3": "^3.0",
-                "typo3/cms-belog": "^14.0",
-                "typo3/cms-beuser": "^14.0",
-                "typo3/cms-filelist": "^14.0",
-                "typo3/cms-fluid-styled-content": "^14.0",
-                "typo3/cms-lowlevel": "^14.0",
-                "typo3/cms-redirects": "^14.0",
-                "typo3/cms-rte-ckeditor": "^14.0",
-                "typo3/cms-seo": "^14.0",
-                "typo3/cms-setup": "^14.0",
-                "typo3/cms-tstemplate": "^14.0",
-                "typo3/cms-workspaces": "^14.0",
+                "typo3/cms-belog": "^14.3",
+                "typo3/cms-beuser": "^14.3",
+                "typo3/cms-filelist": "^14.3",
+                "typo3/cms-fluid-styled-content": "^14.3",
+                "typo3/cms-lowlevel": "^14.3",
+                "typo3/cms-redirects": "^14.3",
+                "typo3/cms-rte-ckeditor": "^14.3",
+                "typo3/cms-seo": "^14.3",
+                "typo3/cms-setup": "^14.3",
+                "typo3/cms-tstemplate": "^14.3",
+                "typo3/cms-workspaces": "^14.3",
                 "typo3/testing-framework": "^9.0.0 || dev-main"
             },
             "suggest": {
@@ -8137,7 +8143,7 @@
                 "source": "https://github.com/TYPO3GmbH/blog",
                 "slack": "https://typo3.slack.com/archives/t3g-ext-blog"
             },
-            "time": "2026-04-21T08:19:14+00:00"
+            "time": "2026-05-16T18:12:49+00:00"
         },
         {
             "name": "typo3/class-alias-loader",
@@ -10993,12 +10999,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/desiderio.git",
-                "reference": "f92eb49d4c9067eddb8500321c227e9b8b1f16d9"
+                "reference": "ce46d6d8943fa70e69ced1a67831a1c8098742d1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/desiderio/zipball/f92eb49d4c9067eddb8500321c227e9b8b1f16d9",
-                "reference": "f92eb49d4c9067eddb8500321c227e9b8b1f16d9",
+                "url": "https://api.github.com/repos/dirnbauer/desiderio/zipball/ce46d6d8943fa70e69ced1a67831a1c8098742d1",
+                "reference": "ce46d6d8943fa70e69ced1a67831a1c8098742d1",
                 "shasum": ""
             },
             "require": {
@@ -11064,7 +11070,7 @@
                 }
             ],
             "description": "Desiderio — shadcn/ui-inspired Fluid 5 component library, 255 content elements, and theme layer for TYPO3 14",
-            "time": "2026-05-16T13:58:38+00:00"
+            "time": "2026-05-16T18:44:41+00:00"
         },
         {
             "name": "webconsulting/records-list-examples",
@@ -11072,30 +11078,49 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/typo3-records-list-examples.git",
-                "reference": "9c60a2413adbd342547a601d75041ed0f5b1b4ae"
+                "reference": "2105019ab184b447650c180c095cd9511a5593f4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/typo3-records-list-examples/zipball/9c60a2413adbd342547a601d75041ed0f5b1b4ae",
-                "reference": "9c60a2413adbd342547a601d75041ed0f5b1b4ae",
+                "url": "https://api.github.com/repos/dirnbauer/typo3-records-list-examples/zipball/2105019ab184b447650c180c095cd9511a5593f4",
+                "reference": "2105019ab184b447650c180c095cd9511a5593f4",
                 "shasum": ""
             },
             "require": {
-                "php": "^8.3",
-                "typo3/cms-core": "^14.0",
-                "webconsulting/records-list-types": "^1.0"
+                "php": "^8.2",
+                "typo3/cms-backend": "^14.3",
+                "typo3/cms-core": "^14.3",
+                "typo3/cms-fluid": "^14.3",
+                "webconsulting/records-list-types": "dev-main as 14.0.0"
+            },
+            "require-dev": {
+                "phpstan/phpstan": "^2.1",
+                "phpstan/phpstan-strict-rules": "^2.0",
+                "saschaegerer/phpstan-typo3": "^3.0"
             },
             "default-branch": true,
             "type": "typo3-cms-extension",
             "extra": {
                 "typo3/cms": {
-                    "extension-key": "records_list_examples"
+                    "extension-key": "records_list_examples",
+                    "version": "14.0.0"
                 }
             },
-            "autoload": {
-                "psr-4": {
-                    "Webconsulting\\RecordsListExamples\\": "Classes/"
-                }
+            "scripts": {
+                "ci": [
+                    "@check",
+                    "@phpstan"
+                ],
+                "check": [
+                    "composer validate --strict --no-check-publish",
+                    "@check:xlf"
+                ],
+                "phpstan": [
+                    "phpstan analyse --no-progress --memory-limit=512M"
+                ],
+                "check:xlf": [
+                    "php Build/Scripts/validate-xlf.php"
+                ]
             },
             "license": [
                 "GPL-2.0-or-later"
@@ -11106,8 +11131,8 @@
                     "email": "office@webconsulting.at"
                 }
             ],
-            "description": "Example view types for the Records List Types extension - Timeline, Catalog, Address Book, Event List, Photo Gallery, Dashboard",
-            "time": "2026-05-15T11:29:13+00:00"
+            "description": "TYPO3 v14 example view types for the Records List Types extension: Timeline, Catalog, Address Book, Event List, Gallery, and Dashboard.",
+            "time": "2026-05-16T19:33:23+00:00"
         },
         {
             "name": "webconsulting/records-list-types",
@@ -11115,12 +11140,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/typo3-records-list-types.git",
-                "reference": "0d86f308fdd68bb45edc882a043dcca123e2b58c"
+                "reference": "ed7df286a0d1c7583c8dec820ac280a14190d4b3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/typo3-records-list-types/zipball/0d86f308fdd68bb45edc882a043dcca123e2b58c",
-                "reference": "0d86f308fdd68bb45edc882a043dcca123e2b58c",
+                "url": "https://api.github.com/repos/dirnbauer/typo3-records-list-types/zipball/ed7df286a0d1c7583c8dec820ac280a14190d4b3",
+                "reference": "ed7df286a0d1c7583c8dec820ac280a14190d4b3",
                 "shasum": ""
             },
             "require": {
@@ -11144,6 +11169,10 @@
             "extra": {
                 "typo3/cms": {
                     "extension-key": "records_list_types",
+                    "version": "14.0.0",
+                    "Package": {
+                        "providesPackages": []
+                    },
                     "web-dir": "public"
                 }
             },
@@ -11173,7 +11202,7 @@
                 "issues": "https://github.com/dirnbauer/typo3-records-list-types/issues",
                 "source": "https://github.com/dirnbauer/typo3-records-list-types"
             },
-            "time": "2026-05-15T13:50:33+00:00"
+            "time": "2026-05-16T18:44:22+00:00"
         },
         {
             "name": "webconsulting/typo3-capability-manifest",
@@ -11266,33 +11295,43 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/typo3-x402-paywall.git",
-                "reference": "97cc7866a26cb6cbad457d52bbe32fb243d47091"
+                "reference": "77b423195838973f49022dc3d387bbaa5558e9b0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/typo3-x402-paywall/zipball/97cc7866a26cb6cbad457d52bbe32fb243d47091",
-                "reference": "97cc7866a26cb6cbad457d52bbe32fb243d47091",
+                "url": "https://api.github.com/repos/dirnbauer/typo3-x402-paywall/zipball/77b423195838973f49022dc3d387bbaa5558e9b0",
+                "reference": "77b423195838973f49022dc3d387bbaa5558e9b0",
                 "shasum": ""
             },
             "require": {
-                "guzzlehttp/guzzle": "^7.0",
                 "mcp/sdk": "^0.5",
                 "php": "^8.2",
                 "psr/http-message": "^2.0",
                 "psr/http-server-middleware": "^1.0",
-                "typo3/cms-core": "^13.4 || ^14.0",
-                "typo3/cms-frontend": "^13.4 || ^14.0"
+                "typo3/cms-backend": "^14.3",
+                "typo3/cms-core": "^14.3",
+                "typo3/cms-extbase": "^14.3",
+                "typo3/cms-fluid": "^14.3",
+                "typo3/cms-frontend": "^14.3"
             },
             "require-dev": {
-                "friendsofphp/php-cs-fixer": "^3.0",
-                "phpstan/phpstan": "^2.0",
-                "phpunit/phpunit": "^11.0"
+                "friendsofphp/php-cs-fixer": "^3.92",
+                "phpstan/extension-installer": "^1.4",
+                "phpstan/phpstan": "^2.1.33",
+                "phpstan/phpstan-phpunit": "^2.0",
+                "phpstan/phpstan-strict-rules": "^2.0",
+                "phpunit/phpunit": "^11.5",
+                "saschaegerer/phpstan-typo3": "^3.0"
             },
             "default-branch": true,
             "type": "typo3-cms-extension",
             "extra": {
                 "typo3/cms": {
-                    "extension-key": "x402_paywall"
+                    "extension-key": "x402_paywall",
+                    "version": "2.0.0",
+                    "Package": {
+                        "providesPackages": []
+                    }
                 }
             },
             "autoload": {
@@ -11305,6 +11344,20 @@
                     "Webconsulting\\X402Paywall\\Tests\\": "tests/"
                 }
             },
+            "scripts": {
+                "ci": [
+                    "Build/Scripts/runTests.sh -s ci"
+                ],
+                "lint": [
+                    "Build/Scripts/runTests.sh -s lint"
+                ],
+                "phpstan": [
+                    "Build/Scripts/runTests.sh -s phpstan"
+                ],
+                "test": [
+                    "Build/Scripts/runTests.sh -s unit"
+                ]
+            },
             "license": [
                 "GPL-2.0-or-later"
             ],
@@ -11316,7 +11369,7 @@
                     "role": "Lead Developer"
                 }
             ],
-            "description": "x402 payment protocol for TYPO3 — charge AI agents and users for content access via HTTP 402.",
+            "description": "x402 Paywall - HTTP 402 payment protocol for TYPO3 14 content monetization.",
             "homepage": "https://github.com/dirnbauer/typo3-x402-paywall",
             "keywords": [
                 "ai-agent",
@@ -11333,7 +11386,7 @@
                 "issues": "https://github.com/dirnbauer/typo3-x402-paywall/issues",
                 "source": "https://github.com/dirnbauer/typo3-x402-paywall"
             },
-            "time": "2026-05-02T19:35:55+00:00"
+            "time": "2026-05-16T19:46:09+00:00"
         },
         {
             "name": "webconsulting/webcon-easy-workspace",
@@ -11341,19 +11394,26 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/typo3-webcon-easy-workspace.git",
-                "reference": "424a72b4b4728a795187989b9de7a04f98406db8"
+                "reference": "a34e4a5833ed80e002ae88b24fb92fc93b39ecee"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/typo3-webcon-easy-workspace/zipball/424a72b4b4728a795187989b9de7a04f98406db8",
-                "reference": "424a72b4b4728a795187989b9de7a04f98406db8",
+                "url": "https://api.github.com/repos/dirnbauer/typo3-webcon-easy-workspace/zipball/a34e4a5833ed80e002ae88b24fb92fc93b39ecee",
+                "reference": "a34e4a5833ed80e002ae88b24fb92fc93b39ecee",
                 "shasum": ""
             },
             "require": {
-                "php": "^8.3",
+                "php": "^8.2",
                 "typo3/cms-backend": "^14.3",
                 "typo3/cms-core": "^14.3",
+                "typo3/cms-fluid": "^14.3",
+                "typo3/cms-frontend": "^14.3",
                 "typo3/cms-workspaces": "^14.3"
+            },
+            "require-dev": {
+                "phpstan/extension-installer": "^1.4",
+                "phpstan/phpstan": "^2.1",
+                "saschaegerer/phpstan-typo3": "^3.0.1"
             },
             "suggest": {
                 "friendsoftypo3/visual-editor": "Enables the per-row eye icon to scroll & outline a content element inside the Visual Editor iframe. The dropdown works without it; the eye gracefully falls back to typo3/cms-viewpage's preview iframe.",
@@ -11370,6 +11430,18 @@
                 "psr-4": {
                     "Webconsulting\\WebconEasyWorkspace\\": "Classes/"
                 }
+            },
+            "scripts": {
+                "lint": [
+                    "find Classes Configuration ext_emconf.php -name '*.php' -print0 | xargs -0 -n1 php -l"
+                ],
+                "phpstan": [
+                    "phpstan analyse --configuration=Build/phpstan/phpstan.neon --memory-limit=1G"
+                ],
+                "test": [
+                    "@lint",
+                    "@phpstan"
+                ]
             },
             "license": [
                 "GPL-2.0-or-later"
@@ -11394,7 +11466,7 @@
                 "issues": "https://github.com/dirnbauer/typo3-webcon-easy-workspace/issues",
                 "source": "https://github.com/dirnbauer/typo3-webcon-easy-workspace"
             },
-            "time": "2026-05-16T12:48:09+00:00"
+            "time": "2026-05-16T19:19:50+00:00"
         },
         {
             "name": "webconsulting/workos-auth",
@@ -11402,21 +11474,21 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/workos.git",
-                "reference": "1ff059febba5e0a2af31ddd15295a51b2363ac24"
+                "reference": "58bd590982fbb3aea5eb182174c9290e6ec66bd0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/workos/zipball/1ff059febba5e0a2af31ddd15295a51b2363ac24",
-                "reference": "1ff059febba5e0a2af31ddd15295a51b2363ac24",
+                "url": "https://api.github.com/repos/dirnbauer/workos/zipball/58bd590982fbb3aea5eb182174c9290e6ec66bd0",
+                "reference": "58bd590982fbb3aea5eb182174c9290e6ec66bd0",
                 "shasum": ""
             },
             "require": {
                 "php": "^8.2",
-                "typo3/cms-backend": "^14.0",
-                "typo3/cms-core": "^14.0",
-                "typo3/cms-extbase": "^14.0",
-                "typo3/cms-fluid": "^14.0",
-                "typo3/cms-frontend": "^14.0",
+                "typo3/cms-backend": "^14.3",
+                "typo3/cms-core": "^14.3",
+                "typo3/cms-extbase": "^14.3",
+                "typo3/cms-fluid": "^14.3",
+                "typo3/cms-frontend": "^14.3",
                 "workos/workos-php": "^5.0.3"
             },
             "require-dev": {
@@ -11429,7 +11501,8 @@
                 "phpstan/phpstan-strict-rules": "^2.0",
                 "phpunit/phpunit": "^11.5",
                 "saschaegerer/phpstan-typo3": "^3.0",
-                "typo3/cms-workspaces": "^14.0",
+                "symfony/stopwatch": "^7.4",
+                "typo3/cms-workspaces": "^14.3",
                 "typo3/coding-standards": "^0.8",
                 "typo3/testing-framework": "^9.2"
             },
@@ -11437,7 +11510,11 @@
             "type": "typo3-cms-extension",
             "extra": {
                 "typo3/cms": {
-                    "extension-key": "workos_auth"
+                    "extension-key": "workos_auth",
+                    "version": "14.0.0",
+                    "Package": {
+                        "providesPackages": []
+                    }
                 }
             },
             "autoload": {
@@ -11505,7 +11582,7 @@
                 "issues": "https://github.com/dirnbauer/workos/issues",
                 "source": "https://github.com/dirnbauer/workos"
             },
-            "time": "2026-05-01T10:59:29+00:00"
+            "time": "2026-05-16T19:30:52+00:00"
         },
         {
             "name": "webmozart/assert",
@@ -11620,6 +11697,63 @@
         }
     ],
     "packages-dev": [
+        {
+            "name": "bnf/phpstan-psr-container",
+            "version": "1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/bnf/phpstan-psr-container.git",
+                "reference": "2e2fd1973576bdc755ea814b2142fcdbc673fd1c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/bnf/phpstan-psr-container/zipball/2e2fd1973576bdc755ea814b2142fcdbc673fd1c",
+                "reference": "2e2fd1973576bdc755ea814b2142fcdbc673fd1c",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.0|^8.0",
+                "phpstan/phpstan": "^1.0|^2.0",
+                "psr/container": "^1.0|^2.0"
+            },
+            "type": "phpstan-extension",
+            "extra": {
+                "phpstan": {
+                    "includes": [
+                        "extension.neon"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Bnf\\PhpstanPsrContainer\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Benjamin Franzke",
+                    "email": "benjaminfranzke@gmail.com",
+                    "homepage": "https://bnfr.net",
+                    "role": "Developer"
+                }
+            ],
+            "description": "PHPStan dynamic return type extension for PSR-11 ContainerInterface",
+            "keywords": [
+                "PHPStan",
+                "PSR-11",
+                "service-provider",
+                "static"
+            ],
+            "support": {
+                "issues": "https://github.com/bnf/phpstan-psr-container/issues",
+                "source": "https://github.com/bnf/phpstan-psr-container/tree/1.1.0"
+            },
+            "time": "2024-11-19T16:16:59+00:00"
+        },
         {
             "name": "composer/class-map-generator",
             "version": "1.7.3",
@@ -12578,6 +12712,76 @@
                 }
             ],
             "time": "2026-02-18T12:37:06+00:00"
+        },
+        {
+            "name": "saschaegerer/phpstan-typo3",
+            "version": "3.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sascha-egerer/phpstan-typo3.git",
+                "reference": "6aa28e7088113b65f1e9d94e5202ddd2750c4f70"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sascha-egerer/phpstan-typo3/zipball/6aa28e7088113b65f1e9d94e5202ddd2750c4f70",
+                "reference": "6aa28e7088113b65f1e9d94e5202ddd2750c4f70",
+                "shasum": ""
+            },
+            "require": {
+                "bnf/phpstan-psr-container": "^1.0",
+                "composer/semver": "^3.4",
+                "ext-simplexml": "*",
+                "php": "^8.2",
+                "phpstan/phpstan": "^2.1.33",
+                "ssch/typo3-debug-dump-pass": "^0.0.3",
+                "typo3/cms-core": "^14.0",
+                "typo3/cms-extbase": "^14.0"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^3.92",
+                "php-parallel-lint/php-parallel-lint": "^1.4",
+                "phpstan/phpstan-phpunit": "^2.0.3",
+                "phpstan/phpstan-strict-rules": "^2.0",
+                "phpunit/phpunit": "^11.5",
+                "rector/rector": "^2.3",
+                "rector/type-perfect": "^2.1"
+            },
+            "type": "phpstan-extension",
+            "extra": {
+                "phpstan": {
+                    "includes": [
+                        "extension.neon"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "SaschaEgerer\\PhpstanTypo3\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "TYPO3 CMS class reflection extension for PHPStan",
+            "keywords": [
+                "static analysis"
+            ],
+            "support": {
+                "issues": "https://github.com/sascha-egerer/phpstan-typo3/issues",
+                "source": "https://github.com/sascha-egerer/phpstan-typo3/tree/3.0.1"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/sascha-egerer",
+                    "type": "github"
+                },
+                {
+                    "url": "https://liberapay.com/sascha.egerer",
+                    "type": "liberapay"
+                }
+            ],
+            "time": "2026-02-13T13:13:55+00:00"
         },
         {
             "name": "sebastian/cli-parser",
@@ -13566,6 +13770,64 @@
             "time": "2024-10-09T05:16:32+00:00"
         },
         {
+            "name": "ssch/typo3-debug-dump-pass",
+            "version": "v0.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sabbelasichon/typo3-debug-dump-pass.git",
+                "reference": "0b5208006c8a615875d8c2b6e0d212c6a9bedc30"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sabbelasichon/typo3-debug-dump-pass/zipball/0b5208006c8a615875d8c2b6e0d212c6a9bedc30",
+                "reference": "0b5208006c8a615875d8c2b6e0d212c6a9bedc30",
+                "shasum": ""
+            },
+            "require": {
+                "symfony/config": "^5.0 || ^6.0 || ^7.0 || ^8.0",
+                "symfony/dependency-injection": "^5.0 || ^6.0 || ^7.0 || ^8.0",
+                "typo3/cms-core": "^10.4 || ^11.5 || ^12.4 || ^13.0 || ^14.0"
+            },
+            "require-dev": {
+                "symplify/easy-coding-standard": "^12.1"
+            },
+            "type": "typo3-cms-extension",
+            "extra": {
+                "typo3/cms": {
+                    "web-dir": ".Build/Web",
+                    "extension-key": "typo3_debug_dump_pass"
+                },
+                "branch-alias": {
+                    "dev-main": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Ssch\\Typo3DebugDumpPass\\": "Classes/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Sebastian Schreiber",
+                    "email": "me@schreibersebastian.de"
+                }
+            ],
+            "description": "Add debug dump compiler pass for better static analysis",
+            "keywords": [
+                "dev",
+                "refactoring"
+            ],
+            "support": {
+                "issues": "https://github.com/sabbelasichon/typo3-debug-dump-pass/issues",
+                "source": "https://github.com/sabbelasichon/typo3-debug-dump-pass/tree/v0.0.3"
+            },
+            "time": "2026-02-04T08:23:17+00:00"
+        },
+        {
             "name": "staabm/side-effects-detector",
             "version": "1.0.5",
             "source": {
@@ -13764,7 +14026,6 @@
     "stability-flags": {
         "apache-solr-for-typo3/solr": 20,
         "dirnbauer/api-capability-bridge": 20,
-        "dirnbauer/site-package": 20,
         "dirnbauer/visual-editor-news-addon": 20,
         "hn/typo3-mcp-server": 20,
         "netresearch/nr-llm": 20,

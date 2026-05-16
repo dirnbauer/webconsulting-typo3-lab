@@ -1,6 +1,6 @@
 # Site Package
 
-TYPO3 site package/provider extension for the Visual Editor demo setup.
+TYPO3 14-only site package/provider extension for the Visual Editor demo setup.
 
 This extension owns the shared project configuration that used to be split
 across `adminpanel_defaults` and `visual_editor_defaults`.
@@ -11,8 +11,13 @@ across `adminpanel_defaults` and `visual_editor_defaults`.
 |---|---|
 | Composer name | `dirnbauer/site-package` |
 | TYPO3 extension key | `site_package` |
+| Extension version | `14.0.0` |
+| TYPO3 support | `14.3.0-14.99.99` |
+| PHP support | `^8.2` |
 | Package type | `typo3-cms-extension` |
 | Namespace | `Dirnbauer\SitePackage` |
+
+TYPO3 13 support has been removed from Composer and `ext_emconf.php`.
 
 ## What This Package Provides
 
@@ -95,7 +100,12 @@ root:
 
 ```bash
 composer validate --no-check-publish
+Build/Scripts/runTests.sh -s phpstan
+Build/Scripts/runTests.sh -s ci
 ddev exec vendor/bin/typo3 lint:yaml config/sites packages/site_package/Configuration/Sets
 ddev exec vendor/bin/typo3 extension:setup
 ddev exec vendor/bin/typo3 cache:flush
 ```
+
+PHPStan runs at `level: max` with the TYPO3-specific
+`saschaegerer/phpstan-typo3` extension.

@@ -1,0 +1,21 @@
+includes:
+    - ../../vendor/saschaegerer/phpstan-typo3/extension.neon
+
+parameters:
+    level: max
+    phpVersion: 80200
+    paths:
+        - ../../packages/site_package/Classes
+        - ../../packages/site_package/Configuration/RequestMiddlewares.php
+        - ../../packages/site_package/ext_localconf.php
+    excludePaths:
+        analyseAndScan:
+            - ../../packages/site_package/ext_emconf.php
+            - ../../vendor
+            - ../../var (?)
+            - ../../public (?)
+            - ../../node_modules (?)
+    tmpDir: ../../var/phpstan
+    treatPhpDocTypesAsCertain: false
+    checkTooWideReturnTypesInProtectedAndPublicMethods: true
+    checkUninitializedProperties: true
