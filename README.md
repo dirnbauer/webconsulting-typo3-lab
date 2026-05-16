@@ -6,7 +6,7 @@
 
 [What is the Visual Editor?](https://github.com/andersundsehr/visual_editor)
 
-This repository is a TYPO3 14.3 DDEV demo project for Visual Editor,
+This repository is a TYPO3 14.3-only DDEV demo project for Visual Editor,
 workspace editing, API-driven content workflows, Desiderio site rendering,
 Solr search, and a companion News API Studio application.
 
@@ -18,7 +18,8 @@ Solr search, and a companion News API Studio application.
   `inline_page_module`, and `visual_editor`.
 - `dirnbauer/site-package`, the local provider/theme extension for shared
   Site Sets, editor defaults, Solr defaults, Admin Panel defaults, and
-  Visual Editor Cowriter integration.
+  Visual Editor Cowriter integration. The package is versioned as `14.0.0`
+  and supports TYPO3 14 only.
 - `webconsulting/desiderio` and TYPO3 `theme-camino` demo sites.
 - `apache-solr-for-typo3/solr` with numbered pagination defaults.
 - `sgalinski/sg-apicore`, MCP tooling, WorkOS auth, and workspace helpers for
@@ -203,10 +204,16 @@ Useful checks before committing project configuration changes:
 
 ```bash
 composer validate --no-check-publish
+Build/Scripts/runTests.sh -s phpstan
+Build/Scripts/runTests.sh -s ci
 ddev exec vendor/bin/typo3 lint:yaml config/sites packages/site_package/Configuration/Sets
 ddev exec vendor/bin/typo3 extension:setup
 ddev exec vendor/bin/typo3 cache:flush
 ```
+
+PHPStan uses the TYPO3-aware configuration in `Build/phpstan/phpstan.neon` at
+maximum level and includes `saschaegerer/phpstan-typo3` for TYPO3 API
+reflection and framework rules.
 
 Basic frontend smoke check:
 

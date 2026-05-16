@@ -1,5 +1,2 @@
-parameters:
-  level: max
-  paths:
-    - packages/solr_numbered_pagination/Classes
-  tmpDir: var/phpstan
+includes:
+    - Build/phpstan/phpstan.neon

@@ -1,9 +1,11 @@
 {
     "name": "dirnbauer/site-package",
     "description": "TYPO3 site package for the Visual Editor demo setup",
+    "version": "14.0.0",
     "type": "typo3-cms-extension",
     "license": "GPL-2.0-or-later",
     "require": {
+        "php": "^8.2",
         "apache-solr-for-typo3/solr": "dev-main",
         "friendsoftypo3/visual-editor": "^1.4",
         "georgringer/news": "^14.0",
@@ -13,6 +15,11 @@
         "typo3/cms-core": "^14.3",
         "typo3/theme-camino": "^14.3",
         "webconsulting/desiderio": "dev-main"
+    },
+    "require-dev": {
+        "phpstan/phpstan": "^2.1",
+        "saschaegerer/phpstan-typo3": "^3.0.1",
+        "typo3/testing-framework": "^9.5"
     },
     "autoload": {
         "psr-4": {
