@@ -8,6 +8,7 @@ local TYPO3 extension package.
 | Document | Purpose |
 |---|---|
 | [news-api-studio-spec.md](news-api-studio-spec.md) | Product and implementation specification for the News API Studio app. |
+| [reports/typo3-v14-upgrade-20260516-213338.md](reports/typo3-v14-upgrade-20260516-213338.md) | Report for the TYPO3 14-only site package upgrade and verification pass. |
 
 ## Related Documentation
 
@@ -27,3 +28,5 @@ local TYPO3 extension package.
 - Keep TYPO3 extension manual content in `packages/site_package/Documentation/`.
 - Keep app-specific details in `apps/news-api-studio/`.
 - Update this index when adding new Markdown documents under `docs/`.
+- Keep generated or time-stamped reports under `docs/reports/` and link them
+  from the table above instead of duplicating their content in the root README.

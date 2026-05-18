@@ -361,6 +361,13 @@ These are real backlog items, not aspirations. Each can be picked up independent
 
 ## 9. Quick reference — common tasks
 
+### Point the app at this DDEV demo
+
+Create a profile with base URL
+`https://ddev-demo-setup-visual-editor.ddev.site` and API id `news`. Leave the
+tenant empty for the shared local setup unless a TYPO3 API endpoint explicitly
+requires an `X-Tenant-ID` header.
+
 ### Add a new shadcn primitive
 
 The project uses the `radix-ui` umbrella package (re-exports of all the individual `@radix-ui/react-*` packages). Add the wrapper file under `src/components/ui/<name>.tsx` and use `data-slot` + `cn()` for class-merging. See [`sheet.tsx`](src/components/ui/sheet.tsx) and [`alert-dialog.tsx`](src/components/ui/alert-dialog.tsx) for the pattern.

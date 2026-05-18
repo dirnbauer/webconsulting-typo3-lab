@@ -1880,12 +1880,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/typo3-mcp-server.git",
-                "reference": "13943ef27d4010a209db93abd4e8f163ed10e230"
+                "reference": "58e302921d2a2e6bfcddad790bb918fd05409c75"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/typo3-mcp-server/zipball/13943ef27d4010a209db93abd4e8f163ed10e230",
-                "reference": "13943ef27d4010a209db93abd4e8f163ed10e230",
+                "url": "https://api.github.com/repos/dirnbauer/typo3-mcp-server/zipball/58e302921d2a2e6bfcddad790bb918fd05409c75",
+                "reference": "58e302921d2a2e6bfcddad790bb918fd05409c75",
                 "shasum": ""
             },
             "require": {
@@ -1996,7 +1996,7 @@
             ],
             "description": "TYPO3 extension that provides a Model Context Protocol (MCP) server for interacting with TYPO3 pages and records",
             "homepage": "https://github.com/dirnbauer/typo3-mcp-server",
-            "time": "2026-05-16T19:25:17+00:00"
+            "time": "2026-05-17T09:15:17+00:00"
         },
         {
             "name": "logiscape/mcp-sdk-php",
@@ -10913,12 +10913,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/typo3-agentation.git",
-                "reference": "1b393e3a257e709bb53995acc8e4c3f89f779ef9"
+                "reference": "875db73a846731a8bc80569265892363eeaca401"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/typo3-agentation/zipball/1b393e3a257e709bb53995acc8e4c3f89f779ef9",
-                "reference": "1b393e3a257e709bb53995acc8e4c3f89f779ef9",
+                "url": "https://api.github.com/repos/dirnbauer/typo3-agentation/zipball/875db73a846731a8bc80569265892363eeaca401",
+                "reference": "875db73a846731a8bc80569265892363eeaca401",
                 "shasum": ""
             },
             "require": {
@@ -10991,7 +10991,7 @@
                 "issues": "https://github.com/webconsulting/typo3-agentation/issues",
                 "source": "https://github.com/webconsulting/typo3-agentation"
             },
-            "time": "2026-04-21T09:07:16+00:00"
+            "time": "2026-05-18T08:27:27+00:00"
         },
         {
             "name": "webconsulting/desiderio",
@@ -10999,12 +10999,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/desiderio.git",
-                "reference": "ce46d6d8943fa70e69ced1a67831a1c8098742d1"
+                "reference": "b4e4f899b84ae86f333ac012225fc32f0492adcc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/desiderio/zipball/ce46d6d8943fa70e69ced1a67831a1c8098742d1",
-                "reference": "ce46d6d8943fa70e69ced1a67831a1c8098742d1",
+                "url": "https://api.github.com/repos/dirnbauer/desiderio/zipball/b4e4f899b84ae86f333ac012225fc32f0492adcc",
+                "reference": "b4e4f899b84ae86f333ac012225fc32f0492adcc",
                 "shasum": ""
             },
             "require": {
@@ -11070,7 +11070,7 @@
                 }
             ],
             "description": "Desiderio — shadcn/ui-inspired Fluid 5 component library, 255 content elements, and theme layer for TYPO3 14",
-            "time": "2026-05-16T18:44:41+00:00"
+            "time": "2026-05-17T19:10:16+00:00"
         },
         {
             "name": "webconsulting/records-list-examples",
@@ -11078,12 +11078,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/typo3-records-list-examples.git",
-                "reference": "2105019ab184b447650c180c095cd9511a5593f4"
+                "reference": "9627f84f0dc8a7b3b98c00fd06f15b72de6aa5b5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/typo3-records-list-examples/zipball/2105019ab184b447650c180c095cd9511a5593f4",
-                "reference": "2105019ab184b447650c180c095cd9511a5593f4",
+                "url": "https://api.github.com/repos/dirnbauer/typo3-records-list-examples/zipball/9627f84f0dc8a7b3b98c00fd06f15b72de6aa5b5",
+                "reference": "9627f84f0dc8a7b3b98c00fd06f15b72de6aa5b5",
                 "shasum": ""
             },
             "require": {
@@ -11132,7 +11132,7 @@
                 }
             ],
             "description": "TYPO3 v14 example view types for the Records List Types extension: Timeline, Catalog, Address Book, Event List, Gallery, and Dashboard.",
-            "time": "2026-05-16T19:33:23+00:00"
+            "time": "2026-05-17T09:35:02+00:00"
         },
         {
             "name": "webconsulting/records-list-types",
@@ -11140,12 +11140,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/typo3-records-list-types.git",
-                "reference": "ed7df286a0d1c7583c8dec820ac280a14190d4b3"
+                "reference": "be0ac0386b88e504891680bc657717da1d08e427"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/typo3-records-list-types/zipball/ed7df286a0d1c7583c8dec820ac280a14190d4b3",
-                "reference": "ed7df286a0d1c7583c8dec820ac280a14190d4b3",
+                "url": "https://api.github.com/repos/dirnbauer/typo3-records-list-types/zipball/be0ac0386b88e504891680bc657717da1d08e427",
+                "reference": "be0ac0386b88e504891680bc657717da1d08e427",
                 "shasum": ""
             },
             "require": {
@@ -11202,7 +11202,7 @@
                 "issues": "https://github.com/dirnbauer/typo3-records-list-types/issues",
                 "source": "https://github.com/dirnbauer/typo3-records-list-types"
             },
-            "time": "2026-05-16T18:44:22+00:00"
+            "time": "2026-05-17T08:14:00+00:00"
         },
         {
             "name": "webconsulting/typo3-capability-manifest",
@@ -11394,12 +11394,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/typo3-webcon-easy-workspace.git",
-                "reference": "a34e4a5833ed80e002ae88b24fb92fc93b39ecee"
+                "reference": "14858fcbbe7ce9fc914bcd1e7bd7c85618a79064"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/typo3-webcon-easy-workspace/zipball/a34e4a5833ed80e002ae88b24fb92fc93b39ecee",
-                "reference": "a34e4a5833ed80e002ae88b24fb92fc93b39ecee",
+                "url": "https://api.github.com/repos/dirnbauer/typo3-webcon-easy-workspace/zipball/14858fcbbe7ce9fc914bcd1e7bd7c85618a79064",
+                "reference": "14858fcbbe7ce9fc914bcd1e7bd7c85618a79064",
                 "shasum": ""
             },
             "require": {
@@ -11466,7 +11466,7 @@
                 "issues": "https://github.com/dirnbauer/typo3-webcon-easy-workspace/issues",
                 "source": "https://github.com/dirnbauer/typo3-webcon-easy-workspace"
             },
-            "time": "2026-05-16T19:19:50+00:00"
+            "time": "2026-05-18T09:34:14+00:00"
         },
         {
             "name": "webconsulting/workos-auth",

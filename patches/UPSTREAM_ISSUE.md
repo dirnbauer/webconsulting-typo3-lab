@@ -2,8 +2,11 @@
 Paste the body below into a new issue at:
   https://github.com/FriendsOfTYPO3/content-blocks/issues/new
 
-Once filed, replace the "TODO link to issue" placeholder in
-composer.json (extra.patches) with the issue/PR URL.
+Once filed, update the patch description in composer.json (extra.patches) with
+the issue/PR URL.
+
+Status: not filed yet. The project keeps this body here so the local patch can
+be reviewed and upstreamed without reverse-engineering the original failure.
 -->
 
 # SqlGenerator emits `KEY parent_uid (foreign_table_parent_uid)` without ever creating the column

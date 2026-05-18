@@ -9,13 +9,16 @@ on every `composer install` / `composer update`. Mappings live in
 
 | File | Package | Upstream |
 |------|---------|----------|
-| `content-blocks-add-foreign-field-column.patch` | `friendsoftypo3/content-blocks` (2.3.x) | See [UPSTREAM_ISSUE.md](UPSTREAM_ISSUE.md) — **TODO: paste GitHub issue/PR link here once filed**, then update the description in `composer.json` |
+| `content-blocks-add-foreign-field-column.patch` | `friendsoftypo3/content-blocks` (2.3.x) | Upstream issue body prepared in [UPSTREAM_ISSUE.md](UPSTREAM_ISSUE.md); update `composer.json` once an issue or PR URL exists. |
+
 ## Workflow when a patch lands upstream
 
 1. Bump the constraint in `composer.json` to a release that contains the fix.
 2. Delete the `.patch` file from this directory.
 3. Remove the corresponding entry from `extra.patches` in `composer.json`.
-4. Run `composer update friendsoftypo3/content-blocks` to verify nothing else relied on the patch.
+4. Run `ddev composer patches-relock`.
+5. Run `ddev composer update friendsoftypo3/content-blocks` to verify nothing
+   else relied on the patch.
 
 ## Adding a new patch
 
@@ -24,3 +27,5 @@ on every `composer install` / `composer update`. Mappings live in
 3. Rewrite the `--- /+++` headers as `a/<path-inside-package>` and `b/<path-inside-package>`.
 4. Sanity-check with `cd vendor/<pkg> && git apply --check ../../patches/<short-name>.patch` (or `patch --dry-run -p1 < …`).
 5. Add an entry under `extra.patches.<package>` in `composer.json` and file an upstream issue documenting the fix.
+6. Run `ddev composer patches-relock` and commit the updated
+   `patches.lock.json`.

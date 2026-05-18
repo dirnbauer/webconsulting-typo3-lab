@@ -46,6 +46,21 @@ The first launch shows the onboarding card. Enter:
 
 The token is encrypted with the OS keychain when running in Electron. Manage profiles afterwards from the gear icon (⌘,).
 
+## Local demo target
+
+Use the repository's DDEV host as the default local profile:
+
+| Field | Value |
+| --- | --- |
+| TYPO3 base URL | `https://ddev-demo-setup-visual-editor.ddev.site` |
+| API id | `news` |
+| Tenant | leave empty unless a site-specific tenant header is required |
+| Backend | `https://ddev-demo-setup-visual-editor.ddev.site/typo3/` |
+
+The app talks to the TYPO3 API layer, so Composer package refreshes in the root
+project can change available fields, workspaces, and records without requiring
+an app rebuild.
+
 ## Documentation
 
 - This README: getting started, build commands, scope of v1.

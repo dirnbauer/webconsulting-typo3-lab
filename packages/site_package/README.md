@@ -83,6 +83,13 @@ TYPO3 13 support has been removed from Composer and `ext_emconf.php`.
 | `config/sites/mattersburg-sights` | `dirnbauer/site-package-desiderio-corporate` |
 | `config/sites/typo3-vienna-camp-2026` | `dirnbauer/site-package-desiderio-corporate` plus `desiderio/content-blocks-bundle` |
 
+## Related Desiderio Sites
+
+The `config/sites/eurovision2026` site is part of the same DDEV demo and uses
+`webconsulting/desiderio-preset-corporate` directly. It does not depend on this
+local site package set yet, so package-level changes here do not automatically
+affect that site unless its Site Set dependencies are adjusted.
+
 ## Removed Packages
 
 The following local packages were consolidated into this package and removed:
