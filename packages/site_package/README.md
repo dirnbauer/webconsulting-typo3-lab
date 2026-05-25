@@ -85,7 +85,7 @@ TYPO3 13 support has been removed from Composer and `ext_emconf.php`.
 
 ## Related Desiderio Sites
 
-The `config/sites/eurovision2026` site is part of the same DDEV demo and uses
+The `config/sites/eurovision2026` site is part of the same TYPO3 lab and uses
 `webconsulting/desiderio-preset-corporate` directly. It does not depend on this
 local site package set yet, so package-level changes here do not automatically
 affect that site unless its Site Set dependencies are adjusted.

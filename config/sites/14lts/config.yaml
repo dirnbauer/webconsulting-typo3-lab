@@ -1,4 +1,4 @@
-base: 'https://ddev-demo-setup-visual-editor.ddev.site/14'
+base: 'https://webconsulting-typo3-lab.ddev.site/14'
 dependencies:
   - webconsulting/site-package-blog-bootstrap
 languages:

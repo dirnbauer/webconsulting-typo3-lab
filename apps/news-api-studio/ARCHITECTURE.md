@@ -361,10 +361,10 @@ These are real backlog items, not aspirations. Each can be picked up independent
 
 ## 9. Quick reference — common tasks
 
-### Point the app at this DDEV demo
+### Point the app at this TYPO3 lab
 
 Create a profile with base URL
-`https://ddev-demo-setup-visual-editor.ddev.site` and API id `news`. Leave the
+`https://webconsulting-typo3-lab.ddev.site` and API id `news`. Leave the
 tenant empty for the shared local setup unless a TYPO3 API endpoint explicitly
 requires an `X-Tenant-ID` header.
 

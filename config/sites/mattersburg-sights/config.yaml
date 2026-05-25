@@ -1,4 +1,4 @@
-base: 'https://ddev-demo-setup-visual-editor.ddev.site/mattersburg/'
+base: 'https://webconsulting-typo3-lab.ddev.site/mattersburg/'
 dependencies:
   - webconsulting/site-package-desiderio-corporate
 languages:

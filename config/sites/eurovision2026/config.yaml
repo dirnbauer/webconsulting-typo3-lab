@@ -1,4 +1,4 @@
-base: 'https://ddev-demo-setup-visual-editor.ddev.site/eurovision2026'
+base: 'https://webconsulting-typo3-lab.ddev.site/eurovision2026'
 dependencies:
   - webconsulting/desiderio-preset-corporate
 languages:

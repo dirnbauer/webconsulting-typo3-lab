@@ -39,23 +39,23 @@ npm run build               # next build → out/
 The first launch shows the onboarding card. Enter:
 
 - **Profile name** (e.g. "Local DDEV")
-- **TYPO3 base URL** (e.g. `https://ddev-demo-setup-visual-editor.ddev.site`)
+- **TYPO3 base URL** (e.g. `https://webconsulting-typo3-lab.ddev.site`)
 - **API id** (typically `news`)
 - **Tenant** (optional `X-Tenant-ID` header, e.g. `camino`)
 - **Personal BE-user token** — generated in TYPO3 backend module *Tools › User Settings › Access tokens*
 
 The token is encrypted with the OS keychain when running in Electron. Manage profiles afterwards from the gear icon (⌘,).
 
-## Local demo target
+## Local lab target
 
-Use the repository's DDEV host as the default local profile:
+Use the lab's DDEV host as the default local profile:
 
 | Field | Value |
 | --- | --- |
-| TYPO3 base URL | `https://ddev-demo-setup-visual-editor.ddev.site` |
+| TYPO3 base URL | `https://webconsulting-typo3-lab.ddev.site` |
 | API id | `news` |
 | Tenant | leave empty unless a site-specific tenant header is required |
-| Backend | `https://ddev-demo-setup-visual-editor.ddev.site/typo3/` |
+| Backend | `https://webconsulting-typo3-lab.ddev.site/typo3/` |
 
 The app talks to the TYPO3 API layer, so Composer package refreshes in the root
 project can change available fields, workspaces, and records without requiring

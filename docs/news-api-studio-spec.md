@@ -109,8 +109,8 @@ Build a shared Next.js and Electron editorial workstation for TYPO3 EXT:news. Th
 7. Electron desktop enhancements and installer polish.
 8. Full-featured image editor.
 
-## Current Demo Environment
+## Current Lab Environment
 
 The local DDEV target for implementation and manual testing is
-`https://ddev-demo-setup-visual-editor.ddev.site` with TYPO3 backend access at
+`https://webconsulting-typo3-lab.ddev.site` with TYPO3 backend access at
 `/typo3/`. The default API id used by the News API Studio app is `news`.

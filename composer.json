@@ -25,6 +25,11 @@
   },
   "repositories": [
     {
+      "name": "visual-editor-news-addon",
+      "type": "vcs",
+      "url": "https://github.com/dirnbauer/visual-editor-news-addon.git"
+    },
+    {
       "type": "path",
       "url": "packages/*",
       "options": {
@@ -71,10 +76,6 @@
     {
       "type": "vcs",
       "url": "https://github.com/dirnbauer/typo3-records-list-types.git"
-    },
-    {
-      "type": "vcs",
-      "url": "https://github.com/dirnbauer/visual-editor-news-addon.git"
     },
     {
       "type": "vcs",
