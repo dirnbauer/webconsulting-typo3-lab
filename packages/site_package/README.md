@@ -38,7 +38,7 @@ TYPO3 13 support has been removed from Composer and `ext_emconf.php`.
   - Adds Desiderio partial root paths for EXT:news and EXT:blog.
   - Provides Desiderio template path overrides for Blog and Desiderio Corporate sites.
 - Shared Solr defaults:
-  - Depends on the existing `dirnbauer/solr-defaults` Site Set.
+  - Depends on the existing `webconsulting/solr-defaults` Site Set.
   - Adds the numbered pagination partial path.
   - Removes the stale EXT:solr 14 `solr-jquery` include.
 - MCP table configuration:
@@ -49,7 +49,7 @@ TYPO3 13 support has been removed from Composer and `ext_emconf.php`.
 | Site Set | Dependencies | Purpose |
 |---|---|---|
 | `webconsulting/site-package` | none | Base project defaults, RTE preset, Admin Panel, MCP table config, Cowriter preload middleware. |
-| `webconsulting/site-package-search` | `webconsulting/site-package`, `dirnbauer/solr-defaults` | Shared Solr integration and numbered pagination partial path. |
+| `webconsulting/site-package-search` | `webconsulting/site-package`, `webconsulting/solr-defaults` | Shared Solr integration and numbered pagination partial path. |
 | `webconsulting/site-package-blog` | `webconsulting/site-package-search`, `blog/standalone` | Blog standalone rendering with Desiderio templates. |
 | `webconsulting/site-package-blog-bootstrap` | `webconsulting/site-package-search`, `blog/bootstrap-53` | Blog Bootstrap 5.3 demo rendering. |
 | `webconsulting/site-package-camino` | `webconsulting/site-package-search`, `typo3/theme-camino` | Camino demo rendering. |
