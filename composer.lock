@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "874aa950b9d6a862a87223d043f14b82",
+    "content-hash": "437254558ebc510e589c0b403eeaeca5",
     "packages": [
         {
             "name": "apache-solr-for-typo3/solr",
@@ -11293,7 +11293,7 @@
             "dist": {
                 "type": "path",
                 "url": "packages/site_package",
-                "reference": "27b17d41d35fcbc98ac263b422fbbf0e7ed3ff0a"
+                "reference": "c4f281a46fb9b85da3326c67672091ce5b4e2311"
             },
             "require": {
                 "apache-solr-for-typo3/solr": "dev-main",
@@ -11315,7 +11315,11 @@
             "type": "typo3-cms-extension",
             "extra": {
                 "typo3/cms": {
-                    "extension-key": "site_package"
+                    "extension-key": "site_package",
+                    "version": "14.0.0",
+                    "Package": {
+                        "providesPackages": []
+                    }
                 }
             },
             "autoload": {
@@ -11326,7 +11330,7 @@
             "license": [
                 "GPL-2.0-or-later"
             ],
-            "description": "TYPO3 site package for the Visual Editor demo setup",
+            "description": "Webconsulting TYPO3 Lab site package - shared Site Sets, editor defaults, Solr defaults, Admin Panel defaults, and Visual Editor Cowriter integration",
             "transport-options": {
                 "symlink": true,
                 "relative": true

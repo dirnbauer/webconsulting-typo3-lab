@@ -1,6 +1,6 @@
 {
-  "name": "typo3/cms-base-distribution",
-  "description": "TYPO3 CMS Base Distribution",
+  "name": "webconsulting/typo3-lab",
+  "description": "Webconsulting TYPO3 Lab - DDEV-powered TYPO3 feature lab for experiments, demos, integrations and modern CMS workflows",
   "license": "GPL-2.0-or-later",
   "type": "project",
   "config": {
@@ -33,7 +33,10 @@
       "type": "path",
       "url": "packages/*",
       "options": {
-        "symlink": true
+        "symlink": true,
+        "versions": {
+          "webconsulting/site-package": "14.0.0"
+        }
       }
     },
     {

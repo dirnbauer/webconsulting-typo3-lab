@@ -1,6 +1,6 @@
 # Site Package
 
-TYPO3 14-only site package/provider extension for the Visual Editor demo setup.
+TYPO3 14-only site package/provider extension for Webconsulting TYPO3 Lab.
 
 This extension owns the shared project configuration that used to be split
 across `adminpanel_defaults` and `visual_editor_defaults`.
@@ -17,7 +17,8 @@ across `adminpanel_defaults` and `visual_editor_defaults`.
 | Package type | `typo3-cms-extension` |
 | Namespace | `Webconsulting\SitePackage` |
 
-TYPO3 13 support has been removed from Composer and `ext_emconf.php`.
+TYPO3 13 support has been removed from Composer metadata. TYPO3 14.3+ release
+metadata is Composer-only for this package.
 
 ## What This Package Provides
 

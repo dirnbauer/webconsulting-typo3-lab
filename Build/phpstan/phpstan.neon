@@ -10,7 +10,6 @@ parameters:
         - ../../packages/site_package/ext_localconf.php
     excludePaths:
         analyseAndScan:
-            - ../../packages/site_package/ext_emconf.php
             - ../../vendor
             - ../../var (?)
             - ../../public (?)

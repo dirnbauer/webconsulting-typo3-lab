@@ -1,7 +1,6 @@
 {
     "name": "webconsulting/site-package",
-    "description": "TYPO3 site package for the Visual Editor demo setup",
-    "version": "14.0.0",
+    "description": "Webconsulting TYPO3 Lab site package - shared Site Sets, editor defaults, Solr defaults, Admin Panel defaults, and Visual Editor Cowriter integration",
     "type": "typo3-cms-extension",
     "license": "GPL-2.0-or-later",
     "require": {
@@ -28,7 +27,11 @@
     },
     "extra": {
         "typo3/cms": {
-            "extension-key": "site_package"
+            "extension-key": "site_package",
+            "version": "14.0.0",
+            "Package": {
+                "providesPackages": {}
+            }
         }
     }
 }

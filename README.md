@@ -1,5 +1,9 @@
 # Webconsulting TYPO3 Lab
 
+Thank you to [Kanti](https://github.com/Kanti) for the original
+[andersundsehr/ddev-demo-setup-visual-editor](https://github.com/andersundsehr/ddev-demo-setup-visual-editor)
+Visual Editor DDEV demo this lab started from.
+
 [Jump to DDEV setup](#ddev-setup) ·
 [Project structure](#project-structure) ·
 [Documentation](#documentation)
@@ -263,14 +267,12 @@ ddev exec curl -k -s -o /dev/null -w "/eurovision2026/ %{http_code}\n" \
 - [docs/reports/typo3-v14-upgrade-20260516-213338.md](docs/reports/typo3-v14-upgrade-20260516-213338.md) -
   TYPO3 14 upgrade report for the local site package.
 
-## Screenshot
+## Release Notes
 
-![Screenshot](./screenshot.png)
+See [CHANGELOG.md](CHANGELOG.md) for release notes.
 
-# with ♥️ from ![anders und sehr logo](https://www.andersundsehr.com/logo-claim/anders-und-sehr-logo_350px.svg)
+## License
 
-> If something did not work 😮
-> or you appreciate this Extension 🥰 let us know.
-
-> We are always looking for great people to join our team!
-> https://www.andersundsehr.com/karriere/
+This project is released under the GNU General Public License version 2.0 or
+later, the standard TYPO3-compatible license for TYPO3 projects and extensions.
+See [LICENSE](LICENSE).

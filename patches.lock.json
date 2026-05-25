@@ -1,12 +1,12 @@
 {
-    "_hash": "8c15f4d3107483e39278e2be8e87ac457e9b44b137a230a670db99f6dd884245",
+    "_hash": "223c062201531de9ebd0432641fa94c34728485906dc9e54988c81e30794b4e6",
     "patches": {
         "typo3/cms-backend": [
             {
                 "package": "typo3/cms-backend",
                 "description": "Search and overlay workspace records consistently in backend field-filtered queries",
                 "url": "patches/typo3-cms-backend-workspace-query-overlay-search.patch",
-                "sha256": "23962696ee959bd0ddad81397a5e38ee5641d50a7630780ea04c04809f32d9dd",
+                "sha256": "533c986828ab5e2ce5c7f0d70a039da88d8f311ac4f9425063866e79058264ee",
                 "depth": 1,
                 "extra": {
                     "provenance": "dependency:typo3/cms-backend"
@@ -18,7 +18,7 @@
                 "package": "typo3/cms-core",
                 "description": "Add workspace-aware query helper and normalize directly selected workspace records",
                 "url": "patches/typo3-cms-core-workspace-query-overlay-api.patch",
-                "sha256": "52ae8fc99ef50f23e4122661164db3ecf21ed69dc920310e62d5970ff1e1d840",
+                "sha256": "490400a326b56b7da9fdfa6b6620975e79d5585ced36631c8270b5d6167c3980",
                 "depth": 1,
                 "extra": {
                     "provenance": "dependency:typo3/cms-core"
