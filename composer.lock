@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "437254558ebc510e589c0b403eeaeca5",
+    "content-hash": "3ed237b04b6089a16a38ddf7c8bdd349",
     "packages": [
         {
             "name": "apache-solr-for-typo3/solr",
@@ -6359,16 +6359,16 @@
         },
         {
             "name": "symfony/polyfill-intl-grapheme",
-            "version": "v1.37.0",
+            "version": "v1.38.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-intl-grapheme.git",
-                "reference": "4864388bfbd3001ce88e234fab652acd91fdc57e"
+                "reference": "9c862df890f7c833b1101ac5578ec4dcf199efb5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-intl-grapheme/zipball/4864388bfbd3001ce88e234fab652acd91fdc57e",
-                "reference": "4864388bfbd3001ce88e234fab652acd91fdc57e",
+                "url": "https://api.github.com/repos/symfony/polyfill-intl-grapheme/zipball/9c862df890f7c833b1101ac5578ec4dcf199efb5",
+                "reference": "9c862df890f7c833b1101ac5578ec4dcf199efb5",
                 "shasum": ""
             },
             "require": {
@@ -6417,7 +6417,7 @@
                 "shim"
             ],
             "support": {
-                "source": "https://github.com/symfony/polyfill-intl-grapheme/tree/v1.37.0"
+                "source": "https://github.com/symfony/polyfill-intl-grapheme/tree/v1.38.0"
             },
             "funding": [
                 {
@@ -6437,7 +6437,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2026-04-26T13:13:48+00:00"
+            "time": "2026-05-25T12:39:52+00:00"
         },
         {
             "name": "symfony/polyfill-intl-idn",
@@ -6528,16 +6528,16 @@
         },
         {
             "name": "symfony/polyfill-intl-normalizer",
-            "version": "v1.37.0",
+            "version": "v1.38.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-intl-normalizer.git",
-                "reference": "3833d7255cc303546435cb650316bff708a1c75c"
+                "reference": "2d446c214bdbe5b71bde5011b060a05fece3ae6b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-intl-normalizer/zipball/3833d7255cc303546435cb650316bff708a1c75c",
-                "reference": "3833d7255cc303546435cb650316bff708a1c75c",
+                "url": "https://api.github.com/repos/symfony/polyfill-intl-normalizer/zipball/2d446c214bdbe5b71bde5011b060a05fece3ae6b",
+                "reference": "2d446c214bdbe5b71bde5011b060a05fece3ae6b",
                 "shasum": ""
             },
             "require": {
@@ -6589,7 +6589,7 @@
                 "shim"
             ],
             "support": {
-                "source": "https://github.com/symfony/polyfill-intl-normalizer/tree/v1.37.0"
+                "source": "https://github.com/symfony/polyfill-intl-normalizer/tree/v1.38.0"
             },
             "funding": [
                 {
@@ -6609,20 +6609,20 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-09-09T11:45:10+00:00"
+            "time": "2026-05-25T13:48:31+00:00"
         },
         {
             "name": "symfony/polyfill-mbstring",
-            "version": "v1.37.0",
+            "version": "v1.38.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-mbstring.git",
-                "reference": "6a21eb99c6973357967f6ce3708cd55a6bec6315"
+                "reference": "6b177d03d2eb04a6c9d01bab9818fb93a30ce7fd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/6a21eb99c6973357967f6ce3708cd55a6bec6315",
-                "reference": "6a21eb99c6973357967f6ce3708cd55a6bec6315",
+                "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/6b177d03d2eb04a6c9d01bab9818fb93a30ce7fd",
+                "reference": "6b177d03d2eb04a6c9d01bab9818fb93a30ce7fd",
                 "shasum": ""
             },
             "require": {
@@ -6674,7 +6674,7 @@
                 "shim"
             ],
             "support": {
-                "source": "https://github.com/symfony/polyfill-mbstring/tree/v1.37.0"
+                "source": "https://github.com/symfony/polyfill-mbstring/tree/v1.38.0"
             },
             "funding": [
                 {
@@ -6694,20 +6694,20 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2026-04-10T17:25:58+00:00"
+            "time": "2026-05-25T14:08:27+00:00"
         },
         {
             "name": "symfony/polyfill-php83",
-            "version": "v1.37.0",
+            "version": "v1.38.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-php83.git",
-                "reference": "3600c2cb22399e25bb226e4a135ce91eeb2a6149"
+                "reference": "c4406e07046227db8844a25f89d111da078aaa9c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-php83/zipball/3600c2cb22399e25bb226e4a135ce91eeb2a6149",
-                "reference": "3600c2cb22399e25bb226e4a135ce91eeb2a6149",
+                "url": "https://api.github.com/repos/symfony/polyfill-php83/zipball/c4406e07046227db8844a25f89d111da078aaa9c",
+                "reference": "c4406e07046227db8844a25f89d111da078aaa9c",
                 "shasum": ""
             },
             "require": {
@@ -6754,7 +6754,7 @@
                 "shim"
             ],
             "support": {
-                "source": "https://github.com/symfony/polyfill-php83/tree/v1.37.0"
+                "source": "https://github.com/symfony/polyfill-php83/tree/v1.38.0"
             },
             "funding": [
                 {
@@ -6774,7 +6774,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2026-04-10T17:25:58+00:00"
+            "time": "2026-05-25T12:39:52+00:00"
         },
         {
             "name": "symfony/polyfill-uuid",
@@ -11572,53 +11572,17 @@
             "time": "2026-05-25T12:48:17+00:00"
         },
         {
-            "name": "webconsulting/visual-editor-news-addon",
-            "version": "v1.0.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/dirnbauer/visual-editor-news-addon.git",
-                "reference": "281bf93e44e735f4903277edfdf080687aea6d8f"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/visual-editor-news-addon/zipball/281bf93e44e735f4903277edfdf080687aea6d8f",
-                "reference": "281bf93e44e735f4903277edfdf080687aea6d8f",
-                "shasum": ""
-            },
-            "require": {
-                "friendsoftypo3/visual-editor": "^1.1",
-                "georgringer/news": "^14.0",
-                "php": "^8.2",
-                "supseven/inline-page-module": "^4.0",
-                "typo3/cms-backend": "^14.1",
-                "typo3/cms-core": "^14.1",
-                "typo3/cms-fluid": "^14.1"
-            },
-            "type": "typo3-cms-extension",
-            "extra": {
-                "typo3/cms": {
-                    "extension-key": "visual_editor_news_addon",
-                    "version": "1.0.0"
-                }
-            },
-            "license": [
-                "GPL-2.0-or-later"
-            ],
-            "description": "TYPO3 14 addon for using visual_editor with news content elements",
-            "time": "2026-05-25T12:39:45+00:00"
-        },
-        {
             "name": "webconsulting/webcon-easy-workspace",
-            "version": "v1.0.3",
+            "version": "v1.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/typo3-webcon-easy-workspace.git",
-                "reference": "ab366341f69ffbbc8e883c03144b14b9190d2196"
+                "reference": "5059035dce8cfcb1c66060e27eb364dd9dc9dd91"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/typo3-webcon-easy-workspace/zipball/ab366341f69ffbbc8e883c03144b14b9190d2196",
-                "reference": "ab366341f69ffbbc8e883c03144b14b9190d2196",
+                "url": "https://api.github.com/repos/dirnbauer/typo3-webcon-easy-workspace/zipball/5059035dce8cfcb1c66060e27eb364dd9dc9dd91",
+                "reference": "5059035dce8cfcb1c66060e27eb364dd9dc9dd91",
                 "shasum": ""
             },
             "require": {
@@ -11688,7 +11652,7 @@
                 "issues": "https://github.com/dirnbauer/typo3-webcon-easy-workspace/issues",
                 "source": "https://github.com/dirnbauer/typo3-webcon-easy-workspace"
             },
-            "time": "2026-05-25T12:48:27+00:00"
+            "time": "2026-05-25T17:01:25+00:00"
         },
         {
             "name": "webconsulting/workos-auth",

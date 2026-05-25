@@ -25,11 +25,6 @@
   },
   "repositories": [
     {
-      "name": "visual-editor-news-addon",
-      "type": "vcs",
-      "url": "https://github.com/dirnbauer/visual-editor-news-addon.git"
-    },
-    {
       "type": "path",
       "url": "packages/*",
       "options": {
@@ -178,7 +173,6 @@
     "webconsulting/typo3-capability-manifest": "^1.0",
     "webconsulting/typo3-workspace-overlay-patch": "^1.0",
     "webconsulting/typo3-x402-paywall": "^1.0",
-    "webconsulting/visual-editor-news-addon": "^1.0",
     "webconsulting/webcon-easy-workspace": "^1.0",
     "webconsulting/workos-auth": "^1.0"
   },
