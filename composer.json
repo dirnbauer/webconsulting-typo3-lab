@@ -108,6 +108,10 @@
     {
       "type": "vcs",
       "url": "https://github.com/dirnbauer/typo3-webcon-easy-workspace.git"
+    },
+    {
+      "type": "vcs",
+      "url": "https://github.com/dirnbauer/typo3-workspace-overlay-patch.git"
     }
   ],
   "require": {
@@ -169,6 +173,7 @@
     "webconsulting/records-list-examples": "dev-main",
     "webconsulting/records-list-types": "dev-main as 1.0.0",
     "webconsulting/typo3-capability-manifest": "dev-main",
+    "webconsulting/typo3-workspace-overlay-patch": "dev-main",
     "webconsulting/typo3-x402-paywall": "dev-main",
     "webconsulting/webcon-easy-workspace": "dev-main",
     "webconsulting/workos-auth": "dev-main"
@@ -181,11 +186,6 @@
     "typo3/testing-framework": "^9.5"
   },
   "extra": {
-    "composer-exit-on-patch-failure": true,
-    "patches": {
-      "friendsoftypo3/content-blocks": {
-        "Add foreign_field column for Collection child tables (upstream pending: TODO link to issue)": "patches/content-blocks-add-foreign-field-column.patch"
-      }
-    }
+    "composer-exit-on-patch-failure": true
   }
 }
