@@ -4,5 +4,5 @@ services:
     autoconfigure: true
     public: false
 
-  Dirnbauer\SitePackage\:
+  Webconsulting\SitePackage\:
     resource: '../Classes/*'

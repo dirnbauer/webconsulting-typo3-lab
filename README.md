@@ -15,9 +15,9 @@ application.
 
 - `friendsoftypo3/visual-editor` for frontend page editing.
 - `supseven/inline-page-module` for TYPO3 14 inline `news` content elements.
-- `dirnbauer/visual-editor-news-addon`, which connects `news`,
+- `webconsulting/visual-editor-news-addon`, which connects `news`,
   `inline_page_module`, and `visual_editor`.
-- `dirnbauer/site-package`, the local provider/theme extension for shared
+- `webconsulting/site-package`, the local provider/theme extension for shared
   Site Sets, editor defaults, Solr defaults, Admin Panel defaults, and
   Visual Editor Cowriter integration. The package is versioned as `14.0.0`
   and supports TYPO3 14 only.
@@ -54,12 +54,12 @@ The main Site Sets are:
 
 | Site Set | Used for |
 |---|---|
-| `dirnbauer/site-package` | Base defaults, Admin Panel, RTE, MCP table config, Cowriter preload middleware. |
-| `dirnbauer/site-package-search` | Shared Solr and numbered pagination defaults. |
-| `dirnbauer/site-package-blog` | Blog standalone pages with Desiderio template override. |
-| `dirnbauer/site-package-blog-bootstrap` | Blog Bootstrap demo pages. |
-| `dirnbauer/site-package-camino` | Camino theme demo site. |
-| `dirnbauer/site-package-desiderio-corporate` | Desiderio corporate demo sites. |
+| `webconsulting/site-package` | Base defaults, Admin Panel, RTE, MCP table config, Cowriter preload middleware. |
+| `webconsulting/site-package-search` | Shared Solr and numbered pagination defaults. |
+| `webconsulting/site-package-blog` | Blog standalone pages with Desiderio template override. |
+| `webconsulting/site-package-blog-bootstrap` | Blog Bootstrap demo pages. |
+| `webconsulting/site-package-camino` | Camino theme demo site. |
+| `webconsulting/site-package-desiderio-corporate` | Desiderio corporate demo sites. |
 
 See [packages/site_package/README.md](packages/site_package/README.md) for
 the package-specific documentation.

@@ -1,6 +1,6 @@
-name: dirnbauer/site-package-search
+name: webconsulting/site-package-search
 label: 'Site Package: Search'
 hidden: true
 dependencies:
-  - dirnbauer/site-package
+  - webconsulting/site-package
   - dirnbauer/solr-defaults

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "37e28893b44f74fd2b7a6cfe4ec21db0",
+    "content-hash": "1e8d0ad05e0fce7dce9cbcedc3c53448",
     "packages": [
         {
             "name": "apache-solr-for-typo3/solr",
@@ -544,126 +544,6 @@
                 "source": "https://github.com/DASPRiD/Enum/tree/1.0.7"
             },
             "time": "2025-09-16T12:23:56+00:00"
-        },
-        {
-            "name": "dirnbauer/api-capability-bridge",
-            "version": "dev-main",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/dirnbauer/api-capability-bridge.git",
-                "reference": "3a1449e9432d56295762cc91cf8b229f4215d857"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/api-capability-bridge/zipball/3a1449e9432d56295762cc91cf8b229f4215d857",
-                "reference": "3a1449e9432d56295762cc91cf8b229f4215d857",
-                "shasum": ""
-            },
-            "require": {
-                "php": "^8.3",
-                "sgalinski/sg-apicore": "dev-main",
-                "typo3/cms-backend": "^14.3",
-                "typo3/cms-core": "^14.3",
-                "webconsulting/typo3-capability-manifest": "dev-main"
-            },
-            "default-branch": true,
-            "type": "typo3-cms-extension",
-            "extra": {
-                "typo3/cms": {
-                    "extension-key": "api_capability_bridge"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Dirnbauer\\ApiCapabilityBridge\\": "Classes/"
-                }
-            },
-            "license": [
-                "GPL-2.0-or-later"
-            ],
-            "description": "Capability-policy wrapper for sg_apicore resources.",
-            "time": "2026-05-10T13:01:12+00:00"
-        },
-        {
-            "name": "dirnbauer/site-package",
-            "version": "14.0.0",
-            "dist": {
-                "type": "path",
-                "url": "packages/site_package",
-                "reference": "365026900f7c68579375804c3d37e556a2f12173"
-            },
-            "require": {
-                "apache-solr-for-typo3/solr": "dev-main",
-                "friendsoftypo3/visual-editor": "^1.4",
-                "georgringer/news": "^14.0",
-                "php": "^8.2",
-                "studiomitte/solr-numbered-pagination": "dev-main",
-                "t3g/blog": "dev-master",
-                "typo3/cms-adminpanel": "^14.3",
-                "typo3/cms-core": "^14.3",
-                "typo3/theme-camino": "^14.3",
-                "webconsulting/desiderio": "dev-main"
-            },
-            "require-dev": {
-                "phpstan/phpstan": "^2.1",
-                "saschaegerer/phpstan-typo3": "^3.0.1",
-                "typo3/testing-framework": "^9.5"
-            },
-            "type": "typo3-cms-extension",
-            "extra": {
-                "typo3/cms": {
-                    "extension-key": "site_package"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Dirnbauer\\SitePackage\\": "Classes/"
-                }
-            },
-            "license": [
-                "GPL-2.0-or-later"
-            ],
-            "description": "TYPO3 site package for the Visual Editor demo setup",
-            "transport-options": {
-                "symlink": true,
-                "relative": true
-            }
-        },
-        {
-            "name": "dirnbauer/visual-editor-news-addon",
-            "version": "dev-main",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/dirnbauer/visual-editor-news-addon.git",
-                "reference": "cd61293f1e106df0857d126add629914d3ecf0b9"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/visual-editor-news-addon/zipball/cd61293f1e106df0857d126add629914d3ecf0b9",
-                "reference": "cd61293f1e106df0857d126add629914d3ecf0b9",
-                "shasum": ""
-            },
-            "require": {
-                "friendsoftypo3/visual-editor": "^1.1",
-                "georgringer/news": "^14.0",
-                "php": "^8.2",
-                "supseven/inline-page-module": "^4.0",
-                "typo3/cms-backend": "^14.1",
-                "typo3/cms-core": "^14.1",
-                "typo3/cms-fluid": "^14.1"
-            },
-            "default-branch": true,
-            "type": "typo3-cms-extension",
-            "extra": {
-                "typo3/cms": {
-                    "extension-key": "visual_editor_news_addon"
-                }
-            },
-            "license": [
-                "GPL-2.0-or-later"
-            ],
-            "description": "TYPO3 14 addon for using visual_editor with news content elements",
-            "time": "2026-04-04T16:55:28+00:00"
         },
         {
             "name": "doctrine/dbal",
@@ -4653,12 +4533,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/sg_apicore.git",
-                "reference": "9d6d10301c3c32cd3391fd098727af75830481c0"
+                "reference": "b0d20aaf67bc6433778421a13ac86cc63d464c4b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/sg_apicore/zipball/9d6d10301c3c32cd3391fd098727af75830481c0",
-                "reference": "9d6d10301c3c32cd3391fd098727af75830481c0",
+                "url": "https://api.github.com/repos/dirnbauer/sg_apicore/zipball/b0d20aaf67bc6433778421a13ac86cc63d464c4b",
+                "reference": "b0d20aaf67bc6433778421a13ac86cc63d464c4b",
                 "shasum": ""
             },
             "require": {
@@ -4705,7 +4585,7 @@
             "license": [
                 "GPL-2.0-or-later"
             ],
-            "description": "Modern, performance-driven TYPO3 API framework with attribute-based routing and endpoint metadata, multi-API/multi-version setup, tenant-aware request context, OpenAPI 3 generation with Swagger UI and CLI export, token/user/backend authentication (opaque bearer + JWT + FE/BE contexts), scope enforcement, auto-CRUD resource registration via TCA/DataHandler, built-in response caching, rate limiting, structured request/response logging with redaction, backend dashboards for APIs/tokens/endpoints/rate-limits/logs, and optional legacy sg_rest compatibility.",
+            "description": "Modern, performance-driven TYPO3 API framework with attribute-based routing and endpoint metadata, multi-API/multi-version setup, tenant-aware request context, OpenAPI 3 generation with Swagger UI and CLI export, MCP/Model Context Protocol tool exposure over JSON-RPC and Streamable HTTP, token/user/backend authentication (opaque bearer + JWT + FE/BE contexts), scope enforcement, auto-CRUD resource registration via TCA/DataHandler, built-in response caching, rate limiting, structured request/response logging with redaction, backend dashboards for APIs/tokens/endpoints/rate-limits/logs, and optional legacy sg_rest compatibility.",
             "homepage": "https://www.sgalinski.de",
             "keywords": [
                 "api",
@@ -4713,7 +4593,10 @@
                 "authentication",
                 "auto-crud",
                 "bearer-token",
+                "json-rpc",
                 "jwt",
+                "mcp",
+                "model-context-protocol",
                 "multi-tenant",
                 "openapi",
                 "rate-limiting",
@@ -4724,7 +4607,7 @@
                 "typo3",
                 "typo3-extension"
             ],
-            "time": "2026-05-17T19:11:31+00:00"
+            "time": "2026-05-24T18:29:34+00:00"
         },
         {
             "name": "smalot/pdfparser",
@@ -8159,12 +8042,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/blog.git",
-                "reference": "985539531ebccb239d1371171524aa9afc4f87c9"
+                "reference": "fa3e6f2229bcda04fa2bf0c8df53e3a39b44a388"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/blog/zipball/985539531ebccb239d1371171524aa9afc4f87c9",
-                "reference": "985539531ebccb239d1371171524aa9afc4f87c9",
+                "url": "https://api.github.com/repos/dirnbauer/blog/zipball/fa3e6f2229bcda04fa2bf0c8df53e3a39b44a388",
+                "reference": "fa3e6f2229bcda04fa2bf0c8df53e3a39b44a388",
                 "shasum": ""
             },
             "require": {
@@ -8177,11 +8060,9 @@
                 "typo3/cms-backend": "^14.3",
                 "typo3/cms-core": "^14.3",
                 "typo3/cms-extbase": "^14.3",
-                "typo3/cms-extensionmanager": "^14.3",
                 "typo3/cms-fluid": "^14.3",
                 "typo3/cms-form": "^14.3",
-                "typo3/cms-frontend": "^14.3",
-                "typo3/cms-install": "^14.3"
+                "typo3/cms-frontend": "^14.3"
             },
             "require-dev": {
                 "bk2k/bootstrap-package": "^15.0 || 16.*.*@dev",
@@ -8218,7 +8099,11 @@
                 },
                 "typo3/cms": {
                     "extension-key": "blog",
-                    "web-dir": ".build/public"
+                    "version": "14.3.0",
+                    "web-dir": ".build/public",
+                    "Package": {
+                        "providesPackages": []
+                    }
                 }
             },
             "autoload": {
@@ -8284,7 +8169,7 @@
                 "source": "https://github.com/TYPO3GmbH/blog",
                 "slack": "https://typo3.slack.com/archives/t3g-ext-blog"
             },
-            "time": "2026-05-16T18:12:49+00:00"
+            "time": "2026-05-24T18:26:30+00:00"
         },
         {
             "name": "typo3/class-alias-loader",
@@ -11050,26 +10935,26 @@
         },
         {
             "name": "webconsulting/agentation",
-            "version": "dev-main",
+            "version": "v1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/typo3-agentation.git",
-                "reference": "c9eaff30ebe7e944892dfbcb88958bca9afe9169"
+                "reference": "e7b3597150ec5c8f21eafe1ce9ba777c8a5b4a7b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/typo3-agentation/zipball/c9eaff30ebe7e944892dfbcb88958bca9afe9169",
-                "reference": "c9eaff30ebe7e944892dfbcb88958bca9afe9169",
+                "url": "https://api.github.com/repos/dirnbauer/typo3-agentation/zipball/e7b3597150ec5c8f21eafe1ce9ba777c8a5b4a7b",
+                "reference": "e7b3597150ec5c8f21eafe1ce9ba777c8a5b4a7b",
                 "shasum": ""
             },
             "require": {
                 "php": "^8.2",
-                "typo3/cms-adminpanel": "^14.0",
-                "typo3/cms-backend": "^14.0",
-                "typo3/cms-core": "^14.0",
-                "typo3/cms-extbase": "^14.0",
-                "typo3/cms-fluid": "^14.0",
-                "typo3/cms-frontend": "^14.0"
+                "typo3/cms-adminpanel": "^14.3",
+                "typo3/cms-backend": "^14.3",
+                "typo3/cms-core": "^14.3",
+                "typo3/cms-extbase": "^14.3",
+                "typo3/cms-fluid": "^14.3",
+                "typo3/cms-frontend": "^14.3"
             },
             "require-dev": {
                 "phpstan/extension-installer": "^1.4",
@@ -11080,11 +10965,14 @@
                 "saschaegerer/phpstan-typo3": "^3.0",
                 "typo3/testing-framework": "^9.2"
             },
-            "default-branch": true,
             "type": "typo3-cms-extension",
             "extra": {
                 "typo3/cms": {
-                    "extension-key": "agentation"
+                    "extension-key": "agentation",
+                    "version": "1.1.0",
+                    "Package": {
+                        "providesPackages": []
+                    }
                 }
             },
             "autoload": {
@@ -11101,6 +10989,10 @@
                 "phpstan": [
                     "phpstan analyse --memory-limit=1G"
                 ],
+                "test": [
+                    "@phpstan",
+                    "@test:unit"
+                ],
                 "test:unit": [
                     "phpunit -c Build/phpunit/UnitTests.xml"
                 ]
@@ -11116,8 +11008,8 @@
                     "role": "Developer"
                 }
             ],
-            "description": "TYPO3 v14 integration for Agentation — visual UI annotations for AI coding agents, in frontend (via Admin Panel) and backend.",
-            "homepage": "https://github.com/webconsulting/typo3-agentation",
+            "description": "Agentation - Visual UI annotations for AI coding agents in the TYPO3 frontend and backend.",
+            "homepage": "https://github.com/dirnbauer/typo3-agentation",
             "keywords": [
                 "agentation",
                 "ai",
@@ -11129,52 +11021,81 @@
                 "typo3-cms-extension"
             ],
             "support": {
-                "issues": "https://github.com/webconsulting/typo3-agentation/issues",
-                "source": "https://github.com/webconsulting/typo3-agentation"
+                "issues": "https://github.com/dirnbauer/typo3-agentation/issues",
+                "source": "https://github.com/dirnbauer/typo3-agentation"
             },
-            "time": "2026-05-18T13:48:10+00:00"
+            "time": "2026-05-24T19:45:57+00:00"
         },
         {
-            "name": "webconsulting/desiderio",
+            "name": "webconsulting/api-capability-bridge",
             "version": "dev-main",
             "source": {
                 "type": "git",
-                "url": "https://github.com/dirnbauer/desiderio.git",
-                "reference": "cfdd3379bbb89cd45f7647d120318b15fe2b4c43"
+                "url": "https://github.com/dirnbauer/api-capability-bridge.git",
+                "reference": "37580c776be93c5de6c5ff147e7e14fe85110275"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/desiderio/zipball/cfdd3379bbb89cd45f7647d120318b15fe2b4c43",
-                "reference": "cfdd3379bbb89cd45f7647d120318b15fe2b4c43",
+                "url": "https://api.github.com/repos/dirnbauer/api-capability-bridge/zipball/37580c776be93c5de6c5ff147e7e14fe85110275",
+                "reference": "37580c776be93c5de6c5ff147e7e14fe85110275",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^8.3",
+                "sgalinski/sg-apicore": "dev-main",
+                "typo3/cms-backend": "^14.3",
+                "typo3/cms-core": "^14.3",
+                "webconsulting/typo3-capability-manifest": "dev-main"
+            },
+            "default-branch": true,
+            "type": "typo3-cms-extension",
+            "extra": {
+                "typo3/cms": {
+                    "extension-key": "api_capability_bridge"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Webconsulting\\ApiCapabilityBridge\\": "Classes/"
+                }
+            },
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "description": "Capability-policy wrapper for sg_apicore resources.",
+            "time": "2026-05-25T12:28:25+00:00"
+        },
+        {
+            "name": "webconsulting/desiderio",
+            "version": "v2.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dirnbauer/desiderio.git",
+                "reference": "ea7aa8a0ba69e7b35d05d0c183c1b59693f7618a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dirnbauer/desiderio/zipball/ea7aa8a0ba69e7b35d05d0c183c1b59693f7618a",
+                "reference": "ea7aa8a0ba69e7b35d05d0c183c1b59693f7618a",
                 "shasum": ""
             },
             "require": {
                 "friendsoftypo3/content-blocks": "^2.2",
                 "php": "^8.3",
                 "praetorius/vite-asset-collector": "^1.7",
-                "typo3/cms-core": "^14.3",
-                "typo3/cms-fluid": "^14.3",
-                "typo3/cms-workspaces": "^14.3"
-            },
-            "conflict": {
-                "webconsulting/shadcn2fluid-templates": "*"
+                "typo3/cms-core": "^14.3@dev",
+                "typo3/cms-fluid": "^14.3@dev"
             },
             "require-dev": {
-                "phpstan/extension-installer": "^1.4",
                 "phpstan/phpstan": "^2.1",
                 "phpstan/phpstan-phpunit": "^2.0",
-                "phpstan/phpstan-strict-rules": "^2.0",
                 "phpunit/phpunit": "^11.5",
-                "saschaegerer/phpstan-typo3": "^3.0",
                 "typo3/testing-framework": "^9.0"
             },
             "suggest": {
-                "apache-solr-for-typo3/solr": "Optional. Drives the shadcn-styled Solr search templates.",
                 "friendsoftypo3/visual-editor": "Optional. Inline visual editing when templates use f:render.text for text fields.",
-                "georgringer/news": "Optional. Drives the shadcn-styled News templates and the DesiderioNews backend layout.",
-                "t3g/blog": "Optional. Drives the shadcn-styled t3g/blog overrides shipped under webconsulting/desiderio-blog."
+                "typo3/cms-workspaces": "Recommended to stage and preview content elements in TYPO3 workspaces."
             },
-            "default-branch": true,
             "type": "typo3-cms-extension",
             "extra": {
                 "typo3/cms": {
@@ -11192,9 +11113,6 @@
                 }
             },
             "scripts": {
-                "audit": [
-                    "@composer audit --no-dev --abandoned=fail"
-                ],
                 "phpstan": [
                     "phpstan analyse --configuration=phpstan.neon.dist"
                 ],
@@ -11210,47 +11128,54 @@
                     "name": "webconsulting studio"
                 }
             ],
-            "description": "Desiderio — shadcn/ui-inspired Fluid 5 component library, 255 content elements, and theme layer for TYPO3 14",
-            "time": "2026-05-19T12:51:41+00:00"
+            "description": "Desiderio — shadcn/ui-inspired Fluid 5 component library, 250 content elements, and theme layer for TYPO3 14",
+            "time": "2026-04-20T08:53:15+00:00"
         },
         {
             "name": "webconsulting/records-list-examples",
-            "version": "dev-main",
+            "version": "v1.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/typo3-records-list-examples.git",
-                "reference": "45c528442b9a5f748a56852a35dccdf270033ea1"
+                "reference": "009f4728729b2f4ea4de650f4605464703725c99"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/typo3-records-list-examples/zipball/45c528442b9a5f748a56852a35dccdf270033ea1",
-                "reference": "45c528442b9a5f748a56852a35dccdf270033ea1",
+                "url": "https://api.github.com/repos/dirnbauer/typo3-records-list-examples/zipball/009f4728729b2f4ea4de650f4605464703725c99",
+                "reference": "009f4728729b2f4ea4de650f4605464703725c99",
                 "shasum": ""
             },
             "require": {
-                "php": "^8.2",
+                "php": "^8.3",
                 "typo3/cms-backend": "^14.3",
                 "typo3/cms-core": "^14.3",
                 "typo3/cms-fluid": "^14.3",
-                "webconsulting/records-list-types": "dev-main as 14.0.0"
+                "typo3/cms-recordlist": "^14.3",
+                "webconsulting/records-list-types": "^1.0"
             },
             "require-dev": {
                 "phpstan/phpstan": "^2.1",
                 "phpstan/phpstan-strict-rules": "^2.0",
                 "saschaegerer/phpstan-typo3": "^3.0"
             },
-            "default-branch": true,
             "type": "typo3-cms-extension",
             "extra": {
                 "typo3/cms": {
                     "extension-key": "records_list_examples",
-                    "version": "14.0.0"
+                    "version": "1.0.0",
+                    "Package": {
+                        "providesPackages": []
+                    }
                 }
             },
             "scripts": {
                 "ci": [
                     "@check",
+                    "@security:audit",
                     "@phpstan"
+                ],
+                "security:audit": [
+                    "composer audit --abandoned=report"
                 ],
                 "check": [
                     "composer validate --strict --no-check-publish",
@@ -11269,24 +11194,30 @@
             "authors": [
                 {
                     "name": "Webconsulting",
-                    "email": "office@webconsulting.at"
+                    "email": "office@webconsulting.at",
+                    "role": "Developer"
                 }
             ],
             "description": "TYPO3 v14 example view types for the Records List Types extension: Timeline, Catalog, Address Book, Event List, Gallery, and Dashboard.",
-            "time": "2026-05-23T06:09:47+00:00"
+            "homepage": "https://github.com/dirnbauer/typo3-records-list-examples",
+            "support": {
+                "issues": "https://github.com/dirnbauer/typo3-records-list-examples/issues",
+                "source": "https://github.com/dirnbauer/typo3-records-list-examples"
+            },
+            "time": "2026-05-24T16:04:32+00:00"
         },
         {
             "name": "webconsulting/records-list-types",
-            "version": "dev-main",
+            "version": "v1.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/typo3-records-list-types.git",
-                "reference": "0fb0e90640f2b1c20cb99f33bcb21ded82e42404"
+                "reference": "b83fe6b77ca7abb7fd1401dc4c82ef5540d9b31d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/typo3-records-list-types/zipball/0fb0e90640f2b1c20cb99f33bcb21ded82e42404",
-                "reference": "0fb0e90640f2b1c20cb99f33bcb21ded82e42404",
+                "url": "https://api.github.com/repos/dirnbauer/typo3-records-list-types/zipball/b83fe6b77ca7abb7fd1401dc4c82ef5540d9b31d",
+                "reference": "b83fe6b77ca7abb7fd1401dc4c82ef5540d9b31d",
                 "shasum": ""
             },
             "require": {
@@ -11296,21 +11227,20 @@
                 "typo3/cms-fluid": "^14.3"
             },
             "require-dev": {
-                "friendsofphp/php-cs-fixer": "^3.0",
+                "friendsofphp/php-cs-fixer": "^3.95.2",
                 "phpat/phpat": "^0.12.2",
-                "phpstan/phpstan": "^2.1",
-                "phpstan/phpstan-strict-rules": "^2.0",
-                "phpunit/phpunit": "^11.0",
+                "phpstan/phpstan": "^2.1.55",
+                "phpstan/phpstan-strict-rules": "^2.0.11",
+                "phpunit/phpunit": "^11.2.5 || ^12.1.2 || ^13.0.2",
                 "saschaegerer/phpstan-typo3": "^3.0",
                 "ssch/typo3-rector": "^3.0",
-                "typo3/testing-framework": "^9.0"
+                "typo3/testing-framework": "^9.5"
             },
-            "default-branch": true,
             "type": "typo3-cms-extension",
             "extra": {
                 "typo3/cms": {
                     "extension-key": "records_list_types",
-                    "version": "14.0.0",
+                    "version": "1.0.0",
                     "Package": {
                         "providesPackages": []
                     },
@@ -11337,13 +11267,58 @@
                     "role": "Developer"
                 }
             ],
-            "description": "Records List Types: multiple view modes (Grid, Compact, Teaser, custom) for the TYPO3 v14 backend Records module, with thumbnail support, per-table TSconfig, workspace-aware overlays, and PSR-14 extensibility.",
+            "description": "Records List Types: Grid, Compact, Teaser, custom views, and configurable record filters for the TYPO3 v14 backend Records module.",
             "homepage": "https://github.com/dirnbauer/typo3-records-list-types",
             "support": {
                 "issues": "https://github.com/dirnbauer/typo3-records-list-types/issues",
                 "source": "https://github.com/dirnbauer/typo3-records-list-types"
             },
-            "time": "2026-05-24T10:44:03+00:00"
+            "time": "2026-05-24T11:10:54+00:00"
+        },
+        {
+            "name": "webconsulting/site-package",
+            "version": "14.0.0",
+            "dist": {
+                "type": "path",
+                "url": "packages/site_package",
+                "reference": "27b17d41d35fcbc98ac263b422fbbf0e7ed3ff0a"
+            },
+            "require": {
+                "apache-solr-for-typo3/solr": "dev-main",
+                "friendsoftypo3/visual-editor": "^1.4",
+                "georgringer/news": "^14.0",
+                "php": "^8.2",
+                "studiomitte/solr-numbered-pagination": "dev-main",
+                "t3g/blog": "dev-master",
+                "typo3/cms-adminpanel": "^14.3",
+                "typo3/cms-core": "^14.3",
+                "typo3/theme-camino": "^14.3",
+                "webconsulting/desiderio": "^2.0"
+            },
+            "require-dev": {
+                "phpstan/phpstan": "^2.1",
+                "saschaegerer/phpstan-typo3": "^3.0.1",
+                "typo3/testing-framework": "^9.5"
+            },
+            "type": "typo3-cms-extension",
+            "extra": {
+                "typo3/cms": {
+                    "extension-key": "site_package"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Webconsulting\\SitePackage\\": "Classes/"
+                }
+            },
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "description": "TYPO3 site package for the Visual Editor demo setup",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
         },
         {
             "name": "webconsulting/typo3-capability-manifest",
@@ -11486,16 +11461,16 @@
         },
         {
             "name": "webconsulting/typo3-x402-paywall",
-            "version": "dev-main",
+            "version": "v1.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/typo3-x402-paywall.git",
-                "reference": "77b423195838973f49022dc3d387bbaa5558e9b0"
+                "reference": "47b323f714015c764019681e24a4e8aac18b79e7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/typo3-x402-paywall/zipball/77b423195838973f49022dc3d387bbaa5558e9b0",
-                "reference": "77b423195838973f49022dc3d387bbaa5558e9b0",
+                "url": "https://api.github.com/repos/dirnbauer/typo3-x402-paywall/zipball/47b323f714015c764019681e24a4e8aac18b79e7",
+                "reference": "47b323f714015c764019681e24a4e8aac18b79e7",
                 "shasum": ""
             },
             "require": {
@@ -11518,12 +11493,11 @@
                 "phpunit/phpunit": "^11.5",
                 "saschaegerer/phpstan-typo3": "^3.0"
             },
-            "default-branch": true,
             "type": "typo3-cms-extension",
             "extra": {
                 "typo3/cms": {
                     "extension-key": "x402_paywall",
-                    "version": "2.0.0",
+                    "version": "1.0.0",
                     "Package": {
                         "providesPackages": []
                     }
@@ -11581,20 +11555,56 @@
                 "issues": "https://github.com/dirnbauer/typo3-x402-paywall/issues",
                 "source": "https://github.com/dirnbauer/typo3-x402-paywall"
             },
-            "time": "2026-05-16T19:46:09+00:00"
+            "time": "2026-05-24T18:20:06+00:00"
         },
         {
-            "name": "webconsulting/webcon-easy-workspace",
+            "name": "webconsulting/visual-editor-news-addon",
             "version": "dev-main",
             "source": {
                 "type": "git",
-                "url": "https://github.com/dirnbauer/typo3-webcon-easy-workspace.git",
-                "reference": "8313e28fcfee4640381ff5d77380f4343bb459e1"
+                "url": "https://github.com/dirnbauer/visual-editor-news-addon.git",
+                "reference": "2da4290d2436259f5cf358e20b54f2c8ce200bbb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/typo3-webcon-easy-workspace/zipball/8313e28fcfee4640381ff5d77380f4343bb459e1",
-                "reference": "8313e28fcfee4640381ff5d77380f4343bb459e1",
+                "url": "https://api.github.com/repos/dirnbauer/visual-editor-news-addon/zipball/2da4290d2436259f5cf358e20b54f2c8ce200bbb",
+                "reference": "2da4290d2436259f5cf358e20b54f2c8ce200bbb",
+                "shasum": ""
+            },
+            "require": {
+                "friendsoftypo3/visual-editor": "^1.1",
+                "georgringer/news": "^14.0",
+                "php": "^8.2",
+                "supseven/inline-page-module": "^4.0",
+                "typo3/cms-backend": "^14.1",
+                "typo3/cms-core": "^14.1",
+                "typo3/cms-fluid": "^14.1"
+            },
+            "default-branch": true,
+            "type": "typo3-cms-extension",
+            "extra": {
+                "typo3/cms": {
+                    "extension-key": "visual_editor_news_addon"
+                }
+            },
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "description": "TYPO3 14 addon for using visual_editor with news content elements",
+            "time": "2026-05-25T12:28:25+00:00"
+        },
+        {
+            "name": "webconsulting/webcon-easy-workspace",
+            "version": "v1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dirnbauer/typo3-webcon-easy-workspace.git",
+                "reference": "4ae13b0d804ab7f6cd7777c1f14601b5fbba231b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dirnbauer/typo3-webcon-easy-workspace/zipball/4ae13b0d804ab7f6cd7777c1f14601b5fbba231b",
+                "reference": "4ae13b0d804ab7f6cd7777c1f14601b5fbba231b",
                 "shasum": ""
             },
             "require": {
@@ -11614,12 +11624,11 @@
                 "friendsoftypo3/visual-editor": "Enables the per-row eye icon to scroll & outline a content element inside the Visual Editor iframe. The dropdown works without it; the eye gracefully falls back to typo3/cms-viewpage's preview iframe.",
                 "georgringer/news": "Adds news-bundle publishing (news record + content elements via tx_news_related_news)."
             },
-            "default-branch": true,
             "type": "typo3-cms-extension",
             "extra": {
                 "typo3/cms": {
                     "extension-key": "webcon_easy_workspace",
-                    "version": "14.0.0",
+                    "version": "1.0.1",
                     "Package": {
                         "providesPackages": []
                     }
@@ -11665,20 +11674,20 @@
                 "issues": "https://github.com/dirnbauer/typo3-webcon-easy-workspace/issues",
                 "source": "https://github.com/dirnbauer/typo3-webcon-easy-workspace"
             },
-            "time": "2026-05-24T13:33:32+00:00"
+            "time": "2026-05-24T18:50:41+00:00"
         },
         {
             "name": "webconsulting/workos-auth",
-            "version": "dev-main",
+            "version": "v1.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/workos.git",
-                "reference": "58bd590982fbb3aea5eb182174c9290e6ec66bd0"
+                "reference": "bc060112395d1d9d363731ead326a995472509cd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/workos/zipball/58bd590982fbb3aea5eb182174c9290e6ec66bd0",
-                "reference": "58bd590982fbb3aea5eb182174c9290e6ec66bd0",
+                "url": "https://api.github.com/repos/dirnbauer/workos/zipball/bc060112395d1d9d363731ead326a995472509cd",
+                "reference": "bc060112395d1d9d363731ead326a995472509cd",
                 "shasum": ""
             },
             "require": {
@@ -11705,12 +11714,11 @@
                 "typo3/coding-standards": "^0.8",
                 "typo3/testing-framework": "^9.2"
             },
-            "default-branch": true,
             "type": "typo3-cms-extension",
             "extra": {
                 "typo3/cms": {
                     "extension-key": "workos_auth",
-                    "version": "14.0.0",
+                    "version": "1.0.0",
                     "Package": {
                         "providesPackages": []
                     }
@@ -11781,7 +11789,7 @@
                 "issues": "https://github.com/dirnbauer/workos/issues",
                 "source": "https://github.com/dirnbauer/workos"
             },
-            "time": "2026-05-16T19:30:52+00:00"
+            "time": "2026-05-24T17:54:09+00:00"
         },
         {
             "name": "webmozart/assert",
@@ -12975,6 +12983,7 @@
                     "type": "github"
                 }
             ],
+            "abandoned": true,
             "time": "2025-03-19T07:56:08+00:00"
         },
         {
@@ -13031,6 +13040,7 @@
                     "type": "github"
                 }
             ],
+            "abandoned": true,
             "time": "2024-07-03T04:45:54+00:00"
         },
         {
@@ -14094,19 +14104,11 @@
             "version": "dev-main",
             "alias": "0.7.x-dev",
             "alias_normalized": "0.7.9999999.9999999-dev"
-        },
-        {
-            "package": "webconsulting/records-list-types",
-            "version": "dev-main",
-            "alias": "1.0.0",
-            "alias_normalized": "1.0.0.0"
         }
     ],
     "minimum-stability": "stable",
     "stability-flags": {
         "apache-solr-for-typo3/solr": 20,
-        "dirnbauer/api-capability-bridge": 20,
-        "dirnbauer/visual-editor-news-addon": 20,
         "hn/typo3-mcp-server": 20,
         "netresearch/nr-llm": 20,
         "netresearch/nr-mcp-agent": 20,
@@ -14114,15 +14116,10 @@
         "sgalinski/sg-apicore": 20,
         "studiomitte/solr-numbered-pagination": 20,
         "t3g/blog": 20,
-        "webconsulting/agentation": 20,
-        "webconsulting/desiderio": 20,
-        "webconsulting/records-list-examples": 20,
-        "webconsulting/records-list-types": 20,
+        "webconsulting/api-capability-bridge": 20,
         "webconsulting/typo3-capability-manifest": 20,
         "webconsulting/typo3-workspace-overlay-patch": 20,
-        "webconsulting/typo3-x402-paywall": 20,
-        "webconsulting/webcon-easy-workspace": 20,
-        "webconsulting/workos-auth": 20
+        "webconsulting/visual-editor-news-addon": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

@@ -1,5 +1,5 @@
-name: dirnbauer/site-package-blog-bootstrap
+name: webconsulting/site-package-blog-bootstrap
 label: 'Site Package: Blog Bootstrap'
 dependencies:
-  - dirnbauer/site-package-search
+  - webconsulting/site-package-search
   - blog/bootstrap-53

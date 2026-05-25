@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-use Dirnbauer\SitePackage\Middleware\CowriterPreloadMiddleware;
+use Webconsulting\SitePackage\Middleware\CowriterPreloadMiddleware;
 
 return [
     'frontend' => [
-        'dirnbauer/site-package/cowriter-preload' => [
+        'webconsulting/site-package/cowriter-preload' => [
             'target' => CowriterPreloadMiddleware::class,
             // Run BEFORE visual-editor's PersistenceMiddleware so the
             // PageRenderer already has t3-cowriter queued when the

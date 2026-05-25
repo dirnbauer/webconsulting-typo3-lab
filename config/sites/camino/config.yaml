@@ -1,6 +1,6 @@
 base: 'https://ddev-demo-setup-visual-editor.ddev.site/'
 dependencies:
-  - dirnbauer/site-package-camino
+  - webconsulting/site-package-camino
 languages:
   -
     title: English

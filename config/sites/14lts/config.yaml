@@ -1,6 +1,6 @@
 base: 'https://ddev-demo-setup-visual-editor.ddev.site/14'
 dependencies:
-  - dirnbauer/site-package-blog-bootstrap
+  - webconsulting/site-package-blog-bootstrap
 languages:
   -
     title: English

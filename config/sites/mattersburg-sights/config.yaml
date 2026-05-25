@@ -1,6 +1,6 @@
 base: 'https://ddev-demo-setup-visual-editor.ddev.site/mattersburg/'
 dependencies:
-  - dirnbauer/site-package-desiderio-corporate
+  - webconsulting/site-package-desiderio-corporate
 languages:
   -
     languageId: 0

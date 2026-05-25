@@ -1,6 +1,6 @@
 base: 'https://ddev-demo-setup-visual-editor.ddev.site/mtug-camp-munich-2026/'
 dependencies:
-  - dirnbauer/site-package-desiderio-corporate
+  - webconsulting/site-package-desiderio-corporate
   - desiderio/content-blocks-bundle
 languages:
   -

@@ -1,5 +1,5 @@
-name: dirnbauer/site-package-camino
+name: webconsulting/site-package-camino
 label: 'Site Package: Camino'
 dependencies:
-  - dirnbauer/site-package-search
+  - webconsulting/site-package-search
   - typo3/theme-camino

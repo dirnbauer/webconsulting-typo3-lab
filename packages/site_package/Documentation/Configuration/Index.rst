@@ -14,25 +14,25 @@ The extension provides these TYPO3 site sets:
 
     *   - Site set
         - Purpose
-    *   - ``dirnbauer/site-package``
+    *   - ``webconsulting/site-package``
         - Base defaults, Admin Panel, RTE, MCP table metadata, and Cowriter
           preload middleware.
-    *   - ``dirnbauer/site-package-search``
+    *   - ``webconsulting/site-package-search``
         - Solr defaults and numbered pagination partials.
-    *   - ``dirnbauer/site-package-blog``
+    *   - ``webconsulting/site-package-blog``
         - Blog standalone rendering with Desiderio templates.
-    *   - ``dirnbauer/site-package-blog-bootstrap``
+    *   - ``webconsulting/site-package-blog-bootstrap``
         - Blog Bootstrap 5.3 demo rendering.
-    *   - ``dirnbauer/site-package-camino``
+    *   - ``webconsulting/site-package-camino``
         - Camino demo rendering.
-    *   - ``dirnbauer/site-package-desiderio-corporate``
+    *   - ``webconsulting/site-package-desiderio-corporate``
         - Desiderio corporate demo rendering.
 
 Cowriter preload middleware
 ===========================
 
 The PSR-15 middleware in
-``Dirnbauer\SitePackage\Middleware\CowriterPreloadMiddleware`` preloads the
+``Webconsulting\SitePackage\Middleware\CowriterPreloadMiddleware`` preloads the
 required ``netresearch/t3-cowriter`` JavaScript modules for Visual Editor edit
 mode by using TYPO3's PageRenderer import map API.
 
