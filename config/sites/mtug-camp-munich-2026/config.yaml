@@ -1,0 +1,34 @@
+base: 'https://ddev-demo-setup-visual-editor.ddev.site/mtug-camp-munich-2026/'
+dependencies:
+  - dirnbauer/site-package-desiderio-corporate
+  - desiderio/content-blocks-bundle
+languages:
+  -
+    languageId: 0
+    title: German
+    navigationTitle: Deutsch
+    locale: de_DE.UTF-8
+    base: /
+    flag: de
+    iso-639-1: de
+    fallbackType: strict
+  -
+    languageId: 1
+    title: English
+    navigationTitle: English
+    locale: en_US.UTF-8
+    base: /en/
+    flag: us
+    iso-639-1: en
+    fallbackType: fallback
+  -
+    languageId: 2
+    title: Hungarian
+    navigationTitle: Magyar
+    locale: hu_HU.UTF-8
+    base: /hu/
+    flag: hu
+    iso-639-1: hu
+    fallbackType: fallback
+rootPageId: 686
+websiteTitle: 'MTUG Camp Munich 2026'
