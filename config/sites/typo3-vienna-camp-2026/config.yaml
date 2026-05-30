@@ -1,7 +1,7 @@
 base: 'https://webconsulting-typo3-lab.ddev.site/typo3-vienna-camp-2026/'
 dependencies:
-  - webconsulting/site-package-desiderio-corporate
-  - desiderio/content-blocks-bundle
+  - webconsulting/desiderio-content-elements
+  - webconsulting/desiderio-powermail
 languages:
   -
     languageId: 0
