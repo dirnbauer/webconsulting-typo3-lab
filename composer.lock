@@ -2087,12 +2087,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/powermail.git",
-                "reference": "935b2f56c5c875a6d78d6817f49b7a63f8adf6e5"
+                "reference": "7bce28e9a3ff08358dc4a669abfd068d28efa6d5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/powermail/zipball/935b2f56c5c875a6d78d6817f49b7a63f8adf6e5",
-                "reference": "935b2f56c5c875a6d78d6817f49b7a63f8adf6e5",
+                "url": "https://api.github.com/repos/dirnbauer/powermail/zipball/7bce28e9a3ff08358dc4a669abfd068d28efa6d5",
+                "reference": "7bce28e9a3ff08358dc4a669abfd068d28efa6d5",
                 "shasum": ""
             },
             "require": {
@@ -2232,7 +2232,7 @@
                 "spamprevention",
                 "typo3"
             ],
-            "time": "2026-05-30T15:11:43+00:00"
+            "time": "2026-05-30T17:25:37+00:00"
         },
         {
             "name": "logiscape/mcp-sdk-php",
