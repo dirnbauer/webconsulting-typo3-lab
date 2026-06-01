@@ -1570,16 +1570,16 @@
         },
         {
             "name": "guzzlehttp/guzzle",
-            "version": "7.10.5",
+            "version": "7.10.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/guzzle.git",
-                "reference": "7c8d84b39e680315f687e8662a9d6fb0865c5148"
+                "reference": "e7412b3180912c01650cc66647f18c1d1cbe9b94"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/7c8d84b39e680315f687e8662a9d6fb0865c5148",
-                "reference": "7c8d84b39e680315f687e8662a9d6fb0865c5148",
+                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/e7412b3180912c01650cc66647f18c1d1cbe9b94",
+                "reference": "e7412b3180912c01650cc66647f18c1d1cbe9b94",
                 "shasum": ""
             },
             "require": {
@@ -1677,7 +1677,7 @@
             ],
             "support": {
                 "issues": "https://github.com/guzzle/guzzle/issues",
-                "source": "https://github.com/guzzle/guzzle/tree/7.10.5"
+                "source": "https://github.com/guzzle/guzzle/tree/7.10.6"
             },
             "funding": [
                 {
@@ -1693,7 +1693,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2026-05-27T11:53:46+00:00"
+            "time": "2026-06-01T13:06:22+00:00"
         },
         {
             "name": "guzzlehttp/promises",
@@ -2087,12 +2087,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/powermail.git",
-                "reference": "7bce28e9a3ff08358dc4a669abfd068d28efa6d5"
+                "reference": "7032707656a2f0da85f2e1e62b5e532efb22098c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/powermail/zipball/7bce28e9a3ff08358dc4a669abfd068d28efa6d5",
-                "reference": "7bce28e9a3ff08358dc4a669abfd068d28efa6d5",
+                "url": "https://api.github.com/repos/dirnbauer/powermail/zipball/7032707656a2f0da85f2e1e62b5e532efb22098c",
+                "reference": "7032707656a2f0da85f2e1e62b5e532efb22098c",
                 "shasum": ""
             },
             "require": {
@@ -2146,6 +2146,7 @@
                 "typo3/cms-tstemplate": "^14.3",
                 "typo3/testing-framework": "^9.2"
             },
+            "default-branch": true,
             "type": "typo3-cms-extension",
             "extra": {
                 "typo3/cms": {
@@ -2232,20 +2233,20 @@
                 "spamprevention",
                 "typo3"
             ],
-            "time": "2026-05-30T17:25:37+00:00"
+            "time": "2026-05-31T17:35:11+00:00"
         },
         {
             "name": "logiscape/mcp-sdk-php",
-            "version": "v1.7.1",
+            "version": "v1.7.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/logiscape/mcp-sdk-php.git",
-                "reference": "1ed29680249488e2e028ee5b8f169fe9881e01a7"
+                "reference": "a79f95fa42f647000010303a1c06f62cdd7ee620"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/logiscape/mcp-sdk-php/zipball/1ed29680249488e2e028ee5b8f169fe9881e01a7",
-                "reference": "1ed29680249488e2e028ee5b8f169fe9881e01a7",
+                "url": "https://api.github.com/repos/logiscape/mcp-sdk-php/zipball/a79f95fa42f647000010303a1c06f62cdd7ee620",
+                "reference": "a79f95fa42f647000010303a1c06f62cdd7ee620",
                 "shasum": ""
             },
             "require": {
@@ -2275,9 +2276,9 @@
             "description": "Model Context Protocol SDK for PHP",
             "support": {
                 "issues": "https://github.com/logiscape/mcp-sdk-php/issues",
-                "source": "https://github.com/logiscape/mcp-sdk-php/tree/v1.7.1"
+                "source": "https://github.com/logiscape/mcp-sdk-php/tree/v1.7.2"
             },
-            "time": "2026-04-23T03:47:26+00:00"
+            "time": "2026-05-31T07:47:37+00:00"
         },
         {
             "name": "lolli42/finediff",
@@ -11648,12 +11649,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/desiderio.git",
-                "reference": "a346274a9f9b5cac95fd67da3209511ba172f625"
+                "reference": "54c3dad80a535a186bd7c72360faf3fc18e98ad4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/desiderio/zipball/a346274a9f9b5cac95fd67da3209511ba172f625",
-                "reference": "a346274a9f9b5cac95fd67da3209511ba172f625",
+                "url": "https://api.github.com/repos/dirnbauer/desiderio/zipball/54c3dad80a535a186bd7c72360faf3fc18e98ad4",
+                "reference": "54c3dad80a535a186bd7c72360faf3fc18e98ad4",
                 "shasum": ""
             },
             "require": {
@@ -11721,7 +11722,7 @@
                 }
             ],
             "description": "Desiderio — shadcn/ui-inspired Fluid 5 component library, 255 content elements, and theme layer for TYPO3 14",
-            "time": "2026-05-31T05:38:44+00:00"
+            "time": "2026-06-01T14:25:16+00:00"
         },
         {
             "name": "webconsulting/records-list-examples",
