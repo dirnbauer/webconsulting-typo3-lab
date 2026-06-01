@@ -21,6 +21,16 @@ local TYPO3 extension package.
 | [../apps/news-api-studio/ARCHITECTURE.md](../apps/news-api-studio/ARCHITECTURE.md) | News API Studio technical architecture. |
 | [../patches/README.md](../patches/README.md) | Composer patch workflow and current patch list. |
 
+## Root README Coverage
+
+The root README is the canonical high-level index for:
+
+- The precise lab feature inventory.
+- Configured DDEV services and local URLs.
+- TYPO3 Site Set and demo site mappings.
+- API, capability, MCP, workspace, and News API Studio features.
+- Extension, Site Set dependency, and acknowledgement inventory.
+
 ## Documentation Maintenance
 
 - Keep the root README focused on repo setup and operational commands.
