@@ -1,6 +1,7 @@
 base: 'https://webconsulting-typo3-lab.ddev.site/desiderio-websites/portfolio/'
 dependencies:
-  - webconsulting/site-package-desiderio-portfolio
+  - webconsulting/site-package-search
+  - webconsulting/desiderio-preset-portfolio
 errorHandling:
   -
     errorCode: 404

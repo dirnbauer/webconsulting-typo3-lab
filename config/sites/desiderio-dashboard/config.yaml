@@ -1,6 +1,7 @@
 base: 'https://webconsulting-typo3-lab.ddev.site/desiderio-websites/dashboard/'
 dependencies:
-  - webconsulting/site-package-desiderio-dashboard
+  - webconsulting/site-package-search
+  - webconsulting/desiderio-preset-dashboard
 errorHandling:
   -
     errorCode: 404

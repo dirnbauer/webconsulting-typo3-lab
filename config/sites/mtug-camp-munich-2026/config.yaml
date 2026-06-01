@@ -1,6 +1,7 @@
 base: 'https://webconsulting-typo3-lab.ddev.site/mtug-camp-munich-2026/'
 dependencies:
-  - webconsulting/site-package-desiderio-corporate
+  - webconsulting/site-package-search
+  - webconsulting/desiderio-preset-corporate
   - desiderio/content-blocks-bundle
 languages:
   -

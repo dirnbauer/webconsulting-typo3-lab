@@ -8,6 +8,7 @@ local TYPO3 extension package.
 | Document | Purpose |
 |---|---|
 | [news-api-studio-spec.md](news-api-studio-spec.md) | Product and implementation specification for the News API Studio app. |
+| [reports/typo3-site-set-memory-exhaustion-20260601.md](reports/typo3-site-set-memory-exhaustion-20260601.md) | Technical report for the TYPO3 Site Set recursion that caused PHP memory exhaustion. |
 | [reports/typo3-v14-upgrade-20260516-213338.md](reports/typo3-v14-upgrade-20260516-213338.md) | Report for the TYPO3 14-only site package upgrade and verification pass. |
 
 ## Related Documentation

@@ -1,6 +1,7 @@
 base: 'https://webconsulting-typo3-lab.ddev.site/desiderio-websites/editorial/'
 dependencies:
-  - webconsulting/site-package-desiderio-editorial
+  - webconsulting/site-package-search
+  - webconsulting/desiderio-preset-editorial
 errorHandling:
   -
     errorCode: 404

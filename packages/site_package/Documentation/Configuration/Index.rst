@@ -25,8 +25,6 @@ The extension provides these TYPO3 site sets:
         - Blog Bootstrap 5.3 demo rendering.
     *   - ``webconsulting/site-package-camino``
         - Camino demo rendering.
-    *   - ``webconsulting/site-package-desiderio-corporate``
-        - Desiderio corporate demo rendering.
 
 Configured lab sites
 ====================
@@ -49,14 +47,16 @@ The current lab site configurations use the package as follows:
     *   - :file:`config/sites/14lts`
         - ``webconsulting/site-package-blog-bootstrap``
     *   - :file:`config/sites/mattersburg-sights`
-        - ``webconsulting/site-package-desiderio-corporate``
+        - ``webconsulting/site-package-search`` and
+          ``webconsulting/desiderio-preset-corporate``
     *   - :file:`config/sites/mtug-camp-munich-2026`
-        - ``webconsulting/site-package-desiderio-corporate`` and
+        - ``webconsulting/site-package-search``,
+          ``webconsulting/desiderio-preset-corporate``, and
           ``desiderio/content-blocks-bundle``
 
 The :file:`config/sites/typo3-vienna-camp-2026` and
 :file:`config/sites/eurovision2026` sites are related Desiderio demos, but they
-currently depend on Desiderio sets directly instead of this local package.
+depend on Desiderio sets directly instead of local Desiderio wrapper sets.
 
 Cowriter preload middleware
 ===========================

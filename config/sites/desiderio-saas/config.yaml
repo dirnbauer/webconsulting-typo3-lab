@@ -1,6 +1,7 @@
 base: 'https://webconsulting-typo3-lab.ddev.site/desiderio-websites/saas/'
 dependencies:
-  - webconsulting/site-package-desiderio-saas
+  - webconsulting/site-package-search
+  - webconsulting/desiderio-preset-saas
 errorHandling:
   -
     errorCode: 404
