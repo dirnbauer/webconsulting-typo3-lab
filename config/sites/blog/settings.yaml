@@ -7,3 +7,12 @@ plugin:
       authorUid: 19
       archiveUid: 20
       storagePid: 16
+desiderio:
+  shadcn:
+    preset: b6G5977cw
+    style: radix-lyra
+    iconLibrary: tabler
+  news:
+    useLoadMore: true
+  theme:
+    darkModeDefault: light

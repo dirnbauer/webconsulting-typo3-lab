@@ -1,6 +1,6 @@
 base: 'https://webconsulting-typo3-lab.ddev.site/14'
 dependencies:
-  - webconsulting/site-package-blog-bootstrap
+  - webconsulting/site-package-blog
 languages:
   -
     title: English

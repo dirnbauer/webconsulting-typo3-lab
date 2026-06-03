@@ -2,4 +2,4 @@ name: webconsulting/site-package-blog
 label: 'Site Package: Blog'
 dependencies:
   - webconsulting/site-package-search
-  - blog/standalone
+  - webconsulting/desiderio-blog-standalone
