@@ -2,6 +2,7 @@ desiderio.footer.legalPageIds: '734,735,736'
 desiderio.search.targetPageId: '738'
 desiderio.seo.defaultDescription: 'TYPO3Camp Vienna 2026 lab site for Desiderio TYPO3 page templates and content elements.'
 desiderio.consent.privacyPageId: '735'
-desiderio.tracking.enabled: false
-desiderio.seo.robotsTxtEnabled: true
-desiderio.seo.sitemapPath: sitemap.xml
+desiderio.shadcn.style: radix-rhea
+desiderio.shadcn.iconLibrary: remixicon
+desiderio.shadcn.preset: forest
+desiderio.theme.darkModeDefault: light
