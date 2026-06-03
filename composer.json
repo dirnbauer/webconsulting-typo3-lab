@@ -194,6 +194,11 @@
     "typo3/testing-framework": "^9.5"
   },
   "extra": {
-    "composer-exit-on-patch-failure": true
+    "composer-exit-on-patch-failure": true,
+    "patches": {
+      "friendsoftypo3/visual-editor": {
+        "Handle non-save edit-mode POST requests without unauthorized errors": "patches/friendsoftypo3-visual-editor-edit-mode-post-content-type.patch"
+      }
+    }
   }
 }

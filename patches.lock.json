@@ -1,6 +1,18 @@
 {
-    "_hash": "223c062201531de9ebd0432641fa94c34728485906dc9e54988c81e30794b4e6",
+    "_hash": "f7cda65ecb434e0e7a339759cdc62cb381b06cc9f23ab05fa7155b6823e32aa7",
     "patches": {
+        "friendsoftypo3/visual-editor": [
+            {
+                "package": "friendsoftypo3/visual-editor",
+                "description": "Handle non-save edit-mode POST requests without unauthorized errors",
+                "url": "patches/friendsoftypo3-visual-editor-edit-mode-post-content-type.patch",
+                "sha256": "25e0e342b96b5c8eb6a4a1f53bd0f5573588e94d3bb867aa63af130d18c65bcb",
+                "depth": 1,
+                "extra": {
+                    "provenance": "root"
+                }
+            }
+        ],
         "typo3/cms-backend": [
             {
                 "package": "typo3/cms-backend",
