@@ -77,6 +77,10 @@
     },
     {
       "type": "vcs",
+      "url": "https://github.com/dirnbauer/friendlycaptcha-typo3.git"
+    },
+    {
+      "type": "vcs",
       "url": "https://github.com/dirnbauer/typo3-records-list-types.git"
     },
     {
@@ -131,6 +135,7 @@
     "netresearch/nr-vault": "dev-main",
     "netresearch/t3-cowriter": "^3.1",
     "sgalinski/sg-apicore": "dev-main",
+    "studiomitte/friendlycaptcha": "v14.x-dev",
     "studiomitte/solr-numbered-pagination": "dev-main",
     "supseven/inline-page-module": "^4.0",
     "t3g/blog": "dev-master",

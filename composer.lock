@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4ef079f6834c18a2e04da3a06e365d0e",
+    "content-hash": "0916d787dd64f9098f56aca374b61b12",
     "packages": [
         {
             "name": "apache-solr-for-typo3/solr",
@@ -5310,6 +5310,84 @@
                 "source": "https://github.com/solariumphp/solarium/tree/6.4.1"
             },
             "time": "2025-10-18T17:49:40+00:00"
+        },
+        {
+            "name": "studiomitte/friendlycaptcha",
+            "version": "v14.x-dev",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dirnbauer/friendlycaptcha-typo3.git",
+                "reference": "f5d31e5d323c6dc0bb121388cad9de55cf3e8eaa"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dirnbauer/friendlycaptcha-typo3/zipball/f5d31e5d323c6dc0bb121388cad9de55cf3e8eaa",
+                "reference": "f5d31e5d323c6dc0bb121388cad9de55cf3e8eaa",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=8.3 <8.6",
+                "typo3/cms-core": "^14.3",
+                "typo3/cms-extbase": "^14.3",
+                "typo3/cms-fluid": "^14.3"
+            },
+            "require-dev": {
+                "apache-solr-for-typo3/solr": "^14.0@beta",
+                "friendsofphp/php-cs-fixer": "^3.93",
+                "phpstan/phpstan": "^2.1.50",
+                "phpstan/phpstan-phpunit": "^2.0.16",
+                "phpunit/phpunit": "^12.1",
+                "saschaegerer/phpstan-typo3": "^3.0.1",
+                "typo3/cms-composer-installers": "^5.0",
+                "typo3/cms-form": "^14.3",
+                "typo3/coding-standards": "^0.8.0",
+                "typo3/testing-framework": "^9.5",
+                "webmozart/assert": "^1.11.0"
+            },
+            "suggest": {
+                "in2code/powermail": "Support for EXT:powermail when a TYPO3 14 compatible release is available",
+                "typo3/cms-form": "Support for EXT:form"
+            },
+            "default-branch": true,
+            "type": "typo3-cms-extension",
+            "extra": {
+                "typo3/cms": {
+                    "extension-key": "friendlycaptcha_official",
+                    "web-dir": ".Build/Web",
+                    "version": "14-dev",
+                    "Package": {
+                        "providesPackages": []
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "StudioMitte\\FriendlyCaptcha\\": "Classes"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "In2code\\Powermail\\": "Tests/Stubs/Powermail/Classes",
+                    "StudioMitte\\FriendlyCaptcha\\Tests\\": "Tests"
+                }
+            },
+            "scripts": {
+                "cs": [
+                    "php ./.Build/bin/php-cs-fixer fix  --dry-run -v --config ./Build/php-cs-fixer/php-cs-fixer.php ./"
+                ],
+                "csfix": [
+                    "php ./.Build/bin/php-cs-fixer fix  -v --config ./Build/php-cs-fixer/php-cs-fixer.php ./"
+                ],
+                "phpstan": [
+                    "php ./.Build/bin/phpstan analyse --configuration phpstan.neon --memory-limit 1G"
+                ]
+            },
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "description": "Friendly Captcha - TYPO3 integration for EXT:form and EXT:powermail",
+            "homepage": "https://www.studiomitte.com",
+            "time": "2026-05-30T06:56:54+00:00"
         },
         {
             "name": "studiomitte/solr-numbered-pagination",
@@ -11649,12 +11727,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/desiderio.git",
-                "reference": "cfedfb1c3e183f286f11cd566cf662f39ceff823"
+                "reference": "c9c86540231ba83398c222669b34bfd0b88b2671"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/desiderio/zipball/cfedfb1c3e183f286f11cd566cf662f39ceff823",
-                "reference": "cfedfb1c3e183f286f11cd566cf662f39ceff823",
+                "url": "https://api.github.com/repos/dirnbauer/desiderio/zipball/c9c86540231ba83398c222669b34bfd0b88b2671",
+                "reference": "c9c86540231ba83398c222669b34bfd0b88b2671",
                 "shasum": ""
             },
             "require": {
@@ -11722,7 +11800,7 @@
                 }
             ],
             "description": "Desiderio — shadcn/ui-inspired Fluid 5 component library, 255 content elements, and theme layer for TYPO3 14",
-            "time": "2026-06-02T17:24:59+00:00"
+            "time": "2026-06-03T10:16:47+00:00"
         },
         {
             "name": "webconsulting/records-list-examples",
@@ -14610,6 +14688,7 @@
         "netresearch/nr-mcp-agent": 20,
         "netresearch/nr-vault": 20,
         "sgalinski/sg-apicore": 20,
+        "studiomitte/friendlycaptcha": 20,
         "studiomitte/solr-numbered-pagination": 20,
         "t3g/blog": 20,
         "webconsulting/desiderio": 20
