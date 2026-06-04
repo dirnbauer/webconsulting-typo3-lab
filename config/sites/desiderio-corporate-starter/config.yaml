@@ -1,0 +1,39 @@
+base: 'https://webconsulting-typo3-lab.ddev.site/desiderio-corporate-starter/'
+dependencies:
+  - webconsulting/site-package-search
+  - webconsulting/desiderio-preset-corporate
+errorHandling:
+  -
+    errorCode: 404
+    errorHandler: Page
+    errorContentSource: 't3://page?uid=749'
+languages:
+  -
+    languageId: 0
+    title: English
+    navigationTitle: English
+    locale: en_US.UTF-8
+    base: /
+    flag: us
+    iso-639-1: en
+    fallbackType: strict
+rootPageId: 740
+routeEnhancers:
+  PageTypeSuffix:
+    type: PageType
+    default: /
+    index: ''
+    map:
+      sitemap.xml: 1533906435
+      robots.txt: 201
+settings:
+  desiderio.brand.wordmark: 'Northstar Advisory'
+  desiderio.brand.tagline: 'Operational change, made legible.'
+  desiderio.seo.defaultDescription: 'Northstar Advisory Group starter website for procurement-ready B2B service positioning, proof, governance, and contact paths.'
+  desiderio.tracking.enabled: false
+  desiderio.seo.robotsTxtEnabled: true
+  desiderio.seo.sitemapPath: sitemap.xml
+  desiderio.search.targetPageId: '748'
+  desiderio.footer.legalPageIds: '750,751,752'
+  desiderio.consent.privacyPageId: '751'
+websiteTitle: 'Northstar Advisory Group'

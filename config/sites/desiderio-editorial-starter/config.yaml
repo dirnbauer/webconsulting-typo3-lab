@@ -1,0 +1,39 @@
+base: 'https://webconsulting-typo3-lab.ddev.site/desiderio-editorial-starter/'
+dependencies:
+  - webconsulting/site-package-search
+  - webconsulting/desiderio-preset-editorial
+errorHandling:
+  -
+    errorCode: 404
+    errorHandler: Page
+    errorContentSource: 't3://page?uid=765'
+languages:
+  -
+    languageId: 0
+    title: English
+    navigationTitle: English
+    locale: en_US.UTF-8
+    base: /
+    flag: us
+    iso-639-1: en
+    fallbackType: strict
+rootPageId: 742
+routeEnhancers:
+  PageTypeSuffix:
+    type: PageType
+    default: /
+    index: ''
+    map:
+      sitemap.xml: 1533906435
+      robots.txt: 201
+settings:
+  desiderio.brand.wordmark: 'Field Ledger'
+  desiderio.brand.tagline: 'Useful analysis, practical guides, and evidence-rich editorial systems.'
+  desiderio.seo.defaultDescription: 'Field Ledger editorial starter with story sections, guides, data room, newsletter, sponsor context, and standards pages.'
+  desiderio.tracking.enabled: false
+  desiderio.seo.robotsTxtEnabled: true
+  desiderio.seo.sitemapPath: sitemap.xml
+  desiderio.search.targetPageId: '764'
+  desiderio.footer.legalPageIds: '766,767,768'
+  desiderio.consent.privacyPageId: '767'
+websiteTitle: 'Field Ledger'
