@@ -119,6 +119,10 @@
     {
       "type": "vcs",
       "url": "https://github.com/dirnbauer/typo3-workspace-overlay-patch.git"
+    },
+    {
+      "type": "vcs",
+      "url": "https://github.com/dirnbauer/typo3-docx.git"
     }
   ],
   "require": {
@@ -177,6 +181,7 @@
     "webconsulting/agentation": "^1.0",
     "webconsulting/api-capability-bridge": "^1.0",
     "webconsulting/desiderio": "dev-main as 2.2.1",
+    "webconsulting/docx-editor": "^1.0",
     "webconsulting/records-list-examples": "^1.0",
     "webconsulting/records-list-types": "^1.0",
     "webconsulting/site-package": "^14.0",
