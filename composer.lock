@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "952551a01f251be0fc2552d7878f85db",
+    "content-hash": "571aab9a94616472d879ba8a708c324a",
     "packages": [
         {
             "name": "apache-solr-for-typo3/solr",
@@ -11815,12 +11815,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/desiderio.git",
-                "reference": "d643e3fd66efb54cbef8ea645cb38599caa3c0ef"
+                "reference": "cccab78d88aa6a3e865d1be341272bd6b64e09be"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/desiderio/zipball/d643e3fd66efb54cbef8ea645cb38599caa3c0ef",
-                "reference": "d643e3fd66efb54cbef8ea645cb38599caa3c0ef",
+                "url": "https://api.github.com/repos/dirnbauer/desiderio/zipball/cccab78d88aa6a3e865d1be341272bd6b64e09be",
+                "reference": "cccab78d88aa6a3e865d1be341272bd6b64e09be",
                 "shasum": ""
             },
             "require": {
@@ -11889,7 +11889,7 @@
                 }
             ],
             "description": "Desiderio — shadcn/ui-inspired Fluid 5 component library, 255 content elements, and theme layer for TYPO3 14",
-            "time": "2026-06-04T12:14:38+00:00"
+            "time": "2026-06-04T12:38:08+00:00"
         },
         {
             "name": "webconsulting/records-list-examples",
