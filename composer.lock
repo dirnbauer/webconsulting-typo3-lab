@@ -11815,12 +11815,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/desiderio.git",
-                "reference": "1762d11f626711b4476ae1f5ee41e0d69f1e0431"
+                "reference": "524afd7b59222fc3b08931f77af19954257fa91e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/desiderio/zipball/1762d11f626711b4476ae1f5ee41e0d69f1e0431",
-                "reference": "1762d11f626711b4476ae1f5ee41e0d69f1e0431",
+                "url": "https://api.github.com/repos/dirnbauer/desiderio/zipball/524afd7b59222fc3b08931f77af19954257fa91e",
+                "reference": "524afd7b59222fc3b08931f77af19954257fa91e",
                 "shasum": ""
             },
             "require": {
@@ -11889,7 +11889,7 @@
                 }
             ],
             "description": "Desiderio — shadcn/ui-inspired Fluid 5 component library, 255 content elements, and theme layer for TYPO3 14",
-            "time": "2026-06-04T13:54:05+00:00"
+            "time": "2026-06-04T14:05:34+00:00"
         },
         {
             "name": "webconsulting/docx-editor",
