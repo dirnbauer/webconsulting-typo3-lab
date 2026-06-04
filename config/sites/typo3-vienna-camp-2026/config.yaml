@@ -3,7 +3,7 @@ dependencies:
   - studiomitte/friendlycaptcha
   - webconsulting/desiderio-powermail
   - webconsulting/desiderio-content-elements
-  - webconsulting/desiderio-preset-dashboard
+  - webconsulting/desiderio-preset-corporate
 friendlycaptcha_js_path: 'EXT:friendlycaptcha_official/Resources/Public/JavaScript/lib/sdk@0.1.26-site.compat.min.js'
 friendlycaptcha_secret_key: ddev-secret-key
 friendlycaptcha_site_key: ddev-site-key
