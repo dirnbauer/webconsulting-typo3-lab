@@ -6,7 +6,7 @@ errorHandling:
   -
     errorCode: 404
     errorHandler: Page
-    errorContentSource: 't3://page?uid=773'
+    errorContentSource: 't3://page?uid=855'
 languages:
   -
     languageId: 0
@@ -17,7 +17,7 @@ languages:
     flag: us
     iso-639-1: en
     fallbackType: strict
-rootPageId: 743
+rootPageId: 844
 routeEnhancers:
   PageTypeSuffix:
     type: PageType
@@ -31,7 +31,7 @@ settings:
   desiderio.tracking.enabled: false
   desiderio.seo.robotsTxtEnabled: true
   desiderio.seo.sitemapPath: sitemap.xml
-  desiderio.search.targetPageId: '772'
-  desiderio.footer.legalPageIds: '774,775,776'
-  desiderio.consent.privacyPageId: '775'
+  desiderio.search.targetPageId: '853'
+  desiderio.footer.legalPageIds: '855'
+  desiderio.consent.privacyPageId: '855'
 websiteTitle: 'Desiderio Portfolio'

@@ -6,7 +6,7 @@ errorHandling:
   -
     errorCode: 404
     errorHandler: Page
-    errorContentSource: 't3://page?uid=765'
+    errorContentSource: 't3://page?uid=843'
 languages:
   -
     languageId: 0
@@ -17,7 +17,7 @@ languages:
     flag: us
     iso-639-1: en
     fallbackType: strict
-rootPageId: 742
+rootPageId: 832
 routeEnhancers:
   PageTypeSuffix:
     type: PageType
@@ -31,7 +31,7 @@ settings:
   desiderio.tracking.enabled: false
   desiderio.seo.robotsTxtEnabled: true
   desiderio.seo.sitemapPath: sitemap.xml
-  desiderio.search.targetPageId: '764'
-  desiderio.footer.legalPageIds: '766,767,768'
-  desiderio.consent.privacyPageId: '767'
+  desiderio.search.targetPageId: '833'
+  desiderio.footer.legalPageIds: '843'
+  desiderio.consent.privacyPageId: '843'
 websiteTitle: 'Desiderio Editorial'

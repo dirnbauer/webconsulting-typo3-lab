@@ -6,7 +6,7 @@ errorHandling:
   -
     errorCode: 404
     errorHandler: Page
-    errorContentSource: 't3://page?uid=757'
+    errorContentSource: 't3://page?uid=831'
 languages:
   -
     languageId: 0
@@ -17,7 +17,7 @@ languages:
     flag: us
     iso-639-1: en
     fallbackType: strict
-rootPageId: 741
+rootPageId: 820
 routeEnhancers:
   PageTypeSuffix:
     type: PageType
@@ -31,7 +31,7 @@ settings:
   desiderio.tracking.enabled: false
   desiderio.seo.robotsTxtEnabled: true
   desiderio.seo.sitemapPath: sitemap.xml
-  desiderio.search.targetPageId: '756'
-  desiderio.footer.legalPageIds: '758,759,760'
-  desiderio.consent.privacyPageId: '759'
+  desiderio.search.targetPageId: '830'
+  desiderio.footer.legalPageIds: '831'
+  desiderio.consent.privacyPageId: '831'
 websiteTitle: 'Desiderio Dashboard'

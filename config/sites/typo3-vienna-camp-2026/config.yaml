@@ -1,12 +1,13 @@
 base: 'https://webconsulting-typo3-lab.ddev.site/typo3-vienna-camp-2026/'
 dependencies:
+  - studiomitte/friendlycaptcha
   - webconsulting/desiderio-powermail
   - webconsulting/desiderio-content-elements
   - webconsulting/desiderio-preset-dashboard
 friendlycaptcha_js_path: 'EXT:friendlycaptcha_official/Resources/Public/JavaScript/lib/sdk@0.1.26-site.compat.min.js'
-friendlycaptcha_secret_key: ''
-friendlycaptcha_site_key: ''
-friendlycaptcha_skip_dev_validation: false
+friendlycaptcha_secret_key: ddev-secret-key
+friendlycaptcha_site_key: ddev-site-key
+friendlycaptcha_skip_dev_validation: true
 friendlycaptcha_use_eu_puzzle_endpoint: false
 friendlycaptcha_verify_url: 'https://global.frcapi.com/api/v2/captcha/siteverify'
 errorHandling:
