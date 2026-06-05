@@ -1843,12 +1843,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/typo3-mcp-server.git",
-                "reference": "809f74df28cea4d25d3cbb4a20f504204f71dd91"
+                "reference": "320209ac7471d072b19110895324b0a6f6a7e7e9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/typo3-mcp-server/zipball/809f74df28cea4d25d3cbb4a20f504204f71dd91",
-                "reference": "809f74df28cea4d25d3cbb4a20f504204f71dd91",
+                "url": "https://api.github.com/repos/dirnbauer/typo3-mcp-server/zipball/320209ac7471d072b19110895324b0a6f6a7e7e9",
+                "reference": "320209ac7471d072b19110895324b0a6f6a7e7e9",
                 "shasum": ""
             },
             "require": {
@@ -1959,7 +1959,7 @@
             ],
             "description": "TYPO3 extension that provides a Model Context Protocol (MCP) server for interacting with TYPO3 pages and records",
             "homepage": "https://github.com/dirnbauer/typo3-mcp-server",
-            "time": "2026-05-23T17:15:04+00:00"
+            "time": "2026-06-05T18:10:16+00:00"
         },
         {
             "name": "in2code/powermail",
@@ -11687,12 +11687,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/desiderio.git",
-                "reference": "868246c308a45efa1b1159fe599117b4b4120f67"
+                "reference": "f00d8287fff1a743a40773b8ad97185ded91837f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/desiderio/zipball/868246c308a45efa1b1159fe599117b4b4120f67",
-                "reference": "868246c308a45efa1b1159fe599117b4b4120f67",
+                "url": "https://api.github.com/repos/dirnbauer/desiderio/zipball/f00d8287fff1a743a40773b8ad97185ded91837f",
+                "reference": "f00d8287fff1a743a40773b8ad97185ded91837f",
                 "shasum": ""
             },
             "require": {
@@ -11766,7 +11766,7 @@
                 }
             ],
             "description": "Desiderio — shadcn/ui-inspired Fluid 5 component library, 255 content elements, and theme layer for TYPO3 14",
-            "time": "2026-06-05T20:29:26+00:00"
+            "time": "2026-06-05T21:21:27+00:00"
         },
         {
             "name": "webconsulting/docx-editor",
