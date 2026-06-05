@@ -11751,12 +11751,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/desiderio.git",
-                "reference": "d3186ac876323b8771dda9b81a7f1d43a98ae95f"
+                "reference": "3d6e2059eecada9779bd46e8f1ac1fc8f9690fad"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/desiderio/zipball/d3186ac876323b8771dda9b81a7f1d43a98ae95f",
-                "reference": "d3186ac876323b8771dda9b81a7f1d43a98ae95f",
+                "url": "https://api.github.com/repos/dirnbauer/desiderio/zipball/3d6e2059eecada9779bd46e8f1ac1fc8f9690fad",
+                "reference": "3d6e2059eecada9779bd46e8f1ac1fc8f9690fad",
                 "shasum": ""
             },
             "require": {
@@ -11829,7 +11829,7 @@
                 }
             ],
             "description": "Desiderio — shadcn/ui-inspired Fluid 5 component library, 255 content elements, and theme layer for TYPO3 14",
-            "time": "2026-06-05T15:07:53+00:00"
+            "time": "2026-06-05T16:08:59+00:00"
         },
         {
             "name": "webconsulting/docx-editor",
@@ -11837,12 +11837,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/typo3-docx.git",
-                "reference": "50e0fe68866ecb65becd4a2e583188a41e0a9f2d"
+                "reference": "a14f2b0f776cc0cd75845328a0c7d10bf46c3176"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/typo3-docx/zipball/50e0fe68866ecb65becd4a2e583188a41e0a9f2d",
-                "reference": "50e0fe68866ecb65becd4a2e583188a41e0a9f2d",
+                "url": "https://api.github.com/repos/dirnbauer/typo3-docx/zipball/a14f2b0f776cc0cd75845328a0c7d10bf46c3176",
+                "reference": "a14f2b0f776cc0cd75845328a0c7d10bf46c3176",
                 "shasum": ""
             },
             "require": {
@@ -11926,7 +11926,7 @@
                 "issues": "https://github.com/dirnbauer/typo3-docx/issues",
                 "source": "https://github.com/dirnbauer/typo3-docx"
             },
-            "time": "2026-06-05T06:42:22+00:00"
+            "time": "2026-06-05T15:30:15+00:00"
         },
         {
             "name": "webconsulting/records-list-examples",
