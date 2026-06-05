@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d8927c7912e8c423aedcadf2ba5557be",
+    "content-hash": "891ed519400884fb26ccae6449b07b6f",
     "packages": [
         {
             "name": "apache-solr-for-typo3/solr",
-            "version": "14.0.0-beta3",
+            "version": "14.0.0-beta4",
             "source": {
                 "type": "git",
-                "url": "https://github.com/TYPO3-Solr/ext-solr.git",
-                "reference": "3d6be20f967d239c47052cd06ceb17702a7c42cf"
+                "url": "https://github.com/dirnbauer/ext-solr.git",
+                "reference": "50b7c0d4851a1a161347cf233c079673f851edb2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/TYPO3-Solr/ext-solr/zipball/3d6be20f967d239c47052cd06ceb17702a7c42cf",
-                "reference": "3d6be20f967d239c47052cd06ceb17702a7c42cf",
+                "url": "https://api.github.com/repos/dirnbauer/ext-solr/zipball/50b7c0d4851a1a161347cf233c079673f851edb2",
+                "reference": "50b7c0d4851a1a161347cf233c079673f851edb2",
                 "shasum": ""
             },
             "require": {
@@ -57,28 +57,28 @@
             },
             "type": "typo3-cms-extension",
             "extra": {
+                "branch-alias": {
+                    "dev-main": "14.0.x-dev"
+                },
                 "typo3/cms": {
-                    "web-dir": ".Build/Web",
-                    "extension-key": "solr"
+                    "extension-key": "solr",
+                    "web-dir": ".Build/Web"
                 },
                 "TYPO3-Solr": {
-                    "ext-solrfal": [],
-                    "stack-for-ci": {
-                        "sclable/xml-lint": "*"
-                    },
                     "version-matrix": {
                         "ext-tika": "^14.0",
-                        "configset": "ext_solr_14_0_0",
+                        "ext-solrfal": "^14.0",
+                        "ext-solrconsole": "^14.0",
+                        "ext-solrdebugtools": "^14.0",
                         "Apache-Solr": [
                             "10.0.0"
                         ],
-                        "ext-solrfal": "^14.0",
-                        "ext-solrconsole": "^14.0",
-                        "ext-solrdebugtools": "^14.0"
+                        "configset": "ext_solr_14_0_0"
+                    },
+                    "ext-solrfal": [],
+                    "stack-for-ci": {
+                        "sclable/xml-lint": "*"
                     }
-                },
-                "branch-alias": {
-                    "dev-main": "14.0.x-dev"
                 }
             },
             "autoload": {
@@ -86,7 +86,72 @@
                     "ApacheSolrForTypo3\\Solr\\": "Classes/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
+            "autoload-dev": {
+                "psr-4": {
+                    "ApacheSolrForTypo3\\Solr\\Tests\\": "Tests/",
+                    "ApacheSolrForTypo3\\FakeExtension\\": "Tests/Integration/Fixtures/Extensions/fake_extension/Classes/",
+                    "ApacheSolrForTypo3\\SolrFakeExtension2\\": "Tests/Integration/Fixtures/Extensions/fake_extension2/Classes/",
+                    "ApacheSolrForTypo3\\SolrFakeExtension3\\": "Tests/Integration/Fixtures/Extensions/fake_extension3/Classes/",
+                    "TYPO3\\CMS\\Core\\Tests\\": ".Build/vendor/typo3/cms-core/Tests/"
+                }
+            },
+            "scripts": {
+                "info:solr-versions": [
+                    "@composer config extra.TYPO3-Solr.version-matrix.Apache-Solr"
+                ],
+                "info:recommended-solr-version": [
+                    "@composer config extra.TYPO3-Solr.version-matrix.Apache-Solr.0"
+                ],
+                "post-autoload-dump": [
+                    "mkdir -p .Build/vendor/apache-solr-for-typo3",
+                    "[ -L .Build/vendor/apache-solr-for-typo3/solr ] || ln -snvf ../../../. .Build/vendor/apache-solr-for-typo3/solr"
+                ],
+                "t3:docs:build": [
+                    "rm -Rf Documentation-GENERATED-temp/",
+                    "./Build/generate_documentation.sh"
+                ],
+                "t3:docs:build:prod": [
+                    "BUILD_DOCS_FOR_PRODUCTION=1 $COMPOSER_BINARY t3:docs:build"
+                ],
+                "t3:docs:clean": [
+                    "rm -Rf Documentation-GENERATED-temp/ $(readlink -f Documentation.HTML) Documentation.HTML"
+                ],
+                "extension-create-libs": [
+                    "@composer req -d Resources/Private/Php/ComposerLibraries solarium/solarium:$(Build/Helpers/GET_LOCAL_PACKAGE_VERSION_CONSTRAINT.sh solarium/solarium)"
+                ],
+                "extension-build": [
+                    "@extension-create-libs"
+                ],
+                "tests:restore-git": [
+                    "echo \"Retore composer.json to initial state:\" && git checkout composer.json"
+                ],
+                "tests:env": [
+                    "if [ -z ${TYPO3_VERSION+x} ]; then >&2 echo \"Can not proceed, because env var TYPO3_VERSION is not set\"; exit 1; else echo \"Setup test environment for TYPO3 ${TYPO3_VERSION}\"; fi",
+                    "if echo $TYPO3_VERSION | grep -q \"dev\"; then $COMPOSER_BINARY config minimum-stability dev; fi"
+                ],
+                "tests:setup": [
+                    "@tests:env",
+                    "@composer req --update-with-all-dependencies typo3/cms-core:${TYPO3_VERSION}",
+                    "@tests:restore-git"
+                ],
+                "tests:unit": [
+                    "phpunit --config=Build/Test/UnitTests.xml"
+                ],
+                "tests:integration": [
+                    "Composer\\Config::disableProcessTimeout",
+                    "paratest --configuration=Build/Test/IntegrationTests.xml"
+                ],
+                "tests:phpstan": [
+                    "phpstan analyze -c Build/Test/phpstan.neon"
+                ],
+                "t3:standards:fix": [
+                    "php-cs-fixer fix"
+                ],
+                "tests:lint-xml": [
+                    "echo \"Run XML Lint\"",
+                    "if ! $($COMPOSER_BINARY config home)/vendor/bin/xmllint Resources/Private/Language/ --pattern='*.xlf' --exclude=.Build/*; then echo \"Some XML files are not valid\" && echo \"Please fix the files listed above\" && export EXIT_CODE=4; else echo \"No syntax errors! Great job!\"; fi"
+                ]
+            },
             "license": [
                 "GPL-3.0-or-later"
             ],
@@ -106,20 +171,14 @@
                 "typo3"
             ],
             "support": {
-                "docs": "https://docs.typo3.org/p/apache-solr-for-typo3/solr/main/en-us/",
                 "email": "info@dkd.de",
-                "forum": "https://talk.typo3.org",
                 "issues": "https://github.com/TYPO3-Solr/ext-solr/issues",
+                "forum": "https://talk.typo3.org",
                 "slack": "https://typo3.slack.com/archives/C02FF05Q4",
-                "source": "https://github.com/TYPO3-Solr/ext-solr"
+                "source": "https://github.com/TYPO3-Solr/ext-solr",
+                "docs": "https://docs.typo3.org/p/apache-solr-for-typo3/solr/main/en-us/"
             },
-            "funding": [
-                {
-                    "url": "https://www.typo3-solr.com/",
-                    "type": "custom"
-                }
-            ],
-            "time": "2026-05-20T13:26:35+00:00"
+            "time": "2026-06-05T21:31:39+00:00"
         },
         {
             "name": "bacon/bacon-qr-code",
@@ -14755,7 +14814,6 @@
     ],
     "minimum-stability": "dev",
     "stability-flags": {
-        "apache-solr-for-typo3/solr": 10,
         "hn/typo3-mcp-server": 20,
         "in2code/powermail": 20,
         "netresearch/nr-llm": 20,
