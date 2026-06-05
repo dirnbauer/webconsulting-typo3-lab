@@ -18,7 +18,6 @@
     "use-github-api": false,
     "preferred-install": {
       "typo3/*": "source",
-      "apache-solr-for-typo3/solr": "source",
       "hn/typo3-mcp-server": "source",
       "t3g/blog": "source",
       "webconsulting/desiderio": "dist",
@@ -52,8 +51,7 @@
     },
     {
       "type": "vcs",
-      "url": "https://github.com/dirnbauer/ext-solr.git",
-      "only": ["apache-solr-for-typo3/solr"]
+      "url": "https://github.com/dirnbauer/ext-solr.git"
     },
     {
       "type": "vcs",
@@ -127,7 +125,7 @@
     }
   ],
   "require": {
-    "apache-solr-for-typo3/solr": "14.0.0-beta4",
+    "apache-solr-for-typo3/solr": "^14.0@beta",
     "friendsoftypo3/tt-address": "^10.0",
     "friendsoftypo3/visual-editor": "^1.6",
     "georgringer/context-edit-records": "^1.0",
