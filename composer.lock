@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "190680b9eac8c25d9a2bd8a015c7c7f1",
+    "content-hash": "9335b7346260847cf1453afb17c6afb1",
     "packages": [
         {
             "name": "apache-solr-for-typo3/solr",
@@ -11833,16 +11833,16 @@
         },
         {
             "name": "webconsulting/docx-editor",
-            "version": "v1.0.0",
+            "version": "dev-main",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/typo3-docx.git",
-                "reference": "52e5f6034d4836a52d0cef3427b7aca7219062b5"
+                "reference": "50e0fe68866ecb65becd4a2e583188a41e0a9f2d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/typo3-docx/zipball/52e5f6034d4836a52d0cef3427b7aca7219062b5",
-                "reference": "52e5f6034d4836a52d0cef3427b7aca7219062b5",
+                "url": "https://api.github.com/repos/dirnbauer/typo3-docx/zipball/50e0fe68866ecb65becd4a2e583188a41e0a9f2d",
+                "reference": "50e0fe68866ecb65becd4a2e583188a41e0a9f2d",
                 "shasum": ""
             },
             "require": {
@@ -11860,11 +11860,12 @@
                 "saschaegerer/phpstan-typo3": "^3.0",
                 "typo3/testing-framework": "^9.5"
             },
+            "default-branch": true,
             "type": "typo3-cms-extension",
             "extra": {
                 "typo3/cms": {
                     "extension-key": "docx_editor",
-                    "version": "1.0.0",
+                    "version": "1.2.0",
                     "Package": {
                         "providesPackages": []
                     }
@@ -11925,7 +11926,7 @@
                 "issues": "https://github.com/dirnbauer/typo3-docx/issues",
                 "source": "https://github.com/dirnbauer/typo3-docx"
             },
-            "time": "2026-06-04T13:56:02+00:00"
+            "time": "2026-06-05T06:42:22+00:00"
         },
         {
             "name": "webconsulting/records-list-examples",
@@ -14814,7 +14815,8 @@
         "sgalinski/sg-apicore": 20,
         "studiomitte/friendlycaptcha": 20,
         "studiomitte/solr-numbered-pagination": 20,
-        "webconsulting/desiderio": 20
+        "webconsulting/desiderio": 20,
+        "webconsulting/docx-editor": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,

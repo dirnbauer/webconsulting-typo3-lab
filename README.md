@@ -193,7 +193,7 @@ The project requires these TYPO3 packages directly:
 | `webconsulting/agentation` | `^1.1` | Agent-oriented TYPO3 workflow experiments. |
 | `webconsulting/api-capability-bridge` | `^1.0` | Capability policy bridge for APIs. |
 | `webconsulting/desiderio` | `^2.5` | Desiderio rendering, templates, and presets. |
-| `webconsulting/docx-editor` | `^1.0` | DOCX editing extension for backend workflows. |
+| `webconsulting/docx-editor` | `dev-main` | DOCX editing extension for backend workflows (tracks upstream main). |
 | `webconsulting/records-list-examples` | `^1.1` | Demo data and examples for Records List Types. |
 | `webconsulting/records-list-types` | `^1.0` | Catalog, timeline, gallery, event, address book, and dashboard record lists. |
 | `webconsulting/site-package` | `^14.1` | Local site package with shared Site Sets and defaults. |
