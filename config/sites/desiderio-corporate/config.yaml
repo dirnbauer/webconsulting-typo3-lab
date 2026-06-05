@@ -27,6 +27,7 @@ routeEnhancers:
       sitemap.xml: 1533906435
       robots.txt: 201
 settings:
+  desiderio.brand.tagline: 'Inspired by Camino.'
   desiderio.seo.defaultDescription: 'Desiderio Corporate starter website generated from the Desiderio site package archetypes.'
   desiderio.tracking.enabled: false
   desiderio.seo.robotsTxtEnabled: true
