@@ -7,7 +7,6 @@ parameters:
     paths:
         - ../../packages/site_package/Classes
         - ../../packages/site_package/Configuration/RequestMiddlewares.php
-        - ../../packages/site_package/ext_localconf.php
     excludePaths:
         analyseAndScan:
             - ../../vendor
