@@ -34,7 +34,7 @@ jobs:
           key: composer-files-${{ runner.os }}-${{ hashFiles('composer.lock') }}
 
       - name: Install dependencies
-        run: composer install --no-interaction --no-progress --prefer-dist
+        run: composer install --no-interaction --no-progress
 
       - name: Run quality suite
         run: Build/Scripts/runTests.sh -s ci
