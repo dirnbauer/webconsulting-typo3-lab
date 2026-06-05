@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b59f0535336d219466a5b7cab85d0e9e",
+    "content-hash": "5ba1c409f54b926935d1cba2a1dab869",
     "packages": [
         {
             "name": "apache-solr-for-typo3/solr",
-            "version": "dev-main",
+            "version": "14.0.0-alpha1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/ext-solr.git",
-                "reference": "b4779657146b4db5427915b42a36dc26c2536d30"
+                "reference": "3d966b3ebde3561b33e3297eb9650466babedf11"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/ext-solr/zipball/b4779657146b4db5427915b42a36dc26c2536d30",
-                "reference": "b4779657146b4db5427915b42a36dc26c2536d30",
+                "url": "https://api.github.com/repos/dirnbauer/ext-solr/zipball/3d966b3ebde3561b33e3297eb9650466babedf11",
+                "reference": "3d966b3ebde3561b33e3297eb9650466babedf11",
                 "shasum": ""
             },
             "require": {
@@ -29,7 +29,7 @@
                 "php": "^8.2",
                 "solarium/solarium": "6.4.1",
                 "typo3/cms-backend": "*",
-                "typo3/cms-core": "^v14.3.0",
+                "typo3/cms-core": "14.*.*@dev",
                 "typo3/cms-extbase": "*",
                 "typo3/cms-fluid": "*",
                 "typo3/cms-frontend": "*",
@@ -55,7 +55,6 @@
                 "typo3/coding-standards": "v0.8.0",
                 "typo3/testing-framework": "^9.5.0"
             },
-            "default-branch": true,
             "type": "typo3-cms-extension",
             "extra": {
                 "branch-alias": {
@@ -72,7 +71,7 @@
                         "ext-solrconsole": "^14.0",
                         "ext-solrdebugtools": "^14.0",
                         "Apache-Solr": [
-                            "10.0.0"
+                            "9.10.1"
                         ],
                         "configset": "ext_solr_14_0_0"
                     },
@@ -179,7 +178,7 @@
                 "source": "https://github.com/TYPO3-Solr/ext-solr",
                 "docs": "https://docs.typo3.org/p/apache-solr-for-typo3/solr/main/en-us/"
             },
-            "time": "2026-05-16T18:32:24+00:00"
+            "time": "2026-03-31T13:18:47+00:00"
         },
         {
             "name": "bacon/bacon-qr-code",
@@ -1103,16 +1102,16 @@
         },
         {
             "name": "friendsoftypo3/content-blocks",
-            "version": "2.4.4",
+            "version": "2.4.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/FriendsOfTYPO3/content-blocks.git",
-                "reference": "c5e092d20d3234476e5e1c8c33fa89aa7020c5f7"
+                "reference": "6e82652bc653b98aabd4fc60211286c40c8abe75"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FriendsOfTYPO3/content-blocks/zipball/c5e092d20d3234476e5e1c8c33fa89aa7020c5f7",
-                "reference": "c5e092d20d3234476e5e1c8c33fa89aa7020c5f7",
+                "url": "https://api.github.com/repos/FriendsOfTYPO3/content-blocks/zipball/6e82652bc653b98aabd4fc60211286c40c8abe75",
+                "reference": "6e82652bc653b98aabd4fc60211286c40c8abe75",
                 "shasum": ""
             },
             "require": {
@@ -1159,7 +1158,7 @@
                             "symfony/var-exporter": ""
                         }
                     },
-                    "version": "2.4.4",
+                    "version": "2.4.5",
                     "web-dir": ".Build/public",
                     "extension-key": "content_blocks"
                 }
@@ -1188,7 +1187,7 @@
                 "issues": "https://github.com/FriendsOfTYPO3/content-blocks/issues",
                 "source": "https://github.com/FriendsOfTYPO3/content-blocks"
             },
-            "time": "2026-06-02T10:10:13+00:00"
+            "time": "2026-06-04T16:27:24+00:00"
         },
         {
             "name": "friendsoftypo3/tt-address",
@@ -1257,16 +1256,16 @@
         },
         {
             "name": "friendsoftypo3/visual-editor",
-            "version": "1.6.0",
+            "version": "1.6.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/FriendsOfTYPO3/visual_editor.git",
-                "reference": "c02ef5674536cb27d92d101f17e4c1379b9fbfd8"
+                "reference": "5d1ac80446897104938177ffdcc4da91a8ac7cca"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FriendsOfTYPO3/visual_editor/zipball/c02ef5674536cb27d92d101f17e4c1379b9fbfd8",
-                "reference": "c02ef5674536cb27d92d101f17e4c1379b9fbfd8",
+                "url": "https://api.github.com/repos/FriendsOfTYPO3/visual_editor/zipball/5d1ac80446897104938177ffdcc4da91a8ac7cca",
+                "reference": "5d1ac80446897104938177ffdcc4da91a8ac7cca",
                 "shasum": ""
             },
             "require": {
@@ -1284,8 +1283,8 @@
                 "pluswerk/grumphp-config": "^10.2.7",
                 "saschaegerer/phpstan-typo3": "^2.1.1 || ^3.0.1",
                 "ssch/typo3-rector": "^3.14.1",
-                "typo3/cms-install": "^13.4.28 || ^14.3.0",
-                "typo3/cms-workspaces": "^13.4.28 || ^14.3.0",
+                "typo3/cms-install": "^13.4.28 || ^14.3.2",
+                "typo3/cms-workspaces": "^13.4.28 || ^14.3.2",
                 "typo3/testing-framework": "^9.5.0",
                 "typo3fluid/fluid": "^4.6.1 || ^5.3.1"
             },
@@ -1322,9 +1321,9 @@
             ],
             "support": {
                 "issues": "https://github.com/FriendsOfTYPO3/visual_editor/issues",
-                "source": "https://github.com/FriendsOfTYPO3/visual_editor/tree/1.6.0"
+                "source": "https://github.com/FriendsOfTYPO3/visual_editor/tree/1.6.1"
             },
-            "time": "2026-05-13T14:40:37+00:00"
+            "time": "2026-06-02T10:22:02+00:00"
         },
         {
             "name": "georgringer/context-edit-records",
@@ -2988,16 +2987,16 @@
         },
         {
             "name": "netresearch/nr-vault",
-            "version": "dev-main",
+            "version": "v0.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/t3x-nr-vault.git",
-                "reference": "6c2468a2000f2fe134455682f2c02442d1313ebf"
+                "reference": "9683d76408f3f7737429c7ce9f6f18e324909dc9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/t3x-nr-vault/zipball/6c2468a2000f2fe134455682f2c02442d1313ebf",
-                "reference": "6c2468a2000f2fe134455682f2c02442d1313ebf",
+                "url": "https://api.github.com/repos/dirnbauer/t3x-nr-vault/zipball/9683d76408f3f7737429c7ce9f6f18e324909dc9",
+                "reference": "9683d76408f3f7737429c7ce9f6f18e324909dc9",
                 "shasum": ""
             },
             "require": {
@@ -3006,18 +3005,15 @@
                 "php": "^8.2",
                 "psr/http-client": "^1.0",
                 "psr/http-factory": "^1.0",
-                "typo3/cms-backend": "^14.3",
-                "typo3/cms-core": "^14.3"
+                "typo3/cms-backend": "^13.4 || ^14.0",
+                "typo3/cms-core": "^13.4 || ^14.0"
             },
             "require-dev": {
                 "mikey179/vfsstream": "^1.6",
-                "netresearch/typo3-ci-workflows": "^1.3",
-                "phpstan/phpstan": "^2.1",
+                "netresearch/typo3-ci-workflows": "^1.0",
                 "roave/security-advisories": "dev-latest",
-                "saschaegerer/phpstan-typo3": "^3.0",
-                "typo3/cms-scheduler": "^14.3"
+                "typo3/cms-scheduler": "^13.4 || ^14.0"
             },
-            "default-branch": true,
             "type": "typo3-cms-extension",
             "extra": {
                 "typo3/cms": {
@@ -3069,7 +3065,7 @@
                     "infection --configuration=infection.json5 --threads=4"
                 ],
                 "ci:test:php:phpstan": [
-                    "phpstan analyse --configuration=Build/phpstan/phpstan.neon"
+                    "phpstan analyse"
                 ],
                 "ci:test:php:rector": [
                     "rector process --dry-run"
@@ -3123,7 +3119,7 @@
                 "issues": "https://github.com/netresearch/t3x-nr-vault/issues",
                 "source": "https://github.com/netresearch/t3x-nr-vault"
             },
-            "time": "2026-05-10T11:05:47+00:00"
+            "time": "2026-04-21T23:13:45+00:00"
         },
         {
             "name": "netresearch/t3-cowriter",
@@ -8782,16 +8778,16 @@
         },
         {
             "name": "t3g/blog",
-            "version": "dev-master",
+            "version": "v15.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/blog.git",
-                "reference": "fa3e6f2229bcda04fa2bf0c8df53e3a39b44a388"
+                "reference": "fa57f39ac2633acdee64f7bccafc2956d2ed1ad9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/blog/zipball/fa3e6f2229bcda04fa2bf0c8df53e3a39b44a388",
-                "reference": "fa3e6f2229bcda04fa2bf0c8df53e3a39b44a388",
+                "url": "https://api.github.com/repos/dirnbauer/blog/zipball/fa57f39ac2633acdee64f7bccafc2956d2ed1ad9",
+                "reference": "fa57f39ac2633acdee64f7bccafc2956d2ed1ad9",
                 "shasum": ""
             },
             "require": {
@@ -8835,15 +8831,14 @@
                 "bk2k/bootstrap-package": "Theme for TYPO3",
                 "typo3/cms-fluid-styled-content": "Content rendering definition based on fluid"
             },
-            "default-branch": true,
             "type": "typo3-cms-extension",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "14.3.x-dev"
+                    "dev-master": "15.0.x-dev"
                 },
                 "typo3/cms": {
                     "extension-key": "blog",
-                    "version": "14.3.0",
+                    "version": "15.0.1",
                     "web-dir": ".build/public",
                     "Package": {
                         "providesPackages": []
@@ -8913,7 +8908,7 @@
                 "source": "https://github.com/TYPO3GmbH/blog",
                 "slack": "https://typo3.slack.com/archives/t3g-ext-blog"
             },
-            "time": "2026-05-24T18:26:30+00:00"
+            "time": "2026-06-05T07:06:20+00:00"
         },
         {
             "name": "typo3/class-alias-loader",
@@ -11811,16 +11806,16 @@
         },
         {
             "name": "webconsulting/desiderio",
-            "version": "dev-main",
+            "version": "v2.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/desiderio.git",
-                "reference": "cd98b4a08aa41fa731e2462a4ca9107bfc5ea3f6"
+                "reference": "28fdf659fadfb078ae64bebc65cb3d6bed59d7c5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/desiderio/zipball/cd98b4a08aa41fa731e2462a4ca9107bfc5ea3f6",
-                "reference": "cd98b4a08aa41fa731e2462a4ca9107bfc5ea3f6",
+                "url": "https://api.github.com/repos/dirnbauer/desiderio/zipball/28fdf659fadfb078ae64bebc65cb3d6bed59d7c5",
+                "reference": "28fdf659fadfb078ae64bebc65cb3d6bed59d7c5",
                 "shasum": ""
             },
             "require": {
@@ -11852,11 +11847,14 @@
                 "studiomitte/friendlycaptcha": "Optional. Protects the bundled TYPO3 Form Framework and Powermail lab forms with Friendly Captcha when installed in the root project.",
                 "t3g/blog": "Optional. Drives the shadcn-styled t3g/blog overrides shipped under webconsulting/desiderio-blog."
             },
-            "default-branch": true,
             "type": "typo3-cms-extension",
             "extra": {
                 "typo3/cms": {
-                    "extension-key": "desiderio"
+                    "extension-key": "desiderio",
+                    "version": "2.5.0",
+                    "Package": {
+                        "providesPackages": []
+                    }
                 }
             },
             "autoload": {
@@ -11889,7 +11887,7 @@
                 }
             ],
             "description": "Desiderio — shadcn/ui-inspired Fluid 5 component library, 255 content elements, and theme layer for TYPO3 14",
-            "time": "2026-06-04T17:19:33+00:00"
+            "time": "2026-06-05T07:06:21+00:00"
         },
         {
             "name": "webconsulting/docx-editor",
@@ -11989,16 +11987,16 @@
         },
         {
             "name": "webconsulting/records-list-examples",
-            "version": "v1.0.2",
+            "version": "v1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/typo3-records-list-examples.git",
-                "reference": "839201153713c8edf71b9c5a57d2be6268724980"
+                "reference": "022f5b25a69bc8861dbc0c8fe7a86330564990a8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/typo3-records-list-examples/zipball/839201153713c8edf71b9c5a57d2be6268724980",
-                "reference": "839201153713c8edf71b9c5a57d2be6268724980",
+                "url": "https://api.github.com/repos/dirnbauer/typo3-records-list-examples/zipball/022f5b25a69bc8861dbc0c8fe7a86330564990a8",
+                "reference": "022f5b25a69bc8861dbc0c8fe7a86330564990a8",
                 "shasum": ""
             },
             "require": {
@@ -12018,7 +12016,7 @@
             "extra": {
                 "typo3/cms": {
                     "extension-key": "records_list_examples",
-                    "version": "1.0.2",
+                    "version": "1.1.0",
                     "Package": {
                         "providesPackages": []
                     }
@@ -12060,7 +12058,7 @@
                 "issues": "https://github.com/dirnbauer/typo3-records-list-examples/issues",
                 "source": "https://github.com/dirnbauer/typo3-records-list-examples"
             },
-            "time": "2026-05-25T12:48:00+00:00"
+            "time": "2026-06-05T06:51:27+00:00"
         },
         {
             "name": "webconsulting/records-list-types",
@@ -12137,19 +12135,19 @@
             "dist": {
                 "type": "path",
                 "url": "packages/site_package",
-                "reference": "59250bf3f801b5420fe044cf4be7da3e7daef5ee"
+                "reference": "e952584e6e455a9a547bbf84d41f137128a89ae5"
             },
             "require": {
-                "apache-solr-for-typo3/solr": "dev-main",
-                "friendsoftypo3/visual-editor": "^1.4",
+                "apache-solr-for-typo3/solr": "^14.0@alpha",
+                "friendsoftypo3/visual-editor": "^1.6",
                 "georgringer/news": "^14.0",
                 "php": "^8.2",
                 "studiomitte/solr-numbered-pagination": "dev-main",
-                "t3g/blog": "dev-master",
+                "t3g/blog": "^15.0",
                 "typo3/cms-adminpanel": "^14.3",
                 "typo3/cms-core": "^14.3",
                 "typo3/theme-camino": "^14.3",
-                "webconsulting/desiderio": "^2.0"
+                "webconsulting/desiderio": "^2.5"
             },
             "require-dev": {
                 "phpstan/phpstan": "^2.1",
@@ -14856,29 +14854,20 @@
             "version": "dev-main",
             "alias": "0.7.x-dev",
             "alias_normalized": "0.7.9999999.9999999-dev"
-        },
-        {
-            "package": "webconsulting/desiderio",
-            "version": "dev-main",
-            "alias": "2.2.1",
-            "alias_normalized": "2.2.1.0"
         }
     ],
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
     "stability-flags": {
-        "apache-solr-for-typo3/solr": 20,
+        "apache-solr-for-typo3/solr": 15,
         "hn/typo3-mcp-server": 20,
         "in2code/powermail": 20,
         "netresearch/nr-llm": 20,
         "netresearch/nr-mcp-agent": 20,
-        "netresearch/nr-vault": 20,
         "sgalinski/sg-apicore": 20,
         "studiomitte/friendlycaptcha": 20,
-        "studiomitte/solr-numbered-pagination": 20,
-        "t3g/blog": 20,
-        "webconsulting/desiderio": 20
+        "studiomitte/solr-numbered-pagination": 20
     },
-    "prefer-stable": false,
+    "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {},
     "platform-dev": {},
