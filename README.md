@@ -165,9 +165,9 @@ The project requires these TYPO3 packages directly:
 
 | Composer package | Constraint | Role in this lab |
 |---|---:|---|
-| `apache-solr-for-typo3/solr` | `dev-main` | Solr search integration. |
+| `apache-solr-for-typo3/solr` | `^14.0@alpha` | Solr search integration. |
 | `friendsoftypo3/tt-address` | `^10.0` | Address records and MCP-exposed address table. |
-| `friendsoftypo3/visual-editor` | `^1.4` | Frontend page editing. |
+| `friendsoftypo3/visual-editor` | `^1.6` | Frontend page editing. |
 | `georgringer/context-edit-records` | `^1.0` | Contextual backend record editing. |
 | `georgringer/news` | `^14.0` | News records and blog/news routes. |
 | `georgringer/numbered-pagination` | `^2.2` | Numbered pagination support. |
@@ -175,26 +175,26 @@ The project requires these TYPO3 packages directly:
 | `in2code/powermail` | `dev-typo3-v14` | Forms and Desiderio form demos. |
 | `netresearch/nr-llm` | `dev-main as 0.7.x-dev` | LLM integration building block. |
 | `netresearch/nr-mcp-agent` | `dev-main` | MCP agent integration. |
-| `netresearch/nr-vault` | `dev-main` | Vault/secret support for Netresearch integrations. |
+| `netresearch/nr-vault` | `^0.5` | Vault/secret support for Netresearch integrations. |
 | `netresearch/t3-cowriter` | `^3.1` | Cowriter RTE and Visual Editor support. |
 | `sgalinski/sg-apicore` | `dev-main` | TYPO3 API layer. |
 | `studiomitte/friendlycaptcha` | `^14.0@dev` | Friendly Captcha integration for form demos. |
 | `studiomitte/solr-numbered-pagination` | `dev-main` | Solr numbered pagination partials. |
 | `supseven/inline-page-module` | `^4.0` | Inline TYPO3 14 page module elements. |
-| `t3g/blog` | `dev-master` | Blog Site Sets and routes. |
+| `t3g/blog` | `^15.0` | Blog Site Sets and routes. |
 | `wapplersystems/multisite-belogin` | `^14.1` | `EXT:multisite_belogin`; cross-site/domain backend login so backend users can work in the frontend across domains. |
-| `webconsulting/agentation` | `^1.0` | Agent-oriented TYPO3 workflow experiments. |
+| `webconsulting/agentation` | `^1.1` | Agent-oriented TYPO3 workflow experiments. |
 | `webconsulting/api-capability-bridge` | `^1.0` | Capability policy bridge for APIs. |
-| `webconsulting/desiderio` | `dev-main as 2.2.1` | Desiderio rendering, templates, and presets. |
+| `webconsulting/desiderio` | `^2.5` | Desiderio rendering, templates, and presets. |
 | `webconsulting/docx-editor` | `^1.0` | DOCX editing extension for backend workflows. |
-| `webconsulting/records-list-examples` | `^1.0` | Demo data and examples for Records List Types. |
+| `webconsulting/records-list-examples` | `^1.1` | Demo data and examples for Records List Types. |
 | `webconsulting/records-list-types` | `^1.0` | Catalog, timeline, gallery, event, address book, and dashboard record lists. |
 | `webconsulting/site-package` | `^14.1` | Local site package with shared Site Sets and defaults. |
 | `webconsulting/typo3-capability-manifest` | `^1.0` | Capability manifest support. |
 | `webconsulting/typo3-workspace-overlay-patch` | `^1.0` | Workspace query overlay patch bundle. |
 | `webconsulting/typo3-x402-paywall` | `^1.0` | x402 paywall experiments. |
 | `webconsulting/webcon-easy-workspace` | `^1.0` | Workspace workflow helpers. |
-| `webconsulting/workos-auth` | `^1.0` | WorkOS authentication. |
+| `webconsulting/workos-auth` | `^1.1` | WorkOS authentication. |
 
 ### Site Set and Preset Dependencies
 
@@ -419,8 +419,13 @@ More app-specific documentation:
 
 ## Dependency Refreshes
 
-Several lab extensions are tracked from `dev-main` VCS repositories. After
-refreshing those package references, commit the resulting `composer.lock`
+Most lab extensions now use caret (`^x.y`) Composer constraints. A small set of
+TYPO3 14 integrations still track VCS branches because they have no matching
+semver tag yet: `hn/typo3-mcp-server`, `in2code/powermail`, `netresearch/nr-llm`
+(with a `0.7.x-dev` alias for dependency resolution), `netresearch/nr-mcp-agent`,
+`sgalinski/sg-apicore`, and `studiomitte/solr-numbered-pagination`.
+
+After refreshing package references, commit the resulting `composer.lock`
 changes so the TYPO3 lab stays reproducible across machines.
 
 Useful commands:

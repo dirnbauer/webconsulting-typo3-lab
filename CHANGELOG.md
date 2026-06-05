@@ -2,6 +2,22 @@
 
 All notable changes to Webconsulting TYPO3 Lab are documented in this file.
 
+## Unreleased
+
+### Changed
+
+- Switched most Composer constraints from `dev-main`/`dev-master` to caret
+  (`^x.y`) versioning where tagged releases exist.
+- Updated `webconsulting/desiderio` to `^2.5`, `t3g/blog` to `^15.0`,
+  `apache-solr-for-typo3/solr` to `^14.0@alpha`, `friendsoftypo3/visual-editor`
+  to `^1.6`, `netresearch/nr-vault` to `^0.5`, `webconsulting/agentation` to
+  `^1.1`, `webconsulting/records-list-examples` to `^1.1`, and
+  `webconsulting/workos-auth` to `^1.1`.
+- Added `minimum-stability: dev` with `prefer-stable: true` so alpha and VCS
+  integrations resolve cleanly while preferring tagged releases.
+- Aligned `packages/site_package/composer.json` dependency constraints with the
+  root project.
+
 ## v1.1.0 - 2026-06-05
 
 Minor release aligning documentation, release metadata, and site-package
