@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9335b7346260847cf1453afb17c6afb1",
+    "content-hash": "567a6601d2bc1097b050608d937c0683",
     "packages": [
         {
             "name": "apache-solr-for-typo3/solr",
@@ -11751,12 +11751,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/desiderio.git",
-                "reference": "3d6e2059eecada9779bd46e8f1ac1fc8f9690fad"
+                "reference": "cc349d3e045e63a89ba450585d3c3098ff8c1f37"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/desiderio/zipball/3d6e2059eecada9779bd46e8f1ac1fc8f9690fad",
-                "reference": "3d6e2059eecada9779bd46e8f1ac1fc8f9690fad",
+                "url": "https://api.github.com/repos/dirnbauer/desiderio/zipball/cc349d3e045e63a89ba450585d3c3098ff8c1f37",
+                "reference": "cc349d3e045e63a89ba450585d3c3098ff8c1f37",
                 "shasum": ""
             },
             "require": {
@@ -11778,6 +11778,7 @@
                 "phpstan/phpstan-strict-rules": "^2.0",
                 "phpunit/phpunit": "^11.5",
                 "saschaegerer/phpstan-typo3": "^3.0",
+                "t3g/blog": "^14.0",
                 "typo3/testing-framework": "^9.0"
             },
             "suggest": {
@@ -11829,7 +11830,7 @@
                 }
             ],
             "description": "Desiderio — shadcn/ui-inspired Fluid 5 component library, 255 content elements, and theme layer for TYPO3 14",
-            "time": "2026-06-05T16:08:59+00:00"
+            "time": "2026-06-05T17:18:10+00:00"
         },
         {
             "name": "webconsulting/docx-editor",
@@ -12005,16 +12006,16 @@
         },
         {
             "name": "webconsulting/records-list-types",
-            "version": "v1.0.2",
+            "version": "v1.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/typo3-records-list-types.git",
-                "reference": "e9d264e68c886c810c5d5cf9aea9012ebec1737b"
+                "reference": "d2f8b1de08f3c4ac6ce466dfc80ab30a028d8bd9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/typo3-records-list-types/zipball/e9d264e68c886c810c5d5cf9aea9012ebec1737b",
-                "reference": "e9d264e68c886c810c5d5cf9aea9012ebec1737b",
+                "url": "https://api.github.com/repos/dirnbauer/typo3-records-list-types/zipball/d2f8b1de08f3c4ac6ce466dfc80ab30a028d8bd9",
+                "reference": "d2f8b1de08f3c4ac6ce466dfc80ab30a028d8bd9",
                 "shasum": ""
             },
             "require": {
@@ -12037,7 +12038,7 @@
             "extra": {
                 "typo3/cms": {
                     "extension-key": "records_list_types",
-                    "version": "1.0.2",
+                    "version": "1.0.3",
                     "Package": {
                         "providesPackages": []
                     },
@@ -12070,7 +12071,7 @@
                 "issues": "https://github.com/dirnbauer/typo3-records-list-types/issues",
                 "source": "https://github.com/dirnbauer/typo3-records-list-types"
             },
-            "time": "2026-05-25T12:48:00+00:00"
+            "time": "2026-06-05T17:35:29+00:00"
         },
         {
             "name": "webconsulting/site-package",
