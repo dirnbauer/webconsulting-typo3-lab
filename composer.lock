@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e70992ae2fb53c57f4ee75bc1270a4c4",
+    "content-hash": "b59f0535336d219466a5b7cab85d0e9e",
     "packages": [
         {
             "name": "apache-solr-for-typo3/solr",
@@ -12133,11 +12133,11 @@
         },
         {
             "name": "webconsulting/site-package",
-            "version": "14.0.0",
+            "version": "14.1.0",
             "dist": {
                 "type": "path",
                 "url": "packages/site_package",
-                "reference": "c4f281a46fb9b85da3326c67672091ce5b4e2311"
+                "reference": "59250bf3f801b5420fe044cf4be7da3e7daef5ee"
             },
             "require": {
                 "apache-solr-for-typo3/solr": "dev-main",
@@ -12160,7 +12160,7 @@
             "extra": {
                 "typo3/cms": {
                     "extension-key": "site_package",
-                    "version": "14.0.0",
+                    "version": "14.1.0",
                     "Package": {
                         "providesPackages": []
                     }
