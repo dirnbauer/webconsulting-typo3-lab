@@ -11747,16 +11747,16 @@
         },
         {
             "name": "webconsulting/desiderio",
-            "version": "v2.5.0",
+            "version": "v2.5.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/desiderio.git",
-                "reference": "28fdf659fadfb078ae64bebc65cb3d6bed59d7c5"
+                "reference": "a73478a0808004066dbb95dc78bda9e5473c3f2d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/desiderio/zipball/28fdf659fadfb078ae64bebc65cb3d6bed59d7c5",
-                "reference": "28fdf659fadfb078ae64bebc65cb3d6bed59d7c5",
+                "url": "https://api.github.com/repos/dirnbauer/desiderio/zipball/a73478a0808004066dbb95dc78bda9e5473c3f2d",
+                "reference": "a73478a0808004066dbb95dc78bda9e5473c3f2d",
                 "shasum": ""
             },
             "require": {
@@ -11792,7 +11792,7 @@
             "extra": {
                 "typo3/cms": {
                     "extension-key": "desiderio",
-                    "version": "2.5.0",
+                    "version": "2.5.1",
                     "Package": {
                         "providesPackages": []
                     }
@@ -11828,7 +11828,7 @@
                 }
             ],
             "description": "Desiderio — shadcn/ui-inspired Fluid 5 component library, 255 content elements, and theme layer for TYPO3 14",
-            "time": "2026-06-05T07:06:21+00:00"
+            "time": "2026-06-05T09:17:55+00:00"
         },
         {
             "name": "webconsulting/docx-editor",
@@ -12975,11 +12975,11 @@
         },
         {
             "name": "phpstan/phpstan",
-            "version": "2.2.1",
+            "version": "2.2.2",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/dea9c8f2d25cc849391042b71e429c1a4bf82660",
-                "reference": "dea9c8f2d25cc849391042b71e429c1a4bf82660",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/e5cc34d491a90e79c216d824f60fe21fd4d93bd6",
+                "reference": "e5cc34d491a90e79c216d824f60fe21fd4d93bd6",
                 "shasum": ""
             },
             "require": {
@@ -13035,7 +13035,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2026-05-28T14:44:12+00:00"
+            "time": "2026-06-05T09:00:01+00:00"
         },
         {
             "name": "phpunit/php-code-coverage",
