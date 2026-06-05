@@ -7,7 +7,6 @@
   "prefer-stable": true,
   "config": {
     "allow-plugins": {
-      "cweagans/composer-patches": true,
       "php-http/discovery": true,
       "typo3/class-alias-loader": true,
       "typo3/cms-composer-installers": true
@@ -186,18 +185,9 @@
     "webconsulting/workos-auth": "^1.1"
   },
   "require-dev": {
-    "cweagans/composer-patches": "^2.0",
     "phpstan/phpstan": "^2.1",
     "phpunit/phpunit": "^11.5",
     "saschaegerer/phpstan-typo3": "^3.0.1",
     "typo3/testing-framework": "^9.5"
-  },
-  "extra": {
-    "composer-exit-on-patch-failure": true,
-    "patches": {
-      "friendsoftypo3/visual-editor": {
-        "Handle non-save edit-mode POST requests without unauthorized errors": "patches/friendsoftypo3-visual-editor-edit-mode-post-content-type.patch"
-      }
-    }
   }
 }
