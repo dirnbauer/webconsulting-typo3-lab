@@ -6,6 +6,12 @@ All notable changes to Webconsulting TYPO3 Lab are documented in this file.
 
 ### Changed
 
+- Documented that all Desiderio lab sites must keep the shadcn/ui page templates
+  from `webconsulting/desiderio-shadcnui-templates`, supplied through
+  `webconsulting/desiderio-preset-corporate` or
+  `webconsulting/desiderio-blog-standalone`.
+
+
 - Switched most Composer constraints from `dev-main`/`dev-master` to caret
   (`^x.y`) versioning where tagged releases exist.
 - Updated `webconsulting/desiderio` to `^2.5`, `t3g/blog` to `^15.0`,

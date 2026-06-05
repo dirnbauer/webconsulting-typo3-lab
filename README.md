@@ -49,6 +49,13 @@ and `packages/visual_editor_defaults` extensions.
 Desiderio corporate, content-element, Powermail, and news presets come from
 `webconsulting/desiderio` and are attached directly in site configuration.
 
+All Desiderio demo sites in this lab must render through the provided shadcn/ui
+page templates from `webconsulting/desiderio-shadcnui-templates`. Do not swap
+in generic Fluid Styled Content or legacy Desiderio shells for these sites. The
+Site Set is pulled in transitively by `webconsulting/desiderio-preset-corporate`
+and `webconsulting/desiderio-blog-standalone`; site configs should not repeat it
+unless you are composing a custom Desiderio stack by hand.
+
 ### Configured Demo Sites
 
 | Site config | Local URL | Root page | Languages | Dependencies |
@@ -86,7 +93,7 @@ All local URLs use `https://webconsulting-typo3-lab.ddev.site`.
 |---|---|
 | News publishing | `georgringer/news` with route enhancers for list, page, category, tag, and detail routes in `config/sites/blog/config.yaml`. |
 | Blog rendering | `t3g/blog` with standalone and Bootstrap Site Sets. |
-| Desiderio rendering | `webconsulting/desiderio`, Desiderio corporate presets, Desiderio content elements, Desiderio Powermail integration, and Desiderio template paths in the site package. |
+| Desiderio rendering | `webconsulting/desiderio`, shadcn/ui page templates via `webconsulting/desiderio-shadcnui-templates`, Desiderio corporate presets, Desiderio content elements, Desiderio Powermail integration, and Desiderio partial paths in the site package. |
 | Camino rendering | `typo3/theme-camino` through `webconsulting/site-package-camino`. |
 | Search | `apache-solr-for-typo3/solr`, `studiomitte/solr-numbered-pagination`, `georgringer/numbered-pagination`, and per-language Solr cores in site configs. |
 | Forms | `in2code/powermail`, including Desiderio Powermail usage for the TYPO3Camp Vienna site. |
@@ -165,7 +172,7 @@ The project requires these TYPO3 packages directly:
 
 | Composer package | Constraint | Role in this lab |
 |---|---:|---|
-| `apache-solr-for-typo3/solr` | `^14.0@alpha` | Solr search integration. |
+| `apache-solr-for-typo3/solr` | `^14.0@beta` | Solr search integration from [TYPO3-Solr/ext-solr](https://github.com/TYPO3-Solr/ext-solr). |
 | `friendsoftypo3/tt-address` | `^10.0` | Address records and MCP-exposed address table. |
 | `friendsoftypo3/visual-editor` | `^1.6` | Frontend page editing. |
 | `georgringer/context-edit-records` | `^1.0` | Contextual backend record editing. |
@@ -205,6 +212,7 @@ even when they are not listed as root Composer package names.
 | Site Set dependency | Used by |
 |---|---|
 | `webconsulting/solr-defaults` | `webconsulting/site-package-search` |
+| `webconsulting/desiderio-shadcnui-templates` | `webconsulting/desiderio-preset-corporate`, `webconsulting/desiderio-blog-standalone` |
 | `webconsulting/desiderio-blog-standalone` | `webconsulting/site-package-blog` |
 | `blog/bootstrap-53` | `webconsulting/site-package-blog-bootstrap` |
 | `webconsulting/desiderio-preset-corporate` | Desiderio demo sites in `config/sites/` |

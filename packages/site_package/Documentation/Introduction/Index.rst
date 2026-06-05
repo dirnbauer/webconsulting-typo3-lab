@@ -29,6 +29,11 @@ Desiderio corporate, content-element, Powermail, and news presets are supplied
 by ``webconsulting/desiderio`` and are attached directly in site configuration.
 This package does not ship additional Desiderio wrapper Site Sets.
 
+All Desiderio demo sites in the lab must render through the provided shadcn/ui
+page templates from ``webconsulting/desiderio-shadcnui-templates``. The Site
+Set is pulled in by ``webconsulting/desiderio-preset-corporate`` and
+``webconsulting/desiderio-blog-standalone``.
+
 Thanks
 ======
 

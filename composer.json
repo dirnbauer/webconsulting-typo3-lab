@@ -46,10 +46,6 @@
     },
     {
       "type": "vcs",
-      "url": "https://github.com/dirnbauer/ext-solr.git"
-    },
-    {
-      "type": "vcs",
       "url": "https://github.com/dirnbauer/solr_numbered_pagination.git"
     },
     {
@@ -128,7 +124,7 @@
     }
   ],
   "require": {
-    "apache-solr-for-typo3/solr": "^14.0@alpha",
+    "apache-solr-for-typo3/solr": "^14.0@beta",
     "friendsoftypo3/tt-address": "^10.0",
     "friendsoftypo3/visual-editor": "^1.6",
     "georgringer/context-edit-records": "^1.0",

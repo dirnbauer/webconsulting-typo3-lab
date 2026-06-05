@@ -76,6 +76,22 @@ The current lab site configurations use the package as follows:
         - ``webconsulting/site-package-search``
         - ``webconsulting/desiderio-preset-corporate``
 
+Desiderio shadcn/ui templates
+=============================
+
+Desiderio demo sites must use the shadcn/ui page template stack from
+``webconsulting/desiderio-shadcnui-templates``. In this lab, that Site Set is
+always included transitively through one of these dependencies:
+
+* ``webconsulting/desiderio-preset-corporate`` for corporate and campaign sites
+* ``webconsulting/desiderio-blog-standalone`` for Blog demo sites through
+  ``webconsulting/site-package-blog``
+
+Per-site shadcn style tokens such as ``desiderio.shadcn.preset``,
+``desiderio.shadcn.style``, and ``desiderio.shadcn.iconLibrary`` live in the
+relevant :file:`config/sites/*/settings.yaml` files and customize the provided
+template system. They do not replace the shadcn/ui template Site Set.
+
 Related Desiderio-only sites:
 
 ..  list-table::

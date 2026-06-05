@@ -46,6 +46,13 @@ Desiderio corporate, content-element, Powermail, and news presets are provided
 by `webconsulting/desiderio` and are attached directly in site configuration
 rather than through additional wrapper Site Sets in this package.
 
+All Desiderio-facing lab sites must keep the shadcn/ui page templates from
+`webconsulting/desiderio-shadcnui-templates`. In this project that Site Set is
+included through `webconsulting/desiderio-preset-corporate` or
+`webconsulting/desiderio-blog-standalone`. The site package only adds shared
+EXT:news and EXT:blog partial paths; it does not replace the shadcn/ui template
+stack.
+
 ## Feature Inventory
 
 | Area | Implementation |
