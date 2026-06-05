@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "db60a9c24988ff842951e3e4dc822acb",
+    "content-hash": "190680b9eac8c25d9a2bd8a015c7c7f1",
     "packages": [
         {
             "name": "apache-solr-for-typo3/solr",
@@ -11747,16 +11747,16 @@
         },
         {
             "name": "webconsulting/desiderio",
-            "version": "v2.5.1",
+            "version": "dev-main",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/desiderio.git",
-                "reference": "a73478a0808004066dbb95dc78bda9e5473c3f2d"
+                "reference": "28b54ab91dd5aa102cbda78c0740808809c3246f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/desiderio/zipball/a73478a0808004066dbb95dc78bda9e5473c3f2d",
-                "reference": "a73478a0808004066dbb95dc78bda9e5473c3f2d",
+                "url": "https://api.github.com/repos/dirnbauer/desiderio/zipball/28b54ab91dd5aa102cbda78c0740808809c3246f",
+                "reference": "28b54ab91dd5aa102cbda78c0740808809c3246f",
                 "shasum": ""
             },
             "require": {
@@ -11788,6 +11788,7 @@
                 "studiomitte/friendlycaptcha": "Optional. Protects the bundled TYPO3 Form Framework and Powermail lab forms with Friendly Captcha when installed in the root project.",
                 "t3g/blog": "Optional. Drives the shadcn-styled t3g/blog overrides shipped under webconsulting/desiderio-blog."
             },
+            "default-branch": true,
             "type": "typo3-cms-extension",
             "extra": {
                 "typo3/cms": {
@@ -11828,7 +11829,7 @@
                 }
             ],
             "description": "Desiderio — shadcn/ui-inspired Fluid 5 component library, 255 content elements, and theme layer for TYPO3 14",
-            "time": "2026-06-05T09:17:55+00:00"
+            "time": "2026-06-05T15:05:13+00:00"
         },
         {
             "name": "webconsulting/docx-editor",
@@ -14795,6 +14796,12 @@
             "version": "dev-main",
             "alias": "0.7.x-dev",
             "alias_normalized": "0.7.9999999.9999999-dev"
+        },
+        {
+            "package": "webconsulting/desiderio",
+            "version": "dev-main",
+            "alias": "2.5.99",
+            "alias_normalized": "2.5.99.0"
         }
     ],
     "minimum-stability": "dev",
@@ -14806,7 +14813,8 @@
         "netresearch/nr-mcp-agent": 20,
         "sgalinski/sg-apicore": 20,
         "studiomitte/friendlycaptcha": 20,
-        "studiomitte/solr-numbered-pagination": 20
+        "studiomitte/solr-numbered-pagination": 20,
+        "webconsulting/desiderio": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,
