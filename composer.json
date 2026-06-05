@@ -7,6 +7,7 @@
   "prefer-stable": true,
   "config": {
     "allow-plugins": {
+      "cweagans/composer-patches": true,
       "php-http/discovery": true,
       "typo3/class-alias-loader": true,
       "typo3/cms-composer-installers": true
@@ -185,9 +186,18 @@
     "webconsulting/workos-auth": "^1.1"
   },
   "require-dev": {
+    "cweagans/composer-patches": "^2.0",
     "phpstan/phpstan": "^2.1",
     "phpunit/phpunit": "^11.5",
     "saschaegerer/phpstan-typo3": "^3.0.1",
     "typo3/testing-framework": "^9.5"
+  },
+  "extra": {
+    "composer-exit-on-patch-failure": true,
+    "patches": {
+      "friendsoftypo3/visual-editor": {
+        "Fix preview URL generation for workspace-only pages (NEW_PLACEHOLDER)": "patches/friendsoftypo3-visual-editor-fix-workspace-new-page-preview.patch"
+      }
+    }
   }
 }

@@ -1,0 +1,17 @@
+{
+    "_hash": "060468f20ba9f8937980a206f5998306993c53a1e47c3b1ae80f71ed97cf01e7",
+    "patches": {
+        "friendsoftypo3/visual-editor": [
+            {
+                "package": "friendsoftypo3/visual-editor",
+                "description": "Fix preview URL generation for workspace-only pages (NEW_PLACEHOLDER)",
+                "url": "patches/friendsoftypo3-visual-editor-fix-workspace-new-page-preview.patch",
+                "sha256": "700f24fdeecfb9f207092f1b3ee84110e1be019ba94520269346d9979975f53c",
+                "depth": 1,
+                "extra": {
+                    "provenance": "root"
+                }
+            }
+        ]
+    }
+}
