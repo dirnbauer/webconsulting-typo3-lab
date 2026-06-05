@@ -2,8 +2,6 @@
 
 Native-feeling desktop client for editing TYPO3 EXT:news records through `sg_apicore`. Built with Next.js + Electron, distributed as a macOS universal app and a Windows x64 installer.
 
-![Studio screenshot placeholder — capture from running app](./build/icon.png)
-
 ## Highlights
 
 - **Two-column workspace** — records list on the left, TCA-driven form editor on the right. The records column is drag-resizable (persisted).

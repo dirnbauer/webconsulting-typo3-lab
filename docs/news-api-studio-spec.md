@@ -10,8 +10,8 @@ Build a shared Next.js and Electron editorial workstation for TYPO3 EXT:news. Th
 - Electron adds only thin desktop enhancements: native menu, Finder drag/drop upload, native file picker, local draft recovery, installer packaging, and a future auto-update path.
 - The first version is online-only with local unsaved-change recovery.
 - UI language follows TYPO3/backend-user settings.
-- Visual design uses webconsulting branding: restrained enterprise UI, Hanken Grotesk, primary `#1b7a95`, accent `#66c4e1`, strong neutral surfaces, and the webconsulting logo.
-- AI image generation is used for visual mockup/moodboard only. The shipped app is implemented with real shadcn/ui, Tailwind, and Tiptap components.
+- Visual design uses webconsulting branding: restrained enterprise UI, Hanken Grotesk, primary `#1b7a95`, accent `#66c4e1`, and strong neutral surfaces.
+- The shipped app is implemented with real shadcn/ui, Tailwind, and Tiptap components.
 
 ## Authentication And Token Ownership
 
