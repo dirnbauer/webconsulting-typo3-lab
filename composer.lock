@@ -2117,16 +2117,16 @@
         },
         {
             "name": "logiscape/mcp-sdk-php",
-            "version": "v1.7.2",
+            "version": "v1.7.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/logiscape/mcp-sdk-php.git",
-                "reference": "a79f95fa42f647000010303a1c06f62cdd7ee620"
+                "reference": "aae7343fcf2e9394c67cf0323bba2fa0fad62927"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/logiscape/mcp-sdk-php/zipball/a79f95fa42f647000010303a1c06f62cdd7ee620",
-                "reference": "a79f95fa42f647000010303a1c06f62cdd7ee620",
+                "url": "https://api.github.com/repos/logiscape/mcp-sdk-php/zipball/aae7343fcf2e9394c67cf0323bba2fa0fad62927",
+                "reference": "aae7343fcf2e9394c67cf0323bba2fa0fad62927",
                 "shasum": ""
             },
             "require": {
@@ -2156,9 +2156,9 @@
             "description": "Model Context Protocol SDK for PHP",
             "support": {
                 "issues": "https://github.com/logiscape/mcp-sdk-php/issues",
-                "source": "https://github.com/logiscape/mcp-sdk-php/tree/v1.7.2"
+                "source": "https://github.com/logiscape/mcp-sdk-php/tree/v1.7.3"
             },
-            "time": "2026-05-31T07:47:37+00:00"
+            "time": "2026-06-05T22:45:18+00:00"
         },
         {
             "name": "lolli42/finediff",
@@ -8655,16 +8655,16 @@
         },
         {
             "name": "t3g/blog",
-            "version": "v15.0.1",
+            "version": "v15.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/blog.git",
-                "reference": "fa57f39ac2633acdee64f7bccafc2956d2ed1ad9"
+                "reference": "c45827a74da763ca05a0965848ed55c7d78e498e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/blog/zipball/fa57f39ac2633acdee64f7bccafc2956d2ed1ad9",
-                "reference": "fa57f39ac2633acdee64f7bccafc2956d2ed1ad9",
+                "url": "https://api.github.com/repos/dirnbauer/blog/zipball/c45827a74da763ca05a0965848ed55c7d78e498e",
+                "reference": "c45827a74da763ca05a0965848ed55c7d78e498e",
                 "shasum": ""
             },
             "require": {
@@ -8715,7 +8715,7 @@
                 },
                 "typo3/cms": {
                     "extension-key": "blog",
-                    "version": "15.0.1",
+                    "version": "15.0.2",
                     "web-dir": ".build/public",
                     "Package": {
                         "providesPackages": []
@@ -8785,7 +8785,7 @@
                 "source": "https://github.com/TYPO3GmbH/blog",
                 "slack": "https://typo3.slack.com/archives/t3g-ext-blog"
             },
-            "time": "2026-06-05T07:06:20+00:00"
+            "time": "2026-06-06T19:06:28+00:00"
         },
         {
             "name": "typo3/class-alias-loader",
@@ -11687,12 +11687,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/desiderio.git",
-                "reference": "f00d8287fff1a743a40773b8ad97185ded91837f"
+                "reference": "913c2cdcfe2751cd4857f44ce72985ad6aa0e94f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/desiderio/zipball/f00d8287fff1a743a40773b8ad97185ded91837f",
-                "reference": "f00d8287fff1a743a40773b8ad97185ded91837f",
+                "url": "https://api.github.com/repos/dirnbauer/desiderio/zipball/913c2cdcfe2751cd4857f44ce72985ad6aa0e94f",
+                "reference": "913c2cdcfe2751cd4857f44ce72985ad6aa0e94f",
                 "shasum": ""
             },
             "require": {
@@ -11730,7 +11730,7 @@
             "extra": {
                 "typo3/cms": {
                     "extension-key": "desiderio",
-                    "version": "2.5.1",
+                    "version": "2.6.0",
                     "Package": {
                         "providesPackages": []
                     }
@@ -11766,7 +11766,7 @@
                 }
             ],
             "description": "Desiderio — shadcn/ui-inspired Fluid 5 component library, 255 content elements, and theme layer for TYPO3 14",
-            "time": "2026-06-05T21:21:27+00:00"
+            "time": "2026-06-06T18:40:37+00:00"
         },
         {
             "name": "webconsulting/docx-editor",
@@ -11867,16 +11867,16 @@
         },
         {
             "name": "webconsulting/records-list-examples",
-            "version": "v1.1.0",
+            "version": "v1.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/typo3-records-list-examples.git",
-                "reference": "022f5b25a69bc8861dbc0c8fe7a86330564990a8"
+                "reference": "f7868b063ed0981b7e35459aaf5dc5234456daaa"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/typo3-records-list-examples/zipball/022f5b25a69bc8861dbc0c8fe7a86330564990a8",
-                "reference": "022f5b25a69bc8861dbc0c8fe7a86330564990a8",
+                "url": "https://api.github.com/repos/dirnbauer/typo3-records-list-examples/zipball/f7868b063ed0981b7e35459aaf5dc5234456daaa",
+                "reference": "f7868b063ed0981b7e35459aaf5dc5234456daaa",
                 "shasum": ""
             },
             "require": {
@@ -11896,7 +11896,7 @@
             "extra": {
                 "typo3/cms": {
                     "extension-key": "records_list_examples",
-                    "version": "1.1.0",
+                    "version": "1.2.0",
                     "Package": {
                         "providesPackages": []
                     }
@@ -11938,7 +11938,7 @@
                 "issues": "https://github.com/dirnbauer/typo3-records-list-examples/issues",
                 "source": "https://github.com/dirnbauer/typo3-records-list-examples"
             },
-            "time": "2026-06-05T06:51:27+00:00"
+            "time": "2026-06-06T18:40:46+00:00"
         },
         {
             "name": "webconsulting/records-list-types",
@@ -12242,16 +12242,16 @@
         },
         {
             "name": "webconsulting/webcon-easy-workspace",
-            "version": "v1.0.4",
+            "version": "v1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/typo3-webcon-easy-workspace.git",
-                "reference": "5059035dce8cfcb1c66060e27eb364dd9dc9dd91"
+                "reference": "94465c7f7ecf22c74cf2961b3f5ba1fca7a1f870"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/typo3-webcon-easy-workspace/zipball/5059035dce8cfcb1c66060e27eb364dd9dc9dd91",
-                "reference": "5059035dce8cfcb1c66060e27eb364dd9dc9dd91",
+                "url": "https://api.github.com/repos/dirnbauer/typo3-webcon-easy-workspace/zipball/94465c7f7ecf22c74cf2961b3f5ba1fca7a1f870",
+                "reference": "94465c7f7ecf22c74cf2961b3f5ba1fca7a1f870",
                 "shasum": ""
             },
             "require": {
@@ -12275,7 +12275,7 @@
             "extra": {
                 "typo3/cms": {
                     "extension-key": "webcon_easy_workspace",
-                    "version": "1.0.3",
+                    "version": "1.1.0",
                     "Package": {
                         "providesPackages": []
                     }
@@ -12321,7 +12321,7 @@
                 "issues": "https://github.com/dirnbauer/typo3-webcon-easy-workspace/issues",
                 "source": "https://github.com/dirnbauer/typo3-webcon-easy-workspace"
             },
-            "time": "2026-05-25T17:01:25+00:00"
+            "time": "2026-06-06T18:40:05+00:00"
         },
         {
             "name": "webconsulting/workos-auth",
