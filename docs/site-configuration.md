@@ -49,6 +49,23 @@ the site level rather than through wrapper Site Sets in `packages/site_package/`
 | `14lts` | `config/sites/14lts` | `/14/` | `69` | English |
 | `typo3-blog` | `config/sites/typo3-blog` | `/typo3-blog/` | `390` | English |
 | `mtug-camp-munich-2026` | `config/sites/mtug-camp-munich-2026` | `/mtug-camp-munich-2026/` | `933` | German, English, Chinese, Hungarian |
+
+### MTUG Camp Munich page tree (Powermail)
+
+| Page UID | Role | Slug (DE) | Notes |
+|---:|---|---|---|
+| `933` | Site root | `/` | `rootPageId` for `mtug-camp-munich-2026` |
+| `934` | Ticket form (frontend) | `/ticket-anmeldung` | `powermail_pi1` content element; renders the form |
+| `940` | Powermail storage (sysfolder) | `/powermail-daten` | `doktype=254`; form `31` and field records |
+| `941` | Thank-you page (hidden in nav) | `/danke` | Redirect target after successful submission |
+
+Powermail forms for translated site languages live in the same storage folder
+(`940`): form `33` (EN), `34` (ZH), `35` (HU). Matching thank-you pages are
+`949`, `970`, and `971`.
+
+Local ticket URL:
+
+`https://webconsulting-typo3-lab.ddev.site/mtug-camp-munich-2026/ticket-anmeldung`
 | `desiderio-corporate-starter` | `config/sites/desiderio-corporate-starter` | `/desiderio-corporate-starter/` | `740` | English |
 | `typo3-vienna-camp-2026` | `config/sites/typo3-vienna-camp-2026` | `/typo3-vienna-camp-2026/` | `505` | English, German, Chinese, Hungarian |
 
@@ -202,6 +219,7 @@ current environment.
 | Desiderio corporate starter | `https://webconsulting-typo3-lab.ddev.site/desiderio-corporate-starter/` |
 | TYPO3Camp Vienna | `https://webconsulting-typo3-lab.ddev.site/typo3-vienna-camp-2026/` |
 | MTUG Camp Munich | `https://webconsulting-typo3-lab.ddev.site/mtug-camp-munich-2026/` |
+| MTUG Camp Munich tickets | `https://webconsulting-typo3-lab.ddev.site/mtug-camp-munich-2026/ticket-anmeldung` |
 
 ## Verification Checklist
 
@@ -216,7 +234,7 @@ ddev exec vendor/bin/typo3 cache:flush
 Frontend smoke check (from repository root):
 
 ```bash
-for url in / /14/ /blog/ /typo3-blog/ /desiderio-corporate-starter/ /typo3-vienna-camp-2026/ /mtug-camp-munich-2026/; do
+for url in / /14/ /blog/ /typo3-blog/ /desiderio-corporate-starter/ /typo3-vienna-camp-2026/ /mtug-camp-munich-2026/ /mtug-camp-munich-2026/ticket-anmeldung; do
   ddev exec curl -k -s -o /dev/null -w "$url %{http_code}\n" "https://webconsulting-typo3-lab.ddev.site$url"
 done
 ```

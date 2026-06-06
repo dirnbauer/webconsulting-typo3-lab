@@ -99,7 +99,7 @@ ddev typo3 lint:yaml config/sites
 ddev typo3 site:list
 ddev typo3 cache:flush
 
-for url in / /blog/ /typo3-blog/ /mtug-camp-munich-2026/; do
+for url in / /blog/ /typo3-blog/ /mtug-camp-munich-2026/ /mtug-camp-munich-2026/ticket-anmeldung; do
   ddev exec curl -k -s -o /dev/null -w "$url %{http_code}\n" \
     "https://webconsulting-typo3-lab.ddev.site$url"
 done

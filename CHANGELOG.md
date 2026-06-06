@@ -4,6 +4,23 @@ All notable changes to Webconsulting TYPO3 Lab are documented in this file.
 
 ## Unreleased
 
+### Added
+
+- Wired the MTUG Camp Munich ticket registration Powermail form on page `934`
+  (`Ticket-Anmeldung`) to the form records stored in sysfolder `940`
+  (`Powermail Daten`), with thank-you redirects to page `941` and translated
+  form variants for English, Chinese, and Hungarian.
+- Refreshed `dump.sql.gz` after the Powermail plugin publish and database
+  cleanup.
+
+### Changed
+
+- Pinned `webconsulting/desiderio` to `^2.6` (`v2.6.0`) instead of
+  `dev-main as 2.5.99`.
+- Documented the MTUG ticket form page tree and ticket URL in
+  [docs/site-configuration.md](docs/site-configuration.md) and the root README
+  smoke checks.
+
 ## v1.3.0 - 2026-06-06
 
 Minor release documenting curt.at-hosted fileadmin bootstrap and tightening DDEV

@@ -382,6 +382,7 @@ DDEV exposes the project at:
 | Desiderio corporate starter | `https://webconsulting-typo3-lab.ddev.site/desiderio-corporate-starter/` |
 | TYPO3Camp Vienna demo | `https://webconsulting-typo3-lab.ddev.site/typo3-vienna-camp-2026/` |
 | MTUG Camp Munich demo | `https://webconsulting-typo3-lab.ddev.site/mtug-camp-munich-2026/` |
+| MTUG Camp Munich tickets | `https://webconsulting-typo3-lab.ddev.site/mtug-camp-munich-2026/ticket-anmeldung` |
 
 ### phpMyAdmin
 
@@ -490,7 +491,7 @@ reflection and framework rules.
 Basic frontend smoke check:
 
 ```bash
-for url in / /14/ /blog/ /typo3-blog/ /desiderio-corporate-starter/ /typo3-vienna-camp-2026/ /mtug-camp-munich-2026/; do
+for url in / /14/ /blog/ /typo3-blog/ /desiderio-corporate-starter/ /typo3-vienna-camp-2026/ /mtug-camp-munich-2026/ /mtug-camp-munich-2026/ticket-anmeldung; do
   ddev exec curl -k -s -o /dev/null -w "$url %{http_code}\n" "https://webconsulting-typo3-lab.ddev.site$url"
 done
 ```
