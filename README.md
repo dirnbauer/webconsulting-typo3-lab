@@ -191,7 +191,7 @@ The project requires these TYPO3 packages directly:
 | `wapplersystems/multisite-belogin` | `^14.1` | `EXT:multisite_belogin`; cross-site/domain backend login so backend users can work in the frontend across domains. |
 | `webconsulting/agentation` | `^1.1` | Agent-oriented TYPO3 workflow experiments. |
 | `webconsulting/api-capability-bridge` | `^1.0` | Capability policy bridge for APIs. |
-| `webconsulting/desiderio` | `^2.5` | Desiderio rendering, templates, and presets. |
+| `webconsulting/desiderio` | `^2.6` | Desiderio rendering, templates, and presets. |
 | `webconsulting/docx-editor` | `dev-main` | DOCX editing extension for backend workflows (tracks upstream main). |
 | `webconsulting/records-list-examples` | `^1.1` | Demo data and examples for Records List Types. |
 | `webconsulting/records-list-types` | `^1.0` | Catalog, timeline, gallery, event, address book, and dashboard record lists. |

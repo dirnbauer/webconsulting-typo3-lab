@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d19131ad9eb5fdeb8ea5627aa6bbf3a6",
+    "content-hash": "3c92b661b8ec58c68a009e1cf5fa6b31",
     "packages": [
         {
             "name": "apache-solr-for-typo3/solr",
@@ -11683,7 +11683,7 @@
         },
         {
             "name": "webconsulting/desiderio",
-            "version": "dev-main",
+            "version": "v2.6.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/desiderio.git",
@@ -11725,7 +11725,6 @@
                 "studiomitte/friendlycaptcha": "Optional. Protects the bundled TYPO3 Form Framework and Powermail lab forms with Friendly Captcha when installed in the root project.",
                 "t3g/blog": "Optional. Drives the shadcn-styled t3g/blog overrides shipped under webconsulting/desiderio-blog."
             },
-            "default-branch": true,
             "type": "typo3-cms-extension",
             "extra": {
                 "typo3/cms": {
@@ -14804,12 +14803,6 @@
             "version": "dev-main",
             "alias": "0.7.x-dev",
             "alias_normalized": "0.7.9999999.9999999-dev"
-        },
-        {
-            "package": "webconsulting/desiderio",
-            "version": "dev-main",
-            "alias": "2.5.99",
-            "alias_normalized": "2.5.99.0"
         }
     ],
     "minimum-stability": "dev",
@@ -14822,7 +14815,6 @@
         "sgalinski/sg-apicore": 20,
         "studiomitte/friendlycaptcha": 20,
         "studiomitte/solr-numbered-pagination": 20,
-        "webconsulting/desiderio": 20,
         "webconsulting/docx-editor": 20
     },
     "prefer-stable": true,
