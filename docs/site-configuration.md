@@ -75,6 +75,41 @@ the real configuration exists.
 
 ## Troubleshooting
 
+### Site Set memory exhaustion
+
+**What might happen:** TYPO3 runs out of memory while loading site
+configurations. Typical signs:
+
+```text
+Fatal error: Allowed memory size exhausted in .../SetRegistry.php
+```
+
+`vendor/bin/typo3 site:list` may fail even with a high `memory_limit`, and
+affected frontend URLs return a TYPO3 fatal before rendering.
+
+**Cause:** A **circular Site Set dependency** — for example set A optionally
+depends on set B, and set B hard-depends back on set A. TYPO3 resolves
+transitive set dependencies when building each site; a cycle can recurse until
+PHP exhausts memory.
+
+**How to fix:**
+
+1. Inspect the `dependencies` lists in `config/sites/*/config.yaml` and the
+   `Configuration/Sets/*/config.yaml` files of attached Site Sets.
+2. Break the cycle — remove the back-edge or stop declaring the optional
+   integration as a set-level dependency when the integration already depends on
+   the base set.
+3. Prefer attaching optional integrations (Powermail, News, Friendly Captcha)
+   **directly in the site config** instead of through wrapper Site Sets.
+4. Flush caches and re-check:
+
+```bash
+ddev exec vendor/bin/typo3 site:list
+ddev exec vendor/bin/typo3 cache:flush
+```
+
+Do not rely on raising `memory_limit` alone; that only masks the recursion.
+
 ### Duplicate root pages
 
 **Symptom:** Admin → Site Management → Sites reports the same page ID in
