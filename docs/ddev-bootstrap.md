@@ -10,9 +10,9 @@ The lab needs **two artifacts** besides Composer dependencies:
 | Fileadmin archive | `.tarballs/fileadmin.tar.gz` (local) | `public/fileadmin/` assets (FAL, uploads, demo media) |
 
 `dump.sql.gz` is tracked in git. The fileadmin archive is large (~120 MB) and is
-hosted on [webconsulting.at](https://www.webconsulting.at):
+hosted on [curt.at](https://curt.at):
 
-**Download:** [fileadmin-v1.2.0.tar.gz](https://www.webconsulting.at/blog/webconsulting-typo3-lab/fileadmin-v1.2.0.tar.gz)
+**Download:** [fileadmin-v1.2.0.tar.gz](https://curt.at/downloads/typo3-lab/fileadmin-v1.2.0.tar.gz)
 
 Save as `.tarballs/fileadmin.tar.gz` before import, or import directly after download.
 
@@ -52,7 +52,7 @@ Demo credentials (from root README): `admin` / `Demo123*`
 ```bash
 mkdir -p .tarballs
 curl -L -o .tarballs/fileadmin.tar.gz \
-  https://www.webconsulting.at/blog/webconsulting-typo3-lab/fileadmin-v1.2.0.tar.gz
+  https://curt.at/downloads/typo3-lab/fileadmin-v1.2.0.tar.gz
 ```
 
 Without the fileadmin archive, pages render but FAL references break (images,
@@ -98,8 +98,15 @@ for url in / /blog/ /typo3-blog/ /mtug-camp-munich-2026/; do
 done
 ```
 
-Commit `dump.sql.gz` when the database snapshot should ship with the repo. Keep
-`.tarballs/fileadmin.tar.gz` local or distribute separately (see `.tarballs/README.md`).
+Commit `dump.sql.gz` when the database snapshot should ship with the repo. Upload
+a refreshed fileadmin archive to curt.at:
+
+```bash
+scp -P 222 .tarballs/fileadmin.tar.gz \
+  curtaa@www.curt.at:public_html/sites/curt.at/public/downloads/typo3-lab/fileadmin-v1.2.0.tar.gz
+```
+
+Public URL: `https://curt.at/downloads/typo3-lab/fileadmin-v1.2.0.tar.gz`
 
 ## Database-Only Refresh
 
