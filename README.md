@@ -288,20 +288,33 @@ the package-specific documentation.
 
 ### First-Time Setup
 
+Bootstrap needs two artifacts: the database dump from git and the fileadmin
+archive from curt.at.
+
+| Artifact | Source | Local path |
+|---|---|---|
+| Database dump | Git repository | `dump.sql.gz` |
+| Fileadmin archive | https://curt.at/downloads/typo3-lab/fileadmin-v1.2.0.tar.gz (~122 MB) | `.tarballs/fileadmin.tar.gz` |
+
 ```bash
 cp config/system/settings.php.example config/system/settings.php
 ddev start
 ddev composer install
+
+# Database (from git)
 ddev import-db --file=dump.sql.gz
+
+# Fileadmin (from curt.at)
+mkdir -p .tarballs
+curl -L -o .tarballs/fileadmin.tar.gz \
+  https://curt.at/downloads/typo3-lab/fileadmin-v1.2.0.tar.gz
 ddev import-files --source=.tarballs/fileadmin.tar.gz
+
 ddev typo3 extension:setup
 ddev typo3 cache:flush
 ```
 
-The database dump (`dump.sql.gz`) is in the repository. Download the fileadmin
-archive (~120 MB) from
-[curt.at](https://curt.at/downloads/typo3-lab/fileadmin-v1.2.0.tar.gz)
-and save as `.tarballs/fileadmin.tar.gz`. Full export/import steps:
+Full export/import and maintainer upload steps:
 [docs/ddev-bootstrap.md](docs/ddev-bootstrap.md).
 
 Open the TYPO3 backend:

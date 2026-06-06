@@ -4,17 +4,29 @@ Reproducible first-time setup for the Webconsulting TYPO3 Lab using DDEV.
 
 The lab needs **two artifacts** besides Composer dependencies:
 
-| Artifact | Path | Purpose |
-|---|---|---|
-| Database dump | `dump.sql.gz` (project root) | Full MariaDB state after cleanup |
-| Fileadmin archive | `.tarballs/fileadmin.tar.gz` (local) | `public/fileadmin/` assets (FAL, uploads, demo media) |
+| Artifact | Source | Local path | Purpose |
+|---|---|---|---|
+| Database dump | Git repository (project root) | `dump.sql.gz` | Full MariaDB state after cleanup |
+| Fileadmin archive | [curt.at](https://curt.at/downloads/typo3-lab/fileadmin-v1.2.0.tar.gz) | `.tarballs/fileadmin.tar.gz` | `public/fileadmin/` assets (FAL, uploads, demo media) |
 
-`dump.sql.gz` is tracked in git. The fileadmin archive is large (~120 MB) and is
-hosted on [curt.at](https://curt.at):
+### Hosted fileadmin archive (curt.at)
 
-**Download:** [fileadmin-v1.2.0.tar.gz](https://curt.at/downloads/typo3-lab/fileadmin-v1.2.0.tar.gz)
+| | |
+|---|---|
+| **Public URL** | https://curt.at/downloads/typo3-lab/fileadmin-v1.2.0.tar.gz |
+| **Server path** | `public_html/sites/curt.at/public/downloads/typo3-lab/fileadmin-v1.2.0.tar.gz` |
+| **Size** | ~122 MB |
+| **Save as** | `.tarballs/fileadmin.tar.gz` before `ddev import-files` |
 
-Save as `.tarballs/fileadmin.tar.gz` before import, or import directly after download.
+Download and verify:
+
+```bash
+mkdir -p .tarballs
+curl -L -o .tarballs/fileadmin.tar.gz \
+  https://curt.at/downloads/typo3-lab/fileadmin-v1.2.0.tar.gz
+curl -sI https://curt.at/downloads/typo3-lab/fileadmin-v1.2.0.tar.gz | head -1
+# Expected: HTTP/2 200 (redirects to www.curt.at)
+```
 
 ## First-Time Import (new machine)
 
@@ -28,10 +40,13 @@ cp config/system/settings.php.example config/system/settings.php
 ddev start
 ddev composer install
 
-# Database
+# Database (from dump.sql.gz in the git repository)
 ddev import-db --file=dump.sql.gz
 
-# Fileadmin (required for images, PDFs, form uploads, Desiderio assets)
+# Fileadmin (download from curt.at — required for images, PDFs, Desiderio assets)
+mkdir -p .tarballs
+curl -L -o .tarballs/fileadmin.tar.gz \
+  https://curt.at/downloads/typo3-lab/fileadmin-v1.2.0.tar.gz
 ddev import-files --source=.tarballs/fileadmin.tar.gz
 
 ddev typo3 extension:setup
@@ -46,14 +61,6 @@ ddev launch /typo3/
 ```
 
 Demo credentials (from root README): `admin` / `Demo123*`
-
-### Download fileadmin archive
-
-```bash
-mkdir -p .tarballs
-curl -L -o .tarballs/fileadmin.tar.gz \
-  https://curt.at/downloads/typo3-lab/fileadmin-v1.2.0.tar.gz
-```
 
 Without the fileadmin archive, pages render but FAL references break (images,
 downloads, Powermail uploads). Regenerate locally with the export command below
@@ -106,7 +113,10 @@ scp -P 222 .tarballs/fileadmin.tar.gz \
   curtaa@www.curt.at:public_html/sites/curt.at/public/downloads/typo3-lab/fileadmin-v1.2.0.tar.gz
 ```
 
-Public URL: `https://curt.at/downloads/typo3-lab/fileadmin-v1.2.0.tar.gz`
+| | |
+|---|---|
+| **Server path** | `public_html/sites/curt.at/public/downloads/typo3-lab/fileadmin-v1.2.0.tar.gz` |
+| **Public URL** | https://curt.at/downloads/typo3-lab/fileadmin-v1.2.0.tar.gz |
 
 ## Database-Only Refresh
 

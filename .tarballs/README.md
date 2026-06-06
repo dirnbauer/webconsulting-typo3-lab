@@ -7,7 +7,12 @@ This directory holds large bootstrap artifacts that are not committed to git.
 | `fileadmin.tar.gz` | `tar -czf .tarballs/fileadmin.tar.gz -C public fileadmin` | `ddev import-files --source=.tarballs/fileadmin.tar.gz` |
 
 **Hosted download (v1.2.0):**
-https://curt.at/downloads/typo3-lab/fileadmin-v1.2.0.tar.gz
+
+| | |
+|---|---|
+| Public URL | https://curt.at/downloads/typo3-lab/fileadmin-v1.2.0.tar.gz |
+| Server path | `public_html/sites/curt.at/public/downloads/typo3-lab/fileadmin-v1.2.0.tar.gz` |
+| Size | ~122 MB |
 
 The database dump lives at the project root: `dump.sql.gz`
 (`ddev export-db --file=dump.sql.gz` / `ddev import-db --file=dump.sql.gz`).
