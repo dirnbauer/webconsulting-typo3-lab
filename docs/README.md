@@ -8,6 +8,7 @@ local TYPO3 extension package.
 | Document | Purpose |
 |---|---|
 | [site-configuration.md](site-configuration.md) | Canonical site inventory, `config/sites/` conventions, and troubleshooting for duplicate root pages, orphaned configs, and workspace staging. |
+| [ddev-bootstrap.md](ddev-bootstrap.md) | Database (`dump.sql.gz`) and fileadmin (`.tarballs/fileadmin.tar.gz`) export/import for reproducible DDEV setup. |
 | [news-api-studio-spec.md](news-api-studio-spec.md) | Product and implementation specification for the News API Studio app. |
 | [reports/typo3-v14-upgrade-20260516-213338.md](reports/typo3-v14-upgrade-20260516-213338.md) | Report for the TYPO3 14-only site package upgrade and verification pass. |
 

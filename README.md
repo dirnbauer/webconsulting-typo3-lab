@@ -293,9 +293,15 @@ cp config/system/settings.php.example config/system/settings.php
 ddev start
 ddev composer install
 ddev import-db --file=dump.sql.gz
+ddev import-files --source=.tarballs/fileadmin.tar.gz
 ddev typo3 extension:setup
 ddev typo3 cache:flush
 ```
+
+The database dump (`dump.sql.gz`) is in the repository. The fileadmin archive
+(`.tarballs/fileadmin.tar.gz`, ~120 MB) is not committed — obtain it from a
+maintainer or create it locally. Full export/import steps:
+[docs/ddev-bootstrap.md](docs/ddev-bootstrap.md).
 
 Open the TYPO3 backend:
 
@@ -480,6 +486,8 @@ done
 - [docs/README.md](docs/README.md) - documentation index.
 - [docs/site-configuration.md](docs/site-configuration.md) - site inventory,
   conventions, and troubleshooting for `config/sites/`.
+- [docs/ddev-bootstrap.md](docs/ddev-bootstrap.md) - database and fileadmin
+  export/import for reproducible DDEV setup.
 - [packages/site_package/README.md](packages/site_package/README.md) -
   provider/theme extension notes.
 - [apps/news-api-studio/README.md](apps/news-api-studio/README.md) -
@@ -492,7 +500,7 @@ done
 
 ## Release Notes
 
-See [CHANGELOG.md](CHANGELOG.md) for release notes.
+Current release: **v1.2.0**. See [CHANGELOG.md](CHANGELOG.md) for release notes.
 
 ## License
 

@@ -20,3 +20,5 @@ scripts/*
 /var/labels/*
 /packages/bad_shop_watch/
 /backup-*/
+/.tarballs/*
+!/.tarballs/README.md
