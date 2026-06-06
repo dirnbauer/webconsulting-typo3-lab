@@ -4,6 +4,25 @@ All notable changes to Webconsulting TYPO3 Lab are documented in this file.
 
 ## Unreleased
 
+## v1.3.0 - 2026-06-06
+
+Minor release documenting curt.at-hosted fileadmin bootstrap and tightening DDEV
+install documentation.
+
+### Added
+
+- Documented curt.at as the public host for the fileadmin archive
+  (`https://curt.at/downloads/typo3-lab/fileadmin-v1.2.0.tar.gz`, ~122 MB) with
+  server path, `curl` download, and SCP upload instructions in
+  [docs/ddev-bootstrap.md](docs/ddev-bootstrap.md).
+
+### Changed
+
+- Integrated curt.at download into first-time DDEV setup in README and
+  `docs/ddev-bootstrap.md` (database from git, fileadmin from curt.at).
+- Updated `docs/README.md` and `docs/site-configuration.md` to reference the
+  hosted fileadmin URL.
+
 ## v1.2.0 - 2026-06-06
 
 Minor release cleaning up site configurations and database state, and documenting

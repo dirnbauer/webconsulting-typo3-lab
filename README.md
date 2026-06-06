@@ -314,7 +314,7 @@ ddev typo3 extension:setup
 ddev typo3 cache:flush
 ```
 
-Full export/import and maintainer upload steps:
+Canonical bootstrap reference (export, import, curt.at upload, verification):
 [docs/ddev-bootstrap.md](docs/ddev-bootstrap.md).
 
 Open the TYPO3 backend:
@@ -514,7 +514,7 @@ done
 
 ## Release Notes
 
-Current release: **v1.2.0**. See [CHANGELOG.md](CHANGELOG.md) for release notes.
+Current release: **v1.3.0**. See [CHANGELOG.md](CHANGELOG.md) for release notes.
 
 ## License
 

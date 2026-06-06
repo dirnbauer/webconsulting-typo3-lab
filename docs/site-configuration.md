@@ -19,7 +19,8 @@ ddev typo3 cleanup:orphanrecords -n
 ```
 
 See [ddev-bootstrap.md](ddev-bootstrap.md) for export/import of `dump.sql.gz`
-and the fileadmin archive.
+(from git) and the fileadmin archive from
+https://curt.at/downloads/typo3-lab/fileadmin-v1.2.0.tar.gz
 
 The following site configs were **removed** because their `rootPageId` pages no
 longer exist in the database:
