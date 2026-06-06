@@ -7,11 +7,14 @@ The lab needs **two artifacts** besides Composer dependencies:
 | Artifact | Path | Purpose |
 |---|---|---|
 | Database dump | `dump.sql.gz` (project root) | Full MariaDB state after cleanup |
-| Fileadmin archive | `.tarballs/fileadmin.tar.gz` | `public/fileadmin/` assets (FAL, uploads, demo media) |
+| Fileadmin archive | `.tarballs/fileadmin.tar.gz` (local) | `public/fileadmin/` assets (FAL, uploads, demo media) |
 
 `dump.sql.gz` is tracked in git. The fileadmin archive is large (~120 MB) and is
-**not** committed — create it locally with the export command below, or copy it
-from a teammate/release asset.
+hosted on [webconsulting.at](https://www.webconsulting.at):
+
+**Download:** [fileadmin-v1.2.0.tar.gz](https://www.webconsulting.at/blog/webconsulting-typo3-lab/fileadmin-v1.2.0.tar.gz)
+
+Save as `.tarballs/fileadmin.tar.gz` before import, or import directly after download.
 
 ## First-Time Import (new machine)
 
@@ -44,13 +47,17 @@ ddev launch /typo3/
 
 Demo credentials (from root README): `admin` / `Demo123*`
 
-### Without the fileadmin archive
+### Download fileadmin archive
 
-If `.tarballs/fileadmin.tar.gz` is missing, pages render but FAL references break
-(images, downloads, Powermail uploads). Either:
+```bash
+mkdir -p .tarballs
+curl -L -o .tarballs/fileadmin.tar.gz \
+  https://www.webconsulting.at/blog/webconsulting-typo3-lab/fileadmin-v1.2.0.tar.gz
+```
 
-1. Obtain the archive from a maintainer and place it at `.tarballs/fileadmin.tar.gz`, or
-2. Regenerate it on a machine that already has a working lab (see Export below).
+Without the fileadmin archive, pages render but FAL references break (images,
+downloads, Powermail uploads). Regenerate locally with the export command below
+if you maintain the lab.
 
 ## Export (maintainers — refresh lab snapshot)
 

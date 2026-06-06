@@ -6,6 +6,9 @@ This directory holds large bootstrap artifacts that are not committed to git.
 |---|---|---|
 | `fileadmin.tar.gz` | `tar -czf .tarballs/fileadmin.tar.gz -C public fileadmin` | `ddev import-files --source=.tarballs/fileadmin.tar.gz` |
 
+**Hosted download (v1.2.0):**
+https://www.webconsulting.at/blog/webconsulting-typo3-lab/fileadmin-v1.2.0.tar.gz
+
 The database dump lives at the project root: `dump.sql.gz`
 (`ddev export-db --file=dump.sql.gz` / `ddev import-db --file=dump.sql.gz`).
 

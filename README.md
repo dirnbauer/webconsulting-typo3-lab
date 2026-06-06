@@ -298,9 +298,10 @@ ddev typo3 extension:setup
 ddev typo3 cache:flush
 ```
 
-The database dump (`dump.sql.gz`) is in the repository. The fileadmin archive
-(`.tarballs/fileadmin.tar.gz`, ~120 MB) is not committed — obtain it from a
-maintainer or create it locally. Full export/import steps:
+The database dump (`dump.sql.gz`) is in the repository. Download the fileadmin
+archive (~120 MB) from
+[webconsulting.at](https://www.webconsulting.at/blog/webconsulting-typo3-lab/fileadmin-v1.2.0.tar.gz)
+and save as `.tarballs/fileadmin.tar.gz`. Full export/import steps:
 [docs/ddev-bootstrap.md](docs/ddev-bootstrap.md).
 
 Open the TYPO3 backend:
