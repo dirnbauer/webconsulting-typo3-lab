@@ -7,6 +7,7 @@ local TYPO3 extension package.
 
 | Document | Purpose |
 |---|---|
+| [site-configuration.md](site-configuration.md) | Canonical site inventory, `config/sites/` conventions, and troubleshooting for duplicate root pages, orphaned configs, and workspace staging. |
 | [news-api-studio-spec.md](news-api-studio-spec.md) | Product and implementation specification for the News API Studio app. |
 | [reports/typo3-site-set-memory-exhaustion-20260601.md](reports/typo3-site-set-memory-exhaustion-20260601.md) | Technical report for the TYPO3 Site Set recursion that caused PHP memory exhaustion. |
 | [reports/typo3-v14-upgrade-20260516-213338.md](reports/typo3-v14-upgrade-20260516-213338.md) | Report for the TYPO3 14-only site package upgrade and verification pass. |
@@ -28,7 +29,8 @@ The root README is the canonical high-level index for:
 
 - The precise lab feature inventory.
 - Configured DDEV services and local URLs.
-- TYPO3 Site Set and demo site mappings.
+- TYPO3 Site Set and demo site mappings (operational detail in
+  [site-configuration.md](site-configuration.md)).
 - API, capability, MCP, workspace, and News API Studio features.
 - Extension, Site Set dependency, and acknowledgement inventory.
 

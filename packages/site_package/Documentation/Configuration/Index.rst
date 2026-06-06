@@ -58,7 +58,10 @@ The current lab site configurations use the package as follows:
         -
     *   - :file:`config/sites/mtug-camp-munich-2026`
         - ``webconsulting/site-package-search``
-        - ``webconsulting/desiderio-preset-corporate``,
+        - ``studiomitte/friendlycaptcha``,
+          ``webconsulting/desiderio-powermail``,
+          ``webconsulting/desiderio-content-elements``,
+          ``webconsulting/desiderio-preset-corporate``,
           ``desiderio/content-blocks-bundle``
     *   - :file:`config/sites/desiderio-corporate-starter`
         - ``webconsulting/site-package-search``
@@ -79,20 +82,8 @@ Per-site shadcn style tokens such as ``desiderio.shadcn.preset``,
 relevant :file:`config/sites/*/settings.yaml` files and customize the provided
 template system. They do not replace the shadcn/ui template Site Set.
 
-Related Desiderio-only sites:
-
-..  list-table::
-    :header-rows: 1
-
-    *   - Site configuration
-        - Dependencies
-    *   - :file:`config/sites/typo3-vienna-camp-2026`
-        - ``studiomitte/friendlycaptcha``,
-          ``webconsulting/desiderio-powermail``,
-          ``webconsulting/desiderio-content-elements``,
-          ``webconsulting/desiderio-preset-corporate``
-    *   - :file:`config/sites/eurovision2026`
-        - ``webconsulting/desiderio-preset-corporate``
+Site configuration maintenance for the full lab inventory lives in
+:file:`docs/site-configuration.md`.
 
 Cowriter preload middleware
 ===========================

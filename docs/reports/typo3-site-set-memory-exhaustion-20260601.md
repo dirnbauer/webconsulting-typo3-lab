@@ -2,6 +2,12 @@
 
 Generated: 2026-06-01 Europe/Vienna
 
+> **Archive note (2026-06-06):** Verification URLs and site identifiers in this
+> report reflect the lab state on 2026-06-01. The `desiderio-websites/*` demo
+> site configurations were removed later because their root pages no longer
+> exist. For the current site inventory and smoke-check URLs, see
+> [site-configuration.md](../site-configuration.md).
+
 ## Summary
 
 TYPO3 failed during site resolution with this fatal error:
@@ -181,15 +187,16 @@ ddev exec 'php -d memory_limit=1024M vendor/bin/typo3 site:list'
 ddev exec 'php -d memory_limit=1024M vendor/bin/typo3 site:show desiderio-dashboard'
 ```
 
-Frontend smoke tests returned HTTP 200:
+Frontend smoke tests returned HTTP 200 (historical URLs from 2026-06-01; see
+archive note above):
 
 ```text
 /                                      200
-/desiderio-websites/corporate/         200
-/desiderio-websites/dashboard/         200
-/desiderio-websites/editorial/         200
-/desiderio-websites/portfolio/         200
-/desiderio-websites/saas/              200
+/desiderio-websites/corporate/         200  # removed site config
+/desiderio-websites/dashboard/         200  # removed site config
+/desiderio-websites/editorial/         200  # removed site config
+/desiderio-websites/portfolio/         200  # removed site config
+/desiderio-websites/saas/              200  # removed site config
 ```
 
 Static dependency checks also showed:
