@@ -1,0 +1,31 @@
+Subject: Decode JSON request body when getParsedBody() is an empty array
+
+Visual Editor's save endpoint reads the payload as:
+
+    $input = $request->getParsedBody() ?? json_decode(...);
+
+On a frontend POST with Content-Type: application/json, PHP populates
+$_POST as an empty array, and TYPO3's ServerRequestFactory sets the
+parsed body to that empty array (not null). The null-coalescing operator
+therefore never falls through to json_decode(), so $data becomes [],
+DataHandler runs with an empty datamap, and the endpoint returns
+{"success": true} while persisting nothing.
+
+This guard falls back to decoding the raw JSON body whenever the parsed
+body is not a usable array containing 'data' or 'cmdArray'.
+
+--- a/Classes/Middleware/PersistenceMiddleware.php
++++ b/Classes/Middleware/PersistenceMiddleware.php
+@@ -66,8 +66,10 @@ readonly class PersistenceMiddleware implements MiddlewareInterface
+             throw new UnauthorizedException('Invalid or missing request token', 8148623595);
+         }
+ 
+-        $input = $request->getParsedBody() ??
+-            json_decode($request->getBody()->getContents(), true, 512, JSON_THROW_ON_ERROR);
++        $input = $request->getParsedBody();
++        if (!is_array($input) || (!isset($input['data']) && !isset($input['cmdArray']))) {
++            $input = json_decode($request->getBody()->getContents(), true, 512, JSON_THROW_ON_ERROR);
++        }
+ 
+         $data = $input['data'] ?? [];
+         unset($input['data']);

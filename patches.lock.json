@@ -1,5 +1,5 @@
 {
-    "_hash": "8318892d032dea7656c9ea38890d9f4edfc94de6b010bd4dfe49286f04818ef7",
+    "_hash": "9af4941014267621c0d030482beaef3f85520007027741f3947cedb7aadb7c45",
     "patches": {
         "friendsoftypo3/visual-editor": [
             {
@@ -7,6 +7,16 @@
                 "description": "Fix preview URL generation for workspace-only pages (NEW_PLACEHOLDER)",
                 "url": "patches/friendsoftypo3-visual-editor-fix-workspace-new-page-preview.patch",
                 "sha256": "700f24fdeecfb9f207092f1b3ee84110e1be019ba94520269346d9979975f53c",
+                "depth": 1,
+                "extra": {
+                    "provenance": "root"
+                }
+            },
+            {
+                "package": "friendsoftypo3/visual-editor",
+                "description": "Decode JSON save body when getParsedBody() is an empty array",
+                "url": "patches/friendsoftypo3-visual-editor-fix-save-json-body.patch",
+                "sha256": "2163880a5c96636d8c9f8d99c6041d4eb4a17411e27cd601c4fa3eccc1613c8f",
                 "depth": 1,
                 "extra": {
                     "provenance": "root"

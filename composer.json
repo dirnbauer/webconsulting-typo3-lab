@@ -200,7 +200,8 @@
     "composer-exit-on-patch-failure": true,
     "patches": {
       "friendsoftypo3/visual-editor": {
-        "Fix preview URL generation for workspace-only pages (NEW_PLACEHOLDER)": "patches/friendsoftypo3-visual-editor-fix-workspace-new-page-preview.patch"
+        "Fix preview URL generation for workspace-only pages (NEW_PLACEHOLDER)": "patches/friendsoftypo3-visual-editor-fix-workspace-new-page-preview.patch",
+        "Decode JSON save body when getParsedBody() is an empty array": "patches/friendsoftypo3-visual-editor-fix-save-json-body.patch"
       },
       "in2code/powermail": {
         "Guard missing TYPO3 request in CreateMarker for CLI/MCP writes": "patches/in2code-powermail-createmarker-null-request.patch"
