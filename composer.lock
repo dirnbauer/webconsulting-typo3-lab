@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3c92b661b8ec58c68a009e1cf5fa6b31",
+    "content-hash": "9339dd22de232b006fbf867897746e0f",
     "packages": [
         {
             "name": "apache-solr-for-typo3/solr",
@@ -12241,16 +12241,16 @@
         },
         {
             "name": "webconsulting/webcon-easy-workspace",
-            "version": "v1.1.0",
+            "version": "v1.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/typo3-webcon-easy-workspace.git",
-                "reference": "94465c7f7ecf22c74cf2961b3f5ba1fca7a1f870"
+                "reference": "c4587911c320004eb723fbad580b344a402bbc66"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/typo3-webcon-easy-workspace/zipball/94465c7f7ecf22c74cf2961b3f5ba1fca7a1f870",
-                "reference": "94465c7f7ecf22c74cf2961b3f5ba1fca7a1f870",
+                "url": "https://api.github.com/repos/dirnbauer/typo3-webcon-easy-workspace/zipball/c4587911c320004eb723fbad580b344a402bbc66",
+                "reference": "c4587911c320004eb723fbad580b344a402bbc66",
                 "shasum": ""
             },
             "require": {
@@ -12274,7 +12274,7 @@
             "extra": {
                 "typo3/cms": {
                     "extension-key": "webcon_easy_workspace",
-                    "version": "1.1.0",
+                    "version": "1.1.1",
                     "Package": {
                         "providesPackages": []
                     }
@@ -12307,7 +12307,7 @@
                     "role": "Developer"
                 }
             ],
-            "description": "Easy Workspace — a backend toolbar item for TYPO3 v14 that lets editors publish the current page (or news record) together with its content elements in one click.",
+            "description": "Easy Workspace — a backend toolbar item for TYPO3 v14 that lets editors publish the current page (or news record) together with its content elements in one click. Distributed via GitHub tags only; not published on Packagist.",
             "homepage": "https://github.com/dirnbauer/typo3-webcon-easy-workspace",
             "keywords": [
                 "TYPO3",
@@ -12320,7 +12320,7 @@
                 "issues": "https://github.com/dirnbauer/typo3-webcon-easy-workspace/issues",
                 "source": "https://github.com/dirnbauer/typo3-webcon-easy-workspace"
             },
-            "time": "2026-06-06T18:40:05+00:00"
+            "time": "2026-06-07T04:08:14+00:00"
         },
         {
             "name": "webconsulting/workos-auth",
