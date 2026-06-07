@@ -1,5 +1,5 @@
 {
-    "_hash": "060468f20ba9f8937980a206f5998306993c53a1e47c3b1ae80f71ed97cf01e7",
+    "_hash": "8318892d032dea7656c9ea38890d9f4edfc94de6b010bd4dfe49286f04818ef7",
     "patches": {
         "friendsoftypo3/visual-editor": [
             {
@@ -7,6 +7,18 @@
                 "description": "Fix preview URL generation for workspace-only pages (NEW_PLACEHOLDER)",
                 "url": "patches/friendsoftypo3-visual-editor-fix-workspace-new-page-preview.patch",
                 "sha256": "700f24fdeecfb9f207092f1b3ee84110e1be019ba94520269346d9979975f53c",
+                "depth": 1,
+                "extra": {
+                    "provenance": "root"
+                }
+            }
+        ],
+        "in2code/powermail": [
+            {
+                "package": "in2code/powermail",
+                "description": "Guard missing TYPO3 request in CreateMarker for CLI/MCP writes",
+                "url": "patches/in2code-powermail-createmarker-null-request.patch",
+                "sha256": "c71e70e752361d09446caf7457fecb441e4c26d72fcaa78744a9b7654d108f18",
                 "depth": 1,
                 "extra": {
                     "provenance": "root"

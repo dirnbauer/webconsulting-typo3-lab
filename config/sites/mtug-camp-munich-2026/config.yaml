@@ -6,6 +6,12 @@ dependencies:
   - webconsulting/desiderio-content-elements
   - webconsulting/desiderio-preset-corporate
   - desiderio/content-blocks-bundle
+friendlycaptcha_js_path: 'EXT:friendlycaptcha_official/Resources/Public/JavaScript/lib/sdk@0.1.26-site.compat.min.js'
+friendlycaptcha_secret_key: ddev-secret-key
+friendlycaptcha_site_key: ddev-site-key
+friendlycaptcha_skip_dev_validation: true
+friendlycaptcha_use_eu_puzzle_endpoint: false
+friendlycaptcha_verify_url: 'https://global.frcapi.com/api/v2/captcha/siteverify'
 errorHandling:
   -
     errorCode: 404
