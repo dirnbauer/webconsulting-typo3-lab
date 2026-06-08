@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "26fab5e20540e82c4a14b0e7711360dc",
+    "content-hash": "350edc55f97764b64b6dee7f0ac7e8db",
     "packages": [
         {
             "name": "apache-solr-for-typo3/solr",
@@ -12241,16 +12241,16 @@
         },
         {
             "name": "webconsulting/webcon-easy-workspace",
-            "version": "v14.0.1",
+            "version": "v1.2.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/typo3-webcon-easy-workspace.git",
-                "reference": "aefe61ccd569614c801cf5aeab7d86de738ed5f2"
+                "reference": "2a284b490e987223003234b27982793fad8fa16b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/typo3-webcon-easy-workspace/zipball/aefe61ccd569614c801cf5aeab7d86de738ed5f2",
-                "reference": "aefe61ccd569614c801cf5aeab7d86de738ed5f2",
+                "url": "https://api.github.com/repos/dirnbauer/typo3-webcon-easy-workspace/zipball/2a284b490e987223003234b27982793fad8fa16b",
+                "reference": "2a284b490e987223003234b27982793fad8fa16b",
                 "shasum": ""
             },
             "require": {
@@ -12274,7 +12274,7 @@
             "extra": {
                 "typo3/cms": {
                     "extension-key": "webcon_easy_workspace",
-                    "version": "14.0.1",
+                    "version": "1.2.9",
                     "Package": {
                         "providesPackages": []
                     }
@@ -12320,7 +12320,7 @@
                 "issues": "https://github.com/dirnbauer/typo3-webcon-easy-workspace/issues",
                 "source": "https://github.com/dirnbauer/typo3-webcon-easy-workspace"
             },
-            "time": "2026-06-08T22:02:33+00:00"
+            "time": "2026-06-08T21:57:46+00:00"
         },
         {
             "name": "webconsulting/workos-auth",
