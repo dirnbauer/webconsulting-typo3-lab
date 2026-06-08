@@ -5,3 +5,23 @@ config.admPanel = 1
 
 plugin.tx_news.view.partialRootPaths.100 = EXT:desiderio/Resources/Private/Partials/
 plugin.tx_blog.view.partialRootPaths.100 = EXT:desiderio/Resources/Private/Partials/
+
+lib.contentElement.templateRootPaths.300 = EXT:site_package/Resources/Private/FluidStyledContent/Templates/
+
+# EXT:blog registers its plugins as CType-based Extbase content elements.
+# Desiderio's FluidStyledContent wrapper needs to explicitly render the
+# extension-provided tt_content.<CType>.20 plugin output for these CTypes.
+tt_content.blog_posts.templateName = BlogPlugin
+tt_content.blog_latestposts.templateName = BlogPlugin
+tt_content.blog_category.templateName = BlogPlugin
+tt_content.blog_authorposts.templateName = BlogPlugin
+tt_content.blog_tag.templateName = BlogPlugin
+tt_content.blog_archive.templateName = BlogPlugin
+tt_content.blog_sidebar.templateName = BlogPlugin
+tt_content.blog_commentform.templateName = BlogPlugin
+tt_content.blog_comments.templateName = BlogPlugin
+tt_content.blog_authors.templateName = BlogPlugin
+tt_content.blog_demandedposts.templateName = BlogPlugin
+tt_content.blog_relatedposts.templateName = BlogPlugin
+tt_content.blog_header.templateName = BlogPlugin
+tt_content.blog_footer.templateName = BlogPlugin
