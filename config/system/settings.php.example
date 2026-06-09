@@ -95,7 +95,7 @@ return [
             'allowedGroups' => '',
             'autoArchiveDays' => '30',
             'enableMcp' => '1',
-            'enablePdfTextExtraction' => '0',
+            'enablePdfTextExtraction' => '1',
             'enablePromptInjectionFilter' => '1',
             'llmTaskUid' => '4',
             'maxActiveConversationsPerUser' => '3',
