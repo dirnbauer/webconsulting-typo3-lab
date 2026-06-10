@@ -1,42 +1,13 @@
-base: 'https://webconsulting-typo3-lab.ddev.site/blog/'
-dependencies:
-  - georgringer/news
-  - webconsulting/site-package-blog
-  - webconsulting/desiderio-news
-languages:
-  -
-    title: German
-    languageId: 0
-    base: /
-    locale: de_DE.UTF-8
-    navigationTitle: Deutsch
-    flag: de
-    iso-639-1: de
-    fallbackType: strict
-    solr_core_read: core_de
-  -
-    title: English
-    enabled: true
-    languageId: 1
-    base: /en/
-    locale: en_US.UTF-8
-    navigationTitle: English
-    flag: us
-    iso-639-1: en
-    fallbackType: fallback
-    solr_core_read: core_en
-  -
-    title: Chinese
-    enabled: true
-    languageId: 2
-    base: /zh/
-    locale: zh_CN.UTF-8
-    navigationTitle: 中文
-    flag: cn
-    iso-639-1: zh
-    fallbackType: fallback
-    solr_core_read: core_zh
-rootPageId: 15
+# Shared route enhancers for ALL lab sites: human-readable URLs for
+# georgringer/news and in2code/powermail. Imported by every
+# config/sites/*/config.yaml via:
+#   imports:
+#     - { resource: '../../shared/route-enhancers.yaml' }
+#
+# A site can override an enhancer by redefining the same key in its own
+# config.yaml (the site file wins on import merge). The solr facet enhancer
+# is NOT shared because it needs a per-site limitToPages (its catch-all
+# route path would otherwise swallow unknown URL segments).
 routeEnhancers:
   News:
     type: Extbase
@@ -92,17 +63,30 @@ routeEnhancers:
         type: NewsCategory
       tag-name:
         type: NewsTag
-settings:
-  news.pages.detail: 42
-solr_enabled_read: true
-solr_host_read: typo3-solr
-solr_path_read: /
-solr_port_read: '8983'
-solr_scheme_read: http
-solr_use_write_connection: false
-websiteTitle: ''
-imports:
-  -
-    resource: 'EXT:blog/Configuration/Routes/Default.yaml'
-  -
-    resource: '../../shared/route-enhancers.yaml'
+  Powermail:
+    type: Extbase
+    extension: Powermail
+    plugin: Pi1
+    routes:
+      -
+        routePath: '/confirmation'
+        _controller: 'Form::confirmation'
+      -
+        routePath: '/create'
+        _controller: 'Form::create'
+      -
+        routePath: '/optin/{mail}/{hash}'
+        _controller: 'Form::optinConfirm'
+        _arguments:
+          mail: mail
+          hash: hash
+      -
+        routePath: '/disclaimer/{mail}/{hash}'
+        _controller: 'Form::disclaimer'
+        _arguments:
+          mail: mail
+          hash: hash
+    defaultController: 'Form::form'
+    requirements:
+      mail: '\d+'
+      hash: '[a-zA-Z0-9_-]+'

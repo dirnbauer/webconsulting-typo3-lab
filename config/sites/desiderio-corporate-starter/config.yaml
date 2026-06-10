@@ -19,6 +19,22 @@ languages:
     fallbackType: strict
 rootPageId: 740
 routeEnhancers:
+  SolrSearch:
+    type: SolrFacetMaskAndCombineEnhancer
+    extensionKey: tx_solr
+    limitToPages:
+      - 748
+    solr:
+      query:
+        concat: true
+        mask: true
+        map:
+          type: type
+    routePath: '/{type}'
+    _arguments:
+      type: filter-type
+    requirements:
+      type: '.*'
   PageTypeSuffix:
     type: PageType
     default: /
@@ -37,3 +53,8 @@ settings:
   desiderio.footer.legalPageIds: '750,751,752'
   desiderio.consent.privacyPageId: '751'
 websiteTitle: 'Northstar Advisory Group'
+imports:
+  -
+    resource: '../../shared/route-enhancers.yaml'
+  -
+    resource: 'EXT:blog/Configuration/Routes/Default.yaml'

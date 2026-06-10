@@ -23,3 +23,5 @@ websiteTitle: ''
 imports:
   -
     resource: 'EXT:blog/Configuration/Routes/Default.yaml'
+  -
+    resource: '../../shared/route-enhancers.yaml'

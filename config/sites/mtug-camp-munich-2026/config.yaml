@@ -56,3 +56,8 @@ languages:
     fallbackType: fallback
 rootPageId: 933
 websiteTitle: 'TYPO3 Camp München 2026'
+imports:
+  -
+    resource: '../../shared/route-enhancers.yaml'
+  -
+    resource: 'EXT:blog/Configuration/Routes/Default.yaml'

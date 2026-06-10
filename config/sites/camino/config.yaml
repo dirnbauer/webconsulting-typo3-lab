@@ -21,3 +21,8 @@ solr_port_read: '8983'
 solr_scheme_read: http
 solr_use_write_connection: false
 websiteTitle: Camino
+imports:
+  -
+    resource: '../../shared/route-enhancers.yaml'
+  -
+    resource: 'EXT:blog/Configuration/Routes/Default.yaml'
