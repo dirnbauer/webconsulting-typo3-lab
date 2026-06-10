@@ -1,8 +1,18 @@
 desiderio.footer.legalPageIds: '734,735,736'
 desiderio.search.targetPageId: '738'
-desiderio.seo.defaultDescription: 'TYPO3Camp Vienna 2026 lab site for Desiderio TYPO3 page templates and content elements.'
+desiderio.seo.defaultDescription: 'Desiderio lab site for TYPO3 page templates and content elements.'
 desiderio.consent.privacyPageId: '735'
 desiderio.shadcn.style: radix-rhea
 desiderio.shadcn.iconLibrary: lucide
 desiderio.forms.friendlyCaptchaTestMode: true
 desiderio.shadcn.preset: lagoon
+
+news.pages.detail: 992
+news.pages.list: 992
+
+# Success stories double as the blog section (posts live below page 987).
+plugin.tx_blog.settings.blogUid: 987
+plugin.tx_blog.settings.storagePid: 987
+plugin.tx_blog.settings.categoryUid: 994
+plugin.tx_blog.settings.tagUid: 995
+plugin.tx_blog.settings.lists.pagination.itemsPerPage: 6
