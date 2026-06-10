@@ -28,6 +28,11 @@
   },
   "repositories": [
     {
+      "name": "innesto",
+      "type": "vcs",
+      "url": "https://github.com/dirnbauer/innesto"
+    },
+    {
       "type": "path",
       "url": "packages/*",
       "options": {
@@ -126,6 +131,7 @@
   ],
   "require": {
     "apache-solr-for-typo3/solr": "^14.0@beta",
+    "dirnbauer/innesto": "@dev",
     "friendsoftypo3/tt-address": "^10.0",
     "friendsoftypo3/visual-editor": "^1.6",
     "georgringer/context-edit-records": "^1.0",

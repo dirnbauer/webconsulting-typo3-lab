@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f56c9dbc2e0807682f81319734e24dc0",
+    "content-hash": "85d1e446e773b3631ee0e8d6f0f0c2ee",
     "packages": [
         {
             "name": "apache-solr-for-typo3/solr",
@@ -568,6 +568,49 @@
                 "source": "https://github.com/DASPRiD/Enum/tree/1.0.7"
             },
             "time": "2025-09-16T12:23:56+00:00"
+        },
+        {
+            "name": "dirnbauer/innesto",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dirnbauer/innesto",
+                "reference": "61f07dbbc5929f3dcf74038dc32bdcbee9fad5c7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dirnbauer/innesto/zipball/61f07dbbc5929f3dcf74038dc32bdcbee9fad5c7",
+                "reference": "61f07dbbc5929f3dcf74038dc32bdcbee9fad5c7",
+                "shasum": ""
+            },
+            "require": {
+                "friendsoftypo3/content-blocks": "^2.2",
+                "php": "^8.3",
+                "typo3/cms-core": "^14.3",
+                "webconsulting/desiderio": "*"
+            },
+            "default-branch": true,
+            "type": "typo3-cms-extension",
+            "extra": {
+                "typo3/cms": {
+                    "extension-key": "innesto"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Dirnbauer\\Innesto\\": "Classes/"
+                }
+            },
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Kurt Dirnbauer"
+                }
+            ],
+            "description": "Innesto — grafts shadcn/ui registry components onto TYPO3 as Desiderio-styled Content Blocks",
+            "time": "2026-06-10T19:01:33+00:00"
         },
         {
             "name": "doctrine/dbal",
@@ -14658,6 +14701,7 @@
     "minimum-stability": "dev",
     "stability-flags": {
         "apache-solr-for-typo3/solr": 10,
+        "dirnbauer/innesto": 20,
         "hn/typo3-mcp-server": 20,
         "in2code/powermail": 20,
         "netresearch/nr-llm": 20,

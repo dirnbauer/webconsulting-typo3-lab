@@ -6,6 +6,7 @@ dependencies:
   - webconsulting/desiderio-content-elements
   - webconsulting/desiderio-blog-standalone
   - webconsulting/desiderio-preset-corporate
+  - dirnbauer/innesto
 errorHandling:
   -
     errorCode: 404
