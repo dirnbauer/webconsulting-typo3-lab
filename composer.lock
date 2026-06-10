@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "baf9bd7296be330e194c112e9063b71a",
+    "content-hash": "f56c9dbc2e0807682f81319734e24dc0",
     "packages": [
         {
             "name": "apache-solr-for-typo3/solr",
@@ -2036,12 +2036,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/powermail.git",
-                "reference": "e6e34b681fd4298344a10e4a25d51e0ba5cb2713"
+                "reference": "7c4e381dab4f875bf3e96d2cd354c8ea4e019664"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/powermail/zipball/e6e34b681fd4298344a10e4a25d51e0ba5cb2713",
-                "reference": "e6e34b681fd4298344a10e4a25d51e0ba5cb2713",
+                "url": "https://api.github.com/repos/dirnbauer/powermail/zipball/7c4e381dab4f875bf3e96d2cd354c8ea4e019664",
+                "reference": "7c4e381dab4f875bf3e96d2cd354c8ea4e019664",
                 "shasum": ""
             },
             "require": {
@@ -2182,7 +2182,7 @@
                 "spamprevention",
                 "typo3"
             ],
-            "time": "2026-06-10T14:35:35+00:00"
+            "time": "2026-06-10T17:17:06+00:00"
         },
         {
             "name": "logiscape/mcp-sdk-php",
