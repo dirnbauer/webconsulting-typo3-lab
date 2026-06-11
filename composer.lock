@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "767cc3b8079b6b6c6d32758d01231ec4",
+    "content-hash": "9dec43fa4b9d0046a49e6b4d39391c93",
     "packages": [
         {
             "name": "apache-solr-for-typo3/solr",
@@ -12119,16 +12119,16 @@
         },
         {
             "name": "webconsulting/skillflow",
-            "version": "1.0.0",
+            "version": "1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/skillflow.git",
-                "reference": "4c1b94282345dec52a732ed9edfa41d7e28c0dbf"
+                "reference": "c669cd7d7c2f6b92b01a1b082e3e7d44c93f635f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/skillflow/zipball/4c1b94282345dec52a732ed9edfa41d7e28c0dbf",
-                "reference": "4c1b94282345dec52a732ed9edfa41d7e28c0dbf",
+                "url": "https://api.github.com/repos/dirnbauer/skillflow/zipball/c669cd7d7c2f6b92b01a1b082e3e7d44c93f635f",
+                "reference": "c669cd7d7c2f6b92b01a1b082e3e7d44c93f635f",
                 "shasum": ""
             },
             "require": {
@@ -12159,7 +12159,7 @@
                 "GPL-2.0-or-later"
             ],
             "description": "Agent Skills for TYPO3 - manage Anthropic-style skills, import them from folders or git repositories, attach them to workspace stages and pages, and run them against content (SEO, tone, QA). Local/DDEV installs only.",
-            "time": "2026-06-11T11:01:34+00:00"
+            "time": "2026-06-11T12:26:34+00:00"
         },
         {
             "name": "webconsulting/typo3-capability-manifest",
