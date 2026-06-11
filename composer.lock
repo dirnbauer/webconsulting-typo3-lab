@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "cfdcf33c4731dadfa030afb6c4fd0cf2",
+    "content-hash": "767cc3b8079b6b6c6d32758d01231ec4",
     "packages": [
         {
             "name": "apache-solr-for-typo3/solr",
@@ -571,7 +571,7 @@
         },
         {
             "name": "dirnbauer/innesto",
-            "version": "dev-main",
+            "version": "1.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/innesto",
@@ -589,7 +589,6 @@
                 "typo3/cms-core": "^14.3",
                 "webconsulting/desiderio": "*"
             },
-            "default-branch": true,
             "type": "typo3-cms-extension",
             "extra": {
                 "typo3/cms": {
@@ -12120,7 +12119,7 @@
         },
         {
             "name": "webconsulting/skillflow",
-            "version": "dev-main",
+            "version": "1.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/skillflow.git",
@@ -12145,7 +12144,6 @@
                 "phpstan/phpstan": "^2.1",
                 "saschaegerer/phpstan-typo3": "^3.0.1"
             },
-            "default-branch": true,
             "type": "typo3-cms-extension",
             "extra": {
                 "typo3/cms": {
@@ -14746,7 +14744,6 @@
     "minimum-stability": "dev",
     "stability-flags": {
         "apache-solr-for-typo3/solr": 10,
-        "dirnbauer/innesto": 20,
         "hn/typo3-mcp-server": 20,
         "in2code/powermail": 20,
         "netresearch/nr-llm": 20,
@@ -14754,8 +14751,7 @@
         "sgalinski/sg-apicore": 20,
         "studiomitte/friendlycaptcha": 20,
         "studiomitte/solr-numbered-pagination": 20,
-        "webconsulting/docx-editor": 20,
-        "webconsulting/skillflow": 20
+        "webconsulting/docx-editor": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,

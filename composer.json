@@ -136,7 +136,7 @@
   ],
   "require": {
     "apache-solr-for-typo3/solr": "^14.0@beta",
-    "dirnbauer/innesto": "@dev",
+    "dirnbauer/innesto": "^1.0",
     "friendsoftypo3/tt-address": "^10.0",
     "friendsoftypo3/visual-editor": "^1.6",
     "georgringer/context-edit-records": "^1.0",
@@ -194,7 +194,7 @@
     "webconsulting/records-list-examples": "^1.1",
     "webconsulting/records-list-types": "^1.0.3",
     "webconsulting/site-package": "^14.1",
-    "webconsulting/skillflow": "@dev",
+    "webconsulting/skillflow": "^1.0",
     "webconsulting/typo3-capability-manifest": "^1.0",
     "webconsulting/typo3-x402-paywall": "^1.0",
     "webconsulting/webcon-easy-workspace": "^1.2.8",
