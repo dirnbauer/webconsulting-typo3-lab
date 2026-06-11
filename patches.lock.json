@@ -1,5 +1,5 @@
 {
-    "_hash": "9af4941014267621c0d030482beaef3f85520007027741f3947cedb7aadb7c45",
+    "_hash": "6737f5fbc64e6597365f43b3d6dd94c4e062f373a47f0a29fd17ad28b1e90468",
     "patches": {
         "friendsoftypo3/visual-editor": [
             {
@@ -17,18 +17,6 @@
                 "description": "Decode JSON save body when getParsedBody() is an empty array",
                 "url": "patches/friendsoftypo3-visual-editor-fix-save-json-body.patch",
                 "sha256": "2163880a5c96636d8c9f8d99c6041d4eb4a17411e27cd601c4fa3eccc1613c8f",
-                "depth": 1,
-                "extra": {
-                    "provenance": "root"
-                }
-            }
-        ],
-        "in2code/powermail": [
-            {
-                "package": "in2code/powermail",
-                "description": "Guard missing TYPO3 request in CreateMarker for CLI/MCP writes",
-                "url": "patches/in2code-powermail-createmarker-null-request.patch",
-                "sha256": "c71e70e752361d09446caf7457fecb441e4c26d72fcaa78744a9b7654d108f18",
                 "depth": 1,
                 "extra": {
                     "provenance": "root"
