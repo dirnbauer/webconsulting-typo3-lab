@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "85d1e446e773b3631ee0e8d6f0f0c2ee",
+    "content-hash": "cfdcf33c4731dadfa030afb6c4fd0cf2",
     "packages": [
         {
             "name": "apache-solr-for-typo3/solr",
@@ -575,12 +575,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/innesto",
-                "reference": "61f07dbbc5929f3dcf74038dc32bdcbee9fad5c7"
+                "reference": "955423d7c842dc2253d8293cd631f5650b524fb3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/innesto/zipball/61f07dbbc5929f3dcf74038dc32bdcbee9fad5c7",
-                "reference": "61f07dbbc5929f3dcf74038dc32bdcbee9fad5c7",
+                "url": "https://api.github.com/repos/dirnbauer/innesto/zipball/955423d7c842dc2253d8293cd631f5650b524fb3",
+                "reference": "955423d7c842dc2253d8293cd631f5650b524fb3",
                 "shasum": ""
             },
             "require": {
@@ -598,7 +598,7 @@
             },
             "autoload": {
                 "psr-4": {
-                    "Dirnbauer\\Innesto\\": "Classes/"
+                    "Webconsulting\\Innesto\\": "Classes/"
                 }
             },
             "license": [
@@ -610,7 +610,7 @@
                 }
             ],
             "description": "Innesto — grafts shadcn/ui registry components onto TYPO3 as Desiderio-styled Content Blocks",
-            "time": "2026-06-10T19:01:33+00:00"
+            "time": "2026-06-10T19:33:05+00:00"
         },
         {
             "name": "doctrine/dbal",
@@ -12119,6 +12119,51 @@
             }
         },
         {
+            "name": "webconsulting/skillflow",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dirnbauer/skillflow.git",
+                "reference": "4c1b94282345dec52a732ed9edfa41d7e28c0dbf"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dirnbauer/skillflow/zipball/4c1b94282345dec52a732ed9edfa41d7e28c0dbf",
+                "reference": "4c1b94282345dec52a732ed9edfa41d7e28c0dbf",
+                "shasum": ""
+            },
+            "require": {
+                "ext-zip": "*",
+                "php": "^8.2",
+                "symfony/process": "^7.0",
+                "symfony/yaml": "^7.0",
+                "typo3/cms-backend": "^14.3",
+                "typo3/cms-core": "^14.3",
+                "typo3/cms-workspaces": "^14.3"
+            },
+            "require-dev": {
+                "phpstan/phpstan": "^2.1",
+                "saschaegerer/phpstan-typo3": "^3.0.1"
+            },
+            "default-branch": true,
+            "type": "typo3-cms-extension",
+            "extra": {
+                "typo3/cms": {
+                    "extension-key": "skillflow"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Webconsulting\\Skillflow\\": "Classes/"
+                }
+            },
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "description": "Agent Skills for TYPO3 - manage Anthropic-style skills, import them from folders or git repositories, attach them to workspace stages and pages, and run them against content (SEO, tone, QA). Local/DDEV installs only.",
+            "time": "2026-06-11T11:01:34+00:00"
+        },
+        {
             "name": "webconsulting/typo3-capability-manifest",
             "version": "v1.0.1",
             "source": {
@@ -14709,7 +14754,8 @@
         "sgalinski/sg-apicore": 20,
         "studiomitte/friendlycaptcha": 20,
         "studiomitte/solr-numbered-pagination": 20,
-        "webconsulting/docx-editor": 20
+        "webconsulting/docx-editor": 20,
+        "webconsulting/skillflow": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,

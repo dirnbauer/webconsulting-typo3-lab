@@ -33,6 +33,11 @@
       "url": "https://github.com/dirnbauer/innesto"
     },
     {
+      "name": "skillflow",
+      "type": "vcs",
+      "url": "https://github.com/dirnbauer/skillflow.git"
+    },
+    {
       "type": "path",
       "url": "packages/*",
       "options": {
@@ -189,6 +194,7 @@
     "webconsulting/records-list-examples": "^1.1",
     "webconsulting/records-list-types": "^1.0.3",
     "webconsulting/site-package": "^14.1",
+    "webconsulting/skillflow": "@dev",
     "webconsulting/typo3-capability-manifest": "^1.0",
     "webconsulting/typo3-x402-paywall": "^1.0",
     "webconsulting/webcon-easy-workspace": "^1.2.8",
