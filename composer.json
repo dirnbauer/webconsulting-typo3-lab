@@ -43,7 +43,7 @@
       "options": {
         "symlink": true,
         "versions": {
-          "webconsulting/site-package": "14.1.0"
+          "webconsulting/site-package": "14.3.3"
         }
       }
     },
@@ -146,7 +146,7 @@
     "in2code/powermail": "dev-typo3-v14",
     "netresearch/nr-llm": "dev-main as 0.10.x-dev",
     "netresearch/nr-mcp-agent": "dev-main",
-    "netresearch/nr-vault": "^0.8",
+    "netresearch/nr-vault": "^0.10",
     "netresearch/t3-cowriter": "^3.1",
     "sgalinski/sg-apicore": "dev-main",
     "studiomitte/friendlycaptcha": "^14.0@dev",
@@ -193,7 +193,7 @@
     "webconsulting/docx-editor": "dev-main",
     "webconsulting/records-list-examples": "^1.1",
     "webconsulting/records-list-types": "^1.0.3",
-    "webconsulting/site-package": "^14.1",
+    "webconsulting/site-package": "^14.3",
     "webconsulting/skillflow": "^1.0",
     "webconsulting/typo3-capability-manifest": "^1.0",
     "webconsulting/typo3-x402-paywall": "^1.0",

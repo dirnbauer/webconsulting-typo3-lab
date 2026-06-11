@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9dec43fa4b9d0046a49e6b4d39391c93",
+    "content-hash": "5545dfa9809ba7a1e74deaffa505b4b4",
     "packages": [
         {
             "name": "apache-solr-for-typo3/solr",
@@ -365,28 +365,29 @@
         },
         {
             "name": "composer/pcre",
-            "version": "3.3.2",
+            "version": "3.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/pcre.git",
-                "reference": "b2bed4734f0cc156ee1fe9c0da2550420d99a21e"
+                "reference": "d5a341b3fb61f3001970940afb1d332968a183ed"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/pcre/zipball/b2bed4734f0cc156ee1fe9c0da2550420d99a21e",
-                "reference": "b2bed4734f0cc156ee1fe9c0da2550420d99a21e",
+                "url": "https://api.github.com/repos/composer/pcre/zipball/d5a341b3fb61f3001970940afb1d332968a183ed",
+                "reference": "d5a341b3fb61f3001970940afb1d332968a183ed",
                 "shasum": ""
             },
             "require": {
                 "php": "^7.4 || ^8.0"
             },
             "conflict": {
-                "phpstan/phpstan": "<1.11.10"
+                "phpstan/phpstan": "<2.2.2"
             },
             "require-dev": {
-                "phpstan/phpstan": "^1.12 || ^2",
-                "phpstan/phpstan-strict-rules": "^1 || ^2",
-                "phpunit/phpunit": "^8 || ^9"
+                "phpstan/phpstan": "^2",
+                "phpstan/phpstan-deprecation-rules": "^2",
+                "phpstan/phpstan-strict-rules": "^2",
+                "phpunit/phpunit": "^9"
             },
             "type": "library",
             "extra": {
@@ -424,7 +425,7 @@
             ],
             "support": {
                 "issues": "https://github.com/composer/pcre/issues",
-                "source": "https://github.com/composer/pcre/tree/3.3.2"
+                "source": "https://github.com/composer/pcre/tree/3.4.0"
             },
             "funding": [
                 {
@@ -434,13 +435,9 @@
                 {
                     "url": "https://github.com/composer",
                     "type": "github"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/composer/composer",
-                    "type": "tidelift"
                 }
             ],
-            "time": "2024-11-12T16:29:46+00:00"
+            "time": "2026-06-07T11:47:49+00:00"
         },
         {
             "name": "composer/semver",
@@ -2678,16 +2675,16 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/netresearch/t3x-nr-llm.git",
-                "reference": "5d28bb7d21e23c97d0adfa068276f55f63eb2f20"
+                "reference": "fb3de42fac52b82ed3e6e06dcba6e86e5a3063b3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/netresearch/t3x-nr-llm/zipball/5d28bb7d21e23c97d0adfa068276f55f63eb2f20",
-                "reference": "5d28bb7d21e23c97d0adfa068276f55f63eb2f20",
+                "url": "https://api.github.com/repos/netresearch/t3x-nr-llm/zipball/fb3de42fac52b82ed3e6e06dcba6e86e5a3063b3",
+                "reference": "fb3de42fac52b82ed3e6e06dcba6e86e5a3063b3",
                 "shasum": ""
             },
             "require": {
-                "netresearch/nr-vault": "^0.8.0 || ^0.9.0",
+                "netresearch/nr-vault": "^0.10.0",
                 "php": "^8.2",
                 "psr/http-client": "^1.0",
                 "psr/http-factory": "^1.0",
@@ -2836,7 +2833,7 @@
                 "issues": "https://github.com/netresearch/t3x-nr-llm/issues",
                 "source": "https://github.com/netresearch/t3x-nr-llm"
             },
-            "time": "2026-06-11T10:49:24+00:00"
+            "time": "2026-06-11T15:26:54+00:00"
         },
         {
             "name": "netresearch/nr-mcp-agent",
@@ -2973,16 +2970,16 @@
         },
         {
             "name": "netresearch/nr-vault",
-            "version": "v0.8.0",
+            "version": "v0.10.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/netresearch/t3x-nr-vault.git",
-                "reference": "d26cd8ae59279e4c319301dc455717524b7cd216"
+                "reference": "cbb5ecf8900abc5721617e293c0718cd6f74d466"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/netresearch/t3x-nr-vault/zipball/d26cd8ae59279e4c319301dc455717524b7cd216",
-                "reference": "d26cd8ae59279e4c319301dc455717524b7cd216",
+                "url": "https://api.github.com/repos/netresearch/t3x-nr-vault/zipball/cbb5ecf8900abc5721617e293c0718cd6f74d466",
+                "reference": "cbb5ecf8900abc5721617e293c0718cd6f74d466",
                 "shasum": ""
             },
             "require": {
@@ -3121,7 +3118,7 @@
                 "issues": "https://github.com/netresearch/t3x-nr-vault/issues",
                 "source": "https://github.com/netresearch/t3x-nr-vault"
             },
-            "time": "2026-06-09T04:28:58+00:00"
+            "time": "2026-06-11T14:50:52+00:00"
         },
         {
             "name": "netresearch/t3-cowriter",
@@ -11926,16 +11923,16 @@
         },
         {
             "name": "webconsulting/records-list-examples",
-            "version": "v1.2.0",
+            "version": "v1.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/typo3-records-list-examples.git",
-                "reference": "f7868b063ed0981b7e35459aaf5dc5234456daaa"
+                "reference": "5ea658f63b8314df1734851295134266fd73e7fa"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/typo3-records-list-examples/zipball/f7868b063ed0981b7e35459aaf5dc5234456daaa",
-                "reference": "f7868b063ed0981b7e35459aaf5dc5234456daaa",
+                "url": "https://api.github.com/repos/dirnbauer/typo3-records-list-examples/zipball/5ea658f63b8314df1734851295134266fd73e7fa",
+                "reference": "5ea658f63b8314df1734851295134266fd73e7fa",
                 "shasum": ""
             },
             "require": {
@@ -11955,7 +11952,7 @@
             "extra": {
                 "typo3/cms": {
                     "extension-key": "records_list_examples",
-                    "version": "1.2.0",
+                    "version": "1.2.1",
                     "Package": {
                         "providesPackages": []
                     }
@@ -11997,20 +11994,20 @@
                 "issues": "https://github.com/dirnbauer/typo3-records-list-examples/issues",
                 "source": "https://github.com/dirnbauer/typo3-records-list-examples"
             },
-            "time": "2026-06-06T18:40:46+00:00"
+            "time": "2026-06-11T15:59:32+00:00"
         },
         {
             "name": "webconsulting/records-list-types",
-            "version": "v1.0.3",
+            "version": "v1.0.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/typo3-records-list-types.git",
-                "reference": "d2f8b1de08f3c4ac6ce466dfc80ab30a028d8bd9"
+                "reference": "cc90ea58b9eed494cf1e42799725a970bc2caf34"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/typo3-records-list-types/zipball/d2f8b1de08f3c4ac6ce466dfc80ab30a028d8bd9",
-                "reference": "d2f8b1de08f3c4ac6ce466dfc80ab30a028d8bd9",
+                "url": "https://api.github.com/repos/dirnbauer/typo3-records-list-types/zipball/cc90ea58b9eed494cf1e42799725a970bc2caf34",
+                "reference": "cc90ea58b9eed494cf1e42799725a970bc2caf34",
                 "shasum": ""
             },
             "require": {
@@ -12033,7 +12030,7 @@
             "extra": {
                 "typo3/cms": {
                     "extension-key": "records_list_types",
-                    "version": "1.0.3",
+                    "version": "1.0.5",
                     "Package": {
                         "providesPackages": []
                     },
@@ -12066,19 +12063,19 @@
                 "issues": "https://github.com/dirnbauer/typo3-records-list-types/issues",
                 "source": "https://github.com/dirnbauer/typo3-records-list-types"
             },
-            "time": "2026-06-05T17:35:29+00:00"
+            "time": "2026-06-11T16:11:36+00:00"
         },
         {
             "name": "webconsulting/site-package",
-            "version": "14.1.0",
+            "version": "14.3.3",
             "dist": {
                 "type": "path",
                 "url": "packages/site_package",
-                "reference": "344ab4f159d2804434e1b7b1b75a377c3fb180b0"
+                "reference": "931d84db222baf359085f633cd8b99f7cccc2f15"
             },
             "require": {
                 "apache-solr-for-typo3/solr": "^14.0@beta",
-                "friendsoftypo3/visual-editor": "^1.6",
+                "friendsoftypo3/visual-editor": "^1.7",
                 "georgringer/news": "^14.0",
                 "php": "^8.2",
                 "studiomitte/solr-numbered-pagination": "dev-main",
@@ -12086,7 +12083,7 @@
                 "typo3/cms-adminpanel": "^14.3",
                 "typo3/cms-core": "^14.3",
                 "typo3/theme-camino": "^14.3",
-                "webconsulting/desiderio": "^2.5"
+                "webconsulting/desiderio": "^2.6"
             },
             "require-dev": {
                 "phpstan/phpstan": "^2.1",
@@ -12097,7 +12094,7 @@
             "extra": {
                 "typo3/cms": {
                     "extension-key": "site_package",
-                    "version": "14.1.0",
+                    "version": "14.3.3",
                     "Package": {
                         "providesPackages": []
                     }

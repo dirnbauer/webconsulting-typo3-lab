@@ -6,14 +6,14 @@
     "require": {
         "php": "^8.2",
         "apache-solr-for-typo3/solr": "^14.0@beta",
-        "friendsoftypo3/visual-editor": "^1.6",
+        "friendsoftypo3/visual-editor": "^1.7",
         "georgringer/news": "^14.0",
         "studiomitte/solr-numbered-pagination": "dev-main",
         "t3g/blog": "^15.0",
         "typo3/cms-adminpanel": "^14.3",
         "typo3/cms-core": "^14.3",
         "typo3/theme-camino": "^14.3",
-        "webconsulting/desiderio": "^2.5"
+        "webconsulting/desiderio": "^2.6"
     },
     "require-dev": {
         "phpstan/phpstan": "^2.1",
@@ -28,7 +28,7 @@
     "extra": {
         "typo3/cms": {
             "extension-key": "site_package",
-            "version": "14.1.0",
+            "version": "14.3.3",
             "Package": {
                 "providesPackages": {}
             }
