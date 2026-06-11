@@ -1244,16 +1244,16 @@
         },
         {
             "name": "friendsoftypo3/visual-editor",
-            "version": "1.7.0",
+            "version": "1.7.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/FriendsOfTYPO3/visual_editor.git",
-                "reference": "7e9e655c6291eeb774ac541a2b44d818e56b0084"
+                "reference": "0a7fd9856b2b247db1e6f521240491eb9af80a40"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FriendsOfTYPO3/visual_editor/zipball/7e9e655c6291eeb774ac541a2b44d818e56b0084",
-                "reference": "7e9e655c6291eeb774ac541a2b44d818e56b0084",
+                "url": "https://api.github.com/repos/FriendsOfTYPO3/visual_editor/zipball/0a7fd9856b2b247db1e6f521240491eb9af80a40",
+                "reference": "0a7fd9856b2b247db1e6f521240491eb9af80a40",
                 "shasum": ""
             },
             "require": {
@@ -1309,9 +1309,9 @@
             ],
             "support": {
                 "issues": "https://github.com/FriendsOfTYPO3/visual_editor/issues",
-                "source": "https://github.com/FriendsOfTYPO3/visual_editor/tree/1.7.0"
+                "source": "https://github.com/FriendsOfTYPO3/visual_editor/tree/1.7.1"
             },
-            "time": "2026-06-10T12:03:52+00:00"
+            "time": "2026-06-11T07:48:14+00:00"
         },
         {
             "name": "georgringer/context-edit-records",
@@ -2078,12 +2078,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/powermail.git",
-                "reference": "7c4e381dab4f875bf3e96d2cd354c8ea4e019664"
+                "reference": "1732cc4c9009a9015dc353a37375ec08c7f23d3d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/powermail/zipball/7c4e381dab4f875bf3e96d2cd354c8ea4e019664",
-                "reference": "7c4e381dab4f875bf3e96d2cd354c8ea4e019664",
+                "url": "https://api.github.com/repos/dirnbauer/powermail/zipball/1732cc4c9009a9015dc353a37375ec08c7f23d3d",
+                "reference": "1732cc4c9009a9015dc353a37375ec08c7f23d3d",
                 "shasum": ""
             },
             "require": {
@@ -2224,7 +2224,7 @@
                 "spamprevention",
                 "typo3"
             ],
-            "time": "2026-06-10T17:17:06+00:00"
+            "time": "2026-06-10T17:20:19+00:00"
         },
         {
             "name": "logiscape/mcp-sdk-php",
@@ -2678,12 +2678,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/netresearch/t3x-nr-llm.git",
-                "reference": "3b549b9f9b341c5fd2c684f2e1758526fc8a8564"
+                "reference": "5d28bb7d21e23c97d0adfa068276f55f63eb2f20"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/netresearch/t3x-nr-llm/zipball/3b549b9f9b341c5fd2c684f2e1758526fc8a8564",
-                "reference": "3b549b9f9b341c5fd2c684f2e1758526fc8a8564",
+                "url": "https://api.github.com/repos/netresearch/t3x-nr-llm/zipball/5d28bb7d21e23c97d0adfa068276f55f63eb2f20",
+                "reference": "5d28bb7d21e23c97d0adfa068276f55f63eb2f20",
                 "shasum": ""
             },
             "require": {
@@ -2836,7 +2836,7 @@
                 "issues": "https://github.com/netresearch/t3x-nr-llm/issues",
                 "source": "https://github.com/netresearch/t3x-nr-llm"
             },
-            "time": "2026-06-10T16:19:49+00:00"
+            "time": "2026-06-11T10:49:24+00:00"
         },
         {
             "name": "netresearch/nr-mcp-agent",

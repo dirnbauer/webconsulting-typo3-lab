@@ -1,0 +1,14 @@
+diff --git a/Classes/Domain/Repository/PageRepository.php b/Classes/Domain/Repository/PageRepository.php
+index 1375c29..14ce9eb 100644
+--- a/Classes/Domain/Repository/PageRepository.php
++++ b/Classes/Domain/Repository/PageRepository.php
+@@ -1701,6 +1701,9 @@ class PageRepository implements LoggerAwareInterface
+                 ->where($queryBuilder->expr()->eq('uid', $queryBuilder->createNamedParameter((int)$row['t3ver_oid'], Connection::PARAM_INT)))
+                 ->executeQuery()
+                 ->fetchAssociative();
++            if (!is_array($row)) {
++                return;
++            }
+         }
+         $wsAlt = $this->getWorkspaceVersionOfRecord($table, $row, $bypassEnableFieldsCheck);
+         if (!$wsAlt) {

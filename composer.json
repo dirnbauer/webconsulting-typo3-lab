@@ -210,6 +210,9 @@
   "extra": {
     "composer-exit-on-patch-failure": true,
     "patches": {
+      "typo3/cms-core": {
+        "Guard workspace move-pointer overlay when the live record is missing": "patches/typo3-cms-core-fix-workspace-move-pointer-missing-live-record.patch"
+      },
       "friendsoftypo3/visual-editor": {
         "Fix preview URL generation for workspace-only pages (NEW_PLACEHOLDER)": "patches/friendsoftypo3-visual-editor-fix-workspace-new-page-preview.patch",
         "Decode JSON save body when getParsedBody() is an empty array": "patches/friendsoftypo3-visual-editor-fix-save-json-body.patch"
