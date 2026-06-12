@@ -1,6 +1,18 @@
 {
-    "_hash": "6f412312f741751194a5f54280b77c3056b01d0e2bc5eeb95079d178df2604b3",
+    "_hash": "8a8540a7bea7968bb14ad67f9c2205561ecd36a8f88608e1d2a09ef1c4699b84",
     "patches": {
+        "netresearch/nr-vault": [
+            {
+                "package": "netresearch/nr-vault",
+                "description": "Accept array $pasteUpdate in processCmdmap_preProcess (copy/move with update payload)",
+                "url": "patches/netresearch-nr-vault-fix-cmdmap-hook-pasteupdate-type.patch",
+                "sha256": "db075dad8ec7cc378efc9458c4660d9198e0e8923c75f0561d26768ad4193460",
+                "depth": 1,
+                "extra": {
+                    "provenance": "root"
+                }
+            }
+        ],
         "typo3/cms-core": [
             {
                 "package": "typo3/cms-core",
@@ -29,6 +41,16 @@
                 "description": "Decode JSON save body when getParsedBody() is an empty array",
                 "url": "patches/friendsoftypo3-visual-editor-fix-save-json-body.patch",
                 "sha256": "2163880a5c96636d8c9f8d99c6041d4eb4a17411e27cd601c4fa3eccc1613c8f",
+                "depth": 1,
+                "extra": {
+                    "provenance": "root"
+                }
+            },
+            {
+                "package": "friendsoftypo3/visual-editor",
+                "description": "Element library panel and inline link editing",
+                "url": "patches/friendsoftypo3-visual-editor-element-library-and-links.patch",
+                "sha256": "5e782bb7ab79f203dceefdd1dbe5f6462dccbdf5cde52ec52e29444ca0155faa",
                 "depth": 1,
                 "extra": {
                     "provenance": "root"

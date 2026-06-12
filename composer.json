@@ -20,8 +20,7 @@
       "typo3/*": "source",
       "hn/typo3-mcp-server": "source",
       "t3g/blog": "source",
-      "webconsulting/desiderio": "dist",
-      "webconsulting/*": "source",
+            "webconsulting/*": "source",
       "*": "source"
     },
     "sort-packages": true
@@ -138,7 +137,7 @@
     "apache-solr-for-typo3/solr": "^14.0@beta",
     "dirnbauer/innesto": "^1.0",
     "friendsoftypo3/tt-address": "^10.0",
-    "friendsoftypo3/visual-editor": "^1.6",
+    "friendsoftypo3/visual-editor": "1.7.1",
     "georgringer/context-edit-records": "^1.0",
     "georgringer/news": "^14.0",
     "georgringer/numbered-pagination": "^2.2",
@@ -210,12 +209,16 @@
   "extra": {
     "composer-exit-on-patch-failure": true,
     "patches": {
+      "netresearch/nr-vault": {
+        "Accept array $pasteUpdate in processCmdmap_preProcess (copy/move with update payload)": "patches/netresearch-nr-vault-fix-cmdmap-hook-pasteupdate-type.patch"
+      },
       "typo3/cms-core": {
         "Guard workspace move-pointer overlay when the live record is missing": "patches/typo3-cms-core-fix-workspace-move-pointer-missing-live-record.patch"
       },
       "friendsoftypo3/visual-editor": {
         "Fix preview URL generation for workspace-only pages (NEW_PLACEHOLDER)": "patches/friendsoftypo3-visual-editor-fix-workspace-new-page-preview.patch",
-        "Decode JSON save body when getParsedBody() is an empty array": "patches/friendsoftypo3-visual-editor-fix-save-json-body.patch"
+        "Decode JSON save body when getParsedBody() is an empty array": "patches/friendsoftypo3-visual-editor-fix-save-json-body.patch",
+      "Element library panel and inline link editing": "patches/friendsoftypo3-visual-editor-element-library-and-links.patch"
       }
     }
   }

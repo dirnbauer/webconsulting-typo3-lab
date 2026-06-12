@@ -1,0 +1,1145 @@
+diff --git a/Classes/Service/DataHandlerService.php b/Classes/Service/DataHandlerService.php
+index cb8d494..cbf9e62 100644
+--- a/Classes/Service/DataHandlerService.php
++++ b/Classes/Service/DataHandlerService.php
+@@ -60,11 +60,17 @@ final readonly class DataHandlerService
+ 
+             $schema = $this->tcaSchema->get($table);
+             foreach ($rows as $uid => $fields) {
+-                if (!is_int($uid)) {
+-                    throw new RuntimeException('Uid for table "' . $table . '" must be an integer, got ' . $uid, 1117271113);
++                $isNewRecord = is_string($uid) && preg_match('/^NEW[a-zA-Z0-9]+$/', $uid) === 1;
++                if (!is_int($uid) && !$isNewRecord) {
++                    throw new RuntimeException('Uid for table "' . $table . '" must be an integer or a NEW... placeholder, got ' . $uid, 1117271113);
+                 }
+ 
+                 foreach ($fields as $field => $value) {
++                    if ($field === 'pid' && $isNewRecord) {
++                        // pid addresses the insert position of NEW records and is
++                        // consumed by the DataHandler itself, it is no TCA column
++                        continue;
++                    }
+                     if (!$schema->hasField($field)) {
+                         throw new RuntimeException('Field "' . $field . '" not found in TCA schema for table "' . $table . '"', 6627872218);
+                     }
+diff --git a/Classes/Service/EditModeService.php b/Classes/Service/EditModeService.php
+index a217902..301d015 100644
+--- a/Classes/Service/EditModeService.php
++++ b/Classes/Service/EditModeService.php
+@@ -121,6 +121,7 @@ final readonly class EditModeService
+                 'token' => $this->formProtectionFactory->createForType('backend')->generateToken('visual_editor', 'save'),
+                 'routeArguments' => (object)$this->flattenBracketKeys(['params' => $this->getUsedArguments($request)]),
+                 'allowedOrigins' => $this->getAllowedOrigins(),
++                'elementLibraryEnabled' => (bool)($GLOBALS['TYPO3_CONF_VARS']['EXTENSIONS']['visual_editor']['elementLibraryEnabled'] ?? false),
+             ];
+             $this->assetCollector->addInlineJavaScript(
+                 'veLangInfo',
+diff --git a/Classes/ViewHelpers/Render/LinkViewHelper.php b/Classes/ViewHelpers/Render/LinkViewHelper.php
+new file mode 100644
+index 0000000..475c52a
+--- /dev/null
++++ b/Classes/ViewHelpers/Render/LinkViewHelper.php
+@@ -0,0 +1,190 @@
++<?php
++
++declare(strict_types=1);
++
++namespace TYPO3\CMS\VisualEditor\ViewHelpers\Render;
++
++use InvalidArgumentException;
++use Psr\Http\Message\ServerRequestInterface;
++use TYPO3\CMS\Backend\Routing\UriBuilder;
++use TYPO3\CMS\Core\Crypto\HashService;
++use TYPO3\CMS\Core\Domain\Exception\RecordPropertyNotFoundException;
++use TYPO3\CMS\Core\Domain\RecordFactory;
++use TYPO3\CMS\Core\Domain\RecordInterface;
++use TYPO3\CMS\Core\Information\Typo3Version;
++use TYPO3\CMS\Core\Schema\Field\LinkFieldType;
++use TYPO3\CMS\Core\Schema\TcaSchemaFactory;
++use TYPO3\CMS\Core\Utility\GeneralUtility;
++use TYPO3\CMS\Extbase\DomainObject\DomainObjectInterface;
++use TYPO3\CMS\Frontend\Page\PageInformation;
++use TYPO3\CMS\VisualEditor\Service\EditModeService;
++use TYPO3\CMS\VisualEditor\Service\LocalizationService;
++use TYPO3\CMS\VisualEditor\Service\ModelToRawRecordService;
++use TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper;
++use TYPO3Fluid\Fluid\Core\ViewHelper\InvalidArgumentValueException;
++use TYPO3Fluid\Fluid\Core\ViewHelper\TagBuilder;
++
++use function get_debug_type;
++use function implode;
++use function is_array;
++use function is_string;
++
++/**
++ * ViewHelper for pure TCA type=link fields: renders a small link icon
++ * (<ve-editable-link>) in edit mode that opens the TYPO3 link browser and
++ * saves the chosen typolink immediately. Outside edit mode it renders
++ * nothing - the surrounding template stays responsible for the actual
++ * <a> tag (f:link.typolink).
++ *
++ * The link TEXT stays a regular ve:render.text field when it is editable;
++ * when the text is derived (e.g. from a label) only the icon appears.
++ *
++ * ````html
++ *   <a href="{link}"><ve:render.text record="{record}" field="cta_text"/></a>
++ *   <ve:render.link record="{record}" field="cta_link"/>
++ * ````
++ */
++final class LinkViewHelper extends AbstractViewHelper
++{
++    private const RECORD_TYPE = RecordInterface::class . '|' . PageInformation::class . '|' . DomainObjectInterface::class;
++
++    protected $escapeChildren = false;
++
++    protected $escapeOutput = false;
++
++    public function __construct(
++        private readonly EditModeService $editModeService,
++        private readonly RecordFactory $recordFactory,
++        private readonly TcaSchemaFactory $tcaSchema,
++        private readonly Typo3Version $typo3Version,
++        private readonly LocalizationService $localizationService,
++        private readonly ModelToRawRecordService $modelToRawRecordService,
++        private readonly UriBuilder $uriBuilder,
++        private readonly HashService $hashService,
++    ) {
++    }
++
++    public function initializeArguments(): void
++    {
++        parent::initializeArguments();
++
++        $type = 'object';
++        $typo3Version = $this->typo3Version ?? GeneralUtility::makeInstance(Typo3Version::class);
++        if ($typo3Version->getMajorVersion() >= 14) {
++            $type = self::RECORD_TYPE;
++        }
++
++        $this->registerArgument('record', $type, 'A Record API Object (field is also needed)');
++        $this->registerArgument('field', 'string', 'the link field (TCA type=link) the icon edits', true);
++        $this->registerArgument('textField', 'string', 'informational: the field holding the link text, when it is separately editable', false, '');
++        $this->registerArgument('optional', 'boolean', 'If the provided field does not exist in the record, an empty string is returned.', false, false);
++    }
++
++    public function getContentArgumentName(): string
++    {
++        return 'record';
++    }
++
++    public function render(): string
++    {
++        $renderingContext = $this->renderingContext ?? throw new InvalidArgumentException('$this->renderingContext is not available', 1777200010);
++        $request = $renderingContext->getAttribute(ServerRequestInterface::class);
++        $this->editModeService->init($request);
++
++        $record = $this->renderChildren();
++        $field = $this->arguments['field'];
++
++        if ($record instanceof PageInformation) {
++            $record = $this->recordFactory->createResolvedRecordFromDatabaseRow('pages', $record->getPageRecord());
++        }
++
++        if ($record instanceof DomainObjectInterface) {
++            $record = $this->modelToRawRecordService->modelToRawRecord($record);
++        }
++
++        if (!$record instanceof RecordInterface) {
++            throw new InvalidArgumentException(
++                'The record argument must be an instance of ' . self::RECORD_TYPE . '. Given: ' . get_debug_type($record),
++                1777200011,
++            );
++        }
++
++        try {
++            $value = $record->get($field) ?? '';
++        } catch (RecordPropertyNotFoundException $recordPropertyNotFoundException) {
++            if ($this->arguments['optional']) {
++                return '';
++            }
++
++            throw new InvalidArgumentValueException(
++                'The field "' . $field . '" does not exist in the given record `' . $record->getFullType() . '`.',
++                1777200012,
++                $recordPropertyNotFoundException,
++            );
++        }
++
++        if ($value instanceof \Stringable) {
++            $value = (string)$value;
++        }
++        if (!is_string($value)) {
++            $value = '';
++        }
++
++        $schema = $this->tcaSchema->get($record->getFullType());
++        $fieldSchema = $schema->getField($field);
++        if (!$fieldSchema instanceof LinkFieldType) {
++            $table = $record->getMainType();
++            throw new InvalidArgumentException(
++                'The field "' . $table . '.' . $field . '" is not a link field (TCA type=link). Given: ' . get_debug_type($fieldSchema),
++                1777200013,
++            );
++        }
++
++        if (!$this->editModeService->canEditField($record, $field, $request)) {
++            return '';
++        }
++
++        $table = $record->getMainType();
++        $uid = $record->getComputedProperties()->getLocalizedUid() ?: $record->getComputedProperties()->getVersionedUid() ?: $record->getUid();
++
++        $tableLabel = $schema->getTitle($this->localizationService->tryTranslation(...));
++        $label = $tableLabel . ': ' . $this->localizationService->tryTranslation($fieldSchema->getLabel());
++
++        $tag = GeneralUtility::makeInstance(TagBuilder::class);
++        $tag->setTagName('ve-editable-link');
++        $tag->addAttribute('table', $table);
++        $tag->addAttribute('uid', (string)$uid);
++        $tag->addAttribute('field', $fieldSchema->getName());
++        $tag->addAttribute('name', $label);
++        $tag->addAttribute('value', $value);
++        $tag->addAttribute('linkBrowserUrl', $this->buildLinkBrowserUrl($table, $uid, $record->getPid(), $fieldSchema->getName(), $fieldSchema));
++        $tag->forceClosingTag(true);
++
++        return $tag->render();
++    }
++
++    private function buildLinkBrowserUrl(string $table, int $uid, int $pid, string $field, LinkFieldType $fieldSchema): string
++    {
++        $itemName = 'data[' . $table . '][' . $uid . '][' . $field . ']';
++
++        $linkBrowserArguments = [];
++        $configuration = $fieldSchema->getConfiguration();
++        if (is_array($configuration['allowedTypes'] ?? null) && $configuration['allowedTypes'] !== []) {
++            $allowedTypes = implode(',', $configuration['allowedTypes']);
++            if ($allowedTypes !== '*') {
++                $linkBrowserArguments['allowedTypes'] = $allowedTypes;
++            }
++        }
++
++        return (string)$this->uriBuilder->buildUriFromRoute('wizard_link', ['P' => [
++            'params' => $linkBrowserArguments,
++            'table' => $table,
++            'uid' => $uid,
++            'pid' => $pid,
++            'field' => $field,
++            'formName' => 'editform',
++            'itemName' => $itemName,
++            'hmac' => $this->hashService->hmac('editform' . $itemName, 'wizard_js'),
++        ]]);
++    }
++}
+diff --git a/Resources/Private/Language/locallang.xlf b/Resources/Private/Language/locallang.xlf
+index 6226820..e4777a4 100644
+--- a/Resources/Private/Language/locallang.xlf
++++ b/Resources/Private/Language/locallang.xlf
+@@ -102,6 +102,33 @@
+       <trans-unit id="frontend.editImageButton">
+         <source>Edit Image</source>
+       </trans-unit>
++      <trans-unit id="frontend.editLink">
++        <source>Edit link</source>
++      </trans-unit>
++      <trans-unit id="frontend.library.title">
++        <source>Add content</source>
++      </trans-unit>
++      <trans-unit id="frontend.library.open">
++        <source>Add content from library</source>
++      </trans-unit>
++      <trans-unit id="frontend.library.close">
++        <source>Close</source>
++      </trans-unit>
++      <trans-unit id="frontend.library.search">
++        <source>Search elements …</source>
++      </trans-unit>
++      <trans-unit id="frontend.library.includeDemo">
++        <source>Include demo content</source>
++      </trans-unit>
++      <trans-unit id="frontend.library.loading">
++        <source>Loading …</source>
++      </trans-unit>
++      <trans-unit id="frontend.library.empty">
++        <source>No elements match the current filter.</source>
++      </trans-unit>
++      <trans-unit id="frontend.library.fromLibrary">
++        <source>Add from library</source>
++      </trans-unit>
+     </body>
+   </file>
+ </xliff>
+diff --git a/Resources/Public/JavaScript/Backend/index.js b/Resources/Public/JavaScript/Backend/index.js
+index f104dcb..aae3bc9 100644
+--- a/Resources/Public/JavaScript/Backend/index.js
++++ b/Resources/Public/JavaScript/Backend/index.js
+@@ -1,5 +1,6 @@
+ import Modal from '@typo3/backend/modal.js';
+-import {onMessage, stopListeningMessages} from '@typo3/visual-editor/Shared/iframe-messaging';
++import {FormEngineLinkBrowserSetLinkEvent} from '@typo3/backend/event/form-engine-link-browser-set-link-event.js';
++import {onMessage, sendMessage, stopListeningMessages} from '@typo3/visual-editor/Shared/iframe-messaging';
+ import '@typo3/visual-editor/Backend/components/ve-auto-save-toggle';
+ import '@typo3/visual-editor/Backend/components/ve-backend-save-button';
+ import '@typo3/visual-editor/Backend/components/ve-spotlight-toggle';
+@@ -44,6 +45,22 @@ function openIframeModal(src, title = '', size = 'large', type = 'iframe') {
+ }
+ 
+ onMessage('openModal', (data) => openIframeModal(data.src, data.title || '', data.size || undefined, data.type || undefined));
++onMessage('openLinkBrowser', (data) => {
++  const modal = Modal.advanced({
++    type: 'iframe',
++    title: data.title || '',
++    content: data.src,
++    size: 'large',
++    staticBackdrop: true,
++  });
++  // The link browser adapter dispatches the set-link event on the modal's
++  // iframe element (bubbles + composed), so it surfaces on the modal itself
++  // - same pattern as core's form-engine link-popup.
++  modal.addEventListener(FormEngineLinkBrowserSetLinkEvent.eventName, (event) => {
++    sendMessage('linkBrowserSetLink', {value: event.value}, 'iframe');
++    modal.hideModal();
++  });
++});
+ onMessage('reloadFrames', () => reloadAllChildFrames());
+ onMessage('openInMiddleFrame', (href) => {
+   const parsedHref = new URL(href, window.location.href);
+diff --git a/Resources/Public/JavaScript/Frontend/components/ve-content-element.js b/Resources/Public/JavaScript/Frontend/components/ve-content-element.js
+index 770e863..d4a0bfc 100644
+--- a/Resources/Public/JavaScript/Frontend/components/ve-content-element.js
++++ b/Resources/Public/JavaScript/Frontend/components/ve-content-element.js
+@@ -71,6 +71,12 @@ export class VeContentElement extends LitElement {
+     this.remove();
+   }
+ 
++  _openElementLibrary() {
++    import('@typo3/visual-editor/Frontend/components/ve-element-library').then((module) => {
++      module.getElementLibrary().openPanel();
++    });
++  }
++
+   _addAbove() {
+     const newContentUrl = window.veInfo.newContentUrl
+       .replace('__COL_POS__', this.colPos)
+@@ -224,6 +230,7 @@ export class VeContentElement extends LitElement {
+     const toggleLabel = lll('frontend.showContentElement');
+     const deleteLabel = lll('frontend.deleteContentElement');
+     const addLabel = lll('frontend.addContentElementButton');
++    const libraryLabel = lll('frontend.library.fromLibrary');
+     const actionBar = html`
+       <ve-drag-handle
+         table="${this.table}" uid="${this.uid}" CType="${this.CType}"
+@@ -273,6 +280,13 @@ export class VeContentElement extends LitElement {
+             </button>
+           ` : ''
+         }
++        ${
++          window.veInfo.allowNewContent && window.veInfo.elementLibraryEnabled ? html`
++            <button class="button" tabindex="0" type="button" @click="${this._openElementLibrary}" title="${libraryLabel}" aria-label="${libraryLabel}">
++              <ve-icon name="actions-menu-alternative"/>
++            </button>
++          ` : ''
++        }
+       </ve-drag-handle>`;
+ 
+     return html`
+diff --git a/Resources/Public/JavaScript/Frontend/components/ve-drop-zone.js b/Resources/Public/JavaScript/Frontend/components/ve-drop-zone.js
+index dbb8967..e408e2c 100644
+--- a/Resources/Public/JavaScript/Frontend/components/ve-drop-zone.js
++++ b/Resources/Public/JavaScript/Frontend/components/ve-drop-zone.js
+@@ -205,6 +205,37 @@ export class VeDropZone extends LitElement {
+       },
+     };
+ 
++    if (data.libraryMode) {
++      // Drag from the element library panel: create content at this position.
++      this.isDragHovering = false;
++      if (data.libraryMode === 'copy' && data.demoUid > 0) {
++        // copy the seeded demo record (incl. demo content)
++        dataHandlerStore.addCmd('tt_content', data.demoUid, 'copy', actionData);
++        await useDataHandler(dataHandlerStore.data, dataHandlerStore.cmdArray);
++      } else {
++        // create an empty element of this type; pid carries the DataHandler
++        // position semantics (page uid = first, -uid = after that record)
++        const newId = 'NEW' + crypto.randomUUID().replaceAll('-', '');
++        const payload = dataHandlerStore.data;
++        payload.tt_content = payload.tt_content || {};
++        payload.tt_content[newId] = {
++          pid: this.target,
++          CType: data.CType,
++          colPos: this.colPos,
++          sys_language_uid: window.veInfo.languageId,
++          ...(
++            Number.isInteger(this.tx_container_parent) && this.tx_container_parent > 0
++              ? {tx_container_parent: this.tx_container_parent}
++              : {}
++          ),
++        };
++        await useDataHandler(payload, dataHandlerStore.cmdArray);
++      }
++      dataHandlerStore.markSaved();
++      sendMessage('reloadFrames');
++      return;
++    }
++
+     if (event.dataTransfer.dropEffect === 'copy') {
+       // For copy we ask the user and if confirmed we do an immediate call useDataHandler
+       // if not, we do nothing
+diff --git a/Resources/Public/JavaScript/Frontend/components/ve-editable-link.js b/Resources/Public/JavaScript/Frontend/components/ve-editable-link.js
+new file mode 100644
+index 0000000..9210f1c
+--- /dev/null
++++ b/Resources/Public/JavaScript/Frontend/components/ve-editable-link.js
+@@ -0,0 +1,114 @@
++import {css, html, LitElement} from 'lit';
++import {lll} from '@typo3/core/lit-helper.js';
++import {sendMessage, onMessage} from '@typo3/visual-editor/Shared/iframe-messaging';
++import {useDataHandler} from '@typo3/visual-editor/Frontend/use-data-handler';
++import {dataHandlerStore} from '@typo3/visual-editor/Frontend/stores/data-handler-store';
++import '@typo3/visual-editor/Frontend/components/ve-icon';
++
++/**
++ * Inline editor for pure TCA type=link fields: renders a link icon next to
++ * the (separately editable or derived) link text. Clicking it asks the
++ * backend frame to open the TYPO3 link browser; the chosen typolink value
++ * travels back via the linkBrowserSetLink message and is persisted
++ * immediately.
++ *
++ * Rendered by the ve:render.link ViewHelper in edit mode only.
++ *
++ * @extends {HTMLElement}
++ */
++export class VeEditableLink extends LitElement {
++  static properties = {
++    table: {type: String},
++    uid: {type: Number},
++    field: {type: String},
++    value: {type: String},
++    name: {type: String},
++    linkBrowserUrl: {type: String},
++  };
++
++  constructor() {
++    super();
++    this.value = this.getAttribute('value') ?? '';
++  }
++
++  #openLinkBrowser() {
++    const currentValue = dataHandlerStore.data?.[this.table]?.[this.uid]?.[this.field] ?? this.value;
++    const src = this.linkBrowserUrl + '&P%5BcurrentValue%5D=' + encodeURIComponent(currentValue);
++    pendingLinkEdit = this;
++    sendMessage('openLinkBrowser', {
++      src,
++      title: lll('frontend.editLink') || 'Edit link',
++    });
++  }
++
++  /**
++   * Applies the typolink value chosen in the link browser and saves
++   * immediately (a link change must not linger unsaved).
++   * @param {string} typolink
++   */
++  async applyLink(typolink) {
++    if (typolink === undefined || typolink === null || typolink === this.value) {
++      return;
++    }
++
++    const payload = dataHandlerStore.data;
++    payload[this.table] = payload[this.table] || {};
++    payload[this.table][this.uid] = payload[this.table][this.uid] || {};
++    payload[this.table][this.uid][this.field] = typolink;
++
++    const ok = await useDataHandler(payload, dataHandlerStore.cmdArray);
++    if (ok) {
++      this.value = typolink;
++      dataHandlerStore.markSaved();
++      sendMessage('reloadFrames');
++    }
++  }
++
++  render() {
++    const title = (lll('frontend.editLink') || 'Edit link') + (this.name ? ': ' + this.name : '');
++    return html`
++      <button type="button" class="linkButton" @click="${this.#openLinkBrowser}" title="${title}" aria-label="${title}">
++        <ve-icon name="actions-link" width="1em"></ve-icon>
++      </button>
++    `;
++  }
++
++  static styles = css`
++    :host {
++      display: inline-block;
++      vertical-align: baseline;
++    }
++
++    .linkButton {
++      display: inline-flex;
++      align-items: center;
++      justify-content: center;
++      width: 1.6em;
++      height: 1.6em;
++      padding: 0;
++      margin-inline-start: 0.25em;
++      border: 1px solid rgba(84, 50, 254, 0.55);
++      border-radius: 0.3em;
++      background: rgba(84, 50, 254, 0.12);
++      color: inherit;
++      cursor: pointer;
++      transition: background 0.12s ease;
++    }
++
++    .linkButton:hover {
++      background: rgba(84, 50, 254, 0.3);
++    }
++  `;
++}
++
++/** @type {VeEditableLink|null} */
++let pendingLinkEdit = null;
++
++onMessage('linkBrowserSetLink', (detail) => {
++  if (pendingLinkEdit && detail) {
++    pendingLinkEdit.applyLink(detail.value);
++    pendingLinkEdit = null;
++  }
++});
++
++customElements.define('ve-editable-link', VeEditableLink);
+diff --git a/Resources/Public/JavaScript/Frontend/components/ve-element-library-button.js b/Resources/Public/JavaScript/Frontend/components/ve-element-library-button.js
+new file mode 100644
+index 0000000..a922ef3
+--- /dev/null
++++ b/Resources/Public/JavaScript/Frontend/components/ve-element-library-button.js
+@@ -0,0 +1,83 @@
++import {css, html, LitElement} from 'lit';
++import {lll} from '@typo3/core/lit-helper.js';
++import {dragInProgressStore} from '@typo3/visual-editor/Frontend/stores/drag-store';
++import {getElementLibrary} from '@typo3/visual-editor/Frontend/components/ve-element-library';
++
++/**
++ * Floating "+" button (bottom right) that toggles the element library
++ * panel. Mounted by Frontend/index.js when the element library endpoint is
++ * enabled (window.veInfo.elementLibraryEnabled). Hidden during drags so it
++ * never covers a drop zone.
++ *
++ * @extends {HTMLElement}
++ */
++export class VeElementLibraryButton extends LitElement {
++  static properties = {
++    dragging: {type: Boolean, state: true, attribute: false},
++  };
++
++  constructor() {
++    super();
++    this.dragging = false;
++    this.onDragInProgressChange = this.#onDragInProgressChange.bind(this);
++  }
++
++  connectedCallback() {
++    super.connectedCallback();
++    dragInProgressStore.addEventListener('change', this.onDragInProgressChange);
++  }
++
++  disconnectedCallback() {
++    dragInProgressStore.removeEventListener('change', this.onDragInProgressChange);
++    super.disconnectedCallback();
++  }
++
++  #onDragInProgressChange() {
++    this.dragging = !!dragInProgressStore.value;
++  }
++
++  #toggle() {
++    getElementLibrary().toggle();
++  }
++
++  render() {
++    if (this.dragging) {
++      return html``;
++    }
++    const label = lll('frontend.library.open') || 'Add content from library';
++    return html`
++      <button type="button" class="fab" @click="${this.#toggle}" title="${label}" aria-label="${label}">+</button>
++    `;
++  }
++
++  static styles = css`
++    :host {
++      all: initial;
++    }
++
++    .fab {
++      position: fixed;
++      right: 24px;
++      bottom: 24px;
++      width: 52px;
++      height: 52px;
++      border-radius: 50%;
++      border: none;
++      background: #5432fe;
++      color: #fff;
++      font-size: 30px;
++      line-height: 1;
++      cursor: pointer;
++      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
++      z-index: 99999;
++      transition: transform 0.12s ease, background 0.12s ease;
++    }
++
++    .fab:hover {
++      background: #4326d9;
++      transform: scale(1.06);
++    }
++  `;
++}
++
++customElements.define('ve-element-library-button', VeElementLibraryButton);
+diff --git a/Resources/Public/JavaScript/Frontend/components/ve-element-library.js b/Resources/Public/JavaScript/Frontend/components/ve-element-library.js
+new file mode 100644
+index 0000000..3b55aba
+--- /dev/null
++++ b/Resources/Public/JavaScript/Frontend/components/ve-element-library.js
+@@ -0,0 +1,467 @@
++import {css, html, LitElement} from 'lit';
++import {classMap} from 'lit/directives/class-map.js';
++import {lll} from '@typo3/core/lit-helper.js';
++import {dragInProgressStore} from '@typo3/visual-editor/Frontend/stores/drag-store';
++import {initVelocityScroll} from '@typo3/visual-editor/Frontend/components/ve-drag-handle/velocity-scroll';
++import {filterItems} from '@typo3/visual-editor/Frontend/components/ve-element-library/filter';
++
++const PREVIEW_RENDER_WIDTH = 1280;
++
++/**
++ * Element library side panel: a browsable, filterable catalog of all
++ * content element types with big rendered previews (shadcn-blocks explorer
++ * style). Cards are dragged into the existing <ve-drop-zone> targets; the
++ * "include demo content" switch decides whether the drop copies the seeded
++ * demo record or creates an empty element of that type.
++ *
++ * Data comes from the ?elementLibrary=1 endpoint (provided by a companion
++ * extension, e.g. desiderio); the panel only appears when
++ * window.veInfo.elementLibraryEnabled is true.
++ *
++ * @extends {HTMLElement}
++ */
++export class VeElementLibrary extends LitElement {
++  static properties = {
++    open: {type: Boolean, state: true, attribute: false},
++    collapsed: {type: Boolean, state: true, attribute: false},
++    loading: {type: Boolean, state: true, attribute: false},
++    error: {type: String, state: true, attribute: false},
++    items: {type: Array, state: true, attribute: false},
++    categories: {type: Array, state: true, attribute: false},
++    selectedGroups: {type: Object, state: true, attribute: false},
++    searchTerm: {type: String, state: true, attribute: false},
++    includeDemo: {type: Boolean, state: true, attribute: false},
++  };
++
++  constructor() {
++    super();
++    this.open = false;
++    this.collapsed = false;
++    this.loading = false;
++    this.error = '';
++    this.items = [];
++    this.categories = [];
++    this.selectedGroups = new Set();
++    this.searchTerm = '';
++    this.includeDemo = true;
++    this.onDragInProgressChange = this.#onDragInProgressChange.bind(this);
++  }
++
++  connectedCallback() {
++    super.connectedCallback();
++    dragInProgressStore.addEventListener('change', this.onDragInProgressChange);
++  }
++
++  disconnectedCallback() {
++    dragInProgressStore.removeEventListener('change', this.onDragInProgressChange);
++    super.disconnectedCallback();
++  }
++
++  toggle() {
++    this.open ? this.closePanel() : this.openPanel();
++  }
++
++  openPanel() {
++    this.open = true;
++    if (this.items.length === 0 && !this.loading) {
++      this.#load();
++    }
++  }
++
++  closePanel() {
++    this.open = false;
++  }
++
++  async #load() {
++    this.loading = true;
++    this.error = '';
++    try {
++      const response = await fetch(window.location.pathname + '?elementLibrary=1', {
++        headers: {'X-Request-Token': window.veInfo.token},
++      });
++      if (!response.ok) {
++        const body = await response.json().catch(() => ({}));
++        throw new Error(body.error || ('HTTP ' + response.status));
++      }
++      const data = await response.json();
++      this.items = data.elements || [];
++      this.categories = data.categories || [];
++    } catch (error) {
++      this.error = String(error.message || error);
++    } finally {
++      this.loading = false;
++    }
++  }
++
++  #onDragInProgressChange() {
++    // Slide out of the way while a drag is running so the drop zones are
++    // reachable. transform (not display) - hiding the drag source mid-drag
++    // would abort the native HTML5 drag operation.
++    this.collapsed = !!dragInProgressStore.value;
++  }
++
++  #toggleGroup(group) {
++    const next = new Set(this.selectedGroups);
++    next.has(group) ? next.delete(group) : next.add(group);
++    this.selectedGroups = next;
++  }
++
++  /**
++   * @param {DragEvent} event
++   * @param {Object} item
++   */
++  #cardDragStart(event, item) {
++    event.dataTransfer.effectAllowed = 'copyMove';
++    event.dataTransfer.clearData();
++
++    const info = {
++      table: 'tt_content',
++      // -1: never collides with a drop zone's own uid (0 = top zones)
++      uid: -1,
++      CType: item.cType,
++      libraryMode: this.includeDemo && item.demoUid > 0 ? 'copy' : 'new',
++      demoUid: item.demoUid,
++    };
++    event.dataTransfer.setData('text/ve-drag', JSON.stringify(info));
++    dragInProgressStore.value = info;
++    initVelocityScroll(event);
++  }
++
++  #cardDragEnd() {
++    dragInProgressStore.value = false;
++  }
++
++  render() {
++    if (!this.open) {
++      return html``;
++    }
++
++    const filtered = filterItems(this.items, this.selectedGroups, this.searchTerm);
++    const panelClasses = {
++      panel: true,
++      collapsed: this.collapsed,
++    };
++
++    return html`
++      <div class=${classMap(panelClasses)}>
++        <div class="header">
++          <div class="headerRow">
++            <h2>${lll('frontend.library.title') || 'Add content'}</h2>
++            <button class="closeButton" type="button" @click="${this.closePanel}"
++                    title="${lll('frontend.library.close') || 'Close'}">&times;</button>
++          </div>
++          <input
++            class="search"
++            type="search"
++            .value="${this.searchTerm}"
++            placeholder="${lll('frontend.library.search') || 'Search elements …'}"
++            @input="${(event) => { this.searchTerm = event.target.value; }}"
++          />
++          <div class="chips">
++            ${this.categories.map((category) => html`
++              <button
++                type="button"
++                class="chip ${this.selectedGroups.has(category) ? 'active' : ''}"
++                @click="${() => this.#toggleGroup(category)}"
++              >${category}</button>
++            `)}
++          </div>
++          <label class="includeDemo">
++            <input
++              type="checkbox"
++              .checked="${this.includeDemo}"
++              @change="${(event) => { this.includeDemo = event.target.checked; }}"
++            />
++            ${lll('frontend.library.includeDemo') || 'Include demo content'}
++          </label>
++        </div>
++
++        <div class="grid">
++          ${this.loading ? html`<p class="status">${lll('frontend.library.loading') || 'Loading …'}</p>` : ''}
++          ${this.error ? html`<p class="status error">${this.error}</p>` : ''}
++          ${!this.loading && !this.error && filtered.length === 0 ? html`
++            <p class="status">${lll('frontend.library.empty') || 'No elements match the current filter.'}</p>` : ''}
++          ${filtered.map((item) => this.#renderCard(item))}
++        </div>
++      </div>
++    `;
++  }
++
++  #renderCard(item) {
++    return html`
++      <div
++        class="card"
++        draggable="true"
++        @dragstart="${(event) => this.#cardDragStart(event, item)}"
++        @dragend="${this.#cardDragEnd}"
++        title="${item.description}"
++      >
++        <div class="preview">
++          ${item.previewUrl
++            ? html`<iframe src="${item.previewUrl}" loading="lazy" scrolling="no" tabindex="-1"></iframe>
++                   <div class="previewOverlay"></div>`
++            : html`<div class="previewFallback">${item.iconUrl ? html`<img src="${item.iconUrl}" alt=""/>` : item.cType}</div>`}
++        </div>
++        <div class="meta">
++          <div class="titleRow">
++            <strong>${item.title}</strong>
++            <span class="badge">${item.group}</span>
++          </div>
++          <p>${item.description}</p>
++        </div>
++      </div>
++    `;
++  }
++
++  static styles = css`
++    :host {
++      display: block;
++      font-family: system-ui, -apple-system, sans-serif;
++      font-size: 14px;
++      line-height: 1.4;
++    }
++
++    .panel {
++      position: fixed;
++      inset-block: 0;
++      right: 0;
++      width: min(760px, 92vw);
++      display: flex;
++      flex-direction: column;
++      background: #171717;
++      color: #fafafa;
++      box-shadow: -12px 0 40px rgba(0, 0, 0, 0.45);
++      z-index: 100000;
++      transition: transform 0.25s ease;
++    }
++
++    .panel.collapsed {
++      transform: translateX(100%);
++    }
++
++    .header {
++      padding: 16px 20px 12px;
++      border-bottom: 1px solid #333;
++      display: flex;
++      flex-direction: column;
++      gap: 10px;
++    }
++
++    .headerRow {
++      display: flex;
++      align-items: center;
++      justify-content: space-between;
++    }
++
++    h2 {
++      margin: 0;
++      font-size: 17px;
++      font-weight: 600;
++    }
++
++    .closeButton {
++      background: none;
++      border: none;
++      color: #aaa;
++      font-size: 26px;
++      line-height: 1;
++      cursor: pointer;
++      padding: 0 4px;
++    }
++
++    .closeButton:hover {
++      color: #fff;
++    }
++
++    .search {
++      width: 100%;
++      box-sizing: border-box;
++      padding: 9px 12px;
++      border-radius: 8px;
++      border: 1px solid #3a3a3a;
++      background: #232323;
++      color: #fafafa;
++      font-size: 14px;
++      outline: none;
++    }
++
++    .search:focus {
++      border-color: #5432fe;
++    }
++
++    .chips {
++      display: flex;
++      flex-wrap: wrap;
++      gap: 6px;
++    }
++
++    .chip {
++      border: 1px solid #3a3a3a;
++      background: #232323;
++      color: #ccc;
++      border-radius: 999px;
++      padding: 4px 12px;
++      font-size: 12.5px;
++      cursor: pointer;
++    }
++
++    .chip:hover {
++      border-color: #666;
++      color: #fff;
++    }
++
++    .chip.active {
++      background: #5432fe;
++      border-color: #5432fe;
++      color: #fff;
++    }
++
++    .includeDemo {
++      display: flex;
++      align-items: center;
++      gap: 8px;
++      font-size: 13px;
++      color: #ccc;
++      cursor: pointer;
++      user-select: none;
++    }
++
++    .grid {
++      flex: 1;
++      overflow-y: auto;
++      display: grid;
++      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
++      grid-auto-rows: 330px;
++      gap: 16px;
++      padding: 16px 20px 24px;
++      align-content: start;
++    }
++
++    .status {
++      grid-column: 1 / -1;
++      color: #999;
++      text-align: center;
++      margin: 24px 0;
++    }
++
++    .status.error {
++      color: #ff7b7b;
++    }
++
++    .card {
++      background: #fff;
++      color: #1a1a1a;
++      border-radius: 12px;
++      overflow: hidden;
++      cursor: grab;
++      border: 1px solid #2c2c2c;
++      display: flex;
++      flex-direction: column;
++      height: 330px;
++      transition: outline-color 0.12s ease, transform 0.12s ease;
++      outline: 2px solid transparent;
++    }
++
++    .card:hover {
++      outline-color: #5432fe;
++      transform: translateY(-1px);
++    }
++
++    .card:active {
++      cursor: grabbing;
++    }
++
++    .preview {
++      position: relative;
++      flex: 0 0 240px;
++      height: 240px;
++      overflow: hidden;
++      background: #f4f4f5;
++    }
++
++    .preview iframe {
++      width: ${PREVIEW_RENDER_WIDTH}px;
++      height: 960px;
++      border: 0;
++      transform-origin: top left;
++      transform: scale(calc(340 / ${PREVIEW_RENDER_WIDTH}));
++      pointer-events: none;
++    }
++
++    .previewOverlay {
++      position: absolute;
++      inset: 0;
++      /* keeps the iframe inert and makes the whole card the drag handle */
++    }
++
++    .previewFallback {
++      display: flex;
++      align-items: center;
++      justify-content: center;
++      height: 100%;
++      color: #999;
++      font-size: 13px;
++    }
++
++    .previewFallback img {
++      width: 48px;
++      height: 48px;
++    }
++
++    .meta {
++      flex: 1 1 auto;
++      min-height: 0;
++      padding: 12px 14px 14px;
++      display: flex;
++      flex-direction: column;
++      gap: 4px;
++      overflow: hidden;
++    }
++
++    .titleRow {
++      display: flex;
++      align-items: center;
++      justify-content: space-between;
++      gap: 8px;
++    }
++
++    .titleRow strong {
++      font-size: 14.5px;
++    }
++
++    .badge {
++      flex-shrink: 0;
++      background: #ececff;
++      color: #4326d9;
++      font-size: 11px;
++      padding: 2px 8px;
++      border-radius: 999px;
++    }
++
++    .meta p {
++      margin: 0;
++      font-size: 12.5px;
++      color: #555;
++      line-height: 1.45;
++      display: -webkit-box;
++      -webkit-line-clamp: 2;
++      -webkit-box-orient: vertical;
++      overflow: hidden;
++    }
++  `;
++}
++
++customElements.define('ve-element-library', VeElementLibrary);
++
++/**
++ * Returns the singleton panel instance, mounting it on first use.
++ * @return {VeElementLibrary}
++ */
++export function getElementLibrary() {
++  let panel = document.querySelector('ve-element-library');
++  if (!panel) {
++    panel = document.createElement('ve-element-library');
++    document.body.appendChild(panel);
++  }
++  return panel;
++}
+diff --git a/Resources/Public/JavaScript/Frontend/components/ve-element-library/filter.js b/Resources/Public/JavaScript/Frontend/components/ve-element-library/filter.js
+new file mode 100644
+index 0000000..4bff253
+--- /dev/null
++++ b/Resources/Public/JavaScript/Frontend/components/ve-element-library/filter.js
+@@ -0,0 +1,31 @@
++/**
++ * Pure filter logic for the element library panel.
++ *
++ * Category chips combine as OR within the selection, AND with the search
++ * term. The search matches the (already localized) element title and
++ * description - never the content of the seeded demo records.
++ *
++ * @typedef {Object} LibraryItem
++ * @property {string} cType
++ * @property {string} title
++ * @property {string} description
++ * @property {string} group
++ *
++ * @param {LibraryItem[]} items
++ * @param {Set<string>} selectedGroups
++ * @param {string} searchTerm
++ * @return {LibraryItem[]}
++ */
++export function filterItems(items, selectedGroups, searchTerm) {
++  const term = (searchTerm || '').trim().toLowerCase();
++
++  return items.filter((item) => {
++    if (selectedGroups.size > 0 && !selectedGroups.has(item.group)) {
++      return false;
++    }
++    if (term === '') {
++      return true;
++    }
++    return (item.title + ' ' + item.description).toLowerCase().includes(term);
++  });
++}
+diff --git a/Resources/Public/JavaScript/Frontend/index.js b/Resources/Public/JavaScript/Frontend/index.js
+index 7b29adf..e390717 100644
+--- a/Resources/Public/JavaScript/Frontend/index.js
++++ b/Resources/Public/JavaScript/Frontend/index.js
+@@ -8,6 +8,7 @@ import '@typo3/visual-editor/Frontend/components/ve-drop-zone';
+ import '@typo3/visual-editor/Frontend/components/ve-icon';
+ import '@typo3/visual-editor/Frontend/components/ve-error';
+ import '@typo3/visual-editor/Frontend/components/ve-iframe-popup';
++import '@typo3/visual-editor/Frontend/components/ve-editable-link';
+ import {sendMessage} from '@typo3/visual-editor/Shared/iframe-messaging';
+ import {initSaveScrollPosition} from '@typo3/visual-editor/Frontend/init-save-scroll-position';
+ import {initializeNavigationInterception} from '@typo3/visual-editor/Frontend/initialize-navigation-interception';
+@@ -27,6 +28,14 @@ if (window.veInfo) {
+ 
+ initializeSpotlightHandling();
+ initializeSaveHandling();
++
++if (window.veInfo?.elementLibraryEnabled) {
++  import('@typo3/visual-editor/Frontend/components/ve-element-library').then(() => {
++    return import('@typo3/visual-editor/Frontend/components/ve-element-library-button');
++  }).then(() => {
++    document.body.appendChild(document.createElement('ve-element-library-button'));
++  });
++}
+ initSaveScrollPosition();
+ initializeNavigationInterception();
+ initializeImageHandling();
+diff --git a/Resources/Public/JavaScript/Shared/iframe-messaging.js b/Resources/Public/JavaScript/Shared/iframe-messaging.js
+index d661960..38a75ff 100644
+--- a/Resources/Public/JavaScript/Shared/iframe-messaging.js
++++ b/Resources/Public/JavaScript/Shared/iframe-messaging.js
+@@ -11,6 +11,8 @@
+  * @property openInMiddleFrame {String}
+  * @property localStoreChange {{key: String, value: any}}
+  * @property localStoreRequest {String}
++ * @property openLinkBrowser {{src: String, title: String}}
++ * @property linkBrowserSetLink {{value: String}}
+  */
+ 
+ /**

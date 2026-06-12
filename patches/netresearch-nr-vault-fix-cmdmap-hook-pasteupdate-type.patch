@@ -1,0 +1,38 @@
+Subject: Accept array $pasteUpdate in cmdmap hooks
+
+TYPO3 core passes $pasteUpdate as array (the update payload) for
+copy/move commands with an "update" key, e.g. visual-editor drop
+zones. The bool-only type crashed every such DataHandler call with a
+TypeError. Neither hook uses the parameter.
+
+--- a/Classes/Hook/DataHandlerHook.php
++++ b/Classes/Hook/DataHandlerHook.php
+@@ -168,7 +168,7 @@
+         string|int $id,
+         mixed $value,
+         DataHandler $dataHandler,
+-        bool $pasteUpdate,
++        bool|array $pasteUpdate,
+     ): void {
+         if ($command !== 'delete') {
+             return;
+@@ -228,7 +228,7 @@
+         string|int $id,
+         mixed $value,
+         DataHandler $dataHandler,
+-        bool $pasteUpdate,
++        bool|array $pasteUpdate,
+     ): void {
+         if ($command !== 'copy') {
+             return;
+--- a/Classes/Hook/FlexFormVaultHook.php
++++ b/Classes/Hook/FlexFormVaultHook.php
+@@ -189,7 +189,7 @@
+         string|int $id,
+         mixed $value,
+         DataHandler $dataHandler,
+-        bool $pasteUpdate,
++        bool|array $pasteUpdate,
+     ): void {
+         if ($command !== 'copy') {
+             return;
