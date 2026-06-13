@@ -14,3 +14,10 @@ McpTableConfiguration::register();
 // because config/system/settings.php is git-ignored, so the setting would
 // otherwise be lost whenever that instance config is regenerated.
 $GLOBALS['TYPO3_CONF_VARS']['EXTENSIONS']['news']['manualSorting'] = '1';
+
+// Enable the Visual Editor element-library FAB (the circular "+" button in the
+// frontend edit mode). The element-library-and-links patch gates the button on
+// this flag (EditModeService::isElementLibraryEnabled), but neither the patch
+// nor desiderio ever sets it. Same reasoning as above: keep it in version
+// control so it survives config/system/settings.php being regenerated.
+$GLOBALS['TYPO3_CONF_VARS']['EXTENSIONS']['visual_editor']['elementLibraryEnabled'] = true;

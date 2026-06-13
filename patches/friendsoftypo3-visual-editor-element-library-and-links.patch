@@ -26,13 +26,15 @@ diff --git a/Classes/Service/EditModeService.php b/Classes/Service/EditModeServi
 index a217902..287abb0 100644
 --- a/Classes/Service/EditModeService.php
 +++ b/Classes/Service/EditModeService.php
-@@ -121,6 +121,9 @@ final readonly class EditModeService
+@@ -121,6 +121,11 @@ final readonly class EditModeService
                  'token' => $this->formProtectionFactory->createForType('backend')->generateToken('visual_editor', 'save'),
                  'routeArguments' => (object)$this->flattenBracketKeys(['params' => $this->getUsedArguments($request)]),
                  'allowedOrigins' => $this->getAllowedOrigins(),
 +                'elementLibraryEnabled' => $this->isElementLibraryEnabled() && $this->getUserBoolSetting('tx_visualeditor_showLibrary', true),
 +                'elementLibraryLinks' => $this->isElementLibraryEnabled() && $this->getUserBoolSetting('tx_visualeditor_showLinks', false),
 +                'elementLibraryColumns' => $this->getElementLibraryColumns(),
++                'elementLibraryShowDemoSwitch' => $this->isElementLibraryEnabled() && $this->getUserBoolSetting('tx_visualeditor_showDemoSwitch', true),
++                'elementLibraryIncludeDemoDefault' => $this->getUserBoolSetting('tx_visualeditor_includeDemoDefault', true),
              ];
              $this->assetCollector->addInlineJavaScript(
                  'veLangInfo',
@@ -278,7 +280,7 @@ new file mode 100644
 index 0000000..34aa00a
 --- /dev/null
 +++ b/Configuration/TCA/Overrides/be_users.php
-@@ -0,0 +1,64 @@
+@@ -0,0 +1,92 @@
 +<?php
 +
 +declare(strict_types=1);
@@ -343,12 +345,40 @@ index 0000000..34aa00a
 +    ],
 +    'after:tx_visualeditor_showLinks'
 +);
++
++ExtensionManagementUtility::addUserSetting(
++    'tx_visualeditor_includeDemoDefault',
++    [
++        'label' => $visualEditorSetupLabels . 'includeDemoDefault',
++        'description' => $visualEditorSetupLabels . 'includeDemoDefault.description',
++        'config' => [
++            'type' => 'check',
++            'renderType' => 'checkboxToggle',
++            'default' => 1,
++        ],
++    ],
++    'after:tx_visualeditor_panelColumns'
++);
++
++ExtensionManagementUtility::addUserSetting(
++    'tx_visualeditor_showDemoSwitch',
++    [
++        'label' => $visualEditorSetupLabels . 'showDemoSwitch',
++        'description' => $visualEditorSetupLabels . 'showDemoSwitch.description',
++        'config' => [
++            'type' => 'check',
++            'renderType' => 'checkboxToggle',
++            'default' => 1,
++        ],
++    ],
++    'after:tx_visualeditor_includeDemoDefault'
++);
 diff --git a/Resources/Private/Language/de.locallang_library.xlf b/Resources/Private/Language/de.locallang_library.xlf
 new file mode 100644
-index 0000000..8dda44b
+index 0000000..7e4553d
 --- /dev/null
 +++ b/Resources/Private/Language/de.locallang_library.xlf
-@@ -0,0 +1,77 @@
+@@ -0,0 +1,83 @@
 +<?xml version="1.0" encoding="UTF-8"?>
 +<xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" version="2.0" srcLang="en" trgLang="de">
 +  <file id="visual_editor_library" original="EXT:visual_editor/Resources/Private/Language/locallang_library.xlf">
@@ -388,10 +418,16 @@ index 0000000..8dda44b
 +        <target>Mit Beispielinhalt einfügen</target>
 +      </segment>
 +    </unit>
-+    <unit id="frontend.library.includeDemo.hint">
++    <unit id="frontend.library.includeDemo.hint.on">
 +      <segment state="final">
-+        <source>On: ready-made demo text &amp; images. Off: empty element to fill yourself.</source>
-+        <target>An: fertige Demo-Texte &amp; Bilder. Aus: leeres Element zum selbst Befüllen.</target>
++        <source>Ready-made demo text &amp; images.</source>
++        <target>Fertige Demo-Texte &amp; Bilder.</target>
++      </segment>
++    </unit>
++    <unit id="frontend.library.includeDemo.hint.off">
++      <segment state="final">
++        <source>Empty element to fill yourself.</source>
++        <target>Leeres Element zum selbst Befüllen.</target>
 +      </segment>
 +    </unit>
 +    <unit id="frontend.library.loading">
@@ -431,7 +467,7 @@ new file mode 100644
 index 0000000..1574ae6
 --- /dev/null
 +++ b/Resources/Private/Language/de.locallang_setup.xlf
-@@ -0,0 +1,59 @@
+@@ -0,0 +1,83 @@
 +<?xml version="1.0" encoding="UTF-8"?>
 +<xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" version="2.0" srcLang="en" trgLang="de">
 +  <file id="visual_editor_setup" original="EXT:visual_editor/Resources/Private/Language/locallang_setup.xlf">
@@ -489,14 +525,38 @@ index 0000000..1574ae6
 +        <target>Schmal (1 Spalte)</target>
 +      </segment>
 +    </unit>
++    <unit id="includeDemoDefault">
++      <segment state="final">
++        <source>Insert example content by default</source>
++        <target>Beispielinhalt standardmäßig einfügen</target>
++      </segment>
++    </unit>
++    <unit id="includeDemoDefault.description">
++      <segment state="final">
++        <source>Initial state of the "Insert with example content" switch in the element library. Changing the switch while editing overrides it for that session.</source>
++        <target>Anfangszustand des Schalters „Mit Beispielinhalt einfügen“ in der Element-Bibliothek. Wird der Schalter beim Bearbeiten geändert, überschreibt das die Vorgabe für diese Sitzung.</target>
++      </segment>
++    </unit>
++    <unit id="showDemoSwitch">
++      <segment state="final">
++        <source>Show the "Insert with example content" switch</source>
++        <target>Schalter „Mit Beispielinhalt einfügen“ anzeigen</target>
++      </segment>
++    </unit>
++    <unit id="showDemoSwitch.description">
++      <segment state="final">
++        <source>Shows the demo-content toggle in the element library panel. When hidden, new elements always follow the default above.</source>
++        <target>Zeigt den Schalter für Beispielinhalte in der Element-Bibliothek. Ist er ausgeblendet, folgen neue Elemente immer der obigen Vorgabe.</target>
++      </segment>
++    </unit>
 +  </file>
 +</xliff>
 diff --git a/Resources/Private/Language/locallang_library.xlf b/Resources/Private/Language/locallang_library.xlf
 new file mode 100644
-index 0000000..49235cb
+index 0000000..f6d4c9a
 --- /dev/null
 +++ b/Resources/Private/Language/locallang_library.xlf
-@@ -0,0 +1,65 @@
+@@ -0,0 +1,70 @@
 +<?xml version="1.0" encoding="UTF-8"?>
 +<xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" version="2.0" srcLang="en">
 +  <file id="visual_editor_library" original="EXT:visual_editor/Resources/Private/Language/locallang_library.xlf">
@@ -530,9 +590,14 @@ index 0000000..49235cb
 +        <source>Insert with example content</source>
 +      </segment>
 +    </unit>
-+    <unit id="frontend.library.includeDemo.hint">
++    <unit id="frontend.library.includeDemo.hint.on">
 +      <segment>
-+        <source>On: ready-made demo text &amp; images. Off: empty element to fill yourself.</source>
++        <source>Ready-made demo text &amp; images.</source>
++      </segment>
++    </unit>
++    <unit id="frontend.library.includeDemo.hint.off">
++      <segment>
++        <source>Empty element to fill yourself.</source>
 +      </segment>
 +    </unit>
 +    <unit id="frontend.library.loading">
@@ -567,7 +632,7 @@ new file mode 100644
 index 0000000..130b3a1
 --- /dev/null
 +++ b/Resources/Private/Language/locallang_setup.xlf
-@@ -0,0 +1,50 @@
+@@ -0,0 +1,70 @@
 +<?xml version="1.0" encoding="UTF-8"?>
 +<xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" version="2.0" srcLang="en">
 +  <file id="visual_editor_setup" original="EXT:visual_editor/Resources/Private/Language/locallang_setup.xlf">
@@ -614,6 +679,26 @@ index 0000000..130b3a1
 +    <unit id="panelColumns.narrow">
 +      <segment>
 +        <source>Narrow (1 column)</source>
++      </segment>
++    </unit>
++    <unit id="includeDemoDefault">
++      <segment>
++        <source>Insert example content by default</source>
++      </segment>
++    </unit>
++    <unit id="includeDemoDefault.description">
++      <segment>
++        <source>Initial state of the "Insert with example content" switch in the element library. Changing the switch while editing overrides it for that session.</source>
++      </segment>
++    </unit>
++    <unit id="showDemoSwitch">
++      <segment>
++        <source>Show the "Insert with example content" switch</source>
++      </segment>
++    </unit>
++    <unit id="showDemoSwitch.description">
++      <segment>
++        <source>Shows the demo-content toggle in the element library panel. When hidden, new elements always follow the default above.</source>
 +      </segment>
 +    </unit>
 +  </file>
@@ -820,10 +905,10 @@ index dbb8967..eb567b2 100644
        max-width: 100%;
 diff --git a/Resources/Public/JavaScript/Frontend/components/ve-editable-link.js b/Resources/Public/JavaScript/Frontend/components/ve-editable-link.js
 new file mode 100644
-index 0000000..fac9ab9
+index 0000000..98779e9
 --- /dev/null
 +++ b/Resources/Public/JavaScript/Frontend/components/ve-editable-link.js
-@@ -0,0 +1,131 @@
+@@ -0,0 +1,144 @@
 +import {css, html, LitElement} from 'lit';
 +import {lll} from '@typo3/core/lit-helper.js';
 +import {sendMessage, onMessage} from '@typo3/visual-editor/Shared/iframe-messaging';
@@ -907,20 +992,33 @@ index 0000000..fac9ab9
 +    :host {
 +      display: inline-block;
 +      vertical-align: baseline;
-+      --ve-accent: var(--ve-accent-color, #7c5ac4);
++      /* Blend the brand accent toward the inherited text colour (currentColor)
++         so the control follows the surrounding template section's own light/dark
++         style: a lighter purple on dark sections, a darker purple on light ones.
++         This works regardless of how the section sets its scheme (.dark class,
++         local --foreground tokens, etc.) because it just follows the text. */
++      --ve-accent: color-mix(in srgb, var(--ve-accent-color, #7c5ac4) 70%, currentColor);
++      --ve-accent-fill: 16%;
 +    }
 +
 +    .linkButton {
 +      display: inline-flex;
 +      align-items: center;
 +      justify-content: center;
++      /* WCAG 2.2 SC 2.5.8 Target Size (Minimum, AA): the clickable target
++         must be at least 24x24 CSS px. 1.7em scales the button with the
++         surrounding text, but border-box + a 24px floor guarantees the
++         bounding box never drops below the threshold next to small text. */
++      box-sizing: border-box;
 +      width: 1.7em;
 +      height: 1.7em;
++      min-width: 24px;
++      min-height: 24px;
 +      padding: 0;
 +      margin-inline-start: 0.3em;
 +      border: 1px solid color-mix(in srgb, var(--ve-accent) 55%, transparent);
 +      border-radius: 0.35em;
-+      background: color-mix(in srgb, var(--ve-accent) 14%, transparent);
++      background: color-mix(in srgb, var(--ve-accent) var(--ve-accent-fill), transparent);
 +      color: var(--ve-accent);
 +      cursor: pointer;
 +      transition: background 0.12s ease, transform 0.12s ease, box-shadow 0.12s ease;
@@ -960,7 +1058,7 @@ new file mode 100644
 index 0000000..3dc7fa1
 --- /dev/null
 +++ b/Resources/Public/JavaScript/Frontend/components/ve-element-library-button.js
-@@ -0,0 +1,109 @@
+@@ -0,0 +1,115 @@
 +import {css, html, LitElement} from 'lit';
 +import {lll} from '@typo3/core/lit-helper.js';
 +import {dragInProgressStore} from '@typo3/visual-editor/Frontend/stores/drag-store';
@@ -1034,6 +1132,8 @@ index 0000000..3dc7fa1
 +    :host {
 +      --ve-accent: var(--ve-accent-color, #7c5ac4);
 +      --ve-accent-contrast: #ffffff;
++      /* halo ring around the FAB: white on a dark canvas, dark on light */
++      --ve-fab-ring: rgba(255, 255, 255, 0.92);
 +      font-family: var(--typo3-font-family-sans, system-ui, -apple-system, sans-serif);
 +    }
 +
@@ -1052,16 +1152,20 @@ index 0000000..3dc7fa1
 +      background: var(--ve-accent);
 +      color: var(--ve-accent-contrast);
 +      cursor: pointer;
-+      box-shadow: 0 8px 22px color-mix(in srgb, var(--ve-accent) 50%, transparent), 0 2px 6px rgba(0,0,0,0.25);
++      box-shadow: 0 0 0 2px var(--ve-fab-ring), 0 8px 22px color-mix(in srgb, var(--ve-accent) 50%, transparent), 0 2px 6px rgba(0,0,0,0.25);
 +      z-index: 100001;
 +      transition: transform 0.14s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.14s ease, background 0.14s ease;
 +    }
-+    .fab:hover { transform: translateY(-1px) scale(1.06); box-shadow: 0 12px 28px color-mix(in srgb, var(--ve-accent) 55%, transparent); }
++    .fab:hover { transform: translateY(-1px) scale(1.06); box-shadow: 0 0 0 2px var(--ve-fab-ring), 0 12px 28px color-mix(in srgb, var(--ve-accent) 55%, transparent); }
 +    .fab:active { transform: translateY(0) scale(0.98); }
 +
 +    .icon { transition: transform 0.22s cubic-bezier(0.22, 1, 0.36, 1); }
 +    .fab.open .icon { transform: rotate(135deg); }
 +    .fab.open { background: color-mix(in srgb, var(--ve-accent) 78%, #000); }
++
++    @media (prefers-color-scheme: light) {
++      :host { --ve-fab-ring: rgba(20, 20, 26, 0.5); }
++    }
 +
 +    @media (prefers-reduced-motion: reduce) {
 +      .fab, .icon { transition: none !important; }
@@ -1072,10 +1176,10 @@ index 0000000..3dc7fa1
 +customElements.define('ve-element-library-button', VeElementLibraryButton);
 diff --git a/Resources/Public/JavaScript/Frontend/components/ve-element-library.js b/Resources/Public/JavaScript/Frontend/components/ve-element-library.js
 new file mode 100644
-index 0000000..82f0602
+index 0000000..5286181
 --- /dev/null
 +++ b/Resources/Public/JavaScript/Frontend/components/ve-element-library.js
-@@ -0,0 +1,566 @@
+@@ -0,0 +1,702 @@
 +import {css, html, LitElement} from 'lit';
 +import {classMap} from 'lit/directives/class-map.js';
 +import {repeat} from 'lit/directives/repeat.js';
@@ -1083,9 +1187,20 @@ index 0000000..82f0602
 +import {dragInProgressStore} from '@typo3/visual-editor/Frontend/stores/drag-store';
 +import {initVelocityScroll} from '@typo3/visual-editor/Frontend/components/ve-drag-handle/velocity-scroll';
 +import {filterItems} from '@typo3/visual-editor/Frontend/components/ve-element-library/filter';
-+import {elementLibraryOpen} from '@typo3/visual-editor/Shared/local-stores';
++import {elementLibraryOpen, elementLibraryIncludeDemo} from '@typo3/visual-editor/Shared/local-stores';
 +
 +const PREVIEW_RENDER_WIDTH = 1280;
++
++/** Preview thumbnail box height in px; mirrors the .preview CSS height. */
++const PREVIEW_BOX_HEIGHT = 232;
++
++/**
++ * Cap for the adaptive preview zoom. Some elements (announcement bars, single
++ * buttons, short teasers) render only a fraction of the box tall and would
++ * float in empty space; we scale them up to fill the thumbnail, but never by
++ * more than this so a tiny element is not blown up into a blurry crop.
++ */
++const PREVIEW_MAX_ZOOM = 2.4;
 +
 +/**
 + * Max number of preview iframes allowed to load concurrently. Each preview is
@@ -1132,7 +1247,7 @@ index 0000000..82f0602
 +    this.categories = [];
 +    this.selectedGroups = new Set();
 +    this.searchTerm = '';
-+    this.includeDemo = true;
++    this.includeDemo = this.#resolveIncludeDemoDefault();
 +    this.loadedPreviews = new Set();
 +    this.columns = Math.max(1, Math.min(2, parseInt(window.veInfo?.elementLibraryColumns, 10) || 2));
 +
@@ -1156,6 +1271,30 @@ index 0000000..82f0602
 +    dragInProgressStore.removeEventListener('change', this.onDragInProgressChange);
 +    this.observer?.disconnect();
 +    super.disconnectedCallback();
++  }
++
++  /**
++   * Initial demo-content state: a previous in-editor choice (persisted in the
++   * local store) wins; otherwise fall back to the per-user default from the
++   * setup module (window.veInfo.elementLibraryIncludeDemoDefault, default on).
++   * @return {boolean}
++   */
++  #resolveIncludeDemoDefault() {
++    const stored = elementLibraryIncludeDemo.get();
++    if (stored === true || stored === false) {
++      return stored;
++    }
++    return window.veInfo?.elementLibraryIncludeDemoDefault !== false;
++  }
++
++  /**
++   * Flipping the switch in the editor overrides the user default and persists,
++   * so the choice sticks across pages until changed again.
++   * @param {Event} event
++   */
++  #onDemoToggle(event) {
++    this.includeDemo = event.target.checked;
++    elementLibraryIncludeDemo.set(this.includeDemo);
 +  }
 +
 +  toggle() {
@@ -1291,6 +1430,57 @@ index 0000000..82f0602
 +    }
 +  }
 +
++  /**
++   * @param {Event} event iframe load event
++   */
++  #onPreviewLoad(event) {
++    this.#fitPreview(event.target);
++    this.#onPreviewSettled();
++  }
++
++  /**
++   * Some elements (announcement bars, single buttons, short teasers) render
++   * only a fraction of the preview box tall, leaving it mostly empty. Measure
++   * the real content height and, when it is much shorter than the box, zoom the
++   * thumbnail in (capped at PREVIEW_MAX_ZOOM) so small elements stay legible.
++   * Taller elements keep the base scale and show their top edge. The base scale
++   * is read from the already-applied CSS transform, so it stays correct for any
++   * column count. Same-origin preview, so contentDocument is readable; bail on
++   * any access error and keep the CSS scale.
++   * @param {HTMLIFrameElement} iframe
++   */
++  #fitPreview(iframe) {
++    let contentHeight = 0;
++    try {
++      const body = iframe.contentDocument && iframe.contentDocument.body;
++      if (body) {
++        contentHeight = body.scrollHeight || Math.round(body.getBoundingClientRect().height);
++      }
++    } catch (error) {
++      return;
++    }
++    if (contentHeight < 20) {
++      return;
++    }
++    let baseScale = 420 / PREVIEW_RENDER_WIDTH;
++    try {
++      const matrix = new DOMMatrixReadOnly(getComputedStyle(iframe).transform);
++      if (matrix.a > 0.01) {
++        baseScale = matrix.a;
++      }
++    } catch (error) {
++      // keep the fallback base scale
++    }
++    const fittedHeight = contentHeight * baseScale;
++    if (fittedHeight >= PREVIEW_BOX_HEIGHT * 0.85) {
++      return;
++    }
++    const zoom = Math.min(PREVIEW_MAX_ZOOM, (PREVIEW_BOX_HEIGHT * 0.92) / fittedHeight);
++    if (zoom > 1.02) {
++      iframe.style.transform = `scale(${baseScale * zoom})`;
++    }
++  }
++
 +  #onPreviewSettled() {
 +    this.previewInFlight = Math.max(0, this.previewInFlight - 1);
 +    this.#pumpPreviews();
@@ -1316,8 +1506,18 @@ index 0000000..82f0602
 +        <div class="header">
 +          <div class="headerRow">
 +            <div class="titleWrap">
-+              <h2>${lll('frontend.library.title') || 'Add content'}</h2>
-+              <span class="counter">${filtered.length}/${this.items.length}</span>
++              <span class="titleBadge" aria-hidden="true">
++                <svg viewBox="0 0 24 24" width="18" height="18">
++                  <rect x="3" y="3" width="8" height="8" rx="2" fill="currentColor" opacity="0.95"/>
++                  <rect x="13" y="3" width="8" height="8" rx="2" fill="currentColor" opacity="0.6"/>
++                  <rect x="3" y="13" width="8" height="8" rx="2" fill="currentColor" opacity="0.6"/>
++                  <rect x="13" y="13" width="8" height="8" rx="2" fill="currentColor" opacity="0.35"/>
++                </svg>
++              </span>
++              <span class="titleText">
++                <h2>${lll('frontend.library.title') || 'Add content'}</h2>
++                <span class="counter"><strong>${filtered.length}</strong> / ${this.items.length}</span>
++              </span>
 +            </div>
 +            <button class="iconButton closeButton" type="button" @click="${this.closePanel}"
 +                    title="${lll('frontend.library.close') || 'Close'}" aria-label="${lll('frontend.library.close') || 'Close'}">
@@ -1350,20 +1550,21 @@ index 0000000..82f0602
 +            `)}
 +          </div>
 +
-+          <label class="demoSwitch ${this.includeDemo ? 'on' : ''}">
-+            <span class="demoSwitch__control">
-+              <input
-+                type="checkbox"
-+                .checked="${this.includeDemo}"
-+                @change="${(event) => { this.includeDemo = event.target.checked; }}"
-+              />
-+              <span class="track"><span class="thumb"></span></span>
-+            </span>
-+            <span class="demoSwitch__text">
-+              <strong>${lll('frontend.library.includeDemo.label') || 'Insert with example content'}</strong>
-+              <small>${lll('frontend.library.includeDemo.hint') || 'On: ready-made demo text & images. Off: empty element.'}</small>
-+            </span>
-+          </label>
++          ${window.veInfo?.elementLibraryShowDemoSwitch !== false ? html`
++            <label class="demoSwitch ${this.includeDemo ? 'on' : ''}">
++              <span class="demoSwitch__control">
++                <input
++                  type="checkbox"
++                  .checked="${this.includeDemo}"
++                  @change="${this.#onDemoToggle}"
++                />
++                <span class="track"><span class="thumb"></span></span>
++              </span>
++              <span class="demoSwitch__text">
++                <strong>${lll('frontend.library.includeDemo.label') || 'Insert with example content'}</strong>
++              </span>
++            </label>
++          ` : ''}
 +        </div>
 +
 +        <div class="grid">
@@ -1391,7 +1592,7 @@ index 0000000..82f0602
 +        <div class="preview">
 +          ${previewLoaded && item.previewUrl
 +            ? html`<iframe src="${item.previewUrl}" loading="lazy" scrolling="no" tabindex="-1"
-+                          @load="${() => this.#onPreviewSettled()}" @error="${() => this.#onPreviewSettled()}"></iframe>
++                          @load="${(event) => this.#onPreviewLoad(event)}" @error="${() => this.#onPreviewSettled()}"></iframe>
 +                   <div class="previewOverlay"></div>`
 +            : html`<div class="previewPlaceholder">
 +                     ${item.iconUrl ? html`<img src="${item.iconUrl}" alt="" loading="lazy"/>` : html`<span>${item.title}</span>`}
@@ -1405,7 +1606,14 @@ index 0000000..82f0602
 +            <span class="badge">${item.group}</span>
 +          </div>
 +          <p>${item.description}</p>
-+          <p class="demoNote">${lll('frontend.library.includeDemo.hint') || 'On: ready-made demo text & images. Off: empty element to fill yourself.'}</p>
++          <p class="demoNote">
++            <svg class="demoNote__icon" viewBox="0 0 16 16" width="13" height="13" aria-hidden="true" focusable="false">
++              <circle cx="8" cy="8" r="7" fill="none" stroke="currentColor" stroke-width="1.4"/>
++              <circle cx="8" cy="5" r="0.95" fill="currentColor"/>
++              <rect x="7.2" y="7" width="1.6" height="4.4" rx="0.8" fill="currentColor"/>
++            </svg>${this.includeDemo
++              ? (lll('frontend.library.includeDemo.hint.on') || 'Ready-made demo text & images.')
++              : (lll('frontend.library.includeDemo.hint.off') || 'Empty element to fill yourself.')}</p>
 +        </div>
 +      </div>
 +    `;
@@ -1419,6 +1627,17 @@ index 0000000..82f0602
 +      line-height: 1.4;
 +      --ve-accent: var(--ve-accent-color, #7c5ac4);
 +      --ve-accent-contrast: #ffffff;
++      /* Light mode is the default; the .dark block below restores the original
++         dark panel. :host-context() reaches the site's dark class across the
++         shadow boundary, so the panel follows light/dark mode like the page. */
++      --ve-panel-bg: #f4f4f6;
++      --ve-panel-surface: #ffffff;
++      --ve-panel-border: #e3e3e8;
++      --ve-panel-text: #1b1b1f;
++      --ve-panel-muted: #6c6c78;
++    }
++
++    :host-context(.dark) {
 +      --ve-panel-bg: #16161a;
 +      --ve-panel-surface: #222228;
 +      --ve-panel-border: #34343c;
@@ -1435,7 +1654,9 @@ index 0000000..82f0602
 +      flex-direction: column;
 +      background: var(--ve-panel-bg);
 +      color: var(--ve-panel-text);
-+      box-shadow: -18px 0 50px rgba(0, 0, 0, 0.5);
++      border: 1.5px solid color-mix(in srgb, var(--ve-accent) 65%, var(--ve-panel-border));
++      border-right: none;
++      box-shadow: -18px 0 50px rgba(0, 0, 0, 0.5), inset 1px 0 0 color-mix(in srgb, var(--ve-accent) 25%, transparent);
 +      z-index: 100000;
 +      transform: translateX(0);
 +      transition: transform 0.28s cubic-bezier(0.22, 1, 0.36, 1);
@@ -1460,12 +1681,18 @@ index 0000000..82f0602
 +    }
 +
 +    .headerRow { display: flex; align-items: center; justify-content: space-between; }
-+    .titleWrap { display: flex; align-items: baseline; gap: 10px; }
-+    h2 { margin: 0; font-size: 18px; font-weight: 650; letter-spacing: -0.01em; }
-+    .counter {
-+      font-size: 12px; color: var(--ve-panel-muted);
-+      background: var(--ve-panel-surface); padding: 2px 8px; border-radius: 999px;
++    .titleWrap { display: flex; align-items: center; gap: 12px; }
++    .titleBadge {
++      display: inline-flex; align-items: center; justify-content: center;
++      width: 34px; height: 34px; border-radius: 10px; flex-shrink: 0;
++      color: var(--ve-accent-contrast);
++      background: linear-gradient(135deg, var(--ve-accent), color-mix(in srgb, var(--ve-accent) 65%, #000));
++      box-shadow: 0 4px 14px color-mix(in srgb, var(--ve-accent) 45%, transparent);
 +    }
++    .titleText { display: flex; flex-direction: column; gap: 1px; line-height: 1.15; }
++    h2 { margin: 0; font-size: 18px; font-weight: 700; letter-spacing: -0.01em; }
++    .counter { font-size: 11.5px; color: var(--ve-panel-muted); letter-spacing: 0.01em; }
++    .counter strong { color: var(--ve-accent); font-weight: 650; }
 +
 +    .iconButton {
 +      display: inline-flex; align-items: center; justify-content: center;
@@ -1500,10 +1727,10 @@ index 0000000..82f0602
 +    }
 +    .chip--clear { font-weight: 650; color: var(--ve-panel-text); }
 +
-+    /* prominent demo-content switch */
++    /* compact demo-content switch (single-line pill) */
 +    .demoSwitch {
-+      display: flex; align-items: center; gap: 12px;
-+      padding: 11px 14px; border-radius: 12px;
++      display: inline-flex; align-items: center; gap: 8px; align-self: flex-start;
++      padding: 4px 11px 4px 6px; border-radius: 999px;
 +      border: 1px solid var(--ve-panel-border);
 +      background: var(--ve-panel-surface);
 +      cursor: pointer; transition: border-color 0.15s ease, background 0.15s ease;
@@ -1515,19 +1742,22 @@ index 0000000..82f0602
 +    .demoSwitch__control { position: relative; display: inline-flex; flex-shrink: 0; }
 +    .demoSwitch input { position: absolute; opacity: 0; width: 0; height: 0; }
 +    .track {
-+      width: 42px; height: 24px; border-radius: 999px; background: #3a3a44;
++      width: 30px; height: 17px; border-radius: 999px; background: #3a3a44;
 +      display: inline-flex; align-items: center; padding: 2px; transition: background 0.18s ease;
 +    }
 +    .demoSwitch.on .track { background: var(--ve-accent); }
 +    .thumb {
-+      width: 20px; height: 20px; border-radius: 50%; background: #fff;
++      width: 13px; height: 13px; border-radius: 50%; background: #fff;
 +      transform: translateX(0); transition: transform 0.18s cubic-bezier(0.22, 1, 0.36, 1);
 +      box-shadow: 0 1px 3px rgba(0,0,0,0.4);
 +    }
-+    .demoSwitch.on .thumb { transform: translateX(18px); }
-+    .demoSwitch__text { display: flex; flex-direction: column; gap: 1px; }
-+    .demoSwitch__text strong { font-size: 13.5px; font-weight: 600; }
-+    .demoSwitch__text small { font-size: 11.5px; color: var(--ve-panel-muted); line-height: 1.35; }
++    .demoSwitch.on .thumb { transform: translateX(13px); }
++    .demoSwitch__text strong { font-size: 12px; font-weight: 600; }
++    /* keyboard focus ring for the visually-hidden checkbox (WCAG 2.4.7 / 2.4.11) */
++    .demoSwitch input:focus-visible + .track {
++      outline: 2px solid var(--ve-accent);
++      outline-offset: 2px;
++    }
 +
 +    .grid {
 +      flex: 1; overflow-y: auto; overflow-x: hidden;
@@ -1536,6 +1766,11 @@ index 0000000..82f0602
 +      grid-auto-rows: 330px;
 +      gap: 18px; padding: 18px 20px 28px; align-content: start;
 +      scrollbar-width: thin; scrollbar-color: var(--ve-panel-border) transparent;
++      /* Snap each row of cards into place on scroll. 'proximity' snaps when the
++         scroll settles near a card but never fights free scrolling or dragging;
++         scroll-padding keeps the snapped row clear of the top edge. */
++      scroll-snap-type: y proximity;
++      scroll-padding-block-start: 18px;
 +    }
 +    .panel.cols-1 .grid { --ve-cols: 1; grid-auto-rows: 340px; }
 +    .panel.cols-2 .grid { --ve-cols: 2; }
@@ -1560,6 +1795,7 @@ index 0000000..82f0602
 +      border: 1px solid var(--ve-panel-border);
 +      display: flex; flex-direction: column;
 +      height: 330px;
++      scroll-snap-align: start;
 +      outline: 2px solid transparent; outline-offset: 2px;
 +      transition: transform 0.16s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.16s ease, outline-color 0.12s ease;
 +      animation: cardIn 0.3s ease backwards;
@@ -1580,7 +1816,7 @@ index 0000000..82f0602
 +      transform-origin: top left; transform: scale(calc(420 / ${PREVIEW_RENDER_WIDTH}));
 +      pointer-events: none; animation: fadeIn 0.4s ease;
 +    }
-+    .panel.cols-1 .preview iframe { transform: scale(calc(840 / ${PREVIEW_RENDER_WIDTH})); }
++    .panel.cols-1 .preview iframe { transform: scale(calc(420 / ${PREVIEW_RENDER_WIDTH})); }
 +    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 +    .previewOverlay { position: absolute; inset: 0; }
 +    .previewPlaceholder {
@@ -1620,6 +1856,10 @@ index 0000000..82f0602
 +    .meta p.demoNote {
 +      margin-top: auto; padding-top: 6px; font-size: 11px; color: #9a9aa3; line-height: 1.4;
 +      -webkit-line-clamp: 2;
++    }
++    .demoNote__icon {
++      width: 13px; height: 13px; vertical-align: -2px; margin-right: 4px; flex-shrink: 0;
++      opacity: 0.85; color: color-mix(in srgb, var(--ve-accent) 60%, #8a8a93);
 +    }
 +
 +    @media (prefers-reduced-motion: reduce) {
@@ -1743,8 +1983,21 @@ diff --git a/Resources/Public/JavaScript/Shared/local-stores.js b/Resources/Publ
 index 898e439..a1762f7 100644
 --- a/Resources/Public/JavaScript/Shared/local-stores.js
 +++ b/Resources/Public/JavaScript/Shared/local-stores.js
-@@ -50,3 +50,4 @@ export const spotlightActive = localStore('ve-spotlight-active', false);
+@@ -50,3 +50,5 @@ export const spotlightActive = localStore('ve-spotlight-active', false);
  export const autoSaveActive = localStore('ve-autosave-active', true);
  export const showEmptyActive = localStore('ve-show-empty-active', false);
  export const showHiddenActive = localStore('ve-show-hidden-active', true);
 +export const elementLibraryOpen = localStore('ve-element-library-open', false);
++export const elementLibraryIncludeDemo = localStore('ve-element-library-include-demo');
+diff --git a/Resources/Public/JavaScript/Frontend/components/ve-icon.js b/Resources/Public/JavaScript/Frontend/components/ve-icon.js
+index 402630e..adb8cb3 100644
+--- a/Resources/Public/JavaScript/Frontend/components/ve-icon.js
++++ b/Resources/Public/JavaScript/Frontend/components/ve-icon.js
+@@ -26,6 +26,7 @@ export class VeIcon extends LitElement {
+     'apps-pagetree-drag-move-into': '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><g><path fill="#AAA" d="M.5 10.5v-5h2.293l1 1H6.5v4z"/><path fill="#666" d="m2.586 6 .707.707.293.293H6v3H1V6h1.586M3 5H0v6h7V6H4L3 5z"/></g><path fill="currentColor" d="M13 11 9 8.5 13 6v2h3v1h-3z"/></svg>',
+     'actions-undo': '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><g fill="currentColor"><path d="M8 2c-1.8 0-3.4.8-4.5 2l-1-1c-.2-.2-.4-.1-.4.1l-.9 3.8c0 .2.1.3.3.3l3.8-.9c.2 0 .3-.3.1-.4l-1-1c.9-1 2.2-1.7 3.7-1.7 2.7 0 4.9 2.2 4.9 4.9S10.8 13 8.1 13c-1.5 0-2.8-.7-3.7-1.7l-.9.7c1.1 1.2 2.7 2 4.5 2 3.3 0 6-2.7 6-6s-2.7-6-6-6z"/></g></svg>',
+     'actions-exclamation-circle-alt': '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><g fill="currentColor"><path d="M8 1C4.1 1 1 4.1 1 8s3.1 7 7 7 7-3.1 7-7-3.1-7-7-7zm-.448 3h.896a.5.5 0 0 1 .497.55L8.5 9h-1l-.445-4.45A.5.5 0 0 1 7.552 4zM8 12a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/></g></svg>',
++    'actions-link': '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><g fill="currentColor"><path d="m13.7 3.8-1.4-1.4c-.8-.8-2-.8-2.8 0L5.9 5.9c-.8.8-.8 2 0 2.8l1.2 1.2.9-.8L6.9 8c-.4-.4-.4-1 0-1.4l3.2-3.2c.4-.4 1-.4 1.4 0l1.1 1.1c.4.4.4 1 0 1.4l-1.3 1.3c.2.4.4.9.4 1.4l2-2c.7-.8.7-2.1 0-2.8z"/><path d="m8.9 6.1-.9.8L9.1 8c.4.4.4 1 0 1.4l-3.2 3.2c-.4.4-1 .4-1.4 0l-1.1-1.1c-.4-.4-.4-1 0-1.4l1.3-1.3c-.2-.4-.4-.9-.4-1.4l-2 2c-.8.8-.8 2 0 2.8l1.4 1.4c.8.8 2 .8 2.8 0l3.5-3.5c.8-.8.8-2 0-2.8L8.9 6.1z"/></g></svg>',
+   };
+ 
+   // createRenderRoot() {
