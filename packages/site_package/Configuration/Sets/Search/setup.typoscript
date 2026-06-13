@@ -1,1 +1,13 @@
 page.includeJSFooterlibs.solr-jquery >
+
+# --- skillflow: turn the Solr results plugin into a browsable skill directory ---
+# On the skill listing pages only (Skills + Skills/shadcn under desiderio-corporate-
+# starter), show the full catalogue on the empty landing query. Page-scoped so the
+# site's general search is never forced to list everything.
+[page["uid"] in [1028, 1030]]
+plugin.tx_solr.search {
+    initializeWithEmptyQuery = 1
+    showResultsOfInitialEmptyQuery = 1
+    query.allowEmptyQuery = 1
+}
+[END]
