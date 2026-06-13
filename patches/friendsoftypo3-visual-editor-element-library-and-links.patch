@@ -1075,7 +1075,7 @@ new file mode 100644
 index 0000000..82f0602
 --- /dev/null
 +++ b/Resources/Public/JavaScript/Frontend/components/ve-element-library.js
-@@ -0,0 +1,561 @@
+@@ -0,0 +1,566 @@
 +import {css, html, LitElement} from 'lit';
 +import {classMap} from 'lit/directives/class-map.js';
 +import {repeat} from 'lit/directives/repeat.js';
@@ -1405,6 +1405,7 @@ index 0000000..82f0602
 +            <span class="badge">${item.group}</span>
 +          </div>
 +          <p>${item.description}</p>
++          <p class="demoNote">${lll('frontend.library.includeDemo.hint') || 'On: ready-made demo text & images. Off: empty element to fill yourself.'}</p>
 +        </div>
 +      </div>
 +    `;
@@ -1615,6 +1616,10 @@ index 0000000..82f0602
 +    .meta p {
 +      margin: 0; font-size: 12.5px; color: #57575f; line-height: 1.45;
 +      display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
++    }
++    .meta p.demoNote {
++      margin-top: auto; padding-top: 6px; font-size: 11px; color: #9a9aa3; line-height: 1.4;
++      -webkit-line-clamp: 2;
 +    }
 +
 +    @media (prefers-reduced-motion: reduce) {
