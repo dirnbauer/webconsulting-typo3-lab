@@ -4,3 +4,9 @@ hidden: true
 dependencies:
   - webconsulting/site-package
   - webconsulting/solr-defaults
+# Order this set AFTER skillflow-solr WHEN it is active, so the page-scoped
+# skills-search overrides (skills-only filter + removal of the "Content type"
+# facet on the listing pages) win over skillflow-solr's global facet defaults.
+# Optional: sites without skillflow-solr (mtug, vienna, …) are unaffected.
+optionalDependencies:
+  - webconsulting/skillflow-solr

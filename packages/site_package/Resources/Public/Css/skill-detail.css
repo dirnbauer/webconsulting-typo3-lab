@@ -1,0 +1,214 @@
+/*
+ * Skillflow skill detail view (page 1066) — overrides the unstyled extension
+ * template. Tokenised against the desiderio shadcn theme so light/dark follow
+ * the active preset automatically. Scoped entirely under .sf-skill.
+ */
+
+.sf-skill {
+  --sf-gap: clamp(1.5rem, 3vw, 2.5rem);
+  --sf-radius: var(--radius, 0.75rem);
+  --sf-fg: var(--foreground, #0b0b0c);
+  --sf-muted: var(--muted-foreground, #6b7280);
+  --sf-border: var(--border, color-mix(in srgb, var(--foreground, #000) 12%, transparent));
+  --sf-card: var(--card, color-mix(in srgb, var(--foreground, #000) 3%, transparent));
+  --sf-primary: var(--primary, #7c5ac4);
+  --sf-primary-fg: var(--primary-foreground, #fff);
+
+  max-width: 72rem;
+  margin-inline: auto;
+  color: var(--sf-fg);
+  font-family: var(--d-font-sans, system-ui, -apple-system, sans-serif);
+  line-height: 1.6;
+}
+
+/* --- breadcrumb / back ---------------------------------------------------- */
+.sf-skill__bc { margin-bottom: 1.25rem; }
+.sf-skill__back {
+  display: inline-flex; align-items: center; gap: 0.4rem;
+  font-size: 0.875rem; font-weight: 600; color: var(--sf-muted);
+  text-decoration: none; transition: color 0.15s ease;
+}
+.sf-skill__back:hover { color: var(--sf-primary); }
+
+/* --- hero ----------------------------------------------------------------- */
+.sf-skill__hero {
+  display: flex; flex-wrap: wrap; gap: var(--sf-gap);
+  align-items: flex-start; justify-content: space-between;
+  padding-bottom: 1.75rem; margin-bottom: 2rem;
+  border-bottom: 1px solid var(--sf-border);
+}
+.sf-skill__heroMain { flex: 1 1 28rem; min-width: 0; }
+.sf-skill__eyebrow { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 0 0 0.85rem; }
+.sf-skill__title {
+  margin: 0 0 0.6rem; font-family: var(--d-font-heading, inherit);
+  font-size: clamp(1.9rem, 4vw, 2.6rem); font-weight: 800;
+  line-height: 1.12; letter-spacing: -0.02em;
+}
+.sf-skill__lead {
+  margin: 0 0 1rem; max-width: 60ch;
+  font-size: 1.125rem; color: var(--sf-muted);
+}
+.sf-skill__tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin: 0; padding: 0; list-style: none; }
+
+/* --- chips ---------------------------------------------------------------- */
+.sf-chip {
+  display: inline-flex; align-items: center;
+  padding: 0.2rem 0.65rem; border-radius: 999px;
+  font-size: 0.78rem; font-weight: 600; line-height: 1.5;
+  border: 1px solid var(--sf-border); white-space: nowrap;
+}
+.sf-chip--cat { background: var(--sf-primary); color: var(--sf-primary-fg); border-color: transparent; }
+.sf-chip--src { background: var(--secondary, var(--sf-card)); color: var(--secondary-foreground, var(--sf-fg)); text-transform: capitalize; }
+.sf-chip--tag { background: transparent; color: var(--sf-muted); font-weight: 500; }
+.sf-chip--tag::before { content: "#"; opacity: 0.5; margin-right: 0.1rem; }
+
+/* --- "use this skill" copy block ----------------------------------------- */
+.sf-skill__use { flex: 0 1 22rem; min-width: 16rem; }
+.sf-skill__useLabel {
+  display: block; margin-bottom: 0.4rem;
+  font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em;
+  text-transform: uppercase; color: var(--sf-muted);
+}
+.sf-copy {
+  display: flex; align-items: center; gap: 0.5rem;
+  padding: 0.45rem 0.45rem 0.45rem 0.85rem;
+  background: var(--sf-card); border: 1px solid var(--sf-border);
+  border-radius: var(--sf-radius);
+}
+.sf-copy__code {
+  flex: 1 1 auto; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+  font-family: var(--d-font-mono, ui-monospace, monospace); font-size: 0.9rem;
+}
+.sf-copy__btn {
+  flex: 0 0 auto; cursor: pointer; border: 0; border-radius: calc(var(--sf-radius) - 0.2rem);
+  padding: 0.4rem 0.8rem; font-size: 0.8rem; font-weight: 600;
+  background: var(--sf-primary); color: var(--sf-primary-fg);
+  transition: opacity 0.15s ease, transform 0.1s ease;
+}
+.sf-copy__btn:hover { opacity: 0.9; }
+.sf-copy__btn:active { transform: scale(0.97); }
+.sf-copy__btn.is-copied { background: var(--d-info, #16a34a); }
+
+/* --- layout grid ---------------------------------------------------------- */
+.sf-skill__grid {
+  display: grid; gap: var(--sf-gap);
+  grid-template-columns: minmax(0, 1fr) 17rem;
+  align-items: start;
+}
+.sf-skill__content { min-width: 0; }
+.sf-stick { position: sticky; top: 1.5rem; display: flex; flex-direction: column; gap: 1rem; }
+
+@media (max-width: 56rem) {
+  .sf-skill__grid { grid-template-columns: 1fr; }
+  .sf-skill__aside { order: -1; }
+  .sf-stick { position: static; }
+}
+
+/* --- details card / meta -------------------------------------------------- */
+.sf-card {
+  padding: 1.1rem 1.2rem; background: var(--sf-card);
+  border: 1px solid var(--sf-border); border-radius: var(--sf-radius);
+}
+.sf-card__title {
+  margin: 0 0 0.75rem; font-size: 0.78rem; font-weight: 700;
+  letter-spacing: 0.06em; text-transform: uppercase; color: var(--sf-muted);
+}
+.sf-meta { margin: 0; display: flex; flex-direction: column; gap: 0.55rem; }
+.sf-meta__row { display: flex; justify-content: space-between; gap: 1rem; font-size: 0.875rem; }
+.sf-meta__row dt { color: var(--sf-muted); flex: 0 0 auto; }
+.sf-meta__row dd { margin: 0; text-align: right; font-weight: 600; word-break: break-word; }
+
+/* --- table of contents ---------------------------------------------------- */
+.sf-toc {
+  padding: 1.1rem 1.2rem; background: var(--sf-card);
+  border: 1px solid var(--sf-border); border-radius: var(--sf-radius);
+}
+.sf-toc[hidden] { display: none; }
+.sf-toc__title {
+  margin: 0 0 0.6rem; font-size: 0.78rem; font-weight: 700;
+  letter-spacing: 0.06em; text-transform: uppercase; color: var(--sf-muted);
+}
+.sf-toc__list { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 0.3rem; }
+.sf-toc__list a {
+  display: block; font-size: 0.85rem; line-height: 1.4; color: var(--sf-muted);
+  text-decoration: none; padding: 0.1rem 0; border-left: 2px solid transparent; padding-left: 0.6rem;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+.sf-toc__list a:hover { color: var(--sf-fg); }
+.sf-toc__list a.is-active { color: var(--sf-primary); border-left-color: var(--sf-primary); }
+.sf-toc__list li.lvl-3 a { padding-left: 1.3rem; font-size: 0.8rem; }
+
+/* --- markdown body (prose) ------------------------------------------------ */
+.sf-skill__body { font-size: 1rem; }
+.sf-skill__body > :first-child { margin-top: 0; }
+.sf-skill__body h1, .sf-skill__body h2, .sf-skill__body h3, .sf-skill__body h4 {
+  font-family: var(--d-font-heading, inherit); font-weight: 700;
+  line-height: 1.25; letter-spacing: -0.01em; scroll-margin-top: 1.5rem;
+}
+.sf-skill__body h2 {
+  margin: 2.2rem 0 0.85rem; padding-bottom: 0.4rem; font-size: 1.5rem;
+  border-bottom: 1px solid var(--sf-border);
+}
+.sf-skill__body h3 { margin: 1.8rem 0 0.6rem; font-size: 1.2rem; }
+.sf-skill__body h4 { margin: 1.4rem 0 0.5rem; font-size: 1.02rem; }
+.sf-skill__body p { margin: 0 0 1rem; }
+.sf-skill__body ul, .sf-skill__body ol { margin: 0 0 1rem; padding-left: 1.4rem; }
+.sf-skill__body li { margin: 0.3rem 0; }
+.sf-skill__body li > ul, .sf-skill__body li > ol { margin: 0.3rem 0; }
+.sf-skill__body a { color: var(--sf-primary); text-decoration: underline; text-underline-offset: 2px; }
+.sf-skill__body strong { font-weight: 700; }
+.sf-skill__body hr { border: 0; border-top: 1px solid var(--sf-border); margin: 2rem 0; }
+.sf-skill__body blockquote {
+  margin: 1.25rem 0; padding: 0.5rem 1rem; color: var(--sf-muted);
+  border-left: 3px solid var(--sf-primary); background: var(--sf-card); border-radius: 0 var(--sf-radius) var(--sf-radius) 0;
+}
+.sf-skill__body code {
+  font-family: var(--d-font-mono, ui-monospace, monospace); font-size: 0.875em;
+  background: var(--muted, var(--sf-card)); padding: 0.12em 0.4em; border-radius: 0.35rem;
+}
+.sf-skill__body pre {
+  margin: 0 0 1.25rem; padding: 1rem 1.1rem; overflow-x: auto;
+  background: var(--muted, #1e1e24); border: 1px solid var(--sf-border);
+  border-radius: var(--sf-radius); font-size: 0.85rem; line-height: 1.5;
+}
+.sf-skill__body pre code { background: transparent; padding: 0; font-size: inherit; }
+.sf-skill__body img { max-width: 100%; height: auto; border-radius: var(--sf-radius); }
+.sf-skill__body table {
+  width: 100%; border-collapse: collapse; margin: 0 0 1.25rem; font-size: 0.9rem;
+  border: 1px solid var(--sf-border); border-radius: var(--sf-radius); overflow: hidden;
+}
+.sf-skill__body th, .sf-skill__body td { padding: 0.55rem 0.8rem; text-align: left; border-bottom: 1px solid var(--sf-border); }
+.sf-skill__body th { background: var(--sf-card); font-weight: 700; }
+.sf-skill__body tr:last-child td { border-bottom: 0; }
+
+/* --- supporting files ----------------------------------------------------- */
+.sf-files {
+  margin-top: 2rem; border: 1px solid var(--sf-border);
+  border-radius: var(--sf-radius); background: var(--sf-card);
+}
+.sf-files__summary {
+  cursor: pointer; padding: 0.85rem 1.1rem; font-weight: 600;
+  display: flex; align-items: center; gap: 0.6rem; list-style: none;
+}
+.sf-files__summary::-webkit-details-marker { display: none; }
+.sf-files__summary::after { content: "▸"; margin-left: auto; color: var(--sf-muted); transition: transform 0.15s ease; }
+.sf-files[open] .sf-files__summary::after { transform: rotate(90deg); }
+.sf-files__count {
+  font-size: 0.75rem; font-weight: 700; padding: 0.05rem 0.5rem; border-radius: 999px;
+  background: var(--muted, rgba(127,127,127,0.15)); color: var(--sf-muted);
+}
+.sf-files__list { margin: 0; padding: 0 1.1rem 0.85rem; list-style: none; }
+.sf-files__item {
+  display: flex; justify-content: space-between; gap: 1rem; padding: 0.4rem 0;
+  font-size: 0.85rem; border-top: 1px solid var(--sf-border);
+}
+.sf-files__path { font-family: var(--d-font-mono, ui-monospace, monospace); word-break: break-all; }
+.sf-files__size { flex: 0 0 auto; color: var(--sf-muted); }
+
+/* --- misc ----------------------------------------------------------------- */
+.sf-mono { font-family: var(--d-font-mono, ui-monospace, monospace); font-size: 0.875em; }
+.sf-skill--notfound { padding: 3rem 0; text-align: center; }
+.sf-btn--ghost {
+  display: inline-flex; align-items: center; gap: 0.4rem; text-decoration: none;
+  font-weight: 600; color: var(--sf-primary);
+}

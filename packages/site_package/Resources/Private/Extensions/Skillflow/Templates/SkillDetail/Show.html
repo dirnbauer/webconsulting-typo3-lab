@@ -1,0 +1,138 @@
+<html
+    xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+    xmlns:sf="http://typo3.org/ns/Webconsulting/Skillflow/ViewHelpers"
+    data-namespace-typo3-fluid="true"
+>
+<f:layout name="Default" />
+
+<f:section name="Main">
+    <f:if condition="{notFound}">
+        <f:then>
+            <div class="sf-skill sf-skill--notfound">
+                <p class="sf-skill__lead">
+                    <f:translate key="LLL:EXT:skillflow/Resources/Private/Language/locallang_db.xlf:plugin.skilldetail.notfound"
+                        default="No skill found for this identifier." />
+                </p>
+                <f:if condition="{identifier}">
+                    <p><code class="sf-mono">{identifier}</code></p>
+                </f:if>
+                <p><f:link.page pageUid="{TSFE.id}" class="sf-btn sf-btn--ghost">&larr;
+                    <f:translate key="LLL:EXT:skillflow/Resources/Private/Language/locallang_db.xlf:plugin.skilldetail.back" default="Back to skills" />
+                </f:link.page></p>
+            </div>
+        </f:then>
+        <f:else>
+            <article class="sf-skill">
+                <nav class="sf-skill__bc">
+                    <f:link.page pageUid="{TSFE.id}" class="sf-skill__back">&larr;
+                        <f:translate key="LLL:EXT:skillflow/Resources/Private/Language/locallang_db.xlf:plugin.skilldetail.back" default="Back to skills" />
+                    </f:link.page>
+                </nav>
+
+                <header class="sf-skill__hero">
+                    <div class="sf-skill__heroMain">
+                        <p class="sf-skill__eyebrow">
+                            <f:if condition="{meta.category}">
+                                <span class="sf-chip sf-chip--cat">{meta.category}</span>
+                            </f:if>
+                            <f:if condition="{skill.source_type}">
+                                <span class="sf-chip sf-chip--src">
+                                    <f:translate key="LLL:EXT:skillflow/Resources/Private/Language/locallang_db.xlf:skill.source_type.{skill.source_type}"
+                                        default="{skill.source_type}" />
+                                </span>
+                            </f:if>
+                        </p>
+
+                        <h1 class="sf-skill__title">{skill.title}</h1>
+
+                        <f:if condition="{skill.description}">
+                            <p class="sf-skill__lead">{skill.description}</p>
+                        </f:if>
+
+                        <f:if condition="{meta.tags}">
+                            <ul class="sf-skill__tags">
+                                <f:for each="{meta.tags}" as="tag">
+                                    <li class="sf-chip sf-chip--tag">{tag}</li>
+                                </f:for>
+                            </ul>
+                        </f:if>
+                    </div>
+
+                    <div class="sf-skill__use">
+                        <span class="sf-skill__useLabel">
+                            <f:translate key="LLL:EXT:skillflow/Resources/Private/Language/locallang_db.xlf:skill.identifier" default="Skill ID" />
+                        </span>
+                        <div class="sf-copy" data-sf-copy="{skill.identifier}">
+                            <code class="sf-copy__code">{skill.identifier}</code>
+                            <button type="button" class="sf-copy__btn" data-sf-copy-btn aria-label="Copy skill ID">
+                                <span class="sf-copy__btnText">Copy</span>
+                            </button>
+                        </div>
+                    </div>
+                </header>
+
+                <div class="sf-skill__grid">
+                    <div class="sf-skill__content">
+                        <div class="sf-skill__body" data-sf-body>
+                            <sf:markdown>{skill.body}</sf:markdown>
+                        </div>
+
+                        <f:if condition="{files}">
+                            <details class="sf-files">
+                                <summary class="sf-files__summary">
+                                    <f:translate key="LLL:EXT:skillflow/Resources/Private/Language/locallang_db.xlf:skill.files" default="Supporting files" />
+                                    <span class="sf-files__count">{files -> f:count()}</span>
+                                </summary>
+                                <ul class="sf-files__list">
+                                    <f:for each="{files}" as="file">
+                                        <li class="sf-files__item">
+                                            <span class="sf-files__path">{file.relative_path}</span>
+                                            <span class="sf-files__size">{file.size} B</span>
+                                        </li>
+                                    </f:for>
+                                </ul>
+                            </details>
+                        </f:if>
+                    </div>
+
+                    <aside class="sf-skill__aside">
+                        <div class="sf-stick">
+                            <div class="sf-card">
+                                <h2 class="sf-card__title">Details</h2>
+                                <dl class="sf-meta">
+                                    <f:if condition="{meta.category}">
+                                        <div class="sf-meta__row"><dt>Category</dt><dd>{meta.category}</dd></div>
+                                    </f:if>
+                                    <f:if condition="{skill.source_type}">
+                                        <div class="sf-meta__row"><dt>Source</dt><dd>{skill.source_type}</dd></div>
+                                    </f:if>
+                                    <f:if condition="{meta.license}">
+                                        <div class="sf-meta__row"><dt>License</dt><dd>{meta.license}</dd></div>
+                                    </f:if>
+                                    <f:if condition="{meta.version}">
+                                        <div class="sf-meta__row"><dt>Version</dt><dd>{meta.version}</dd></div>
+                                    </f:if>
+                                    <f:if condition="{skill.allowed_tools}">
+                                        <div class="sf-meta__row"><dt>Allowed tools</dt><dd class="sf-mono">{skill.allowed_tools}</dd></div>
+                                    </f:if>
+                                    <f:if condition="{files}">
+                                        <div class="sf-meta__row"><dt>Files</dt><dd>{files -> f:count()}</dd></div>
+                                    </f:if>
+                                    <f:if condition="{skill.last_synced}">
+                                        <div class="sf-meta__row"><dt>Updated</dt><dd><f:format.date format="Y-m-d">@{skill.last_synced}</f:format.date></dd></div>
+                                    </f:if>
+                                </dl>
+                            </div>
+
+                            <nav class="sf-toc" data-sf-toc hidden aria-label="On this page">
+                                <h2 class="sf-toc__title">On this page</h2>
+                                <ul class="sf-toc__list" data-sf-toc-list></ul>
+                            </nav>
+                        </div>
+                    </aside>
+                </div>
+            </article>
+        </f:else>
+    </f:if>
+</f:section>
+</html>
