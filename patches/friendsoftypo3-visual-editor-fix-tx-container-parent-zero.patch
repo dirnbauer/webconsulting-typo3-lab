@@ -1,0 +1,37 @@
+Subject: Do not send tx_container_parent:0 on drag move/paste when EXT:container is absent
+
+ve-drop-zone.js builds the DataHandler paste/move "update" payload with
+tx_container_parent whenever Number.isInteger(this.tx_container_parent) is
+true — which is true for 0. With EXT:container not installed, tt_content
+has no tx_container_parent column, so the DataHandler throws #6627872218
+("Field tx_container_parent not found in TCA schema for table tt_content")
+and useDataHandler replaces the canvas with the exception page — every
+content-element drag reorder fails. The empty-create branch already guards
+on "> 0"; this applies the same guard to the move/paste payload and to the
+optimistic setAttribute so a stale tx_container_parent="0" is not left on
+the moved element.
+
+--- a/Resources/Public/JavaScript/Frontend/components/ve-drop-zone.js
++++ b/Resources/Public/JavaScript/Frontend/components/ve-drop-zone.js
+@@ -198,7 +198,7 @@
+       update: {
+         colPos: this.colPos,
+         ...(
+-          Number.isInteger(this.tx_container_parent)
++          Number.isInteger(this.tx_container_parent) && this.tx_container_parent > 0
+             ? {tx_container_parent: this.tx_container_parent}
+             : {}
+         )
+@@ -274,7 +274,11 @@
+       throw new Error('Cannot find source element for drop operation: ' + data.table + ':' + data.uid);
+     }
+     sourceElement.setAttribute('colPos', this.colPos);
+-    sourceElement.setAttribute('tx_container_parent', this.tx_container_parent);
++    if (Number.isInteger(this.tx_container_parent) && this.tx_container_parent > 0) {
++      sourceElement.setAttribute('tx_container_parent', this.tx_container_parent);
++    } else {
++      sourceElement.removeAttribute('tx_container_parent');
++    }
+ 
+     switch (firstParent.tagName.toLowerCase()) {
+       case 've-content-element':
