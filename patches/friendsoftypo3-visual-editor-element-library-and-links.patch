@@ -23,7 +23,7 @@ index cb8d494..cbf9e62 100644
                          throw new RuntimeException('Field "' . $field . '" not found in TCA schema for table "' . $table . '"', 6627872218);
                      }
 diff --git a/Classes/Service/EditModeService.php b/Classes/Service/EditModeService.php
-index a217902..38b23a0 100644
+index a217902..287abb0 100644
 --- a/Classes/Service/EditModeService.php
 +++ b/Classes/Service/EditModeService.php
 @@ -121,6 +121,9 @@ final readonly class EditModeService
@@ -36,7 +36,15 @@ index a217902..38b23a0 100644
              ];
              $this->assetCollector->addInlineJavaScript(
                  'veLangInfo',
-@@ -297,6 +300,32 @@ if (window.parent === window && window.veInfo) {
+@@ -222,6 +225,7 @@ if (window.parent === window && window.veInfo) {
+         $files = [
+             'EXT:backend/Resources/Private/Language/locallang_alt_doc.xlf',
+             'EXT:visual_editor/Resources/Private/Language/locallang.xlf',
++            'EXT:visual_editor/Resources/Private/Language/locallang_library.xlf',
+         ];
+         foreach ($files as $file) {
+             $languageService = $this->languageServiceFactory->create($this->localizationService->getBackendUserLanguage() ?? 'en');
+@@ -297,6 +301,32 @@ if (window.parent === window && window.veInfo) {
          return $usedArguments;
      }
  
@@ -335,193 +343,290 @@ index 0000000..34aa00a
 +    ],
 +    'after:tx_visualeditor_showLinks'
 +);
-diff --git a/Resources/Private/Language/de.locallang.xlf b/Resources/Private/Language/de.locallang.xlf
-index d35fa80..b26d7c1 100644
---- a/Resources/Private/Language/de.locallang.xlf
-+++ b/Resources/Private/Language/de.locallang.xlf
-@@ -102,6 +102,45 @@
-       <trans-unit id="frontend.editImageButton">
-         <target>Bild bearbeiten</target>
-       </trans-unit>
-+      <trans-unit id="frontend.editLink">
-+        <target>Link bearbeiten</target>
-+      </trans-unit>
-+      <trans-unit id="frontend.library.title">
-+        <target>Inhalt hinzufügen</target>
-+      </trans-unit>
-+      <trans-unit id="frontend.library.open">
-+        <target>Inhalt aus der Bibliothek hinzufügen</target>
-+      </trans-unit>
-+      <trans-unit id="frontend.library.close">
-+        <target>Schließen</target>
-+      </trans-unit>
-+      <trans-unit id="frontend.library.search">
-+        <target>Elemente durchsuchen …</target>
-+      </trans-unit>
-+      <trans-unit id="frontend.library.includeDemo.label">
-+        <target>Mit Beispielinhalt einfügen</target>
-+      </trans-unit>
-+      <trans-unit id="frontend.library.includeDemo.hint">
-+        <target>An: fertige Demo-Texte &amp; Bilder. Aus: leeres Element zum selbst Befüllen.</target>
-+      </trans-unit>
-+      <trans-unit id="frontend.library.loading">
-+        <target>Wird geladen …</target>
-+      </trans-unit>
-+      <trans-unit id="frontend.library.empty">
-+        <target>Keine Elemente passen zum aktuellen Filter.</target>
-+      </trans-unit>
-+      <trans-unit id="frontend.library.fromLibrary">
-+        <target>Aus Bibliothek hinzufügen</target>
-+      </trans-unit>
-+      <trans-unit id="frontend.library.fabLabel">
-+        <target>Inhalt hinzufügen</target>
-+      </trans-unit>
-+      <trans-unit id="frontend.library.allCategories">
-+        <target>Alle</target>
-+      </trans-unit>
-+      <trans-unit id="frontend.library.dragHint">
-+        <target>Auf die Seite ziehen</target>
-+      </trans-unit>
-     </body>
-   </file>
- </xliff>
-diff --git a/Resources/Private/Language/de.locallang_setup.xlf b/Resources/Private/Language/de.locallang_setup.xlf
+diff --git a/Resources/Private/Language/de.locallang_library.xlf b/Resources/Private/Language/de.locallang_library.xlf
 new file mode 100644
-index 0000000..2e37835
+index 0000000..8dda44b
 --- /dev/null
-+++ b/Resources/Private/Language/de.locallang_setup.xlf
-@@ -0,0 +1,43 @@
++++ b/Resources/Private/Language/de.locallang_library.xlf
+@@ -0,0 +1,83 @@
 +<?xml version="1.0" encoding="UTF-8"?>
-+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
-+  <file source-language="en" target-language="de" datatype="plaintext" original="EXT:visual_editor/Resources/Private/Language/locallang_setup.xlf" product-name="visual_editor">
-+    <body>
-+      <trans-unit id="tab" approved="yes">
-+        <source>Visual editor</source>
-+        <target>Visueller Editor</target>
-+      </trans-unit>
-+      <trans-unit id="showLibrary" approved="yes">
-+        <source>Show the "Add content" button</source>
-+        <target>Schaltfläche „Inhalt hinzufügen“ anzeigen</target>
-+      </trans-unit>
-+      <trans-unit id="showLibrary.description" approved="yes">
-+        <source>Shows the floating button that opens the element library while editing a page in the visual editor.</source>
-+        <target>Zeigt die schwebende Schaltfläche, die im visuellen Editor die Element-Bibliothek öffnet.</target>
-+      </trans-unit>
-+      <trans-unit id="showLinks" approved="yes">
-+        <source>Enable inline link editing (experimental)</source>
-+        <target>Inline-Linkbearbeitung aktivieren (experimentell)</target>
-+      </trans-unit>
-+      <trans-unit id="showLinks.description" approved="yes">
-+        <source>Shows a link icon next to link fields so the TYPO3 link browser can be opened directly in the visual editor. Experimental.</source>
-+        <target>Zeigt neben Linkfeldern ein Link-Symbol, über das der TYPO3-Linkbrowser direkt im visuellen Editor geöffnet werden kann. Experimentell.</target>
-+      </trans-unit>
-+      <trans-unit id="panelColumns" approved="yes">
-+        <source>Element library width</source>
-+        <target>Breite der Element-Bibliothek</target>
-+      </trans-unit>
-+      <trans-unit id="panelColumns.description" approved="yes">
-+        <source>How many preview columns the element library panel shows.</source>
-+        <target>Wie viele Vorschauspalten die Element-Bibliothek anzeigt.</target>
-+      </trans-unit>
-+      <trans-unit id="panelColumns.wide" approved="yes">
-+        <source>Wide (2 columns)</source>
-+        <target>Breit (2 Spalten)</target>
-+      </trans-unit>
-+      <trans-unit id="panelColumns.narrow" approved="yes">
-+        <source>Narrow (1 column)</source>
-+        <target>Schmal (1 Spalte)</target>
-+      </trans-unit>
-+    </body>
++<xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" version="2.0" srcLang="en" trgLang="de">
++  <file id="visual_editor_library" original="EXT:visual_editor/Resources/Private/Language/locallang_library.xlf">
++    <unit id="frontend.editLink">
++      <segment state="final">
++        <source>Edit link</source>
++        <target>Link bearbeiten</target>
++      </segment>
++    </unit>
++    <unit id="frontend.library.title">
++      <segment state="final">
++        <source>Add content</source>
++        <target>Inhalt hinzufügen</target>
++      </segment>
++    </unit>
++    <unit id="frontend.library.open">
++      <segment state="final">
++        <source>Add content from library</source>
++        <target>Inhalt aus der Bibliothek hinzufügen</target>
++      </segment>
++    </unit>
++    <unit id="frontend.library.close">
++      <segment state="final">
++        <source>Close</source>
++        <target>Schließen</target>
++      </segment>
++    </unit>
++    <unit id="frontend.library.search">
++      <segment state="final">
++        <source>Search elements …</source>
++        <target>Elemente durchsuchen …</target>
++      </segment>
++    </unit>
++    <unit id="frontend.library.includeDemo.label">
++      <segment state="final">
++        <source>Insert with example content</source>
++        <target>Mit Beispielinhalt einfügen</target>
++      </segment>
++    </unit>
++    <unit id="frontend.library.includeDemo.hint">
++      <segment state="final">
++        <source>On: ready-made demo text &amp; images. Off: empty element to fill yourself.</source>
++        <target>An: fertige Demo-Texte &amp; Bilder. Aus: leeres Element zum selbst Befüllen.</target>
++      </segment>
++    </unit>
++    <unit id="frontend.library.loading">
++      <segment state="final">
++        <source>Loading …</source>
++        <target>Wird geladen …</target>
++      </segment>
++    </unit>
++    <unit id="frontend.library.empty">
++      <segment state="final">
++        <source>No elements match the current filter.</source>
++        <target>Keine Elemente passen zum aktuellen Filter.</target>
++      </segment>
++    </unit>
++    <unit id="frontend.library.fromLibrary">
++      <segment state="final">
++        <source>Add from library</source>
++        <target>Aus Bibliothek hinzufügen</target>
++      </segment>
++    </unit>
++    <unit id="frontend.library.fabLabel">
++      <segment state="final">
++        <source>Add content</source>
++        <target>Inhalt hinzufügen</target>
++      </segment>
++    </unit>
++    <unit id="frontend.library.allCategories">
++      <segment state="final">
++        <source>All</source>
++        <target>Alle</target>
++      </segment>
++    </unit>
++    <unit id="frontend.library.dragHint">
++      <segment state="final">
++        <source>Drag onto the page</source>
++        <target>Auf die Seite ziehen</target>
++      </segment>
++    </unit>
 +  </file>
 +</xliff>
-diff --git a/Resources/Private/Language/locallang.xlf b/Resources/Private/Language/locallang.xlf
-index 6226820..70b50c4 100644
---- a/Resources/Private/Language/locallang.xlf
-+++ b/Resources/Private/Language/locallang.xlf
-@@ -102,6 +102,45 @@
-       <trans-unit id="frontend.editImageButton">
-         <source>Edit Image</source>
-       </trans-unit>
-+      <trans-unit id="frontend.editLink">
+diff --git a/Resources/Private/Language/de.locallang_setup.xlf b/Resources/Private/Language/de.locallang_setup.xlf
+new file mode 100644
+index 0000000..1574ae6
+--- /dev/null
++++ b/Resources/Private/Language/de.locallang_setup.xlf
+@@ -0,0 +1,59 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" version="2.0" srcLang="en" trgLang="de">
++  <file id="visual_editor_setup" original="EXT:visual_editor/Resources/Private/Language/locallang_setup.xlf">
++    <unit id="tab">
++      <segment state="final">
++        <source>Visual editor</source>
++        <target>Visueller Editor</target>
++      </segment>
++    </unit>
++    <unit id="showLibrary">
++      <segment state="final">
++        <source>Show the "Add content" button</source>
++        <target>Schaltfläche „Inhalt hinzufügen“ anzeigen</target>
++      </segment>
++    </unit>
++    <unit id="showLibrary.description">
++      <segment state="final">
++        <source>Shows the floating button that opens the element library while editing a page in the visual editor.</source>
++        <target>Zeigt die schwebende Schaltfläche, die im visuellen Editor die Element-Bibliothek öffnet.</target>
++      </segment>
++    </unit>
++    <unit id="showLinks">
++      <segment state="final">
++        <source>Enable inline link editing (experimental)</source>
++        <target>Inline-Linkbearbeitung aktivieren (experimentell)</target>
++      </segment>
++    </unit>
++    <unit id="showLinks.description">
++      <segment state="final">
++        <source>Shows a link icon next to link fields so the TYPO3 link browser can be opened directly in the visual editor. Experimental.</source>
++        <target>Zeigt neben Linkfeldern ein Link-Symbol, über das der TYPO3-Linkbrowser direkt im visuellen Editor geöffnet werden kann. Experimentell.</target>
++      </segment>
++    </unit>
++    <unit id="panelColumns">
++      <segment state="final">
++        <source>Element library width</source>
++        <target>Breite der Element-Bibliothek</target>
++      </segment>
++    </unit>
++    <unit id="panelColumns.description">
++      <segment state="final">
++        <source>How many preview columns the element library panel shows.</source>
++        <target>Wie viele Vorschauspalten die Element-Bibliothek anzeigt.</target>
++      </segment>
++    </unit>
++    <unit id="panelColumns.wide">
++      <segment state="final">
++        <source>Wide (2 columns)</source>
++        <target>Breit (2 Spalten)</target>
++      </segment>
++    </unit>
++    <unit id="panelColumns.narrow">
++      <segment state="final">
++        <source>Narrow (1 column)</source>
++        <target>Schmal (1 Spalte)</target>
++      </segment>
++    </unit>
++  </file>
++</xliff>
+diff --git a/Resources/Private/Language/locallang_library.xlf b/Resources/Private/Language/locallang_library.xlf
+new file mode 100644
+index 0000000..49235cb
+--- /dev/null
++++ b/Resources/Private/Language/locallang_library.xlf
+@@ -0,0 +1,70 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" version="2.0" srcLang="en">
++  <file id="visual_editor_library" original="EXT:visual_editor/Resources/Private/Language/locallang_library.xlf">
++    <unit id="frontend.editLink">
++      <segment>
 +        <source>Edit link</source>
-+      </trans-unit>
-+      <trans-unit id="frontend.library.title">
++      </segment>
++    </unit>
++    <unit id="frontend.library.title">
++      <segment>
 +        <source>Add content</source>
-+      </trans-unit>
-+      <trans-unit id="frontend.library.open">
++      </segment>
++    </unit>
++    <unit id="frontend.library.open">
++      <segment>
 +        <source>Add content from library</source>
-+      </trans-unit>
-+      <trans-unit id="frontend.library.close">
++      </segment>
++    </unit>
++    <unit id="frontend.library.close">
++      <segment>
 +        <source>Close</source>
-+      </trans-unit>
-+      <trans-unit id="frontend.library.search">
++      </segment>
++    </unit>
++    <unit id="frontend.library.search">
++      <segment>
 +        <source>Search elements …</source>
-+      </trans-unit>
-+      <trans-unit id="frontend.library.includeDemo.label">
++      </segment>
++    </unit>
++    <unit id="frontend.library.includeDemo.label">
++      <segment>
 +        <source>Insert with example content</source>
-+      </trans-unit>
-+      <trans-unit id="frontend.library.includeDemo.hint">
++      </segment>
++    </unit>
++    <unit id="frontend.library.includeDemo.hint">
++      <segment>
 +        <source>On: ready-made demo text &amp; images. Off: empty element to fill yourself.</source>
-+      </trans-unit>
-+      <trans-unit id="frontend.library.loading">
++      </segment>
++    </unit>
++    <unit id="frontend.library.loading">
++      <segment>
 +        <source>Loading …</source>
-+      </trans-unit>
-+      <trans-unit id="frontend.library.empty">
++      </segment>
++    </unit>
++    <unit id="frontend.library.empty">
++      <segment>
 +        <source>No elements match the current filter.</source>
-+      </trans-unit>
-+      <trans-unit id="frontend.library.fromLibrary">
++      </segment>
++    </unit>
++    <unit id="frontend.library.fromLibrary">
++      <segment>
 +        <source>Add from library</source>
-+      </trans-unit>
-+      <trans-unit id="frontend.library.fabLabel">
++      </segment>
++    </unit>
++    <unit id="frontend.library.fabLabel">
++      <segment>
 +        <source>Add content</source>
-+      </trans-unit>
-+      <trans-unit id="frontend.library.allCategories">
++      </segment>
++    </unit>
++    <unit id="frontend.library.allCategories">
++      <segment>
 +        <source>All</source>
-+      </trans-unit>
-+      <trans-unit id="frontend.library.dragHint">
++      </segment>
++    </unit>
++    <unit id="frontend.library.dragHint">
++      <segment>
 +        <source>Drag onto the page</source>
-+      </trans-unit>
-     </body>
-   </file>
- </xliff>
++      </segment>
++    </unit>
++  </file>
++</xliff>
 diff --git a/Resources/Private/Language/locallang_setup.xlf b/Resources/Private/Language/locallang_setup.xlf
 new file mode 100644
-index 0000000..a068a83
+index 0000000..130b3a1
 --- /dev/null
 +++ b/Resources/Private/Language/locallang_setup.xlf
-@@ -0,0 +1,34 @@
+@@ -0,0 +1,50 @@
 +<?xml version="1.0" encoding="UTF-8"?>
-+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
-+  <file source-language="en" datatype="plaintext" original="EXT:visual_editor/Resources/Private/Language/locallang_setup.xlf" product-name="visual_editor">
-+    <body>
-+      <trans-unit id="tab">
++<xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" version="2.0" srcLang="en">
++  <file id="visual_editor_setup" original="EXT:visual_editor/Resources/Private/Language/locallang_setup.xlf">
++    <unit id="tab">
++      <segment>
 +        <source>Visual editor</source>
-+      </trans-unit>
-+      <trans-unit id="showLibrary">
++      </segment>
++    </unit>
++    <unit id="showLibrary">
++      <segment>
 +        <source>Show the "Add content" button</source>
-+      </trans-unit>
-+      <trans-unit id="showLibrary.description">
++      </segment>
++    </unit>
++    <unit id="showLibrary.description">
++      <segment>
 +        <source>Shows the floating button that opens the element library while editing a page in the visual editor.</source>
-+      </trans-unit>
-+      <trans-unit id="showLinks">
++      </segment>
++    </unit>
++    <unit id="showLinks">
++      <segment>
 +        <source>Enable inline link editing (experimental)</source>
-+      </trans-unit>
-+      <trans-unit id="showLinks.description">
++      </segment>
++    </unit>
++    <unit id="showLinks.description">
++      <segment>
 +        <source>Shows a link icon next to link fields so the TYPO3 link browser can be opened directly in the visual editor. Experimental.</source>
-+      </trans-unit>
-+      <trans-unit id="panelColumns">
++      </segment>
++    </unit>
++    <unit id="panelColumns">
++      <segment>
 +        <source>Element library width</source>
-+      </trans-unit>
-+      <trans-unit id="panelColumns.description">
++      </segment>
++    </unit>
++    <unit id="panelColumns.description">
++      <segment>
 +        <source>How many preview columns the element library panel shows.</source>
-+      </trans-unit>
-+      <trans-unit id="panelColumns.wide">
++      </segment>
++    </unit>
++    <unit id="panelColumns.wide">
++      <segment>
 +        <source>Wide (2 columns)</source>
-+      </trans-unit>
-+      <trans-unit id="panelColumns.narrow">
++      </segment>
++    </unit>
++    <unit id="panelColumns.narrow">
++      <segment>
 +        <source>Narrow (1 column)</source>
-+      </trans-unit>
-+    </body>
++      </segment>
++    </unit>
 +  </file>
 +</xliff>
 diff --git a/Resources/Public/JavaScript/Backend/index.js b/Resources/Public/JavaScript/Backend/index.js
