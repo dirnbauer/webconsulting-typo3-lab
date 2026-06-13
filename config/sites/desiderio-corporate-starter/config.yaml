@@ -3,6 +3,14 @@ dependencies:
   - webconsulting/site-package-search
   - webconsulting/desiderio-preset-corporate
   - webconsulting/desiderio-element-library
+  - webconsulting/skillflow-solr
+solr_enabled_read: true
+solr_host_read: typo3-solr
+solr_path_read: /
+solr_port_read: '8983'
+solr_scheme_read: http
+solr_core_read: core_en
+solr_use_write_connection: false
 errorHandling:
   -
     errorCode: 404
