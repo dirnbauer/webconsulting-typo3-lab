@@ -1187,10 +1187,10 @@ index 0000000..3dc7fa1
 +customElements.define('ve-element-library-button', VeElementLibraryButton);
 diff --git a/Resources/Public/JavaScript/Frontend/components/ve-element-library.js b/Resources/Public/JavaScript/Frontend/components/ve-element-library.js
 new file mode 100644
-index 0000000..5a27ab1
+index 0000000..af13a20
 --- /dev/null
 +++ b/Resources/Public/JavaScript/Frontend/components/ve-element-library.js
-@@ -0,0 +1,898 @@
+@@ -0,0 +1,970 @@
 +import {css, html, LitElement} from 'lit';
 +import {classMap} from 'lit/directives/class-map.js';
 +import {repeat} from 'lit/directives/repeat.js';
@@ -1230,10 +1230,17 @@ index 0000000..5a27ab1
 +/**
 + * The per-card "magnify" button opens an enlarged preview at this multiple of
 + * the thumbnail scale. The enlarged size is then capped to the editing viewport
-+ * so the whole element always fits without a scrollbar - 1.5x is the target,
++ * so the whole element always fits without a scrollbar - 1.875x is the target,
 + * not a guarantee, for a very tall element on a short canvas.
 + */
-+const PREVIEW_ZOOM_FACTOR = 1.5;
++const PREVIEW_ZOOM_FACTOR = 1.875;
++
++/**
++ * Grace period (ms) before the enlarged-preview flyout closes after the pointer
++ * leaves its trigger. Long enough to travel from the loupe button onto the
++ * flyout (which is itself a drag source) without it vanishing underfoot.
++ */
++const PREVIEW_FLYOUT_CLOSE_DELAY = 320;
 +
 +/**
 + * Element library side panel: a browsable, filterable catalog of all content
@@ -1260,7 +1267,7 @@ index 0000000..5a27ab1
 +    searchTerm: {type: String, state: true, attribute: false},
 +    includeDemo: {type: Boolean, state: true, attribute: false},
 +    loadedPreviews: {type: Object, state: true, attribute: false},
-+    zoomedItem: {type: Object, state: true, attribute: false},
++    previewItem: {type: Object, state: true, attribute: false},
 +  };
 +
 +  constructor() {
@@ -1275,11 +1282,11 @@ index 0000000..5a27ab1
 +    this.searchTerm = '';
 +    this.includeDemo = this.#resolveIncludeDemoDefault();
 +    this.loadedPreviews = new Set();
-+    this.zoomedItem = null;
++    this.previewItem = null;
++    this.previewCloseTimer = null;
 +    this.columns = Math.max(1, Math.min(2, parseInt(window.veInfo?.elementLibraryColumns, 10) || 2));
 +
 +    this.onDragInProgressChange = this.#onDragInProgressChange.bind(this);
-+    this.onZoomKeydown = this.#onZoomKeydown.bind(this);
 +
 +    // lazy-preview machinery
 +    this.previewQueue = [];
@@ -1297,7 +1304,7 @@ index 0000000..5a27ab1
 +
 +  disconnectedCallback() {
 +    dragInProgressStore.removeEventListener('change', this.onDragInProgressChange);
-+    document.removeEventListener('keydown', this.onZoomKeydown, true);
++    this.#cancelClosePreview();
 +    this.observer?.disconnect();
 +    super.disconnectedCallback();
 +  }
@@ -1340,7 +1347,7 @@ index 0000000..5a27ab1
 +  }
 +
 +  closePanel() {
-+    this.#closeZoom();
++    this.#closePreview();
 +    this.open = false;
 +    elementLibraryOpen.set(false);
 +    this.dispatchEvent(new CustomEvent('ve-library-toggle', {detail: {open: false}, bubbles: true, composed: true}));
@@ -1492,7 +1499,7 @@ index 0000000..5a27ab1
 +    if (contentHeight < 20) {
 +      return;
 +    }
-+    let baseScale = 420 / PREVIEW_RENDER_WIDTH;
++    let baseScale = PREVIEW_DISPLAY_WIDTH / PREVIEW_RENDER_WIDTH;
 +    try {
 +      const matrix = new DOMMatrixReadOnly(getComputedStyle(iframe).transform);
 +      if (matrix.a > 0.01) {
@@ -1507,7 +1514,8 @@ index 0000000..5a27ab1
 +    }
 +    const zoom = Math.min(PREVIEW_MAX_ZOOM, (PREVIEW_BOX_HEIGHT * 0.92) / fittedHeight);
 +    if (zoom > 1.02) {
-+      iframe.style.transform = `scale(${baseScale * zoom})`;
++      // translateX(-50%) keeps the thumbnail horizontally centered (see .preview iframe)
++      iframe.style.transform = `translateX(-50%) scale(${baseScale * zoom})`;
 +    }
 +  }
 +
@@ -1516,49 +1524,76 @@ index 0000000..5a27ab1
 +    this.#pumpPreviews();
 +  }
 +
-+  // --- enlarged preview (zoom) ----------------------------------------------
++  // --- enlarged preview flyout ----------------------------------------------
 +
 +  /**
-+   * Opens the bigger preview overlay for a card. Lives on the card preview as a
-+   * small magnify button; stops the event so it never starts a card drag.
-+   * @param {Event} event
++   * Opens (or switches to) the enlarged-preview flyout for a card. Hover-driven
++   * from the loupe button: there is no modal and no close button - moving away
++   * closes it, hovering the next loupe switches it.
 +   * @param {Object} item
 +   */
-+  #openZoom(event, item) {
-+    event.preventDefault();
-+    event.stopPropagation();
-+    this.zoomedItem = item;
-+    document.addEventListener('keydown', this.onZoomKeydown, true);
-+  }
-+
-+  #closeZoom() {
-+    if (this.zoomedItem) {
-+      this.zoomedItem = null;
-+    }
-+    document.removeEventListener('keydown', this.onZoomKeydown, true);
-+  }
-+
-+  /** @param {KeyboardEvent} event */
-+  #onZoomKeydown(event) {
-+    if (event.key === 'Escape') {
-+      event.preventDefault();
-+      event.stopPropagation();
-+      this.#closeZoom();
-+    }
++  #openPreview(item) {
++    this.#cancelClosePreview();
++    this.previewItem = item;
 +  }
 +
 +  /**
-+   * Sizes the enlarged preview once its iframe has loaded: render the element
-+   * at PREVIEW_ZOOM_FACTOR x the thumbnail scale, then clamp that scale so the
-+   * full element fits the editing viewport - so this extra preview never needs
-+   * a scrollbar. The stage box is set to the exact scaled content size.
++   * Closes the flyout after a short grace period, so the pointer can travel from
++   * the loupe onto the flyout without it disappearing. Never closes mid-drag
++   * (removing the drag source would abort the native drag).
++   */
++  #scheduleClosePreview() {
++    if (dragInProgressStore.value) {
++      return;
++    }
++    this.#cancelClosePreview();
++    this.previewCloseTimer = setTimeout(() => {
++      this.previewItem = null;
++      this.previewCloseTimer = null;
++    }, PREVIEW_FLYOUT_CLOSE_DELAY);
++  }
++
++  #cancelClosePreview() {
++    if (this.previewCloseTimer) {
++      clearTimeout(this.previewCloseTimer);
++      this.previewCloseTimer = null;
++    }
++  }
++
++  #closePreview() {
++    this.#cancelClosePreview();
++    this.previewItem = null;
++  }
++
++  /**
++   * Drags the enlarged preview straight onto the page: same payload as a card
++   * drag, so the drop zones light up and the element drops where released.
++   * @param {DragEvent} event
++   * @param {Object} item
++   */
++  #previewDragStart(event, item) {
++    this.#cancelClosePreview();
++    this.#cardDragStart(event, item);
++  }
++
++  #previewDragEnd(event) {
++    this.#cardDragEnd(event);
++    this.#closePreview();
++  }
++
++  /**
++   * Sizes the flyout once its iframe has loaded: render the element at
++   * PREVIEW_ZOOM_FACTOR x the thumbnail scale, then clamp so the whole element
++   * fits the canvas to the left of the open panel - this extra preview never
++   * needs a scrollbar. The stage box is set to the exact scaled content size and
++   * the flyout is nudged vertically next to its trigger (clamped on screen).
 +   * Same-origin preview, so contentDocument is readable; fall back to the CSS
 +   * defaults on any access error.
 +   * @param {Event} event iframe load event
 +   */
-+  #onZoomLoad(event) {
++  #onFlyoutLoad(event) {
 +    const iframe = event.target;
-+    const stage = iframe.closest('.zoomStage');
++    const stage = iframe.closest('.previewStage');
 +    let contentHeight = 0;
 +    try {
 +      const body = iframe.contentDocument && iframe.contentDocument.body;
@@ -1573,9 +1608,13 @@ index 0000000..5a27ab1
 +    }
 +
 +    const baseScale = PREVIEW_DISPLAY_WIDTH / PREVIEW_RENDER_WIDTH;
-+    // leave room for the caption bar + page margins so nothing clips or scrolls
-+    const maxWidth = window.innerWidth * 0.92;
-+    const maxHeight = window.innerHeight * 0.9 - 52;
++    // stay inside the canvas to the left of the (open) panel and short enough
++    // that the whole element shows without a scrollbar
++    const panelWidth = this.columns === 1
++      ? Math.min(460, window.innerWidth * 0.94)
++      : Math.min(860, window.innerWidth * 0.94);
++    const maxWidth = Math.max(260, window.innerWidth - panelWidth - 44);
++    const maxHeight = window.innerHeight * 0.92 - 44;
 +    const scale = Math.min(
 +      baseScale * PREVIEW_ZOOM_FACTOR,
 +      maxWidth / PREVIEW_RENDER_WIDTH,
@@ -1588,7 +1627,8 @@ index 0000000..5a27ab1
 +      stage.classList.add('loaded');
 +    }
 +    iframe.style.height = contentHeight + 'px';
-+    iframe.style.transform = `scale(${scale})`;
++    // translateX(-50%) keeps the preview horizontally centered (see .previewFrame)
++    iframe.style.transform = `translateX(-50%) scale(${scale})`;
 +    iframe.classList.add('ready');
 +  }
 +
@@ -1681,34 +1721,42 @@ index 0000000..5a27ab1
 +          ${repeat(filtered, (item) => item.cType, (item) => this.#renderCard(item))}
 +        </div>
 +      </div>
-+      ${this.zoomedItem ? this.#renderZoom() : ''}
++      ${this.previewItem ? this.#renderPreview() : ''}
 +    `;
 +  }
 +
-+  #renderZoom() {
-+    const item = this.zoomedItem;
-+    const closeLabel = lll('frontend.library.close') || 'Close';
++  #renderPreview() {
++    const item = this.previewItem;
++    const dragHint = lll('frontend.library.dragHint') || 'Drag onto the page';
++    const flyoutClasses = {
++      previewFlyout: true,
++      collapsed: this.collapsed,
++      [`cols-${this.columns}`]: true,
++    };
 +    return html`
-+      <div class="zoomOverlay" @click="${this.#closeZoom}">
-+        <div class="zoomDialog" role="dialog" aria-modal="true" aria-label="${item.title}"
-+             @click="${(event) => event.stopPropagation()}">
-+          <div class="zoomBar">
-+            <span class="zoomTitle">
-+              <strong>${item.title}</strong>
-+              <span class="badge">${item.group}</span>
-+            </span>
-+            <button class="iconButton" type="button" @click="${this.#closeZoom}"
-+                    title="${closeLabel}" aria-label="${closeLabel}">
-+              <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-+            </button>
-+          </div>
-+          <div class="zoomStage">
-+            <span class="spinner zoomSpinner" aria-hidden="true"></span>
-+            ${item.previewUrl
-+              ? html`<iframe class="zoomFrame" src="${item.previewUrl}" scrolling="no" tabindex="-1"
-+                            @load="${(event) => this.#onZoomLoad(event)}"></iframe>`
-+              : ''}
-+          </div>
++      <div
++        class=${classMap(flyoutClasses)}
++        part="preview"
++        draggable="true"
++        @dragstart="${(event) => this.#previewDragStart(event, item)}"
++        @dragend="${this.#previewDragEnd}"
++        @mouseenter="${this.#cancelClosePreview}"
++        @mouseleave="${this.#scheduleClosePreview}"
++      >
++        <div class="previewStage">
++          <span class="spinner previewSpinner" aria-hidden="true"></span>
++          ${item.previewUrl
++            ? html`<iframe class="previewFrame" src="${item.previewUrl}" scrolling="no" tabindex="-1"
++                          @load="${(event) => this.#onFlyoutLoad(event)}"></iframe>`
++            : ''}
++        </div>
++        <div class="previewCaption">
++          <strong class="previewTitle">${item.title}</strong>
++          <span class="badge">${item.group}</span>
++          <span class="previewDragHint">
++            <svg viewBox="0 0 24 24" width="13" height="13" aria-hidden="true"><path d="M12 4v10M12 14l-3.2-3.2M12 14l3.2-3.2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M5 16v2.5A1.5 1.5 0 0 0 6.5 20h11a1.5 1.5 0 0 0 1.5-1.5V16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
++            ${dragHint}
++          </span>
 +        </div>
 +      </div>
 +    `;
@@ -1736,8 +1784,12 @@ index 0000000..5a27ab1
 +                     <span class="shimmer"></span>
 +                   </div>`}
 +          ${item.previewUrl ? html`
-+            <button class="zoomButton" type="button" draggable="false"
-+                    @click="${(event) => this.#openZoom(event, item)}"
++            <button class="loupeButton" type="button" draggable="false"
++                    @mouseenter="${() => this.#openPreview(item)}"
++                    @mouseleave="${this.#scheduleClosePreview}"
++                    @focus="${() => this.#openPreview(item)}"
++                    @blur="${this.#scheduleClosePreview}"
++                    @click="${(event) => { event.preventDefault(); event.stopPropagation(); this.#openPreview(item); }}"
 +                    @dragstart="${(event) => { event.preventDefault(); event.stopPropagation(); }}"
 +                    title="${zoomLabel}" aria-label="${zoomLabel}">
 +              <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true">
@@ -1775,6 +1827,8 @@ index 0000000..5a27ab1
 +      line-height: 1.4;
 +      --ve-accent: var(--ve-accent-color, #7c5ac4);
 +      --ve-accent-contrast: #ffffff;
++      /* one radius shared by the card and its preview corners (see .preview) */
++      --ve-card-radius: 14px;
 +      /* Light mode is the default; the .dark block below restores the original
 +         dark panel. :host-context() reaches the site's dark class across the
 +         shadow boundary, so the panel follows light/dark mode like the page. */
@@ -1803,7 +1857,7 @@ index 0000000..5a27ab1
 +      background: var(--ve-panel-bg);
 +      color: var(--ve-panel-text);
 +      border: 1.5px solid color-mix(in srgb, var(--ve-accent) 65%, var(--ve-panel-border));
-+      border-right: none;
++      border-right: none; border-radius: var(--typo3-component-border-radius, 0.75em) 0 0 var(--typo3-component-border-radius, 0.75em); overflow: hidden;
 +      box-shadow: -18px 0 50px rgba(0, 0, 0, 0.5), inset 1px 0 0 color-mix(in srgb, var(--ve-accent) 25%, transparent);
 +      z-index: 100000;
 +      transform: translateX(0);
@@ -1839,8 +1893,8 @@ index 0000000..5a27ab1
 +    }
 +    .titleText { display: flex; flex-direction: column; gap: 1px; line-height: 1.15; }
 +    h2 { margin: 0; font-size: 18px; font-weight: 700; letter-spacing: -0.01em; }
-+    .counter { font-size: 11.5px; color: var(--ve-panel-muted); letter-spacing: 0.01em; }
-+    .counter strong { color: var(--ve-accent); font-weight: 650; }
++    .counter { font-size: 12.5px; font-weight: 600; color: var(--ve-panel-muted); letter-spacing: 0.01em; }
++    .counter strong { color: color-mix(in srgb, var(--ve-accent) 35%, var(--ve-panel-text)); font-weight: 750; }
 +
 +    .iconButton {
 +      display: inline-flex; align-items: center; justify-content: center;
@@ -1938,45 +1992,56 @@ index 0000000..5a27ab1
 +    @keyframes spin { to { transform: rotate(360deg); } }
 +
 +    .card {
-+      position: relative; background: #fff; color: #16161a;
-+      border-radius: 14px; overflow: hidden; cursor: grab;
++      position: relative; background: var(--ve-panel-surface); color: var(--ve-panel-text);
++      border-radius: var(--ve-card-radius); overflow: hidden; cursor: grab;
 +      border: 1px solid var(--ve-panel-border);
 +      display: flex; flex-direction: column;
 +      height: 330px;
 +      scroll-snap-align: start;
-+      outline: 2px solid transparent; outline-offset: 2px;
-+      transition: transform 0.16s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.16s ease, outline-color 0.12s ease;
++      transition: transform 0.16s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.16s ease, border-color 0.16s ease;
 +      animation: cardIn 0.3s ease backwards;
 +    }
 +    @keyframes cardIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
 +    .panel.cols-1 .card { height: 340px; }
 +    .card:hover {
-+      outline-color: var(--ve-accent);
++      border-color: color-mix(in srgb, var(--ve-accent) 65%, var(--ve-panel-border));
 +      transform: translateY(-3px);
-+      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.32);
++      box-shadow: 0 10px 26px color-mix(in srgb, var(--ve-accent) 18%, rgba(0, 0, 0, 0.30)),
++                  0 0 0 1px color-mix(in srgb, var(--ve-accent) 45%, transparent);
++    }
++    .card:focus-within {
++      border-color: var(--ve-accent);
++      box-shadow: 0 0 0 2px color-mix(in srgb, var(--ve-accent) 45%, transparent);
 +    }
 +    .card:active { cursor: grabbing; }
 +    .card.is-dragging { opacity: 0.4; transform: scale(0.96) rotate(-1deg); }
 +
-+    .preview { position: relative; flex: 0 0 232px; height: 232px; overflow: hidden; background: #f4f4f5; }
++    .preview {
++      position: relative; flex: 0 0 232px; height: 232px; overflow: hidden;
++      background: var(--ve-panel-bg);
++      border-top-left-radius: calc(var(--ve-card-radius) - 1px);
++      border-top-right-radius: calc(var(--ve-card-radius) - 1px);
++    }
 +    .preview iframe {
++      position: absolute; top: 0; left: 50%;
 +      width: ${PREVIEW_RENDER_WIDTH}px; height: 900px; border: 0;
-+      transform-origin: top left; transform: scale(calc(420 / ${PREVIEW_RENDER_WIDTH}));
++      transform-origin: top center;
++      transform: translateX(-50%) scale(calc(${PREVIEW_DISPLAY_WIDTH} / ${PREVIEW_RENDER_WIDTH}));
 +      pointer-events: none; animation: fadeIn 0.4s ease;
 +    }
-+    .panel.cols-1 .preview iframe { transform: scale(calc(420 / ${PREVIEW_RENDER_WIDTH})); }
++    .panel.cols-1 .preview iframe { transform: translateX(-50%) scale(calc(${PREVIEW_DISPLAY_WIDTH} / ${PREVIEW_RENDER_WIDTH})); }
 +    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 +    .previewOverlay { position: absolute; inset: 0; }
 +    .previewPlaceholder {
 +      display: flex; align-items: center; justify-content: center; height: 100%;
-+      color: #9a9aa3; font-size: 13px; position: relative; overflow: hidden;
-+      background: linear-gradient(135deg, #f6f6f8, #ececf2);
++      color: var(--ve-panel-muted); font-size: 13px; position: relative; overflow: hidden;
++      background: linear-gradient(135deg, color-mix(in srgb, var(--ve-panel-bg) 55%, var(--ve-panel-surface)), var(--ve-panel-bg));
 +    }
 +    .previewPlaceholder img { width: 52px; height: 52px; opacity: 0.8; }
 +    .previewPlaceholder span:not(.shimmer) { padding: 0 16px; text-align: center; }
 +    .shimmer {
 +      position: absolute; inset: 0;
-+      background: linear-gradient(100deg, transparent 30%, rgba(255,255,255,0.55) 50%, transparent 70%);
++      background: linear-gradient(100deg, transparent 30%, color-mix(in srgb, var(--ve-panel-surface) 65%, transparent) 50%, transparent 70%);
 +      transform: translateX(-100%); animation: shimmer 1.4s infinite;
 +    }
 +    @keyframes shimmer { to { transform: translateX(100%); } }
@@ -1989,9 +2054,9 @@ index 0000000..5a27ab1
 +    }
 +    .card:hover .grabHint { opacity: 1; transform: translateX(-50%) translateY(0); }
 +
-+    /* magnify button: opens the enlarged (1.5x) preview overlay */
-+    .zoomButton {
-+      position: absolute; top: 8px; right: 8px; z-index: 3;
++    /* loupe button (top-left): hovering it opens the enlarged preview flyout */
++    .loupeButton {
++      position: absolute; top: 8px; left: 8px; z-index: 3;
 +      display: inline-flex; align-items: center; justify-content: center;
 +      width: 30px; height: 30px; padding: 0;
 +      border: none; border-radius: 9px;
@@ -2000,24 +2065,25 @@ index 0000000..5a27ab1
 +      transition: opacity 0.16s ease, transform 0.16s ease, background 0.12s ease;
 +      -webkit-backdrop-filter: blur(2px); backdrop-filter: blur(2px);
 +    }
-+    .zoomButton:hover { background: var(--ve-accent); transform: translateY(0) scale(1.08); }
-+    .card:hover .zoomButton, .card:focus-within .zoomButton { opacity: 1; transform: translateY(0); }
-+    .zoomButton:focus-visible { opacity: 1; transform: translateY(0); outline: 2px solid #fff; outline-offset: 1px; }
++    .loupeButton:hover { background: var(--ve-accent); transform: translateY(0) scale(1.08); }
++    .card:hover .loupeButton, .card:focus-within .loupeButton { opacity: 1; transform: translateY(0); }
++    .loupeButton:focus-visible { opacity: 1; transform: translateY(0); outline: 2px solid #fff; outline-offset: 1px; }
 +
 +    .meta { flex: 1 1 auto; min-height: 0; padding: 12px 14px 14px; display: flex; flex-direction: column; gap: 5px; overflow: hidden; }
 +    .titleRow { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
 +    .titleRow strong { font-size: 14.5px; font-weight: 650; }
 +    .badge {
-+      flex-shrink: 0; background: color-mix(in srgb, var(--ve-accent) 16%, #fff);
-+      color: color-mix(in srgb, var(--ve-accent) 75%, #000);
++      flex-shrink: 0; background: color-mix(in srgb, var(--ve-accent) 18%, var(--ve-panel-surface));
++      color: color-mix(in srgb, var(--ve-accent) 70%, var(--ve-panel-text));
 +      font-size: 11px; font-weight: 600; padding: 2px 9px; border-radius: 999px; text-transform: capitalize;
 +    }
 +    .meta p {
-+      margin: 0; font-size: 12.5px; color: #57575f; line-height: 1.45;
++      margin: 0; font-size: 12.5px; color: var(--ve-panel-muted); line-height: 1.45;
 +      display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
 +    }
 +    .meta p.demoNote {
-+      margin-top: auto; padding-top: 6px; font-size: 11px; color: #9a9aa3; line-height: 1.4;
++      margin-top: auto; padding-top: 6px; font-size: 11px;
++      color: color-mix(in srgb, var(--ve-panel-muted) 80%, transparent); line-height: 1.4;
 +      -webkit-line-clamp: 2;
 +    }
 +    .demoNote__icon {
@@ -2025,52 +2091,58 @@ index 0000000..5a27ab1
 +      opacity: 0.85; color: color-mix(in srgb, var(--ve-accent) 60%, #8a8a93);
 +    }
 +
-+    /* enlarged preview overlay (opened by the per-card magnify button) */
-+    .zoomOverlay {
-+      position: fixed; inset: 0; z-index: 100002;
-+      display: flex; align-items: center; justify-content: center;
-+      padding: 20px; box-sizing: border-box;
-+      background: rgba(10, 10, 14, 0.66);
-+      -webkit-backdrop-filter: blur(3px); backdrop-filter: blur(3px);
-+      animation: veZoomFade 0.18s ease;
-+    }
-+    @keyframes veZoomFade { from { opacity: 0; } to { opacity: 1; } }
-+    .zoomDialog {
++    /* enlarged preview flyout: hover-opened, sits in the canvas left of the
++       panel, and is itself a drag source (drop it straight onto the page) */
++    .previewFlyout {
++      position: fixed; top: 50%; z-index: 100001;
++      right: calc(min(460px, 94vw) + 18px);
++      transform: translateY(-50%);
 +      display: flex; flex-direction: column;
-+      max-width: 96vw; max-height: 94vh;
++      max-width: 92vw; max-height: 92vh;
 +      background: var(--ve-panel-surface); color: var(--ve-panel-text);
-+      border: 1.5px solid color-mix(in srgb, var(--ve-accent) 60%, var(--ve-panel-border));
-+      border-radius: 14px; overflow: hidden;
-+      box-shadow: 0 24px 70px rgba(0, 0, 0, 0.55);
-+      animation: veZoomPop 0.2s cubic-bezier(0.22, 1, 0.36, 1);
++      border: 1.5px solid color-mix(in srgb, var(--ve-accent) 55%, var(--ve-panel-border));
++      border-radius: var(--ve-card-radius); overflow: hidden; cursor: grab;
++      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), 0 0 0 1px color-mix(in srgb, var(--ve-accent) 22%, transparent);
++      animation: vePreviewIn 0.18s cubic-bezier(0.22, 1, 0.36, 1);
 +    }
-+    @keyframes veZoomPop { from { opacity: 0; transform: scale(0.96); } to { opacity: 1; transform: scale(1); } }
-+    .zoomBar {
-+      display: flex; align-items: center; justify-content: space-between; gap: 12px;
-+      padding: 8px 10px 8px 14px; flex-shrink: 0;
-+      border-bottom: 1px solid var(--ve-panel-border);
-+      background: linear-gradient(180deg, color-mix(in srgb, var(--ve-accent) 12%, var(--ve-panel-surface)), var(--ve-panel-surface));
-+    }
-+    .zoomTitle { display: flex; align-items: center; gap: 9px; min-width: 0; }
-+    .zoomTitle strong { font-size: 13.5px; font-weight: 650; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-+    .zoomStage {
-+      position: relative; overflow: hidden; background: #fff;
-+      width: 630px; height: 60vh;
++    .previewFlyout.cols-2 { right: calc(min(860px, 94vw) + 18px); }
++    .previewFlyout:active { cursor: grabbing; }
++    /* slide off-canvas; keep pointer-events ON - flyout is the drag source, none aborts the drag */
++    .previewFlyout.collapsed { transform: translate(-130%, -50%); box-shadow: none; }
++    @keyframes vePreviewIn { from { opacity: 0; transform: translate(10px, -50%); } to { opacity: 1; transform: translate(0, -50%); } }
++
++    .previewStage {
++      position: relative; overflow: hidden; background: var(--ve-panel-bg);
++      width: 630px; height: 56vh;
 +      transition: width 0.2s ease, height 0.2s ease;
 +    }
-+    .zoomStage .zoomSpinner { position: absolute; top: 50%; left: 50%; margin: -9px 0 0 -9px; }
-+    .zoomStage.loaded .zoomSpinner { display: none; }
-+    .zoomFrame {
++    .previewStage .previewSpinner { position: absolute; top: 50%; left: 50%; margin: -9px 0 0 -9px; }
++    .previewStage.loaded .previewSpinner { display: none; }
++    .previewFrame {
++      position: absolute; top: 0; left: 50%;
 +      width: ${PREVIEW_RENDER_WIDTH}px; height: 1400px; border: 0;
-+      transform-origin: top left;
-+      transform: scale(calc(${PREVIEW_DISPLAY_WIDTH} * ${PREVIEW_ZOOM_FACTOR} / ${PREVIEW_RENDER_WIDTH}));
++      transform-origin: top center;
++      transform: translateX(-50%) scale(calc(${PREVIEW_DISPLAY_WIDTH} * ${PREVIEW_ZOOM_FACTOR} / ${PREVIEW_RENDER_WIDTH}));
 +      pointer-events: none; opacity: 0; transition: opacity 0.2s ease;
 +    }
-+    .zoomFrame.ready { opacity: 1; }
++    .previewFrame.ready { opacity: 1; }
++
++    .previewCaption {
++      display: flex; align-items: center; gap: 9px;
++      padding: 9px 12px; flex-shrink: 0;
++      border-top: 1px solid var(--ve-panel-border);
++      background: linear-gradient(0deg, color-mix(in srgb, var(--ve-accent) 12%, var(--ve-panel-surface)), var(--ve-panel-surface));
++    }
++    .previewTitle { font-size: 13.5px; font-weight: 650; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0; }
++    .previewDragHint {
++      margin-left: auto; flex-shrink: 0; display: inline-flex; align-items: center; gap: 5px;
++      font-size: 11px; font-weight: 600; color: var(--ve-panel-muted);
++    }
++    .previewDragHint svg { color: var(--ve-accent); }
 +
 +    @media (prefers-reduced-motion: reduce) {
 +      .panel, .card, .thumb, .shimmer, .spinner, .preview iframe,
-+      .zoomOverlay, .zoomDialog, .zoomStage, .zoomFrame, .zoomButton { animation: none !important; transition: none !important; }
++      .previewFlyout, .previewStage, .previewFrame, .loupeButton { animation: none !important; transition: none !important; }
 +    }
 +  `;
 +}
