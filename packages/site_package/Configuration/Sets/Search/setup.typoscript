@@ -29,3 +29,27 @@ page.includeCSS {
     skillsTerTheme = EXT:skillflow/Resources/Public/Css/skills-ter.css
 }
 [END]
+
+# --- skillflow: render the Skill detail Extbase plugin on the detail page (1066) ---
+# desiderio's lib.contentElement (FLUIDTEMPLATE, templateName=CType) does not know
+# skillflow_skilldetail; a page-scoped condition (evaluated after all set TS) renders
+# the Extbase plugin directly so the detail view works.
+[page["uid"] == 1066]
+tt_content.skillflow_skilldetail >
+tt_content.skillflow_skilldetail = COA
+tt_content.skillflow_skilldetail.20 = EXTBASEPLUGIN
+tt_content.skillflow_skilldetail.20.extensionName = Skillflow
+tt_content.skillflow_skilldetail.20.pluginName = SkillDetail
+[END]
+
+# --- skillflow: link indexed skills to the detail page (uid 1066) ---
+# The result cards link via {document.url}; build it as a typolink to the detail
+# plugin page carrying the skill uid, which the SkillDetail route enhancer turns
+# into /skill/<identifier>.
+plugin.tx_solr.index.queue.skills.fields.url = TEXT
+plugin.tx_solr.index.queue.skills.fields.url {
+    typolink.parameter = 1066
+    typolink.additionalParams = &tx_skillflow_skilldetail[skill]={field:uid}
+    typolink.additionalParams.insertData = 1
+    typolink.returnLast = url
+}

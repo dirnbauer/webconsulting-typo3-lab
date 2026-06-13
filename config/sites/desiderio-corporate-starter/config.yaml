@@ -27,6 +27,21 @@ languages:
     fallbackType: strict
 rootPageId: 740
 routeEnhancers:
+  SkillDetail:
+    type: Extbase
+    extension: Skillflow
+    plugin: SkillDetail
+    limitToPages:
+      - 1066
+    routes:
+      - routePath: '/{skill}'
+        _controller: 'SkillDetail::show'
+    defaultController: 'SkillDetail::show'
+    aspects:
+      skill:
+        type: PersistedAliasMapper
+        tableName: tx_skillflow_skill
+        routeFieldName: identifier
   SolrSearch:
     type: SolrFacetMaskAndCombineEnhancer
     extensionKey: tx_solr
