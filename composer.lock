@@ -568,16 +568,16 @@
         },
         {
             "name": "dirnbauer/innesto",
-            "version": "1.1.1",
+            "version": "1.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/innesto",
-                "reference": "ecdc50e7abfb1aad4f75571b0f22823a551061f4"
+                "reference": "9fbb2837480e4f0798fec4379ab4efd7d3cd9226"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/innesto/zipball/ecdc50e7abfb1aad4f75571b0f22823a551061f4",
-                "reference": "ecdc50e7abfb1aad4f75571b0f22823a551061f4",
+                "url": "https://api.github.com/repos/dirnbauer/innesto/zipball/9fbb2837480e4f0798fec4379ab4efd7d3cd9226",
+                "reference": "9fbb2837480e4f0798fec4379ab4efd7d3cd9226",
                 "shasum": ""
             },
             "require": {
@@ -597,6 +597,11 @@
                     "Webconsulting\\Innesto\\": "Classes/"
                 }
             },
+            "scripts": {
+                "audit:content-elements": [
+                    "php scripts/audit-content-elements.php"
+                ]
+            },
             "license": [
                 "GPL-2.0-or-later"
             ],
@@ -606,7 +611,7 @@
                 }
             ],
             "description": "Innesto — grafts shadcn/ui registry components onto TYPO3 as Desiderio-styled Content Blocks",
-            "time": "2026-06-13T08:02:31+00:00"
+            "time": "2026-06-13T08:15:15+00:00"
         },
         {
             "name": "doctrine/dbal",
