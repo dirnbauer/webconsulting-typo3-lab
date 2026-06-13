@@ -155,6 +155,7 @@ final class SeedUtilityTranslationsCommand extends Command
             $contentSources = array_values(array_filter([$searchPlugin, ...array_values($elements)]));
             $this->localize('tt_content', $contentSources, $lang);
 
+            /** @var array<string, array<int, array<string, mixed>>> $data */
             $data = [];
             // search plugin
             if ($searchPlugin !== null) {
@@ -217,7 +218,7 @@ final class SeedUtilityTranslationsCommand extends Command
                 $qb->expr()->eq('sys_language_uid', 0),
                 $qb->expr()->eq('deleted', 0),
             )->orderBy('sorting')->setMaxResults(1)->executeQuery()->fetchOne();
-        return $uid === false ? null : (int)$uid;
+        return is_numeric($uid) ? (int)$uid : null;
     }
 
     /** @return int[] */
@@ -231,7 +232,7 @@ final class SeedUtilityTranslationsCommand extends Command
                 $qb->expr()->eq('sys_language_uid', 0),
                 $qb->expr()->eq('deleted', 0),
             )->orderBy('sorting')->executeQuery()->fetchFirstColumn();
-        return array_map('intval', $rows);
+        return array_map(static fn (mixed $v): int => is_numeric($v) ? (int)$v : 0, $rows);
     }
 
     private function translationUid(string $table, int $sourceUid, int $lang): ?int
@@ -245,11 +246,10 @@ final class SeedUtilityTranslationsCommand extends Command
                 $qb->expr()->eq('sys_language_uid', $lang),
                 $qb->expr()->eq('deleted', 0),
             )->setMaxResults(1)->executeQuery()->fetchOne();
-        return $uid === false ? null : (int)$uid;
+        return is_numeric($uid) ? (int)$uid : null;
     }
 
     /**
-     * @param int[] $contentSources
      * @param array<string,?int> $elements
      * @param int[] $groupUids
      * @param array<int,int[]> $linkUidsByGroup
@@ -263,7 +263,7 @@ final class SeedUtilityTranslationsCommand extends Command
                 return;
             }
             $conn = $this->connectionPool->getConnectionForTable($table);
-            $in = implode(',', array_map('intval', $parents));
+            $in = implode(',', array_map(static fn (mixed $v): int => is_numeric($v) ? (int)$v : 0, $parents));
             $conn->executeStatement(
                 "DELETE FROM `$table` WHERE `$parentField` IN ($in) AND sys_language_uid = :l",
                 ['l' => $lang]
