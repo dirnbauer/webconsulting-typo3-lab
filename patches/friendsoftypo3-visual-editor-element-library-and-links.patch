@@ -348,7 +348,7 @@ new file mode 100644
 index 0000000..8dda44b
 --- /dev/null
 +++ b/Resources/Private/Language/de.locallang_library.xlf
-@@ -0,0 +1,83 @@
+@@ -0,0 +1,77 @@
 +<?xml version="1.0" encoding="UTF-8"?>
 +<xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" version="2.0" srcLang="en" trgLang="de">
 +  <file id="visual_editor_library" original="EXT:visual_editor/Resources/Private/Language/locallang_library.xlf">
@@ -410,12 +410,6 @@ index 0000000..8dda44b
 +      <segment state="final">
 +        <source>Add from library</source>
 +        <target>Aus Bibliothek hinzufügen</target>
-+      </segment>
-+    </unit>
-+    <unit id="frontend.library.fabLabel">
-+      <segment state="final">
-+        <source>Add content</source>
-+        <target>Inhalt hinzufügen</target>
 +      </segment>
 +    </unit>
 +    <unit id="frontend.library.allCategories">
@@ -502,7 +496,7 @@ new file mode 100644
 index 0000000..49235cb
 --- /dev/null
 +++ b/Resources/Private/Language/locallang_library.xlf
-@@ -0,0 +1,70 @@
+@@ -0,0 +1,65 @@
 +<?xml version="1.0" encoding="UTF-8"?>
 +<xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" version="2.0" srcLang="en">
 +  <file id="visual_editor_library" original="EXT:visual_editor/Resources/Private/Language/locallang_library.xlf">
@@ -554,11 +548,6 @@ index 0000000..49235cb
 +    <unit id="frontend.library.fromLibrary">
 +      <segment>
 +        <source>Add from library</source>
-+      </segment>
-+    </unit>
-+    <unit id="frontend.library.fabLabel">
-+      <segment>
-+        <source>Add content</source>
 +      </segment>
 +    </unit>
 +    <unit id="frontend.library.allCategories">
@@ -664,19 +653,19 @@ index f104dcb..d77be88 100644
  onMessage('reloadFrames', () => reloadAllChildFrames());
 +
 +/**
-+ * Resolves the TYPO3 backend accent colour from its design tokens to a plain
++ * Resolves the TYPO3 backend "purple" accent from its design tokens to a plain
 + * rgb() value (probe element so var()/light-dark() chains are computed), then
 + * hands it to the editing iframe so the element library button, panel and
-+ * drop zones match the backend theme instead of a hardcoded colour.
++ * drop zones use the styleguide lila instead of a hardcoded colour.
 + * @return {string}
 + */
 +function resolveBackendAccent() {
 +  const probe = document.createElement('span');
-+  probe.style.cssText = 'position:absolute;visibility:hidden;color:var(--typo3-state-primary-bg,var(--typo3-surface-container-primary,var(--token-color-primary-base,#6c5ce7)))';
++  probe.style.cssText = 'position:absolute;visibility:hidden;color:var(--typo3-state-purple-bg,var(--token-color-purple-base,#7c5ac4))';
 +  document.body.appendChild(probe);
 +  const color = getComputedStyle(probe).color;
 +  probe.remove();
-+  return color && color !== 'rgba(0, 0, 0, 0)' ? color : '#6c5ce7';
++  return color && color !== 'rgba(0, 0, 0, 0)' ? color : '#7c5ac4';
 +}
 +onMessage('requestAccent', () => sendMessage('veAccent', {color: resolveBackendAccent()}, 'iframe'));
 +
@@ -774,7 +763,7 @@ index dbb8967..eb567b2 100644
  
      .dropArea {
        --height: 30px;
-+      --ve-accent: var(--ve-accent-color, #6c5ce7);
++      --ve-accent: var(--ve-accent-color, #7c5ac4);
        display: none;
        position: absolute;
        height: var(--height);
@@ -918,7 +907,7 @@ index 0000000..fac9ab9
 +    :host {
 +      display: inline-block;
 +      vertical-align: baseline;
-+      --ve-accent: var(--ve-accent-color, #6c5ce7);
++      --ve-accent: var(--ve-accent-color, #7c5ac4);
 +    }
 +
 +    .linkButton {
@@ -971,7 +960,7 @@ new file mode 100644
 index 0000000..3dc7fa1
 --- /dev/null
 +++ b/Resources/Public/JavaScript/Frontend/components/ve-element-library-button.js
-@@ -0,0 +1,115 @@
+@@ -0,0 +1,109 @@
 +import {css, html, LitElement} from 'lit';
 +import {lll} from '@typo3/core/lit-helper.js';
 +import {dragInProgressStore} from '@typo3/visual-editor/Frontend/stores/drag-store';
@@ -1034,17 +1023,16 @@ index 0000000..3dc7fa1
 +      : (lll('frontend.library.open') || 'Add content from library');
 +    return html`
 +      <button type="button" class="fab ${this.open ? 'open' : ''}" @click="${this.#toggle}" title="${label}" aria-label="${label}" aria-pressed="${this.open}">
-+        <svg class="icon" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
++        <svg class="icon" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
 +          <path d="M12 5v14M5 12h14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
 +        </svg>
-+        <span class="fabLabel">${lll('frontend.library.fabLabel') || 'Add content'}</span>
 +      </button>
 +    `;
 +  }
 +
 +  static styles = css`
 +    :host {
-+      --ve-accent: var(--ve-accent-color, #6c5ce7);
++      --ve-accent: var(--ve-accent-color, #7c5ac4);
 +      --ve-accent-contrast: #ffffff;
 +      font-family: var(--typo3-font-family-sans, system-ui, -apple-system, sans-serif);
 +    }
@@ -1055,30 +1043,25 @@ index 0000000..3dc7fa1
 +      right: 18px;
 +      display: inline-flex;
 +      align-items: center;
-+      gap: 8px;
++      justify-content: center;
++      width: 46px;
 +      height: 46px;
-+      padding: 0 18px 0 14px;
-+      border-radius: 999px;
++      padding: 0;
++      border-radius: 50%;
 +      border: none;
 +      background: var(--ve-accent);
 +      color: var(--ve-accent-contrast);
-+      font-size: 14px;
-+      font-weight: 650;
 +      cursor: pointer;
 +      box-shadow: 0 8px 22px color-mix(in srgb, var(--ve-accent) 50%, transparent), 0 2px 6px rgba(0,0,0,0.25);
 +      z-index: 100001;
 +      transition: transform 0.14s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.14s ease, background 0.14s ease;
 +    }
-+    .fab:hover { transform: translateY(-1px) scale(1.03); box-shadow: 0 12px 28px color-mix(in srgb, var(--ve-accent) 55%, transparent); }
++    .fab:hover { transform: translateY(-1px) scale(1.06); box-shadow: 0 12px 28px color-mix(in srgb, var(--ve-accent) 55%, transparent); }
 +    .fab:active { transform: translateY(0) scale(0.98); }
 +
 +    .icon { transition: transform 0.22s cubic-bezier(0.22, 1, 0.36, 1); }
 +    .fab.open .icon { transform: rotate(135deg); }
 +    .fab.open { background: color-mix(in srgb, var(--ve-accent) 78%, #000); }
-+
-+    .fabLabel { white-space: nowrap; }
-+    .fab.open .fabLabel { display: none; }
-+    .fab.open { padding: 0 12px; }
 +
 +    @media (prefers-reduced-motion: reduce) {
 +      .fab, .icon { transition: none !important; }
@@ -1433,7 +1416,7 @@ index 0000000..82f0602
 +      font-family: var(--typo3-font-family-sans, system-ui, -apple-system, sans-serif);
 +      font-size: 14px;
 +      line-height: 1.4;
-+      --ve-accent: var(--ve-accent-color, #6c5ce7);
++      --ve-accent: var(--ve-accent-color, #7c5ac4);
 +      --ve-accent-contrast: #ffffff;
 +      --ve-panel-bg: #16161a;
 +      --ve-panel-surface: #222228;
