@@ -723,10 +723,10 @@ index 770e863..d4a0bfc 100644
  
      return html`
 diff --git a/Resources/Public/JavaScript/Frontend/components/ve-drop-zone.js b/Resources/Public/JavaScript/Frontend/components/ve-drop-zone.js
-index dbb8967..b585a5f 100644
+index dbb8967..eb567b2 100644
 --- a/Resources/Public/JavaScript/Frontend/components/ve-drop-zone.js
 +++ b/Resources/Public/JavaScript/Frontend/components/ve-drop-zone.js
-@@ -205,6 +205,37 @@ export class VeDropZone extends LitElement {
+@@ -205,6 +205,43 @@ export class VeDropZone extends LitElement {
        },
      };
  
@@ -734,8 +734,13 @@ index dbb8967..b585a5f 100644
 +      // Drag from the element library panel: create content at this position.
 +      this.isDragHovering = false;
 +      if (data.libraryMode === 'copy' && data.demoUid > 0) {
-+        // copy the seeded demo record (incl. demo content)
-+        dataHandlerStore.addCmd('tt_content', data.demoUid, 'copy', actionData);
++        // copy the seeded demo record (incl. demo content). hidden:0 keeps the
++        // copy visible - DataHandler copies a record into a workspace hidden by
++        // default, which would make the dropped element invisible on the page.
++        dataHandlerStore.addCmd('tt_content', data.demoUid, 'copy', {
++          ...actionData,
++          update: {...actionData.update, hidden: 0},
++        });
 +        await useDataHandler(dataHandlerStore.data, dataHandlerStore.cmdArray);
 +      } else {
 +        // create an empty element of this type; pid carries the DataHandler
@@ -748,6 +753,7 @@ index dbb8967..b585a5f 100644
 +          CType: data.CType,
 +          colPos: this.colPos,
 +          sys_language_uid: window.veInfo.languageId,
++          hidden: 0,
 +          ...(
 +            Number.isInteger(this.tx_container_parent) && this.tx_container_parent > 0
 +              ? {tx_container_parent: this.tx_container_parent}
@@ -764,7 +770,7 @@ index dbb8967..b585a5f 100644
      if (event.dataTransfer.dropEffect === 'copy') {
        // For copy we ask the user and if confirmed we do an immediate call useDataHandler
        // if not, we do nothing
-@@ -356,17 +387,18 @@ export class VeDropZone extends LitElement {
+@@ -356,17 +393,18 @@ export class VeDropZone extends LitElement {
  
      .dropArea {
        --height: 30px;
@@ -788,7 +794,7 @@ index dbb8967..b585a5f 100644
  
        gap: 5px;
        /* text centered*/
-@@ -379,11 +411,15 @@ export class VeDropZone extends LitElement {
+@@ -379,11 +417,15 @@ export class VeDropZone extends LitElement {
  
        &.visible {
          display: flex;
@@ -806,7 +812,7 @@ index dbb8967..b585a5f 100644
        }
  
        &.above {
-@@ -391,6 +427,16 @@ export class VeDropZone extends LitElement {
+@@ -391,6 +433,16 @@ export class VeDropZone extends LitElement {
        }
      }
  
