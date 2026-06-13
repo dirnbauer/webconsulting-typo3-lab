@@ -375,10 +375,10 @@ index 0000000..34aa00a
 +);
 diff --git a/Resources/Private/Language/de.locallang_library.xlf b/Resources/Private/Language/de.locallang_library.xlf
 new file mode 100644
-index 0000000..7e4553d
+index 0000000..e080bfd
 --- /dev/null
 +++ b/Resources/Private/Language/de.locallang_library.xlf
-@@ -0,0 +1,83 @@
+@@ -0,0 +1,89 @@
 +<?xml version="1.0" encoding="UTF-8"?>
 +<xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" version="2.0" srcLang="en" trgLang="de">
 +  <file id="visual_editor_library" original="EXT:visual_editor/Resources/Private/Language/locallang_library.xlf">
@@ -458,6 +458,12 @@ index 0000000..7e4553d
 +      <segment state="final">
 +        <source>Drag onto the page</source>
 +        <target>Auf die Seite ziehen</target>
++      </segment>
++    </unit>
++    <unit id="frontend.library.zoom">
++      <segment state="final">
++        <source>Enlarge preview</source>
++        <target>Vorschau vergrößern</target>
 +      </segment>
 +    </unit>
 +  </file>
@@ -553,10 +559,10 @@ index 0000000..1574ae6
 +</xliff>
 diff --git a/Resources/Private/Language/locallang_library.xlf b/Resources/Private/Language/locallang_library.xlf
 new file mode 100644
-index 0000000..f6d4c9a
+index 0000000..55f2bca
 --- /dev/null
 +++ b/Resources/Private/Language/locallang_library.xlf
-@@ -0,0 +1,70 @@
+@@ -0,0 +1,75 @@
 +<?xml version="1.0" encoding="UTF-8"?>
 +<xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" version="2.0" srcLang="en">
 +  <file id="visual_editor_library" original="EXT:visual_editor/Resources/Private/Language/locallang_library.xlf">
@@ -623,6 +629,11 @@ index 0000000..f6d4c9a
 +    <unit id="frontend.library.dragHint">
 +      <segment>
 +        <source>Drag onto the page</source>
++      </segment>
++    </unit>
++    <unit id="frontend.library.zoom">
++      <segment>
++        <source>Enlarge preview</source>
 +      </segment>
 +    </unit>
 +  </file>
@@ -905,14 +916,13 @@ index dbb8967..eb567b2 100644
        max-width: 100%;
 diff --git a/Resources/Public/JavaScript/Frontend/components/ve-editable-link.js b/Resources/Public/JavaScript/Frontend/components/ve-editable-link.js
 new file mode 100644
-index 0000000..98779e9
+index 0000000..68fcd30
 --- /dev/null
 +++ b/Resources/Public/JavaScript/Frontend/components/ve-editable-link.js
 @@ -0,0 +1,144 @@
 +import {css, html, LitElement} from 'lit';
 +import {lll} from '@typo3/core/lit-helper.js';
 +import {sendMessage, onMessage} from '@typo3/visual-editor/Shared/iframe-messaging';
-+import {useDataHandler} from '@typo3/visual-editor/Frontend/use-data-handler';
 +import {dataHandlerStore} from '@typo3/visual-editor/Frontend/stores/data-handler-store';
 +import '@typo3/visual-editor/Frontend/components/ve-icon';
 +
@@ -920,8 +930,9 @@ index 0000000..98779e9
 + * Inline editor for pure TCA type=link fields: renders a link icon next to
 + * the (separately editable or derived) link text. Clicking it asks the
 + * backend frame to open the TYPO3 link browser; the chosen typolink value
-+ * travels back via the linkBrowserSetLink message and is persisted
-+ * immediately.
++ * travels back via the linkBrowserSetLink message and is staged on the
++ * editor's pending change list (written with the next explicit save, like an
++ * inline text edit) - never saved to the database on its own.
 + *
 + * Rendered by the ve:render.link ViewHelper in edit mode only.
 + *
@@ -940,6 +951,13 @@ index 0000000..98779e9
 +  constructor() {
 +    super();
 +    this.value = this.getAttribute('value') ?? '';
++    // The link value present when the editor loaded: the baseline the change
++    // list diffs against, so reverting to it clears the pending change.
++    this.valueInitial = this.value;
++  }
++
++  firstUpdated() {
++    dataHandlerStore.setInitialData(this.table, this.uid, this.field, this.valueInitial);
 +  }
 +
 +  #openLinkBrowser() {
@@ -953,26 +971,19 @@ index 0000000..98779e9
 +  }
 +
 +  /**
-+   * Applies the typolink value chosen in the link browser and saves
-+   * immediately (a link change must not linger unsaved).
++   * Stages the typolink chosen in the link browser on the editor's pending
++   * change list via dataHandlerStore.setData - exactly like an inline text
++   * edit. It is written to the database only on the next explicit save; setting
++   * a link must never force an immediate save of all other pending changes.
 +   * @param {string} typolink
 +   */
-+  async applyLink(typolink) {
++  applyLink(typolink) {
 +    if (typolink === undefined || typolink === null || typolink === this.value) {
 +      return;
 +    }
 +
-+    const payload = dataHandlerStore.data;
-+    payload[this.table] = payload[this.table] || {};
-+    payload[this.table][this.uid] = payload[this.table][this.uid] || {};
-+    payload[this.table][this.uid][this.field] = typolink;
-+
-+    const ok = await useDataHandler(payload, dataHandlerStore.cmdArray);
-+    if (ok) {
-+      this.value = typolink;
-+      dataHandlerStore.markSaved();
-+      sendMessage('reloadFrames');
-+    }
++    dataHandlerStore.setData(this.table, this.uid, this.field, typolink);
++    this.value = typolink;
 +  }
 +
 +  render() {
@@ -1176,10 +1187,10 @@ index 0000000..3dc7fa1
 +customElements.define('ve-element-library-button', VeElementLibraryButton);
 diff --git a/Resources/Public/JavaScript/Frontend/components/ve-element-library.js b/Resources/Public/JavaScript/Frontend/components/ve-element-library.js
 new file mode 100644
-index 0000000..5286181
+index 0000000..5a27ab1
 --- /dev/null
 +++ b/Resources/Public/JavaScript/Frontend/components/ve-element-library.js
-@@ -0,0 +1,702 @@
+@@ -0,0 +1,898 @@
 +import {css, html, LitElement} from 'lit';
 +import {classMap} from 'lit/directives/class-map.js';
 +import {repeat} from 'lit/directives/repeat.js';
@@ -1211,6 +1222,20 @@ index 0000000..5286181
 +const MAX_CONCURRENT_PREVIEWS = 4;
 +
 +/**
++ * Thumbnail display width in px: the card preview iframe (PREVIEW_RENDER_WIDTH
++ * wide) is scaled down to this, mirroring the .preview iframe CSS transform.
++ */
++const PREVIEW_DISPLAY_WIDTH = 420;
++
++/**
++ * The per-card "magnify" button opens an enlarged preview at this multiple of
++ * the thumbnail scale. The enlarged size is then capped to the editing viewport
++ * so the whole element always fits without a scrollbar - 1.5x is the target,
++ * not a guarantee, for a very tall element on a short canvas.
++ */
++const PREVIEW_ZOOM_FACTOR = 1.5;
++
++/**
 + * Element library side panel: a browsable, filterable catalog of all content
 + * element types with big rendered previews (shadcn-blocks explorer style).
 + * Cards are dragged into the existing <ve-drop-zone> targets; the demo-content
@@ -1235,6 +1260,7 @@ index 0000000..5286181
 +    searchTerm: {type: String, state: true, attribute: false},
 +    includeDemo: {type: Boolean, state: true, attribute: false},
 +    loadedPreviews: {type: Object, state: true, attribute: false},
++    zoomedItem: {type: Object, state: true, attribute: false},
 +  };
 +
 +  constructor() {
@@ -1249,9 +1275,11 @@ index 0000000..5286181
 +    this.searchTerm = '';
 +    this.includeDemo = this.#resolveIncludeDemoDefault();
 +    this.loadedPreviews = new Set();
++    this.zoomedItem = null;
 +    this.columns = Math.max(1, Math.min(2, parseInt(window.veInfo?.elementLibraryColumns, 10) || 2));
 +
 +    this.onDragInProgressChange = this.#onDragInProgressChange.bind(this);
++    this.onZoomKeydown = this.#onZoomKeydown.bind(this);
 +
 +    // lazy-preview machinery
 +    this.previewQueue = [];
@@ -1269,6 +1297,7 @@ index 0000000..5286181
 +
 +  disconnectedCallback() {
 +    dragInProgressStore.removeEventListener('change', this.onDragInProgressChange);
++    document.removeEventListener('keydown', this.onZoomKeydown, true);
 +    this.observer?.disconnect();
 +    super.disconnectedCallback();
 +  }
@@ -1311,6 +1340,7 @@ index 0000000..5286181
 +  }
 +
 +  closePanel() {
++    this.#closeZoom();
 +    this.open = false;
 +    elementLibraryOpen.set(false);
 +    this.dispatchEvent(new CustomEvent('ve-library-toggle', {detail: {open: false}, bubbles: true, composed: true}));
@@ -1486,6 +1516,82 @@ index 0000000..5286181
 +    this.#pumpPreviews();
 +  }
 +
++  // --- enlarged preview (zoom) ----------------------------------------------
++
++  /**
++   * Opens the bigger preview overlay for a card. Lives on the card preview as a
++   * small magnify button; stops the event so it never starts a card drag.
++   * @param {Event} event
++   * @param {Object} item
++   */
++  #openZoom(event, item) {
++    event.preventDefault();
++    event.stopPropagation();
++    this.zoomedItem = item;
++    document.addEventListener('keydown', this.onZoomKeydown, true);
++  }
++
++  #closeZoom() {
++    if (this.zoomedItem) {
++      this.zoomedItem = null;
++    }
++    document.removeEventListener('keydown', this.onZoomKeydown, true);
++  }
++
++  /** @param {KeyboardEvent} event */
++  #onZoomKeydown(event) {
++    if (event.key === 'Escape') {
++      event.preventDefault();
++      event.stopPropagation();
++      this.#closeZoom();
++    }
++  }
++
++  /**
++   * Sizes the enlarged preview once its iframe has loaded: render the element
++   * at PREVIEW_ZOOM_FACTOR x the thumbnail scale, then clamp that scale so the
++   * full element fits the editing viewport - so this extra preview never needs
++   * a scrollbar. The stage box is set to the exact scaled content size.
++   * Same-origin preview, so contentDocument is readable; fall back to the CSS
++   * defaults on any access error.
++   * @param {Event} event iframe load event
++   */
++  #onZoomLoad(event) {
++    const iframe = event.target;
++    const stage = iframe.closest('.zoomStage');
++    let contentHeight = 0;
++    try {
++      const body = iframe.contentDocument && iframe.contentDocument.body;
++      if (body) {
++        contentHeight = body.scrollHeight || Math.round(body.getBoundingClientRect().height);
++      }
++    } catch (error) {
++      // keep the CSS fallback size
++    }
++    if (contentHeight < 20) {
++      contentHeight = Math.round(PREVIEW_RENDER_WIDTH * 0.5);
++    }
++
++    const baseScale = PREVIEW_DISPLAY_WIDTH / PREVIEW_RENDER_WIDTH;
++    // leave room for the caption bar + page margins so nothing clips or scrolls
++    const maxWidth = window.innerWidth * 0.92;
++    const maxHeight = window.innerHeight * 0.9 - 52;
++    const scale = Math.min(
++      baseScale * PREVIEW_ZOOM_FACTOR,
++      maxWidth / PREVIEW_RENDER_WIDTH,
++      maxHeight / contentHeight,
++    );
++
++    if (stage) {
++      stage.style.width = Math.round(PREVIEW_RENDER_WIDTH * scale) + 'px';
++      stage.style.height = Math.round(contentHeight * scale) + 'px';
++      stage.classList.add('loaded');
++    }
++    iframe.style.height = contentHeight + 'px';
++    iframe.style.transform = `scale(${scale})`;
++    iframe.classList.add('ready');
++  }
++
 +  // --- rendering ------------------------------------------------------------
 +
 +  render() {
@@ -1575,11 +1681,42 @@ index 0000000..5286181
 +          ${repeat(filtered, (item) => item.cType, (item) => this.#renderCard(item))}
 +        </div>
 +      </div>
++      ${this.zoomedItem ? this.#renderZoom() : ''}
++    `;
++  }
++
++  #renderZoom() {
++    const item = this.zoomedItem;
++    const closeLabel = lll('frontend.library.close') || 'Close';
++    return html`
++      <div class="zoomOverlay" @click="${this.#closeZoom}">
++        <div class="zoomDialog" role="dialog" aria-modal="true" aria-label="${item.title}"
++             @click="${(event) => event.stopPropagation()}">
++          <div class="zoomBar">
++            <span class="zoomTitle">
++              <strong>${item.title}</strong>
++              <span class="badge">${item.group}</span>
++            </span>
++            <button class="iconButton" type="button" @click="${this.#closeZoom}"
++                    title="${closeLabel}" aria-label="${closeLabel}">
++              <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
++            </button>
++          </div>
++          <div class="zoomStage">
++            <span class="spinner zoomSpinner" aria-hidden="true"></span>
++            ${item.previewUrl
++              ? html`<iframe class="zoomFrame" src="${item.previewUrl}" scrolling="no" tabindex="-1"
++                            @load="${(event) => this.#onZoomLoad(event)}"></iframe>`
++              : ''}
++          </div>
++        </div>
++      </div>
 +    `;
 +  }
 +
 +  #renderCard(item) {
 +    const previewLoaded = this.loadedPreviews.has(item.cType);
++    const zoomLabel = lll('frontend.library.zoom') || 'Enlarge preview';
 +    return html`
 +      <div
 +        class="card"
@@ -1598,6 +1735,17 @@ index 0000000..5286181
 +                     ${item.iconUrl ? html`<img src="${item.iconUrl}" alt="" loading="lazy"/>` : html`<span>${item.title}</span>`}
 +                     <span class="shimmer"></span>
 +                   </div>`}
++          ${item.previewUrl ? html`
++            <button class="zoomButton" type="button" draggable="false"
++                    @click="${(event) => this.#openZoom(event, item)}"
++                    @dragstart="${(event) => { event.preventDefault(); event.stopPropagation(); }}"
++                    title="${zoomLabel}" aria-label="${zoomLabel}">
++              <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true">
++                <circle cx="10.5" cy="10.5" r="6.5" fill="none" stroke="currentColor" stroke-width="2"/>
++                <path d="M21 21l-4.6-4.6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
++                <path d="M10.5 7.6v5.8M7.6 10.5h5.8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
++              </svg>
++            </button>` : ''}
 +          <span class="grabHint" aria-hidden="true">${lll('frontend.library.dragHint') || 'Drag onto the page'}</span>
 +        </div>
 +        <div class="meta">
@@ -1841,6 +1989,21 @@ index 0000000..5286181
 +    }
 +    .card:hover .grabHint { opacity: 1; transform: translateX(-50%) translateY(0); }
 +
++    /* magnify button: opens the enlarged (1.5x) preview overlay */
++    .zoomButton {
++      position: absolute; top: 8px; right: 8px; z-index: 3;
++      display: inline-flex; align-items: center; justify-content: center;
++      width: 30px; height: 30px; padding: 0;
++      border: none; border-radius: 9px;
++      background: rgba(22, 22, 26, 0.55); color: #fff;
++      cursor: pointer; opacity: 0; transform: translateY(-4px);
++      transition: opacity 0.16s ease, transform 0.16s ease, background 0.12s ease;
++      -webkit-backdrop-filter: blur(2px); backdrop-filter: blur(2px);
++    }
++    .zoomButton:hover { background: var(--ve-accent); transform: translateY(0) scale(1.08); }
++    .card:hover .zoomButton, .card:focus-within .zoomButton { opacity: 1; transform: translateY(0); }
++    .zoomButton:focus-visible { opacity: 1; transform: translateY(0); outline: 2px solid #fff; outline-offset: 1px; }
++
 +    .meta { flex: 1 1 auto; min-height: 0; padding: 12px 14px 14px; display: flex; flex-direction: column; gap: 5px; overflow: hidden; }
 +    .titleRow { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
 +    .titleRow strong { font-size: 14.5px; font-weight: 650; }
@@ -1862,8 +2025,52 @@ index 0000000..5286181
 +      opacity: 0.85; color: color-mix(in srgb, var(--ve-accent) 60%, #8a8a93);
 +    }
 +
++    /* enlarged preview overlay (opened by the per-card magnify button) */
++    .zoomOverlay {
++      position: fixed; inset: 0; z-index: 100002;
++      display: flex; align-items: center; justify-content: center;
++      padding: 20px; box-sizing: border-box;
++      background: rgba(10, 10, 14, 0.66);
++      -webkit-backdrop-filter: blur(3px); backdrop-filter: blur(3px);
++      animation: veZoomFade 0.18s ease;
++    }
++    @keyframes veZoomFade { from { opacity: 0; } to { opacity: 1; } }
++    .zoomDialog {
++      display: flex; flex-direction: column;
++      max-width: 96vw; max-height: 94vh;
++      background: var(--ve-panel-surface); color: var(--ve-panel-text);
++      border: 1.5px solid color-mix(in srgb, var(--ve-accent) 60%, var(--ve-panel-border));
++      border-radius: 14px; overflow: hidden;
++      box-shadow: 0 24px 70px rgba(0, 0, 0, 0.55);
++      animation: veZoomPop 0.2s cubic-bezier(0.22, 1, 0.36, 1);
++    }
++    @keyframes veZoomPop { from { opacity: 0; transform: scale(0.96); } to { opacity: 1; transform: scale(1); } }
++    .zoomBar {
++      display: flex; align-items: center; justify-content: space-between; gap: 12px;
++      padding: 8px 10px 8px 14px; flex-shrink: 0;
++      border-bottom: 1px solid var(--ve-panel-border);
++      background: linear-gradient(180deg, color-mix(in srgb, var(--ve-accent) 12%, var(--ve-panel-surface)), var(--ve-panel-surface));
++    }
++    .zoomTitle { display: flex; align-items: center; gap: 9px; min-width: 0; }
++    .zoomTitle strong { font-size: 13.5px; font-weight: 650; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
++    .zoomStage {
++      position: relative; overflow: hidden; background: #fff;
++      width: 630px; height: 60vh;
++      transition: width 0.2s ease, height 0.2s ease;
++    }
++    .zoomStage .zoomSpinner { position: absolute; top: 50%; left: 50%; margin: -9px 0 0 -9px; }
++    .zoomStage.loaded .zoomSpinner { display: none; }
++    .zoomFrame {
++      width: ${PREVIEW_RENDER_WIDTH}px; height: 1400px; border: 0;
++      transform-origin: top left;
++      transform: scale(calc(${PREVIEW_DISPLAY_WIDTH} * ${PREVIEW_ZOOM_FACTOR} / ${PREVIEW_RENDER_WIDTH}));
++      pointer-events: none; opacity: 0; transition: opacity 0.2s ease;
++    }
++    .zoomFrame.ready { opacity: 1; }
++
 +    @media (prefers-reduced-motion: reduce) {
-+      .panel, .card, .thumb, .shimmer, .spinner, .preview iframe { animation: none !important; transition: none !important; }
++      .panel, .card, .thumb, .shimmer, .spinner, .preview iframe,
++      .zoomOverlay, .zoomDialog, .zoomStage, .zoomFrame, .zoomButton { animation: none !important; transition: none !important; }
 +    }
 +  `;
 +}

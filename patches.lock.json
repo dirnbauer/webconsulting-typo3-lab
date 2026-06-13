@@ -1,5 +1,5 @@
 {
-    "_hash": "4e822ace5896b58c36e7cc52a45a5c7ff9cf8bb1045ea760630a9a706cc6b3ef",
+    "_hash": "0fd4b9350f1d6b22d81f8aeb3fc09147b2055e89b3fa9d69ebbb6c9daf135200",
     "patches": {
         "netresearch/nr-vault": [
             {
@@ -50,7 +50,7 @@
                 "package": "friendsoftypo3/visual-editor",
                 "description": "Element library panel and inline link editing",
                 "url": "patches/friendsoftypo3-visual-editor-element-library-and-links.patch",
-                "sha256": "734ef23f8f27e3f09d50a570869cc48886ada8a78e5c7485bbc753a1a0fd9682",
+                "sha256": "d005b734fef2b938aaaaf61e24c8d5aaf354ee076c8fd5d074dc1e34675f45cc",
                 "depth": 1,
                 "extra": {
                     "provenance": "root"
