@@ -7,6 +7,10 @@ desiderio.shadcn.iconLibrary: lucide
 desiderio.forms.friendlyCaptchaTestMode: true
 desiderio.shadcn.preset: lagoon
 
+# Visual Editor element-library picker: per-site sysfolder seeded by
+# desiderio:library:seed --parent=505 (previews render in this site's shadcn preset).
+elementLibrary.storagePid: 1065
+
 news.pages.detail: 992
 news.pages.list: 992
 

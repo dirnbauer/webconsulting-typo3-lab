@@ -1,13 +1,3 @@
-plugin:
-  tx_blog:
-    settings:
-      blogUid: 69
-      categoryUid: 71
-      tagUid: 72
-      authorUid: 73
-      archiveUid: 74
-      storagePid: 70
-
 # Visual Editor element library: no desiderio frontend on this site, so it shares
 # the corporate library (folder 1026); previews resolve via the corporate site.
 elementLibrary.storagePid: 1026

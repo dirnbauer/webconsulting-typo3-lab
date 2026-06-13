@@ -16,3 +16,7 @@ desiderio:
     useLoadMore: true
   theme:
     darkModeDefault: light
+
+# Visual Editor element library: no desiderio frontend on this site, so it shares
+# the corporate library (folder 1026); previews resolve via the corporate site.
+elementLibrary.storagePid: 1026
