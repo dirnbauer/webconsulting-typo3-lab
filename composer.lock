@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c9ff2941324e6858eab2f8c0e3987a6e",
+    "content-hash": "34c828810d4278edea5d0de0ecdba94d",
     "packages": [
         {
             "name": "apache-solr-for-typo3/solr",
@@ -568,16 +568,16 @@
         },
         {
             "name": "dirnbauer/innesto",
-            "version": "1.1.0",
+            "version": "1.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/innesto",
-                "reference": "2db199f16cdf0fdc76a3ff467f67be967d30398a"
+                "reference": "ecdc50e7abfb1aad4f75571b0f22823a551061f4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/innesto/zipball/2db199f16cdf0fdc76a3ff467f67be967d30398a",
-                "reference": "2db199f16cdf0fdc76a3ff467f67be967d30398a",
+                "url": "https://api.github.com/repos/dirnbauer/innesto/zipball/ecdc50e7abfb1aad4f75571b0f22823a551061f4",
+                "reference": "ecdc50e7abfb1aad4f75571b0f22823a551061f4",
                 "shasum": ""
             },
             "require": {
@@ -606,7 +606,7 @@
                 }
             ],
             "description": "Innesto — grafts shadcn/ui registry components onto TYPO3 as Desiderio-styled Content Blocks",
-            "time": "2026-06-11T18:40:34+00:00"
+            "time": "2026-06-13T08:02:31+00:00"
         },
         {
             "name": "doctrine/dbal",
