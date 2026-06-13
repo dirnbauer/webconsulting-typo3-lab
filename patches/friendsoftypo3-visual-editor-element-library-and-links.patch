@@ -23,17 +23,52 @@ index cb8d494..cbf9e62 100644
                          throw new RuntimeException('Field "' . $field . '" not found in TCA schema for table "' . $table . '"', 6627872218);
                      }
 diff --git a/Classes/Service/EditModeService.php b/Classes/Service/EditModeService.php
-index a217902..301d015 100644
+index a217902..38b23a0 100644
 --- a/Classes/Service/EditModeService.php
 +++ b/Classes/Service/EditModeService.php
-@@ -121,6 +121,7 @@ final readonly class EditModeService
+@@ -121,6 +121,9 @@ final readonly class EditModeService
                  'token' => $this->formProtectionFactory->createForType('backend')->generateToken('visual_editor', 'save'),
                  'routeArguments' => (object)$this->flattenBracketKeys(['params' => $this->getUsedArguments($request)]),
                  'allowedOrigins' => $this->getAllowedOrigins(),
-+                'elementLibraryEnabled' => (bool)($GLOBALS['TYPO3_CONF_VARS']['EXTENSIONS']['visual_editor']['elementLibraryEnabled'] ?? false),
++                'elementLibraryEnabled' => $this->isElementLibraryEnabled() && $this->getUserBoolSetting('tx_visualeditor_showLibrary', true),
++                'elementLibraryLinks' => $this->isElementLibraryEnabled() && $this->getUserBoolSetting('tx_visualeditor_showLinks', false),
++                'elementLibraryColumns' => $this->getElementLibraryColumns(),
              ];
              $this->assetCollector->addInlineJavaScript(
                  'veLangInfo',
+@@ -297,6 +300,32 @@ if (window.parent === window && window.veInfo) {
+         return $usedArguments;
+     }
+ 
++    private function isElementLibraryEnabled(): bool
++    {
++        return (bool)($GLOBALS['TYPO3_CONF_VARS']['EXTENSIONS']['visual_editor']['elementLibraryEnabled'] ?? false);
++    }
++
++    /**
++     * Reads a backend-user setup-module preference (stored in be_users.uc).
++     */
++    private function getUserBoolSetting(string $key, bool $default): bool
++    {
++        $uc = $this->getBeUser()->uc;
++        if (!is_array($uc) || !array_key_exists($key, $uc)) {
++            return $default;
++        }
++
++        return (bool)$uc[$key];
++    }
++
++    private function getElementLibraryColumns(): int
++    {
++        $uc = $this->getBeUser()->uc;
++        $value = is_array($uc) ? (int)($uc['tx_visualeditor_panelColumns'] ?? 2) : 2;
++
++        return $value === 1 ? 1 : 2;
++    }
++
+     private function getBeUser(): BackendUserAuthentication
+     {
+         $beUser = $GLOBALS['BE_USER'];
 diff --git a/Classes/ViewHelpers/Render/LinkViewHelper.php b/Classes/ViewHelpers/Render/LinkViewHelper.php
 new file mode 100644
 index 0000000..475c52a
@@ -230,11 +265,180 @@ index 0000000..475c52a
 +        ]]);
 +    }
 +}
+diff --git a/Configuration/TCA/Overrides/be_users.php b/Configuration/TCA/Overrides/be_users.php
+new file mode 100644
+index 0000000..34aa00a
+--- /dev/null
++++ b/Configuration/TCA/Overrides/be_users.php
+@@ -0,0 +1,64 @@
++<?php
++
++declare(strict_types=1);
++
++use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
++
++defined('TYPO3') or die();
++
++/*
++ * Per-user preferences for the visual editor element library, shown as a
++ * dedicated tab in the backend user settings (setup) module. Values are
++ * stored in be_users.uc and read back in EditModeService::veInfo.
++ */
++$visualEditorSetupLabels = 'LLL:EXT:visual_editor/Resources/Private/Language/locallang_setup.xlf:';
++
++$GLOBALS['TCA']['be_users']['columns']['user_settings']['showitem'] =
++    ($GLOBALS['TCA']['be_users']['columns']['user_settings']['showitem'] ?? '')
++    . ', --div--;' . $visualEditorSetupLabels . 'tab';
++
++ExtensionManagementUtility::addUserSetting(
++    'tx_visualeditor_showLibrary',
++    [
++        'label' => $visualEditorSetupLabels . 'showLibrary',
++        'description' => $visualEditorSetupLabels . 'showLibrary.description',
++        'config' => [
++            'type' => 'check',
++            'renderType' => 'checkboxToggle',
++            'default' => 1,
++        ],
++    ],
++    'after:--div--;' . $visualEditorSetupLabels . 'tab'
++);
++
++ExtensionManagementUtility::addUserSetting(
++    'tx_visualeditor_showLinks',
++    [
++        'label' => $visualEditorSetupLabels . 'showLinks',
++        'description' => $visualEditorSetupLabels . 'showLinks.description',
++        'config' => [
++            'type' => 'check',
++            'renderType' => 'checkboxToggle',
++            'default' => 0,
++        ],
++    ],
++    'after:tx_visualeditor_showLibrary'
++);
++
++ExtensionManagementUtility::addUserSetting(
++    'tx_visualeditor_panelColumns',
++    [
++        'label' => $visualEditorSetupLabels . 'panelColumns',
++        'description' => $visualEditorSetupLabels . 'panelColumns.description',
++        'config' => [
++            'type' => 'select',
++            'renderType' => 'selectSingle',
++            'default' => 2,
++            'items' => [
++                ['label' => $visualEditorSetupLabels . 'panelColumns.wide', 'value' => 2],
++                ['label' => $visualEditorSetupLabels . 'panelColumns.narrow', 'value' => 1],
++            ],
++        ],
++    ],
++    'after:tx_visualeditor_showLinks'
++);
+diff --git a/Resources/Private/Language/de.locallang.xlf b/Resources/Private/Language/de.locallang.xlf
+index d35fa80..b26d7c1 100644
+--- a/Resources/Private/Language/de.locallang.xlf
++++ b/Resources/Private/Language/de.locallang.xlf
+@@ -102,6 +102,45 @@
+       <trans-unit id="frontend.editImageButton">
+         <target>Bild bearbeiten</target>
+       </trans-unit>
++      <trans-unit id="frontend.editLink">
++        <target>Link bearbeiten</target>
++      </trans-unit>
++      <trans-unit id="frontend.library.title">
++        <target>Inhalt hinzufügen</target>
++      </trans-unit>
++      <trans-unit id="frontend.library.open">
++        <target>Inhalt aus der Bibliothek hinzufügen</target>
++      </trans-unit>
++      <trans-unit id="frontend.library.close">
++        <target>Schließen</target>
++      </trans-unit>
++      <trans-unit id="frontend.library.search">
++        <target>Elemente durchsuchen …</target>
++      </trans-unit>
++      <trans-unit id="frontend.library.includeDemo.label">
++        <target>Mit Beispielinhalt einfügen</target>
++      </trans-unit>
++      <trans-unit id="frontend.library.includeDemo.hint">
++        <target>An: fertige Demo-Texte &amp; Bilder. Aus: leeres Element zum selbst Befüllen.</target>
++      </trans-unit>
++      <trans-unit id="frontend.library.loading">
++        <target>Wird geladen …</target>
++      </trans-unit>
++      <trans-unit id="frontend.library.empty">
++        <target>Keine Elemente passen zum aktuellen Filter.</target>
++      </trans-unit>
++      <trans-unit id="frontend.library.fromLibrary">
++        <target>Aus Bibliothek hinzufügen</target>
++      </trans-unit>
++      <trans-unit id="frontend.library.fabLabel">
++        <target>Inhalt hinzufügen</target>
++      </trans-unit>
++      <trans-unit id="frontend.library.allCategories">
++        <target>Alle</target>
++      </trans-unit>
++      <trans-unit id="frontend.library.dragHint">
++        <target>Auf die Seite ziehen</target>
++      </trans-unit>
+     </body>
+   </file>
+ </xliff>
+diff --git a/Resources/Private/Language/de.locallang_setup.xlf b/Resources/Private/Language/de.locallang_setup.xlf
+new file mode 100644
+index 0000000..2e37835
+--- /dev/null
++++ b/Resources/Private/Language/de.locallang_setup.xlf
+@@ -0,0 +1,43 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
++  <file source-language="en" target-language="de" datatype="plaintext" original="EXT:visual_editor/Resources/Private/Language/locallang_setup.xlf" product-name="visual_editor">
++    <body>
++      <trans-unit id="tab" approved="yes">
++        <source>Visual editor</source>
++        <target>Visueller Editor</target>
++      </trans-unit>
++      <trans-unit id="showLibrary" approved="yes">
++        <source>Show the "Add content" button</source>
++        <target>Schaltfläche „Inhalt hinzufügen“ anzeigen</target>
++      </trans-unit>
++      <trans-unit id="showLibrary.description" approved="yes">
++        <source>Shows the floating button that opens the element library while editing a page in the visual editor.</source>
++        <target>Zeigt die schwebende Schaltfläche, die im visuellen Editor die Element-Bibliothek öffnet.</target>
++      </trans-unit>
++      <trans-unit id="showLinks" approved="yes">
++        <source>Enable inline link editing (experimental)</source>
++        <target>Inline-Linkbearbeitung aktivieren (experimentell)</target>
++      </trans-unit>
++      <trans-unit id="showLinks.description" approved="yes">
++        <source>Shows a link icon next to link fields so the TYPO3 link browser can be opened directly in the visual editor. Experimental.</source>
++        <target>Zeigt neben Linkfeldern ein Link-Symbol, über das der TYPO3-Linkbrowser direkt im visuellen Editor geöffnet werden kann. Experimentell.</target>
++      </trans-unit>
++      <trans-unit id="panelColumns" approved="yes">
++        <source>Element library width</source>
++        <target>Breite der Element-Bibliothek</target>
++      </trans-unit>
++      <trans-unit id="panelColumns.description" approved="yes">
++        <source>How many preview columns the element library panel shows.</source>
++        <target>Wie viele Vorschauspalten die Element-Bibliothek anzeigt.</target>
++      </trans-unit>
++      <trans-unit id="panelColumns.wide" approved="yes">
++        <source>Wide (2 columns)</source>
++        <target>Breit (2 Spalten)</target>
++      </trans-unit>
++      <trans-unit id="panelColumns.narrow" approved="yes">
++        <source>Narrow (1 column)</source>
++        <target>Schmal (1 Spalte)</target>
++      </trans-unit>
++    </body>
++  </file>
++</xliff>
 diff --git a/Resources/Private/Language/locallang.xlf b/Resources/Private/Language/locallang.xlf
-index 6226820..e4777a4 100644
+index 6226820..70b50c4 100644
 --- a/Resources/Private/Language/locallang.xlf
 +++ b/Resources/Private/Language/locallang.xlf
-@@ -102,6 +102,33 @@
+@@ -102,6 +102,45 @@
        <trans-unit id="frontend.editImageButton">
          <source>Edit Image</source>
        </trans-unit>
@@ -253,8 +457,11 @@ index 6226820..e4777a4 100644
 +      <trans-unit id="frontend.library.search">
 +        <source>Search elements …</source>
 +      </trans-unit>
-+      <trans-unit id="frontend.library.includeDemo">
-+        <source>Include demo content</source>
++      <trans-unit id="frontend.library.includeDemo.label">
++        <source>Insert with example content</source>
++      </trans-unit>
++      <trans-unit id="frontend.library.includeDemo.hint">
++        <source>On: ready-made demo text &amp; images. Off: empty element to fill yourself.</source>
 +      </trans-unit>
 +      <trans-unit id="frontend.library.loading">
 +        <source>Loading …</source>
@@ -265,11 +472,60 @@ index 6226820..e4777a4 100644
 +      <trans-unit id="frontend.library.fromLibrary">
 +        <source>Add from library</source>
 +      </trans-unit>
++      <trans-unit id="frontend.library.fabLabel">
++        <source>Add content</source>
++      </trans-unit>
++      <trans-unit id="frontend.library.allCategories">
++        <source>All</source>
++      </trans-unit>
++      <trans-unit id="frontend.library.dragHint">
++        <source>Drag onto the page</source>
++      </trans-unit>
      </body>
    </file>
  </xliff>
+diff --git a/Resources/Private/Language/locallang_setup.xlf b/Resources/Private/Language/locallang_setup.xlf
+new file mode 100644
+index 0000000..a068a83
+--- /dev/null
++++ b/Resources/Private/Language/locallang_setup.xlf
+@@ -0,0 +1,34 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
++  <file source-language="en" datatype="plaintext" original="EXT:visual_editor/Resources/Private/Language/locallang_setup.xlf" product-name="visual_editor">
++    <body>
++      <trans-unit id="tab">
++        <source>Visual editor</source>
++      </trans-unit>
++      <trans-unit id="showLibrary">
++        <source>Show the "Add content" button</source>
++      </trans-unit>
++      <trans-unit id="showLibrary.description">
++        <source>Shows the floating button that opens the element library while editing a page in the visual editor.</source>
++      </trans-unit>
++      <trans-unit id="showLinks">
++        <source>Enable inline link editing (experimental)</source>
++      </trans-unit>
++      <trans-unit id="showLinks.description">
++        <source>Shows a link icon next to link fields so the TYPO3 link browser can be opened directly in the visual editor. Experimental.</source>
++      </trans-unit>
++      <trans-unit id="panelColumns">
++        <source>Element library width</source>
++      </trans-unit>
++      <trans-unit id="panelColumns.description">
++        <source>How many preview columns the element library panel shows.</source>
++      </trans-unit>
++      <trans-unit id="panelColumns.wide">
++        <source>Wide (2 columns)</source>
++      </trans-unit>
++      <trans-unit id="panelColumns.narrow">
++        <source>Narrow (1 column)</source>
++      </trans-unit>
++    </body>
++  </file>
++</xliff>
 diff --git a/Resources/Public/JavaScript/Backend/index.js b/Resources/Public/JavaScript/Backend/index.js
-index f104dcb..aae3bc9 100644
+index f104dcb..d77be88 100644
 --- a/Resources/Public/JavaScript/Backend/index.js
 +++ b/Resources/Public/JavaScript/Backend/index.js
 @@ -1,5 +1,6 @@
@@ -280,7 +536,7 @@ index f104dcb..aae3bc9 100644
  import '@typo3/visual-editor/Backend/components/ve-auto-save-toggle';
  import '@typo3/visual-editor/Backend/components/ve-backend-save-button';
  import '@typo3/visual-editor/Backend/components/ve-spotlight-toggle';
-@@ -44,6 +45,22 @@ function openIframeModal(src, title = '', size = 'large', type = 'iframe') {
+@@ -44,7 +45,41 @@ function openIframeModal(src, title = '', size = 'large', type = 'iframe') {
  }
  
  onMessage('openModal', (data) => openIframeModal(data.src, data.title || '', data.size || undefined, data.type || undefined));
@@ -301,8 +557,27 @@ index f104dcb..aae3bc9 100644
 +  });
 +});
  onMessage('reloadFrames', () => reloadAllChildFrames());
++
++/**
++ * Resolves the TYPO3 backend accent colour from its design tokens to a plain
++ * rgb() value (probe element so var()/light-dark() chains are computed), then
++ * hands it to the editing iframe so the element library button, panel and
++ * drop zones match the backend theme instead of a hardcoded colour.
++ * @return {string}
++ */
++function resolveBackendAccent() {
++  const probe = document.createElement('span');
++  probe.style.cssText = 'position:absolute;visibility:hidden;color:var(--typo3-state-primary-bg,var(--typo3-surface-container-primary,var(--token-color-primary-base,#6c5ce7)))';
++  document.body.appendChild(probe);
++  const color = getComputedStyle(probe).color;
++  probe.remove();
++  return color && color !== 'rgba(0, 0, 0, 0)' ? color : '#6c5ce7';
++}
++onMessage('requestAccent', () => sendMessage('veAccent', {color: resolveBackendAccent()}, 'iframe'));
++
  onMessage('openInMiddleFrame', (href) => {
    const parsedHref = new URL(href, window.location.href);
+   // keep the origin of the current window to avoid CORS issues in the Backend.
 diff --git a/Resources/Public/JavaScript/Frontend/components/ve-content-element.js b/Resources/Public/JavaScript/Frontend/components/ve-content-element.js
 index 770e863..d4a0bfc 100644
 --- a/Resources/Public/JavaScript/Frontend/components/ve-content-element.js
@@ -343,7 +618,7 @@ index 770e863..d4a0bfc 100644
  
      return html`
 diff --git a/Resources/Public/JavaScript/Frontend/components/ve-drop-zone.js b/Resources/Public/JavaScript/Frontend/components/ve-drop-zone.js
-index dbb8967..e408e2c 100644
+index dbb8967..b585a5f 100644
 --- a/Resources/Public/JavaScript/Frontend/components/ve-drop-zone.js
 +++ b/Resources/Public/JavaScript/Frontend/components/ve-drop-zone.js
 @@ -205,6 +205,37 @@ export class VeDropZone extends LitElement {
@@ -384,12 +659,71 @@ index dbb8967..e408e2c 100644
      if (event.dataTransfer.dropEffect === 'copy') {
        // For copy we ask the user and if confirmed we do an immediate call useDataHandler
        // if not, we do nothing
+@@ -356,17 +387,18 @@ export class VeDropZone extends LitElement {
+ 
+     .dropArea {
+       --height: 30px;
++      --ve-accent: var(--ve-accent-color, #6c5ce7);
+       display: none;
+       position: absolute;
+       height: var(--height);
+ 
+       left: 1px;
+       right: 1px;
+-      /*backdrop-filter: invert(100%);*/
+-      background-color: rgba(34, 34, 34, 0.8);
+-      outline: 1px dashed #666;
+-      border-radius: 0.2em;
+-      color: #eee;
++      background-color: color-mix(in srgb, var(--ve-accent) 78%, rgba(20, 20, 26, 0.85));
++      outline: 1px dashed color-mix(in srgb, var(--ve-accent) 60%, #888);
++      outline-offset: 1px;
++      border-radius: 0.35em;
++      color: #fff;
+ 
+       gap: 5px;
+       /* text centered*/
+@@ -379,11 +411,15 @@ export class VeDropZone extends LitElement {
+ 
+       &.visible {
+         display: flex;
++        animation: veZonePulse 1.6s ease-in-out infinite;
+       }
+ 
+       &.isOver {
+-        background-color: #3b9e3b;
+-        outline: 2px solid #aaa;
++        background-color: var(--ve-accent);
++        outline: 2px solid #fff;
++        transform: scaleY(1.12);
++        box-shadow: 0 0 0 4px color-mix(in srgb, var(--ve-accent) 35%, transparent), 0 6px 22px color-mix(in srgb, var(--ve-accent) 55%, transparent);
++        animation: none;
+       }
+ 
+       &.above {
+@@ -391,6 +427,16 @@ export class VeDropZone extends LitElement {
+       }
+     }
+ 
++    @keyframes veZonePulse {
++      0%, 100% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--ve-accent) 40%, transparent); }
++      50% { box-shadow: 0 0 0 6px color-mix(in srgb, var(--ve-accent) 0%, transparent); }
++    }
++
++    @media (prefers-reduced-motion: reduce) {
++      .dropArea.visible { animation: none; }
++      .dropArea.isOver { transform: none; }
++    }
++
+     .labelText {
+       min-width: 0;
+       max-width: 100%;
 diff --git a/Resources/Public/JavaScript/Frontend/components/ve-editable-link.js b/Resources/Public/JavaScript/Frontend/components/ve-editable-link.js
 new file mode 100644
-index 0000000..9210f1c
+index 0000000..fac9ab9
 --- /dev/null
 +++ b/Resources/Public/JavaScript/Frontend/components/ve-editable-link.js
-@@ -0,0 +1,114 @@
+@@ -0,0 +1,131 @@
 +import {css, html, LitElement} from 'lit';
 +import {lll} from '@typo3/core/lit-helper.js';
 +import {sendMessage, onMessage} from '@typo3/visual-editor/Shared/iframe-messaging';
@@ -457,6 +791,10 @@ index 0000000..9210f1c
 +  }
 +
 +  render() {
++    // experimental, per-user opt-in: render nothing when link editing is off
++    if (!window.veInfo?.elementLibraryLinks) {
++      return html``;
++    }
 +    const title = (lll('frontend.editLink') || 'Edit link') + (this.name ? ': ' + this.name : '');
 +    return html`
 +      <button type="button" class="linkButton" @click="${this.#openLinkBrowser}" title="${title}" aria-label="${title}">
@@ -469,26 +807,39 @@ index 0000000..9210f1c
 +    :host {
 +      display: inline-block;
 +      vertical-align: baseline;
++      --ve-accent: var(--ve-accent-color, #6c5ce7);
 +    }
 +
 +    .linkButton {
 +      display: inline-flex;
 +      align-items: center;
 +      justify-content: center;
-+      width: 1.6em;
-+      height: 1.6em;
++      width: 1.7em;
++      height: 1.7em;
 +      padding: 0;
-+      margin-inline-start: 0.25em;
-+      border: 1px solid rgba(84, 50, 254, 0.55);
-+      border-radius: 0.3em;
-+      background: rgba(84, 50, 254, 0.12);
-+      color: inherit;
++      margin-inline-start: 0.3em;
++      border: 1px solid color-mix(in srgb, var(--ve-accent) 55%, transparent);
++      border-radius: 0.35em;
++      background: color-mix(in srgb, var(--ve-accent) 14%, transparent);
++      color: var(--ve-accent);
 +      cursor: pointer;
-+      transition: background 0.12s ease;
++      transition: background 0.12s ease, transform 0.12s ease, box-shadow 0.12s ease;
++      animation: linkPulse 2.4s ease-in-out 3;
 +    }
 +
 +    .linkButton:hover {
-+      background: rgba(84, 50, 254, 0.3);
++      background: color-mix(in srgb, var(--ve-accent) 28%, transparent);
++      transform: translateY(-1px);
++      box-shadow: 0 3px 10px color-mix(in srgb, var(--ve-accent) 40%, transparent);
++    }
++
++    @keyframes linkPulse {
++      0%, 100% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--ve-accent) 40%, transparent); }
++      50% { box-shadow: 0 0 0 4px color-mix(in srgb, var(--ve-accent) 0%, transparent); }
++    }
++
++    @media (prefers-reduced-motion: reduce) {
++      .linkButton { animation: none; transition: none; }
 +    }
 +  `;
 +}
@@ -506,46 +857,57 @@ index 0000000..9210f1c
 +customElements.define('ve-editable-link', VeEditableLink);
 diff --git a/Resources/Public/JavaScript/Frontend/components/ve-element-library-button.js b/Resources/Public/JavaScript/Frontend/components/ve-element-library-button.js
 new file mode 100644
-index 0000000..a922ef3
+index 0000000..3dc7fa1
 --- /dev/null
 +++ b/Resources/Public/JavaScript/Frontend/components/ve-element-library-button.js
-@@ -0,0 +1,83 @@
+@@ -0,0 +1,115 @@
 +import {css, html, LitElement} from 'lit';
 +import {lll} from '@typo3/core/lit-helper.js';
 +import {dragInProgressStore} from '@typo3/visual-editor/Frontend/stores/drag-store';
 +import {getElementLibrary} from '@typo3/visual-editor/Frontend/components/ve-element-library';
++import {elementLibraryOpen} from '@typo3/visual-editor/Shared/local-stores';
 +
 +/**
-+ * Floating "+" button (bottom right) that toggles the element library
-+ * panel. Mounted by Frontend/index.js when the element library endpoint is
-+ * enabled (window.veInfo.elementLibraryEnabled). Hidden during drags so it
-+ * never covers a drop zone.
++ * Floating action button that toggles the element library panel. Anchored at
++ * the top of the editing canvas, on top of the content elements. Reflects the
++ * open/closed state (+ rotates to x) and hides while a drag is running so it
++ * never covers a drop zone. Accent colour comes from the backend theme token
++ * (--ve-accent-color, provided by the backend bridge) with a sane fallback.
 + *
 + * @extends {HTMLElement}
 + */
 +export class VeElementLibraryButton extends LitElement {
 +  static properties = {
 +    dragging: {type: Boolean, state: true, attribute: false},
++    open: {type: Boolean, state: true, attribute: false},
 +  };
 +
 +  constructor() {
 +    super();
 +    this.dragging = false;
++    this.open = !!elementLibraryOpen.get();
 +    this.onDragInProgressChange = this.#onDragInProgressChange.bind(this);
++    this.onLibraryToggle = this.#onLibraryToggle.bind(this);
 +  }
 +
 +  connectedCallback() {
 +    super.connectedCallback();
 +    dragInProgressStore.addEventListener('change', this.onDragInProgressChange);
++    document.addEventListener('ve-library-toggle', this.onLibraryToggle);
 +  }
 +
 +  disconnectedCallback() {
 +    dragInProgressStore.removeEventListener('change', this.onDragInProgressChange);
++    document.removeEventListener('ve-library-toggle', this.onLibraryToggle);
 +    super.disconnectedCallback();
 +  }
 +
 +  #onDragInProgressChange() {
 +    this.dragging = !!dragInProgressStore.value;
++  }
++
++  #onLibraryToggle(event) {
++    this.open = !!event.detail?.open;
 +  }
 +
 +  #toggle() {
@@ -556,38 +918,59 @@ index 0000000..a922ef3
 +    if (this.dragging) {
 +      return html``;
 +    }
-+    const label = lll('frontend.library.open') || 'Add content from library';
++    const label = this.open
++      ? (lll('frontend.library.close') || 'Close library')
++      : (lll('frontend.library.open') || 'Add content from library');
 +    return html`
-+      <button type="button" class="fab" @click="${this.#toggle}" title="${label}" aria-label="${label}">+</button>
++      <button type="button" class="fab ${this.open ? 'open' : ''}" @click="${this.#toggle}" title="${label}" aria-label="${label}" aria-pressed="${this.open}">
++        <svg class="icon" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
++          <path d="M12 5v14M5 12h14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
++        </svg>
++        <span class="fabLabel">${lll('frontend.library.fabLabel') || 'Add content'}</span>
++      </button>
 +    `;
 +  }
 +
 +  static styles = css`
 +    :host {
-+      all: initial;
++      --ve-accent: var(--ve-accent-color, #6c5ce7);
++      --ve-accent-contrast: #ffffff;
++      font-family: var(--typo3-font-family-sans, system-ui, -apple-system, sans-serif);
 +    }
 +
 +    .fab {
 +      position: fixed;
-+      right: 24px;
-+      bottom: 24px;
-+      width: 52px;
-+      height: 52px;
-+      border-radius: 50%;
++      top: 14px;
++      right: 18px;
++      display: inline-flex;
++      align-items: center;
++      gap: 8px;
++      height: 46px;
++      padding: 0 18px 0 14px;
++      border-radius: 999px;
 +      border: none;
-+      background: #5432fe;
-+      color: #fff;
-+      font-size: 30px;
-+      line-height: 1;
++      background: var(--ve-accent);
++      color: var(--ve-accent-contrast);
++      font-size: 14px;
++      font-weight: 650;
 +      cursor: pointer;
-+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
-+      z-index: 99999;
-+      transition: transform 0.12s ease, background 0.12s ease;
++      box-shadow: 0 8px 22px color-mix(in srgb, var(--ve-accent) 50%, transparent), 0 2px 6px rgba(0,0,0,0.25);
++      z-index: 100001;
++      transition: transform 0.14s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.14s ease, background 0.14s ease;
 +    }
++    .fab:hover { transform: translateY(-1px) scale(1.03); box-shadow: 0 12px 28px color-mix(in srgb, var(--ve-accent) 55%, transparent); }
++    .fab:active { transform: translateY(0) scale(0.98); }
 +
-+    .fab:hover {
-+      background: #4326d9;
-+      transform: scale(1.06);
++    .icon { transition: transform 0.22s cubic-bezier(0.22, 1, 0.36, 1); }
++    .fab.open .icon { transform: rotate(135deg); }
++    .fab.open { background: color-mix(in srgb, var(--ve-accent) 78%, #000); }
++
++    .fabLabel { white-space: nowrap; }
++    .fab.open .fabLabel { display: none; }
++    .fab.open { padding: 0 12px; }
++
++    @media (prefers-reduced-motion: reduce) {
++      .fab, .icon { transition: none !important; }
 +    }
 +  `;
 +}
@@ -595,29 +978,39 @@ index 0000000..a922ef3
 +customElements.define('ve-element-library-button', VeElementLibraryButton);
 diff --git a/Resources/Public/JavaScript/Frontend/components/ve-element-library.js b/Resources/Public/JavaScript/Frontend/components/ve-element-library.js
 new file mode 100644
-index 0000000..3b55aba
+index 0000000..82f0602
 --- /dev/null
 +++ b/Resources/Public/JavaScript/Frontend/components/ve-element-library.js
-@@ -0,0 +1,467 @@
+@@ -0,0 +1,561 @@
 +import {css, html, LitElement} from 'lit';
 +import {classMap} from 'lit/directives/class-map.js';
++import {repeat} from 'lit/directives/repeat.js';
 +import {lll} from '@typo3/core/lit-helper.js';
 +import {dragInProgressStore} from '@typo3/visual-editor/Frontend/stores/drag-store';
 +import {initVelocityScroll} from '@typo3/visual-editor/Frontend/components/ve-drag-handle/velocity-scroll';
 +import {filterItems} from '@typo3/visual-editor/Frontend/components/ve-element-library/filter';
++import {elementLibraryOpen} from '@typo3/visual-editor/Shared/local-stores';
 +
 +const PREVIEW_RENDER_WIDTH = 1280;
 +
 +/**
-+ * Element library side panel: a browsable, filterable catalog of all
-+ * content element types with big rendered previews (shadcn-blocks explorer
-+ * style). Cards are dragged into the existing <ve-drop-zone> targets; the
-+ * "include demo content" switch decides whether the drop copies the seeded
-+ * demo record or creates an empty element of that type.
++ * Max number of preview iframes allowed to load concurrently. Each preview is
++ * a real frontend request; with a small PHP-FPM pool a flood of them starves
++ * the save request (drops would silently fail). The IntersectionObserver only
++ * ever loads previews that scrolled into view, throttled to this many at once.
++ */
++const MAX_CONCURRENT_PREVIEWS = 4;
++
++/**
++ * Element library side panel: a browsable, filterable catalog of all content
++ * element types with big rendered previews (shadcn-blocks explorer style).
++ * Cards are dragged into the existing <ve-drop-zone> targets; the demo-content
++ * switch decides whether the drop copies the seeded demo record or creates an
++ * empty element of that type.
 + *
-+ * Data comes from the ?elementLibrary=1 endpoint (provided by a companion
-+ * extension, e.g. desiderio); the panel only appears when
-+ * window.veInfo.elementLibraryEnabled is true.
++ * Previews load lazily (IntersectionObserver) and throttled, so opening the
++ * panel never saturates the backend. Accent colour, column count and the open
++ * state come from window.veInfo / the persisted local store.
 + *
 + * @extends {HTMLElement}
 + */
@@ -632,6 +1025,7 @@ index 0000000..3b55aba
 +    selectedGroups: {type: Object, state: true, attribute: false},
 +    searchTerm: {type: String, state: true, attribute: false},
 +    includeDemo: {type: Boolean, state: true, attribute: false},
++    loadedPreviews: {type: Object, state: true, attribute: false},
 +  };
 +
 +  constructor() {
@@ -645,16 +1039,28 @@ index 0000000..3b55aba
 +    this.selectedGroups = new Set();
 +    this.searchTerm = '';
 +    this.includeDemo = true;
++    this.loadedPreviews = new Set();
++    this.columns = Math.max(1, Math.min(2, parseInt(window.veInfo?.elementLibraryColumns, 10) || 2));
++
 +    this.onDragInProgressChange = this.#onDragInProgressChange.bind(this);
++
++    // lazy-preview machinery
++    this.previewQueue = [];
++    this.previewInFlight = 0;
++    this.observer = null;
 +  }
 +
 +  connectedCallback() {
 +    super.connectedCallback();
 +    dragInProgressStore.addEventListener('change', this.onDragInProgressChange);
++    if (elementLibraryOpen.get()) {
++      this.openPanel();
++    }
 +  }
 +
 +  disconnectedCallback() {
 +    dragInProgressStore.removeEventListener('change', this.onDragInProgressChange);
++    this.observer?.disconnect();
 +    super.disconnectedCallback();
 +  }
 +
@@ -664,6 +1070,8 @@ index 0000000..3b55aba
 +
 +  openPanel() {
 +    this.open = true;
++    elementLibraryOpen.set(true);
++    this.dispatchEvent(new CustomEvent('ve-library-toggle', {detail: {open: true}, bubbles: true, composed: true}));
 +    if (this.items.length === 0 && !this.loading) {
 +      this.#load();
 +    }
@@ -671,6 +1079,8 @@ index 0000000..3b55aba
 +
 +  closePanel() {
 +    this.open = false;
++    elementLibraryOpen.set(false);
++    this.dispatchEvent(new CustomEvent('ve-library-toggle', {detail: {open: false}, bubbles: true, composed: true}));
 +  }
 +
 +  async #load() {
@@ -707,6 +1117,11 @@ index 0000000..3b55aba
 +    this.selectedGroups = next;
 +  }
 +
++  #clearFilters() {
++    this.selectedGroups = new Set();
++    this.searchTerm = '';
++  }
++
 +  /**
 +   * @param {DragEvent} event
 +   * @param {Object} item
@@ -724,13 +1139,70 @@ index 0000000..3b55aba
 +      demoUid: item.demoUid,
 +    };
 +    event.dataTransfer.setData('text/ve-drag', JSON.stringify(info));
++    event.currentTarget.classList.add('is-dragging');
 +    dragInProgressStore.value = info;
 +    initVelocityScroll(event);
 +  }
 +
-+  #cardDragEnd() {
++  #cardDragEnd(event) {
++    event.currentTarget.classList.remove('is-dragging');
 +    dragInProgressStore.value = false;
 +  }
++
++  // --- lazy preview loading -------------------------------------------------
++
++  updated() {
++    const grid = this.shadowRoot.querySelector('.grid');
++    if (!grid) {
++      // panel closed: drop the observer, it is bound to the now-removed grid
++      this.observer?.disconnect();
++      this.observer = null;
++      this.gridElement = null;
++      return;
++    }
++    // (re)create the observer whenever a fresh grid element appears, otherwise
++    // it keeps observing relative to a detached root and never fires
++    if (grid !== this.gridElement) {
++      this.observer?.disconnect();
++      this.observer = new IntersectionObserver((entries) => {
++        for (const entry of entries) {
++          if (entry.isIntersecting) {
++            this.#enqueuePreview(entry.target.dataset.ctype);
++          }
++        }
++      }, {root: grid, rootMargin: '300px 0px'});
++      this.gridElement = grid;
++    }
++    grid.querySelectorAll('.card').forEach((card) => this.observer.observe(card));
++  }
++
++  #enqueuePreview(cType) {
++    if (!cType || this.loadedPreviews.has(cType) || this.previewQueue.includes(cType)) {
++      return;
++    }
++    this.previewQueue.push(cType);
++    this.#pumpPreviews();
++  }
++
++  #pumpPreviews() {
++    while (this.previewInFlight < MAX_CONCURRENT_PREVIEWS && this.previewQueue.length > 0) {
++      const cType = this.previewQueue.shift();
++      if (this.loadedPreviews.has(cType)) {
++        continue;
++      }
++      this.previewInFlight++;
++      const next = new Set(this.loadedPreviews);
++      next.add(cType);
++      this.loadedPreviews = next; // triggers re-render -> iframe with src appears
++    }
++  }
++
++  #onPreviewSettled() {
++    this.previewInFlight = Math.max(0, this.previewInFlight - 1);
++    this.#pumpPreviews();
++  }
++
++  // --- rendering ------------------------------------------------------------
 +
 +  render() {
 +    if (!this.open) {
@@ -741,24 +1213,40 @@ index 0000000..3b55aba
 +    const panelClasses = {
 +      panel: true,
 +      collapsed: this.collapsed,
++      [`cols-${this.columns}`]: true,
 +    };
++    const hasFilters = this.selectedGroups.size > 0 || this.searchTerm.trim() !== '';
 +
 +    return html`
-+      <div class=${classMap(panelClasses)}>
++      <div class=${classMap(panelClasses)} part="panel">
 +        <div class="header">
 +          <div class="headerRow">
-+            <h2>${lll('frontend.library.title') || 'Add content'}</h2>
-+            <button class="closeButton" type="button" @click="${this.closePanel}"
-+                    title="${lll('frontend.library.close') || 'Close'}">&times;</button>
++            <div class="titleWrap">
++              <h2>${lll('frontend.library.title') || 'Add content'}</h2>
++              <span class="counter">${filtered.length}/${this.items.length}</span>
++            </div>
++            <button class="iconButton closeButton" type="button" @click="${this.closePanel}"
++                    title="${lll('frontend.library.close') || 'Close'}" aria-label="${lll('frontend.library.close') || 'Close'}">
++              <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
++            </button>
 +          </div>
-+          <input
-+            class="search"
-+            type="search"
-+            .value="${this.searchTerm}"
-+            placeholder="${lll('frontend.library.search') || 'Search elements …'}"
-+            @input="${(event) => { this.searchTerm = event.target.value; }}"
-+          />
++
++          <div class="searchWrap">
++            <svg class="searchIcon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"/><path d="M21 21l-4.3-4.3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
++            <input
++              class="search"
++              type="search"
++              .value="${this.searchTerm}"
++              placeholder="${lll('frontend.library.search') || 'Search elements …'}"
++              @input="${(event) => { this.searchTerm = event.target.value; }}"
++            />
++          </div>
++
 +          <div class="chips">
++            ${hasFilters ? html`
++              <button type="button" class="chip chip--clear" @click="${this.#clearFilters}">
++                ${lll('frontend.library.allCategories') || 'All'}
++              </button>` : ''}
 +            ${this.categories.map((category) => html`
 +              <button
 +                type="button"
@@ -767,41 +1255,55 @@ index 0000000..3b55aba
 +              >${category}</button>
 +            `)}
 +          </div>
-+          <label class="includeDemo">
-+            <input
-+              type="checkbox"
-+              .checked="${this.includeDemo}"
-+              @change="${(event) => { this.includeDemo = event.target.checked; }}"
-+            />
-+            ${lll('frontend.library.includeDemo') || 'Include demo content'}
++
++          <label class="demoSwitch ${this.includeDemo ? 'on' : ''}">
++            <span class="demoSwitch__control">
++              <input
++                type="checkbox"
++                .checked="${this.includeDemo}"
++                @change="${(event) => { this.includeDemo = event.target.checked; }}"
++              />
++              <span class="track"><span class="thumb"></span></span>
++            </span>
++            <span class="demoSwitch__text">
++              <strong>${lll('frontend.library.includeDemo.label') || 'Insert with example content'}</strong>
++              <small>${lll('frontend.library.includeDemo.hint') || 'On: ready-made demo text & images. Off: empty element.'}</small>
++            </span>
 +          </label>
 +        </div>
 +
 +        <div class="grid">
-+          ${this.loading ? html`<p class="status">${lll('frontend.library.loading') || 'Loading …'}</p>` : ''}
++          ${this.loading ? html`<div class="status"><span class="spinner"></span>${lll('frontend.library.loading') || 'Loading …'}</div>` : ''}
 +          ${this.error ? html`<p class="status error">${this.error}</p>` : ''}
 +          ${!this.loading && !this.error && filtered.length === 0 ? html`
 +            <p class="status">${lll('frontend.library.empty') || 'No elements match the current filter.'}</p>` : ''}
-+          ${filtered.map((item) => this.#renderCard(item))}
++          ${repeat(filtered, (item) => item.cType, (item) => this.#renderCard(item))}
 +        </div>
 +      </div>
 +    `;
 +  }
 +
 +  #renderCard(item) {
++    const previewLoaded = this.loadedPreviews.has(item.cType);
 +    return html`
 +      <div
 +        class="card"
++        data-ctype="${item.cType}"
 +        draggable="true"
 +        @dragstart="${(event) => this.#cardDragStart(event, item)}"
 +        @dragend="${this.#cardDragEnd}"
 +        title="${item.description}"
 +      >
 +        <div class="preview">
-+          ${item.previewUrl
-+            ? html`<iframe src="${item.previewUrl}" loading="lazy" scrolling="no" tabindex="-1"></iframe>
++          ${previewLoaded && item.previewUrl
++            ? html`<iframe src="${item.previewUrl}" loading="lazy" scrolling="no" tabindex="-1"
++                          @load="${() => this.#onPreviewSettled()}" @error="${() => this.#onPreviewSettled()}"></iframe>
 +                   <div class="previewOverlay"></div>`
-+            : html`<div class="previewFallback">${item.iconUrl ? html`<img src="${item.iconUrl}" alt=""/>` : item.cType}</div>`}
++            : html`<div class="previewPlaceholder">
++                     ${item.iconUrl ? html`<img src="${item.iconUrl}" alt="" loading="lazy"/>` : html`<span>${item.title}</span>`}
++                     <span class="shimmer"></span>
++                   </div>`}
++          <span class="grabHint" aria-hidden="true">${lll('frontend.library.dragHint') || 'Drag onto the page'}</span>
 +        </div>
 +        <div class="meta">
 +          <div class="titleRow">
@@ -817,237 +1319,212 @@ index 0000000..3b55aba
 +  static styles = css`
 +    :host {
 +      display: block;
-+      font-family: system-ui, -apple-system, sans-serif;
++      font-family: var(--typo3-font-family-sans, system-ui, -apple-system, sans-serif);
 +      font-size: 14px;
 +      line-height: 1.4;
++      --ve-accent: var(--ve-accent-color, #6c5ce7);
++      --ve-accent-contrast: #ffffff;
++      --ve-panel-bg: #16161a;
++      --ve-panel-surface: #222228;
++      --ve-panel-border: #34343c;
++      --ve-panel-text: #f3f3f5;
++      --ve-panel-muted: #a2a2ad;
 +    }
 +
 +    .panel {
 +      position: fixed;
 +      inset-block: 0;
 +      right: 0;
-+      width: min(760px, 92vw);
++      width: min(860px, 94vw);
 +      display: flex;
 +      flex-direction: column;
-+      background: #171717;
-+      color: #fafafa;
-+      box-shadow: -12px 0 40px rgba(0, 0, 0, 0.45);
++      background: var(--ve-panel-bg);
++      color: var(--ve-panel-text);
++      box-shadow: -18px 0 50px rgba(0, 0, 0, 0.5);
 +      z-index: 100000;
-+      transition: transform 0.25s ease;
++      transform: translateX(0);
++      transition: transform 0.28s cubic-bezier(0.22, 1, 0.36, 1);
++      animation: panelIn 0.32s cubic-bezier(0.22, 1, 0.36, 1);
++    }
++    .panel.cols-1 { width: min(460px, 94vw); }
++
++    @keyframes panelIn {
++      from { transform: translateX(40px); opacity: 0; }
++      to { transform: translateX(0); opacity: 1; }
 +    }
 +
-+    .panel.collapsed {
-+      transform: translateX(100%);
-+    }
++    .panel.collapsed { transform: translateX(101%); box-shadow: none; }
 +
 +    .header {
-+      padding: 16px 20px 12px;
-+      border-bottom: 1px solid #333;
++      padding: 16px 20px 14px;
++      border-bottom: 1px solid var(--ve-panel-border);
 +      display: flex;
 +      flex-direction: column;
-+      gap: 10px;
++      gap: 12px;
++      background: linear-gradient(180deg, color-mix(in srgb, var(--ve-accent) 14%, var(--ve-panel-bg)), var(--ve-panel-bg));
 +    }
 +
-+    .headerRow {
-+      display: flex;
-+      align-items: center;
-+      justify-content: space-between;
++    .headerRow { display: flex; align-items: center; justify-content: space-between; }
++    .titleWrap { display: flex; align-items: baseline; gap: 10px; }
++    h2 { margin: 0; font-size: 18px; font-weight: 650; letter-spacing: -0.01em; }
++    .counter {
++      font-size: 12px; color: var(--ve-panel-muted);
++      background: var(--ve-panel-surface); padding: 2px 8px; border-radius: 999px;
 +    }
 +
-+    h2 {
-+      margin: 0;
-+      font-size: 17px;
-+      font-weight: 600;
++    .iconButton {
++      display: inline-flex; align-items: center; justify-content: center;
++      width: 34px; height: 34px; border-radius: 9px;
++      background: var(--ve-panel-surface); border: 1px solid var(--ve-panel-border);
++      color: var(--ve-panel-muted); cursor: pointer; transition: all 0.12s ease;
 +    }
++    .iconButton:hover { color: var(--ve-panel-text); border-color: var(--ve-accent); }
 +
-+    .closeButton {
-+      background: none;
-+      border: none;
-+      color: #aaa;
-+      font-size: 26px;
-+      line-height: 1;
-+      cursor: pointer;
-+      padding: 0 4px;
-+    }
-+
-+    .closeButton:hover {
-+      color: #fff;
-+    }
-+
++    .searchWrap { position: relative; display: flex; align-items: center; }
++    .searchIcon { position: absolute; left: 12px; color: var(--ve-panel-muted); pointer-events: none; }
 +    .search {
-+      width: 100%;
-+      box-sizing: border-box;
-+      padding: 9px 12px;
-+      border-radius: 8px;
-+      border: 1px solid #3a3a3a;
-+      background: #232323;
-+      color: #fafafa;
-+      font-size: 14px;
-+      outline: none;
++      width: 100%; box-sizing: border-box;
++      padding: 11px 12px 11px 40px; border-radius: 10px;
++      border: 1px solid var(--ve-panel-border); background: var(--ve-panel-surface);
++      color: var(--ve-panel-text); font-size: 14px; outline: none;
++      transition: border-color 0.12s ease, box-shadow 0.12s ease;
 +    }
++    .search:focus { border-color: var(--ve-accent); box-shadow: 0 0 0 3px color-mix(in srgb, var(--ve-accent) 30%, transparent); }
++    .search::placeholder { color: var(--ve-panel-muted); }
 +
-+    .search:focus {
-+      border-color: #5432fe;
-+    }
-+
-+    .chips {
-+      display: flex;
-+      flex-wrap: wrap;
-+      gap: 6px;
-+    }
-+
++    .chips { display: flex; flex-wrap: wrap; gap: 6px; }
 +    .chip {
-+      border: 1px solid #3a3a3a;
-+      background: #232323;
-+      color: #ccc;
-+      border-radius: 999px;
-+      padding: 4px 12px;
-+      font-size: 12.5px;
-+      cursor: pointer;
++      border: 1px solid var(--ve-panel-border); background: var(--ve-panel-surface);
++      color: var(--ve-panel-muted); border-radius: 999px; padding: 5px 13px;
++      font-size: 12.5px; cursor: pointer; transition: all 0.12s ease; text-transform: capitalize;
 +    }
-+
-+    .chip:hover {
-+      border-color: #666;
-+      color: #fff;
-+    }
-+
++    .chip:hover { border-color: color-mix(in srgb, var(--ve-accent) 60%, var(--ve-panel-border)); color: var(--ve-panel-text); }
 +    .chip.active {
-+      background: #5432fe;
-+      border-color: #5432fe;
-+      color: #fff;
++      background: var(--ve-accent); border-color: var(--ve-accent); color: var(--ve-accent-contrast);
++      box-shadow: 0 2px 10px color-mix(in srgb, var(--ve-accent) 45%, transparent);
 +    }
++    .chip--clear { font-weight: 650; color: var(--ve-panel-text); }
 +
-+    .includeDemo {
-+      display: flex;
-+      align-items: center;
-+      gap: 8px;
-+      font-size: 13px;
-+      color: #ccc;
-+      cursor: pointer;
-+      user-select: none;
++    /* prominent demo-content switch */
++    .demoSwitch {
++      display: flex; align-items: center; gap: 12px;
++      padding: 11px 14px; border-radius: 12px;
++      border: 1px solid var(--ve-panel-border);
++      background: var(--ve-panel-surface);
++      cursor: pointer; transition: border-color 0.15s ease, background 0.15s ease;
 +    }
++    .demoSwitch.on {
++      border-color: color-mix(in srgb, var(--ve-accent) 55%, var(--ve-panel-border));
++      background: color-mix(in srgb, var(--ve-accent) 12%, var(--ve-panel-surface));
++    }
++    .demoSwitch__control { position: relative; display: inline-flex; flex-shrink: 0; }
++    .demoSwitch input { position: absolute; opacity: 0; width: 0; height: 0; }
++    .track {
++      width: 42px; height: 24px; border-radius: 999px; background: #3a3a44;
++      display: inline-flex; align-items: center; padding: 2px; transition: background 0.18s ease;
++    }
++    .demoSwitch.on .track { background: var(--ve-accent); }
++    .thumb {
++      width: 20px; height: 20px; border-radius: 50%; background: #fff;
++      transform: translateX(0); transition: transform 0.18s cubic-bezier(0.22, 1, 0.36, 1);
++      box-shadow: 0 1px 3px rgba(0,0,0,0.4);
++    }
++    .demoSwitch.on .thumb { transform: translateX(18px); }
++    .demoSwitch__text { display: flex; flex-direction: column; gap: 1px; }
++    .demoSwitch__text strong { font-size: 13.5px; font-weight: 600; }
++    .demoSwitch__text small { font-size: 11.5px; color: var(--ve-panel-muted); line-height: 1.35; }
 +
 +    .grid {
-+      flex: 1;
-+      overflow-y: auto;
++      flex: 1; overflow-y: auto; overflow-x: hidden;
 +      display: grid;
-+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
++      grid-template-columns: repeat(var(--ve-cols, 2), minmax(0, 1fr));
 +      grid-auto-rows: 330px;
-+      gap: 16px;
-+      padding: 16px 20px 24px;
-+      align-content: start;
++      gap: 18px; padding: 18px 20px 28px; align-content: start;
++      scrollbar-width: thin; scrollbar-color: var(--ve-panel-border) transparent;
 +    }
++    .panel.cols-1 .grid { --ve-cols: 1; grid-auto-rows: 340px; }
++    .panel.cols-2 .grid { --ve-cols: 2; }
++    .grid::-webkit-scrollbar { width: 10px; }
++    .grid::-webkit-scrollbar-thumb { background: var(--ve-panel-border); border-radius: 999px; border: 3px solid var(--ve-panel-bg); }
 +
 +    .status {
-+      grid-column: 1 / -1;
-+      color: #999;
-+      text-align: center;
-+      margin: 24px 0;
++      grid-column: 1 / -1; color: var(--ve-panel-muted); text-align: center;
++      margin: 36px 0; display: flex; align-items: center; justify-content: center; gap: 10px;
 +    }
-+
-+    .status.error {
-+      color: #ff7b7b;
++    .status.error { color: #ff8484; }
++    .spinner {
++      width: 18px; height: 18px; border-radius: 50%;
++      border: 2px solid var(--ve-panel-border); border-top-color: var(--ve-accent);
++      animation: spin 0.7s linear infinite;
 +    }
++    @keyframes spin { to { transform: rotate(360deg); } }
 +
 +    .card {
-+      background: #fff;
-+      color: #1a1a1a;
-+      border-radius: 12px;
-+      overflow: hidden;
-+      cursor: grab;
-+      border: 1px solid #2c2c2c;
-+      display: flex;
-+      flex-direction: column;
++      position: relative; background: #fff; color: #16161a;
++      border-radius: 14px; overflow: hidden; cursor: grab;
++      border: 1px solid var(--ve-panel-border);
++      display: flex; flex-direction: column;
 +      height: 330px;
-+      transition: outline-color 0.12s ease, transform 0.12s ease;
-+      outline: 2px solid transparent;
++      outline: 2px solid transparent; outline-offset: 2px;
++      transition: transform 0.16s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.16s ease, outline-color 0.12s ease;
++      animation: cardIn 0.3s ease backwards;
 +    }
-+
++    @keyframes cardIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
++    .panel.cols-1 .card { height: 340px; }
 +    .card:hover {
-+      outline-color: #5432fe;
-+      transform: translateY(-1px);
++      outline-color: var(--ve-accent);
++      transform: translateY(-3px);
++      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.32);
 +    }
++    .card:active { cursor: grabbing; }
++    .card.is-dragging { opacity: 0.4; transform: scale(0.96) rotate(-1deg); }
 +
-+    .card:active {
-+      cursor: grabbing;
-+    }
-+
-+    .preview {
-+      position: relative;
-+      flex: 0 0 240px;
-+      height: 240px;
-+      overflow: hidden;
-+      background: #f4f4f5;
-+    }
-+
++    .preview { position: relative; flex: 0 0 232px; height: 232px; overflow: hidden; background: #f4f4f5; }
 +    .preview iframe {
-+      width: ${PREVIEW_RENDER_WIDTH}px;
-+      height: 960px;
-+      border: 0;
-+      transform-origin: top left;
-+      transform: scale(calc(340 / ${PREVIEW_RENDER_WIDTH}));
-+      pointer-events: none;
++      width: ${PREVIEW_RENDER_WIDTH}px; height: 900px; border: 0;
++      transform-origin: top left; transform: scale(calc(420 / ${PREVIEW_RENDER_WIDTH}));
++      pointer-events: none; animation: fadeIn 0.4s ease;
 +    }
-+
-+    .previewOverlay {
-+      position: absolute;
-+      inset: 0;
-+      /* keeps the iframe inert and makes the whole card the drag handle */
++    .panel.cols-1 .preview iframe { transform: scale(calc(840 / ${PREVIEW_RENDER_WIDTH})); }
++    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
++    .previewOverlay { position: absolute; inset: 0; }
++    .previewPlaceholder {
++      display: flex; align-items: center; justify-content: center; height: 100%;
++      color: #9a9aa3; font-size: 13px; position: relative; overflow: hidden;
++      background: linear-gradient(135deg, #f6f6f8, #ececf2);
 +    }
-+
-+    .previewFallback {
-+      display: flex;
-+      align-items: center;
-+      justify-content: center;
-+      height: 100%;
-+      color: #999;
-+      font-size: 13px;
++    .previewPlaceholder img { width: 52px; height: 52px; opacity: 0.8; }
++    .previewPlaceholder span:not(.shimmer) { padding: 0 16px; text-align: center; }
++    .shimmer {
++      position: absolute; inset: 0;
++      background: linear-gradient(100deg, transparent 30%, rgba(255,255,255,0.55) 50%, transparent 70%);
++      transform: translateX(-100%); animation: shimmer 1.4s infinite;
 +    }
++    @keyframes shimmer { to { transform: translateX(100%); } }
 +
-+    .previewFallback img {
-+      width: 48px;
-+      height: 48px;
++    .grabHint {
++      position: absolute; left: 50%; bottom: 12px; transform: translateX(-50%) translateY(8px);
++      background: rgba(22, 22, 26, 0.92); color: #fff; font-size: 11px; font-weight: 600;
++      padding: 5px 11px; border-radius: 999px; opacity: 0; pointer-events: none;
++      transition: opacity 0.16s ease, transform 0.16s ease; white-space: nowrap;
 +    }
++    .card:hover .grabHint { opacity: 1; transform: translateX(-50%) translateY(0); }
 +
-+    .meta {
-+      flex: 1 1 auto;
-+      min-height: 0;
-+      padding: 12px 14px 14px;
-+      display: flex;
-+      flex-direction: column;
-+      gap: 4px;
-+      overflow: hidden;
-+    }
-+
-+    .titleRow {
-+      display: flex;
-+      align-items: center;
-+      justify-content: space-between;
-+      gap: 8px;
-+    }
-+
-+    .titleRow strong {
-+      font-size: 14.5px;
-+    }
-+
++    .meta { flex: 1 1 auto; min-height: 0; padding: 12px 14px 14px; display: flex; flex-direction: column; gap: 5px; overflow: hidden; }
++    .titleRow { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
++    .titleRow strong { font-size: 14.5px; font-weight: 650; }
 +    .badge {
-+      flex-shrink: 0;
-+      background: #ececff;
-+      color: #4326d9;
-+      font-size: 11px;
-+      padding: 2px 8px;
-+      border-radius: 999px;
++      flex-shrink: 0; background: color-mix(in srgb, var(--ve-accent) 16%, #fff);
++      color: color-mix(in srgb, var(--ve-accent) 75%, #000);
++      font-size: 11px; font-weight: 600; padding: 2px 9px; border-radius: 999px; text-transform: capitalize;
++    }
++    .meta p {
++      margin: 0; font-size: 12.5px; color: #57575f; line-height: 1.45;
++      display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
 +    }
 +
-+    .meta p {
-+      margin: 0;
-+      font-size: 12.5px;
-+      color: #555;
-+      line-height: 1.45;
-+      display: -webkit-box;
-+      -webkit-line-clamp: 2;
-+      -webkit-box-orient: vertical;
-+      overflow: hidden;
++    @media (prefers-reduced-motion: reduce) {
++      .panel, .card, .thumb, .shimmer, .spinner, .preview iframe { animation: none !important; transition: none !important; }
 +    }
 +  `;
 +}
@@ -1104,42 +1581,71 @@ index 0000000..4bff253
 +  });
 +}
 diff --git a/Resources/Public/JavaScript/Frontend/index.js b/Resources/Public/JavaScript/Frontend/index.js
-index 7b29adf..e390717 100644
+index 7b29adf..182f9a9 100644
 --- a/Resources/Public/JavaScript/Frontend/index.js
 +++ b/Resources/Public/JavaScript/Frontend/index.js
-@@ -8,6 +8,7 @@ import '@typo3/visual-editor/Frontend/components/ve-drop-zone';
+@@ -8,7 +8,9 @@ import '@typo3/visual-editor/Frontend/components/ve-drop-zone';
  import '@typo3/visual-editor/Frontend/components/ve-icon';
  import '@typo3/visual-editor/Frontend/components/ve-error';
  import '@typo3/visual-editor/Frontend/components/ve-iframe-popup';
+-import {sendMessage} from '@typo3/visual-editor/Shared/iframe-messaging';
 +import '@typo3/visual-editor/Frontend/components/ve-editable-link';
- import {sendMessage} from '@typo3/visual-editor/Shared/iframe-messaging';
++import {sendMessage, onMessage} from '@typo3/visual-editor/Shared/iframe-messaging';
++import {elementLibraryOpen} from '@typo3/visual-editor/Shared/local-stores';
  import {initSaveScrollPosition} from '@typo3/visual-editor/Frontend/init-save-scroll-position';
  import {initializeNavigationInterception} from '@typo3/visual-editor/Frontend/initialize-navigation-interception';
-@@ -27,6 +28,14 @@ if (window.veInfo) {
+ import {initializeSaveHandling} from '@typo3/visual-editor/Frontend/initialize-save-handling';
+@@ -27,6 +29,29 @@ if (window.veInfo) {
  
  initializeSpotlightHandling();
  initializeSaveHandling();
 +
++if (window.veInfo?.elementLibraryEnabled || window.veInfo?.elementLibraryLinks) {
++  // adopt the backend theme accent (set by the backend bridge) for the
++  // library button, panel, link icons and drop-zone glow
++  onMessage('veAccent', ({color}) => {
++    if (color) {
++      document.documentElement.style.setProperty('--ve-accent-color', color);
++    }
++  });
++  sendMessage('requestAccent', null, 'parent');
++}
++
 +if (window.veInfo?.elementLibraryEnabled) {
-+  import('@typo3/visual-editor/Frontend/components/ve-element-library').then(() => {
-+    return import('@typo3/visual-editor/Frontend/components/ve-element-library-button');
-+  }).then(() => {
++  import('@typo3/visual-editor/Frontend/components/ve-element-library').then((libraryModule) => {
++    return import('@typo3/visual-editor/Frontend/components/ve-element-library-button').then(() => libraryModule);
++  }).then((libraryModule) => {
 +    document.body.appendChild(document.createElement('ve-element-library-button'));
++    // restore the persisted open/closed state (session) on page (re)load
++    if (elementLibraryOpen.get()) {
++      libraryModule.getElementLibrary().openPanel();
++    }
 +  });
 +}
  initSaveScrollPosition();
  initializeNavigationInterception();
  initializeImageHandling();
 diff --git a/Resources/Public/JavaScript/Shared/iframe-messaging.js b/Resources/Public/JavaScript/Shared/iframe-messaging.js
-index d661960..38a75ff 100644
+index d661960..80406e5 100644
 --- a/Resources/Public/JavaScript/Shared/iframe-messaging.js
 +++ b/Resources/Public/JavaScript/Shared/iframe-messaging.js
-@@ -11,6 +11,8 @@
+@@ -11,6 +11,10 @@
   * @property openInMiddleFrame {String}
   * @property localStoreChange {{key: String, value: any}}
   * @property localStoreRequest {String}
 + * @property openLinkBrowser {{src: String, title: String}}
 + * @property linkBrowserSetLink {{value: String}}
++ * @property requestAccent {null}
++ * @property veAccent {{color: String}}
   */
  
  /**
+diff --git a/Resources/Public/JavaScript/Shared/local-stores.js b/Resources/Public/JavaScript/Shared/local-stores.js
+index 898e439..a1762f7 100644
+--- a/Resources/Public/JavaScript/Shared/local-stores.js
++++ b/Resources/Public/JavaScript/Shared/local-stores.js
+@@ -50,3 +50,4 @@ export const spotlightActive = localStore('ve-spotlight-active', false);
+ export const autoSaveActive = localStore('ve-autosave-active', true);
+ export const showEmptyActive = localStore('ve-show-empty-active', false);
+ export const showHiddenActive = localStore('ve-show-hidden-active', true);
++export const elementLibraryOpen = localStore('ve-element-library-open', false);
