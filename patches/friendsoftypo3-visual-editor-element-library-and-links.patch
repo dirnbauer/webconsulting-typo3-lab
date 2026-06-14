@@ -1187,10 +1187,10 @@ index 0000000..3dc7fa1
 +customElements.define('ve-element-library-button', VeElementLibraryButton);
 diff --git a/Resources/Public/JavaScript/Frontend/components/ve-element-library.js b/Resources/Public/JavaScript/Frontend/components/ve-element-library.js
 new file mode 100644
-index 0000000..af13a20
+index 0000000..b261d15
 --- /dev/null
 +++ b/Resources/Public/JavaScript/Frontend/components/ve-element-library.js
-@@ -0,0 +1,970 @@
+@@ -0,0 +1,981 @@
 +import {css, html, LitElement} from 'lit';
 +import {classMap} from 'lit/directives/class-map.js';
 +import {repeat} from 'lit/directives/repeat.js';
@@ -1728,35 +1728,39 @@ index 0000000..af13a20
 +  #renderPreview() {
 +    const item = this.previewItem;
 +    const dragHint = lll('frontend.library.dragHint') || 'Drag onto the page';
-+    const flyoutClasses = {
-+      previewFlyout: true,
++    const wrapClasses = {
++      previewFlyoutWrap: true,
 +      collapsed: this.collapsed,
 +      [`cols-${this.columns}`]: true,
 +    };
++    // The draggable .previewFlyout sits inside a positioning wrapper. During a
++    // drag the WRAPPER slides off-canvas (collapsed), never the flyout itself -
++    // moving the dragged element via its own transform cancels the native drag.
 +    return html`
-+      <div
-+        class=${classMap(flyoutClasses)}
-+        part="preview"
-+        draggable="true"
-+        @dragstart="${(event) => this.#previewDragStart(event, item)}"
-+        @dragend="${this.#previewDragEnd}"
-+        @mouseenter="${this.#cancelClosePreview}"
-+        @mouseleave="${this.#scheduleClosePreview}"
-+      >
-+        <div class="previewStage">
-+          <span class="spinner previewSpinner" aria-hidden="true"></span>
-+          ${item.previewUrl
-+            ? html`<iframe class="previewFrame" src="${item.previewUrl}" scrolling="no" tabindex="-1"
-+                          @load="${(event) => this.#onFlyoutLoad(event)}"></iframe>`
-+            : ''}
-+        </div>
-+        <div class="previewCaption">
-+          <strong class="previewTitle">${item.title}</strong>
-+          <span class="badge">${item.group}</span>
-+          <span class="previewDragHint">
-+            <svg viewBox="0 0 24 24" width="13" height="13" aria-hidden="true"><path d="M12 4v10M12 14l-3.2-3.2M12 14l3.2-3.2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M5 16v2.5A1.5 1.5 0 0 0 6.5 20h11a1.5 1.5 0 0 0 1.5-1.5V16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-+            ${dragHint}
-+          </span>
++      <div class=${classMap(wrapClasses)} part="preview">
++        <div
++          class="previewFlyout"
++          draggable="true"
++          @dragstart="${(event) => this.#previewDragStart(event, item)}"
++          @dragend="${this.#previewDragEnd}"
++          @mouseenter="${this.#cancelClosePreview}"
++          @mouseleave="${this.#scheduleClosePreview}"
++        >
++          <div class="previewStage">
++            <span class="spinner previewSpinner" aria-hidden="true"></span>
++            ${item.previewUrl
++              ? html`<iframe class="previewFrame" src="${item.previewUrl}" scrolling="no" tabindex="-1"
++                            @load="${(event) => this.#onFlyoutLoad(event)}"></iframe>`
++              : ''}
++          </div>
++          <div class="previewCaption">
++            <strong class="previewTitle">${item.title}</strong>
++            <span class="badge">${item.group}</span>
++            <span class="previewDragHint">
++              <svg viewBox="0 0 24 24" width="13" height="13" aria-hidden="true"><path d="M12 4v10M12 14l-3.2-3.2M12 14l3.2-3.2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M5 16v2.5A1.5 1.5 0 0 0 6.5 20h11a1.5 1.5 0 0 0 1.5-1.5V16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
++              ${dragHint}
++            </span>
++          </div>
 +        </div>
 +      </div>
 +    `;
@@ -2092,24 +2096,31 @@ index 0000000..af13a20
 +    }
 +
 +    /* enlarged preview flyout: hover-opened, sits in the canvas left of the
-+       panel, and is itself a drag source (drop it straight onto the page) */
-+    .previewFlyout {
++       panel, and is itself a drag source (drop it straight onto the page).
++       The draggable .previewFlyout lives inside a positioning .previewFlyoutWrap;
++       during a drag the WRAPPER slides off-canvas, never the dragged element -
++       transforming the dragged element itself cancels the native drag in
++       Chromium (same reason the panel, not the card, slides away). */
++    .previewFlyoutWrap {
 +      position: fixed; top: 50%; z-index: 100001;
 +      right: calc(min(460px, 94vw) + 18px);
 +      transform: translateY(-50%);
++      max-width: 92vw; max-height: 92vh;
++      animation: vePreviewIn 0.18s cubic-bezier(0.22, 1, 0.36, 1);
++    }
++    .previewFlyoutWrap.cols-2 { right: calc(min(860px, 94vw) + 18px); }
++    .previewFlyoutWrap.collapsed { transform: translate(-130%, -50%); }
++    @keyframes vePreviewIn { from { opacity: 0; transform: translate(10px, -50%); } to { opacity: 1; transform: translate(0, -50%); } }
++
++    .previewFlyout {
 +      display: flex; flex-direction: column;
 +      max-width: 92vw; max-height: 92vh;
 +      background: var(--ve-panel-surface); color: var(--ve-panel-text);
 +      border: 1.5px solid color-mix(in srgb, var(--ve-accent) 55%, var(--ve-panel-border));
 +      border-radius: var(--ve-card-radius); overflow: hidden; cursor: grab;
 +      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), 0 0 0 1px color-mix(in srgb, var(--ve-accent) 22%, transparent);
-+      animation: vePreviewIn 0.18s cubic-bezier(0.22, 1, 0.36, 1);
 +    }
-+    .previewFlyout.cols-2 { right: calc(min(860px, 94vw) + 18px); }
 +    .previewFlyout:active { cursor: grabbing; }
-+    /* slide off-canvas; keep pointer-events ON - flyout is the drag source, none aborts the drag */
-+    .previewFlyout.collapsed { transform: translate(-130%, -50%); box-shadow: none; }
-+    @keyframes vePreviewIn { from { opacity: 0; transform: translate(10px, -50%); } to { opacity: 1; transform: translate(0, -50%); } }
 +
 +    .previewStage {
 +      position: relative; overflow: hidden; background: var(--ve-panel-bg);
@@ -2142,7 +2153,7 @@ index 0000000..af13a20
 +
 +    @media (prefers-reduced-motion: reduce) {
 +      .panel, .card, .thumb, .shimmer, .spinner, .preview iframe,
-+      .previewFlyout, .previewStage, .previewFrame, .loupeButton { animation: none !important; transition: none !important; }
++      .previewFlyoutWrap, .previewFlyout, .previewStage, .previewFrame, .loupeButton { animation: none !important; transition: none !important; }
 +    }
 +  `;
 +}
