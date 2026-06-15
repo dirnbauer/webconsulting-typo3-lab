@@ -20,6 +20,8 @@ apps/*/.next/
 scripts/*
 /var/labels/*
 /packages/bad_shop_watch/
+# Separate repo (github.com/dirnbauer/typo3-a2ui-integration), referenced via composer path repo
+/packages/a2ui_integration/
 /backup-*/
 /.tarballs/*
 !/.tarballs/README.md

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "eff66617064ad0a4a1e60c8c45db3bbb",
+    "content-hash": "46ef8d79a4bff6e3fa946f18f2e63582",
     "packages": [
         {
             "name": "apache-solr-for-typo3/solr",
@@ -11971,6 +11971,66 @@
             "time": "2026-05-11T18:48:09+00:00"
         },
         {
+            "name": "webconsulting/a2ui-integration",
+            "version": "2.1.0",
+            "dist": {
+                "type": "path",
+                "url": "packages/a2ui_integration",
+                "reference": "73e1f3175f17fa12a2ce61b6ae9a9b17043fb58b"
+            },
+            "require": {
+                "php": "^8.3",
+                "typo3/cms-backend": "^14.3",
+                "typo3/cms-core": "^14.3",
+                "typo3/cms-extbase": "^14.3",
+                "typo3/cms-fluid": "^14.3"
+            },
+            "suggest": {
+                "friendsoftypo3/content-blocks": "Provides the frontend 'AI Smart Inquiry' content element.",
+                "netresearch/nr-llm": "Enables real LLM-driven A2UI generation (OpenAI/Claude/Gemini/...). Without it the bundled deterministic generator is used."
+            },
+            "type": "typo3-cms-extension",
+            "extra": {
+                "typo3/cms": {
+                    "extension-key": "a2ui_integration"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Webconsulting\\A2uiIntegration\\": "Classes/"
+                }
+            },
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "webconsulting GmbH",
+                    "email": "office@webconsulting.at",
+                    "homepage": "https://webconsulting.at"
+                }
+            ],
+            "description": "A2UI Protocol v1.0 integration for TYPO3 v14 - an AI agent describes a UI as declarative JSON, a trusted client renders it with native backend components.",
+            "homepage": "https://webconsulting.at",
+            "keywords": [
+                "A2UI",
+                "AI",
+                "TYPO3",
+                "agent",
+                "generative-ui",
+                "genui",
+                "llm"
+            ],
+            "support": {
+                "issues": "https://github.com/dirnbauer/typo3-a2ui-integration/issues",
+                "source": "https://github.com/dirnbauer/typo3-a2ui-integration"
+            },
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
             "name": "webconsulting/agentation",
             "version": "v1.1.2",
             "source": {
@@ -12434,7 +12494,7 @@
             "dist": {
                 "type": "path",
                 "url": "packages/site_package",
-                "reference": "931d84db222baf359085f633cd8b99f7cccc2f15"
+                "reference": "8b4c83dbd3a079e1d1223fff780349d11f99ec29"
             },
             "require": {
                 "apache-solr-for-typo3/solr": "^14.0@beta",

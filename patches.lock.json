@@ -1,5 +1,5 @@
 {
-    "_hash": "507287dce553ea67b847f3814facbd7d9d32e3c79250a26803512f4548ed1c45",
+    "_hash": "728bb14771ab64f15701e0d902d9cf6a8a7fef03903fae42e404dd7dab9d892d",
     "patches": {
         "netresearch/nr-vault": [
             {
@@ -50,7 +50,7 @@
                 "package": "friendsoftypo3/visual-editor",
                 "description": "Element library panel and inline link editing",
                 "url": "patches/friendsoftypo3-visual-editor-element-library-and-links.patch",
-                "sha256": "6ae3a8a4baa4df7cd4228790df00e027c7e39fbe31e858be6cd48dfe6739169c",
+                "sha256": "5d4f0813bdbac536747b5690a9949f1879cdd2cd99c8fd864dc5bbe061084dee",
                 "depth": 1,
                 "extra": {
                     "provenance": "root"
@@ -61,6 +61,48 @@
                 "description": "Do not send tx_container_parent:0 on drag move when EXT:container is absent",
                 "url": "patches/friendsoftypo3-visual-editor-fix-tx-container-parent-zero.patch",
                 "sha256": "34a460baaa7d8b96616ba62da699d034d64f567d55f591808162fb41d2a5661c",
+                "depth": 1,
+                "extra": {
+                    "provenance": "root"
+                }
+            }
+        ],
+        "webconsulting/desiderio": [
+            {
+                "package": "webconsulting/desiderio",
+                "description": "Skip the astro count-up animation in the Visual Editor so stat numbers stay inline-editable",
+                "url": "patches/webconsulting-desiderio-skip-astro-counter-in-visual-editor.patch",
+                "sha256": "58d2e6911831477a2928ed61029d39d97ed0795dc8d7c83df2f86ebc9cf89434",
+                "depth": 1,
+                "extra": {
+                    "provenance": "root"
+                }
+            },
+            {
+                "package": "webconsulting/desiderio",
+                "description": "Remove the unintended card shadow on testimonials (stray line at the foot of the card)",
+                "url": "patches/webconsulting-desiderio-remove-testimonial-card-shadow.patch",
+                "sha256": "f0105ffa7a91555024778b879738af90b25cdafc97670438d022ae69cd677844",
+                "depth": 1,
+                "extra": {
+                    "provenance": "root"
+                }
+            },
+            {
+                "package": "webconsulting/desiderio",
+                "description": "Add short (40%-shorter, bold/italic) element-library card blurbs in de+en via a per-host library_short.xlf catalog",
+                "url": "patches/webconsulting-desiderio-element-library-short-descriptions.patch",
+                "sha256": "1b28ff91f7123640cd8b9af9f5db7e891843841adfcca8b067aecc47bed39d7a",
+                "depth": 1,
+                "extra": {
+                    "provenance": "root"
+                }
+            },
+            {
+                "package": "webconsulting/desiderio",
+                "description": "Make element-library previews cacheable in an edit session (disable admin panel for elPreview requests so the page cache is used)",
+                "url": "patches/webconsulting-desiderio-element-library-preview-cache.patch",
+                "sha256": "91dc9499f222bd98dd00cf8ddd21ebc69aa77d0b1f2069b3e4b09e7c90052ef5",
                 "depth": 1,
                 "extra": {
                     "provenance": "root"
