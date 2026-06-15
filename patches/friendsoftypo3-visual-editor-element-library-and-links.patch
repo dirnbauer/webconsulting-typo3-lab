@@ -375,10 +375,10 @@ index 0000000..34aa00a
 +);
 diff --git a/Resources/Private/Language/de.locallang_library.xlf b/Resources/Private/Language/de.locallang_library.xlf
 new file mode 100644
-index 0000000..e080bfd
+index 0000000..a253c89
 --- /dev/null
 +++ b/Resources/Private/Language/de.locallang_library.xlf
-@@ -0,0 +1,89 @@
+@@ -0,0 +1,113 @@
 +<?xml version="1.0" encoding="UTF-8"?>
 +<xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" version="2.0" srcLang="en" trgLang="de">
 +  <file id="visual_editor_library" original="EXT:visual_editor/Resources/Private/Language/locallang_library.xlf">
@@ -416,6 +416,24 @@ index 0000000..e080bfd
 +      <segment state="final">
 +        <source>Insert with example content</source>
 +        <target>Mit Beispielinhalt einfügen</target>
++      </segment>
++    </unit>
++    <unit id="frontend.library.includeDemo.short">
++      <segment state="final">
++        <source>Demo content</source>
++        <target>Demo-Inhalt</target>
++      </segment>
++    </unit>
++    <unit id="frontend.library.includeDemo.pill.on">
++      <segment state="final">
++        <source>With demo content</source>
++        <target>Mit Demo-Inhalt</target>
++      </segment>
++    </unit>
++    <unit id="frontend.library.includeDemo.pill.off">
++      <segment state="final">
++        <source>Without demo content</source>
++        <target>Ohne Demo-Inhalt</target>
 +      </segment>
 +    </unit>
 +    <unit id="frontend.library.includeDemo.hint.on">
@@ -464,6 +482,12 @@ index 0000000..e080bfd
 +      <segment state="final">
 +        <source>Enlarge preview</source>
 +        <target>Vorschau vergrößern</target>
++      </segment>
++    </unit>
++    <unit id="frontend.library.preview">
++      <segment state="final">
++        <source>Preview</source>
++        <target>Vorschau</target>
 +      </segment>
 +    </unit>
 +  </file>
@@ -559,10 +583,10 @@ index 0000000..1574ae6
 +</xliff>
 diff --git a/Resources/Private/Language/locallang_library.xlf b/Resources/Private/Language/locallang_library.xlf
 new file mode 100644
-index 0000000..55f2bca
+index 0000000..59e4d44
 --- /dev/null
 +++ b/Resources/Private/Language/locallang_library.xlf
-@@ -0,0 +1,75 @@
+@@ -0,0 +1,95 @@
 +<?xml version="1.0" encoding="UTF-8"?>
 +<xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" version="2.0" srcLang="en">
 +  <file id="visual_editor_library" original="EXT:visual_editor/Resources/Private/Language/locallang_library.xlf">
@@ -594,6 +618,21 @@ index 0000000..55f2bca
 +    <unit id="frontend.library.includeDemo.label">
 +      <segment>
 +        <source>Insert with example content</source>
++      </segment>
++    </unit>
++    <unit id="frontend.library.includeDemo.short">
++      <segment>
++        <source>Demo content</source>
++      </segment>
++    </unit>
++    <unit id="frontend.library.includeDemo.pill.on">
++      <segment>
++        <source>With demo content</source>
++      </segment>
++    </unit>
++    <unit id="frontend.library.includeDemo.pill.off">
++      <segment>
++        <source>Without demo content</source>
 +      </segment>
 +    </unit>
 +    <unit id="frontend.library.includeDemo.hint.on">
@@ -634,6 +673,11 @@ index 0000000..55f2bca
 +    <unit id="frontend.library.zoom">
 +      <segment>
 +        <source>Enlarge preview</source>
++      </segment>
++    </unit>
++    <unit id="frontend.library.preview">
++      <segment>
++        <source>Preview</source>
 +      </segment>
 +    </unit>
 +  </file>
@@ -769,7 +813,7 @@ index f104dcb..d77be88 100644
    const parsedHref = new URL(href, window.location.href);
    // keep the origin of the current window to avoid CORS issues in the Backend.
 diff --git a/Resources/Public/JavaScript/Frontend/components/ve-content-element.js b/Resources/Public/JavaScript/Frontend/components/ve-content-element.js
-index 770e863..d4a0bfc 100644
+index 770e863..1b0ae93 100644
 --- a/Resources/Public/JavaScript/Frontend/components/ve-content-element.js
 +++ b/Resources/Public/JavaScript/Frontend/components/ve-content-element.js
 @@ -71,6 +71,12 @@ export class VeContentElement extends LitElement {
@@ -785,7 +829,26 @@ index 770e863..d4a0bfc 100644
    _addAbove() {
      const newContentUrl = window.veInfo.newContentUrl
        .replace('__COL_POS__', this.colPos)
-@@ -224,6 +230,7 @@ export class VeContentElement extends LitElement {
+@@ -136,10 +142,18 @@ export class VeContentElement extends LitElement {
+   #onDragInProgressChange() {
+     if (!dragInProgressStore.value) {
+       this.dragInProgress = false;
++      this.style.zIndex = '';
+     }
+     setTimeout(() => {
+       // delay the dragInProgress set to true, so the drag handle can be "screenshot". (to create the drag ghost image) (otherwise the drag will immediately end in chromium based browsers)
+       this.dragInProgress = !!dragInProgressStore.value;
++      // During a drag, paint earlier elements above later ones so each element's
++      // drop zone (which hangs ~30px into the next element) shows on top instead
++      // of being covered by the following content element - otherwise only the
++      // per-column top zones are visible and you cannot target between positions.
++      this.style.zIndex = (this.dragInProgress && this.hasContentAreaAsParent)
++        ? String(100000 - Array.prototype.indexOf.call(this.parentElement.children, this))
++        : '';
+     });
+   }
+ 
+@@ -224,6 +238,7 @@ export class VeContentElement extends LitElement {
      const toggleLabel = lll('frontend.showContentElement');
      const deleteLabel = lll('frontend.deleteContentElement');
      const addLabel = lll('frontend.addContentElementButton');
@@ -793,7 +856,7 @@ index 770e863..d4a0bfc 100644
      const actionBar = html`
        <ve-drag-handle
          table="${this.table}" uid="${this.uid}" CType="${this.CType}"
-@@ -273,6 +280,13 @@ export class VeContentElement extends LitElement {
+@@ -273,6 +288,13 @@ export class VeContentElement extends LitElement {
              </button>
            ` : ''
          }
@@ -916,10 +979,10 @@ index dbb8967..eb567b2 100644
        max-width: 100%;
 diff --git a/Resources/Public/JavaScript/Frontend/components/ve-editable-link.js b/Resources/Public/JavaScript/Frontend/components/ve-editable-link.js
 new file mode 100644
-index 0000000..68fcd30
+index 0000000..a64a4cb
 --- /dev/null
 +++ b/Resources/Public/JavaScript/Frontend/components/ve-editable-link.js
-@@ -0,0 +1,144 @@
+@@ -0,0 +1,156 @@
 +import {css, html, LitElement} from 'lit';
 +import {lll} from '@typo3/core/lit-helper.js';
 +import {sendMessage, onMessage} from '@typo3/visual-editor/Shared/iframe-messaging';
@@ -991,7 +1054,10 @@ index 0000000..68fcd30
 +    if (!window.veInfo?.elementLibraryLinks) {
 +      return html``;
 +    }
-+    const title = (lll('frontend.editLink') || 'Edit link') + (this.name ? ': ' + this.name : '');
++    const label = lll('frontend.editLink') || 'Edit link';
++    const title = label + (this.name ? ': ' + this.name : '');
++    // Icon-only "edit link" badge: the link icon plus a tooltip (title) is the
++    // whole control - the accessible name comes from aria-label/title.
 +    return html`
 +      <button type="button" class="linkButton" @click="${this.#openLinkBrowser}" title="${title}" aria-label="${title}">
 +        <ve-icon name="actions-link" width="1em"></ve-icon>
@@ -1002,49 +1068,58 @@ index 0000000..68fcd30
 +  static styles = css`
 +    :host {
 +      display: inline-block;
-+      vertical-align: baseline;
++      vertical-align: middle;
 +      /* Blend the brand accent toward the inherited text colour (currentColor)
 +         so the control follows the surrounding template section's own light/dark
 +         style: a lighter purple on dark sections, a darker purple on light ones.
 +         This works regardless of how the section sets its scheme (.dark class,
 +         local --foreground tokens, etc.) because it just follows the text. */
-+      --ve-accent: color-mix(in srgb, var(--ve-accent-color, #7c5ac4) 70%, currentColor);
-+      --ve-accent-fill: 16%;
++      --ve-accent: color-mix(in srgb, var(--ve-accent-color, #7c5ac4) 55%, currentColor);
++      --ve-accent-fill: 18%;
 +    }
 +
++    /* "Edit link" badge tucked INTO the right side of the button it edits: a
++       negative inline margin overlaps it onto the button's right edge (the
++       <ve-editable-link> is the button's immediate next sibling). A solid
++       brand-purple chip with a white icon + light ring keeps it legible on a
++       dark OR light button. The 1.5rem (24px) floor meets the WCAG 2.2 SC 2.5.8
++       target-size minimum. */
 +    .linkButton {
++      position: relative;
++      z-index: 1;
 +      display: inline-flex;
 +      align-items: center;
 +      justify-content: center;
-+      /* WCAG 2.2 SC 2.5.8 Target Size (Minimum, AA): the clickable target
-+         must be at least 24x24 CSS px. 1.7em scales the button with the
-+         surrounding text, but border-box + a 24px floor guarantees the
-+         bounding box never drops below the threshold next to small text. */
 +      box-sizing: border-box;
-+      width: 1.7em;
-+      height: 1.7em;
-+      min-width: 24px;
-+      min-height: 24px;
++      width: max(1.5rem, 1.5em);
++      height: max(1.5rem, 1.5em);
 +      padding: 0;
-+      margin-inline-start: 0.3em;
-+      border: 1px solid color-mix(in srgb, var(--ve-accent) 55%, transparent);
-+      border-radius: 0.35em;
-+      background: color-mix(in srgb, var(--ve-accent) var(--ve-accent-fill), transparent);
-+      color: var(--ve-accent);
++      /* pull left so the badge's right edge sits ~0.45rem inside the button box */
++      margin-inline-start: calc(-0.45rem - max(1.5rem, 1.5em));
++      border: 1.5px solid rgba(255, 255, 255, 0.7);
++      border-radius: 50%;
++      background: var(--ve-accent-color, #7c5ac4);
++      color: #fff;
 +      cursor: pointer;
++      line-height: 1;
++      vertical-align: middle;
 +      transition: background 0.12s ease, transform 0.12s ease, box-shadow 0.12s ease;
 +      animation: linkPulse 2.4s ease-in-out 3;
 +    }
 +
++    .linkButton ve-icon { display: inline-flex; }
++
 +    .linkButton:hover {
-+      background: color-mix(in srgb, var(--ve-accent) 28%, transparent);
-+      transform: translateY(-1px);
-+      box-shadow: 0 3px 10px color-mix(in srgb, var(--ve-accent) 40%, transparent);
++      background: color-mix(in srgb, var(--ve-accent-color, #7c5ac4) 82%, #000);
++      transform: scale(1.1);
++      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
 +    }
 +
++    .linkButton:focus-visible { outline: 2px solid #fff; outline-offset: 1px; }
++
 +    @keyframes linkPulse {
-+      0%, 100% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--ve-accent) 40%, transparent); }
-+      50% { box-shadow: 0 0 0 4px color-mix(in srgb, var(--ve-accent) 0%, transparent); }
++      0%, 100% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--ve-accent-color, #7c5ac4) 50%, transparent); }
++      50% { box-shadow: 0 0 0 5px color-mix(in srgb, var(--ve-accent-color, #7c5ac4) 0%, transparent); }
 +    }
 +
 +    @media (prefers-reduced-motion: reduce) {
@@ -1066,10 +1141,10 @@ index 0000000..68fcd30
 +customElements.define('ve-editable-link', VeEditableLink);
 diff --git a/Resources/Public/JavaScript/Frontend/components/ve-element-library-button.js b/Resources/Public/JavaScript/Frontend/components/ve-element-library-button.js
 new file mode 100644
-index 0000000..3dc7fa1
+index 0000000..7f74186
 --- /dev/null
 +++ b/Resources/Public/JavaScript/Frontend/components/ve-element-library-button.js
-@@ -0,0 +1,115 @@
+@@ -0,0 +1,124 @@
 +import {css, html, LitElement} from 'lit';
 +import {lll} from '@typo3/core/lit-helper.js';
 +import {dragInProgressStore} from '@typo3/visual-editor/Frontend/stores/drag-store';
@@ -1165,14 +1240,23 @@ index 0000000..3dc7fa1
 +      cursor: pointer;
 +      box-shadow: 0 0 0 2px var(--ve-fab-ring), 0 8px 22px color-mix(in srgb, var(--ve-accent) 50%, transparent), 0 2px 6px rgba(0,0,0,0.25);
 +      z-index: 100001;
-+      transition: transform 0.14s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.14s ease, background 0.14s ease;
++      transition: transform 0.14s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.14s ease, background 0.14s ease, top 0.22s cubic-bezier(0.22, 1, 0.36, 1), right 0.22s cubic-bezier(0.22, 1, 0.36, 1);
 +    }
 +    .fab:hover { transform: translateY(-1px) scale(1.06); box-shadow: 0 0 0 2px var(--ve-fab-ring), 0 12px 28px color-mix(in srgb, var(--ve-accent) 55%, transparent); }
 +    .fab:active { transform: translateY(0) scale(0.98); }
 +
 +    .icon { transition: transform 0.22s cubic-bezier(0.22, 1, 0.36, 1); }
 +    .fab.open .icon { transform: rotate(135deg); }
-+    .fab.open { background: color-mix(in srgb, var(--ve-accent) 78%, #000); }
++    /* open: the "x" nests cleanly inside the panel's top-right corner. The panel
++       now floats (inset-block:12px) with a soft shadow, so nudge the button down
++       and in (was hanging over the panel's edge) and use a tighter shadow since
++       it now rests on the panel surface rather than over the canvas. */
++    .fab.open {
++      top: 20px;
++      right: 20px;
++      background: color-mix(in srgb, var(--ve-accent) 78%, #000);
++      box-shadow: 0 0 0 2px var(--ve-fab-ring), 0 6px 18px color-mix(in srgb, var(--ve-accent) 38%, transparent), 0 2px 6px rgba(0, 0, 0, 0.28);
++    }
 +
 +    @media (prefers-color-scheme: light) {
 +      :host { --ve-fab-ring: rgba(20, 20, 26, 0.5); }
@@ -1187,10 +1271,10 @@ index 0000000..3dc7fa1
 +customElements.define('ve-element-library-button', VeElementLibraryButton);
 diff --git a/Resources/Public/JavaScript/Frontend/components/ve-element-library.js b/Resources/Public/JavaScript/Frontend/components/ve-element-library.js
 new file mode 100644
-index 0000000..b261d15
+index 0000000..377f4b1
 --- /dev/null
 +++ b/Resources/Public/JavaScript/Frontend/components/ve-element-library.js
-@@ -0,0 +1,981 @@
+@@ -0,0 +1,1153 @@
 +import {css, html, LitElement} from 'lit';
 +import {classMap} from 'lit/directives/class-map.js';
 +import {repeat} from 'lit/directives/repeat.js';
@@ -1198,7 +1282,7 @@ index 0000000..b261d15
 +import {dragInProgressStore} from '@typo3/visual-editor/Frontend/stores/drag-store';
 +import {initVelocityScroll} from '@typo3/visual-editor/Frontend/components/ve-drag-handle/velocity-scroll';
 +import {filterItems} from '@typo3/visual-editor/Frontend/components/ve-element-library/filter';
-+import {elementLibraryOpen, elementLibraryIncludeDemo} from '@typo3/visual-editor/Shared/local-stores';
++import {elementLibraryOpen, elementLibraryIncludeDemo, elementLibrarySearch, elementLibraryCategories} from '@typo3/visual-editor/Shared/local-stores';
 +
 +const PREVIEW_RENDER_WIDTH = 1280;
 +
@@ -1224,8 +1308,11 @@ index 0000000..b261d15
 +/**
 + * Thumbnail display width in px: the card preview iframe (PREVIEW_RENDER_WIDTH
 + * wide) is scaled down to this, mirroring the .preview iframe CSS transform.
++ * COLS2 is the narrower 2-column ("Wide" setting) variant - ~33% smaller, so
++ * that layout is a compact overview while 1 column shows bigger previews.
 + */
 +const PREVIEW_DISPLAY_WIDTH = 420;
++const PREVIEW_DISPLAY_WIDTH_COLS2 = 270;
 +
 +/**
 + * The per-card "magnify" button opens an enlarged preview at this multiple of
@@ -1241,6 +1328,32 @@ index 0000000..b261d15
 + * flyout (which is itself a drag source) without it vanishing underfoot.
 + */
 +const PREVIEW_FLYOUT_CLOSE_DELAY = 320;
++
++/**
++ * Renders a tiny inline-emphasis subset of Markdown - **bold** and *italic* -
++ * as a Lit template. Used for the short card blurbs so an editor can highlight
++ * the key term at a glance. Everything outside the markers stays plain text
++ * (Lit escapes interpolated strings), so no arbitrary HTML can be injected.
++ * @param {string} text
++ * @return {Array<string|import('lit').TemplateResult>}
++ */
++function renderInlineEmphasis(text) {
++  const out = [];
++  const re = /\*\*([^*]+)\*\*|\*([^*]+)\*/g;
++  let last = 0;
++  let match;
++  while ((match = re.exec(text)) !== null) {
++    if (match.index > last) {
++      out.push(text.slice(last, match.index));
++    }
++    out.push(match[1] !== undefined ? html`<strong>${match[1]}</strong>` : html`<em>${match[2]}</em>`);
++    last = re.lastIndex;
++  }
++  if (last < text.length) {
++    out.push(text.slice(last));
++  }
++  return out;
++}
 +
 +/**
 + * Element library side panel: a browsable, filterable catalog of all content
@@ -1268,6 +1381,7 @@ index 0000000..b261d15
 +    includeDemo: {type: Boolean, state: true, attribute: false},
 +    loadedPreviews: {type: Object, state: true, attribute: false},
 +    previewItem: {type: Object, state: true, attribute: false},
++    draggingCType: {type: String, state: true, attribute: false},
 +  };
 +
 +  constructor() {
@@ -1278,12 +1392,15 @@ index 0000000..b261d15
 +    this.error = '';
 +    this.items = [];
 +    this.categories = [];
-+    this.selectedGroups = new Set();
-+    this.searchTerm = '';
++    // search term + selected categories persist across page loads (same local
++    // store as the open/demo state), so the filter survives navigating away.
++    this.selectedGroups = new Set(Array.isArray(elementLibraryCategories.get()) ? elementLibraryCategories.get() : []);
++    this.searchTerm = elementLibrarySearch.get() || '';
 +    this.includeDemo = this.#resolveIncludeDemoDefault();
 +    this.loadedPreviews = new Set();
 +    this.previewItem = null;
 +    this.previewCloseTimer = null;
++    this.draggingCType = '';
 +    this.columns = Math.max(1, Math.min(2, parseInt(window.veInfo?.elementLibraryColumns, 10) || 2));
 +
 +    this.onDragInProgressChange = this.#onDragInProgressChange.bind(this);
@@ -1375,48 +1492,115 @@ index 0000000..b261d15
 +  }
 +
 +  #onDragInProgressChange() {
-+    // Slide out of the way while a drag is running so the drop zones are
-+    // reachable. transform (not display) - hiding the drag source mid-drag
-+    // would abort the native HTML5 drag operation.
++    // Slide the panel out of the way while a (card) drag is running so the drop
++    // zones are reachable. The enlarged-preview flyout is not a drag source, so
++    // if it happens to be open when a drag starts, just close it.
 +    this.collapsed = !!dragInProgressStore.value;
++    if (this.collapsed) {
++      this.#closePreview();
++    }
 +  }
 +
 +  #toggleGroup(group) {
 +    const next = new Set(this.selectedGroups);
 +    next.has(group) ? next.delete(group) : next.add(group);
 +    this.selectedGroups = next;
++    elementLibraryCategories.set([...next]);
 +  }
 +
 +  #clearFilters() {
 +    this.selectedGroups = new Set();
 +    this.searchTerm = '';
++    elementLibraryCategories.set([]);
++    elementLibrarySearch.set('');
 +  }
 +
 +  /**
-+   * @param {DragEvent} event
++   * The ve-drag payload read by <ve-drop-zone>. `uid: -1` never collides with a
++   * drop zone's own uid; libraryMode picks copy-the-demo-record vs create-empty.
 +   * @param {Object} item
 +   */
-+  #cardDragStart(event, item) {
-+    event.dataTransfer.effectAllowed = 'copyMove';
-+    event.dataTransfer.clearData();
-+
-+    const info = {
++  #dragData(item) {
++    return {
 +      table: 'tt_content',
-+      // -1: never collides with a drop zone's own uid (0 = top zones)
 +      uid: -1,
 +      CType: item.cType,
 +      libraryMode: this.includeDemo && item.demoUid > 0 ? 'copy' : 'new',
 +      demoUid: item.demoUid,
 +    };
-+    event.dataTransfer.setData('text/ve-drag', JSON.stringify(info));
-+    event.currentTarget.classList.add('is-dragging');
-+    dragInProgressStore.value = info;
++  }
++
++  /**
++   * Begins an element drag from a card or the enlarged preview. HTML5 drag-and-
++   * drop is imperative, so dataTransfer is set directly; the source card is
++   * dimmed reactively via `draggingCType` (a classMap binding) rather than a
++   * manual classList, which a re-render would clobber.
++   * @param {DragEvent} event
++   * @param {Object} item
++   */
++  #startDrag(event, item) {
++    const data = this.#dragData(item);
++    event.dataTransfer.effectAllowed = 'copyMove';
++    event.dataTransfer.clearData();
++    event.dataTransfer.setData('text/ve-drag', JSON.stringify(data));
++    this.draggingCType = item.cType;
++    dragInProgressStore.value = data;
 +    initVelocityScroll(event);
 +  }
 +
-+  #cardDragEnd(event) {
-+    event.currentTarget.classList.remove('is-dragging');
++  #endDrag() {
++    this.draggingCType = '';
 +    dragInProgressStore.value = false;
++  }
++
++  /**
++   * Hide the TYPO3 frontend admin panel inside a (same-origin) preview iframe. It
++   * is editor chrome - irrelevant clutter in the library thumbnails and the
++   * enlarged preview, and it sits on top of the rendered element. Injected as a
++   * stylesheet so it also covers a panel that JS mounts after load.
++   * @param {HTMLIFrameElement} iframe
++   */
++  #hideAdminPanel(iframe) {
++    try {
++      const doc = iframe.contentDocument;
++      if (!doc || doc.getElementById('ve-hide-adminpanel')) {
++        return;
++      }
++      const style = doc.createElement('style');
++      style.id = 've-hide-adminpanel';
++      style.textContent = '#TSFE_ADMIN_PANEL_FORM,.typo3-adminPanel,#typo3-adminPanel,typo3-adminpanel,.t3-adminPanel,#admPanel{display:none!important}';
++      (doc.head || doc.documentElement).appendChild(style);
++    } catch (error) {
++      // cross-origin or detached document - nothing we can (or need to) hide
++    }
++  }
++
++  /**
++   * Card thumbnails ONLY (never the enlarged flyout): make the rendered element
++   * read like a compact thumbnail - shrink the root font so the type is
++   * "zusammengestaucht", and cut the leading section's top padding to a minimum
++   * (desiderio sections ship a big py-16/py-24 that wastes the top of the box).
++   * Same-origin preview, so the document is writable; bail on any access error.
++   * @param {HTMLIFrameElement} iframe
++   */
++  #compactPreview(iframe) {
++    try {
++      const doc = iframe.contentDocument;
++      if (!doc || doc.getElementById('ve-compact-preview')) {
++        return;
++      }
++      const style = doc.createElement('style');
++      style.id = 've-compact-preview';
++      // desiderio sections ship a big py-16/py-24; in a zoomed-out thumbnail that
++      // is mostly empty space, so tighten the section padding to keep the content
++      // (the actual "Gesamteindruck") prominent rather than the whitespace.
++      style.textContent =
++        '.desiderio-section{padding-block:14px!important}' +
++        'body>*:first-child{padding-block-start:14px!important}';
++      (doc.head || doc.documentElement).appendChild(style);
++    } catch (error) {
++      // cross-origin or detached - leave the preview untouched
++    }
 +  }
 +
 +  // --- lazy preview loading -------------------------------------------------
@@ -1471,19 +1655,19 @@ index 0000000..b261d15
 +   * @param {Event} event iframe load event
 +   */
 +  #onPreviewLoad(event) {
++    this.#hideAdminPanel(event.target);
++    this.#compactPreview(event.target);
 +    this.#fitPreview(event.target);
 +    this.#onPreviewSettled();
 +  }
 +
 +  /**
-+   * Some elements (announcement bars, single buttons, short teasers) render
-+   * only a fraction of the preview box tall, leaving it mostly empty. Measure
-+   * the real content height and, when it is much shorter than the box, zoom the
-+   * thumbnail in (capped at PREVIEW_MAX_ZOOM) so small elements stay legible.
-+   * Taller elements keep the base scale and show their top edge. The base scale
-+   * is read from the already-applied CSS transform, so it stays correct for any
-+   * column count. Same-origin preview, so contentDocument is readable; bail on
-+   * any access error and keep the CSS scale.
++   * Zoom the WHOLE element out so it fits the thumbnail box - the goal is a
++   * complete "Gesamteindruck" of the element even when that makes it small. The
++   * element is rendered at a fixed desktop width (PREVIEW_RENDER_WIDTH) and scaled
++   * down by the smaller of the width- and height-fit, then centred in the box (so
++   * the entire element is always visible, never cropped). Never upscale past 1:1.
++   * Same-origin preview, so contentDocument is readable; bail on any access error.
 +   * @param {HTMLIFrameElement} iframe
 +   */
 +  #fitPreview(iframe) {
@@ -1499,24 +1683,15 @@ index 0000000..b261d15
 +    if (contentHeight < 20) {
 +      return;
 +    }
-+    let baseScale = PREVIEW_DISPLAY_WIDTH / PREVIEW_RENDER_WIDTH;
-+    try {
-+      const matrix = new DOMMatrixReadOnly(getComputedStyle(iframe).transform);
-+      if (matrix.a > 0.01) {
-+        baseScale = matrix.a;
-+      }
-+    } catch (error) {
-+      // keep the fallback base scale
-+    }
-+    const fittedHeight = contentHeight * baseScale;
-+    if (fittedHeight >= PREVIEW_BOX_HEIGHT * 0.85) {
-+      return;
-+    }
-+    const zoom = Math.min(PREVIEW_MAX_ZOOM, (PREVIEW_BOX_HEIGHT * 0.92) / fittedHeight);
-+    if (zoom > 1.02) {
-+      // translateX(-50%) keeps the thumbnail horizontally centered (see .preview iframe)
-+      iframe.style.transform = `translateX(-50%) scale(${baseScale * zoom})`;
-+    }
++    const box = iframe.closest('.preview');
++    const boxW = box?.clientWidth || PREVIEW_DISPLAY_WIDTH;
++    const boxH = box?.clientHeight || PREVIEW_BOX_HEIGHT;
++    const scale = Math.min(1, boxW / PREVIEW_RENDER_WIDTH, boxH / contentHeight);
++    iframe.style.width = PREVIEW_RENDER_WIDTH + 'px';
++    iframe.style.height = contentHeight + 'px';
++    iframe.style.transform = `scale(${scale})`;
++    iframe.style.left = Math.round((boxW - PREVIEW_RENDER_WIDTH * scale) / 2) + 'px';
++    iframe.style.top = Math.round(Math.max(0, (boxH - contentHeight * scale) / 2)) + 'px';
 +  }
 +
 +  #onPreviewSettled() {
@@ -1566,22 +1741,6 @@ index 0000000..b261d15
 +  }
 +
 +  /**
-+   * Drags the enlarged preview straight onto the page: same payload as a card
-+   * drag, so the drop zones light up and the element drops where released.
-+   * @param {DragEvent} event
-+   * @param {Object} item
-+   */
-+  #previewDragStart(event, item) {
-+    this.#cancelClosePreview();
-+    this.#cardDragStart(event, item);
-+  }
-+
-+  #previewDragEnd(event) {
-+    this.#cardDragEnd(event);
-+    this.#closePreview();
-+  }
-+
-+  /**
 +   * Sizes the flyout once its iframe has loaded: render the element at
 +   * PREVIEW_ZOOM_FACTOR x the thumbnail scale, then clamp so the whole element
 +   * fits the canvas to the left of the open panel - this extra preview never
@@ -1593,6 +1752,7 @@ index 0000000..b261d15
 +   */
 +  #onFlyoutLoad(event) {
 +    const iframe = event.target;
++    this.#hideAdminPanel(iframe);
 +    const stage = iframe.closest('.previewStage');
 +    let contentHeight = 0;
 +    try {
@@ -1607,18 +1767,22 @@ index 0000000..b261d15
 +      contentHeight = Math.round(PREVIEW_RENDER_WIDTH * 0.5);
 +    }
 +
-+    const baseScale = PREVIEW_DISPLAY_WIDTH / PREVIEW_RENDER_WIDTH;
-+    // stay inside the canvas to the left of the (open) panel and short enough
-+    // that the whole element shows without a scrollbar
++    // Fill the full width of the canvas left of the (open) panel, but never
++    // render the element larger than 125% of its native 1280px size (avoids a
++    // blurry over-zoom), and keep it short enough to show without a scrollbar.
 +    const panelWidth = this.columns === 1
 +      ? Math.min(460, window.innerWidth * 0.94)
-+      : Math.min(860, window.innerWidth * 0.94);
-+    const maxWidth = Math.max(260, window.innerWidth - panelWidth - 44);
-+    const maxHeight = window.innerHeight * 0.92 - 44;
++      : Math.min(600, window.innerWidth * 0.94);
++    // leave a left-edge margin so the flyout's own border/ring is never clipped
++    // against the viewport edge (flyout right edge is anchored at panelWidth+18)
++    const maxWidth = Math.max(260, window.innerWidth - panelWidth - 40);
++    // leave vertical room for the flyout chrome: the title header above the stage
++    // (~42px) plus the description caption below it (~46px)
++    const maxHeight = window.innerHeight * 0.92 - 88;
 +    const scale = Math.min(
-+      baseScale * PREVIEW_ZOOM_FACTOR,
-+      maxWidth / PREVIEW_RENDER_WIDTH,
-+      maxHeight / contentHeight,
++      1.25,                            // <= 125% of the native render
++      maxWidth / PREVIEW_RENDER_WIDTH, // fill the remaining width
++      maxHeight / contentHeight,       // no vertical scrollbar
 +    );
 +
 +    if (stage) {
@@ -1665,21 +1829,33 @@ index 0000000..b261d15
 +                <span class="counter"><strong>${filtered.length}</strong> / ${this.items.length}</span>
 +              </span>
 +            </div>
-+            <button class="iconButton closeButton" type="button" @click="${this.closePanel}"
-+                    title="${lll('frontend.library.close') || 'Close'}" aria-label="${lll('frontend.library.close') || 'Close'}">
-+              <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-+            </button>
 +          </div>
 +
-+          <div class="searchWrap">
-+            <svg class="searchIcon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"/><path d="M21 21l-4.3-4.3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-+            <input
-+              class="search"
-+              type="search"
-+              .value="${this.searchTerm}"
-+              placeholder="${lll('frontend.library.search') || 'Search elements …'}"
-+              @input="${(event) => { this.searchTerm = event.target.value; }}"
-+            />
++          <div class="searchRow">
++            <div class="searchWrap">
++              <svg class="searchIcon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"/><path d="M21 21l-4.3-4.3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
++              <input
++                class="search"
++                type="search"
++                .value="${this.searchTerm}"
++                placeholder="${lll('frontend.library.search') || 'Search elements …'}"
++                @input="${(event) => { this.searchTerm = event.target.value; elementLibrarySearch.set(this.searchTerm); }}"
++              />
++            </div>
++            ${window.veInfo?.elementLibraryShowDemoSwitch !== false ? html`
++              <label class="demoSwitch demoSwitch--inline ${this.includeDemo ? 'on' : ''}"
++                     title="${lll('frontend.library.includeDemo.label') || 'Insert with example content'}">
++                <span class="demoSwitch__control">
++                  <input
++                    type="checkbox"
++                    .checked="${this.includeDemo}"
++                    @change="${this.#onDemoToggle}"
++                  />
++                  <span class="track"><span class="thumb"></span></span>
++                </span>
++                <span class="demoSwitch__text"><strong>${lll('frontend.library.includeDemo.short') || 'Demo content'}</strong></span>
++              </label>
++            ` : ''}
 +          </div>
 +
 +          <div class="chips">
@@ -1695,22 +1871,6 @@ index 0000000..b261d15
 +              >${category}</button>
 +            `)}
 +          </div>
-+
-+          ${window.veInfo?.elementLibraryShowDemoSwitch !== false ? html`
-+            <label class="demoSwitch ${this.includeDemo ? 'on' : ''}">
-+              <span class="demoSwitch__control">
-+                <input
-+                  type="checkbox"
-+                  .checked="${this.includeDemo}"
-+                  @change="${this.#onDemoToggle}"
-+                />
-+                <span class="track"><span class="thumb"></span></span>
-+              </span>
-+              <span class="demoSwitch__text">
-+                <strong>${lll('frontend.library.includeDemo.label') || 'Insert with example content'}</strong>
-+              </span>
-+            </label>
-+          ` : ''}
 +        </div>
 +
 +        <div class="grid">
@@ -1727,25 +1887,28 @@ index 0000000..b261d15
 +
 +  #renderPreview() {
 +    const item = this.previewItem;
-+    const dragHint = lll('frontend.library.dragHint') || 'Drag onto the page';
 +    const wrapClasses = {
 +      previewFlyoutWrap: true,
-+      collapsed: this.collapsed,
 +      [`cols-${this.columns}`]: true,
 +    };
-+    // The draggable .previewFlyout sits inside a positioning wrapper. During a
-+    // drag the WRAPPER slides off-canvas (collapsed), never the flyout itself -
-+    // moving the dragged element via its own transform cancels the native drag.
++    // Short "what is it" label above the rendered element. The eyebrow is a
++    // translated, ICU-compatible label (frontend.library.preview); the element
++    // name beside it is backend data, so it is not part of the translation.
++    const previewLabel = lll('frontend.library.preview') || 'Preview';
++    // Hover-opened enlarged preview - read-only. It is NOT a drag source; moving
++    // the pointer away closes it. (Dragging happens from the small panel cards.)
 +    return html`
 +      <div class=${classMap(wrapClasses)} part="preview">
 +        <div
 +          class="previewFlyout"
-+          draggable="true"
-+          @dragstart="${(event) => this.#previewDragStart(event, item)}"
-+          @dragend="${this.#previewDragEnd}"
 +          @mouseenter="${this.#cancelClosePreview}"
 +          @mouseleave="${this.#scheduleClosePreview}"
 +        >
++          <div class="previewHead">
++            <span class="previewEyebrow">${previewLabel}</span>
++            <strong class="previewTitle">${item.title}</strong>
++            <span class="pill badge">${item.group}</span>
++          </div>
 +          <div class="previewStage">
 +            <span class="spinner previewSpinner" aria-hidden="true"></span>
 +            ${item.previewUrl
@@ -1753,14 +1916,10 @@ index 0000000..b261d15
 +                            @load="${(event) => this.#onFlyoutLoad(event)}"></iframe>`
 +              : ''}
 +          </div>
-+          <div class="previewCaption">
-+            <strong class="previewTitle">${item.title}</strong>
-+            <span class="badge">${item.group}</span>
-+            <span class="previewDragHint">
-+              <svg viewBox="0 0 24 24" width="13" height="13" aria-hidden="true"><path d="M12 4v10M12 14l-3.2-3.2M12 14l3.2-3.2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M5 16v2.5A1.5 1.5 0 0 0 6.5 20h11a1.5 1.5 0 0 0 1.5-1.5V16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-+              ${dragHint}
-+            </span>
-+          </div>
++          ${item.description ? html`
++            <div class="previewCaption">
++              <p class="previewDesc">${item.description}</p>
++            </div>` : ''}
 +        </div>
 +      </div>
 +    `;
@@ -1769,16 +1928,36 @@ index 0000000..b261d15
 +  #renderCard(item) {
 +    const previewLoaded = this.loadedPreviews.has(item.cType);
 +    const zoomLabel = lll('frontend.library.zoom') || 'Enlarge preview';
++    const demoLabel = this.includeDemo
++      ? (lll('frontend.library.includeDemo.pill.on') || 'With demo content')
++      : (lll('frontend.library.includeDemo.pill.off') || 'Without demo content');
 +    return html`
 +      <div
-+        class="card"
++        class=${classMap({card: true, 'is-dragging': this.draggingCType === item.cType})}
 +        data-ctype="${item.cType}"
 +        draggable="true"
-+        @dragstart="${(event) => this.#cardDragStart(event, item)}"
-+        @dragend="${this.#cardDragEnd}"
++        @dragstart="${(event) => this.#startDrag(event, item)}"
++        @dragend="${this.#endDrag}"
 +        title="${item.description}"
 +      >
-+        <div class="preview">
++        <div class="cardHead">
++          <strong class="cardTitle">${item.title}</strong>
++          <div class="cardBadges">
++            <span class="pill badge">${item.group}</span>
++            <span class="pill demoPill ${this.includeDemo ? 'is-on' : 'is-off'}">
++              <svg viewBox="0 0 16 16" aria-hidden="true" focusable="false">
++                <circle cx="8" cy="8" r="7" fill="none" stroke="currentColor" stroke-width="1.4"/>
++                <circle cx="8" cy="5" r="0.95" fill="currentColor"/>
++                <rect x="7.2" y="7" width="1.6" height="4.4" rx="0.8" fill="currentColor"/>
++              </svg>${demoLabel}</span>
++          </div>
++        </div>
++        ${(item.shortDescription || item.description)
++          ? html`<p class="cardDesc">${renderInlineEmphasis(item.shortDescription || item.description)}</p>`
++          : ''}
++        <div class="preview"
++             @mouseenter="${() => { if (item.previewUrl) this.#openPreview(item); }}"
++             @mouseleave="${this.#scheduleClosePreview}">
 +          ${previewLoaded && item.previewUrl
 +            ? html`<iframe src="${item.previewUrl}" loading="lazy" scrolling="no" tabindex="-1"
 +                          @load="${(event) => this.#onPreviewLoad(event)}" @error="${() => this.#onPreviewSettled()}"></iframe>
@@ -1788,36 +1967,19 @@ index 0000000..b261d15
 +                     <span class="shimmer"></span>
 +                   </div>`}
 +          ${item.previewUrl ? html`
-+            <button class="loupeButton" type="button" draggable="false"
-+                    @mouseenter="${() => this.#openPreview(item)}"
-+                    @mouseleave="${this.#scheduleClosePreview}"
++            <button class="previewLoupe" type="button" draggable="false"
 +                    @focus="${() => this.#openPreview(item)}"
 +                    @blur="${this.#scheduleClosePreview}"
 +                    @click="${(event) => { event.preventDefault(); event.stopPropagation(); this.#openPreview(item); }}"
 +                    @dragstart="${(event) => { event.preventDefault(); event.stopPropagation(); }}"
 +                    title="${zoomLabel}" aria-label="${zoomLabel}">
-+              <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true">
-+                <circle cx="10.5" cy="10.5" r="6.5" fill="none" stroke="currentColor" stroke-width="2"/>
-+                <path d="M21 21l-4.6-4.6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-+                <path d="M10.5 7.6v5.8M7.6 10.5h5.8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
++              <svg viewBox="0 0 24 24" width="19" height="19" aria-hidden="true">
++                <circle cx="10.5" cy="10.5" r="6.5" fill="none" stroke="currentColor" stroke-width="2.2"/>
++                <path d="M21 21l-4.6-4.6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
++                <path d="M10.5 7.6v5.8M7.6 10.5h5.8" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
 +              </svg>
 +            </button>` : ''}
 +          <span class="grabHint" aria-hidden="true">${lll('frontend.library.dragHint') || 'Drag onto the page'}</span>
-+        </div>
-+        <div class="meta">
-+          <div class="titleRow">
-+            <strong>${item.title}</strong>
-+            <span class="badge">${item.group}</span>
-+          </div>
-+          <p>${item.description}</p>
-+          <p class="demoNote">
-+            <svg class="demoNote__icon" viewBox="0 0 16 16" width="13" height="13" aria-hidden="true" focusable="false">
-+              <circle cx="8" cy="8" r="7" fill="none" stroke="currentColor" stroke-width="1.4"/>
-+              <circle cx="8" cy="5" r="0.95" fill="currentColor"/>
-+              <rect x="7.2" y="7" width="1.6" height="4.4" rx="0.8" fill="currentColor"/>
-+            </svg>${this.includeDemo
-+              ? (lll('frontend.library.includeDemo.hint.on') || 'Ready-made demo text & images.')
-+              : (lll('frontend.library.includeDemo.hint.off') || 'Empty element to fill yourself.')}</p>
 +        </div>
 +      </div>
 +    `;
@@ -1831,6 +1993,10 @@ index 0000000..b261d15
 +      line-height: 1.4;
 +      --ve-accent: var(--ve-accent-color, #7c5ac4);
 +      --ve-accent-contrast: #ffffff;
++      /* accent tuned for TEXT/ICON contrast: the raw mid-tone purple reads fine
++         on the white surface but is too dim on the dark panel, so the .dark block
++         lifts it toward the light text. Used by the loupe icon + the pills. */
++      --ve-accent-readable: color-mix(in srgb, var(--ve-accent) 78%, var(--ve-panel-text));
 +      /* one radius shared by the card and its preview corners (see .preview) */
 +      --ve-card-radius: 14px;
 +      /* Light mode is the default; the .dark block below restores the original
@@ -1849,33 +2015,41 @@ index 0000000..b261d15
 +      --ve-panel-border: #34343c;
 +      --ve-panel-text: #f3f3f5;
 +      --ve-panel-muted: #a2a2ad;
++      /* lift the accent well toward the light text so the loupe + pills keep a
++         comfortable contrast on the dark surface (>= ~7:1) */
++      --ve-accent-readable: color-mix(in srgb, var(--ve-accent) 42%, var(--ve-panel-text));
 +    }
 +
 +    .panel {
 +      position: fixed;
-+      inset-block: 0;
-+      right: 0;
++      /* float a touch off all edges so it reads as a rounded card and the drop
++         shadow tapers in the gap instead of being hard-clipped at the edge */
++      inset-block: 12px;
++      right: 12px;
 +      width: min(860px, 94vw);
 +      display: flex;
 +      flex-direction: column;
 +      background: var(--ve-panel-bg);
 +      color: var(--ve-panel-text);
 +      border: 1.5px solid color-mix(in srgb, var(--ve-accent) 65%, var(--ve-panel-border));
-+      border-right: none; border-radius: var(--typo3-component-border-radius, 0.75em) 0 0 var(--typo3-component-border-radius, 0.75em); overflow: hidden;
-+      box-shadow: -18px 0 50px rgba(0, 0, 0, 0.5), inset 1px 0 0 color-mix(in srgb, var(--ve-accent) 25%, transparent);
++      border-radius: var(--typo3-component-border-radius, 0.75em); overflow: hidden;
++      box-shadow: 0 18px 50px rgba(0, 0, 0, 0.34), 0 0 0 1px color-mix(in srgb, var(--ve-accent) 16%, transparent);
 +      z-index: 100000;
 +      transform: translateX(0);
 +      transition: transform 0.28s cubic-bezier(0.22, 1, 0.36, 1);
 +      animation: panelIn 0.32s cubic-bezier(0.22, 1, 0.36, 1);
 +    }
 +    .panel.cols-1 { width: min(460px, 94vw); }
++    /* 2-column "Wide" mode is a compact overview: narrower panel -> ~33% smaller
++       cards/previews than 1 column (see .panel.cols-2 .preview iframe) */
++    .panel.cols-2 { width: min(600px, 94vw); }
 +
 +    @keyframes panelIn {
 +      from { transform: translateX(40px); opacity: 0; }
 +      to { transform: translateX(0); opacity: 1; }
 +    }
 +
-+    .panel.collapsed { transform: translateX(101%); box-shadow: none; }
++    .panel.collapsed { transform: translateX(calc(100% + 20px)); box-shadow: none; }
 +
 +    .header {
 +      padding: 16px 20px 14px;
@@ -1908,6 +2082,9 @@ index 0000000..b261d15
 +    }
 +    .iconButton:hover { color: var(--ve-panel-text); border-color: var(--ve-accent); }
 +
++    /* search input + compact demo switch share one row (saves vertical space) */
++    .searchRow { display: flex; align-items: center; gap: 8px; }
++    .searchRow .searchWrap { flex: 1 1 auto; min-width: 0; }
 +    .searchWrap { position: relative; display: flex; align-items: center; }
 +    .searchIcon { position: absolute; left: 12px; color: var(--ve-panel-muted); pointer-events: none; }
 +    .search {
@@ -1947,18 +2124,31 @@ index 0000000..b261d15
 +    }
 +    .demoSwitch__control { position: relative; display: inline-flex; flex-shrink: 0; }
 +    .demoSwitch input { position: absolute; opacity: 0; width: 0; height: 0; }
++    /* off state: NO dark fill - a transparent track with an accent (lila) border;
++       the on state fills with the accent. thumb is accent-tinted off, white on. */
 +    .track {
-+      width: 30px; height: 17px; border-radius: 999px; background: #3a3a44;
-+      display: inline-flex; align-items: center; padding: 2px; transition: background 0.18s ease;
++      width: 30px; height: 17px; border-radius: 999px; box-sizing: border-box;
++      background: transparent;
++      border: 1.5px solid color-mix(in srgb, var(--ve-accent) 60%, var(--ve-panel-border));
++      display: inline-flex; align-items: center; padding: 1.5px;
++      transition: background 0.18s ease, border-color 0.18s ease;
 +    }
-+    .demoSwitch.on .track { background: var(--ve-accent); }
++    .demoSwitch.on .track { background: var(--ve-accent); border-color: var(--ve-accent); }
 +    .thumb {
-+      width: 13px; height: 13px; border-radius: 50%; background: #fff;
-+      transform: translateX(0); transition: transform 0.18s cubic-bezier(0.22, 1, 0.36, 1);
-+      box-shadow: 0 1px 3px rgba(0,0,0,0.4);
++      width: 11px; height: 11px; border-radius: 50%;
++      background: color-mix(in srgb, var(--ve-accent) 70%, var(--ve-panel-muted));
++      transform: translateX(0);
++      transition: transform 0.18s cubic-bezier(0.22, 1, 0.36, 1), background 0.18s ease;
++      box-shadow: 0 1px 2px rgba(0,0,0,0.28);
 +    }
-+    .demoSwitch.on .thumb { transform: translateX(13px); }
++    .demoSwitch.on .thumb { background: #fff; transform: translateX(13px); }
 +    .demoSwitch__text strong { font-size: 12px; font-weight: 600; }
++    /* compact inline variant sitting in the search row */
++    .demoSwitch--inline { flex-shrink: 0; align-self: center; gap: 6px; padding: 4px 9px 4px 5px; }
++    .demoSwitch--inline .track { width: 26px; height: 15px; }
++    .demoSwitch--inline .thumb { width: 9px; height: 9px; }
++    .demoSwitch--inline.on .thumb { transform: translateX(11px); }
++    .demoSwitch--inline .demoSwitch__text strong { font-size: 11px; white-space: nowrap; }
 +    /* keyboard focus ring for the visually-hidden checkbox (WCAG 2.4.7 / 2.4.11) */
 +    .demoSwitch input:focus-visible + .track {
 +      outline: 2px solid var(--ve-accent);
@@ -1972,14 +2162,14 @@ index 0000000..b261d15
 +      grid-auto-rows: 330px;
 +      gap: 18px; padding: 18px 20px 28px; align-content: start;
 +      scrollbar-width: thin; scrollbar-color: var(--ve-panel-border) transparent;
-+      /* Snap each row of cards into place on scroll. 'proximity' snaps when the
-+         scroll settles near a card but never fights free scrolling or dragging;
-+         scroll-padding keeps the snapped row clear of the top edge. */
-+      scroll-snap-type: y proximity;
++      /* Snap each row of cards into place on scroll. 'mandatory' makes the snap
++         decisive - after scrolling up or down the nearest card row always settles
++         flush to the top; scroll-padding keeps it clear of the top edge. */
++      scroll-snap-type: y mandatory;
 +      scroll-padding-block-start: 18px;
 +    }
 +    .panel.cols-1 .grid { --ve-cols: 1; grid-auto-rows: 340px; }
-+    .panel.cols-2 .grid { --ve-cols: 2; }
++    .panel.cols-2 .grid { --ve-cols: 2; grid-auto-rows: 270px; }
 +    .grid::-webkit-scrollbar { width: 10px; }
 +    .grid::-webkit-scrollbar-thumb { background: var(--ve-panel-border); border-radius: 999px; border: 3px solid var(--ve-panel-bg); }
 +
@@ -1998,7 +2188,10 @@ index 0000000..b261d15
 +    .card {
 +      position: relative; background: var(--ve-panel-surface); color: var(--ve-panel-text);
 +      border-radius: var(--ve-card-radius); overflow: hidden; cursor: grab;
-+      border: 1px solid var(--ve-panel-border);
++      /* tint the border toward the text colour so the card edge reads clearly in
++         both light and dark mode (panel-border alone is too faint in dark mode) */
++      border: 1px solid color-mix(in srgb, var(--ve-panel-text) 22%, var(--ve-panel-border));
++      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
 +      display: flex; flex-direction: column;
 +      height: 330px;
 +      scroll-snap-align: start;
@@ -2007,6 +2200,7 @@ index 0000000..b261d15
 +    }
 +    @keyframes cardIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
 +    .panel.cols-1 .card { height: 340px; }
++    .panel.cols-2 .card { height: 270px; }
 +    .card:hover {
 +      border-color: color-mix(in srgb, var(--ve-accent) 65%, var(--ve-panel-border));
 +      transform: translateY(-3px);
@@ -2020,20 +2214,29 @@ index 0000000..b261d15
 +    .card:active { cursor: grabbing; }
 +    .card.is-dragging { opacity: 0.4; transform: scale(0.96) rotate(-1deg); }
 +
++    /* preview is the last row: it fills whatever height the card has left under
++       the header / description / divider, and rounds the card's BOTTOM corners */
 +    .preview {
-+      position: relative; flex: 0 0 232px; height: 232px; overflow: hidden;
-+      background: var(--ve-panel-bg);
-+      border-top-left-radius: calc(var(--ve-card-radius) - 1px);
-+      border-top-right-radius: calc(var(--ve-card-radius) - 1px);
++      position: relative; flex: 1 1 auto; min-height: 0; overflow: hidden;
++      /* a light accent "stage" + faint dot grid so the area reads clearly as a
++         rendered PREVIEW canvas (not part of the card content). The element's own
++         output is unchanged - this only tints the empty space around it. */
++      background-color: color-mix(in srgb, var(--ve-accent) 6%, var(--ve-panel-bg));
++      background-image: radial-gradient(color-mix(in srgb, var(--ve-accent) 17%, transparent) 1px, transparent 1.4px);
++      background-size: 11px 11px;
++      box-shadow: inset 0 1px 0 color-mix(in srgb, var(--ve-accent) 14%, transparent);
++      border-bottom-left-radius: calc(var(--ve-card-radius) - 1px);
++      border-bottom-right-radius: calc(var(--ve-card-radius) - 1px);
 +    }
++    /* the element renders at full desktop width and #fitPreview zooms the WHOLE
++       thing out to fit the box (a complete "Gesamteindruck", even when small) and
++       centres it. transform-origin top-left so the JS left/top offsets centre it. */
 +    .preview iframe {
-+      position: absolute; top: 0; left: 50%;
++      position: absolute; top: 0; left: 0;
 +      width: ${PREVIEW_RENDER_WIDTH}px; height: 900px; border: 0;
-+      transform-origin: top center;
-+      transform: translateX(-50%) scale(calc(${PREVIEW_DISPLAY_WIDTH} / ${PREVIEW_RENDER_WIDTH}));
++      transform-origin: top left;
 +      pointer-events: none; animation: fadeIn 0.4s ease;
 +    }
-+    .panel.cols-1 .preview iframe { transform: translateX(-50%) scale(calc(${PREVIEW_DISPLAY_WIDTH} / ${PREVIEW_RENDER_WIDTH})); }
 +    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 +    .previewOverlay { position: absolute; inset: 0; }
 +    .previewPlaceholder {
@@ -2058,58 +2261,93 @@ index 0000000..b261d15
 +    }
 +    .card:hover .grabHint { opacity: 1; transform: translateX(-50%) translateY(0); }
 +
-+    /* loupe button (top-left): hovering it opens the enlarged preview flyout */
-+    .loupeButton {
-+      position: absolute; top: 8px; left: 8px; z-index: 3;
-+      display: inline-flex; align-items: center; justify-content: center;
-+      width: 30px; height: 30px; padding: 0;
-+      border: none; border-radius: 9px;
-+      background: rgba(22, 22, 26, 0.55); color: #fff;
-+      cursor: pointer; opacity: 0; transform: translateY(-4px);
-+      transition: opacity 0.16s ease, transform 0.16s ease, background 0.12s ease;
-+      -webkit-backdrop-filter: blur(2px); backdrop-filter: blur(2px);
++    /* card header (left-aligned): title and badges share one left rail with the
++       description below for an easy-to-scan, consistent column. The loupe lives
++       on the preview. */
++    .cardHead {
++      flex-shrink: 0;
++      display: flex; flex-direction: column; align-items: flex-start;
++      text-align: left; gap: 7px;
++      padding: 12px 16px 10px;
 +    }
-+    .loupeButton:hover { background: var(--ve-accent); transform: translateY(0) scale(1.08); }
-+    .card:hover .loupeButton, .card:focus-within .loupeButton { opacity: 1; transform: translateY(0); }
-+    .loupeButton:focus-visible { opacity: 1; transform: translateY(0); outline: 2px solid #fff; outline-offset: 1px; }
 +
-+    .meta { flex: 1 1 auto; min-height: 0; padding: 12px 14px 14px; display: flex; flex-direction: column; gap: 5px; overflow: hidden; }
-+    .titleRow { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
-+    .titleRow strong { font-size: 14.5px; font-weight: 650; }
-+    .badge {
-+      flex-shrink: 0; background: color-mix(in srgb, var(--ve-accent) 18%, var(--ve-panel-surface));
-+      color: color-mix(in srgb, var(--ve-accent) 70%, var(--ve-panel-text));
-+      font-size: 11px; font-weight: 600; padding: 2px 9px; border-radius: 999px; text-transform: capitalize;
++    /* prominent, always-visible "enlarge" button anchored on the preview - plus
++       the whole preview opens the flyout on hover, so it is a big easy target
++       when fast-scrolling the list (no tiny icon to aim at) */
++    .previewLoupe {
++      position: absolute; z-index: 4; top: 8px; right: 8px;
++      display: inline-flex; align-items: center; justify-content: center;
++      width: 36px; height: 36px; padding: 0;
++      border: 0; border-radius: 999px;
++      background: var(--ve-accent); color: var(--ve-accent-contrast);
++      box-shadow: 0 3px 12px color-mix(in srgb, var(--ve-accent) 45%, rgba(0, 0, 0, 0.35)),
++                  0 0 0 2px color-mix(in srgb, var(--ve-panel-surface) 75%, transparent);
++      cursor: pointer;
++      transition: transform 0.14s cubic-bezier(0.22, 1, 0.36, 1), background 0.12s ease;
 +    }
-+    .meta p {
-+      margin: 0; font-size: 12.5px; color: var(--ve-panel-muted); line-height: 1.45;
++    .card:hover .previewLoupe { transform: scale(1.1); }
++    .previewLoupe:hover { background: color-mix(in srgb, var(--ve-accent) 82%, #000); transform: scale(1.16); }
++    .previewLoupe:focus-visible { outline: 2px solid var(--ve-accent-contrast); outline-offset: 2px; }
++    /* signal the whole thumbnail is clickable-to-enlarge */
++    .preview { cursor: zoom-in; }
++
++    .cardTitle {
++      max-width: 100%;
 +      display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
++      font-size: 14.5px; font-weight: 700; line-height: 1.22; letter-spacing: -0.01em;
 +    }
-+    .meta p.demoNote {
-+      margin-top: auto; padding-top: 6px; font-size: 11px;
-+      color: color-mix(in srgb, var(--ve-panel-muted) 80%, transparent); line-height: 1.4;
-+      -webkit-line-clamp: 2;
++    .cardBadges { display: flex; flex-wrap: wrap; align-items: center; justify-content: flex-start; gap: 6px; }
++
++    /* element description: left-aligned, regular weight, comfortable to read. It
++       lives in its own band, separated from the header by a single hairline. The
++       band height is capped so the preview stays the hero; a longer description
++       scrolls inside the band rather than being hard-cut, and the full text is
++       also shown in the enlarged-preview flyout on hover. */
++    .cardDesc {
++      flex-shrink: 0; margin: 0;
++      padding: 9px 16px 11px;
++      max-height: 5.4em; overflow-y: auto; overscroll-behavior: contain;
++      font-size: 12.5px; font-weight: 400; line-height: 1.5;
++      text-align: left;
++      color: color-mix(in srgb, var(--ve-panel-text) 66%, var(--ve-panel-muted));
++      border-top: 1px solid color-mix(in srgb, var(--ve-panel-text) 9%, var(--ve-panel-border));
++      scrollbar-width: thin; scrollbar-color: var(--ve-panel-border) transparent;
 +    }
-+    .demoNote__icon {
-+      width: 13px; height: 13px; vertical-align: -2px; margin-right: 4px; flex-shrink: 0;
-+      opacity: 0.85; color: color-mix(in srgb, var(--ve-accent) 60%, #8a8a93);
++    .cardDesc::-webkit-scrollbar { width: 7px; }
++    .cardDesc::-webkit-scrollbar-thumb {
++      background: var(--ve-panel-border); border-radius: 999px; border: 2px solid var(--ve-panel-surface);
 +    }
++    /* highlights inside the short blurb: bold lifts to the full text colour so the
++       key term pops against the muted body; italic is the secondary accent */
++    .cardDesc strong { font-weight: 700; color: var(--ve-panel-text); }
++    .cardDesc em { font-style: italic; }
++    /* 1-column cards are taller -> give the description more room before it scrolls */
++    .panel.cols-1 .cardDesc { max-height: 8em; }
++
++    /* outline pills (category + demo-content status): border + text only, no
++       fill, so they read in both light and dark mode */
++    .pill {
++      display: inline-flex; align-items: center; gap: 4px; flex-shrink: 0;
++      font-size: 10.5px; font-weight: 650; line-height: 1.45;
++      padding: 2px 8px; border-radius: 999px;
++      border: 1px solid color-mix(in srgb, currentColor 50%, transparent);
++      background: transparent;
++    }
++    .pill svg { width: 12px; height: 12px; flex-shrink: 0; }
++    .badge { color: var(--ve-accent-readable); text-transform: capitalize; }
++    .demoPill.is-on { color: var(--ve-accent-readable); }
++    .demoPill.is-off { color: var(--ve-panel-muted); }
 +
 +    /* enlarged preview flyout: hover-opened, sits in the canvas left of the
-+       panel, and is itself a drag source (drop it straight onto the page).
-+       The draggable .previewFlyout lives inside a positioning .previewFlyoutWrap;
-+       during a drag the WRAPPER slides off-canvas, never the dragged element -
-+       transforming the dragged element itself cancels the native drag in
-+       Chromium (same reason the panel, not the card, slides away). */
++       panel. Read-only - moving the pointer away closes it (not a drag source). */
 +    .previewFlyoutWrap {
 +      position: fixed; top: 50%; z-index: 100001;
-+      right: calc(min(460px, 94vw) + 18px);
++      right: calc(min(460px, 94vw) + 30px);
 +      transform: translateY(-50%);
 +      max-width: 92vw; max-height: 92vh;
 +      animation: vePreviewIn 0.18s cubic-bezier(0.22, 1, 0.36, 1);
 +    }
-+    .previewFlyoutWrap.cols-2 { right: calc(min(860px, 94vw) + 18px); }
-+    .previewFlyoutWrap.collapsed { transform: translate(-130%, -50%); }
++    .previewFlyoutWrap.cols-2 { right: calc(min(600px, 94vw) + 30px); }
 +    @keyframes vePreviewIn { from { opacity: 0; transform: translate(10px, -50%); } to { opacity: 1; transform: translate(0, -50%); } }
 +
 +    .previewFlyout {
@@ -2117,10 +2355,25 @@ index 0000000..b261d15
 +      max-width: 92vw; max-height: 92vh;
 +      background: var(--ve-panel-surface); color: var(--ve-panel-text);
 +      border: 1.5px solid color-mix(in srgb, var(--ve-accent) 55%, var(--ve-panel-border));
-+      border-radius: var(--ve-card-radius); overflow: hidden; cursor: grab;
++      border-radius: var(--ve-card-radius); overflow: hidden;
 +      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), 0 0 0 1px color-mix(in srgb, var(--ve-accent) 22%, transparent);
 +    }
-+    .previewFlyout:active { cursor: grabbing; }
++
++    /* short title bar above the rendered element: a "Vorschau / Preview" eyebrow,
++       the element name, and its category badge - tells you "what is it" at a glance */
++    .previewHead {
++      display: flex; align-items: center; gap: 9px;
++      padding: 9px 13px; flex-shrink: 0;
++      border-bottom: 1px solid var(--ve-panel-border);
++      background: linear-gradient(180deg, color-mix(in srgb, var(--ve-accent) 12%, var(--ve-panel-surface)), var(--ve-panel-surface));
++    }
++    .previewEyebrow {
++      flex-shrink: 0;
++      font-size: 10px; font-weight: 700; line-height: 1;
++      letter-spacing: 0.07em; text-transform: uppercase;
++      color: var(--ve-accent-readable);
++    }
++    .previewHead .previewTitle { flex: 1 1 auto; }
 +
 +    .previewStage {
 +      position: relative; overflow: hidden; background: var(--ve-panel-bg);
@@ -2138,18 +2391,21 @@ index 0000000..b261d15
 +    }
 +    .previewFrame.ready { opacity: 1; }
 +
++    /* caption below the stage now holds only the description; the title moved to
++       the .previewHead bar above the rendered element */
 +    .previewCaption {
-+      display: flex; align-items: center; gap: 9px;
-+      padding: 9px 12px; flex-shrink: 0;
++      display: flex; flex-direction: column; gap: 5px;
++      padding: 9px 13px 11px; flex-shrink: 0;
 +      border-top: 1px solid var(--ve-panel-border);
-+      background: linear-gradient(0deg, color-mix(in srgb, var(--ve-accent) 12%, var(--ve-panel-surface)), var(--ve-panel-surface));
++      background: linear-gradient(0deg, color-mix(in srgb, var(--ve-accent) 8%, var(--ve-panel-surface)), var(--ve-panel-surface));
 +    }
 +    .previewTitle { font-size: 13.5px; font-weight: 650; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0; }
-+    .previewDragHint {
-+      margin-left: auto; flex-shrink: 0; display: inline-flex; align-items: center; gap: 5px;
-+      font-size: 11px; font-weight: 600; color: var(--ve-panel-muted);
++    /* the full, richer element description - the flyout is the "detailed" view,
++       so unlike the card it is not clamped: show the whole what / where / fields text */
++    .previewDesc {
++      margin: 0; font-size: 12px; line-height: 1.5;
++      color: color-mix(in srgb, var(--ve-panel-text) 74%, var(--ve-panel-muted));
 +    }
-+    .previewDragHint svg { color: var(--ve-accent); }
 +
 +    @media (prefers-reduced-motion: reduce) {
 +      .panel, .card, .thumb, .shimmer, .spinner, .preview iframe,
@@ -2270,15 +2526,17 @@ index d661960..80406e5 100644
  
  /**
 diff --git a/Resources/Public/JavaScript/Shared/local-stores.js b/Resources/Public/JavaScript/Shared/local-stores.js
-index 898e439..a1762f7 100644
+index 898e439..0f9f8aa 100644
 --- a/Resources/Public/JavaScript/Shared/local-stores.js
 +++ b/Resources/Public/JavaScript/Shared/local-stores.js
-@@ -50,3 +50,5 @@ export const spotlightActive = localStore('ve-spotlight-active', false);
+@@ -50,3 +50,7 @@ export const spotlightActive = localStore('ve-spotlight-active', false);
  export const autoSaveActive = localStore('ve-autosave-active', true);
  export const showEmptyActive = localStore('ve-show-empty-active', false);
  export const showHiddenActive = localStore('ve-show-hidden-active', true);
 +export const elementLibraryOpen = localStore('ve-element-library-open', false);
 +export const elementLibraryIncludeDemo = localStore('ve-element-library-include-demo');
++export const elementLibrarySearch = localStore('ve-element-library-search', '');
++export const elementLibraryCategories = localStore('ve-element-library-categories', []);
 diff --git a/Resources/Public/JavaScript/Frontend/components/ve-icon.js b/Resources/Public/JavaScript/Frontend/components/ve-icon.js
 index 402630e..adb8cb3 100644
 --- a/Resources/Public/JavaScript/Frontend/components/ve-icon.js
