@@ -35,7 +35,7 @@ languages:
     base: /en/
     flag: us
     iso-639-1: en
-    fallbackType: fallback
+    fallbackType: free
   -
     languageId: 2
     title: 'Chinese (Simplified)'
@@ -44,7 +44,7 @@ languages:
     base: /zh/
     flag: cn
     iso-639-1: zh
-    fallbackType: fallback
+    fallbackType: free
   -
     languageId: 3
     title: Hungarian
@@ -53,7 +53,7 @@ languages:
     base: /hu/
     flag: hu
     iso-639-1: hu
-    fallbackType: fallback
+    fallbackType: free
 rootPageId: 933
 websiteTitle: 'TYPO3 Camp München 2026'
 imports:
