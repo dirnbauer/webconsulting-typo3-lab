@@ -1271,10 +1271,10 @@ index 0000000..7f74186
 +customElements.define('ve-element-library-button', VeElementLibraryButton);
 diff --git a/Resources/Public/JavaScript/Frontend/components/ve-element-library.js b/Resources/Public/JavaScript/Frontend/components/ve-element-library.js
 new file mode 100644
-index 0000000..377f4b1
+index 0000000..47018a0
 --- /dev/null
 +++ b/Resources/Public/JavaScript/Frontend/components/ve-element-library.js
-@@ -0,0 +1,1153 @@
+@@ -0,0 +1,1154 @@
 +import {css, html, LitElement} from 'lit';
 +import {classMap} from 'lit/directives/class-map.js';
 +import {repeat} from 'lit/directives/repeat.js';
@@ -2278,16 +2278,17 @@ index 0000000..377f4b1
 +      position: absolute; z-index: 4; top: 8px; right: 8px;
 +      display: inline-flex; align-items: center; justify-content: center;
 +      width: 36px; height: 36px; padding: 0;
-+      border: 0; border-radius: 999px;
-+      background: var(--ve-accent); color: var(--ve-accent-contrast);
-+      box-shadow: 0 3px 12px color-mix(in srgb, var(--ve-accent) 45%, rgba(0, 0, 0, 0.35)),
-+                  0 0 0 2px color-mix(in srgb, var(--ve-panel-surface) 75%, transparent);
++      /* inverted look: transparent circle, lila ring + lila icon (the readable
++         accent follows light/dark mode) */
++      border: 2px solid var(--ve-accent-readable); border-radius: 999px;
++      background: transparent; color: var(--ve-accent-readable);
++      box-shadow: none;
 +      cursor: pointer;
-+      transition: transform 0.14s cubic-bezier(0.22, 1, 0.36, 1), background 0.12s ease;
++      transition: transform 0.14s cubic-bezier(0.22, 1, 0.36, 1), background 0.12s ease, color 0.12s ease;
 +    }
 +    .card:hover .previewLoupe { transform: scale(1.1); }
-+    .previewLoupe:hover { background: color-mix(in srgb, var(--ve-accent) 82%, #000); transform: scale(1.16); }
-+    .previewLoupe:focus-visible { outline: 2px solid var(--ve-accent-contrast); outline-offset: 2px; }
++    .previewLoupe:hover { background: color-mix(in srgb, var(--ve-accent) 16%, transparent); transform: scale(1.16); }
++    .previewLoupe:focus-visible { outline: 2px solid var(--ve-accent-readable); outline-offset: 2px; }
 +    /* signal the whole thumbnail is clickable-to-enlarge */
 +    .preview { cursor: zoom-in; }
 +
