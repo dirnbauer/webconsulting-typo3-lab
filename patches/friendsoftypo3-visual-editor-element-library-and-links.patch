@@ -979,10 +979,10 @@ index dbb8967..eb567b2 100644
        max-width: 100%;
 diff --git a/Resources/Public/JavaScript/Frontend/components/ve-editable-link.js b/Resources/Public/JavaScript/Frontend/components/ve-editable-link.js
 new file mode 100644
-index 0000000..a64a4cb
+index 0000000..509f5e3
 --- /dev/null
 +++ b/Resources/Public/JavaScript/Frontend/components/ve-editable-link.js
-@@ -0,0 +1,156 @@
+@@ -0,0 +1,222 @@
 +import {css, html, LitElement} from 'lit';
 +import {lll} from '@typo3/core/lit-helper.js';
 +import {sendMessage, onMessage} from '@typo3/visual-editor/Shared/iframe-messaging';
@@ -1009,6 +1009,7 @@ index 0000000..a64a4cb
 +    value: {type: String},
 +    name: {type: String},
 +    linkBrowserUrl: {type: String},
++    active: {type: Boolean, state: true, attribute: false},
 +  };
 +
 +  constructor() {
@@ -1017,10 +1018,70 @@ index 0000000..a64a4cb
 +    // The link value present when the editor loaded: the baseline the change
 +    // list diffs against, so reverting to it clears the pending change.
 +    this.valueInitial = this.value;
++    // The button stays hidden until its sibling field is being edited.
++    this.active = false;
++    this.hovered = false;
++    this.syncRaf = 0;
++    this.onFocusChange = () => this.#scheduleSync();
++    this.onPointerEnter = () => { this.hovered = true; this.#sync(); };
++    this.onPointerLeave = () => { this.hovered = false; this.#scheduleSync(); };
++  }
++
++  connectedCallback() {
++    super.connectedCallback();
++    // focusin/focusout are composed, so they fire here even when the focus moves
++    // into the editable text's shadow DOM (the contenteditable).
++    document.addEventListener('focusin', this.onFocusChange);
++    document.addEventListener('focusout', this.onFocusChange);
++    this.addEventListener('pointerenter', this.onPointerEnter);
++    this.addEventListener('pointerleave', this.onPointerLeave);
++  }
++
++  disconnectedCallback() {
++    document.removeEventListener('focusin', this.onFocusChange);
++    document.removeEventListener('focusout', this.onFocusChange);
++    this.removeEventListener('pointerenter', this.onPointerEnter);
++    this.removeEventListener('pointerleave', this.onPointerLeave);
++    if (this.syncRaf) {
++      cancelAnimationFrame(this.syncRaf);
++      this.syncRaf = 0;
++    }
++    super.disconnectedCallback();
 +  }
 +
 +  firstUpdated() {
 +    dataHandlerStore.setInitialData(this.table, this.uid, this.field, this.valueInitial);
++  }
++
++  /**
++   * Recompute on the next frame: a focusout->focusin move fires focusout first,
++   * when :focus-within is briefly false; waiting a frame lets it settle so the
++   * button does not flicker when focus crosses between the text and the button.
++   */
++  #scheduleSync() {
++    if (this.syncRaf) {
++      cancelAnimationFrame(this.syncRaf);
++    }
++    this.syncRaf = requestAnimationFrame(() => {
++      this.syncRaf = 0;
++      this.#sync();
++    });
++  }
++
++  /**
++   * Visible while the edited field's group has focus (the preceding button/link
++   * sibling), while the pointer is over the button, or while the button itself
++   * holds focus - the last two keep it reachable when the pointer/focus leaves
++   * the text to actually click it.
++   */
++  #sync() {
++    const group = this.previousElementSibling;
++    const next = this.hovered
++      || this.matches(':focus-within')
++      || (group !== null && typeof group.matches === 'function' && group.matches(':focus-within'));
++    if (next !== this.active) {
++      this.active = next;
++    }
 +  }
 +
 +  #openLinkBrowser() {
@@ -1056,10 +1117,10 @@ index 0000000..a64a4cb
 +    }
 +    const label = lll('frontend.editLink') || 'Edit link';
 +    const title = label + (this.name ? ': ' + this.name : '');
-+    // Icon-only "edit link" badge: the link icon plus a tooltip (title) is the
-+    // whole control - the accessible name comes from aria-label/title.
++    // Icon-only square "edit link" button next to the link it edits; the field
++    // name lives in the tooltip / aria-label.
 +    return html`
-+      <button type="button" class="linkButton" @click="${this.#openLinkBrowser}" title="${title}" aria-label="${title}">
++      <button type="button" class="linkButton ${this.active ? 'is-active' : ''}" @click="${this.#openLinkBrowser}" title="${title}" aria-label="${title}">
 +        <ve-icon name="actions-link" width="1em"></ve-icon>
 +      </button>
 +    `;
@@ -1069,61 +1130,66 @@ index 0000000..a64a4cb
 +    :host {
 +      display: inline-block;
 +      vertical-align: middle;
-+      /* Blend the brand accent toward the inherited text colour (currentColor)
-+         so the control follows the surrounding template section's own light/dark
-+         style: a lighter purple on dark sections, a darker purple on light ones.
-+         This works regardless of how the section sets its scheme (.dark class,
-+         local --foreground tokens, etc.) because it just follows the text. */
-+      --ve-accent: color-mix(in srgb, var(--ve-accent-color, #7c5ac4) 55%, currentColor);
-+      --ve-accent-fill: 18%;
++      --ve-link-accent: var(--ve-accent-color, #7c5ac4);
 +    }
 +
-+    /* "Edit link" badge tucked INTO the right side of the button it edits: a
-+       negative inline margin overlaps it onto the button's right edge (the
-+       <ve-editable-link> is the button's immediate next sibling). A solid
-+       brand-purple chip with a white icon + light ring keeps it legible on a
-+       dark OR light button. The 1.5rem (24px) floor meets the WCAG 2.2 SC 2.5.8
-+       target-size minimum. */
++    /* Icon-only square "edit link" button next to the link it edits. It matches
++       the sibling CTA's height (shadcn h-9 = 2.25rem) and uses the button corner
++       radius, so it reads as a rounded SQUARE (not a circle, not a pill) that
++       belongs with the button. Solid brand purple + white icon stays legible on
++       both light and dark sections; 2.25rem clears the WCAG 2.5.8 target size.
++
++       Hidden (collapsed to zero width) until the field it edits is being edited
++       - it expands in only while the sibling text/link field, the button itself,
++       or the pointer is on it (see #sync), so the editor stays uncluttered. */
 +    .linkButton {
 +      position: relative;
-+      z-index: 1;
 +      display: inline-flex;
 +      align-items: center;
 +      justify-content: center;
 +      box-sizing: border-box;
-+      width: max(1.5rem, 1.5em);
-+      height: max(1.5rem, 1.5em);
++      width: 0;
++      height: 2.25rem;
++      margin-inline-start: 0;
 +      padding: 0;
-+      /* pull left so the badge's right edge sits ~0.45rem inside the button box */
-+      margin-inline-start: calc(-0.45rem - max(1.5rem, 1.5em));
-+      border: 1.5px solid rgba(255, 255, 255, 0.7);
-+      border-radius: 50%;
-+      background: var(--ve-accent-color, #7c5ac4);
++      border: 0 solid color-mix(in srgb, #fff 28%, var(--ve-link-accent));
++      border-radius: var(--radius, 0.5rem);
++      background: var(--ve-link-accent);
 +      color: #fff;
 +      cursor: pointer;
 +      line-height: 1;
 +      vertical-align: middle;
-+      transition: background 0.12s ease, transform 0.12s ease, box-shadow 0.12s ease;
-+      animation: linkPulse 2.4s ease-in-out 3;
++      overflow: hidden;
++      opacity: 0;
++      pointer-events: none;
++      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.28);
++      transition: width 0.14s ease, margin 0.14s ease, opacity 0.12s ease, transform 0.12s ease, background 0.12s ease, box-shadow 0.12s ease;
 +    }
 +
-+    .linkButton ve-icon { display: inline-flex; }
-+
-+    .linkButton:hover {
-+      background: color-mix(in srgb, var(--ve-accent-color, #7c5ac4) 82%, #000);
-+      transform: scale(1.1);
-+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
++    .linkButton.is-active {
++      width: 2.25rem;
++      margin-inline-start: 0.45em;
++      border-width: 1px;
++      opacity: 1;
++      pointer-events: auto;
 +    }
 +
-+    .linkButton:focus-visible { outline: 2px solid #fff; outline-offset: 1px; }
++    .linkButton ve-icon { display: inline-flex; font-size: 1.25rem; }
 +
-+    @keyframes linkPulse {
-+      0%, 100% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--ve-accent-color, #7c5ac4) 50%, transparent); }
-+      50% { box-shadow: 0 0 0 5px color-mix(in srgb, var(--ve-accent-color, #7c5ac4) 0%, transparent); }
++    .linkButton.is-active:hover {
++      background: color-mix(in srgb, var(--ve-link-accent) 86%, #000);
++      transform: translateY(-1px);
++      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.42);
++    }
++
++    /* dual ring (white inside, brand outside) stays visible on any background */
++    .linkButton:focus-visible {
++      outline: none;
++      box-shadow: 0 0 0 2px #fff, 0 0 0 4px var(--ve-link-accent), 0 1px 3px rgba(0, 0, 0, 0.3);
 +    }
 +
 +    @media (prefers-reduced-motion: reduce) {
-+      .linkButton { animation: none; transition: none; }
++      .linkButton { transition: opacity 0.12s ease; }
 +    }
 +  `;
 +}
