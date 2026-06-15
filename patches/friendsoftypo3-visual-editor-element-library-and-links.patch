@@ -23,7 +23,7 @@ index cb8d494..cbf9e62 100644
                          throw new RuntimeException('Field "' . $field . '" not found in TCA schema for table "' . $table . '"', 6627872218);
                      }
 diff --git a/Classes/Service/EditModeService.php b/Classes/Service/EditModeService.php
-index a217902..287abb0 100644
+index a217902..d037235 100644
 --- a/Classes/Service/EditModeService.php
 +++ b/Classes/Service/EditModeService.php
 @@ -121,6 +121,11 @@ final readonly class EditModeService
@@ -38,7 +38,7 @@ index a217902..287abb0 100644
              ];
              $this->assetCollector->addInlineJavaScript(
                  'veLangInfo',
-@@ -222,6 +225,7 @@ if (window.parent === window && window.veInfo) {
+@@ -222,6 +227,7 @@ if (window.parent === window && window.veInfo) {
          $files = [
              'EXT:backend/Resources/Private/Language/locallang_alt_doc.xlf',
              'EXT:visual_editor/Resources/Private/Language/locallang.xlf',
@@ -46,7 +46,7 @@ index a217902..287abb0 100644
          ];
          foreach ($files as $file) {
              $languageService = $this->languageServiceFactory->create($this->localizationService->getBackendUserLanguage() ?? 'en');
-@@ -297,6 +301,32 @@ if (window.parent === window && window.veInfo) {
+@@ -297,6 +303,32 @@ if (window.parent === window && window.veInfo) {
          return $usedArguments;
      }
  
@@ -277,7 +277,7 @@ index 0000000..475c52a
 +}
 diff --git a/Configuration/TCA/Overrides/be_users.php b/Configuration/TCA/Overrides/be_users.php
 new file mode 100644
-index 0000000..34aa00a
+index 0000000..72010bb
 --- /dev/null
 +++ b/Configuration/TCA/Overrides/be_users.php
 @@ -0,0 +1,92 @@
@@ -494,7 +494,7 @@ index 0000000..a253c89
 +</xliff>
 diff --git a/Resources/Private/Language/de.locallang_setup.xlf b/Resources/Private/Language/de.locallang_setup.xlf
 new file mode 100644
-index 0000000..1574ae6
+index 0000000..5c1153f
 --- /dev/null
 +++ b/Resources/Private/Language/de.locallang_setup.xlf
 @@ -0,0 +1,83 @@
@@ -684,7 +684,7 @@ index 0000000..59e4d44
 +</xliff>
 diff --git a/Resources/Private/Language/locallang_setup.xlf b/Resources/Private/Language/locallang_setup.xlf
 new file mode 100644
-index 0000000..130b3a1
+index 0000000..41d01e7
 --- /dev/null
 +++ b/Resources/Private/Language/locallang_setup.xlf
 @@ -0,0 +1,70 @@
@@ -759,7 +759,7 @@ index 0000000..130b3a1
 +  </file>
 +</xliff>
 diff --git a/Resources/Public/JavaScript/Backend/index.js b/Resources/Public/JavaScript/Backend/index.js
-index f104dcb..d77be88 100644
+index 4deb9d9..dbc47b9 100644
 --- a/Resources/Public/JavaScript/Backend/index.js
 +++ b/Resources/Public/JavaScript/Backend/index.js
 @@ -1,5 +1,6 @@
@@ -770,7 +770,7 @@ index f104dcb..d77be88 100644
  import '@typo3/visual-editor/Backend/components/ve-auto-save-toggle';
  import '@typo3/visual-editor/Backend/components/ve-backend-save-button';
  import '@typo3/visual-editor/Backend/components/ve-spotlight-toggle';
-@@ -44,7 +45,41 @@ function openIframeModal(src, title = '', size = 'large', type = 'iframe') {
+@@ -38,7 +39,41 @@ function openIframeModal(src, title = '', size = 'large', type = 'iframe') {
  }
  
  onMessage('openModal', (data) => openIframeModal(data.src, data.title || '', data.size || undefined, data.type || undefined));
@@ -813,7 +813,7 @@ index f104dcb..d77be88 100644
    const parsedHref = new URL(href, window.location.href);
    // keep the origin of the current window to avoid CORS issues in the Backend.
 diff --git a/Resources/Public/JavaScript/Frontend/components/ve-content-element.js b/Resources/Public/JavaScript/Frontend/components/ve-content-element.js
-index 770e863..1b0ae93 100644
+index 91f2b33..165de59 100644
 --- a/Resources/Public/JavaScript/Frontend/components/ve-content-element.js
 +++ b/Resources/Public/JavaScript/Frontend/components/ve-content-element.js
 @@ -71,6 +71,12 @@ export class VeContentElement extends LitElement {
@@ -871,10 +871,10 @@ index 770e863..1b0ae93 100644
  
      return html`
 diff --git a/Resources/Public/JavaScript/Frontend/components/ve-drop-zone.js b/Resources/Public/JavaScript/Frontend/components/ve-drop-zone.js
-index dbb8967..eb567b2 100644
+index 4bb2c4f..3e12df3 100644
 --- a/Resources/Public/JavaScript/Frontend/components/ve-drop-zone.js
 +++ b/Resources/Public/JavaScript/Frontend/components/ve-drop-zone.js
-@@ -205,6 +205,43 @@ export class VeDropZone extends LitElement {
+@@ -201,6 +201,43 @@ export class VeDropZone extends LitElement {
        },
      };
  
@@ -918,7 +918,7 @@ index dbb8967..eb567b2 100644
      if (event.dataTransfer.dropEffect === 'copy') {
        // For copy we ask the user and if confirmed we do an immediate call useDataHandler
        // if not, we do nothing
-@@ -356,17 +393,18 @@ export class VeDropZone extends LitElement {
+@@ -355,17 +392,18 @@ export class VeDropZone extends LitElement {
  
      .dropArea {
        --height: 30px;
@@ -942,7 +942,7 @@ index dbb8967..eb567b2 100644
  
        gap: 5px;
        /* text centered*/
-@@ -379,11 +417,15 @@ export class VeDropZone extends LitElement {
+@@ -378,11 +416,15 @@ export class VeDropZone extends LitElement {
  
        &.visible {
          display: flex;
@@ -960,7 +960,7 @@ index dbb8967..eb567b2 100644
        }
  
        &.above {
-@@ -391,6 +433,16 @@ export class VeDropZone extends LitElement {
+@@ -390,6 +432,16 @@ export class VeDropZone extends LitElement {
        }
      }
  
@@ -1337,10 +1337,10 @@ index 0000000..7f74186
 +customElements.define('ve-element-library-button', VeElementLibraryButton);
 diff --git a/Resources/Public/JavaScript/Frontend/components/ve-element-library.js b/Resources/Public/JavaScript/Frontend/components/ve-element-library.js
 new file mode 100644
-index 0000000..47018a0
+index 0000000..9f52b1d
 --- /dev/null
 +++ b/Resources/Public/JavaScript/Frontend/components/ve-element-library.js
-@@ -0,0 +1,1154 @@
+@@ -0,0 +1,1174 @@
 +import {css, html, LitElement} from 'lit';
 +import {classMap} from 'lit/directives/class-map.js';
 +import {repeat} from 'lit/directives/repeat.js';
@@ -2004,7 +2004,6 @@ index 0000000..47018a0
 +        draggable="true"
 +        @dragstart="${(event) => this.#startDrag(event, item)}"
 +        @dragend="${this.#endDrag}"
-+        title="${item.description}"
 +      >
 +        <div class="cardHead">
 +          <strong class="cardTitle">${item.title}</strong>
@@ -2039,13 +2038,23 @@ index 0000000..47018a0
 +                    @click="${(event) => { event.preventDefault(); event.stopPropagation(); this.#openPreview(item); }}"
 +                    @dragstart="${(event) => { event.preventDefault(); event.stopPropagation(); }}"
 +                    title="${zoomLabel}" aria-label="${zoomLabel}">
-+              <svg viewBox="0 0 24 24" width="19" height="19" aria-hidden="true">
-+                <circle cx="10.5" cy="10.5" r="6.5" fill="none" stroke="currentColor" stroke-width="2.2"/>
-+                <path d="M21 21l-4.6-4.6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
-+                <path d="M10.5 7.6v5.8M7.6 10.5h5.8" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
++              <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"
++                   fill="none" stroke="currentColor" stroke-width="2.2"
++                   stroke-linecap="round" stroke-linejoin="round">
++                <polyline points="14 4 20 4 20 10"/>
++                <line x1="20" y1="4" x2="13" y2="11"/>
++                <polyline points="10 20 4 20 4 14"/>
++                <line x1="4" y1="20" x2="11" y2="13"/>
 +              </svg>
 +            </button>` : ''}
-+          <span class="grabHint" aria-hidden="true">${lll('frontend.library.dragHint') || 'Drag onto the page'}</span>
++          <span class="grabHint" aria-hidden="true">
++            <svg class="grabGrip" viewBox="0 0 16 16" width="13" height="13" aria-hidden="true" fill="currentColor">
++              <circle cx="6" cy="3.5" r="1.3"/><circle cx="10" cy="3.5" r="1.3"/>
++              <circle cx="6" cy="8" r="1.3"/><circle cx="10" cy="8" r="1.3"/>
++              <circle cx="6" cy="12.5" r="1.3"/><circle cx="10" cy="12.5" r="1.3"/>
++            </svg>
++            ${lll('frontend.library.dragHint') || 'Drag onto the page'}
++          </span>
 +        </div>
 +      </div>
 +    `;
@@ -2321,11 +2330,17 @@ index 0000000..47018a0
 +
 +    .grabHint {
 +      position: absolute; left: 50%; bottom: 12px; transform: translateX(-50%) translateY(8px);
++      display: inline-flex; align-items: center; gap: 6px;
 +      background: rgba(22, 22, 26, 0.92); color: #fff; font-size: 11px; font-weight: 600;
-+      padding: 5px 11px; border-radius: 999px; opacity: 0; pointer-events: none;
++      padding: 5px 11px 5px 9px; border-radius: 999px; opacity: 0; pointer-events: none;
 +      transition: opacity 0.16s ease, transform 0.16s ease; white-space: nowrap;
 +    }
 +    .card:hover .grabHint { opacity: 1; transform: translateX(-50%) translateY(0); }
++    /* grip-dots affordance with a really subtle horizontal drift; only runs
++       while the hint is visible (on card hover) so it draws the eye to "drag" */
++    .grabHint .grabGrip { flex-shrink: 0; opacity: 0.85; }
++    .card:hover .grabHint .grabGrip { animation: veGrabGrip 2.2s ease-in-out infinite; }
++    @keyframes veGrabGrip { 0%, 100% { transform: translateX(0); } 50% { transform: translateX(2px); } }
 +
 +    /* card header (left-aligned): title and badges share one left rail with the
 +       description below for an easy-to-scan, consistent column. The loupe lives
@@ -2343,18 +2358,22 @@ index 0000000..47018a0
 +    .previewLoupe {
 +      position: absolute; z-index: 4; top: 8px; right: 8px;
 +      display: inline-flex; align-items: center; justify-content: center;
-+      width: 36px; height: 36px; padding: 0;
-+      /* inverted look: transparent circle, lila ring + lila icon (the readable
-+         accent follows light/dark mode) */
-+      border: 2px solid var(--ve-accent-readable); border-radius: 999px;
-+      background: transparent; color: var(--ve-accent-readable);
++      width: 34px; height: 34px; padding: 0;
++      /* frosted dark glass: a quiet "enlarge" affordance that only surfaces on
++         hover/focus, so the thumbnail stays the hero. The diagonal-expand glyph
++         reads as "make bigger" (a magnifier + plus risks reading as "add"). */
++      border: none; border-radius: 999px;
++      background: rgba(22, 22, 26, 0.55); color: #fff;
++      -webkit-backdrop-filter: blur(2px); backdrop-filter: blur(2px);
 +      box-shadow: none;
-+      cursor: pointer;
-+      transition: transform 0.14s cubic-bezier(0.22, 1, 0.36, 1), background 0.12s ease, color 0.12s ease;
++      cursor: zoom-in;
++      opacity: 0; transform: translateY(-4px) scale(0.96);
++      transition: opacity 0.16s ease, transform 0.16s ease, background 0.12s ease;
 +    }
-+    .card:hover .previewLoupe { transform: scale(1.1); }
-+    .previewLoupe:hover { background: color-mix(in srgb, var(--ve-accent) 16%, transparent); transform: scale(1.16); }
-+    .previewLoupe:focus-visible { outline: 2px solid var(--ve-accent-readable); outline-offset: 2px; }
++    .card:hover .previewLoupe,
++    .card:focus-within .previewLoupe { opacity: 1; transform: translateY(0) scale(1); }
++    .previewLoupe:hover { background: rgba(22, 22, 26, 0.72); transform: translateY(0) scale(1.08); }
++    .previewLoupe:focus-visible { opacity: 1; transform: translateY(0); outline: 2px solid #fff; outline-offset: 2px; }
 +    /* signal the whole thumbnail is clickable-to-enlarge */
 +    .preview { cursor: zoom-in; }
 +
@@ -2476,7 +2495,8 @@ index 0000000..47018a0
 +
 +    @media (prefers-reduced-motion: reduce) {
 +      .panel, .card, .thumb, .shimmer, .spinner, .preview iframe,
-+      .previewFlyoutWrap, .previewFlyout, .previewStage, .previewFrame, .loupeButton { animation: none !important; transition: none !important; }
++      .previewFlyoutWrap, .previewFlyout, .previewStage, .previewFrame, .loupeButton,
++      .previewLoupe, .grabHint, .grabHint .grabGrip { animation: none !important; transition: none !important; }
 +    }
 +  `;
 +}
@@ -2532,6 +2552,18 @@ index 0000000..4bff253
 +    return (item.title + ' ' + item.description).toLowerCase().includes(term);
 +  });
 +}
+diff --git a/Resources/Public/JavaScript/Frontend/components/ve-icon.js b/Resources/Public/JavaScript/Frontend/components/ve-icon.js
+index 402630e..adb8cb3 100644
+--- a/Resources/Public/JavaScript/Frontend/components/ve-icon.js
++++ b/Resources/Public/JavaScript/Frontend/components/ve-icon.js
+@@ -26,6 +26,7 @@ export class VeIcon extends LitElement {
+     'apps-pagetree-drag-move-into': '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><g><path fill="#AAA" d="M.5 10.5v-5h2.293l1 1H6.5v4z"/><path fill="#666" d="m2.586 6 .707.707.293.293H6v3H1V6h1.586M3 5H0v6h7V6H4L3 5z"/></g><path fill="currentColor" d="M13 11 9 8.5 13 6v2h3v1h-3z"/></svg>',
+     'actions-undo': '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><g fill="currentColor"><path d="M8 2c-1.8 0-3.4.8-4.5 2l-1-1c-.2-.2-.4-.1-.4.1l-.9 3.8c0 .2.1.3.3.3l3.8-.9c.2 0 .3-.3.1-.4l-1-1c.9-1 2.2-1.7 3.7-1.7 2.7 0 4.9 2.2 4.9 4.9S10.8 13 8.1 13c-1.5 0-2.8-.7-3.7-1.7l-.9.7c1.1 1.2 2.7 2 4.5 2 3.3 0 6-2.7 6-6s-2.7-6-6-6z"/></g></svg>',
+     'actions-exclamation-circle-alt': '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><g fill="currentColor"><path d="M8 1C4.1 1 1 4.1 1 8s3.1 7 7 7 7-3.1 7-7-3.1-7-7-7zm-.448 3h.896a.5.5 0 0 1 .497.55L8.5 9h-1l-.445-4.45A.5.5 0 0 1 7.552 4zM8 12a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/></g></svg>',
++    'actions-link': '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><g fill="currentColor"><path d="m13.7 3.8-1.4-1.4c-.8-.8-2-.8-2.8 0L5.9 5.9c-.8.8-.8 2 0 2.8l1.2 1.2.9-.8L6.9 8c-.4-.4-.4-1 0-1.4l3.2-3.2c.4-.4 1-.4 1.4 0l1.1 1.1c.4.4.4 1 0 1.4l-1.3 1.3c.2.4.4.9.4 1.4l2-2c.7-.8.7-2.1 0-2.8z"/><path d="m8.9 6.1-.9.8L9.1 8c.4.4.4 1 0 1.4l-3.2 3.2c-.4.4-1 .4-1.4 0l-1.1-1.1c-.4-.4-.4-1 0-1.4l1.3-1.3c-.2-.4-.4-.9-.4-1.4l-2 2c-.8.8-.8 2 0 2.8l1.4 1.4c.8.8 2 .8 2.8 0l3.5-3.5c.8-.8.8-2 0-2.8L8.9 6.1z"/></g></svg>',
+   };
+ 
+   // createRenderRoot() {
 diff --git a/Resources/Public/JavaScript/Frontend/index.js b/Resources/Public/JavaScript/Frontend/index.js
 index 7b29adf..182f9a9 100644
 --- a/Resources/Public/JavaScript/Frontend/index.js
@@ -2578,10 +2610,10 @@ index 7b29adf..182f9a9 100644
  initializeNavigationInterception();
  initializeImageHandling();
 diff --git a/Resources/Public/JavaScript/Shared/iframe-messaging.js b/Resources/Public/JavaScript/Shared/iframe-messaging.js
-index d661960..80406e5 100644
+index 0e47d92..25227fd 100644
 --- a/Resources/Public/JavaScript/Shared/iframe-messaging.js
 +++ b/Resources/Public/JavaScript/Shared/iframe-messaging.js
-@@ -11,6 +11,10 @@
+@@ -10,6 +10,10 @@
   * @property openInMiddleFrame {String}
   * @property localStoreChange {{key: String, value: any}}
   * @property localStoreRequest {String}
@@ -2604,15 +2636,3 @@ index 898e439..0f9f8aa 100644
 +export const elementLibraryIncludeDemo = localStore('ve-element-library-include-demo');
 +export const elementLibrarySearch = localStore('ve-element-library-search', '');
 +export const elementLibraryCategories = localStore('ve-element-library-categories', []);
-diff --git a/Resources/Public/JavaScript/Frontend/components/ve-icon.js b/Resources/Public/JavaScript/Frontend/components/ve-icon.js
-index 402630e..adb8cb3 100644
---- a/Resources/Public/JavaScript/Frontend/components/ve-icon.js
-+++ b/Resources/Public/JavaScript/Frontend/components/ve-icon.js
-@@ -26,6 +26,7 @@ export class VeIcon extends LitElement {
-     'apps-pagetree-drag-move-into': '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><g><path fill="#AAA" d="M.5 10.5v-5h2.293l1 1H6.5v4z"/><path fill="#666" d="m2.586 6 .707.707.293.293H6v3H1V6h1.586M3 5H0v6h7V6H4L3 5z"/></g><path fill="currentColor" d="M13 11 9 8.5 13 6v2h3v1h-3z"/></svg>',
-     'actions-undo': '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><g fill="currentColor"><path d="M8 2c-1.8 0-3.4.8-4.5 2l-1-1c-.2-.2-.4-.1-.4.1l-.9 3.8c0 .2.1.3.3.3l3.8-.9c.2 0 .3-.3.1-.4l-1-1c.9-1 2.2-1.7 3.7-1.7 2.7 0 4.9 2.2 4.9 4.9S10.8 13 8.1 13c-1.5 0-2.8-.7-3.7-1.7l-.9.7c1.1 1.2 2.7 2 4.5 2 3.3 0 6-2.7 6-6s-2.7-6-6-6z"/></g></svg>',
-     'actions-exclamation-circle-alt': '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><g fill="currentColor"><path d="M8 1C4.1 1 1 4.1 1 8s3.1 7 7 7 7-3.1 7-7-3.1-7-7-7zm-.448 3h.896a.5.5 0 0 1 .497.55L8.5 9h-1l-.445-4.45A.5.5 0 0 1 7.552 4zM8 12a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/></g></svg>',
-+    'actions-link': '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><g fill="currentColor"><path d="m13.7 3.8-1.4-1.4c-.8-.8-2-.8-2.8 0L5.9 5.9c-.8.8-.8 2 0 2.8l1.2 1.2.9-.8L6.9 8c-.4-.4-.4-1 0-1.4l3.2-3.2c.4-.4 1-.4 1.4 0l1.1 1.1c.4.4.4 1 0 1.4l-1.3 1.3c.2.4.4.9.4 1.4l2-2c.7-.8.7-2.1 0-2.8z"/><path d="m8.9 6.1-.9.8L9.1 8c.4.4.4 1 0 1.4l-3.2 3.2c-.4.4-1 .4-1.4 0l-1.1-1.1c-.4-.4-.4-1 0-1.4l1.3-1.3c-.2-.4-.4-.9-.4-1.4l-2 2c-.8.8-.8 2 0 2.8l1.4 1.4c.8.8 2 .8 2.8 0l3.5-3.5c.8-.8.8-2 0-2.8L8.9 6.1z"/></g></svg>',
-   };
- 
-   // createRenderRoot() {

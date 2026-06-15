@@ -1,5 +1,5 @@
 {
-    "_hash": "225d5866f195b75a66a8bd87fe9f6b8b62de8d30324275f6ffa3093840428fe0",
+    "_hash": "351f1a8f2ba193a2ee3c12074736f435073062aa7e5ce94abf05aa484959c2b2",
     "patches": {
         "netresearch/nr-vault": [
             {
@@ -40,7 +40,7 @@
                 "package": "friendsoftypo3/visual-editor",
                 "description": "Decode JSON save body when getParsedBody() is an empty array",
                 "url": "patches/friendsoftypo3-visual-editor-fix-save-json-body.patch",
-                "sha256": "2163880a5c96636d8c9f8d99c6041d4eb4a17411e27cd601c4fa3eccc1613c8f",
+                "sha256": "fd7899be9a9e0f82fe8a1a932ec245d2d31850a6aa13c953788332f2b990c1f9",
                 "depth": 1,
                 "extra": {
                     "provenance": "root"
@@ -50,7 +50,7 @@
                 "package": "friendsoftypo3/visual-editor",
                 "description": "Element library panel and inline link editing",
                 "url": "patches/friendsoftypo3-visual-editor-element-library-and-links.patch",
-                "sha256": "8b0d60a17dc76992ad35bd039442357a12b684b63570a0bab9a8260bbc7d9205",
+                "sha256": "d6a65151ceb2ae0b37a0a36d336f917ed03f2726ba53396d62e309ada586b5c1",
                 "depth": 1,
                 "extra": {
                     "provenance": "root"
@@ -60,49 +60,7 @@
                 "package": "friendsoftypo3/visual-editor",
                 "description": "Do not send tx_container_parent:0 on drag move when EXT:container is absent",
                 "url": "patches/friendsoftypo3-visual-editor-fix-tx-container-parent-zero.patch",
-                "sha256": "34a460baaa7d8b96616ba62da699d034d64f567d55f591808162fb41d2a5661c",
-                "depth": 1,
-                "extra": {
-                    "provenance": "root"
-                }
-            }
-        ],
-        "webconsulting/desiderio": [
-            {
-                "package": "webconsulting/desiderio",
-                "description": "Skip the astro count-up animation in the Visual Editor so stat numbers stay inline-editable",
-                "url": "patches/webconsulting-desiderio-skip-astro-counter-in-visual-editor.patch",
-                "sha256": "58d2e6911831477a2928ed61029d39d97ed0795dc8d7c83df2f86ebc9cf89434",
-                "depth": 1,
-                "extra": {
-                    "provenance": "root"
-                }
-            },
-            {
-                "package": "webconsulting/desiderio",
-                "description": "Remove the unintended card shadow on testimonials (stray line at the foot of the card)",
-                "url": "patches/webconsulting-desiderio-remove-testimonial-card-shadow.patch",
-                "sha256": "f0105ffa7a91555024778b879738af90b25cdafc97670438d022ae69cd677844",
-                "depth": 1,
-                "extra": {
-                    "provenance": "root"
-                }
-            },
-            {
-                "package": "webconsulting/desiderio",
-                "description": "Add short (40%-shorter, bold/italic) element-library card blurbs in de+en via a per-host library_short.xlf catalog",
-                "url": "patches/webconsulting-desiderio-element-library-short-descriptions.patch",
-                "sha256": "1b28ff91f7123640cd8b9af9f5db7e891843841adfcca8b067aecc47bed39d7a",
-                "depth": 1,
-                "extra": {
-                    "provenance": "root"
-                }
-            },
-            {
-                "package": "webconsulting/desiderio",
-                "description": "Make element-library previews cacheable in an edit session (disable admin panel for elPreview requests so the page cache is used)",
-                "url": "patches/webconsulting-desiderio-element-library-preview-cache.patch",
-                "sha256": "91dc9499f222bd98dd00cf8ddd21ebc69aa77d0b1f2069b3e4b09e7c90052ef5",
+                "sha256": "609db5de428e1cb9cce3e9d43c1047a8a1ad139b253ca77029247d7be8d843db",
                 "depth": 1,
                 "extra": {
                     "provenance": "root"

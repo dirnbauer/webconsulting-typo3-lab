@@ -139,7 +139,7 @@
     "dirnbauer/innesto": "^1.0",
     "webconsulting/a2ui-integration": "^2.0",
     "friendsoftypo3/tt-address": "^10.0",
-    "friendsoftypo3/visual-editor": "1.7.1",
+    "friendsoftypo3/visual-editor": "1.7.2",
     "georgringer/context-edit-records": "^1.0",
     "georgringer/news": "^14.0",
     "georgringer/numbered-pagination": "^2.2",
@@ -223,12 +223,6 @@
         "Decode JSON save body when getParsedBody() is an empty array": "patches/friendsoftypo3-visual-editor-fix-save-json-body.patch",
       "Element library panel and inline link editing": "patches/friendsoftypo3-visual-editor-element-library-and-links.patch",
         "Do not send tx_container_parent:0 on drag move when EXT:container is absent": "patches/friendsoftypo3-visual-editor-fix-tx-container-parent-zero.patch"
-      },
-      "webconsulting/desiderio": {
-        "Skip the astro count-up animation in the Visual Editor so stat numbers stay inline-editable": "patches/webconsulting-desiderio-skip-astro-counter-in-visual-editor.patch",
-        "Remove the unintended card shadow on testimonials (stray line at the foot of the card)": "patches/webconsulting-desiderio-remove-testimonial-card-shadow.patch",
-        "Add short (40%-shorter, bold/italic) element-library card blurbs in de+en via a per-host library_short.xlf catalog": "patches/webconsulting-desiderio-element-library-short-descriptions.patch",
-        "Make element-library previews cacheable in an edit session (disable admin panel for elPreview requests so the page cache is used)": "patches/webconsulting-desiderio-element-library-preview-cache.patch"
       }
     }
   }

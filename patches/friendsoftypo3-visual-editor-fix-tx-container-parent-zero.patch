@@ -11,9 +11,11 @@ on "> 0"; this applies the same guard to the move/paste payload and to the
 optimistic setAttribute so a stale tx_container_parent="0" is not left on
 the moved element.
 
+diff --git a/Resources/Public/JavaScript/Frontend/components/ve-drop-zone.js b/Resources/Public/JavaScript/Frontend/components/ve-drop-zone.js
+index 3e12df3..f014e4b 100644
 --- a/Resources/Public/JavaScript/Frontend/components/ve-drop-zone.js
 +++ b/Resources/Public/JavaScript/Frontend/components/ve-drop-zone.js
-@@ -198,7 +198,7 @@
+@@ -194,7 +194,7 @@ export class VeDropZone extends LitElement {
        update: {
          colPos: this.colPos,
          ...(
@@ -21,8 +23,8 @@ the moved element.
 +          Number.isInteger(this.tx_container_parent) && this.tx_container_parent > 0
              ? {tx_container_parent: this.tx_container_parent}
              : {}
-         )
-@@ -274,7 +274,11 @@
+         ),
+@@ -273,7 +273,11 @@ export class VeDropZone extends LitElement {
        throw new Error('Cannot find source element for drop operation: ' + data.table + ':' + data.uid);
      }
      sourceElement.setAttribute('colPos', this.colPos);

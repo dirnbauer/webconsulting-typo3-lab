@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "46ef8d79a4bff6e3fa946f18f2e63582",
+    "content-hash": "10f08e8207b21ba48a8201075298635b",
     "packages": [
         {
             "name": "apache-solr-for-typo3/solr",
@@ -1323,16 +1323,16 @@
         },
         {
             "name": "friendsoftypo3/visual-editor",
-            "version": "1.7.1",
+            "version": "1.7.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/FriendsOfTYPO3/visual_editor.git",
-                "reference": "0a7fd9856b2b247db1e6f521240491eb9af80a40"
+                "reference": "521e391f9b1dc6592955dc6d0f32573eeced944d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FriendsOfTYPO3/visual_editor/zipball/0a7fd9856b2b247db1e6f521240491eb9af80a40",
-                "reference": "0a7fd9856b2b247db1e6f521240491eb9af80a40",
+                "url": "https://api.github.com/repos/FriendsOfTYPO3/visual_editor/zipball/521e391f9b1dc6592955dc6d0f32573eeced944d",
+                "reference": "521e391f9b1dc6592955dc6d0f32573eeced944d",
                 "shasum": ""
             },
             "require": {
@@ -1350,8 +1350,8 @@
                 "pluswerk/grumphp-config": "^10.2.7",
                 "saschaegerer/phpstan-typo3": "^2.1.1 || ^3.0.1",
                 "ssch/typo3-rector": "^3.14.1",
-                "typo3/cms-install": "^13.4.28 || ^14.3.2",
-                "typo3/cms-workspaces": "^13.4.28 || ^14.3.2",
+                "typo3/cms-install": "^13.4.28 || ^14.3.3",
+                "typo3/cms-workspaces": "^13.4.28 || ^14.3.3",
                 "typo3/testing-framework": "^9.5.0",
                 "typo3fluid/fluid": "^4.6.1 || ^5.3.1"
             },
@@ -1388,9 +1388,9 @@
             ],
             "support": {
                 "issues": "https://github.com/FriendsOfTYPO3/visual_editor/issues",
-                "source": "https://github.com/FriendsOfTYPO3/visual_editor/tree/1.7.1"
+                "source": "https://github.com/FriendsOfTYPO3/visual_editor/tree/1.7.2"
             },
-            "time": "2026-06-11T07:48:14+00:00"
+            "time": "2026-06-12T08:46:46+00:00"
         },
         {
             "name": "georgringer/context-edit-records",
@@ -11976,7 +11976,7 @@
             "dist": {
                 "type": "path",
                 "url": "packages/a2ui_integration",
-                "reference": "73e1f3175f17fa12a2ce61b6ae9a9b17043fb58b"
+                "reference": "6e791fff07b0bef7d808629897a93022f9480652"
             },
             "require": {
                 "php": "^8.3",
