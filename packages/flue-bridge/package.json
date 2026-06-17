@@ -1,0 +1,19 @@
+{
+  "name": "@webconsulting/flue-bridge",
+  "private": true,
+  "type": "module",
+  "description": "Flue (real @flue/runtime) sidecar bridging TYPO3 skills + MCP tools into durable agents/workflows.",
+  "engines": { "node": ">=22.19.0" },
+  "scripts": {
+    "init": "flue init --target node",
+    "dev": "flue dev",
+    "probe:mcp": "node probe-mcp.mjs"
+  },
+  "dependencies": {
+    "@flue/runtime": "1.0.0-beta.1",
+    "@hono/node-server": "^1.13.7"
+  },
+  "devDependencies": {
+    "@flue/cli": "1.0.0-beta.1"
+  }
+}
