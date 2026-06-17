@@ -65,6 +65,15 @@ solr_path_read: /
 solr_port_read: '8983'
 solr_scheme_read: http
 solr_use_write_connection: false
+routeEnhancers:
+  PageTypeSuffix:
+    type: PageType
+    default: ''
+    index: ''
+    map:
+      sitemap.xml: 1533906435
+      robots.txt: 201
+      suggest.json: 7384
 websiteTitle: 'TYPO3 Camp München 2026'
 imports:
   -
