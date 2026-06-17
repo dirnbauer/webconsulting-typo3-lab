@@ -1234,10 +1234,10 @@ index 0000000..7f74186
 +customElements.define('ve-element-library-button', VeElementLibraryButton);
 diff --git a/Resources/Public/JavaScript/Frontend/components/ve-element-library.js b/Resources/Public/JavaScript/Frontend/components/ve-element-library.js
 new file mode 100644
-index 0000000..15cb620
+index 0000000..9150193
 --- /dev/null
 +++ b/Resources/Public/JavaScript/Frontend/components/ve-element-library.js
-@@ -0,0 +1,1552 @@
+@@ -0,0 +1,1559 @@
 +import {css, html, LitElement} from 'lit';
 +import {classMap} from 'lit/directives/class-map.js';
 +import {repeat} from 'lit/directives/repeat.js';
@@ -2704,6 +2704,13 @@ index 0000000..15cb620
 +      order: 2; display: flex; flex-wrap: nowrap; gap: 4px; overflow: hidden;
 +    }
 +    .lrowKeywords .kw { flex: none; }
++    /* keep keyword chips legible on the accent-tinted hover/active row: a solid
++       surface fill + a stronger border, both following light/dark via the vars */
++    .lrow:hover .kw,
++    .lrow.is-active .kw {
++      background: var(--ve-panel-surface);
++      border-color: color-mix(in srgb, var(--ve-panel-text) 32%, var(--ve-panel-border));
++    }
 +    .lrowBody { order: 1; min-width: 0; display: flex; flex-direction: column; gap: 4px; }
 +    .lrowCat { align-self: flex-start; }
 +    .lrowTitle {
