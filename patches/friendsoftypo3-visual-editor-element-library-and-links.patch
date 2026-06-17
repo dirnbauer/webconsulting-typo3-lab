@@ -1234,10 +1234,10 @@ index 0000000..7f74186
 +customElements.define('ve-element-library-button', VeElementLibraryButton);
 diff --git a/Resources/Public/JavaScript/Frontend/components/ve-element-library.js b/Resources/Public/JavaScript/Frontend/components/ve-element-library.js
 new file mode 100644
-index 0000000..9150193
+index 0000000..fc2a734
 --- /dev/null
 +++ b/Resources/Public/JavaScript/Frontend/components/ve-element-library.js
-@@ -0,0 +1,1559 @@
+@@ -0,0 +1,1560 @@
 +import {css, html, LitElement} from 'lit';
 +import {classMap} from 'lit/directives/class-map.js';
 +import {repeat} from 'lit/directives/repeat.js';
@@ -2701,7 +2701,8 @@ index 0000000..9150193
 +    /* top keywords on each row (no per-row preview iframe; the docked pane shows
 +       the rendered preview on hover) */
 +    .lrowKeywords {
-+      order: 2; display: flex; flex-wrap: nowrap; gap: 4px; overflow: hidden;
++      order: 2; display: flex; flex-wrap: wrap; gap: 4px;
++      align-content: flex-start; max-height: 42px; overflow: hidden;
 +    }
 +    .lrowKeywords .kw { flex: none; }
 +    /* keep keyword chips legible on the accent-tinted hover/active row: a solid
