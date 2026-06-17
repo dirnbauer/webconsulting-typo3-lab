@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "37fb345761ae67aeb4d93a02f0a0c792",
+    "content-hash": "d6c3f6b6721f96cbbdd2fef48424d629",
     "packages": [
         {
             "name": "apache-solr-for-typo3/solr",
@@ -12433,12 +12433,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/typo3-docx.git",
-                "reference": "6ac5f3dc4128613e2fe7dd0fe887de8532b2e551"
+                "reference": "28c3b9d679c55caeab93293ae8ac1fefcfd8b79a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/typo3-docx/zipball/6ac5f3dc4128613e2fe7dd0fe887de8532b2e551",
-                "reference": "6ac5f3dc4128613e2fe7dd0fe887de8532b2e551",
+                "url": "https://api.github.com/repos/dirnbauer/typo3-docx/zipball/28c3b9d679c55caeab93293ae8ac1fefcfd8b79a",
+                "reference": "28c3b9d679c55caeab93293ae8ac1fefcfd8b79a",
                 "shasum": ""
             },
             "require": {
@@ -12522,7 +12522,7 @@
                 "issues": "https://github.com/dirnbauer/typo3-docx/issues",
                 "source": "https://github.com/dirnbauer/typo3-docx"
             },
-            "time": "2026-06-17T11:36:23+00:00"
+            "time": "2026-06-17T15:12:53+00:00"
         },
         {
             "name": "webconsulting/records-list-examples",
