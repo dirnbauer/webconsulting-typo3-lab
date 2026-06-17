@@ -1234,10 +1234,10 @@ index 0000000..7f74186
 +customElements.define('ve-element-library-button', VeElementLibraryButton);
 diff --git a/Resources/Public/JavaScript/Frontend/components/ve-element-library.js b/Resources/Public/JavaScript/Frontend/components/ve-element-library.js
 new file mode 100644
-index 0000000..7eaac27
+index 0000000..75dcf95
 --- /dev/null
 +++ b/Resources/Public/JavaScript/Frontend/components/ve-element-library.js
-@@ -0,0 +1,1512 @@
+@@ -0,0 +1,1556 @@
 +import {css, html, LitElement} from 'lit';
 +import {classMap} from 'lit/directives/class-map.js';
 +import {repeat} from 'lit/directives/repeat.js';
@@ -1588,6 +1588,7 @@ index 0000000..7eaac27
 +    event.dataTransfer.effectAllowed = 'copyMove';
 +    event.dataTransfer.clearData();
 +    event.dataTransfer.setData('text/ve-drag', JSON.stringify(data));
++    this.#setCustomDragImage(event, item);
 +    this.draggingCType = item.cType;
 +    dragInProgressStore.value = data;
 +    // Remember it as recently used the moment it is picked up. Tracking the
@@ -1601,6 +1602,49 @@ index 0000000..7eaac27
 +  #endDrag() {
 +    this.draggingCType = '';
 +    dragInProgressStore.value = false;
++  }
++
++  /**
++   * Replace the browser's default drag ghost - a generic globe/iframe icon that
++   * is often empty when the preview iframe hasn't finished loading - with a small
++   * labelled chip (the element's icon + title). This makes the drag read clearly
++   * no matter where it started (card, list row, or the big preview) or whether
++   * the preview was ready yet. Falls back to the browser default on any error.
++   * @param {DragEvent} event
++   * @param {Object} item
++   */
++  #setCustomDragImage(event, item) {
++    if (typeof event.dataTransfer.setDragImage !== 'function') {
++      return;
++    }
++    try {
++      const ghost = document.createElement('div');
++      ghost.setAttribute('aria-hidden', 'true');
++      ghost.style.cssText = [
++        'position:fixed', 'top:-1000px', 'left:-1000px', 'z-index:2147483647',
++        'display:inline-flex', 'align-items:center', 'gap:8px',
++        'padding:7px 13px', 'border-radius:10px',
++        'background:rgba(22,22,26,0.94)', 'color:#fff',
++        'font:650 13px/1.2 system-ui,-apple-system,sans-serif',
++        'white-space:nowrap', 'box-shadow:0 8px 22px rgba(0,0,0,0.35)',
++        'pointer-events:none',
++      ].join(';');
++      if (item.iconUrl) {
++        const img = document.createElement('img');
++        img.src = item.iconUrl;
++        img.style.cssText = 'width:18px;height:18px;flex:none;';
++        ghost.appendChild(img);
++      }
++      const label = document.createElement('span');
++      label.textContent = item.title || item.cType;
++      ghost.appendChild(label);
++      document.body.appendChild(ghost);
++      event.dataTransfer.setDragImage(ghost, 16, 18);
++      // the node only needs to exist at the moment of setDragImage; drop it next tick
++      setTimeout(() => ghost.remove(), 0);
++    } catch (error) {
++      // setDragImage unsupported or blocked - keep the browser default
++    }
 +  }
 +
 +  /**
