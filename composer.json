@@ -222,7 +222,11 @@
         "Fix preview URL generation for workspace-only pages (NEW_PLACEHOLDER)": "patches/friendsoftypo3-visual-editor-fix-workspace-new-page-preview.patch",
         "Decode JSON save body when getParsedBody() is an empty array": "patches/friendsoftypo3-visual-editor-fix-save-json-body.patch",
       "Element library panel and inline link editing": "patches/friendsoftypo3-visual-editor-element-library-and-links.patch",
-        "Do not send tx_container_parent:0 on drag move when EXT:container is absent": "patches/friendsoftypo3-visual-editor-fix-tx-container-parent-zero.patch"
+        "Do not send tx_container_parent:0 on drag move when EXT:container is absent": "patches/friendsoftypo3-visual-editor-fix-tx-container-parent-zero.patch",
+        "Add missing useDataHandler import so element-library drops save and refresh": "patches/friendsoftypo3-visual-editor-fix-usedatahandler-import.patch"
+      },
+      "webconsulting/webcon-easy-workspace": {
+        "Load decline-button frontend module with .js so the importmap resolves it (404 fix)": "patches/webcon-easy-workspace-fix-decline-button-module-js.patch"
       }
     }
   }
