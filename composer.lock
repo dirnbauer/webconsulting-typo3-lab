@@ -11976,7 +11976,7 @@
             "dist": {
                 "type": "path",
                 "url": "packages/a2a_integration",
-                "reference": "be65eb85ecad5d67d998d1d13d8e2367f1993fd1"
+                "reference": "4f77cc4260467bec290b85181fbda124f6d42322"
             },
             "require": {
                 "php": "^8.3",
@@ -12189,7 +12189,7 @@
             "dist": {
                 "type": "path",
                 "url": "packages/agui_integration",
-                "reference": "7003860684d3f876b1a978a715fadf2f6bb0485a"
+                "reference": "7a951c621c1209e2f6053fec972e4fd6eee1bf6a"
             },
             "require": {
                 "php": "^8.3",
@@ -12249,7 +12249,7 @@
             "dist": {
                 "type": "path",
                 "url": "packages/ap2_integration",
-                "reference": "c8322b6f842005b99ef38fec80650cd7503ba76c"
+                "reference": "ebacd0176465c076c0cff8171d931b5163d15f75"
             },
             "require": {
                 "php": "^8.3",
@@ -12433,12 +12433,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/typo3-docx.git",
-                "reference": "6ff7672f6310706732d50c17a2c047504dd7ab77"
+                "reference": "2a02830c34d21d943ca22fff9817201ca6bef2f1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/typo3-docx/zipball/6ff7672f6310706732d50c17a2c047504dd7ab77",
-                "reference": "6ff7672f6310706732d50c17a2c047504dd7ab77",
+                "url": "https://api.github.com/repos/dirnbauer/typo3-docx/zipball/2a02830c34d21d943ca22fff9817201ca6bef2f1",
+                "reference": "2a02830c34d21d943ca22fff9817201ca6bef2f1",
                 "shasum": ""
             },
             "require": {
@@ -12522,7 +12522,7 @@
                 "issues": "https://github.com/dirnbauer/typo3-docx/issues",
                 "source": "https://github.com/dirnbauer/typo3-docx"
             },
-            "time": "2026-06-17T15:12:53+00:00"
+            "time": "2026-06-17T17:09:34+00:00"
         },
         {
             "name": "webconsulting/records-list-examples",
@@ -12949,7 +12949,7 @@
             "dist": {
                 "type": "path",
                 "url": "packages/ucp_integration",
-                "reference": "18c4e12b7530cb6573f56076746f163456ca9485"
+                "reference": "0f6037ea56f8034c7d4ced8d8e6a2bc59fcc15f5"
             },
             "require": {
                 "php": "^8.3",
