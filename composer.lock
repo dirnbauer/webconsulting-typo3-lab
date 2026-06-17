@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6efd29188190a02796b8d991e8881ef5",
+    "content-hash": "bd92cba69be61963ee7f6b827f3a4667",
     "packages": [
         {
             "name": "apache-solr-for-typo3/solr",
@@ -11976,7 +11976,7 @@
             "dist": {
                 "type": "path",
                 "url": "packages/a2a_integration",
-                "reference": "4f77cc4260467bec290b85181fbda124f6d42322"
+                "reference": "00978c8842d3e34a35b22093b6cd36267755a6c9"
             },
             "require": {
                 "php": "^8.3",
@@ -12189,7 +12189,7 @@
             "dist": {
                 "type": "path",
                 "url": "packages/agui_integration",
-                "reference": "7a951c621c1209e2f6053fec972e4fd6eee1bf6a"
+                "reference": "28a60ae1e55ef2c3bd3fae2645f62b244e41b079"
             },
             "require": {
                 "php": "^8.3",
@@ -12249,7 +12249,7 @@
             "dist": {
                 "type": "path",
                 "url": "packages/ap2_integration",
-                "reference": "ebacd0176465c076c0cff8171d931b5163d15f75"
+                "reference": "78845e89075fc06c740eb7bc65ab90d8c59196cd"
             },
             "require": {
                 "php": "^8.3",
@@ -12344,16 +12344,16 @@
         },
         {
             "name": "webconsulting/desiderio",
-            "version": "v2.9.5",
+            "version": "dev-main",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/desiderio.git",
-                "reference": "e2ae8b22039593eabd7c93818315b37a603f9924"
+                "reference": "f69f88530ee06e59cb11d58945d75c3f7fe0e81f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/desiderio/zipball/e2ae8b22039593eabd7c93818315b37a603f9924",
-                "reference": "e2ae8b22039593eabd7c93818315b37a603f9924",
+                "url": "https://api.github.com/repos/dirnbauer/desiderio/zipball/f69f88530ee06e59cb11d58945d75c3f7fe0e81f",
+                "reference": "f69f88530ee06e59cb11d58945d75c3f7fe0e81f",
                 "shasum": ""
             },
             "require": {
@@ -12385,11 +12385,12 @@
                 "studiomitte/friendlycaptcha": "Optional. Protects the bundled TYPO3 Form Framework and Powermail lab forms with Friendly Captcha. For TYPO3 14 install the fork: add the VCS repository https://github.com/dirnbauer/friendlycaptcha-typo3 and require studiomitte/friendlycaptcha:^14.0@dev. Without it the captcha element renders an inert placeholder and validation passes.",
                 "t3g/blog": "Optional. Drives the shadcn-styled t3g/blog overrides shipped under webconsulting/desiderio-blog."
             },
+            "default-branch": true,
             "type": "typo3-cms-extension",
             "extra": {
                 "typo3/cms": {
                     "extension-key": "desiderio",
-                    "version": "2.9.5",
+                    "version": "2.11.0",
                     "Package": {
                         "providesPackages": []
                     }
@@ -12425,7 +12426,7 @@
                 }
             ],
             "description": "Desiderio — shadcn/ui-inspired Fluid 5 component library, 255 content elements, and theme layer for TYPO3 14",
-            "time": "2026-06-13T16:34:13+00:00"
+            "time": "2026-06-17T19:05:36+00:00"
         },
         {
             "name": "webconsulting/docx-editor",
@@ -12433,12 +12434,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/typo3-docx.git",
-                "reference": "81d4358f53a0630a88c721c6d57feb789ba4849c"
+                "reference": "f2116f26d2451606ad41f13249312f783341a393"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/typo3-docx/zipball/81d4358f53a0630a88c721c6d57feb789ba4849c",
-                "reference": "81d4358f53a0630a88c721c6d57feb789ba4849c",
+                "url": "https://api.github.com/repos/dirnbauer/typo3-docx/zipball/f2116f26d2451606ad41f13249312f783341a393",
+                "reference": "f2116f26d2451606ad41f13249312f783341a393",
                 "shasum": ""
             },
             "require": {
@@ -12949,7 +12950,7 @@
             "dist": {
                 "type": "path",
                 "url": "packages/ucp_integration",
-                "reference": "0f6037ea56f8034c7d4ced8d8e6a2bc59fcc15f5"
+                "reference": "328ddddf1124c636f95e0ce9322442788a577ab0"
             },
             "require": {
                 "php": "^8.3",
@@ -15400,6 +15401,12 @@
             "version": "dev-main",
             "alias": "0.10.x-dev",
             "alias_normalized": "0.10.9999999.9999999-dev"
+        },
+        {
+            "package": "webconsulting/desiderio",
+            "version": "dev-main",
+            "alias": "2.11.0",
+            "alias_normalized": "2.11.0.0"
         }
     ],
     "minimum-stability": "dev",
@@ -15412,6 +15419,7 @@
         "sgalinski/sg-apicore": 20,
         "studiomitte/friendlycaptcha": 20,
         "studiomitte/solr-numbered-pagination": 20,
+        "webconsulting/desiderio": 20,
         "webconsulting/docx-editor": 20
     },
     "prefer-stable": true,
