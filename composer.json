@@ -43,7 +43,11 @@
         "symlink": true,
         "versions": {
           "webconsulting/site-package": "14.3.3",
-          "webconsulting/a2ui-integration": "2.1.0"
+          "webconsulting/a2ui-integration": "2.1.0",
+          "webconsulting/agui-integration": "0.1.0",
+          "webconsulting/a2a-integration": "0.1.0",
+          "webconsulting/ucp-integration": "0.1.0",
+          "webconsulting/ap2-integration": "0.1.0"
         }
       }
     },
@@ -138,6 +142,10 @@
     "apache-solr-for-typo3/solr": "^14.0@beta",
     "dirnbauer/innesto": "^1.0",
     "webconsulting/a2ui-integration": "^2.0",
+    "webconsulting/agui-integration": "^0.1",
+    "webconsulting/a2a-integration": "^0.1",
+    "webconsulting/ucp-integration": "^0.1",
+    "webconsulting/ap2-integration": "^0.1",
     "friendsoftypo3/tt-address": "^10.0",
     "friendsoftypo3/visual-editor": "^1.7.2",
     "georgringer/context-edit-records": "^1.0",
@@ -226,7 +234,8 @@
         "Add missing useDataHandler import so element-library drops save and refresh": "patches/friendsoftypo3-visual-editor-fix-usedatahandler-import.patch"
       },
       "webconsulting/webcon-easy-workspace": {
-        "Load decline-button frontend module with .js so the importmap resolves it (404 fix)": "patches/webcon-easy-workspace-fix-decline-button-module-js.patch"
+        "Load decline-button frontend module with .js so the importmap resolves it (404 fix)": "patches/webcon-easy-workspace-fix-decline-button-module-js.patch",
+        "Toolbar list: toggle switches, Seiteneigenschaften card redesign with intent line, correct TYPO3 labels": "patches/webcon-easy-workspace-toolbar-toggle-and-seiteneigenschaften.patch"
       }
     }
   }

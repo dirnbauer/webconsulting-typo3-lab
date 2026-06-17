@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "06153b9dde551fdc3bbcc15aa74ea375",
+    "content-hash": "37fb345761ae67aeb4d93a02f0a0c792",
     "packages": [
         {
             "name": "apache-solr-for-typo3/solr",
@@ -11971,12 +11971,72 @@
             "time": "2026-05-11T18:48:09+00:00"
         },
         {
+            "name": "webconsulting/a2a-integration",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "packages/a2a_integration",
+                "reference": "be65eb85ecad5d67d998d1d13d8e2367f1993fd1"
+            },
+            "require": {
+                "php": "^8.3",
+                "typo3/cms-backend": "^14.3",
+                "typo3/cms-core": "^14.3",
+                "typo3/cms-extbase": "^14.3",
+                "typo3/cms-fluid": "^14.3"
+            },
+            "suggest": {
+                "friendsoftypo3/content-blocks": "Provides the frontend 'A2A Concierge' content element.",
+                "netresearch/nr-llm": "Back the local A2A agent with a real LLM instead of the bundled deterministic one."
+            },
+            "type": "typo3-cms-extension",
+            "extra": {
+                "typo3/cms": {
+                    "extension-key": "a2a_integration"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Webconsulting\\A2aIntegration\\": "Classes/"
+                }
+            },
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "webconsulting GmbH",
+                    "email": "office@webconsulting.at",
+                    "homepage": "https://webconsulting.at"
+                }
+            ],
+            "description": "A2A (Agent2Agent Protocol) for TYPO3 v14 — the site publishes an Agent Card, and agents discover it and delegate tasks over JSON-RPC, streaming a task lifecycle (submitted → working → input-required → completed) with artifacts. Backend console + frontend Concierge.",
+            "homepage": "https://webconsulting.at",
+            "keywords": [
+                "A2A",
+                "TYPO3",
+                "agent-card",
+                "agent2agent",
+                "interoperability",
+                "json-rpc",
+                "tasks"
+            ],
+            "support": {
+                "issues": "https://github.com/dirnbauer/typo3-a2a-integration/issues",
+                "source": "https://github.com/dirnbauer/typo3-a2a-integration"
+            },
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
             "name": "webconsulting/a2ui-integration",
             "version": "2.1.0",
             "dist": {
                 "type": "path",
                 "url": "packages/a2ui_integration",
-                "reference": "6e791fff07b0bef7d808629897a93022f9480652"
+                "reference": "af01e9547423e516cc28892f64bdb115bfeb977b"
             },
             "require": {
                 "php": "^8.3",
@@ -12124,6 +12184,126 @@
             "time": "2026-05-25T12:48:00+00:00"
         },
         {
+            "name": "webconsulting/agui-integration",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "packages/agui_integration",
+                "reference": "7003860684d3f876b1a978a715fadf2f6bb0485a"
+            },
+            "require": {
+                "php": "^8.3",
+                "typo3/cms-backend": "^14.3",
+                "typo3/cms-core": "^14.3",
+                "typo3/cms-extbase": "^14.3",
+                "typo3/cms-fluid": "^14.3"
+            },
+            "suggest": {
+                "friendsoftypo3/content-blocks": "Provides the frontend 'AI Live Assistant' content element.",
+                "netresearch/nr-llm": "Stream a real LLM as AG-UI events instead of the bundled deterministic emitter."
+            },
+            "type": "typo3-cms-extension",
+            "extra": {
+                "typo3/cms": {
+                    "extension-key": "agui_integration"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Webconsulting\\AguiIntegration\\": "Classes/"
+                }
+            },
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "webconsulting GmbH",
+                    "email": "office@webconsulting.at",
+                    "homepage": "https://webconsulting.at"
+                }
+            ],
+            "description": "AG-UI (Agent-User Interaction Protocol) for TYPO3 v14 — a backend agent streams typed real-time events to the UI over SSE, so editors and visitors watch and steer a long-running agent live, with human-in-the-loop approval before any write.",
+            "homepage": "https://webconsulting.at",
+            "keywords": [
+                "AG-UI",
+                "SSE",
+                "TYPO3",
+                "agent",
+                "generative-ui",
+                "human-in-the-loop",
+                "streaming"
+            ],
+            "support": {
+                "issues": "https://github.com/dirnbauer/typo3-agui-integration/issues",
+                "source": "https://github.com/dirnbauer/typo3-agui-integration"
+            },
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "webconsulting/ap2-integration",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "packages/ap2_integration",
+                "reference": "c8322b6f842005b99ef38fec80650cd7503ba76c"
+            },
+            "require": {
+                "php": "^8.3",
+                "typo3/cms-backend": "^14.3",
+                "typo3/cms-core": "^14.3",
+                "typo3/cms-extbase": "^14.3",
+                "typo3/cms-fluid": "^14.3"
+            },
+            "suggest": {
+                "friendsoftypo3/content-blocks": "Provides the frontend 'Trusted Surface' content element.",
+                "webconsulting/ucp-integration": "Feeds a UCP cart into the AP2 Cart Mandate at checkout."
+            },
+            "type": "typo3-cms-extension",
+            "extra": {
+                "typo3/cms": {
+                    "extension-key": "ap2_integration"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Webconsulting\\Ap2Integration\\": "Classes/"
+                }
+            },
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "webconsulting GmbH",
+                    "email": "office@webconsulting.at",
+                    "homepage": "https://webconsulting.at"
+                }
+            ],
+            "description": "AP2 (Agent Payments Protocol) for TYPO3 v14 — mint and verify the signed mandates (Intent Mandate, Cart Mandate) that authorize an agent to pay on a human's behalf, and walk the authorization chain before a (simulated) payment. All cryptography is a sandbox demo. Backend Mandate Studio + frontend Trusted Surface.",
+            "homepage": "https://webconsulting.at",
+            "keywords": [
+                "AP2",
+                "TYPO3",
+                "agent-payments",
+                "authorization",
+                "jwt",
+                "mandate",
+                "verifiable-credentials"
+            ],
+            "support": {
+                "issues": "https://github.com/dirnbauer/typo3-ap2-integration/issues",
+                "source": "https://github.com/dirnbauer/typo3-ap2-integration"
+            },
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
             "name": "webconsulting/api-capability-bridge",
             "version": "v1.0.1",
             "source": {
@@ -12253,12 +12433,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/typo3-docx.git",
-                "reference": "a14f2b0f776cc0cd75845328a0c7d10bf46c3176"
+                "reference": "6ac5f3dc4128613e2fe7dd0fe887de8532b2e551"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/typo3-docx/zipball/a14f2b0f776cc0cd75845328a0c7d10bf46c3176",
-                "reference": "a14f2b0f776cc0cd75845328a0c7d10bf46c3176",
+                "url": "https://api.github.com/repos/dirnbauer/typo3-docx/zipball/6ac5f3dc4128613e2fe7dd0fe887de8532b2e551",
+                "reference": "6ac5f3dc4128613e2fe7dd0fe887de8532b2e551",
                 "shasum": ""
             },
             "require": {
@@ -12342,7 +12522,7 @@
                 "issues": "https://github.com/dirnbauer/typo3-docx/issues",
                 "source": "https://github.com/dirnbauer/typo3-docx"
             },
-            "time": "2026-06-05T15:30:15+00:00"
+            "time": "2026-06-17T11:36:23+00:00"
         },
         {
             "name": "webconsulting/records-list-examples",
@@ -12494,7 +12674,7 @@
             "dist": {
                 "type": "path",
                 "url": "packages/site_package",
-                "reference": "8b4c83dbd3a079e1d1223fff780349d11f99ec29"
+                "reference": "113903d22cd7906cfa402738ffdc4fe0268698af"
             },
             "require": {
                 "apache-solr-for-typo3/solr": "^14.0@beta",
@@ -12762,6 +12942,67 @@
                 "source": "https://github.com/dirnbauer/typo3-x402-paywall"
             },
             "time": "2026-05-25T12:48:17+00:00"
+        },
+        {
+            "name": "webconsulting/ucp-integration",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "packages/ucp_integration",
+                "reference": "18c4e12b7530cb6573f56076746f163456ca9485"
+            },
+            "require": {
+                "php": "^8.3",
+                "typo3/cms-backend": "^14.3",
+                "typo3/cms-core": "^14.3",
+                "typo3/cms-extbase": "^14.3",
+                "typo3/cms-fluid": "^14.3"
+            },
+            "suggest": {
+                "friendsoftypo3/content-blocks": "Provides the frontend 'Agent Checkout' content element.",
+                "netresearch/nr-llm": "Back the shopping agent with a real LLM instead of the bundled deterministic one.",
+                "webconsulting/ap2-integration": "Adds AP2 payment-authorization mandates to the checkout's authorization step."
+            },
+            "type": "typo3-cms-extension",
+            "extra": {
+                "typo3/cms": {
+                    "extension-key": "ucp_integration"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Webconsulting\\UcpIntegration\\": "Classes/"
+                }
+            },
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "webconsulting GmbH",
+                    "email": "office@webconsulting.at",
+                    "homepage": "https://webconsulting.at"
+                }
+            ],
+            "description": "UCP (Universal Commerce Protocol) for TYPO3 v14 — the site publishes a merchant manifest and catalog, and a shopping agent discovers it, builds a cart and runs an agent-driven checkout that streams a commerce state machine and pauses for purchase authorization. All transactions are SIMULATED. Backend console + frontend Agent Checkout.",
+            "homepage": "https://webconsulting.at",
+            "keywords": [
+                "TYPO3",
+                "UCP",
+                "agent",
+                "agentic-commerce",
+                "checkout",
+                "merchant",
+                "shopping"
+            ],
+            "support": {
+                "issues": "https://github.com/dirnbauer/typo3-ucp-integration/issues",
+                "source": "https://github.com/dirnbauer/typo3-ucp-integration"
+            },
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
         },
         {
             "name": "webconsulting/webcon-easy-workspace",

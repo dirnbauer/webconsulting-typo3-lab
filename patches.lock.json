@@ -1,5 +1,5 @@
 {
-    "_hash": "376419284a02723ccba783c68e3c4d4517312b3531fdd3f08f288149fb7e01b3",
+    "_hash": "df80b02e2f6729443ee28f1facb26a43e268a52aeee9671736d7484def4874e0",
     "patches": {
         "netresearch/nr-vault": [
             {
@@ -50,7 +50,7 @@
                 "package": "friendsoftypo3/visual-editor",
                 "description": "Element library panel and inline link editing",
                 "url": "patches/friendsoftypo3-visual-editor-element-library-and-links.patch",
-                "sha256": "daa766ed06c058a2dd384f7c07ba87d2677432450e4d615820f16261fc806cc3",
+                "sha256": "f3d734368b9b820ef9a3740d99ded791bda975377a64617097c8bb9dbd63c2c9",
                 "depth": 1,
                 "extra": {
                     "provenance": "root"
@@ -83,6 +83,16 @@
                 "description": "Load decline-button frontend module with .js so the importmap resolves it (404 fix)",
                 "url": "patches/webcon-easy-workspace-fix-decline-button-module-js.patch",
                 "sha256": "7fca3c4c35b57cd60d0be6f1d6accb57216b0f62f4e2cdd09d2736c9a22ad6d8",
+                "depth": 1,
+                "extra": {
+                    "provenance": "root"
+                }
+            },
+            {
+                "package": "webconsulting/webcon-easy-workspace",
+                "description": "Toolbar list: toggle switches, Seiteneigenschaften card redesign with intent line, correct TYPO3 labels",
+                "url": "patches/webcon-easy-workspace-toolbar-toggle-and-seiteneigenschaften.patch",
+                "sha256": "a317ba5e4a076e8dcd6fa8c8ac3f315f7042f8b18af007733ea7e50f0c5271e6",
                 "depth": 1,
                 "extra": {
                     "provenance": "root"

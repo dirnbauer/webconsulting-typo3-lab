@@ -1,0 +1,418 @@
+diff --git a/Classes/Service/LocalizationService.php b/Classes/Service/LocalizationService.php
+index 34a4d26..eced336 100644
+--- a/Classes/Service/LocalizationService.php
++++ b/Classes/Service/LocalizationService.php
+@@ -60,6 +60,8 @@ final readonly class LocalizationService
+         'context.news',
+         'record.pageRecord',
+         'record.newsRecord',
++        'toolbar.primaryIntent.page',
++        'toolbar.primaryIntent.news',
+         'state.live',
+         'state.new',
+         'state.delete',
+diff --git a/Resources/Private/Language/de.locallang.xlf b/Resources/Private/Language/de.locallang.xlf
+index d2f8433..15fa8d6 100644
+--- a/Resources/Private/Language/de.locallang.xlf
++++ b/Resources/Private/Language/de.locallang.xlf
+@@ -1269,14 +1269,26 @@
+     </unit>
+     <unit id="record.pageRecord">
+       <segment>
+-        <source>Page record</source>
+-        <target state="translated">Seitendatensatz</target>
++        <source>Page properties</source>
++        <target state="translated">Seiteneigenschaften</target>
+       </segment>
+     </unit>
+     <unit id="record.newsRecord">
+       <segment>
+-        <source>News record</source>
+-        <target state="translated">News-Datensatz</target>
++        <source>News article</source>
++        <target state="translated">News-Artikel</target>
++      </segment>
++    </unit>
++    <unit id="toolbar.primaryIntent.page">
++      <segment>
++        <source>The content elements below belong to this page and publish together with it.</source>
++        <target state="translated">Die Inhaltselemente unten gehören zu dieser Seite und werden mit ihr veröffentlicht.</target>
++      </segment>
++    </unit>
++    <unit id="toolbar.primaryIntent.news">
++      <segment>
++        <source>The content elements below belong to this article and publish together with it.</source>
++        <target state="translated">Die Inhaltselemente unten gehören zu diesem Artikel und werden mit ihm veröffentlicht.</target>
+       </segment>
+     </unit>
+     <unit id="state.live">
+diff --git a/Resources/Private/Language/locallang.xlf b/Resources/Private/Language/locallang.xlf
+index c8c26a4..b9a6c70 100644
+--- a/Resources/Private/Language/locallang.xlf
++++ b/Resources/Private/Language/locallang.xlf
+@@ -1269,14 +1269,26 @@
+     </unit>
+     <unit id="record.pageRecord">
+       <segment>
+-        <source>Page record</source>
+-        <target state="translated">Page record</target>
++        <source>Page properties</source>
++        <target state="translated">Page properties</target>
+       </segment>
+     </unit>
+     <unit id="record.newsRecord">
+       <segment>
+-        <source>News record</source>
+-        <target state="translated">News record</target>
++        <source>News article</source>
++        <target state="translated">News article</target>
++      </segment>
++    </unit>
++    <unit id="toolbar.primaryIntent.page">
++      <segment>
++        <source>The content elements below belong to this page and publish together with it.</source>
++        <target state="translated">The content elements below belong to this page and publish together with it.</target>
++      </segment>
++    </unit>
++    <unit id="toolbar.primaryIntent.news">
++      <segment>
++        <source>The content elements below belong to this article and publish together with it.</source>
++        <target state="translated">The content elements below belong to this article and publish together with it.</target>
+       </segment>
+     </unit>
+     <unit id="state.live">
+diff --git a/Resources/Private/Partials/Toolbar/ListItem.html b/Resources/Private/Partials/Toolbar/ListItem.html
+index a7420d2..727a025 100644
+--- a/Resources/Private/Partials/Toolbar/ListItem.html
++++ b/Resources/Private/Partials/Toolbar/ListItem.html
+@@ -38,15 +38,12 @@
+     <label class="wew-list__label" for="{f:if(condition: item.isChanged, then: rowId, else: '')}">
+         <f:if condition="{item.isChanged}">
+             <input type="checkbox"
++                   role="switch"
+                    id="{rowId}"
+                    class="form-check-input wew-list__check visually-hidden"
+                    checked="checked"
+                    data-wew-row-check="" />
+-            <span class="wew-list__mark" aria-hidden="true">
+-                <svg viewBox="0 0 16 16" width="10" height="10" aria-hidden="true">
+-                    <path fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" d="M3 8.5l3 3 7-7"/>
+-                </svg>
+-            </span>
++            <span class="wew-list__mark" aria-hidden="true"></span>
+         </f:if>
+ 
+         <f:if condition="{item.thumbnailUrl}">
+@@ -78,6 +75,18 @@
+                 </span>
+             </f:if>
+ 
++            <f:if condition="{item.isPrimary} && ({item.table} == 'pages' || {item.table} == 'tx_news_domain_model_news')">
++                <span class="wew-list__intent">
++                    <span class="wew-list__intent-icon" aria-hidden="true"></span>
++                    <span class="wew-list__intent-text">
++                        <f:if condition="{item.table} == 'pages'">
++                            <f:then><f:translate key="LLL:EXT:webcon_easy_workspace/Resources/Private/Language/locallang.xlf:toolbar.primaryIntent.page" /></f:then>
++                            <f:else><f:translate key="LLL:EXT:webcon_easy_workspace/Resources/Private/Language/locallang.xlf:toolbar.primaryIntent.news" /></f:else>
++                        </f:if>
++                    </span>
++                </span>
++            </f:if>
++
+             <f:if condition="{item.isChanged}">
+                 <span class="wew-list__change-actions">
+                     <f:if condition="{item.historyUrl}">
+diff --git a/Resources/Public/Css/easy-workspace.css b/Resources/Public/Css/easy-workspace.css
+index 906f7b0..4f4603a 100644
+--- a/Resources/Public/Css/easy-workspace.css
++++ b/Resources/Public/Css/easy-workspace.css
+@@ -469,17 +469,18 @@ webcon-easy-workspace-menu.wew-menu-host--compact-toolbar {
+     background: color-mix(in srgb, var(--typo3-link-color, var(--bs-primary)) 12%, transparent);
+     border-bottom: 2px solid color-mix(in srgb, var(--typo3-link-color, var(--bs-primary)) 35%, transparent);
+ }
+-.wew-list__row--primary[data-table="pages"] {
+-    margin: .4rem .45rem .45rem;
+-    border: 1px solid color-mix(in srgb, var(--typo3-link-color, var(--bs-primary)) 42%, var(--typo3-component-border-color, var(--bs-border-color)));
+-    border-radius: 6px;
+-    background:
+-        linear-gradient(135deg,
+-            color-mix(in srgb, var(--typo3-link-color, var(--bs-primary)) 22%, transparent),
+-            color-mix(in srgb, var(--typo3-link-color, var(--bs-primary)) 9%, transparent));
+-    box-shadow:
+-        inset 0 1px 0 color-mix(in srgb, var(--bs-white, #fff) 11%, transparent),
+-        0 6px 14px color-mix(in srgb, var(--bs-black, #000) 18%, transparent);
++.wew-list__row--primary[data-table="pages"],
++.wew-list__row--primary[data-table="tx_news_domain_model_news"] {
++    /* Flat, calm card — a single solid tint mixed onto the panel
++       background (works in light and dark), a hairline border and a
++       barely-there shadow. The gradient + heavy drop shadow we had
++       before read as a "button" and fought the list; this just
++       reads as "the parent record this group belongs to". */
++    margin: .5rem .5rem .4rem;
++    border: 1px solid color-mix(in srgb, var(--typo3-link-color, var(--bs-primary)) 28%, var(--typo3-component-border-color, var(--bs-border-color)));
++    border-radius: 8px;
++    background: color-mix(in srgb, var(--typo3-link-color, var(--bs-primary)) 8%, var(--typo3-component-bg, var(--bs-body-bg)));
++    box-shadow: 0 1px 2px color-mix(in srgb, var(--bs-black, #000) 7%, transparent);
+     overflow: hidden;
+ }
+ .wew-list__row--primary .wew-list__label {
+@@ -502,46 +503,35 @@ webcon-easy-workspace-menu.wew-menu-host--compact-toolbar {
+     font-size: 13.5px;
+ }
+ .wew-list__primary-kicker {
++    /* Clean eyebrow: record-class icon + uppercase label, no pill.
++       The icon glyph comes from --wew-primary-icon (set per table
++       below) so pages and news each show their own record icon. */
+     display: inline-flex;
+     align-items: center;
+     align-self: flex-start;
+-    gap: .35rem;
++    gap: .3rem;
+     max-width: 100%;
+-    padding: .08rem .45rem;
+-    border: 1px solid color-mix(in srgb, var(--typo3-link-color, var(--bs-primary)) 38%, transparent);
+-    border-radius: 999px;
+-    background: color-mix(in srgb, var(--typo3-link-color, var(--bs-primary)) 14%, transparent);
++    margin-bottom: .15rem;
+     color: var(--typo3-link-color, var(--bs-primary));
+     font-size: 9.5px;
+     font-weight: 700;
+     line-height: 1.35;
+-    letter-spacing: .06em;
++    letter-spacing: .07em;
+     text-transform: uppercase;
+     white-space: nowrap;
+ }
+ .wew-list__primary-kicker::before {
+     content: "";
+-    width: 7px;
+-    height: 7px;
+-    border-radius: 50%;
++    flex-shrink: 0;
++    width: 13px;
++    height: 13px;
+     background: currentColor;
+-    box-shadow: 0 0 0 3px color-mix(in srgb, currentColor 16%, transparent);
+-}
+-/* Larger leading icon on the primary row's title so it reads as
+-   a record-class glyph, not a tiny decoration. */
+-.wew-list__row--primary[data-table="pages"] .wew-list__title-text::before,
+-.wew-list__row--primary[data-table="tx_news_domain_model_news"] .wew-list__title-text::before {
+-    content: "";
+-    display: inline-block;
+-    width: 18px;
+-    height: 18px;
+-    margin-right: .5rem;
+-    vertical-align: -4px;
+-    background: var(--typo3-link-color, var(--bs-primary));
+     -webkit-mask: var(--wew-primary-icon) center / contain no-repeat;
+             mask: var(--wew-primary-icon) center / contain no-repeat;
+-    opacity: .9;
+ }
++/* The record-class icon now lives in the kicker eyebrow above the
++   title (.wew-list__primary-kicker::before), so the title stays a
++   clean text line — no duplicate leading glyph. */
+ .wew-list__row--primary[data-table="pages"] {
+     --wew-primary-icon: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill="currentColor" d="M3 1.5A.5.5 0 0 1 3.5 1h6a.5.5 0 0 1 .354.146l3 3A.5.5 0 0 1 13 4.5V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V1.5Zm6.5 1.207V4.5h1.793L9.5 2.707Z"/></svg>');
+ }
+@@ -549,21 +539,58 @@ webcon-easy-workspace-menu.wew-menu-host--compact-toolbar {
+     --wew-primary-icon: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill="currentColor" d="M1.5 2h11A1.5 1.5 0 0 1 14 3.5V13h1v1H1V3.5A1.5 1.5 0 0 1 2.5 2H1.5Zm1 1.5V13h10V3.5h-10Zm1.5 2h7v1H4v-1Zm0 2.5h7v1H4v-1Zm0 2.5h5v1H4v-1Z"/></svg>');
+ }
+ 
++/* ---- Intent caption on the primary card ----
++   One muted line that spells out the parent→children relationship
++   in words ("the content elements below belong to this page and
++   publish together with it"), so the connection is explicit and
++   not carried by the visual indent alone. */
++.wew-list__intent {
++    display: flex;
++    align-items: flex-start;
++    gap: .35rem;
++    margin-top: .15rem;
++    color: var(--typo3-text-color-secondary, var(--bs-secondary-color));
++    font-size: 10.5px;
++    line-height: 1.35;
++}
++.wew-list__intent-icon {
++    flex-shrink: 0;
++    width: 13px;
++    height: 13px;
++    margin-top: .06rem;
++    background: currentColor;
++    -webkit-mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill="none" stroke="black" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" d="M4 3v4.5a2 2 0 0 0 2 2h6.5M10.5 7 13 9.5 10.5 12"/></svg>') center / contain no-repeat;
++            mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill="none" stroke="black" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" d="M4 3v4.5a2 2 0 0 0 2 2h6.5M10.5 7 13 9.5 10.5 12"/></svg>') center / contain no-repeat;
++    opacity: .8;
++}
++.wew-list__intent-text {
++    min-width: 0;
++}
++
+ /* ---- Content element rows (children of the primary above) ----
+-   No indent — hierarchy is carried by a continuous left rail
+-   (declared below) that runs from the colheader strip down
+-   through every CE row, the same pattern TYPO3's main navigation
+-   uses for sub-items. */
++   Indented so they read as a child group of the page/news card
++   above: row text sits at --wew-child-indent and a continuous left
++   rail (--wew-child-rail) runs from the colheader strip down
++   through every CE row — the same pattern TYPO3's main navigation
++   uses for sub-items — placed just inside the card's left edge so
++   it visually descends from the parent. */
++.wew-list {
++    --wew-child-indent: 1.55rem;
++    --wew-child-rail: .65rem;
++}
+ .wew-list__row[data-table="tt_content"]:not(.wew-list__row--primary)::before {
+     content: "";
+     position: absolute;
+-    left: 0;
++    left: var(--wew-child-rail);
+     top: 0;
+     bottom: -1px;
+-    width: 3px;
++    width: 2px;
+     border-radius: 0;
+     background: color-mix(in srgb, var(--bs-secondary-color, #6c757d) 35%, transparent);
+ }
++.wew-list__row[data-table="tt_content"]:not(.wew-list__row--primary) .wew-list__label {
++    padding-left: var(--wew-child-indent);
++}
+ /* Changed CE rows: the rail switches to the primary info color
+    so "modified" still reads at a glance — same color as the
+    short rounded stripe used on pages/news primary rows, just
+@@ -614,7 +641,7 @@ webcon-easy-workspace-menu.wew-menu-host--compact-toolbar {
+    way they'd see them in Web → Layout. */
+ .wew-list__colheader {
+     list-style: none;
+-    padding: .35rem .85rem .15rem;
++    padding: .35rem .85rem .15rem var(--wew-child-indent, 1.55rem);
+     font-size: 10px;
+     font-weight: 700;
+     text-transform: uppercase;
+@@ -634,10 +661,10 @@ webcon-easy-workspace-menu.wew-menu-host--compact-toolbar {
+ .wew-list__colheader::before {
+     content: "";
+     position: absolute;
+-    left: 0;
++    left: var(--wew-child-rail, .65rem);
+     top: 0;
+     bottom: -1px;
+-    width: 3px;
++    width: 2px;
+     background: color-mix(in srgb, var(--bs-secondary-color, #6c757d) 35%, transparent);
+ }
+ .wew-list__colheader-label {
+@@ -988,33 +1015,45 @@ webcon-easy-workspace-menu.wew-menu-host--compact-toolbar {
+     background: var(--typo3-link-color, var(--bs-primary));
+ }
+ 
+-/* ---- Selection mark ("dot/check" on the row's left edge) ----
+-   Replaces the visible checkbox we removed earlier. Renders as a
+-   small empty ring when the row is unselected and fills with the
+-   primary color + a white checkmark when selected. Gives editors
+-   the at-a-glance "this is queued" cue that the soft row tint
+-   alone wasn't carrying. Only emitted on changed rows (others
+-   can't be toggled). */
++/* ---- Selection toggle (switch on the row's left edge) ----
++   A pill-shaped track with a sliding thumb that reads as off/on
++   instead of a check-mark. Off = neutral track, thumb left; on =
++   primary-filled track, thumb slid right. Mirrors the Bootstrap
++   toggle (.form-check-type-toggle) the backend module list already
++   uses, so the toolbar and the module share one "queued for
++   publish" language. The checkbox stays in the DOM (visually-
++   hidden, role="switch") so it remains keyboard- and screen-
++   reader-reachable. Only emitted on changed rows (others can't be
++   toggled). */
+ .wew-list__mark {
++    box-sizing: border-box;
++    position: relative;
+     flex-shrink: 0;
+     align-self: flex-start;
+-    width: 18px;
++    width: 32px;
+     height: 18px;
+     margin-top: 2px;
+     margin-right: .55rem;
+-    border-radius: 50%;
++    border-radius: 999px;
+     border: 1.5px solid color-mix(in srgb, var(--bs-secondary-color, #6c757d) 55%, transparent);
+-    background: var(--typo3-component-bg, var(--bs-body-bg));
+-    display: inline-flex;
+-    align-items: center;
+-    justify-content: center;
+-    color: var(--bs-white, #fff);
+-    transition: background-color .12s ease, border-color .12s ease, transform .12s ease;
++    background: color-mix(in srgb, var(--bs-secondary-color, #6c757d) 28%, var(--typo3-component-bg, var(--bs-body-bg)));
++    transition: background-color .15s ease, border-color .15s ease;
+ }
+-.wew-list__mark svg {
+-    opacity: 0;
+-    transform: scale(.5);
+-    transition: opacity .12s ease, transform .12s ease;
++/* Sliding thumb. Rests 2px from the left edge and travels 13px so
++   it sits 2px from the right when on (32 track − 3 border − 12
++   thumb − 2 − 2 = 13). */
++.wew-list__mark::after {
++    content: "";
++    position: absolute;
++    top: 50%;
++    left: 2px;
++    width: 12px;
++    height: 12px;
++    border-radius: 50%;
++    background: var(--bs-white, #fff);
++    box-shadow: 0 1px 2px rgba(0, 0, 0, .3);
++    transform: translateY(-50%);
++    transition: transform .15s ease;
+ }
+ .wew-list__label:hover .wew-list__mark {
+     border-color: color-mix(in srgb, var(--typo3-link-color, var(--bs-primary)) 60%, transparent);
+@@ -1023,9 +1062,8 @@ webcon-easy-workspace-menu.wew-menu-host--compact-toolbar {
+     background: var(--typo3-link-color, var(--bs-primary));
+     border-color: var(--typo3-link-color, var(--bs-primary));
+ }
+-.wew-list__row:has(.wew-list__check:checked) .wew-list__mark svg {
+-    opacity: 1;
+-    transform: scale(1);
++.wew-list__row:has(.wew-list__check:checked) .wew-list__mark::after {
++    transform: translate(13px, -50%);
+ }
+ .wew-list__check:focus-visible + .wew-list__mark {
+     outline: 2px solid var(--typo3-link-color, var(--bs-primary));
+diff --git a/Resources/Public/JavaScript/components/wew-toolbar-menu.js b/Resources/Public/JavaScript/components/wew-toolbar-menu.js
+index b5bcdd0..919c982 100644
+--- a/Resources/Public/JavaScript/components/wew-toolbar-menu.js
++++ b/Resources/Public/JavaScript/components/wew-toolbar-menu.js
+@@ -576,16 +576,13 @@ export class WebconEasyWorkspaceMenu extends LitElement {
+         <label class="wew-list__label" for="${item.isChanged ? rowId : ''}">
+           ${item.isChanged ? html`
+             <input type="checkbox"
++                   role="switch"
+                    id="${rowId}"
+                    class="form-check-input wew-list__check visually-hidden"
+                    .checked=${checked}
+                    data-wew-row-check
+                    @change=${this.#onRowCheckChange} />
+-            <span class="wew-list__mark" aria-hidden="true">
+-              <svg viewBox="0 0 16 16" width="10" height="10" aria-hidden="true">
+-                <path fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" d="M3 8.5l3 3 7-7"/>
+-              </svg>
+-            </span>
++            <span class="wew-list__mark" aria-hidden="true"></span>
+           ` : ''}
+ 
+           ${item.thumbnailUrl ? html`
+@@ -617,6 +614,13 @@ export class WebconEasyWorkspaceMenu extends LitElement {
+               </span>
+             ` : ''}
+ 
++            ${item.isPrimary && (item.table === 'pages' || item.table === 'tx_news_domain_model_news') ? html`
++              <span class="wew-list__intent">
++                <span class="wew-list__intent-icon" aria-hidden="true"></span>
++                <span class="wew-list__intent-text">${this._label(item.table === 'pages' ? 'toolbar.primaryIntent.page' : 'toolbar.primaryIntent.news')}</span>
++              </span>
++            ` : ''}
++
+             ${item.isChanged ? html`
+               <span class="wew-list__change-actions">
+                 ${item.historyUrl ? html`
