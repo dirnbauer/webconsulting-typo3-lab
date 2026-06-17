@@ -1234,10 +1234,10 @@ index 0000000..7f74186
 +customElements.define('ve-element-library-button', VeElementLibraryButton);
 diff --git a/Resources/Public/JavaScript/Frontend/components/ve-element-library.js b/Resources/Public/JavaScript/Frontend/components/ve-element-library.js
 new file mode 100644
-index 0000000..cca3ed4
+index 0000000..d16f926
 --- /dev/null
 +++ b/Resources/Public/JavaScript/Frontend/components/ve-element-library.js
-@@ -0,0 +1,1551 @@
+@@ -0,0 +1,1552 @@
 +import {css, html, LitElement} from 'lit';
 +import {classMap} from 'lit/directives/class-map.js';
 +import {repeat} from 'lit/directives/repeat.js';
@@ -2236,7 +2236,7 @@ index 0000000..cca3ed4
 +          </span>
 +          ${keywords.length ? html`
 +            <div class="lrowKeywords">
-+              ${keywords.map((keyword) => html`<span class="kw">${keyword}</span>`)}
++              ${keywords.slice(0, 4).map((keyword) => html`<span class="kw">${keyword}</span>`)}
 +            </div>` : ''}
 +        </div>
 +      `;
@@ -2701,8 +2701,9 @@ index 0000000..cca3ed4
 +    /* top keywords on each row (no per-row preview iframe; the docked pane shows
 +       the rendered preview on hover) */
 +    .lrowKeywords {
-+      order: 2; display: flex; flex-wrap: wrap; gap: 4px; align-content: flex-start;
++      order: 2; display: flex; flex-wrap: nowrap; gap: 4px; overflow: hidden;
 +    }
++    .lrowKeywords .kw { flex: none; }
 +    .lrowBody { order: 1; min-width: 0; display: flex; flex-direction: column; gap: 4px; }
 +    .lrowCat { align-self: flex-start; }
 +    .lrowTitle {
