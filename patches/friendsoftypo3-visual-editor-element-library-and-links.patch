@@ -1234,7 +1234,7 @@ index 0000000..7f74186
 +customElements.define('ve-element-library-button', VeElementLibraryButton);
 diff --git a/Resources/Public/JavaScript/Frontend/components/ve-element-library.js b/Resources/Public/JavaScript/Frontend/components/ve-element-library.js
 new file mode 100644
-index 0000000..d16f926
+index 0000000..15cb620
 --- /dev/null
 +++ b/Resources/Public/JavaScript/Frontend/components/ve-element-library.js
 @@ -0,0 +1,1552 @@
@@ -2236,7 +2236,7 @@ index 0000000..d16f926
 +          </span>
 +          ${keywords.length ? html`
 +            <div class="lrowKeywords">
-+              ${keywords.slice(0, 4).map((keyword) => html`<span class="kw">${keyword}</span>`)}
++              ${keywords.slice(0, 6).map((keyword) => html`<span class="kw">${keyword}</span>`)}
 +            </div>` : ''}
 +        </div>
 +      `;
