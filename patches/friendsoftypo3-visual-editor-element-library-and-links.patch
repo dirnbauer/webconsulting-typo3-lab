@@ -1234,10 +1234,10 @@ index 0000000..7f74186
 +customElements.define('ve-element-library-button', VeElementLibraryButton);
 diff --git a/Resources/Public/JavaScript/Frontend/components/ve-element-library.js b/Resources/Public/JavaScript/Frontend/components/ve-element-library.js
 new file mode 100644
-index 0000000..7f5dd9c
+index 0000000..7eaac27
 --- /dev/null
 +++ b/Resources/Public/JavaScript/Frontend/components/ve-element-library.js
-@@ -0,0 +1,1508 @@
+@@ -0,0 +1,1512 @@
 +import {css, html, LitElement} from 'lit';
 +import {classMap} from 'lit/directives/class-map.js';
 +import {repeat} from 'lit/directives/repeat.js';
@@ -1709,8 +1709,11 @@ index 0000000..7f5dd9c
 +    const gap = 18;
 +    const padding = 40; // 20px each side of .grid
 +    if (this.columns === 1) {
-+      // a fixed-width compact list beside a wide, flexible preview pane
-+      return Math.round(this.#listWidth() + this.#dockTarget() + gap + padding);
++      // single-column "small" mode: a compact list beside a preview pane that
++      // fills the rest. Use (almost) the whole canvas so the docked preview is as
++      // large as possible and grows with the screen (the CSS min(..,94vw) caps it
++      // to the viewport; 1900 only limits ultra-wide screens).
++      return 1900;
 +    }
 +    return this.columns * this.#effectiveColWidth() + (this.columns - 1) * gap + padding;
 +  }
@@ -2672,7 +2675,8 @@ index 0000000..7f5dd9c
 +
 +    /* ---- docked preview pane (single-column mode) ---- */
 +    .previewDock { display: flex; flex-direction: column; min-height: 0; height: 100%; padding: 12px; }
-+    .previewFlyout--docked { max-height: 100%; }
++    /* fill the whole dock so the preview uses all the available space */
++    .previewFlyout--docked { width: 100%; height: 100%; }
 +
 +    /* ---- overlay preview (multi-column mode) ---- */
 +    .previewModal {
