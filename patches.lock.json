@@ -1,5 +1,5 @@
 {
-    "_hash": "df80b02e2f6729443ee28f1facb26a43e268a52aeee9671736d7484def4874e0",
+    "_hash": "c91699420897c4a4e0d1cdb17fb33798922007f86b45b8b552a79f442e954e96",
     "patches": {
         "netresearch/nr-vault": [
             {
@@ -50,7 +50,7 @@
                 "package": "friendsoftypo3/visual-editor",
                 "description": "Element library panel and inline link editing",
                 "url": "patches/friendsoftypo3-visual-editor-element-library-and-links.patch",
-                "sha256": "f3d734368b9b820ef9a3740d99ded791bda975377a64617097c8bb9dbd63c2c9",
+                "sha256": "ee4f82d77c9afaaf3fafd34306461c5cafad3e71eac3a194887746668865eb5c",
                 "depth": 1,
                 "extra": {
                     "provenance": "root"
@@ -93,6 +93,16 @@
                 "description": "Toolbar list: toggle switches, Seiteneigenschaften card redesign with intent line, correct TYPO3 labels",
                 "url": "patches/webcon-easy-workspace-toolbar-toggle-and-seiteneigenschaften.patch",
                 "sha256": "a317ba5e4a076e8dcd6fa8c8ac3f315f7042f8b18af007733ea7e50f0c5271e6",
+                "depth": 1,
+                "extra": {
+                    "provenance": "root"
+                }
+            },
+            {
+                "package": "webconsulting/webcon-easy-workspace",
+                "description": "Discard-tag: flip below + clamp into viewport so it shows at small browser heights",
+                "url": "patches/webcon-easy-workspace-fix-discard-tag-viewport.patch",
+                "sha256": "8143735e1f555995e5ff7eef23618914be8ad817d1d825afb592fb9def233209",
                 "depth": 1,
                 "extra": {
                     "provenance": "root"

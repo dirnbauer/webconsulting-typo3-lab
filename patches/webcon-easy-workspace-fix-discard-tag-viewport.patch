@@ -1,0 +1,27 @@
+diff --git a/Resources/Public/JavaScript/menu-preview-locate.js b/Resources/Public/JavaScript/menu-preview-locate.js
+index 70537ca..b4155c2 100644
+--- a/Resources/Public/JavaScript/menu-preview-locate.js
++++ b/Resources/Public/JavaScript/menu-preview-locate.js
+@@ -334,7 +334,21 @@ export function previewDiscard(host, item) {
+     const left = viewportWidth > 0
+       ? Math.max(scrollX + 8, Math.min(rect.left + scrollX, scrollX + viewportWidth - tagWidth - 8))
+       : rect.left + scrollX;
+-    tag.style.top = `${rect.top + scrollY - tagHeight - 6}px`;
++    // Prefer above the element; if there isn't room (small viewport, or the
++    // element sits near the top), flip below it; then clamp into the visible
++    // viewport so the tag is never pushed off-screen. Without this, at small
++    // browser heights the tag landed at a negative top and "did not show".
++    const viewportHeight = doc.defaultView?.innerHeight || doc.documentElement.clientHeight || 0;
++    let top = rect.top + scrollY - tagHeight - 6;
++    if (rect.top - tagHeight - 6 < 8) {
++      top = rect.bottom + scrollY + 6;
++    }
++    if (viewportHeight > 0) {
++      const minTop = scrollY + 8;
++      const maxTop = scrollY + viewportHeight - tagHeight - 8;
++      top = Math.max(minTop, Math.min(top, maxTop));
++    }
++    tag.style.top = `${top}px`;
+     tag.style.left = `${left}px`;
+   } catch {
+     /* DOM access guarded — cross-origin iframes throw silently. */

@@ -23,7 +23,7 @@ index cb8d494..cbf9e62 100644
                          throw new RuntimeException('Field "' . $field . '" not found in TCA schema for table "' . $table . '"', 6627872218);
                      }
 diff --git a/Classes/Service/EditModeService.php b/Classes/Service/EditModeService.php
-index a217902..505a076 100644
+index a217902..5ae2e22 100644
 --- a/Classes/Service/EditModeService.php
 +++ b/Classes/Service/EditModeService.php
 @@ -121,6 +121,9 @@ final readonly class EditModeService
@@ -44,7 +44,7 @@ index a217902..505a076 100644
          ];
          foreach ($files as $file) {
              $languageService = $this->languageServiceFactory->create($this->localizationService->getBackendUserLanguage() ?? 'en');
-@@ -297,6 +301,32 @@ if (window.parent === window && window.veInfo) {
+@@ -297,6 +301,33 @@ if (window.parent === window && window.veInfo) {
          return $usedArguments;
      }
  
@@ -68,10 +68,11 @@ index a217902..505a076 100644
 +
 +    private function getElementLibraryColumns(): int
 +    {
++        // Two presets only: "small" = 1 full-width column, "wide" = 3 columns.
 +        $uc = $this->getBeUser()->uc;
-+        $value = is_array($uc) ? (int)($uc['tx_visualeditor_panelColumns'] ?? 2) : 2;
++        $value = is_array($uc) ? (int)($uc['tx_visualeditor_panelColumns'] ?? 3) : 3;
 +
-+        return max(1, min(4, $value));
++        return $value === 1 ? 1 : 3;
 +    }
 +
      private function getBeUser(): BackendUserAuthentication
@@ -275,10 +276,10 @@ index 0000000..475c52a
 +}
 diff --git a/Configuration/TCA/Overrides/be_users.php b/Configuration/TCA/Overrides/be_users.php
 new file mode 100644
-index 0000000..979d132
+index 0000000..6a963f5
 --- /dev/null
 +++ b/Configuration/TCA/Overrides/be_users.php
-@@ -0,0 +1,66 @@
+@@ -0,0 +1,64 @@
 +<?php
 +
 +declare(strict_types=1);
@@ -334,12 +335,10 @@ index 0000000..979d132
 +        'config' => [
 +            'type' => 'select',
 +            'renderType' => 'selectSingle',
-+            'default' => 2,
++            'default' => 3,
 +            'items' => [
-+                ['label' => $visualEditorSetupLabels . 'panelColumns.1', 'value' => 1],
-+                ['label' => $visualEditorSetupLabels . 'panelColumns.2', 'value' => 2],
-+                ['label' => $visualEditorSetupLabels . 'panelColumns.3', 'value' => 3],
-+                ['label' => $visualEditorSetupLabels . 'panelColumns.4', 'value' => 4],
++                ['label' => $visualEditorSetupLabels . 'panelColumns.small', 'value' => 1],
++                ['label' => $visualEditorSetupLabels . 'panelColumns.wide', 'value' => 3],
 +            ],
 +        ],
 +    ],
@@ -508,10 +507,10 @@ index 0000000..94abf3c
 +</xliff>
 diff --git a/Resources/Private/Language/de.locallang_setup.xlf b/Resources/Private/Language/de.locallang_setup.xlf
 new file mode 100644
-index 0000000..9323a1c
+index 0000000..b42956e
 --- /dev/null
 +++ b/Resources/Private/Language/de.locallang_setup.xlf
-@@ -0,0 +1,71 @@
+@@ -0,0 +1,59 @@
 +<?xml version="1.0" encoding="UTF-8"?>
 +<xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" version="2.0" srcLang="en" trgLang="de">
 +  <file id="visual_editor_setup" original="EXT:visual_editor/Resources/Private/Language/locallang_setup.xlf">
@@ -547,38 +546,26 @@ index 0000000..9323a1c
 +    </unit>
 +    <unit id="panelColumns">
 +      <segment state="final">
-+        <source>Element library columns</source>
-+        <target>Spalten der Element-Bibliothek</target>
++        <source>Element library size</source>
++        <target>Größe der Element-Bibliothek</target>
 +      </segment>
 +    </unit>
 +    <unit id="panelColumns.description">
 +      <segment state="final">
-+        <source>How many preview columns the element library panel shows (1–4).</source>
-+        <target>Wie viele Vorschauspalten die Element-Bibliothek anzeigt (1–4).</target>
++        <source>Small shows one full-width preview column; wide shows three columns.</source>
++        <target>Schmal zeigt eine Vorschauspalte über die volle Breite; breit zeigt drei Spalten.</target>
 +      </segment>
 +    </unit>
-+    <unit id="panelColumns.1">
++    <unit id="panelColumns.small">
 +      <segment state="final">
-+        <source>1 column</source>
-+        <target>1 Spalte</target>
++        <source>Small (1 column)</source>
++        <target>Schmal (1 Spalte)</target>
 +      </segment>
 +    </unit>
-+    <unit id="panelColumns.2">
++    <unit id="panelColumns.wide">
 +      <segment state="final">
-+        <source>2 columns</source>
-+        <target>2 Spalten</target>
-+      </segment>
-+    </unit>
-+    <unit id="panelColumns.3">
-+      <segment state="final">
-+        <source>3 columns</source>
-+        <target>3 Spalten</target>
-+      </segment>
-+    </unit>
-+    <unit id="panelColumns.4">
-+      <segment state="final">
-+        <source>4 columns</source>
-+        <target>4 Spalten</target>
++        <source>Wide (3 columns)</source>
++        <target>Breit (3 Spalten)</target>
 +      </segment>
 +    </unit>
 +  </file>
@@ -721,10 +708,10 @@ index 0000000..b33ab02
 +</xliff>
 diff --git a/Resources/Private/Language/locallang_setup.xlf b/Resources/Private/Language/locallang_setup.xlf
 new file mode 100644
-index 0000000..3fff591
+index 0000000..d891b98
 --- /dev/null
 +++ b/Resources/Private/Language/locallang_setup.xlf
-@@ -0,0 +1,60 @@
+@@ -0,0 +1,50 @@
 +<?xml version="1.0" encoding="UTF-8"?>
 +<xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" version="2.0" srcLang="en">
 +  <file id="visual_editor_setup" original="EXT:visual_editor/Resources/Private/Language/locallang_setup.xlf">
@@ -755,32 +742,22 @@ index 0000000..3fff591
 +    </unit>
 +    <unit id="panelColumns">
 +      <segment>
-+        <source>Element library columns</source>
++        <source>Element library size</source>
 +      </segment>
 +    </unit>
 +    <unit id="panelColumns.description">
 +      <segment>
-+        <source>How many preview columns the element library panel shows (1–4).</source>
++        <source>Small shows one full-width preview column; wide shows three columns.</source>
 +      </segment>
 +    </unit>
-+    <unit id="panelColumns.1">
++    <unit id="panelColumns.small">
 +      <segment>
-+        <source>1 column</source>
++        <source>Small (1 column)</source>
 +      </segment>
 +    </unit>
-+    <unit id="panelColumns.2">
++    <unit id="panelColumns.wide">
 +      <segment>
-+        <source>2 columns</source>
-+      </segment>
-+    </unit>
-+    <unit id="panelColumns.3">
-+      <segment>
-+        <source>3 columns</source>
-+      </segment>
-+    </unit>
-+    <unit id="panelColumns.4">
-+      <segment>
-+        <source>4 columns</source>
++        <source>Wide (3 columns)</source>
 +      </segment>
 +    </unit>
 +  </file>
@@ -1257,10 +1234,10 @@ index 0000000..7f74186
 +customElements.define('ve-element-library-button', VeElementLibraryButton);
 diff --git a/Resources/Public/JavaScript/Frontend/components/ve-element-library.js b/Resources/Public/JavaScript/Frontend/components/ve-element-library.js
 new file mode 100644
-index 0000000..a5b4d8e
+index 0000000..7f5dd9c
 --- /dev/null
 +++ b/Resources/Public/JavaScript/Frontend/components/ve-element-library.js
-@@ -0,0 +1,1509 @@
+@@ -0,0 +1,1508 @@
 +import {css, html, LitElement} from 'lit';
 +import {classMap} from 'lit/directives/class-map.js';
 +import {repeat} from 'lit/directives/repeat.js';
@@ -2146,6 +2123,11 @@ index 0000000..a5b4d8e
 +            <p class="previewDesc">${item.description}</p>
 +          </div>` : ''}
 +        <div class="previewDrag" aria-hidden="true">
++          <span class="previewDragArrow">
++            <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
++              <line x1="20" y1="12" x2="7" y2="12"/><polyline points="12 7 6 12 12 17"/>
++            </svg>
++          </span>
 +          <span class="previewDragGrip">
 +            <svg viewBox="0 0 16 16" width="13" height="13" fill="currentColor">
 +              <circle cx="6" cy="3.5" r="1.3"/><circle cx="10" cy="3.5" r="1.3"/>
@@ -2154,11 +2136,6 @@ index 0000000..a5b4d8e
 +            </svg>
 +          </span>
 +          <span class="previewDragLabel">${dragHint}</span>
-+          <span class="previewDragArrow">
-+            <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-+              <line x1="4" y1="12" x2="17" y2="12"/><polyline points="12 7 18 12 12 17"/>
-+            </svg>
-+          </span>
 +        </div>
 +      </div>`;
 +
@@ -2207,6 +2184,10 @@ index 0000000..a5b4d8e
 +          @mouseenter="${() => { if (item.previewUrl) this.#openPreview(item); }}"
 +          @focus="${() => { if (item.previewUrl) this.#openPreview(item); }}"
 +        >
++          <span class="lrowBody">
++            <span class="pill badge lrowCat">${item.group}</span>
++            <span class="lrowTitle">${item.title}</span>
++          </span>
 +          <span class="lrowThumb preview">
 +            ${previewLoaded && item.previewUrl
 +              ? html`<iframe src="${item.previewUrl}" loading="lazy" scrolling="no" tabindex="-1"
@@ -2216,11 +2197,6 @@ index 0000000..a5b4d8e
 +                       <span class="shimmer"></span>
 +                     </div>`}
 +          </span>
-+          <span class="lrowBody">
-+            <span class="pill badge lrowCat">${item.group}</span>
-+            <span class="lrowTitle">${item.title}</span>
-+          </span>
-+          <span class="lrowGrip" aria-hidden="true">${grip}</span>
 +        </div>
 +      `;
 +    }
@@ -2663,8 +2639,8 @@ index 0000000..a5b4d8e
 +    .vlist::-webkit-scrollbar-thumb { background: var(--ve-panel-border); border-radius: 999px; border: 3px solid var(--ve-panel-bg); }
 +    .lrow {
 +      flex: 0 0 auto;
-+      display: flex; align-items: center; gap: 10px;
-+      padding: 9px 11px; cursor: grab;
++      display: flex; flex-direction: column; align-items: stretch; gap: 8px;
++      padding: 10px 11px 11px; cursor: grab;
 +      border: 1px solid color-mix(in srgb, var(--ve-panel-text) 18%, var(--ve-panel-border));
 +      border-radius: 11px; background: var(--ve-panel-surface); color: var(--ve-panel-text);
 +      transition: border-color 0.12s ease, background 0.12s ease, box-shadow 0.12s ease;
@@ -2681,15 +2657,15 @@ index 0000000..a5b4d8e
 +    /* small rendered-preview thumbnail on each row (reuses .preview's stylized
 +       dotted frame + the card iframe-fit logic, just constrained to a fixed box) */
 +    .lrowThumb.preview {
-+      flex: 0 0 auto; width: 96px; height: 60px;
-+      border-radius: 8px; cursor: inherit;
++      order: 2; flex: 0 0 auto; width: 100%; height: 150px;
++      border-radius: 9px; cursor: inherit;
 +    }
-+    .lrowThumb .previewPlaceholder img { width: 26px; height: 26px; }
-+    .lrowBody { flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; gap: 3px; }
++    .lrowThumb .previewPlaceholder img { width: 40px; height: 40px; }
++    .lrowBody { order: 1; min-width: 0; display: flex; flex-direction: column; gap: 4px; }
 +    .lrowCat { align-self: flex-start; }
 +    .lrowTitle {
-+      font-size: 13px; font-weight: 700; line-height: 1.25;
-+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
++      font-size: 13.5px; font-weight: 700; line-height: 1.25;
++      display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
 +    }
 +    .lrowGrip { flex-shrink: 0; display: inline-flex; color: var(--ve-panel-muted); opacity: 0.5; transition: opacity 0.12s ease; }
 +    .lrow:hover .lrowGrip { opacity: 1; }
@@ -2701,7 +2677,7 @@ index 0000000..a5b4d8e
 +    /* ---- overlay preview (multi-column mode) ---- */
 +    .previewModal {
 +      position: fixed; inset: 0; z-index: 100002;
-+      display: flex; align-items: center; justify-content: center; padding: 24px;
++      display: flex; align-items: center; justify-content: center; padding: 16px;
 +      background: rgba(12, 12, 16, 0.55);
 +      -webkit-backdrop-filter: blur(3px); backdrop-filter: blur(3px);
 +      cursor: zoom-out; animation: veModalIn 0.16s ease;
@@ -2711,7 +2687,7 @@ index 0000000..a5b4d8e
 +       but invisible and click-through so the drop zones underneath are usable */
 +    .previewModal.dragging { opacity: 0; pointer-events: none; }
 +    .previewFlyout--modal {
-+      width: min(1100px, 92vw); max-height: calc(100vh - 48px);
++      width: min(1600px, calc(100vw - 32px)); max-height: calc(100vh - 32px);
 +      animation: veModalPop 0.18s cubic-bezier(0.22, 1, 0.36, 1);
 +    }
 +    @keyframes veModalPop { from { transform: translateY(10px) scale(0.985); opacity: 0; } to { transform: none; opacity: 1; } }
@@ -2742,10 +2718,10 @@ index 0000000..a5b4d8e
 +    }
 +    .previewDragGrip { flex-shrink: 0; display: inline-flex; opacity: 0.75; }
 +    .previewDragLabel { flex: 1 1 auto; min-width: 0; }
-+    .previewDragArrow { flex-shrink: 0; display: inline-flex; animation: vePreviewDragArrow 1.4s ease-in-out infinite; }
++    .previewDragArrow { flex-shrink: 0; order: -1; display: inline-flex; animation: vePreviewDragArrow 1.4s ease-in-out infinite; }
 +    @keyframes vePreviewDragArrow {
 +      0%, 100% { transform: translateX(0); opacity: 0.5; }
-+      50% { transform: translateX(5px); opacity: 1; }
++      50% { transform: translateX(-5px); opacity: 1; }
 +    }
 +
 +    @media (prefers-reduced-motion: reduce) {
