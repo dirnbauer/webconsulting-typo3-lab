@@ -1,12 +1,34 @@
 {
-    "_hash": "9b104acbfba7a33cd36238a9f59dc23a4af1d5615955724a88db25c673f821cc",
+    "_hash": "c93207a7eec2568b04203df31f3eb2f4b432e9f88ddd5360488bf039680d3f87",
     "patches": {
+        "netresearch/nr-llm": [
+            {
+                "package": "netresearch/nr-llm",
+                "description": "Size the LLM backend module icon correctly (viewBox padding so it matches sibling icons)",
+                "url": "patches/netresearch-nr-llm-module-icon-size.patch",
+                "sha256": "3ac099276fa4a3319e16ac28ddfe196359c57bbf865641bf543c4e913269b1df",
+                "depth": 1,
+                "extra": {
+                    "provenance": "root"
+                }
+            }
+        ],
         "netresearch/nr-vault": [
             {
                 "package": "netresearch/nr-vault",
                 "description": "Accept array $pasteUpdate in processCmdmap_preProcess (copy/move with update payload)",
                 "url": "patches/netresearch-nr-vault-fix-cmdmap-hook-pasteupdate-type.patch",
                 "sha256": "db075dad8ec7cc378efc9458c4660d9198e0e8923c75f0561d26768ad4193460",
+                "depth": 1,
+                "extra": {
+                    "provenance": "root"
+                }
+            },
+            {
+                "package": "netresearch/nr-vault",
+                "description": "Size the Vault backend module icon correctly (viewBox padding so it matches sibling icons)",
+                "url": "patches/netresearch-nr-vault-module-icon-size.patch",
+                "sha256": "8f0638c5ab47fdc9fa564afe99c974a6711e1f18c73069fd98d399b68988e5c8",
                 "depth": 1,
                 "extra": {
                     "provenance": "root"

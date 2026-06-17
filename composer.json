@@ -220,8 +220,12 @@
   "extra": {
     "composer-exit-on-patch-failure": true,
     "patches": {
+      "netresearch/nr-llm": {
+        "Size the LLM backend module icon correctly (viewBox padding so it matches sibling icons)": "patches/netresearch-nr-llm-module-icon-size.patch"
+      },
       "netresearch/nr-vault": {
-        "Accept array $pasteUpdate in processCmdmap_preProcess (copy/move with update payload)": "patches/netresearch-nr-vault-fix-cmdmap-hook-pasteupdate-type.patch"
+        "Accept array $pasteUpdate in processCmdmap_preProcess (copy/move with update payload)": "patches/netresearch-nr-vault-fix-cmdmap-hook-pasteupdate-type.patch",
+        "Size the Vault backend module icon correctly (viewBox padding so it matches sibling icons)": "patches/netresearch-nr-vault-module-icon-size.patch"
       },
       "typo3/cms-core": {
         "Guard workspace move-pointer overlay when the live record is missing": "patches/typo3-cms-core-fix-workspace-move-pointer-missing-live-record.patch"
