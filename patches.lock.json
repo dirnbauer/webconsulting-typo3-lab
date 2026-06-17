@@ -1,5 +1,5 @@
 {
-    "_hash": "351f1a8f2ba193a2ee3c12074736f435073062aa7e5ce94abf05aa484959c2b2",
+    "_hash": "376419284a02723ccba783c68e3c4d4517312b3531fdd3f08f288149fb7e01b3",
     "patches": {
         "netresearch/nr-vault": [
             {
@@ -50,7 +50,7 @@
                 "package": "friendsoftypo3/visual-editor",
                 "description": "Element library panel and inline link editing",
                 "url": "patches/friendsoftypo3-visual-editor-element-library-and-links.patch",
-                "sha256": "d6a65151ceb2ae0b37a0a36d336f917ed03f2726ba53396d62e309ada586b5c1",
+                "sha256": "daa766ed06c058a2dd384f7c07ba87d2677432450e4d615820f16261fc806cc3",
                 "depth": 1,
                 "extra": {
                     "provenance": "root"
@@ -61,6 +61,28 @@
                 "description": "Do not send tx_container_parent:0 on drag move when EXT:container is absent",
                 "url": "patches/friendsoftypo3-visual-editor-fix-tx-container-parent-zero.patch",
                 "sha256": "609db5de428e1cb9cce3e9d43c1047a8a1ad139b253ca77029247d7be8d843db",
+                "depth": 1,
+                "extra": {
+                    "provenance": "root"
+                }
+            },
+            {
+                "package": "friendsoftypo3/visual-editor",
+                "description": "Add missing useDataHandler import so element-library drops save and refresh",
+                "url": "patches/friendsoftypo3-visual-editor-fix-usedatahandler-import.patch",
+                "sha256": "38f31f78cc9d5696d70a2b8dad3bef3e25948d54b73b09927ad2051cffe191de",
+                "depth": 1,
+                "extra": {
+                    "provenance": "root"
+                }
+            }
+        ],
+        "webconsulting/webcon-easy-workspace": [
+            {
+                "package": "webconsulting/webcon-easy-workspace",
+                "description": "Load decline-button frontend module with .js so the importmap resolves it (404 fix)",
+                "url": "patches/webcon-easy-workspace-fix-decline-button-module-js.patch",
+                "sha256": "7fca3c4c35b57cd60d0be6f1d6accb57216b0f62f4e2cdd09d2736c9a22ad6d8",
                 "depth": 1,
                 "extra": {
                     "provenance": "root"
