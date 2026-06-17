@@ -1,0 +1,57 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+      xmlns:core="http://typo3.org/ns/TYPO3/CMS/Core/ViewHelpers"
+      data-namespace-typo3-fluid="true">
+<f:layout name="Module"/>
+
+<f:section name="Content">
+<div class="flue-module">
+
+    <div class="flue-actions">
+        <a class="btn btn-default" href="{listUri}"><core:icon identifier="actions-arrow-left-alt" size="small"/> Back</a>
+    </div>
+
+    <div class="card flue-card">
+        <div class="card-header">
+            <h2 class="flue-card-title">
+                <core:icon identifier="flue-run" size="small"/> Run #{run.uid}
+                <f:switch expression="{run.status.value}">
+                    <f:case value="settled"><span class="badge badge-success">settled</span></f:case>
+                    <f:case value="failed"><span class="badge badge-danger">failed</span></f:case>
+                    <f:defaultCase><span class="badge badge-info">{run.status.value}</span></f:defaultCase>
+                </f:switch>
+            </h2>
+        </div>
+        <div class="card-body">
+            <dl class="flue-meta">
+                <dt>Target</dt><dd><code>{run.targetTable}:{run.targetUid}</code></dd>
+                <dt>Workspace</dt><dd>{run.workspaceUid}</dd>
+                <dt>Date</dt><dd>{createdFormatted}</dd>
+                <dt>Flue run id</dt><dd><code>{f:if(condition: run.flueRunId, then: run.flueRunId, else: '—')}</code></dd>
+            </dl>
+
+            <f:if condition="{run.instructions}">
+                <h3>Per-run instructions</h3>
+                <pre class="flue-log">{run.instructions}</pre>
+            </f:if>
+
+            <f:if condition="{run.errorMessage}">
+                <div class="callout callout-danger"><div class="callout-content">{run.errorMessage}</div></div>
+            </f:if>
+
+            <h3>Report</h3>
+            <pre class="flue-report">{run.output}</pre>
+
+            <f:if condition="{run.events}">
+                <h3>Events ({run.events -> f:count()})</h3>
+                <ul class="flue-events">
+                    <f:for each="{run.events}" as="ev">
+                        <li><code>{ev.type}</code></li>
+                    </f:for>
+                </ul>
+            </f:if>
+        </div>
+    </div>
+
+</div>
+</f:section>
+</html>

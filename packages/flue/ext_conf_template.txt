@@ -1,0 +1,14 @@
+# cat=sidecar/enable/10; type=string; label=Flue sidecar base URL: where the Node @flue/runtime sidecar listens. Inside DDEV use the service name, e.g. http://<sitename>-flue:3000.
+sidecarBaseUrl = http://localhost:3000
+
+# cat=sidecar/enable/20; type=string; label=Default model: model specifier passed to flows when a flow does not pin its own (Flue format, e.g. anthropic/claude-sonnet-4-6).
+defaultModel = anthropic/claude-sonnet-4-6
+
+# cat=sidecar/enable/30; type=int+; label=Request timeout (s): HTTP timeout when triggering a flow on the sidecar.
+requestTimeout = 30
+
+# cat=security/enable/40; type=string; label=Anthropic API key vault identifier: nr-vault identifier holding the LLM API key, injected per request. Leave empty to rely on the sidecar environment.
+apiKeyVaultId = flue.anthropic.apiKey
+
+# cat=security/enable/50; type=boolean; label=Require local environment: only allow triggering flows on a local DDEV/Development install (recommended for lab experiments).
+requireLocalEnvironment = 1

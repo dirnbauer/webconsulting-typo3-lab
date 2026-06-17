@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en" datatype="plaintext" original="EXT:flue/Resources/Private/Language/locallang_db.xlf" product-name="flue">
+    <body>
+      <trans-unit id="tx_flue_flow" resname="tx_flue_flow"><source>Flue flow</source></trans-unit>
+      <trans-unit id="flow.title" resname="flow.title"><source>Title</source></trans-unit>
+      <trans-unit id="flow.identifier" resname="flow.identifier"><source>Identifier</source></trans-unit>
+      <trans-unit id="flow.workflow_name" resname="flow.workflow_name"><source>Sidecar workflow name</source></trans-unit>
+      <trans-unit id="flow.default_agent" resname="flow.default_agent"><source>Default agent</source></trans-unit>
+      <trans-unit id="flow.default_model" resname="flow.default_model"><source>Default model</source></trans-unit>
+      <trans-unit id="flow.skills" resname="flow.skills"><source>Skills</source></trans-unit>
+      <trans-unit id="flow.mcp_tools" resname="flow.mcp_tools"><source>MCP tools (allowlist)</source></trans-unit>
+      <trans-unit id="flow.instructions" resname="flow.instructions"><source>Instructions</source></trans-unit>
+      <trans-unit id="flow.input_schema" resname="flow.input_schema"><source>Input schema (JSON)</source></trans-unit>
+
+      <trans-unit id="tx_flue_run" resname="tx_flue_run"><source>Flue run</source></trans-unit>
+      <trans-unit id="run.flow" resname="run.flow"><source>Flow</source></trans-unit>
+      <trans-unit id="run.run_key" resname="run.run_key"><source>Run key</source></trans-unit>
+      <trans-unit id="run.flue_run_id" resname="run.flue_run_id"><source>Flue run id</source></trans-unit>
+      <trans-unit id="run.target_table" resname="run.target_table"><source>Target table</source></trans-unit>
+      <trans-unit id="run.target_uid" resname="run.target_uid"><source>Target uid</source></trans-unit>
+      <trans-unit id="run.workspace_uid" resname="run.workspace_uid"><source>Workspace</source></trans-unit>
+      <trans-unit id="run.instructions" resname="run.instructions"><source>Per-run instructions</source></trans-unit>
+      <trans-unit id="run.status" resname="run.status"><source>Status</source></trans-unit>
+      <trans-unit id="run.output" resname="run.output"><source>Report</source></trans-unit>
+      <trans-unit id="run.error_message" resname="run.error_message"><source>Error</source></trans-unit>
+    </body>
+  </file>
+</xliff>
