@@ -1234,10 +1234,10 @@ index 0000000..7f74186
 +customElements.define('ve-element-library-button', VeElementLibraryButton);
 diff --git a/Resources/Public/JavaScript/Frontend/components/ve-element-library.js b/Resources/Public/JavaScript/Frontend/components/ve-element-library.js
 new file mode 100644
-index 0000000..75dcf95
+index 0000000..cca3ed4
 --- /dev/null
 +++ b/Resources/Public/JavaScript/Frontend/components/ve-element-library.js
-@@ -0,0 +1,1556 @@
+@@ -0,0 +1,1551 @@
 +import {css, html, LitElement} from 'lit';
 +import {classMap} from 'lit/directives/class-map.js';
 +import {repeat} from 'lit/directives/repeat.js';
@@ -2214,12 +2214,11 @@ index 0000000..75dcf95
 +        <circle cx="6" cy="12.5" r="1.3"/><circle cx="10" cy="12.5" r="1.3"/>
 +      </svg>`;
 +
-+    // Single-column mode: a compact list row with a small rendered-preview
-+    // thumbnail (same stylized dotted frame as the grid cards, lazy-loaded).
-+    // The big docked pane on the left mirrors the hovered/focused row.
++    // Single-column mode: a compact list row showing the element's top keywords
++    // (no per-row preview iframe - those were slow to load). The big docked pane
++    // on the left renders the hovered/focused element's preview instead.
 +    if (this.columns === 1) {
 +      const active = this.previewItem ? this.previewItem.cType === item.cType : false;
-+      const previewLoaded = this.loadedPreviews.has(item.cType);
 +      return html`
 +        <div
 +          class=${classMap({lrow: true, 'is-active': active, 'is-dragging': this.draggingCType === item.cType})}
@@ -2235,15 +2234,10 @@ index 0000000..75dcf95
 +            <span class="pill badge lrowCat">${item.group}</span>
 +            <span class="lrowTitle">${item.title}</span>
 +          </span>
-+          <span class="lrowThumb preview">
-+            ${previewLoaded && item.previewUrl
-+              ? html`<iframe src="${item.previewUrl}" loading="lazy" scrolling="no" tabindex="-1"
-+                            @load="${(event) => this.#onPreviewLoad(event)}" @error="${() => this.#onPreviewSettled()}"></iframe>`
-+              : html`<div class="previewPlaceholder">
-+                       ${item.iconUrl ? html`<img src="${item.iconUrl}" alt="" loading="lazy"/>` : ''}
-+                       <span class="shimmer"></span>
-+                     </div>`}
-+          </span>
++          ${keywords.length ? html`
++            <div class="lrowKeywords">
++              ${keywords.map((keyword) => html`<span class="kw">${keyword}</span>`)}
++            </div>` : ''}
 +        </div>
 +      `;
 +    }
@@ -2681,11 +2675,14 @@ index 0000000..75dcf95
 +      overflow-y: auto; overflow-x: hidden;
 +      display: flex; flex-direction: column; gap: 7px; padding: 14px;
 +      scrollbar-width: thin; scrollbar-color: var(--ve-panel-border) transparent;
++      /* snap each row to the top of the list as you scroll */
++      scroll-snap-type: y proximity; scroll-padding-block-start: 14px;
 +    }
 +    .vlist::-webkit-scrollbar { width: 10px; }
 +    .vlist::-webkit-scrollbar-thumb { background: var(--ve-panel-border); border-radius: 999px; border: 3px solid var(--ve-panel-bg); }
 +    .lrow {
 +      flex: 0 0 auto;
++      scroll-snap-align: start;
 +      display: flex; flex-direction: column; align-items: stretch; gap: 8px;
 +      padding: 10px 11px 11px; cursor: grab;
 +      border: 1px solid color-mix(in srgb, var(--ve-panel-text) 18%, var(--ve-panel-border));
@@ -2701,13 +2698,11 @@ index 0000000..75dcf95
 +      background: color-mix(in srgb, var(--ve-accent) 12%, var(--ve-panel-surface));
 +      box-shadow: 0 0 0 1px color-mix(in srgb, var(--ve-accent) 45%, transparent);
 +    }
-+    /* small rendered-preview thumbnail on each row (reuses .preview's stylized
-+       dotted frame + the card iframe-fit logic, just constrained to a fixed box) */
-+    .lrowThumb.preview {
-+      order: 2; flex: 0 0 auto; width: 100%; height: 150px;
-+      border-radius: 9px; cursor: inherit;
++    /* top keywords on each row (no per-row preview iframe; the docked pane shows
++       the rendered preview on hover) */
++    .lrowKeywords {
++      order: 2; display: flex; flex-wrap: wrap; gap: 4px; align-content: flex-start;
 +    }
-+    .lrowThumb .previewPlaceholder img { width: 40px; height: 40px; }
 +    .lrowBody { order: 1; min-width: 0; display: flex; flex-direction: column; gap: 4px; }
 +    .lrowCat { align-self: flex-start; }
 +    .lrowTitle {
