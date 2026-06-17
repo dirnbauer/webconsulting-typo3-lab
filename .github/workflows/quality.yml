@@ -33,6 +33,25 @@ jobs:
           path: ~/.composer/cache/files
           key: composer-files-${{ runner.os }}-${{ hashFiles('composer.lock') }}
 
+      # The integration extensions live in their own repos and are gitignored here,
+      # so a fresh checkout lacks the packages/* path packages composer expects.
+      # Clone them so `composer install` can resolve the path repository.
+      # PACKAGES_TOKEN (a PAT with read access) is only needed for any private repo;
+      # public repos resolve with the default github.token.
+      - name: Fetch path-package sources
+        env:
+          TOKEN: ${{ secrets.PACKAGES_TOKEN || github.token }}
+        run: |
+          for spec in \
+            "typo3-a2ui-integration:a2ui_integration" \
+            "typo3-agui-integration:agui_integration" \
+            "typo3-a2a-integration:a2a_integration" \
+            "typo3-ucp-integration:ucp_integration" \
+            "typo3-ap2-integration:ap2_integration"; do
+            repo="${spec%%:*}"; dir="${spec##*:}"
+            git clone --depth 1 "https://x-access-token:${TOKEN}@github.com/dirnbauer/${repo}.git" "packages/${dir}"
+          done
+
       - name: Install dependencies
         run: composer install --no-interaction --no-progress --prefer-dist
 
