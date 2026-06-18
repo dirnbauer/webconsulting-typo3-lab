@@ -47,12 +47,37 @@ npm run dev                      # or, in DDEV: it boots automatically via .ddev
 In DDEV the sidecar is reachable from the web container at `http://<sitename>-flue:3000`
 and from the host at `https://<project>.ddev.site:3001`.
 
-## Step 3 — the LLM-backed flow (needs your Anthropic key)
+## Step 3 — add the LLM API key
 
-The `webconsulting/flue` TYPO3 module triggers `page-report` with a payload of
-`{ pageUid, mcpToken, instructions }` and injects the Anthropic key per request
-(from nr-vault) as a header — never written to disk or this container's env.
-`agents/page-report.ts` restricts the agent to read-only TYPO3 tools.
+The Flue agent calls Claude, so it needs an Anthropic API key (`sk-ant-…`). The
+`webconsulting/flue` TYPO3 module reads it from **nr-vault** by identifier and
+injects it **per request** to this sidecar as a header — never written to disk
+or this container's env. `agents/page-report.ts` restricts the agent to
+read-only TYPO3 tools.
+
+**Store the key in nr-vault** (the same encrypted store nr_llm uses). Vault
+identifiers allow only letters, numbers and underscores and must start with a
+letter — so use **`flue_anthropic_api_key`** (the flue extension's default
+`apiKeyVaultId`), *not* a dotted name like `flue.anthropic.apiKey`.
+
+CLI — hidden prompt, so the key never hits your shell history (note: `ddev exec`,
+**not** `-it`, which is a `docker` flag):
+
+```bash
+ddev exec vendor/bin/typo3 vault:store flue_anthropic_api_key
+#   → "Enter secret value" (hidden); paste the sk-ant-… key
+ddev exec vendor/bin/typo3 vault:list        # confirm: lists flue_anthropic_api_key
+```
+
+Or via the backend module: **Tools → Vault → Secrets → create**, identifier
+`flue_anthropic_api_key`, value = the key. To point flue at a different
+identifier, set `apiKeyVaultId` in Admin Tools → Settings → Extension
+Configuration → flue.
+
+**Standalone sidecar (no TYPO3 control plane):** skip the vault and give the key
+straight to this container — add `ANTHROPIC_API_KEY=sk-ant-…` to a gitignored
+`.env` here (or the `flue` service env). Flue reads it natively, so `npm run dev`
++ a `page-report` run works without the module.
 
 ## Files
 
