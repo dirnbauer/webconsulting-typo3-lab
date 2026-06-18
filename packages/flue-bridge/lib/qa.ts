@@ -103,6 +103,46 @@ export function rollupAudits(rootUid: number, audits: PageAudit[]): QaResult {
   return { verdict, score, summary, findings };
 }
 
+/** Structured result of a single safe page edit (staged in a draft workspace). */
+export const EDIT_RESULT = v.object({
+  applied: v.boolean(),
+  workspace: v.string(),
+  summary: v.string(),
+  changes: v.array(
+    v.object({
+      record: v.string(),
+      field: v.string(),
+      before: v.string(),
+      after: v.string(),
+    }),
+  ),
+});
+
+export type EditResult = v.InferOutput<typeof EDIT_RESULT>;
+
+/** Render a page edit: a draft-workspace banner + a before/after change table. */
+export function renderEdit(pageUid: number, edit: EditResult): string {
+  const lines: string[] = [];
+  lines.push(`# Page edit — page ${pageUid}`);
+  lines.push('');
+  lines.push(
+    edit.applied
+      ? `**Staged in draft workspace:** \`${cell(edit.workspace)}\` — review & publish in the Workspaces module (live content untouched).`
+      : '**No change applied.**',
+  );
+  lines.push('');
+  lines.push(edit.summary);
+  if (edit.changes.length > 0) {
+    lines.push('');
+    lines.push('| Record | Field | Before | After |');
+    lines.push('|---|---|---|---|');
+    for (const c of edit.changes) {
+      lines.push(`| \`${cell(c.record)}\` | ${cell(c.field)} | ${cell(c.before)} | ${cell(c.after)} |`);
+    }
+  }
+  return lines.join('\n');
+}
+
 /** Render a subtree audit: a roll-up header + per-page summary table + per-page detail. */
 export function renderTreeAudit(rootUid: number, audits: PageAudit[]): string {
   const rollup = rollupAudits(rootUid, audits);

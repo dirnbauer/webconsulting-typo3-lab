@@ -63,7 +63,10 @@ final class FlowTriggerService
         }
         $skillIdentifiers = $this->skillIdentifiers($skillUids);
 
-        $mcpToken = $this->mintMcpToken($beUser);
+        // The agent acts in TYPO3 as the configured agent user (e.g. the sandboxed
+        // `_flue`), NOT the triggering editor — so writes are draft-only via that
+        // user's strict-sandbox, while the vault key is still read as the editor.
+        $mcpToken = $this->mintMcpToken($this->resolveAgentBeUser($beUser));
         $apiKey = $this->retrieveApiKey();
         $runKey = bin2hex(random_bytes(16));
 
@@ -175,6 +178,39 @@ final class FlowTriggerService
     }
 
     /**
+     * The backend user the agent acts as in TYPO3 (the MCP PAT subject). When
+     * `agentBackendUser` is configured (e.g. the sandboxed `_flue`), the agent uses
+     * that identity so writes are draft-only; otherwise it acts as the trigger user.
+     */
+    private function resolveAgentBeUser(int $triggerBeUser): int
+    {
+        $username = $this->config('agentBackendUser');
+        if ($username === '') {
+            return $triggerBeUser;
+        }
+        try {
+            $qb = GeneralUtility::makeInstance(\TYPO3\CMS\Core\Database\ConnectionPool::class)
+                ->getQueryBuilderForTable('be_users');
+            $qb->getRestrictions()->removeAll();
+            $uid = $qb->select('uid')->from('be_users')
+                ->where(
+                    $qb->expr()->eq('username', $qb->createNamedParameter($username)),
+                    $qb->expr()->eq('deleted', $qb->createNamedParameter(0, \TYPO3\CMS\Core\Database\Connection::PARAM_INT)),
+                    $qb->expr()->eq('disable', $qb->createNamedParameter(0, \TYPO3\CMS\Core\Database\Connection::PARAM_INT)),
+                )
+                ->setMaxResults(1)
+                ->executeQuery()
+                ->fetchOne();
+
+            return is_numeric($uid) && (int)$uid > 0 ? (int)$uid : $triggerBeUser;
+        } catch (\Throwable $e) {
+            $this->logger->warning('Could not resolve agentBackendUser; using trigger user', ['user' => $username, 'error' => $e->getMessage()]);
+
+            return $triggerBeUser;
+        }
+    }
+
+    /**
      * The QA workflows return `{ report, qa, usage, pageUid }`; fall back to a JSON dump.
      */
     private function extractResult(mixed $result): string
@@ -203,10 +239,21 @@ final class FlowTriggerService
         if (!is_array($result)) {
             return ['', '', ''];
         }
+        // QA flows return `qa`; the page-edit flow returns `edit` — store whichever is present.
         $qa = is_array($result['qa'] ?? null) ? $result['qa'] : null;
-        $verdict = $qa !== null ? Typed::string($qa['verdict'] ?? '') : '';
-        $resultJson = $qa !== null
-            ? Typed::string(json_encode($qa, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) ?: '')
+        $edit = is_array($result['edit'] ?? null) ? $result['edit'] : null;
+        $structured = $qa ?? $edit;
+
+        if ($qa !== null) {
+            $verdict = Typed::string($qa['verdict'] ?? '');
+        } elseif ($edit !== null) {
+            $verdict = ($edit['applied'] ?? false) === true ? 'STAGED' : 'NO_CHANGE';
+        } else {
+            $verdict = '';
+        }
+
+        $resultJson = $structured !== null
+            ? Typed::string(json_encode($structured, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) ?: '')
             : '';
         $usage = $result['usage'] ?? null;
         $usageJson = is_array($usage)

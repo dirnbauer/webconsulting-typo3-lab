@@ -121,6 +121,28 @@ Same path as a logged-in backend user; the run settles into `tx_flue_run` and th
 run detail shows the report. (Live token streaming is a later upgrade — the
 control plane currently polls the sidecar's run record to settlement.)
 
+## Write flows (draft-only via Workspaces)
+
+The `page-edit` flow lets an agent *draft* a change; an editor reviews and publishes
+it. **Live content is never edited** — but that guarantee comes entirely from running
+the agent as a **strict-sandbox backend user**, so this setup is mandatory for any
+write flow:
+
+1. **Create a sandboxed agent user** — a backend user (e.g. `_flue`) with TSconfig
+   `options.mcpServer.strictSandbox = 1`. That forces `typo3-mcp-server` to stage every
+   write in a draft workspace (it otherwise writes *live* in DDEV local mode).
+2. **Point Flue at it** — set Extension Configuration `flue.agentBackendUser = _flue`.
+   The control plane then mints the MCP token as `_flue` (separate from the editor who
+   triggers and whose vault key is read), so all agent writes are draft-only.
+3. **Run** — `ddev exec vendor/bin/typo3 flue:run <page-edit-flow> <pageUid> --beuser=1 --instructions="…"`.
+   The edit is staged in a draft workspace; review/publish it in **Web → Workspaces**.
+
+> ⚠️ **Never set `agentBackendUser` to an unsandboxed user** (and don't rely on the
+> agent's tool allowlist alone): without strict-sandbox, MCP writes hit live content in
+> DDEV. Verify draft-only after a write: the live record (`t3ver_wsid=0`) must be
+> unchanged and the change must appear as a workspace version (`t3ver_oid=<liveUid>`,
+> `t3ver_wsid>0`).
+
 ## Verify
 
 - `npm run probe:mcp` → the sidecar reaches TYPO3 over MCP.

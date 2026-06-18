@@ -12,3 +12,6 @@ apiKeyVaultId = flue_anthropic_api_key
 
 # cat=security/enable/50; type=boolean; label=Require local environment: only allow triggering flows on a local DDEV/Development install (recommended for lab experiments).
 requireLocalEnvironment = 1
+
+# cat=security/enable/60; type=string; label=Agent backend user: username the agent acts as in TYPO3 (the MCP token subject). Use a dedicated sandboxed user (strict-sandbox TSconfig) so writes are draft-only, separate from the editor who triggers. Empty = act as the triggering user.
+agentBackendUser =

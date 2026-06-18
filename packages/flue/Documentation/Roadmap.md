@@ -99,8 +99,10 @@ Outbound is just the provider SDK with nr-vault credentials.
 
 *Depends on Phase 2's result schema. Works on the current in-memory sidecar (one supervised run); only restart-survival needs Phase 5. Effort: M.*
 
-### Phase 4 — Safe writes via Workspaces (the core unlock)
+### Phase 4 — Safe writes via Workspaces (the core unlock) — ✅ DONE (prototype, 2026-06-18)
 *Agent becomes a draft-author; the editor publishes.*
+
+> **Delivered:** the first write surface, proven draft-only. Scoping decision (per the operator): keep DDEV unrestricted globally, **scope the sandbox to a dedicated `_flue` backend user** (admin, TSconfig `options.mcpServer.strictSandbox = 1`). New ext config `agentBackendUser` makes the control plane mint the MCP PAT as `_flue` (separate from the editor who reads the vault key), so every Flue write is forced into a draft workspace via that user's strict-sandbox. New `page-editor` agent (read + single-record `WriteTable` + `WorkspaceReview`; no publish/rollback/bulk/delete) + `page-edit` flow apply ONE requested change. **Verified safe:** editing junk page 660 left the LIVE record untouched (`title='test'`, `t3ver_wsid=0`) and staged the change in the Staging draft workspace (`t3ver_oid=660`, new title) — verdict `STAGED`. HITL = the native Workspaces module. ⚠️ **Safety depends entirely on the agent acting as a strict-sandbox user** — never set `agentBackendUser` to an unsandboxed user. Hardening TODO: non-admin scoped `_flue` group + a control-plane guard that refuses write flows when the agent user isn't sandboxed.
 - **Flip the strict-sandbox gate FIRST** — set `features['mcpServer.strictSandbox']=true` for the Flue MCP user so writes are forced draft-only even on DDEV (where `isLocalMode()` otherwise enables live writes). **Do this before any write tool exists.** *Effort: S — one config line.*
 - **`page-edit` write workflow** — expose `WriteTable`/`BulkWrite`/`AttachImage`, each wrapped in a `defineTool` that **pins `workspace_id`** to a fresh draft (the model must never select workspace 0). Surface `WriteTable`'s destructive inline-relation semantics in the diff. Return the `WorkspaceReview` diff.
 - **HITL = the native Workspaces module** — `run_end` = "draft ready for review."
