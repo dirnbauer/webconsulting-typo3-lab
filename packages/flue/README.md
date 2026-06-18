@@ -6,6 +6,22 @@ export skillflow **skills** to the sidecar, and mirror runs — all from a backe
 module. The agents/workflows themselves run in a real Flue runtime (Node) sidecar
 (`packages/flue-bridge`); this extension is the PHP control plane.
 
+## Concept (short)
+
+**Hybrid bridge to real Flue.** The lab already has the AI primitives in PHP
+(nr-llm = model, nr-mcp-agent = agent loop, typo3-mcp-server = an MCP tool server,
+skillflow = skills, nr-vault = secrets) — they just weren't unified into a durable
+agent/workflow runtime. Rather than reimplement the hard parts (durable execution,
+sandboxes, the agent loop), we run the **real Flue runtime as a Node sidecar** and
+make TYPO3 the **control plane**: define/trigger flows, inject `{uid}` page context,
+export skillflow skills, mint a read-only typo3-mcp PAT, inject the LLM key per
+request from nr-vault, and mirror runs into `tx_flue_run`. The Flue agent calls back
+into TYPO3 over `/mcp` (`connectMcpServer({ headers:{ Authorization: Bearer <PAT> } })`).
+Secrets stay in PHP memory and cross as per-request headers. Clean seam to add
+PHP-native bits later.
+
+Full design + as-built corrections + roadmap: **[Documentation/Concept.md](Documentation/Concept.md)**.
+
 ## What it does
 
 - Backend module **Web → Flue**: list flows, trigger a flow on a page, watch the
