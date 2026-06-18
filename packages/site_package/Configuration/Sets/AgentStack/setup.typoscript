@@ -1,0 +1,56 @@
+# Render the Agent Stack frontend plugins (A2UI / AG-UI / A2A / UCP / AP2)
+# through the site's content-element wrapper (lib.contentElement), so each one
+# appears framed + styled like every other content element. The plugin's own
+# output is the cObj "20" (EXTBASEPLUGIN); the generic AgentStackPlugin FSC
+# template renders the element header + that plugin output.
+lib.contentElement.templateRootPaths.250 = EXT:site_package/Resources/Private/FluidStyledContent/Templates/
+
+tt_content.a2uiintegration_inquiry =< lib.contentElement
+tt_content.a2uiintegration_inquiry {
+    templateName = AgentStackPlugin
+    20 = EXTBASEPLUGIN
+    20 {
+        extensionName = A2uiIntegration
+        pluginName = Inquiry
+    }
+}
+
+tt_content.aguiintegration_assistant =< lib.contentElement
+tt_content.aguiintegration_assistant {
+    templateName = AgentStackPlugin
+    20 = EXTBASEPLUGIN
+    20 {
+        extensionName = AguiIntegration
+        pluginName = Assistant
+    }
+}
+
+tt_content.a2aintegration_concierge =< lib.contentElement
+tt_content.a2aintegration_concierge {
+    templateName = AgentStackPlugin
+    20 = EXTBASEPLUGIN
+    20 {
+        extensionName = A2aIntegration
+        pluginName = Concierge
+    }
+}
+
+tt_content.ucpintegration_checkout =< lib.contentElement
+tt_content.ucpintegration_checkout {
+    templateName = AgentStackPlugin
+    20 = EXTBASEPLUGIN
+    20 {
+        extensionName = UcpIntegration
+        pluginName = Checkout
+    }
+}
+
+tt_content.ap2integration_trustedsurface =< lib.contentElement
+tt_content.ap2integration_trustedsurface {
+    templateName = AgentStackPlugin
+    20 = EXTBASEPLUGIN
+    20 {
+        extensionName = Ap2Integration
+        pluginName = TrustedSurface
+    }
+}

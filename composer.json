@@ -47,7 +47,8 @@
           "webconsulting/agui-integration": "0.1.0",
           "webconsulting/a2a-integration": "0.1.0",
           "webconsulting/ucp-integration": "0.1.0",
-          "webconsulting/ap2-integration": "0.1.0"
+          "webconsulting/ap2-integration": "0.1.0",
+          "webconsulting/agentstack-integration": "0.1.0"
         }
       }
     },
@@ -195,6 +196,7 @@
     "webconsulting/a2a-integration": "^0.1",
     "webconsulting/a2ui-integration": "^2.0",
     "webconsulting/agentation": "^1.1",
+    "webconsulting/agentstack-integration": "^0.1",
     "webconsulting/agui-integration": "^0.1",
     "webconsulting/ap2-integration": "^0.1",
     "webconsulting/api-capability-bridge": "^1.0",

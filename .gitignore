@@ -30,6 +30,8 @@ scripts/*
 /packages/ucp_integration/
 # Separate repo (github.com/dirnbauer/typo3-ap2-integration), referenced via composer path repo
 /packages/ap2_integration/
+# Separate repo (github.com/dirnbauer/typo3-agentstack-integration), referenced via composer path repo
+/packages/agentstack_integration/
 /backup-*/
 /.tarballs/*
 !/.tarballs/README.md

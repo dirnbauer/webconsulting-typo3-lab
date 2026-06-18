@@ -1,0 +1,6 @@
+name: webconsulting/site-package-agentstack
+label: 'Site Package: Agent Stack plugin rendering'
+hidden: true
+dependencies:
+  - webconsulting/site-package
+  - webconsulting/desiderio

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "59479e2398761d613ecf087ccf783657",
+    "content-hash": "2895afdef555ccd81723f81f26fdabdd",
     "packages": [
         {
             "name": "apache-solr-for-typo3/solr",
@@ -12181,6 +12181,71 @@
             "time": "2026-05-25T12:48:00+00:00"
         },
         {
+            "name": "webconsulting/agentstack-integration",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "packages/agentstack_integration",
+                "reference": "5c7c4642c68a97d0553a6141a6d3d07224e7b813"
+            },
+            "require": {
+                "php": "^8.3",
+                "typo3/cms-backend": "^14.3",
+                "typo3/cms-core": "^14.3",
+                "typo3/cms-extbase": "^14.3",
+                "typo3/cms-fluid": "^14.3"
+            },
+            "suggest": {
+                "webconsulting/a2a-integration": "Adds the A2A console as a submodule under Agent Stack.",
+                "webconsulting/a2ui-integration": "Adds the A2UI playground as a submodule under Agent Stack.",
+                "webconsulting/agui-integration": "Adds the AG-UI playground as a submodule under Agent Stack.",
+                "webconsulting/ap2-integration": "Adds the AP2 studio as a submodule under Agent Stack.",
+                "webconsulting/ucp-integration": "Adds the UCP console as a submodule under Agent Stack."
+            },
+            "type": "typo3-cms-extension",
+            "extra": {
+                "typo3/cms": {
+                    "extension-key": "agentstack_integration"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Webconsulting\\AgentstackIntegration\\": "Classes/"
+                }
+            },
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "webconsulting GmbH",
+                    "email": "office@webconsulting.at",
+                    "homepage": "https://webconsulting.at"
+                }
+            ],
+            "description": "Agent Stack for TYPO3 v14 — one backend hub that groups the agent-protocol integrations (A2UI, AG-UI, A2A, UCP, AP2) under a single module, with a guided Overview that explains what each protocol is, what it does and how to use it, with live animated explainers.",
+            "homepage": "https://webconsulting.at",
+            "keywords": [
+                "A2A",
+                "A2UI",
+                "AG-UI",
+                "AP2",
+                "TYPO3",
+                "UCP",
+                "agent",
+                "agentic",
+                "overview"
+            ],
+            "support": {
+                "issues": "https://github.com/dirnbauer/typo3-agentstack-integration/issues",
+                "source": "https://github.com/dirnbauer/typo3-agentstack-integration"
+            },
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
             "name": "webconsulting/agui-integration",
             "version": "0.1.0",
             "dist": {
@@ -12423,7 +12488,7 @@
                 }
             ],
             "description": "Desiderio — shadcn/ui-inspired Fluid 5 component library, 255 content elements, and theme layer for TYPO3 14",
-            "time": "2026-06-18T07:56:52+00:00"
+            "time": "2026-06-18T08:16:44+00:00"
         },
         {
             "name": "webconsulting/docx-editor",
