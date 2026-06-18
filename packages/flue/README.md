@@ -6,6 +6,9 @@ export skillflow **skills** to the sidecar, and mirror runs — all from a backe
 module. The agents/workflows themselves run in a real Flue runtime (Node) sidecar
 (`packages/flue-bridge`); this extension is the PHP control plane.
 
+> 🆕 **New here?** Start with the plain-English **[What you can do with Flue](Documentation/UserGuide.md)**
+> — the four flows, why they're useful, and the full audit → fix → review → publish workflow.
+
 ## Concept (short)
 
 **Hybrid bridge to real Flue.** The lab already has the AI primitives in PHP

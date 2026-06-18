@@ -1,0 +1,80 @@
+<svg viewBox="0 0 680 600" xmlns="http://www.w3.org/2000/svg" role="img" font-family="system-ui, -apple-system, Segoe UI, Roboto, sans-serif">
+  <title>What you can do with Flue in TYPO3</title>
+  <desc>A five-step workflow: you ask for a change, the AI reads the page and stages a draft in a workspace, then you review the diff and publish. Live content is never touched until you approve. Plus four flows you can run: page-report, site-audit and tree-audit (read-only) and page-edit (write).</desc>
+
+  <rect x="0" y="0" width="680" height="600" rx="10" fill="#ffffff" stroke="#e6e6e6"/>
+
+  <!-- header -->
+  <text x="32" y="40" font-size="21" font-weight="700" fill="#1a1a1a">What you can do with Flue</text>
+  <text x="32" y="62" font-size="13" fill="#5b5b5b">AI flows that audit and safely edit your TYPO3 content — you stay in control.</text>
+
+  <text x="32" y="98" font-size="12" font-weight="700" letter-spacing="0.5" fill="#5b5b5b">A FULL WORKFLOW · FIX A PAGE, SAFELY</text>
+
+  <!-- timeline spine -->
+  <line x1="56" y1="120" x2="56" y2="404" stroke="#d8d8d8" stroke-width="2"/>
+
+  <!-- STEP 1 -->
+  <circle cx="56" cy="143" r="14" fill="#1D9E75"/>
+  <text x="56" y="148" font-size="13" font-weight="700" fill="#ffffff" text-anchor="middle">1</text>
+  <rect x="86" y="122" width="562" height="50" rx="8" fill="#ffffff" stroke="#d8d8d8"/>
+  <rect x="86" y="122" width="4" height="50" rx="2" fill="#1D9E75"/>
+  <text x="104" y="143" font-size="14.5" font-weight="600" fill="#1a1a1a">You ask for a change</text>
+  <text x="104" y="161" font-size="11.5" fill="#5b5b5b">"Remove the stray word 'changed.' on page 660" — in the module or CLI</text>
+
+  <!-- STEP 2 -->
+  <circle cx="56" cy="207" r="14" fill="#1D9E75"/>
+  <text x="56" y="212" font-size="13" font-weight="700" fill="#ffffff" text-anchor="middle">2</text>
+  <rect x="86" y="186" width="562" height="50" rx="8" fill="#ffffff" stroke="#d8d8d8"/>
+  <rect x="86" y="186" width="4" height="50" rx="2" fill="#1D9E75"/>
+  <text x="104" y="207" font-size="14.5" font-weight="600" fill="#1a1a1a">Flue reads the page</text>
+  <text x="104" y="225" font-size="11.5" fill="#5b5b5b">Through TYPO3's own tools — sees exactly what's on the page</text>
+
+  <!-- STEP 3 -->
+  <circle cx="56" cy="271" r="14" fill="#1D9E75"/>
+  <text x="56" y="276" font-size="13" font-weight="700" fill="#ffffff" text-anchor="middle">3</text>
+  <rect x="86" y="250" width="562" height="50" rx="8" fill="#ffffff" stroke="#d8d8d8"/>
+  <rect x="86" y="250" width="4" height="50" rx="2" fill="#1D9E75"/>
+  <text x="104" y="271" font-size="14.5" font-weight="600" fill="#1a1a1a">It stages a DRAFT</text>
+  <text x="104" y="289" font-size="11.5" fill="#5b5b5b">Into a Workspace — your live page is not touched</text>
+
+  <!-- STEP 4 -->
+  <circle cx="56" cy="335" r="14" fill="#D85A30"/>
+  <text x="56" y="340" font-size="13" font-weight="700" fill="#ffffff" text-anchor="middle">4</text>
+  <rect x="86" y="314" width="562" height="50" rx="8" fill="#ffffff" stroke="#d8d8d8"/>
+  <rect x="86" y="314" width="4" height="50" rx="2" fill="#D85A30"/>
+  <text x="104" y="335" font-size="14.5" font-weight="600" fill="#1a1a1a">You review the diff</text>
+  <text x="104" y="353" font-size="11.5" fill="#5b5b5b">Web &#8594; Workspaces shows before / after, side by side</text>
+
+  <!-- STEP 5 -->
+  <circle cx="56" cy="399" r="14" fill="#D85A30"/>
+  <text x="56" y="404" font-size="13" font-weight="700" fill="#ffffff" text-anchor="middle">5</text>
+  <rect x="86" y="378" width="562" height="50" rx="8" fill="#ffffff" stroke="#d8d8d8"/>
+  <rect x="86" y="378" width="4" height="50" rx="2" fill="#D85A30"/>
+  <text x="104" y="399" font-size="14.5" font-weight="600" fill="#1a1a1a">You publish — now it's live</text>
+  <text x="104" y="417" font-size="11.5" fill="#5b5b5b">…or discard it. Only your click makes it public.</text>
+
+  <!-- safety callout -->
+  <rect x="32" y="444" width="616" height="42" rx="8" fill="#FAECE7" stroke="#F0997B"/>
+  <text x="48" y="470" font-size="12.5" fill="#712B13"><tspan font-weight="700">The AI can only propose a draft.</tspan> It can never change live content — nothing goes public until you publish.</text>
+
+  <!-- flows footer -->
+  <text x="32" y="518" font-size="12" font-weight="700" letter-spacing="0.5" fill="#5b5b5b">THE 4 FLOWS YOU CAN RUN</text>
+
+  <g font-size="12.5">
+    <rect x="32" y="528" width="150" height="42" rx="8" fill="#E1F5EE" stroke="#5DCAA5"/>
+    <text x="44" y="548" font-weight="700" fill="#0F6E56">page-report</text>
+    <text x="44" y="563" font-size="10.5" fill="#0F6E56">QA one page · read</text>
+
+    <rect x="194" y="528" width="150" height="42" rx="8" fill="#E1F5EE" stroke="#5DCAA5"/>
+    <text x="206" y="548" font-weight="700" fill="#0F6E56">site-audit</text>
+    <text x="206" y="563" font-size="10.5" fill="#0F6E56">scan a section · read</text>
+
+    <rect x="356" y="528" width="150" height="42" rx="8" fill="#E1F5EE" stroke="#5DCAA5"/>
+    <text x="368" y="548" font-weight="700" fill="#0F6E56">tree-audit</text>
+    <text x="368" y="563" font-size="10.5" fill="#0F6E56">every page · read</text>
+
+    <rect x="518" y="528" width="150" height="42" rx="8" fill="#FAECE7" stroke="#F0997B"/>
+    <text x="530" y="548" font-weight="700" fill="#993C1D">page-edit</text>
+    <text x="530" y="563" font-size="10.5" fill="#993C1D">draft a change · write</text>
+  </g>
+</svg>
