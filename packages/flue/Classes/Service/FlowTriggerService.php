@@ -52,6 +52,22 @@ final class FlowTriggerService
             throw new ExecutionBlockedException('Flow ' . $flowUid . ' not found.', 1760001100);
         }
 
+        // The agent acts in TYPO3 as the configured agent user (e.g. the sandboxed
+        // `_flue`), NOT the triggering editor — so writes are draft-only via that
+        // user's strict-sandbox, while the vault key is still read as the editor.
+        $agentBeUser = $this->resolveAgentBeUser($beUser);
+
+        // SAFETY GATE: a flow that exposes write tools must run as a strict-sandbox
+        // user, or its writes could reach live content. Refuse otherwise.
+        if ($this->isWriteFlow($flow) && !$this->agentUserIsSandboxed($agentBeUser)) {
+            throw new ExecutionBlockedException(
+                'Write flow blocked: the agent backend user (uid ' . $agentBeUser . ') is not strict-sandboxed, '
+                . 'so its MCP writes could reach LIVE content. Point the flue "agentBackendUser" extension setting '
+                . 'at a backend user whose User TSconfig sets options.mcpServer.strictSandbox = 1.',
+                1760001200,
+            );
+        }
+
         $tokens = $this->contextResolver->resolveTokens($table, $uid, $workspaceId);
         $flowInstructions = $this->contextResolver->apply(Typed::string($flow['instructions'] ?? ''), $tokens);
         $runInstructions = $this->contextResolver->apply($instructions, $tokens);
@@ -63,10 +79,7 @@ final class FlowTriggerService
         }
         $skillIdentifiers = $this->skillIdentifiers($skillUids);
 
-        // The agent acts in TYPO3 as the configured agent user (e.g. the sandboxed
-        // `_flue`), NOT the triggering editor — so writes are draft-only via that
-        // user's strict-sandbox, while the vault key is still read as the editor.
-        $mcpToken = $this->mintMcpToken($this->resolveAgentBeUser($beUser));
+        $mcpToken = $this->mintMcpToken($agentBeUser);
         $apiKey = $this->retrieveApiKey();
         $runKey = bin2hex(random_bytes(16));
 
@@ -208,6 +221,52 @@ final class FlowTriggerService
 
             return $triggerBeUser;
         }
+    }
+
+    /**
+     * A flow is a "write flow" when its declared MCP tools include a record-mutating tool.
+     *
+     * @param array<string, mixed> $flow
+     */
+    private function isWriteFlow(array $flow): bool
+    {
+        $tools = array_map('strtolower', $this->csvList(Typed::string($flow['mcp_tools'] ?? '')));
+        $writeTools = [
+            'writetable', 'bulkwrite', 'attachimage', 'copycontent', 'importcontent',
+            'importfromurl', 'createsite', 'manageredirects', 'publishworkspace', 'rollbackworkspace',
+        ];
+
+        return array_intersect($tools, $writeTools) !== [];
+    }
+
+    /**
+     * Is the agent backend user forced into draft-only writes (strict sandbox)? True when the
+     * global feature flag is set, or the user's own TSconfig sets options.mcpServer.strictSandbox.
+     * (Group TSconfig is intentionally not inspected — keep the agent user's own TSconfig authoritative.)
+     */
+    private function agentUserIsSandboxed(int $uid): bool
+    {
+        $confVars = $GLOBALS['TYPO3_CONF_VARS'] ?? [];
+        $sys = is_array($confVars) && is_array($confVars['SYS'] ?? null) ? $confVars['SYS'] : [];
+        $features = is_array($sys['features'] ?? null) ? $sys['features'] : [];
+        $flag = $features['mcpServer.strictSandbox'] ?? null;
+        if ($flag === true || $flag === 1 || (is_string($flag) && in_array(strtolower(trim($flag)), ['1', 'true', 'yes', 'on'], true))) {
+            return true;
+        }
+
+        try {
+            $qb = GeneralUtility::makeInstance(\TYPO3\CMS\Core\Database\ConnectionPool::class)
+                ->getQueryBuilderForTable('be_users');
+            $qb->getRestrictions()->removeAll();
+            $tsconfig = $qb->select('TSconfig')->from('be_users')
+                ->where($qb->expr()->eq('uid', $qb->createNamedParameter($uid, \TYPO3\CMS\Core\Database\Connection::PARAM_INT)))
+                ->executeQuery()
+                ->fetchOne();
+        } catch (\Throwable) {
+            return false;
+        }
+
+        return is_string($tsconfig) && (bool)preg_match('/strictSandbox\s*=\s*(1|true|yes|on)\b/i', $tsconfig);
     }
 
     /**
