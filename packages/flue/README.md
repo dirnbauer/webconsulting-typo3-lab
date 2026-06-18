@@ -34,6 +34,17 @@ Full design + as-built corrections + roadmap: **[Documentation/Concept.md](Docum
 - Soft dependencies (each guarded by `class_exists`): skillflow (skills),
   typo3-mcp-server (tools), nr-vault (secrets), nr-llm. Installs standalone.
 
+## Run a flow (end-to-end)
+
+Five steps, once. Full runbook: **[Documentation/Setup.md](Documentation/Setup.md)**.
+
+1. **Install** — `ddev composer require webconsulting/flue:@dev && ddev exec vendor/bin/typo3 extension:setup` (creates `tx_flue_flow`/`tx_flue_run` + the module).
+2. **Store the LLM key** in nr-vault as `flue_anthropic_api_key` (see *Add the LLM API key* below).
+3. **Create a flow** — a *Flue flow* record (List module) with `workflow_name = page-report`, a model, and a read-only MCP tool allowlist; attach skills if wanted.
+4. **Start the Flue sidecar** (Node, third-party beta — executes on your machine):
+   `cd packages/flue-bridge && npm install && npm run init && npm run dev` (or `ddev restart` after `npm run init`). No-LLM bridge check: `npm run probe:mcp`.
+5. **Run** — **Web → Flue** → pick the flow, enter a page id, **Run**. The control plane injects the key + a read-only typo3-mcp PAT and streams the report into `tx_flue_run`.
+
 ## Activate
 
 ```bash
