@@ -83,7 +83,7 @@ final class RunStore
         return $this->casStatus($runUid, RunStatus::Submitted, RunStatus::Running) > 0;
     }
 
-    public function markSettled(int $runUid, string $output, string $usageJson = ''): void
+    public function markSettled(int $runUid, string $output, string $usageJson = '', string $resultJson = '', string $verdict = ''): void
     {
         $this->connectionPool->getConnectionForTable(self::TABLE)->update(
             self::TABLE,
@@ -91,6 +91,8 @@ final class RunStore
                 'status' => RunStatus::Settled->value,
                 'output' => mb_substr($output, 0, 16000000),
                 'usage_json' => $usageJson,
+                'result_json' => $resultJson,
+                'verdict' => mb_substr($verdict, 0, 32),
                 'finished' => time(),
                 'tstamp' => time(),
             ],

@@ -18,6 +18,10 @@ Operational runbook to get a flow running end-to-end. For the design see
 ```bash
 ddev composer require webconsulting/flue:@dev
 ddev exec vendor/bin/typo3 extension:setup
+ddev exec vendor/bin/typo3 cache:flush     # REQUIRED — rebuilds the backend route
+                                           # registry so the flue_trigger/flue_stream
+                                           # AJAX routes resolve (else the module throws
+                                           # RouteNotFoundException "flue_trigger").
 ```
 
 This symlinks `packages/flue` into `vendor/`, creates `tx_flue_flow` +
@@ -68,20 +72,28 @@ Create a **Flue flow** record (List module → "Flue flow", stored at root level
 
 ## 4. Start the Flue sidecar
 
-> ⚠️ Installing/running `@flue/runtime` executes third-party beta code on your
-> machine. That is an operator action.
+In DDEV the sidecar runs as the `flue` service (`.ddev/docker-compose.flue.yaml`,
+`node:22-bookworm`) — **no host Node needed**. `ddev restart` brings it up; on
+first boot it `npm install`s, runs `flue init` (writes `flue.config.ts`), then
+`flue dev`. (Running it on the macOS host fails — flue pulls Cloudflare `workerd`,
+whose binary is Linux-only in this install; that's why it runs in the container.)
 
-```bash
-cd packages/flue-bridge
-npm install            # once (executes npm lifecycle scripts)
-npm run init           # once: flue init --target node → generates app.ts / db.ts
-npm run dev            # starts the sidecar (Hono HTTP on :3000)
-```
+> ⚠️ This executes the third-party `@flue/runtime` beta inside the container.
 
-In DDEV the sidecar also boots via `.ddev/docker-compose.flue.yaml` — after
-`npm run init` once, `ddev restart` brings the `flue` service up. It reaches
-TYPO3 by Docker service name (`http://web/mcp`), and the control plane reaches
-it at `http://<sitename>-flue:3000` (set as `sidecarBaseUrl`).
+`flue dev` serves on **port 3583** (flue's default — "FLUE" on a keypad) and binds
+`0.0.0.0`, so the control plane reaches it intra-DDEV at
+`http://<sitename>-flue:3583` (set as `sidecarBaseUrl`; **not** 3000). The agent
+reaches TYPO3 by Docker service name (`http://web/mcp`). No host port is published.
+
+The sidecar ships two files that define the flow:
+- `agents/page-report.ts` — the read-only page-reporter agent (model + MCP tools).
+- `workflows/page-report.ts` — the HTTP entry the control plane drives
+  (`POST /workflows/page-report`). Its exported `route` is flue's admission
+  boundary: it reads the per-request `X-Flue-Anthropic-Key` header and
+  `registerProvider('anthropic', { apiKey })`. `run()` then `init(agent)`s
+  (which passes the structured payload into the agent's `ctx.payload`), prompts,
+  and returns `{ report }`. flue's `agents/` route only accepts chat `{ message }`,
+  so the structured control-plane path needs this workflow.
 
 **Prove the bridge without an LLM key** (pure MCP handshake + tools/list):
 
@@ -93,36 +105,41 @@ TYPO3_MCP_URL=https://<project>.ddev.site/mcp TYPO3_MCP_TOKEN=<pat> npm run prob
 
 ## 5. Run a flow
 
-**From the module (recommended).** **Web → Flue** → pick the flow → enter a page
-id → **Run**. Because you are a logged-in backend user, the control plane can
-read the vault key and mint a typo3-mcp PAT; it POSTs to the sidecar, the agent
-reads the page through `/mcp` (read-only), and the run streams live (SSE) and
-settles into `tx_flue_run`. Re-opening the run replays its events by `seq`.
-
-**From the CLI:**
+**From the CLI (verified working):**
 
 ```bash
-ddev exec vendor/bin/typo3 flue:run <flowUid> <pageUid> --beuser=1
+ddev exec vendor/bin/typo3 flue:run 1 99 --beuser=1
+#   → "status settled"; prints the editorial report; mirrored into tx_flue_run
 ```
 
-`--beuser` selects the backend user used to mint the MCP PAT. Note: nr-vault
-gates the API-key secret by backend user, so a no-user CLI context may be denied
-the key — the module path (logged-in user) is the reliable trigger.
+`--beuser` selects the backend user used to mint the MCP PAT **and** read the
+vault key — so the CLI path triggers a full run on its own (the vault read
+succeeds in the `--beuser` context). `flue:run <flowUid> <pageUid>`.
+
+**From the module.** **Web → Flue** → pick the flow → enter a page id → **Run**.
+Same path as a logged-in backend user; the run settles into `tx_flue_run` and the
+run detail shows the report. (Live token streaming is a later upgrade — the
+control plane currently polls the sidecar's run record to settlement.)
 
 ## Verify
 
 - `npm run probe:mcp` → the sidecar reaches TYPO3 over MCP.
 - After a run: the `tx_flue_run` row reaches `status=settled` with the report in
   `output`; the module's run detail shows the events.
-- Kill the browser mid-stream and reopen the run → it replays from the persisted
-  `events` column (streaming is an optimization, not the source of truth).
+- The persisted run row is the source of truth: `drainRun()` polls the sidecar's
+  `GET /runs/<id>?meta` record to settlement, so a dropped browser just re-reads
+  the stored `output`/`events`.
+- Direct sidecar smoke test (from the web container):
+  `ddev exec curl -s http://<sitename>-flue:3583/openapi.json` (lists the live API).
 
 ## Troubleshooting
 
 | Symptom | Cause / fix |
 |---|---|
-| Run settles `failed` immediately, "is the Flue sidecar running?" | Sidecar not up. `npm run dev`, or `ddev restart` after `npm run init`. Check `sidecarBaseUrl`. |
+| Run settles `failed` immediately, "is the Flue sidecar running?" | Sidecar not up, or wrong port. `ddev restart` (boots the `flue` service); confirm `sidecarBaseUrl = http://<sitename>-flue:3583` (not 3000). |
+| `{"error":{"type":"workflow_not_found"}}` | `workflows/page-report.ts` missing on the sidecar (only the *agent* exists). flue distinguishes `workflows/` (structured) from `agents/` (chat). Re-add the workflow file; `flue dev` hot-reloads it. |
+| Run `errored`: "Missing authentication token" | The MCP PAT didn't reach the agent. Ensure typo3-mcp-server is installed and `--beuser` (CLI) / the logged-in user (module) can mint a token. |
+| Run `errored` at the LLM (no provider key) | The vault key didn't reach the workflow's `route`. Confirm `flue_anthropic_api_key` is stored and readable by the triggering user; check `apiKeyVaultId`. |
 | `probe:mcp` → 401 | PAT missing/expired, or wrong `TYPO3_MCP_URL`. Re-mint a token; from the host use `https://<project>.ddev.site/mcp`, inside DDEV `http://web/mcp`. |
-| "Access denied to secret …" | The triggering backend user can't read the vault secret (or it's a no-user CLI context). Trigger from the module as the secret's owner, or grant the vault group. |
 | Agent writes/changes content | It shouldn't — the agent is pinned to the read-only allowlist. In DDEV, `localUnsafeMode` defaults MCP tools to the live workspace; keep `mcp_tools` read-only, and set User TSconfig `options.mcpServer.strictSandbox = 1` for write flows. |
 | Flows blocked | `requireLocalEnvironment = 1` allows triggering only in Development + DDEV. |

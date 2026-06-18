@@ -11,9 +11,10 @@
  * shape (mcp__typo3__<Tool>) once the sidecar runs the first probe.
  */
 import { createAgent, connectMcpServer, type AgentRouteHandler } from '@flue/runtime';
+import { local } from '@flue/runtime/node';
 
 /** Allow only read tools — defends against DDEV's live-workspace default. */
-const READ_ONLY = ['GetPage', 'ReadTable', 'RenderRecord', 'GetPageTree', 'Search'];
+const READ_ONLY = ['GetPage', 'ReadTable', 'RenderRecord', 'GetPageTree', 'Search', 'ContentAudit'];
 
 type PageReportPayload = {
   pageUid?: number;
@@ -53,6 +54,10 @@ export default createAgent<PageReportPayload>(async (ctx) => {
     model: ctx.env?.FLUE_MODEL ?? 'anthropic/claude-sonnet-4-6',
     instructions,
     tools,
-    // skills: [...]  // wired once skillflow exports SKILL.md dirs into ./skills
+    // The local sandbox (cwd = process.cwd() = /app) is what makes Flue discover the
+    // control-plane-exported skills under /app/.agents/skills/. The default virtual
+    // sandbox has an isolated FS and never sees them. Tools stay the read-only MCP set;
+    // skills are auto-discovered by name and invoked via session.skill(<id>).
+    sandbox: local(),
   };
 });

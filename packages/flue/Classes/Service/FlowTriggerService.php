@@ -23,6 +23,9 @@ use Webconsulting\Flue\Support\Typed;
  */
 final class FlowTriggerService
 {
+    private const DRAIN_TIMEOUT_SECONDS = 180;
+    private const DRAIN_INTERVAL_US = 1_500_000;
+
     public function __construct(
         private readonly FlueClientInterface $flueClient,
         private readonly ContextResolver $contextResolver,
@@ -96,9 +99,11 @@ final class FlowTriggerService
     }
 
     /**
-     * Drains the sidecar's event stream for a run into the durable store and
-     * settles it. Blocking. An optional $tap receives each event (e.g. to also
-     * echo SSE to a browser). Accumulates assistant message text as the output.
+     * Polls the sidecar's plain-JSON run record (GET /runs/<id>?meta) until the
+     * run settles, then mirrors the outcome into the durable store. Blocking.
+     * An optional $tap receives status + terminal events (e.g. to echo SSE to a
+     * browser). Live Durable-Streams tailing is a later upgrade; the run record
+     * is the source of truth either way.
      *
      * @param callable(FlueEvent): void|null $tap
      */
@@ -108,42 +113,105 @@ final class FlowTriggerService
         if ($run === null || $run->flueRunId === '') {
             return;
         }
+        if ($run->status->isTerminal()) {
+            return;
+        }
         $this->runStore->markRunning($runUid);
 
-        $output = '';
-        $this->flueClient->streamEvents($run->flueRunId, function (FlueEvent $event) use ($runUid, $tap, &$output): void {
-            $this->runStore->appendEvent($runUid, $event);
-            if ($tap !== null) {
-                $tap($event);
+        $deadline = time() + self::DRAIN_TIMEOUT_SECONDS;
+        $lastStatus = '';
+        $seq = 0;
+        while (time() < $deadline) {
+            $record = $this->flueClient->getRunRecord($run->flueRunId);
+            if ($record === []) {
+                usleep(self::DRAIN_INTERVAL_US);
+                continue;
             }
-            $output .= $this->extractText($event);
-            if (in_array($event->type, ['submission_settled', 'run_end'], true)) {
-                $this->runStore->markSettled($runUid, $output);
-            }
-            if ($event->type === 'session.error') {
-                $this->runStore->markFailed($runUid, Typed::string($event->data['message'] ?? 'Flue run errored.'));
-            }
-        });
 
-        // If the stream ended without a terminal event, settle with what we have.
-        $after = $this->runStore->load($runUid);
-        if ($after !== null && !$after->status->isTerminal()) {
-            $this->runStore->markSettled($runUid, $output);
+            $status = Typed::string($record['status'] ?? '');
+            if ($tap !== null && $status !== '' && $status !== $lastStatus) {
+                $progress = new FlueEvent($seq++, time(), 'status', ['status' => $status]);
+                $this->runStore->appendEvent($runUid, $progress);
+                $tap($progress);
+                $lastStatus = $status;
+            }
+
+            $isError = ($record['isError'] ?? null) === true;
+            $terminal = $isError
+                || Typed::string($record['endedAt'] ?? '') !== ''
+                || array_key_exists('result', $record);
+            if (!$terminal) {
+                usleep(self::DRAIN_INTERVAL_US);
+                continue;
+            }
+
+            if ($isError || isset($record['error'])) {
+                $errorArr = is_array($record['error'] ?? null) ? $record['error'] : [];
+                $message = Typed::string($errorArr['message'] ?? '') ?: 'Flue run errored.';
+                $event = new FlueEvent($seq++, time(), 'session.error', ['message' => $message]);
+                $this->runStore->appendEvent($runUid, $event);
+                if ($tap !== null) {
+                    $tap($event);
+                }
+                $this->runStore->markFailed($runUid, $message);
+            } else {
+                $result = $record['result'] ?? null;
+                $output = $this->extractResult($result);
+                [$verdict, $resultJson, $usageJson] = $this->extractMeta($result);
+                $event = new FlueEvent($seq++, time(), 'submission_settled', ['text' => $output]);
+                $this->runStore->appendEvent($runUid, $event);
+                if ($tap !== null) {
+                    $tap($event);
+                }
+                $this->runStore->markSettled($runUid, $output, $usageJson, $resultJson, $verdict);
+            }
+
+            return;
         }
+
+        $this->runStore->markFailed($runUid, 'Timed out waiting for the Flue run to settle.');
     }
 
-    private function extractText(FlueEvent $event): string
+    /**
+     * The QA workflows return `{ report, qa, usage, pageUid }`; fall back to a JSON dump.
+     */
+    private function extractResult(mixed $result): string
     {
-        if (!in_array($event->type, ['agent.message', 'message', 'text'], true)) {
-            return '';
-        }
-        foreach (['text', 'content', 'delta', 'message'] as $key) {
-            $value = $event->data[$key] ?? null;
-            if (is_string($value) && $value !== '') {
-                return $value;
+        if (is_array($result)) {
+            $report = $result['report'] ?? null;
+            if (is_string($report) && $report !== '') {
+                return $report;
             }
+            $json = json_encode($result, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
+
+            return is_string($json) ? $json : '';
         }
-        return '';
+
+        return is_string($result) ? $result : '';
+    }
+
+    /**
+     * Pull the structured verdict + result + usage out of a workflow result so the
+     * run row carries a queryable verdict and the full QA JSON.
+     *
+     * @return array{0: string, 1: string, 2: string} [verdict, resultJson, usageJson]
+     */
+    private function extractMeta(mixed $result): array
+    {
+        if (!is_array($result)) {
+            return ['', '', ''];
+        }
+        $qa = is_array($result['qa'] ?? null) ? $result['qa'] : null;
+        $verdict = $qa !== null ? Typed::string($qa['verdict'] ?? '') : '';
+        $resultJson = $qa !== null
+            ? Typed::string(json_encode($qa, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) ?: '')
+            : '';
+        $usage = $result['usage'] ?? null;
+        $usageJson = is_array($usage)
+            ? Typed::string(json_encode($usage, JSON_UNESCAPED_SLASHES) ?: '')
+            : '';
+
+        return [$verdict, $resultJson, $usageJson];
     }
 
     /**

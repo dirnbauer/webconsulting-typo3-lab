@@ -39,4 +39,13 @@ interface FlueClientInterface
      * @return array{runId: string, status: string}
      */
     public function resume(string $runId, array $payload, array $headers = []): array;
+
+    /**
+     * Fetch a run's record (status/result/error) as plain JSON via GET /runs/<id>?meta.
+     * Returns [] on any transport or decode failure (never throws into the request).
+     *
+     * @param array<string, string> $headers
+     * @return array<string, mixed>
+     */
+    public function getRunRecord(string $runId, array $headers = []): array;
 }

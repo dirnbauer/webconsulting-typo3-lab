@@ -29,6 +29,8 @@ CREATE TABLE tx_flue_run (
     events mediumtext,
     output mediumtext,
     usage_json mediumtext,
+    result_json mediumtext,
+    verdict varchar(32) DEFAULT '' NOT NULL,
     error_message text,
     started int(11) unsigned DEFAULT '0' NOT NULL,
     finished int(11) unsigned DEFAULT '0' NOT NULL,

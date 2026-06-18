@@ -11,11 +11,13 @@ use Webconsulting\Flue\Domain\Model\FlueEvent;
 use Webconsulting\Flue\Support\Typed;
 
 /**
- * HTTP client for the Flue sidecar. Endpoints (matching the scaffolded server):
- *   POST <base>/workflows/<name>           -> { runId, status }
- *   GET  <base>/workflows/runs/<id>/events -> text/event-stream
- *   POST <base>/workflows/runs/<id>/resume -> { runId, status }
+ * HTTP client for the real @flue/runtime sidecar. Verified routes (1.0.0-beta.1):
+ *   POST <base>/workflows/<name>   -> 202 { runId, streamUrl, offset } (async admission)
+ *   GET  <base>/runs/<runId>?meta  -> plain-JSON run record { status, result, error, endedAt }
+ *   GET  <base>/runs/<runId>       -> Durable-Streams event stream (live; not consumed yet)
  *
+ * A workflow `page-report` admits async; FlowTriggerService::drainRun() polls the
+ * run-record view to settlement (Durable-Streams live tailing is a later upgrade).
  * Uses TYPO3's RequestFactory (Guzzle) like skillflow's AnthropicApiRunner, with
  * http_errors disabled and defensive status handling.
  */
@@ -78,6 +80,28 @@ final class FlueClient implements FlueClientInterface
     {
         $uri = $this->baseUrl() . '/workflows/runs/' . rawurlencode($runId) . '/resume';
         return $this->postJson($uri, $payload, $headers);
+    }
+
+    public function getRunRecord(string $runId, array $headers = []): array
+    {
+        // flue's plain-JSON run-record view (status/result/error) — no Durable-Streams framing.
+        $uri = $this->baseUrl() . '/runs/' . rawurlencode($runId) . '?meta';
+        try {
+            $response = $this->requestFactory->request($uri, 'GET', [
+                'headers' => ['Accept' => 'application/json'] + $headers,
+                'http_errors' => false,
+                'timeout' => $this->requestTimeout(),
+            ]);
+        } catch (\Throwable $e) {
+            $this->logger->warning('Flue run-record fetch failed', ['uri' => $uri, 'error' => $e->getMessage()]);
+            return [];
+        }
+        if ($response->getStatusCode() >= 400) {
+            return [];
+        }
+        $decoded = json_decode((string)$response->getBody(), true);
+
+        return Typed::stringKeyedArray($decoded);
     }
 
     /**

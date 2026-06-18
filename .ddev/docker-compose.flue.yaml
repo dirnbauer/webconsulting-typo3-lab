@@ -12,28 +12,33 @@ services:
     hostname: ${DDEV_SITENAME}-flue
     image: node:22-bookworm
     # Install once if needed, then run the Flue dev server (app.ts scaffolded by `flue init`).
-    command: ["sh", "-c", "cd /app && (test -d node_modules || npm install --no-audit --no-fund) && npm run dev"]
+    # chmod the shared skills volume so the web container's PHP user (SkillExporter)
+    # can write exported SKILL.md dirs into the root-owned volume.
+    command: ["sh", "-c", "chmod 0777 /app/.agents/skills 2>/dev/null; cd /app && (test -d node_modules || npm install --no-audit --no-fund) && (test -f flue.config.ts || npm run init) && npm run dev"]
     working_dir: /app
     restart: "no"
     labels:
       com.ddev.site-name: ${DDEV_SITENAME}
       com.ddev.approot: $DDEV_APPROOT
     environment:
-      - VIRTUAL_HOST=$DDEV_HOSTNAME
-      - HTTP_EXPOSE=3000:3000
-      - HTTPS_EXPOSE=3001:3000
-      - FLUE_PORT=3000
+      # No HTTP_EXPOSE/VIRTUAL_HOST: the sidecar is reached only intra-DDEV by the
+      # control plane (web container -> http://${DDEV_SITENAME}-flue:3583). `flue dev`
+      # serves on its default port 3583 ("FLUE") and binds 0.0.0.0, so no host
+      # port is published (avoids colliding with anything on the host, e.g. :3000).
       # Intra-DDEV: reach the TYPO3 web container by service name (avoids cert/DNS hops).
       - TYPO3_MCP_URL=http://web/mcp
       - SOLR_URL=http://${DDEV_SITENAME}-typo3-solr:8983
       # ANTHROPIC_API_KEY intentionally absent — injected per request by the control plane.
     volumes:
       - "../packages/flue-bridge:/app"
-      - "flue-skills:/app/skills"
+      # Flue auto-discovers Agent Skills under <cwd>/.agents/skills/ at context init;
+      # the working_dir is /app, so the exported-skills volume MUST mount there (not /app/skills).
+      - "flue-skills:/app/.agents/skills"
       - "flue-data:/app/data"
       - ".:/mnt/ddev_config"
 
-  # Skill export from skillflow writes SKILL.md dirs here; the flue container reads them at /app/skills.
+  # Skill export from skillflow writes SKILL.md dirs into this shared volume (web side
+  # /mnt/flue-skills); the flue container discovers them at /app/.agents/skills.
   web:
     volumes:
       - "flue-skills:/mnt/flue-skills"

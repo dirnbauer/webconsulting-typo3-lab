@@ -41,9 +41,8 @@ Five steps, once. Full runbook: **[Documentation/Setup.md](Documentation/Setup.m
 1. **Install** — `ddev composer require webconsulting/flue:@dev && ddev exec vendor/bin/typo3 extension:setup` (creates `tx_flue_flow`/`tx_flue_run` + the module).
 2. **Store the LLM key** in nr-vault as `flue_anthropic_api_key` (see *Add the LLM API key* below).
 3. **Create a flow** — a *Flue flow* record (List module) with `workflow_name = page-report`, a model, and a read-only MCP tool allowlist; attach skills if wanted.
-4. **Start the Flue sidecar** (Node, third-party beta — executes on your machine):
-   `cd packages/flue-bridge && npm install && npm run init && npm run dev` (or `ddev restart` after `npm run init`). No-LLM bridge check: `npm run probe:mcp`.
-5. **Run** — **Web → Flue** → pick the flow, enter a page id, **Run**. The control plane injects the key + a read-only typo3-mcp PAT and streams the report into `tx_flue_run`.
+4. **Start the Flue sidecar** — `ddev restart` boots the `flue` service (`node:22-bookworm`); on first boot it installs, `flue init`s, and runs `flue dev` on **port 3583**. It ships `agents/page-report.ts` + `workflows/page-report.ts` (the workflow is the structured HTTP entry the control plane drives). No-LLM bridge check: `npm run probe:mcp`.
+5. **Run** — `ddev exec vendor/bin/typo3 flue:run 1 <pageUid> --beuser=1`, or **Web → Flue** → pick the flow, enter a page id, **Run**. The control plane mints a read-only typo3-mcp PAT, injects the vault LLM key per request, and mirrors the settled report into `tx_flue_run`.
 
 ## Activate
 
@@ -91,7 +90,7 @@ backend user, so it must be readable by whoever triggers the flow.
 
 | Setting | Default | Purpose |
 |---|---|---|
-| `sidecarBaseUrl` | `http://localhost:3000` | Flue sidecar URL (in DDEV: `http://<sitename>-flue:3000`) |
+| `sidecarBaseUrl` | `http://localhost:3000` | Flue sidecar URL. In DDEV set `http://<sitename>-flue:3583` (`flue dev`'s default port) |
 | `defaultModel` | `anthropic/claude-sonnet-4-6` | Model passed to flows without their own |
 | `requestTimeout` | `30` | HTTP timeout (s) when triggering a flow |
 | `apiKeyVaultId` | `flue_anthropic_api_key` | nr-vault identifier of the LLM API key |
