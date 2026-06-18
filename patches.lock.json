@@ -1,5 +1,5 @@
 {
-    "_hash": "0e823395c6fbef0ba54ca535e5aa65b96b235527ad90106150da490a7ae4bc31",
+    "_hash": "3ff1d9bb450dd770369e4e64cf6d9c6fd3a00d561516a73114a3ada0797c9979",
     "patches": {
         "netresearch/nr-llm": [
             {
@@ -100,16 +100,6 @@
             }
         ],
         "webconsulting/webcon-easy-workspace": [
-            {
-                "package": "webconsulting/webcon-easy-workspace",
-                "description": "Load decline-button frontend module with .js so the importmap resolves it (404 fix)",
-                "url": "patches/webcon-easy-workspace-fix-decline-button-module-js.patch",
-                "sha256": "7fca3c4c35b57cd60d0be6f1d6accb57216b0f62f4e2cdd09d2736c9a22ad6d8",
-                "depth": 1,
-                "extra": {
-                    "provenance": "root"
-                }
-            },
             {
                 "package": "webconsulting/webcon-easy-workspace",
                 "description": "Toolbar list: toggle switches, Seiteneigenschaften card redesign with intent line, correct TYPO3 labels",

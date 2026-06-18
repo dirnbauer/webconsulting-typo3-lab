@@ -238,7 +238,6 @@
         "Add missing useDataHandler import so element-library drops save and refresh": "patches/friendsoftypo3-visual-editor-fix-usedatahandler-import.patch"
       },
       "webconsulting/webcon-easy-workspace": {
-        "Load decline-button frontend module with .js so the importmap resolves it (404 fix)": "patches/webcon-easy-workspace-fix-decline-button-module-js.patch",
         "Toolbar list: toggle switches, Seiteneigenschaften card redesign with intent line, correct TYPO3 labels": "patches/webcon-easy-workspace-toolbar-toggle-and-seiteneigenschaften.patch",
         "Discard-tag: flip below + clamp into viewport so it shows at small browser heights": "patches/webcon-easy-workspace-fix-discard-tag-viewport.patch"
       }
