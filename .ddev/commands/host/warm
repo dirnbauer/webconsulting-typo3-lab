@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+
+## Description: Prime TYPO3 + Solr-suggest caches so the first real request isn't slow (run after a cache:flush or deploy)
+## Usage: warm [site-path]
+## Example: "ddev warm"  |  "ddev warm /desiderio"  |  "ddev warm /mtug-camp-munich-2026"
+
+# The "cold" suggest latency is TYPO3 bootstrap, not Solr: the first request
+# after a cache flush rebuilds TypoScript/Extbase/Solr-config caches (~several
+# seconds on macOS Docker), then every later request is ~0.1s. This command
+# pays that cost up front and pre-warms common autocomplete prefixes, so a real
+# visitor never eats it. The suggest endpoint is the EXT:solr suggest PAGE type
+# (typeNum 7384) defined in EXT:desiderio's DesiderioSolr TypoScript.
+
+SITE_PATH="${1:-/desiderio}"
+BASE="${DDEV_PRIMARY_URL%/}${SITE_PATH%/}"
+SUGGEST_TYPE=7384
+
+echo "Warming ${BASE} ..."
+
+# Homepage first — this single request rebuilds the heavy shared caches.
+printf '  %-22s %ss\n' "homepage" "$(curl -sk -o /dev/null -w '%{time_total}' "${BASE}/")"
+
+# Pre-warm typical suggest prefixes so autocomplete is instant for common queries.
+for q in typo3 solr search skill agent content news editorial page; do
+  printf '  suggest:%-14s %ss\n' "$q" \
+    "$(curl -sk -o /dev/null -w '%{time_total}' "${BASE}/?type=${SUGGEST_TYPE}&tx_solr%5BqueryString%5D=${q}")"
+done
+
+echo "Done — caches primed. (Tip: chain it as 'ddev typo3 cache:flush && ddev warm'.)"
