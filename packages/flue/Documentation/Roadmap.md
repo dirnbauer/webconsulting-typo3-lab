@@ -90,8 +90,10 @@ Outbound is just the provider SDK with nr-vault credentials.
 
 *Unlocks A + C. Effort: S → M.*
 
-### Phase 3 — Read-only subagent fan-out
+### Phase 3 — Read-only subagent fan-out — ✅ DONE (2026-06-18)
 *Generalize the single-page flow into supervised whole-section audits — still zero writes.*
+
+> **Delivered:** `tree-auditor` coordinator agent builds a `page_auditor` subagent (`defineAgentProfile`, per-run MCP read-only tools); `tree-audit` flow enumerates a subtree (GetPageTree) and fans out one `session.task('page_auditor', …, {result: QA_RESULT})` per page, then rolls up worst-verdict + mean-score into one structured result + per-page table (`lib/qa.ts` `rollupAudits`/`renderTreeAudit`). Capped at `MAX_PAGES=8` with a truncation note; drain timeout raised to 600s (an 8-page fan-out runs ~9 min — CLI/Scheduler, not the browser). Verified on page 99's subtree (8 pages → BLOCKER, mean 24/100). Storage reuses the Phase-2 verdict/result_json/usage_json path.
 - **Coordinator + `page-auditor` profile** — `defineAgentProfile` reusing page-report's read-only config; `session.task(..., {result})` over a subtree returns N validated audits with progress events.
 - **Drive from CLI/Scheduler, not the browser** — fan-out runs are long; let the module *tail*, never block PHP-FPM.
 

@@ -23,8 +23,10 @@ use Webconsulting\Flue\Support\Typed;
  */
 final class FlowTriggerService
 {
-    private const DRAIN_TIMEOUT_SECONDS = 180;
-    private const DRAIN_INTERVAL_US = 1_500_000;
+    // Long enough for a capped subagent fan-out (tree-audit) to settle; the run row
+    // is the source of truth, so a too-short poll would falsely mark a live run failed.
+    private const DRAIN_TIMEOUT_SECONDS = 600;
+    private const DRAIN_INTERVAL_US = 2_000_000;
 
     public function __construct(
         private readonly FlueClientInterface $flueClient,
