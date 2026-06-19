@@ -1,0 +1,42 @@
+--- a/Resources/Public/Css/editable.css
++++ b/Resources/Public/Css/editable.css
+@@ -38,8 +38,20 @@
+   position: absolute !important;
+   bottom: 100%; /* position it over the element */
+   left: 0;
+-  right: 0;
+ 
++  /*
++   * Do NOT stretch the toolbar to the edited block's width (the old
++   * `right: 0`). The RTE toolbar is `flex-flow: row nowrap` with item
++   * grouping disabled (shouldNotGroupWhenFull = TYPO3 default), so on a
++   * small/narrow block it can neither wrap nor collapse into an overflow
++   * menu — the trailing icon buttons simply get clipped and only the
++   * leading "Stile"/"Absatz" dropdowns stay visible. Size the toolbar to
++   * its own content instead, capped to the viewport.
++   */
++  right: auto;
++  width: max-content;
++  max-width: min(96vw, 960px);
++
+   z-index: 20000;
+ 
+   &:has(+ * > .ck-focused) {
+@@ -47,6 +59,17 @@
+   }
+ }
+ 
++/*
++ * Safety net: if the toolbar still hits the viewport cap above (very small
++ * screen / very long toolbar), let it wrap onto multiple rows so every icon
++ * stays reachable instead of being cut off.
++ */
++.ck-editor__top .ck-toolbar,
++.ck-editor__top .ck-toolbar > .ck-toolbar__items {
++  flex-wrap: wrap;
++  row-gap: var(--ck-spacing-small, 4px);
++}
++
+ .ck-content {
+   /*color: var(--ck-content-font-color); !* TODO fix this if color is white we want to use white *!*/
+ }
