@@ -1,11 +1,13 @@
+diff --git a/Resources/Public/Css/editable.css b/Resources/Public/Css/editable.css
+index 1f86d97..1cd7f1e 100644
 --- a/Resources/Public/Css/editable.css
 +++ b/Resources/Public/Css/editable.css
-@@ -38,8 +38,20 @@
+@@ -38,7 +38,19 @@ ve-editable-rich-text[changed] .ck-content {
    position: absolute !important;
    bottom: 100%; /* position it over the element */
    left: 0;
 -  right: 0;
- 
++
 +  /*
 +   * Do NOT stretch the toolbar to the edited block's width (the old
 +   * `right: 0`). The RTE toolbar is `flex-flow: row nowrap` with item
@@ -18,14 +20,26 @@
 +  right: auto;
 +  width: max-content;
 +  max-width: min(96vw, 960px);
-+
+ 
    z-index: 20000;
  
-   &:has(+ * > .ck-focused) {
-@@ -47,6 +59,17 @@
+@@ -47,6 +59,30 @@ ve-editable-rich-text[changed] .ck-content {
    }
  }
  
++/*
++ * Flip the floating toolbar BELOW the field when there is not enough headroom
++ * above it (the block sits near the top of the editing viewport). Without this
++ * the always-"above" toolbar (`bottom: 100%`) is clipped off the top of the
++ * fold and the editor reports "no icons to click". The `ve-toolbar-below`
++ * class is toggled from ve-editable-rich-text.js on focus/scroll.
++ */
++.ck-editor.ve-toolbar-below .ck-editor__top {
++  bottom: auto;
++  top: 100%; /* drop it under the element instead */
++  margin-top: 6px; /* small gap so it clears the last line of text */
++}
++
 +/*
 + * Safety net: if the toolbar still hits the viewport cap above (very small
 + * screen / very long toolbar), let it wrap onto multiple rows so every icon
@@ -40,3 +54,38 @@
  .ck-content {
    /*color: var(--ck-content-font-color); !* TODO fix this if color is white we want to use white *!*/
  }
+diff --git a/Resources/Public/JavaScript/Frontend/components/ve-editable-rich-text.js b/Resources/Public/JavaScript/Frontend/components/ve-editable-rich-text.js
+index ffefd7d..9c371bc 100644
+--- a/Resources/Public/JavaScript/Frontend/components/ve-editable-rich-text.js
++++ b/Resources/Public/JavaScript/Frontend/components/ve-editable-rich-text.js
+@@ -91,6 +91,30 @@ export class VeEditableRichText extends LitElement {
+     removeRuleBySelector('.ck.ck-editor__editable_inline > :first-child');
+     removeRuleBySelector('.ck.ck-editor__editable_inline > :last-child');
+     removeRuleBySelector('.ck-content');
++
++    // Flip the CSS-simulated floating toolbar below the field when there is no
++    // headroom above it (the block sits near the top of the editing viewport).
++    // The toolbar is pinned above via `bottom: 100%` (editable.css); near the
++    // top of the fold it gets clipped off-screen, so the editor shows "no icons
++    // to click". `.ve-toolbar-below` swaps it to `top: 100%`.
++    const ckEditorEl = this.querySelector('.ck-editor');
++    if (ckEditorEl) {
++      // ~140px covers a toolbar that has wrapped onto two/three rows.
++      const placeToolbar = () => ckEditorEl.classList.toggle(
++        've-toolbar-below',
++        ckEditorEl.getBoundingClientRect().top < 140,
++      );
++      this.editor.ui.focusTracker.on('change:isFocused', (_evt, _name, isFocused) => {
++        if (isFocused) {
++          requestAnimationFrame(placeToolbar);
++          window.addEventListener('scroll', placeToolbar, {passive: true, capture: true});
++          window.addEventListener('resize', placeToolbar, {passive: true});
++        } else {
++          window.removeEventListener('scroll', placeToolbar, {capture: true});
++          window.removeEventListener('resize', placeToolbar);
++        }
++      });
++    }
+   }
+ 
+   updated(changedProperties) {
