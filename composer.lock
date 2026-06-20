@@ -643,16 +643,16 @@
         },
         {
             "name": "dirnbauer/innesto",
-            "version": "1.2.0",
+            "version": "v1.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/innesto",
-                "reference": "c347dfeb665a9178b2ba31d6c93e5f2f38f81a31"
+                "reference": "32e8deed46a4ebd81b951f2eac40d525bda78c43"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/innesto/zipball/c347dfeb665a9178b2ba31d6c93e5f2f38f81a31",
-                "reference": "c347dfeb665a9178b2ba31d6c93e5f2f38f81a31",
+                "url": "https://api.github.com/repos/dirnbauer/innesto/zipball/32e8deed46a4ebd81b951f2eac40d525bda78c43",
+                "reference": "32e8deed46a4ebd81b951f2eac40d525bda78c43",
                 "shasum": ""
             },
             "require": {
@@ -686,7 +686,7 @@
                 }
             ],
             "description": "Innesto — grafts shadcn/ui registry components onto TYPO3 as Desiderio-styled Content Blocks",
-            "time": "2026-06-15T20:11:12+00:00"
+            "time": "2026-06-20T17:54:55+00:00"
         },
         {
             "name": "doctrine/dbal",
@@ -1636,22 +1636,22 @@
         },
         {
             "name": "guzzlehttp/guzzle",
-            "version": "7.12.0",
+            "version": "7.12.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/guzzle.git",
-                "reference": "eaa81598031cf57a9e36258c8546defffc994cba"
+                "reference": "d34627490fbc03bf5c5d7cfed81f2faa19519425"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/eaa81598031cf57a9e36258c8546defffc994cba",
-                "reference": "eaa81598031cf57a9e36258c8546defffc994cba",
+                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/d34627490fbc03bf5c5d7cfed81f2faa19519425",
+                "reference": "d34627490fbc03bf5c5d7cfed81f2faa19519425",
                 "shasum": ""
             },
             "require": {
                 "ext-json": "*",
                 "guzzlehttp/promises": "^2.5",
-                "guzzlehttp/psr7": "^2.12",
+                "guzzlehttp/psr7": "^2.12.1",
                 "php": "^7.2.5 || ^8.0",
                 "psr/http-client": "^1.0",
                 "symfony/deprecation-contracts": "^2.5 || ^3.0",
@@ -1664,7 +1664,7 @@
                 "bamarni/composer-bin-plugin": "^1.8.2",
                 "ext-curl": "*",
                 "guzzle/client-integration-tests": "3.0.2",
-                "guzzlehttp/test-server": "^0.5",
+                "guzzlehttp/test-server": "^0.5.1",
                 "php-http/message-factory": "^1.1",
                 "phpunit/phpunit": "^8.5.52 || ^9.6.34",
                 "psr/log": "^1.1 || ^2.0 || ^3.0"
@@ -1744,7 +1744,7 @@
             ],
             "support": {
                 "issues": "https://github.com/guzzle/guzzle/issues",
-                "source": "https://github.com/guzzle/guzzle/tree/7.12.0"
+                "source": "https://github.com/guzzle/guzzle/tree/7.12.1"
             },
             "funding": [
                 {
@@ -1760,7 +1760,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2026-06-16T22:11:48+00:00"
+            "time": "2026-06-18T14:12:49+00:00"
         },
         {
             "name": "guzzlehttp/promises",
@@ -1848,16 +1848,16 @@
         },
         {
             "name": "guzzlehttp/psr7",
-            "version": "2.12.0",
+            "version": "2.12.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/psr7.git",
-                "reference": "9b38012e7b54f594707e6db52c684dc0a74b3a43"
+                "reference": "172ef2f4e9824c1e058b7f30be8ae25a02c0f2b7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/psr7/zipball/9b38012e7b54f594707e6db52c684dc0a74b3a43",
-                "reference": "9b38012e7b54f594707e6db52c684dc0a74b3a43",
+                "url": "https://api.github.com/repos/guzzle/psr7/zipball/172ef2f4e9824c1e058b7f30be8ae25a02c0f2b7",
+                "reference": "172ef2f4e9824c1e058b7f30be8ae25a02c0f2b7",
                 "shasum": ""
             },
             "require": {
@@ -1947,7 +1947,7 @@
             ],
             "support": {
                 "issues": "https://github.com/guzzle/psr7/issues",
-                "source": "https://github.com/guzzle/psr7/tree/2.12.0"
+                "source": "https://github.com/guzzle/psr7/tree/2.12.1"
             },
             "funding": [
                 {
@@ -1963,7 +1963,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2026-06-16T21:50:11+00:00"
+            "time": "2026-06-18T09:49:37+00:00"
         },
         {
             "name": "halaxa/json-machine",
@@ -2033,12 +2033,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/typo3-mcp-server.git",
-                "reference": "6003f120eb2a0d9d7adf6afbafd9919395144e49"
+                "reference": "b7a654736c128870554194a16aff9d25822cd0cf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/typo3-mcp-server/zipball/6003f120eb2a0d9d7adf6afbafd9919395144e49",
-                "reference": "6003f120eb2a0d9d7adf6afbafd9919395144e49",
+                "url": "https://api.github.com/repos/dirnbauer/typo3-mcp-server/zipball/b7a654736c128870554194a16aff9d25822cd0cf",
+                "reference": "b7a654736c128870554194a16aff9d25822cd0cf",
                 "shasum": ""
             },
             "require": {
@@ -2146,7 +2146,7 @@
             ],
             "description": "TYPO3 extension that provides a Model Context Protocol (MCP) server for interacting with TYPO3 pages and records",
             "homepage": "https://github.com/dirnbauer/typo3-mcp-server",
-            "time": "2026-06-16T05:57:38+00:00"
+            "time": "2026-06-20T17:54:55+00:00"
         },
         {
             "name": "in2code/powermail",
@@ -2154,12 +2154,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/powermail.git",
-                "reference": "1732cc4c9009a9015dc353a37375ec08c7f23d3d"
+                "reference": "3cdb69d43f822d1955b369bf347b2041ea8287bd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/powermail/zipball/1732cc4c9009a9015dc353a37375ec08c7f23d3d",
-                "reference": "1732cc4c9009a9015dc353a37375ec08c7f23d3d",
+                "url": "https://api.github.com/repos/dirnbauer/powermail/zipball/3cdb69d43f822d1955b369bf347b2041ea8287bd",
+                "reference": "3cdb69d43f822d1955b369bf347b2041ea8287bd",
                 "shasum": ""
             },
             "require": {
@@ -2300,7 +2300,7 @@
                 "spamprevention",
                 "typo3"
             ],
-            "time": "2026-06-10T17:20:19+00:00"
+            "time": "2026-06-20T18:04:04+00:00"
         },
         {
             "name": "league/commonmark",
@@ -5471,12 +5471,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/sg_apicore.git",
-                "reference": "eef47bbc165d1bbcf1e52a73d6a0e994d3e1a3a3"
+                "reference": "2e457acaf8354e3a1304f4b9586bb7de3f0d8672"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/sg_apicore/zipball/eef47bbc165d1bbcf1e52a73d6a0e994d3e1a3a3",
-                "reference": "eef47bbc165d1bbcf1e52a73d6a0e994d3e1a3a3",
+                "url": "https://api.github.com/repos/dirnbauer/sg_apicore/zipball/2e457acaf8354e3a1304f4b9586bb7de3f0d8672",
+                "reference": "2e457acaf8354e3a1304f4b9586bb7de3f0d8672",
                 "shasum": ""
             },
             "require": {
@@ -5545,7 +5545,7 @@
                 "typo3",
                 "typo3-extension"
             ],
-            "time": "2026-05-25T18:25:48+00:00"
+            "time": "2026-06-20T18:04:04+00:00"
         },
         {
             "name": "smalot/pdfparser",
@@ -5677,12 +5677,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/friendlycaptcha-typo3.git",
-                "reference": "f5d31e5d323c6dc0bb121388cad9de55cf3e8eaa"
+                "reference": "b2333c347fffa743273d5ef7ec6848952613c415"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/friendlycaptcha-typo3/zipball/f5d31e5d323c6dc0bb121388cad9de55cf3e8eaa",
-                "reference": "f5d31e5d323c6dc0bb121388cad9de55cf3e8eaa",
+                "url": "https://api.github.com/repos/dirnbauer/friendlycaptcha-typo3/zipball/b2333c347fffa743273d5ef7ec6848952613c415",
+                "reference": "b2333c347fffa743273d5ef7ec6848952613c415",
                 "shasum": ""
             },
             "require": {
@@ -5747,7 +5747,7 @@
             ],
             "description": "Friendly Captcha - TYPO3 integration for EXT:form and EXT:powermail",
             "homepage": "https://www.studiomitte.com",
-            "time": "2026-05-30T06:56:54+00:00"
+            "time": "2026-06-20T17:54:55+00:00"
         },
         {
             "name": "studiomitte/solr-numbered-pagination",
@@ -5755,12 +5755,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/solr_numbered_pagination.git",
-                "reference": "229c4002463b23bd2f8adb1a8b7156a7cd8ca924"
+                "reference": "079c48647d5a963f71d9b566674a1d3bd8aba548"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/solr_numbered_pagination/zipball/229c4002463b23bd2f8adb1a8b7156a7cd8ca924",
-                "reference": "229c4002463b23bd2f8adb1a8b7156a7cd8ca924",
+                "url": "https://api.github.com/repos/dirnbauer/solr_numbered_pagination/zipball/079c48647d5a963f71d9b566674a1d3bd8aba548",
+                "reference": "079c48647d5a963f71d9b566674a1d3bd8aba548",
                 "shasum": ""
             },
             "require": {
@@ -5784,7 +5784,7 @@
                 "GPL-2.0-or-later"
             ],
             "description": "Limit the amount of used pages in EXT:solr in the pagination",
-            "time": "2026-05-01T19:54:27+00:00"
+            "time": "2026-06-20T17:54:55+00:00"
         },
         {
             "name": "supseven/inline-page-module",
@@ -12089,16 +12089,16 @@
         },
         {
             "name": "webconsulting/agentation",
-            "version": "v1.1.2",
+            "version": "v1.1.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/typo3-agentation.git",
-                "reference": "c874361b1c9a083df15cce0e0be0213da8722741"
+                "reference": "9d88b2d8f92e00a223ddd028fda88c16095abfb3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/typo3-agentation/zipball/c874361b1c9a083df15cce0e0be0213da8722741",
-                "reference": "c874361b1c9a083df15cce0e0be0213da8722741",
+                "url": "https://api.github.com/repos/dirnbauer/typo3-agentation/zipball/9d88b2d8f92e00a223ddd028fda88c16095abfb3",
+                "reference": "9d88b2d8f92e00a223ddd028fda88c16095abfb3",
                 "shasum": ""
             },
             "require": {
@@ -12178,7 +12178,7 @@
                 "issues": "https://github.com/dirnbauer/typo3-agentation/issues",
                 "source": "https://github.com/dirnbauer/typo3-agentation"
             },
-            "time": "2026-05-25T12:48:00+00:00"
+            "time": "2026-06-20T17:54:55+00:00"
         },
         {
             "name": "webconsulting/agentstack-integration",
@@ -12367,16 +12367,16 @@
         },
         {
             "name": "webconsulting/api-capability-bridge",
-            "version": "v1.0.1",
+            "version": "v1.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/api-capability-bridge.git",
-                "reference": "ba5f2d5817a8a9eba67b4009cbf74356eefb3346"
+                "reference": "ff091ff06e068c72ab1e34749a6cda3ad0185b00"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/api-capability-bridge/zipball/ba5f2d5817a8a9eba67b4009cbf74356eefb3346",
-                "reference": "ba5f2d5817a8a9eba67b4009cbf74356eefb3346",
+                "url": "https://api.github.com/repos/dirnbauer/api-capability-bridge/zipball/ff091ff06e068c72ab1e34749a6cda3ad0185b00",
+                "reference": "ff091ff06e068c72ab1e34749a6cda3ad0185b00",
                 "shasum": ""
             },
             "require": {
@@ -12402,7 +12402,7 @@
                 "GPL-2.0-or-later"
             ],
             "description": "Capability-policy wrapper for sg_apicore resources.",
-            "time": "2026-05-25T12:41:13+00:00"
+            "time": "2026-06-20T17:54:55+00:00"
         },
         {
             "name": "webconsulting/desiderio",
@@ -12410,12 +12410,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/desiderio.git",
-                "reference": "b23780b36bbc5ce90bf73eabf1bf4ee2e1abc51e"
+                "reference": "7b17f6c5fb68fef107172a7e15b801a8fd06f13d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/desiderio/zipball/b23780b36bbc5ce90bf73eabf1bf4ee2e1abc51e",
-                "reference": "b23780b36bbc5ce90bf73eabf1bf4ee2e1abc51e",
+                "url": "https://api.github.com/repos/dirnbauer/desiderio/zipball/7b17f6c5fb68fef107172a7e15b801a8fd06f13d",
+                "reference": "7b17f6c5fb68fef107172a7e15b801a8fd06f13d",
                 "shasum": ""
             },
             "require": {
@@ -12488,7 +12488,7 @@
                 }
             ],
             "description": "Desiderio — shadcn/ui-inspired Fluid 5 component library, 255 content elements, and theme layer for TYPO3 14",
-            "time": "2026-06-18T08:16:44+00:00"
+            "time": "2026-06-20T18:09:54+00:00"
         },
         {
             "name": "webconsulting/docx-editor",
@@ -12496,12 +12496,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/typo3-docx.git",
-                "reference": "b5550b43c330526c3e3b5c29128371e054defafb"
+                "reference": "2e36bd0949a161ffa5d2af4ffbb12f431536d07d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/typo3-docx/zipball/b5550b43c330526c3e3b5c29128371e054defafb",
-                "reference": "b5550b43c330526c3e3b5c29128371e054defafb",
+                "url": "https://api.github.com/repos/dirnbauer/typo3-docx/zipball/2e36bd0949a161ffa5d2af4ffbb12f431536d07d",
+                "reference": "2e36bd0949a161ffa5d2af4ffbb12f431536d07d",
                 "shasum": ""
             },
             "require": {
@@ -12585,7 +12585,7 @@
                 "issues": "https://github.com/dirnbauer/typo3-docx/issues",
                 "source": "https://github.com/dirnbauer/typo3-docx"
             },
-            "time": "2026-06-18T04:06:01+00:00"
+            "time": "2026-06-20T18:00:08+00:00"
         },
         {
             "name": "webconsulting/flue",
@@ -12648,16 +12648,16 @@
         },
         {
             "name": "webconsulting/records-list-examples",
-            "version": "v1.2.1",
+            "version": "v1.2.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/typo3-records-list-examples.git",
-                "reference": "5ea658f63b8314df1734851295134266fd73e7fa"
+                "reference": "e0384c8b1305bde02142ab7b1cd34f691169b00d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/typo3-records-list-examples/zipball/5ea658f63b8314df1734851295134266fd73e7fa",
-                "reference": "5ea658f63b8314df1734851295134266fd73e7fa",
+                "url": "https://api.github.com/repos/dirnbauer/typo3-records-list-examples/zipball/e0384c8b1305bde02142ab7b1cd34f691169b00d",
+                "reference": "e0384c8b1305bde02142ab7b1cd34f691169b00d",
                 "shasum": ""
             },
             "require": {
@@ -12719,20 +12719,20 @@
                 "issues": "https://github.com/dirnbauer/typo3-records-list-examples/issues",
                 "source": "https://github.com/dirnbauer/typo3-records-list-examples"
             },
-            "time": "2026-06-11T15:59:32+00:00"
+            "time": "2026-06-20T17:54:55+00:00"
         },
         {
             "name": "webconsulting/records-list-types",
-            "version": "v1.0.5",
+            "version": "v1.0.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/typo3-records-list-types.git",
-                "reference": "cc90ea58b9eed494cf1e42799725a970bc2caf34"
+                "reference": "72e459714660540018b4fdd06944d869e26a540c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/typo3-records-list-types/zipball/cc90ea58b9eed494cf1e42799725a970bc2caf34",
-                "reference": "cc90ea58b9eed494cf1e42799725a970bc2caf34",
+                "url": "https://api.github.com/repos/dirnbauer/typo3-records-list-types/zipball/72e459714660540018b4fdd06944d869e26a540c",
+                "reference": "72e459714660540018b4fdd06944d869e26a540c",
                 "shasum": ""
             },
             "require": {
@@ -12788,7 +12788,7 @@
                 "issues": "https://github.com/dirnbauer/typo3-records-list-types/issues",
                 "source": "https://github.com/dirnbauer/typo3-records-list-types"
             },
-            "time": "2026-06-11T16:11:36+00:00"
+            "time": "2026-06-20T18:04:04+00:00"
         },
         {
             "name": "webconsulting/site-package",
@@ -12841,20 +12841,21 @@
         },
         {
             "name": "webconsulting/skillflow",
-            "version": "1.1.0",
+            "version": "v1.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/skillflow.git",
-                "reference": "c669cd7d7c2f6b92b01a1b082e3e7d44c93f635f"
+                "reference": "10a7e4683ca1cdf45398e592971a605bd8c11332"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/skillflow/zipball/c669cd7d7c2f6b92b01a1b082e3e7d44c93f635f",
-                "reference": "c669cd7d7c2f6b92b01a1b082e3e7d44c93f635f",
+                "url": "https://api.github.com/repos/dirnbauer/skillflow/zipball/10a7e4683ca1cdf45398e592971a605bd8c11332",
+                "reference": "10a7e4683ca1cdf45398e592971a605bd8c11332",
                 "shasum": ""
             },
             "require": {
                 "ext-zip": "*",
+                "league/commonmark": "^2.7",
                 "php": "^8.2",
                 "symfony/process": "^7.0",
                 "symfony/yaml": "^7.0",
@@ -12881,20 +12882,20 @@
                 "GPL-2.0-or-later"
             ],
             "description": "Agent Skills for TYPO3 - manage Anthropic-style skills, import them from folders or git repositories, attach them to workspace stages and pages, and run them against content (SEO, tone, QA). Local/DDEV installs only.",
-            "time": "2026-06-11T12:26:34+00:00"
+            "time": "2026-06-20T17:55:08+00:00"
         },
         {
             "name": "webconsulting/typo3-capability-manifest",
-            "version": "v1.0.1",
+            "version": "v1.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/typo3-capability-manifest.git",
-                "reference": "8956ce6a9015fcbd43804cea4e7b79365ed1d484"
+                "reference": "d9edba86902739981617732ecea81f6f7701c0d0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/typo3-capability-manifest/zipball/8956ce6a9015fcbd43804cea4e7b79365ed1d484",
-                "reference": "8956ce6a9015fcbd43804cea4e7b79365ed1d484",
+                "url": "https://api.github.com/repos/dirnbauer/typo3-capability-manifest/zipball/d9edba86902739981617732ecea81f6f7701c0d0",
+                "reference": "d9edba86902739981617732ecea81f6f7701c0d0",
                 "shasum": ""
             },
             "require": {
@@ -12965,20 +12966,20 @@
                 "issues": "https://github.com/dirnbauer/typo3-capability-manifest/issues",
                 "source": "https://github.com/dirnbauer/typo3-capability-manifest"
             },
-            "time": "2026-05-25T12:48:17+00:00"
+            "time": "2026-06-20T17:55:08+00:00"
         },
         {
             "name": "webconsulting/typo3-x402-paywall",
-            "version": "v1.0.2",
+            "version": "v1.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/typo3-x402-paywall.git",
-                "reference": "7b37d818754f157460816eb5e369edc7a5c6d734"
+                "reference": "41a4706d702b7012fbd4d81e59a93443168fcbb5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/typo3-x402-paywall/zipball/7b37d818754f157460816eb5e369edc7a5c6d734",
-                "reference": "7b37d818754f157460816eb5e369edc7a5c6d734",
+                "url": "https://api.github.com/repos/dirnbauer/typo3-x402-paywall/zipball/41a4706d702b7012fbd4d81e59a93443168fcbb5",
+                "reference": "41a4706d702b7012fbd4d81e59a93443168fcbb5",
                 "shasum": ""
             },
             "require": {
@@ -13063,7 +13064,7 @@
                 "issues": "https://github.com/dirnbauer/typo3-x402-paywall/issues",
                 "source": "https://github.com/dirnbauer/typo3-x402-paywall"
             },
-            "time": "2026-05-25T12:48:17+00:00"
+            "time": "2026-06-20T17:55:08+00:00"
         },
         {
             "name": "webconsulting/ucp-integration",
@@ -13128,16 +13129,16 @@
         },
         {
             "name": "webconsulting/webcon-easy-workspace",
-            "version": "v1.3.2",
+            "version": "v1.3.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/typo3-webcon-easy-workspace.git",
-                "reference": "daf7a29d44bf1875c9a400df4b35c01633f8a61e"
+                "reference": "9435ad65e1d38ef1f9cacdeecdbfedda1176b23d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/typo3-webcon-easy-workspace/zipball/daf7a29d44bf1875c9a400df4b35c01633f8a61e",
-                "reference": "daf7a29d44bf1875c9a400df4b35c01633f8a61e",
+                "url": "https://api.github.com/repos/dirnbauer/typo3-webcon-easy-workspace/zipball/9435ad65e1d38ef1f9cacdeecdbfedda1176b23d",
+                "reference": "9435ad65e1d38ef1f9cacdeecdbfedda1176b23d",
                 "shasum": ""
             },
             "require": {
@@ -13221,20 +13222,20 @@
                 "issues": "https://github.com/dirnbauer/typo3-webcon-easy-workspace/issues",
                 "source": "https://github.com/dirnbauer/typo3-webcon-easy-workspace"
             },
-            "time": "2026-06-18T07:58:13+00:00"
+            "time": "2026-06-20T17:55:08+00:00"
         },
         {
             "name": "webconsulting/workos-auth",
-            "version": "v1.1.0",
+            "version": "v1.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/workos.git",
-                "reference": "69594148de7ad8ec47d109407c44c6f011e6e13d"
+                "reference": "981936fabd5995d1ba3daabe3c8adece91fa0f33"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/workos/zipball/69594148de7ad8ec47d109407c44c6f011e6e13d",
-                "reference": "69594148de7ad8ec47d109407c44c6f011e6e13d",
+                "url": "https://api.github.com/repos/dirnbauer/workos/zipball/981936fabd5995d1ba3daabe3c8adece91fa0f33",
+                "reference": "981936fabd5995d1ba3daabe3c8adece91fa0f33",
                 "shasum": ""
             },
             "require": {
@@ -13336,7 +13337,7 @@
                 "issues": "https://github.com/dirnbauer/workos/issues",
                 "source": "https://github.com/dirnbauer/workos"
             },
-            "time": "2026-05-26T06:41:15+00:00"
+            "time": "2026-06-20T17:55:08+00:00"
         },
         {
             "name": "webmozart/assert",
