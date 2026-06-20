@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2470e57fa2e4225e6dac5f77894ed968",
+    "content-hash": "e2f2054470dd4693718fddc592f97d40",
     "packages": [
         {
             "name": "apache-solr-for-typo3/solr",
@@ -11973,7 +11973,7 @@
             "dist": {
                 "type": "path",
                 "url": "packages/a2a_integration",
-                "reference": "00978c8842d3e34a35b22093b6cd36267755a6c9"
+                "reference": "e5b1e20b3f52f07ac01da9b64abb44048e5b5bb1"
             },
             "require": {
                 "php": "^8.3",
@@ -12033,7 +12033,7 @@
             "dist": {
                 "type": "path",
                 "url": "packages/a2ui_integration",
-                "reference": "af01e9547423e516cc28892f64bdb115bfeb977b"
+                "reference": "219332b32e5d31fd23a8d5d4c7761591a5e35e38"
             },
             "require": {
                 "php": "^8.3",
@@ -12186,7 +12186,7 @@
             "dist": {
                 "type": "path",
                 "url": "packages/agentstack_integration",
-                "reference": "5c7c4642c68a97d0553a6141a6d3d07224e7b813"
+                "reference": "c564c5dfbb0c4af02b0ebc0b314f11612c6ddda4"
             },
             "require": {
                 "php": "^8.3",
@@ -12251,7 +12251,7 @@
             "dist": {
                 "type": "path",
                 "url": "packages/agui_integration",
-                "reference": "28a60ae1e55ef2c3bd3fae2645f62b244e41b079"
+                "reference": "c6da2a2dd89d81f62bd627ceb99536dbc5b51c57"
             },
             "require": {
                 "php": "^8.3",
@@ -12311,7 +12311,7 @@
             "dist": {
                 "type": "path",
                 "url": "packages/ap2_integration",
-                "reference": "78845e89075fc06c740eb7bc65ab90d8c59196cd"
+                "reference": "3f1c05dc356a3b156d9bdb84f160e31d9dad6d48"
             },
             "require": {
                 "php": "^8.3",
@@ -12593,7 +12593,7 @@
             "dist": {
                 "type": "path",
                 "url": "packages/flue",
-                "reference": "64c623e90a8cde3771146b255cb1bd6a1c2faa0c"
+                "reference": "267919d0a36c42a9747d2d4f8853dc434501a3e9"
             },
             "require": {
                 "php": "^8.3",
@@ -12796,7 +12796,7 @@
             "dist": {
                 "type": "path",
                 "url": "packages/site_package",
-                "reference": "113903d22cd7906cfa402738ffdc4fe0268698af"
+                "reference": "4ac23dda17c610a60bf7ccdb8bd3458c8785abdb"
             },
             "require": {
                 "apache-solr-for-typo3/solr": "^14.0@beta",
@@ -13071,7 +13071,7 @@
             "dist": {
                 "type": "path",
                 "url": "packages/ucp_integration",
-                "reference": "328ddddf1124c636f95e0ce9322442788a577ab0"
+                "reference": "50536a597d8373be828c314090f2d8fb01168c35"
             },
             "require": {
                 "php": "^8.3",

@@ -23,7 +23,7 @@ case "${SUITE}" in
         composer validate --no-check-publish
         ;;
     phpstan)
-        vendor/bin/phpstan analyse --configuration=Build/phpstan/phpstan.neon --no-progress
+        vendor/bin/phpstan analyse --configuration=Build/phpstan/phpstan.neon --memory-limit=512M --no-progress
         ;;
     phpLint|lint)
         find packages/site_package -name '*.php' -not -path '*/vendor/*' -print0 \
