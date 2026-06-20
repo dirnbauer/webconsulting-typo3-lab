@@ -239,7 +239,7 @@
       "Element library panel and inline link editing": "patches/friendsoftypo3-visual-editor-element-library-and-links.patch",
         "Do not send tx_container_parent:0 on drag move when EXT:container is absent": "patches/friendsoftypo3-visual-editor-fix-tx-container-parent-zero.patch",
         "Add missing useDataHandler import so element-library drops save and refresh": "patches/friendsoftypo3-visual-editor-fix-usedatahandler-import.patch",
-        "Float RTE toolbar at content width and flip it below near the viewport top so toolbar icons are never clipped (editable.css + ve-editable-rich-text toggle)": "patches/friendsoftypo3-visual-editor-fix-toolbar-small-block.patch"
+        "Float RTE toolbar at content width, lift overflow-clipping ancestors (e.g. accordion content) and flip it below near the viewport top, so toolbar icons are never clipped (editable.css + ve-editable-rich-text)": "patches/friendsoftypo3-visual-editor-fix-toolbar-small-block.patch"
       },
       "webconsulting/webcon-easy-workspace": {
         "Toolbar list: toggle switches, Seiteneigenschaften card redesign with intent line, correct TYPO3 labels": "patches/webcon-easy-workspace-toolbar-toggle-and-seiteneigenschaften.patch",

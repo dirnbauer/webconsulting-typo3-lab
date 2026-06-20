@@ -55,21 +55,46 @@ index 1f86d97..1cd7f1e 100644
    /*color: var(--ck-content-font-color); !* TODO fix this if color is white we want to use white *!*/
  }
 diff --git a/Resources/Public/JavaScript/Frontend/components/ve-editable-rich-text.js b/Resources/Public/JavaScript/Frontend/components/ve-editable-rich-text.js
-index ffefd7d..9c371bc 100644
+index ffefd7d..34cc602 100644
 --- a/Resources/Public/JavaScript/Frontend/components/ve-editable-rich-text.js
 +++ b/Resources/Public/JavaScript/Frontend/components/ve-editable-rich-text.js
-@@ -91,6 +91,30 @@ export class VeEditableRichText extends LitElement {
+@@ -91,6 +91,57 @@ export class VeEditableRichText extends LitElement {
      removeRuleBySelector('.ck.ck-editor__editable_inline > :first-child');
      removeRuleBySelector('.ck.ck-editor__editable_inline > :last-child');
      removeRuleBySelector('.ck-content');
 +
-+    // Flip the CSS-simulated floating toolbar below the field when there is no
-+    // headroom above it (the block sits near the top of the editing viewport).
-+    // The toolbar is pinned above via `bottom: 100%` (editable.css); near the
-+    // top of the fold it gets clipped off-screen, so the editor shows "no icons
-+    // to click". `.ve-toolbar-below` swaps it to `top: 100%`.
++    // The RTE toolbar is a CSS-simulated floating bar (see editable.css): it is
++    // positioned *outside* the editable box, pinned above it (`bottom: 100%`).
++    // Two things otherwise hide it and leave the editor with "no icons to click":
++    //   1. an ancestor with `overflow: hidden` (e.g. an accordion's content
++    //      wrapper) clips the toolbar, because it sticks out of the box;
++    //   2. when the block sits near the top of the viewport the "above"
++    //      placement lands off the top of the fold.
++    // On focus we therefore (a) lift overflow-clipping on ancestors so the bar
++    // can escape, and (b) flip it below the box when there is no headroom above.
++    // Both are reverted on blur.
 +    const ckEditorEl = this.querySelector('.ck-editor');
 +    if (ckEditorEl) {
++      const clippedAncestors = [];
++      const liftClipping = () => {
++        for (let el = this.parentElement; el && el !== document.body; el = el.parentElement) {
++          const overflow = getComputedStyle(el).overflow;
++          if (overflow === 'hidden' || overflow === 'clip') {
++            clippedAncestors.push([el, el.style.overflow]);
++            el.style.setProperty('overflow', 'visible', 'important');
++          }
++        }
++      };
++      const restoreClipping = () => {
++        while (clippedAncestors.length) {
++          const [el, value] = clippedAncestors.pop();
++          if (value) {
++            el.style.overflow = value;
++          } else {
++            el.style.removeProperty('overflow');
++          }
++        }
++      };
 +      // ~140px covers a toolbar that has wrapped onto two/three rows.
 +      const placeToolbar = () => ckEditorEl.classList.toggle(
 +        've-toolbar-below',
@@ -77,10 +102,12 @@ index ffefd7d..9c371bc 100644
 +      );
 +      this.editor.ui.focusTracker.on('change:isFocused', (_evt, _name, isFocused) => {
 +        if (isFocused) {
-+          requestAnimationFrame(placeToolbar);
++          liftClipping();
++          placeToolbar();
 +          window.addEventListener('scroll', placeToolbar, {passive: true, capture: true});
 +          window.addEventListener('resize', placeToolbar, {passive: true});
 +        } else {
++          restoreClipping();
 +          window.removeEventListener('scroll', placeToolbar, {capture: true});
 +          window.removeEventListener('resize', placeToolbar);
 +        }
