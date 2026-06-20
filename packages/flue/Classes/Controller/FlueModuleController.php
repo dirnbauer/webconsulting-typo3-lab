@@ -61,8 +61,8 @@ final class FlueModuleController extends ActionController
             'currentWorkspace' => (int)$this->getBackendUser()->workspace,
             'blockReason' => $this->environmentGuard->getBlockReason(),
             'runUri' => $this->uriBuilder->reset()->uriFor('run'),
-            'triggerEndpoint' => (string)$this->backendUriBuilder->buildUriFromRoute('flue_trigger'),
-            'streamEndpoint' => (string)$this->backendUriBuilder->buildUriFromRoute('flue_stream'),
+            'triggerEndpoint' => (string)$this->backendUriBuilder->buildUriFromRoute('ajax_flue_trigger'),
+            'streamEndpoint' => (string)$this->backendUriBuilder->buildUriFromRoute('ajax_flue_stream'),
         ]);
 
         return $moduleTemplate->renderResponse('Flue/List');
