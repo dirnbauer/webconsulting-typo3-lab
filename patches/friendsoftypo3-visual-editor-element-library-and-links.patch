@@ -879,7 +879,7 @@ new file mode 100644
 index 0000000..509f5e3
 --- /dev/null
 +++ b/Resources/Public/JavaScript/Frontend/components/ve-editable-link.js
-@@ -0,0 +1,222 @@
+@@ -0,0 +1,355 @@
 +import {css, html, LitElement} from 'lit';
 +import {lll} from '@typo3/core/lit-helper.js';
 +import {sendMessage, onMessage} from '@typo3/visual-editor/Shared/iframe-messaging';
@@ -907,6 +907,7 @@ index 0000000..509f5e3
 +    name: {type: String},
 +    linkBrowserUrl: {type: String},
 +    active: {type: Boolean, state: true, attribute: false},
++    buttonStyle: {type: String, state: true, attribute: false},
 +  };
 +
 +  constructor() {
@@ -915,13 +916,16 @@ index 0000000..509f5e3
 +    // The link value present when the editor loaded: the baseline the change
 +    // list diffs against, so reverting to it clears the pending change.
 +    this.valueInitial = this.value;
-+    // The button stays hidden until its sibling field is being edited.
++    // The button floats outside the edited element and stays hidden until its
++    // sibling field is being edited.
 +    this.active = false;
++    this.buttonStyle = '';
 +    this.hovered = false;
 +    this.syncRaf = 0;
++    this.trackingViewport = false;
++    this.clippedAncestors = [];
 +    this.onFocusChange = () => this.#scheduleSync();
-+    this.onPointerEnter = () => { this.hovered = true; this.#sync(); };
-+    this.onPointerLeave = () => { this.hovered = false; this.#scheduleSync(); };
++    this.onViewportChange = () => this.#scheduleSync();
 +  }
 +
 +  connectedCallback() {
@@ -930,15 +934,13 @@ index 0000000..509f5e3
 +    // into the editable text's shadow DOM (the contenteditable).
 +    document.addEventListener('focusin', this.onFocusChange);
 +    document.addEventListener('focusout', this.onFocusChange);
-+    this.addEventListener('pointerenter', this.onPointerEnter);
-+    this.addEventListener('pointerleave', this.onPointerLeave);
 +  }
 +
 +  disconnectedCallback() {
 +    document.removeEventListener('focusin', this.onFocusChange);
 +    document.removeEventListener('focusout', this.onFocusChange);
-+    this.removeEventListener('pointerenter', this.onPointerEnter);
-+    this.removeEventListener('pointerleave', this.onPointerLeave);
++    this.#stopViewportTracking();
++    this.#restoreClipping();
 +    if (this.syncRaf) {
 +      cancelAnimationFrame(this.syncRaf);
 +      this.syncRaf = 0;
@@ -972,13 +974,126 @@ index 0000000..509f5e3
 +   * the text to actually click it.
 +   */
 +  #sync() {
-+    const group = this.previousElementSibling;
++    const group = this.#anchorElement();
 +    const next = this.hovered
 +      || this.matches(':focus-within')
 +      || (group !== null && typeof group.matches === 'function' && group.matches(':focus-within'));
++
++    if (next && group !== null) {
++      this.#positionButton(group);
++    }
++
 +    if (next !== this.active) {
 +      this.active = next;
++      if (next) {
++        this.#liftClipping();
++        this.#startViewportTracking();
++      } else {
++        this.buttonStyle = '';
++        this.#stopViewportTracking();
++        this.#restoreClipping();
++      }
 +    }
++  }
++
++  #anchorElement() {
++    return this.previousElementSibling ?? this.parentElement;
++  }
++
++  #positionButton(anchor) {
++    const rect = anchor.getBoundingClientRect();
++    if (rect.width === 0 && rect.height === 0) {
++      return;
++    }
++
++    const buttonSize = 36;
++    const gap = 8;
++    const edge = 8;
++    const viewportWidth = Math.max(document.documentElement.clientWidth, window.innerWidth || buttonSize);
++    const viewportHeight = Math.max(document.documentElement.clientHeight, window.innerHeight || buttonSize);
++    const clamp = (value, min, max) => Math.min(Math.max(value, min), max);
++    const maxLeft = Math.max(edge, viewportWidth - buttonSize - edge);
++    const maxTop = Math.max(edge, viewportHeight - buttonSize - edge);
++
++    let left = rect.right + gap;
++    let top = rect.top + (rect.height / 2) - (buttonSize / 2);
++
++    if (left + buttonSize + edge > viewportWidth) {
++      const leftSide = rect.left - buttonSize - gap;
++      if (leftSide >= edge) {
++        left = leftSide;
++      } else {
++        left = rect.right - buttonSize;
++        top = rect.top - buttonSize - gap;
++        if (top < edge && rect.bottom + gap + buttonSize <= viewportHeight - edge) {
++          top = rect.bottom + gap;
++        }
++      }
++    }
++
++    left = clamp(left, edge, maxLeft);
++    top = clamp(top, edge, maxTop);
++    this.buttonStyle = `--ve-link-button-left:${Math.round(left)}px;--ve-link-button-top:${Math.round(top)}px;`;
++  }
++
++  #startViewportTracking() {
++    if (this.trackingViewport) {
++      return;
++    }
++    this.trackingViewport = true;
++    window.addEventListener('scroll', this.onViewportChange, {passive: true, capture: true});
++    window.addEventListener('resize', this.onViewportChange, {passive: true});
++    if (window.visualViewport) {
++      window.visualViewport.addEventListener('scroll', this.onViewportChange, {passive: true});
++      window.visualViewport.addEventListener('resize', this.onViewportChange, {passive: true});
++    }
++  }
++
++  #stopViewportTracking() {
++    if (!this.trackingViewport) {
++      return;
++    }
++    this.trackingViewport = false;
++    window.removeEventListener('scroll', this.onViewportChange, {capture: true});
++    window.removeEventListener('resize', this.onViewportChange);
++    if (window.visualViewport) {
++      window.visualViewport.removeEventListener('scroll', this.onViewportChange);
++      window.visualViewport.removeEventListener('resize', this.onViewportChange);
++    }
++  }
++
++  #liftClipping() {
++    if (this.clippedAncestors.length > 0) {
++      return;
++    }
++    for (let el = this.parentElement; el && el !== document.body; el = el.parentElement) {
++      const overflow = getComputedStyle(el).overflow;
++      if (overflow === 'hidden' || overflow === 'clip') {
++        this.clippedAncestors.push([el, el.style.overflow]);
++        el.style.setProperty('overflow', 'visible', 'important');
++      }
++    }
++  }
++
++  #restoreClipping() {
++    while (this.clippedAncestors.length) {
++      const [el, value] = this.clippedAncestors.pop();
++      if (value) {
++        el.style.overflow = value;
++      } else {
++        el.style.removeProperty('overflow');
++      }
++    }
++  }
++
++  #handlePointerEnter() {
++    this.hovered = true;
++    this.#sync();
++  }
++
++  #handlePointerLeave() {
++    this.hovered = false;
++    this.#scheduleSync();
 +  }
 +
 +  #openLinkBrowser() {
@@ -1014,10 +1129,21 @@ index 0000000..509f5e3
 +    }
 +    const label = lll('frontend.editLink') || 'Edit link';
 +    const title = label + (this.name ? ': ' + this.name : '');
-+    // Icon-only square "edit link" button next to the link it edits; the field
-+    // name lives in the tooltip / aria-label.
++    // Icon-only square "edit link" button floating near the element it edits;
++    // the field name lives in the tooltip / aria-label.
 +    return html`
-+      <button type="button" class="linkButton ${this.active ? 'is-active' : ''}" @click="${this.#openLinkBrowser}" title="${title}" aria-label="${title}">
++      <button
++        type="button"
++        class="linkButton ${this.active ? 'is-active' : ''}"
++        style="${this.buttonStyle}"
++        tabindex="${this.active ? 0 : -1}"
++        aria-hidden="${this.active ? 'false' : 'true'}"
++        @pointerenter="${this.#handlePointerEnter}"
++        @pointerleave="${this.#handlePointerLeave}"
++        @click="${this.#openLinkBrowser}"
++        title="${title}"
++        aria-label="${title}"
++      >
 +        <ve-icon name="actions-link" width="1em"></ve-icon>
 +      </button>
 +    `;
@@ -1026,30 +1152,38 @@ index 0000000..509f5e3
 +  static styles = css`
 +    :host {
 +      display: inline-block;
++      inline-size: 0;
++      block-size: 0;
 +      vertical-align: middle;
++      overflow: visible;
 +      --ve-link-accent: var(--ve-accent-color, #7c5ac4);
 +    }
 +
-+    /* Icon-only square "edit link" button next to the link it edits. It matches
++    /* Icon-only square "edit link" button floating near the link it edits. It matches
 +       the sibling CTA's height (shadcn h-9 = 2.25rem) and uses the button corner
 +       radius, so it reads as a rounded SQUARE (not a circle, not a pill) that
 +       belongs with the button. Solid brand purple + white icon stays legible on
 +       both light and dark sections; 2.25rem clears the WCAG 2.5.8 target size.
 +
-+       Hidden (collapsed to zero width) until the field it edits is being edited
-+       - it expands in only while the sibling text/link field, the button itself,
-+       or the pointer is on it (see #sync), so the editor stays uncluttered. */
++       Hidden until the field it edits is being edited - it appears only while
++       the sibling text/link field, the button itself, or the pointer is on it
++       (see #sync), so the editor stays uncluttered. It is fixed-positioned
++       instead of inline, so narrow/full-width CTAs never lose space to it and
++       overflow-clipped card sections cannot cut it off. */
 +    .linkButton {
-+      position: relative;
++      position: fixed;
++      top: var(--ve-link-button-top, -1000px);
++      left: var(--ve-link-button-left, -1000px);
++      z-index: 100002;
 +      display: inline-flex;
 +      align-items: center;
 +      justify-content: center;
 +      box-sizing: border-box;
-+      width: 0;
++      width: 2.25rem;
 +      height: 2.25rem;
-+      margin-inline-start: 0;
++      margin: 0;
 +      padding: 0;
-+      border: 0 solid color-mix(in srgb, #fff 28%, var(--ve-link-accent));
++      border: 1px solid color-mix(in srgb, #fff 28%, var(--ve-link-accent));
 +      border-radius: var(--radius, 0.5rem);
 +      background: var(--ve-link-accent);
 +      color: #fff;
@@ -1060,15 +1194,14 @@ index 0000000..509f5e3
 +      opacity: 0;
 +      pointer-events: none;
 +      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.28);
-+      transition: width 0.14s ease, margin 0.14s ease, opacity 0.12s ease, transform 0.12s ease, background 0.12s ease, box-shadow 0.12s ease;
++      transform: scale(0.92);
++      transition: opacity 0.12s ease, transform 0.12s ease, background 0.12s ease, box-shadow 0.12s ease;
 +    }
 +
 +    .linkButton.is-active {
-+      width: 2.25rem;
-+      margin-inline-start: 0.45em;
-+      border-width: 1px;
 +      opacity: 1;
 +      pointer-events: auto;
++      transform: scale(1);
 +    }
 +
 +    .linkButton ve-icon { display: inline-flex; font-size: 1.25rem; }

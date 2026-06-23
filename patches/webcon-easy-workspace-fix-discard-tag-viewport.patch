@@ -1,11 +1,78 @@
-diff --git a/Resources/Public/JavaScript/menu-preview-locate.js b/Resources/Public/JavaScript/menu-preview-locate.js
-index 70537ca..b4155c2 100644
 --- a/Resources/Public/JavaScript/menu-preview-locate.js
 +++ b/Resources/Public/JavaScript/menu-preview-locate.js
-@@ -334,7 +334,21 @@ export function previewDiscard(host, item) {
-     const left = viewportWidth > 0
-       ? Math.max(scrollX + 8, Math.min(rect.left + scrollX, scrollX + viewportWidth - tagWidth - 8))
-       : rect.left + scrollX;
+@@ -34,0 +35,4 @@
++const LOCATE_TOP_RESERVE = 96;
++const LOCATE_MIN_TOP_RESERVE = 48;
++const LOCATE_VIEWPORT_RESERVE_RATIO = 0.5;
++const LOCATE_HORIZONTAL_MARGIN = 24;
+@@ -193 +197,48 @@
+-export function highlightInIframe(host, item, { announce = false } = {}) {
++function scrollTargetIntoPreview(el, { behavior = 'smooth' } = {}) {
++  const doc = el.ownerDocument;
++  const win = doc.defaultView;
++  if (!win) {
++    el.scrollIntoView();
++    return;
++  }
++
++  const rect = el.getBoundingClientRect();
++  const viewportHeight = win.innerHeight || doc.documentElement.clientHeight || 0;
++  if (!viewportHeight) {
++    el.scrollIntoView({ behavior, block: 'start', inline: 'nearest' });
++    return;
++  }
++
++  const scrollY = win.scrollY ?? doc.documentElement.scrollTop ?? 0;
++  const scrollX = win.scrollX ?? doc.documentElement.scrollLeft ?? 0;
++  const maxScrollY = Math.max(0, Math.max(
++    doc.documentElement.scrollHeight || 0,
++    doc.body?.scrollHeight || 0,
++  ) - viewportHeight);
++  const topReserve = Math.min(
++    LOCATE_TOP_RESERVE,
++    Math.max(LOCATE_MIN_TOP_RESERVE, Math.floor(viewportHeight * LOCATE_VIEWPORT_RESERVE_RATIO)),
++  );
++  const targetTop = Math.max(0, Math.min(maxScrollY, scrollY + rect.top - topReserve));
++
++  const viewportWidth = win.innerWidth || doc.documentElement.clientWidth || 0;
++  const maxScrollX = Math.max(0, Math.max(
++    doc.documentElement.scrollWidth || 0,
++    doc.body?.scrollWidth || 0,
++  ) - viewportWidth);
++  let targetLeft = scrollX;
++  if (viewportWidth > 0 && rect.left < LOCATE_HORIZONTAL_MARGIN) {
++    targetLeft = scrollX + rect.left - LOCATE_HORIZONTAL_MARGIN;
++  } else if (viewportWidth > 0 && rect.right > viewportWidth - LOCATE_HORIZONTAL_MARGIN) {
++    targetLeft = scrollX + rect.right - viewportWidth + LOCATE_HORIZONTAL_MARGIN;
++  }
++  targetLeft = Math.max(0, Math.min(maxScrollX, targetLeft));
++
++  try {
++    win.scrollTo({ top: targetTop, left: targetLeft, behavior });
++  } catch {
++    win.scrollTo(targetLeft, targetTop);
++  }
++}
++
++export function highlightInIframe(host, item, { announce = false, behavior = 'smooth' } = {}) {
+@@ -234,5 +285 @@
+-  try {
+-    el.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'nearest' });
+-  } catch {
+-    el.scrollIntoView();
+-  }
++  scrollTargetIntoPreview(el, { behavior });
+@@ -339,5 +386 @@
+-      try {
+-        located.el.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'nearest' });
+-      } catch {
+-        located.el.scrollIntoView();
+-      }
++      scrollTargetIntoPreview(located.el);
+@@ -392 +435 @@
+-  highlightInIframe(host, item, { announce: false });
++  highlightInIframe(host, item, { announce: false, behavior: 'auto' });
+@@ -441 +484,15 @@
 -    tag.style.top = `${rect.top + scrollY - tagHeight - 6}px`;
 +    // Prefer above the element; if there isn't room (small viewport, or the
 +    // element sits near the top), flip below it; then clamp into the visible
@@ -22,6 +89,3 @@ index 70537ca..b4155c2 100644
 +      top = Math.max(minTop, Math.min(top, maxTop));
 +    }
 +    tag.style.top = `${top}px`;
-     tag.style.left = `${left}px`;
-   } catch {
-     /* DOM access guarded — cross-origin iframes throw silently. */

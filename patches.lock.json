@@ -1,5 +1,5 @@
 {
-    "_hash": "3ff1d9bb450dd770369e4e64cf6d9c6fd3a00d561516a73114a3ada0797c9979",
+    "_hash": "51568d87517c9cd3a5681bb40326a94939bc828d909855dc5d41c3acd80ec86f",
     "patches": {
         "netresearch/nr-llm": [
             {
@@ -72,7 +72,7 @@
                 "package": "friendsoftypo3/visual-editor",
                 "description": "Element library panel and inline link editing",
                 "url": "patches/friendsoftypo3-visual-editor-element-library-and-links.patch",
-                "sha256": "dab7070d2afa1dd1ebcf9ef80be6e122a6153ffeab7616e056b58a869495def9",
+                "sha256": "8a8f862aa9625e7e29f724e636a3c8bb0aa8fb1cddcd57b86d9f9bea748a7a20",
                 "depth": 1,
                 "extra": {
                     "provenance": "root"
@@ -97,6 +97,26 @@
                 "extra": {
                     "provenance": "root"
                 }
+            },
+            {
+                "package": "friendsoftypo3/visual-editor",
+                "description": "Make element-library preview handle drop without native HTML5 drop",
+                "url": "patches/friendsoftypo3-visual-editor-fix-element-library-preview-drop.patch",
+                "sha256": "780a71bc4266d8b92b09e5a44b4057530ec2954fee1ebfb5a476fd8fb7a02326",
+                "depth": 1,
+                "extra": {
+                    "provenance": "root"
+                }
+            },
+            {
+                "package": "friendsoftypo3/visual-editor",
+                "description": "Float RTE toolbar at content width, lift overflow-clipping ancestors (e.g. accordion content) and flip it below near the viewport top, so toolbar icons are never clipped (editable.css + ve-editable-rich-text)",
+                "url": "patches/friendsoftypo3-visual-editor-fix-toolbar-small-block.patch",
+                "sha256": "6fec60530f1cdcaaa45ae8a7ac3782ccfeea5074c0f16348c79462a4a581f165",
+                "depth": 1,
+                "extra": {
+                    "provenance": "root"
+                }
             }
         ],
         "webconsulting/webcon-easy-workspace": [
@@ -112,9 +132,9 @@
             },
             {
                 "package": "webconsulting/webcon-easy-workspace",
-                "description": "Discard-tag: flip below + clamp into viewport so it shows at small browser heights",
+                "description": "Locate preview elements with overlay room; keep discard tag inside small viewports",
                 "url": "patches/webcon-easy-workspace-fix-discard-tag-viewport.patch",
-                "sha256": "8143735e1f555995e5ff7eef23618914be8ad817d1d825afb592fb9def233209",
+                "sha256": "26a3c8f054a86bd601312f0cffdd81d8377d236e868cd7a541194329b3497dfa",
                 "depth": 1,
                 "extra": {
                     "provenance": "root"
