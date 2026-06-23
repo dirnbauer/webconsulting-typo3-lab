@@ -879,7 +879,7 @@ new file mode 100644
 index 0000000..509f5e3
 --- /dev/null
 +++ b/Resources/Public/JavaScript/Frontend/components/ve-editable-link.js
-@@ -0,0 +1,355 @@
+@@ -0,0 +1,395 @@
 +import {css, html, LitElement} from 'lit';
 +import {lll} from '@typo3/core/lit-helper.js';
 +import {sendMessage, onMessage} from '@typo3/visual-editor/Shared/iframe-messaging';
@@ -887,8 +887,8 @@ index 0000000..509f5e3
 +import '@typo3/visual-editor/Frontend/components/ve-icon';
 +
 +/**
-+ * Inline editor for pure TCA type=link fields: renders a link icon next to
-+ * the (separately editable or derived) link text. Clicking it asks the
++ * Inline editor for pure TCA type=link fields: renders a floating link icon
++ * near the (separately editable or derived) link text. Clicking it asks the
 + * backend frame to open the TYPO3 link browser; the chosen typolink value
 + * travels back via the linkBrowserSetLink message and is staged on the
 + * editor's pending change list (written with the next explicit save, like an
@@ -924,7 +924,11 @@ index 0000000..509f5e3
 +    this.syncRaf = 0;
 +    this.trackingViewport = false;
 +    this.clippedAncestors = [];
-+    this.onFocusChange = () => this.#scheduleSync();
++    this.focusAnchor = null;
++    this.onFocusChange = (event) => {
++      this.#rememberFocusAnchor(event);
++      this.#scheduleSync();
++    };
 +    this.onViewportChange = () => this.#scheduleSync();
 +  }
 +
@@ -968,10 +972,9 @@ index 0000000..509f5e3
 +  }
 +
 +  /**
-+   * Visible while the edited field's group has focus (the preceding button/link
-+   * sibling), while the pointer is over the button, or while the button itself
-+   * holds focus - the last two keep it reachable when the pointer/focus leaves
-+   * the text to actually click it.
++   * Visible while the edited field's group has focus, while the pointer is
++   * over the button, or while the button itself holds focus - the last two keep
++   * it reachable when the pointer/focus leaves the text to actually click it.
 +   */
 +  #sync() {
 +    const group = this.#anchorElement();
@@ -997,7 +1000,44 @@ index 0000000..509f5e3
 +  }
 +
 +  #anchorElement() {
++    if (this.focusAnchor !== null && this.focusAnchor.isConnected) {
++      return this.focusAnchor;
++    }
 +    return this.previousElementSibling ?? this.parentElement;
++  }
++
++  #rememberFocusAnchor(event) {
++    if (event.type !== 'focusin') {
++      return;
++    }
++
++    const anchor = this.#anchorFromEvent(event);
++    if (anchor !== null) {
++      this.focusAnchor = anchor;
++    }
++  }
++
++  #anchorFromEvent(event) {
++    const path = typeof event.composedPath === 'function' ? event.composedPath() : [];
++    const previous = this.previousElementSibling;
++
++    for (const node of path) {
++      if (!(node instanceof Element) || node === this) {
++        continue;
++      }
++      if (node.nextElementSibling === this) {
++        return node;
++      }
++    }
++
++    if (
++      previous !== null
++      && path.some((node) => node instanceof Node && (node === previous || previous.contains(node)))
++    ) {
++      return previous;
++    }
++
++    return null;
 +  }
 +
 +  #positionButton(anchor) {
