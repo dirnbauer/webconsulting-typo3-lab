@@ -119,7 +119,7 @@ return [
             'prependAtCopy' => '1',
             'resourceFolderImporter' => '/news_import',
             'rteForTeaser' => '0',
-            'showAdministrationModule' => '1',
+            'showAdministrationModule' => '0',
             'slugBehaviour' => 'unique',
             'storageUidImporter' => '1',
             'tagPid' => '1',

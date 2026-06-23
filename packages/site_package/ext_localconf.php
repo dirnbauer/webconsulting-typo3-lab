@@ -15,6 +15,11 @@ McpTableConfiguration::register();
 // otherwise be lost whenever that instance config is regenerated.
 $GLOBALS['TYPO3_CONF_VARS']['EXTENSIONS']['news']['manualSorting'] = '1';
 
+// Hide EXT:news' Web > News Administration backend module. Editors use the
+// regular TYPO3 record/page modules and News API Studio instead. This also
+// keeps /typo3/module/web/NewsAdministration/ from being registered.
+$GLOBALS['TYPO3_CONF_VARS']['EXTENSIONS']['news']['showAdministrationModule'] = '0';
+
 // Enable the Visual Editor element-library FAB (the circular "+" button in the
 // frontend edit mode). The element-library-and-links patch gates the button on
 // this flag (EditModeService::isElementLibraryEnabled), but neither the patch
