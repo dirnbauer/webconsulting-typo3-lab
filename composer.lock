@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b70895374a0480d2841431b88999925f",
+    "content-hash": "d175c1a90b2c828cf3c21418af54e107",
     "packages": [
         {
             "name": "apache-solr-for-typo3/solr",
@@ -13129,16 +13129,16 @@
         },
         {
             "name": "webconsulting/webcon-easy-workspace",
-            "version": "v1.3.3",
+            "version": "v1.3.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/typo3-webcon-easy-workspace.git",
-                "reference": "9435ad65e1d38ef1f9cacdeecdbfedda1176b23d"
+                "reference": "2ada9320374441d9e0cca8257a3b64e1d3f6dee3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/typo3-webcon-easy-workspace/zipball/9435ad65e1d38ef1f9cacdeecdbfedda1176b23d",
-                "reference": "9435ad65e1d38ef1f9cacdeecdbfedda1176b23d",
+                "url": "https://api.github.com/repos/dirnbauer/typo3-webcon-easy-workspace/zipball/2ada9320374441d9e0cca8257a3b64e1d3f6dee3",
+                "reference": "2ada9320374441d9e0cca8257a3b64e1d3f6dee3",
                 "shasum": ""
             },
             "require": {
@@ -13222,7 +13222,75 @@
                 "issues": "https://github.com/dirnbauer/typo3-webcon-easy-workspace/issues",
                 "source": "https://github.com/dirnbauer/typo3-webcon-easy-workspace"
             },
-            "time": "2026-06-20T17:55:08+00:00"
+            "time": "2026-06-26T18:11:27+00:00"
+        },
+        {
+            "name": "webconsulting/webcon-workspace-chatops",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dirnbauer/typo3-webcon-workspace-chatops.git",
+                "reference": "b315756fc13bf19ba12cc8c226faf661bb03b728"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dirnbauer/typo3-webcon-workspace-chatops/zipball/b315756fc13bf19ba12cc8c226faf661bb03b728",
+                "reference": "b315756fc13bf19ba12cc8c226faf661bb03b728",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^8.2",
+                "typo3/cms-backend": "^14.3",
+                "typo3/cms-core": "^14.3",
+                "typo3/cms-workspaces": "^14.3"
+            },
+            "suggest": {
+                "mcp/sdk": "Optional PHP MCP server/client SDK when exposing these services directly to MCP clients.",
+                "symfony/notifier": "Optional notifier abstraction if a project prefers Symfony transports over the built-in TYPO3 RequestFactory adapters.",
+                "webconsulting/webcon-easy-workspace": "Provides the editor-facing pending item list this extension can notify about."
+            },
+            "default-branch": true,
+            "type": "typo3-cms-extension",
+            "extra": {
+                "typo3/cms": {
+                    "extension-key": "webcon_workspace_chatops",
+                    "version": "0.1.0",
+                    "Package": {
+                        "providesPackages": []
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Webconsulting\\WebconWorkspaceChatops\\": "Classes/"
+                }
+            },
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "webconsulting",
+                    "homepage": "https://webconsulting.at",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Webcon Workspace ChatOps - Chat and MCP integration layer for TYPO3 workspace approvals.",
+            "homepage": "https://github.com/dirnbauer/typo3-webcon-workspace-chatops",
+            "keywords": [
+                "ChatOps",
+                "MCP",
+                "Microsoft Teams",
+                "Slack",
+                "TYPO3",
+                "WhatsApp",
+                "workspaces"
+            ],
+            "support": {
+                "issues": "https://github.com/dirnbauer/typo3-webcon-workspace-chatops/issues",
+                "source": "https://github.com/dirnbauer/typo3-webcon-workspace-chatops"
+            },
+            "time": "2026-06-26T09:51:04+00:00"
         },
         {
             "name": "webconsulting/workos-auth",
@@ -15557,7 +15625,8 @@
         "studiomitte/solr-numbered-pagination": 20,
         "webconsulting/desiderio": 20,
         "webconsulting/docx-editor": 20,
-        "webconsulting/flue": 20
+        "webconsulting/flue": 20,
+        "webconsulting/webcon-workspace-chatops": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,
