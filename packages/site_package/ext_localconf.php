@@ -19,10 +19,3 @@ $GLOBALS['TYPO3_CONF_VARS']['EXTENSIONS']['news']['manualSorting'] = '1';
 // regular TYPO3 record/page modules and News API Studio instead. This also
 // keeps /typo3/module/web/NewsAdministration/ from being registered.
 $GLOBALS['TYPO3_CONF_VARS']['EXTENSIONS']['news']['showAdministrationModule'] = '0';
-
-// Enable the Visual Editor element-library FAB (the circular "+" button in the
-// frontend edit mode). The element-library-and-links patch gates the button on
-// this flag (EditModeService::isElementLibraryEnabled), but neither the patch
-// nor desiderio ever sets it. Same reasoning as above: keep it in version
-// control so it survives config/system/settings.php being regenerated.
-$GLOBALS['TYPO3_CONF_VARS']['EXTENSIONS']['visual_editor']['elementLibraryEnabled'] = true;

@@ -1,5 +1,5 @@
 {
-    "_hash": "459c2500ac918570e4c3e4db64ac9c5bffb93638d3d535bd49afbcaf923b7240",
+    "_hash": "4ae65835bd54662cda19bce1da2a094bbecd7f14c713653ca3ba5455a0bc2a92",
     "patches": {
         "netresearch/nr-llm": [
             {
@@ -52,7 +52,7 @@
                 "package": "friendsoftypo3/visual-editor",
                 "description": "Rebased local Visual Editor fixes for 1.8.0",
                 "url": "patches/friendsoftypo3-visual-editor-1.8-local-fixes.patch",
-                "sha256": "a9daac97bb4b015969da73ad62b06c38d3378f6e97ab7e32496afeb5daa93389",
+                "sha256": "43c156546f2775b1269b931facd8ac075fdec9b1ac4f1320f2003eac4966fd97",
                 "depth": 1,
                 "extra": {
                     "provenance": "root"
@@ -75,16 +75,6 @@
                 "description": "Locate preview elements with overlay room; keep discard tag inside small viewports",
                 "url": "patches/webcon-easy-workspace-fix-discard-tag-viewport.patch",
                 "sha256": "ce810baab108ce12fd1c99bc2007704df5469e41e97835f22f9220d2be1b8181",
-                "depth": 1,
-                "extra": {
-                    "provenance": "root"
-                }
-            },
-            {
-                "package": "webconsulting/webcon-easy-workspace",
-                "description": "Remove toolbar filter and language scope tabs",
-                "url": "patches/webcon-easy-workspace-remove-toolbar-tabs-language-scope.patch",
-                "sha256": "899784bcd7a51d8aa81ac12b15cb2ffc0f407a3c1788685f4fa41adee67f347e",
                 "depth": 1,
                 "extra": {
                     "provenance": "root"
