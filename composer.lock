@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5d04d1a4312c3f9a9252fa95f8b36064",
+    "content-hash": "1e4bc37799de710b38d4cacd5f1e4747",
     "packages": [
         {
             "name": "apache-solr-for-typo3/solr",
@@ -11973,7 +11973,7 @@
             "dist": {
                 "type": "path",
                 "url": "packages/a2a_integration",
-                "reference": "e5b1e20b3f52f07ac01da9b64abb44048e5b5bb1"
+                "reference": "14c7bd8771bdd99a70cd6936b8fc3af70b240810"
             },
             "require": {
                 "php": "^8.3",
@@ -12033,7 +12033,7 @@
             "dist": {
                 "type": "path",
                 "url": "packages/a2ui_integration",
-                "reference": "219332b32e5d31fd23a8d5d4c7761591a5e35e38"
+                "reference": "be39bf4980251144f1807787d4e91b7d7c6b9011"
             },
             "require": {
                 "php": "^8.3",
@@ -12186,7 +12186,7 @@
             "dist": {
                 "type": "path",
                 "url": "packages/agentstack_integration",
-                "reference": "c564c5dfbb0c4af02b0ebc0b314f11612c6ddda4"
+                "reference": "8156b5c05fe323b76c58091a73270f3f9197bc5d"
             },
             "require": {
                 "php": "^8.3",
@@ -12251,7 +12251,7 @@
             "dist": {
                 "type": "path",
                 "url": "packages/agui_integration",
-                "reference": "c6da2a2dd89d81f62bd627ceb99536dbc5b51c57"
+                "reference": "2188396701952cb6f506e2ab18aba4147e1cf17c"
             },
             "require": {
                 "php": "^8.3",
@@ -12311,7 +12311,7 @@
             "dist": {
                 "type": "path",
                 "url": "packages/ap2_integration",
-                "reference": "3f1c05dc356a3b156d9bdb84f160e31d9dad6d48"
+                "reference": "49e39e61985b4a1b0f4c41eec1174ff0bd8401d8"
             },
             "require": {
                 "php": "^8.3",
@@ -12410,12 +12410,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/desiderio.git",
-                "reference": "52c39d432c576ad8743d3f5de3456776221da2b4"
+                "reference": "df4611df528d46cc800e699cbb4d788b43697fb8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/desiderio/zipball/52c39d432c576ad8743d3f5de3456776221da2b4",
-                "reference": "52c39d432c576ad8743d3f5de3456776221da2b4",
+                "url": "https://api.github.com/repos/dirnbauer/desiderio/zipball/df4611df528d46cc800e699cbb4d788b43697fb8",
+                "reference": "df4611df528d46cc800e699cbb4d788b43697fb8",
                 "shasum": ""
             },
             "require": {
@@ -12488,7 +12488,7 @@
                 }
             ],
             "description": "Desiderio — shadcn/ui-inspired Fluid 5 component library, 255 content elements, and theme layer for TYPO3 14",
-            "time": "2026-06-24T05:21:41+00:00"
+            "time": "2026-06-27T16:51:08+00:00"
         },
         {
             "name": "webconsulting/docx-editor",
@@ -13072,7 +13072,7 @@
             "dist": {
                 "type": "path",
                 "url": "packages/ucp_integration",
-                "reference": "50536a597d8373be828c314090f2d8fb01168c35"
+                "reference": "678e9dd030eeab102755c98cb1f7a7c98e68a7f9"
             },
             "require": {
                 "php": "^8.3",
@@ -13230,12 +13230,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/typo3-webcon-workspace-chatops.git",
-                "reference": "393d85e50119875fcb49ad31345fd9b54cb6d21f"
+                "reference": "6682566f7ba05c40022654caed8b5ac4d29c8828"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/typo3-webcon-workspace-chatops/zipball/393d85e50119875fcb49ad31345fd9b54cb6d21f",
-                "reference": "393d85e50119875fcb49ad31345fd9b54cb6d21f",
+                "url": "https://api.github.com/repos/dirnbauer/typo3-webcon-workspace-chatops/zipball/6682566f7ba05c40022654caed8b5ac4d29c8828",
+                "reference": "6682566f7ba05c40022654caed8b5ac4d29c8828",
                 "shasum": ""
             },
             "require": {
@@ -13290,7 +13290,7 @@
                 "issues": "https://github.com/dirnbauer/typo3-webcon-workspace-chatops/issues",
                 "source": "https://github.com/dirnbauer/typo3-webcon-workspace-chatops"
             },
-            "time": "2026-06-27T10:17:08+00:00"
+            "time": "2026-06-27T10:25:53+00:00"
         },
         {
             "name": "webconsulting/workos-auth",

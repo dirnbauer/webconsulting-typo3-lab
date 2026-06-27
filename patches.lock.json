@@ -1,5 +1,5 @@
 {
-    "_hash": "3a1ca704603de2deeb0720baa6f0d582a793ec02ec956b0cd33a134389c5cd75",
+    "_hash": "459c2500ac918570e4c3e4db64ac9c5bffb93638d3d535bd49afbcaf923b7240",
     "patches": {
         "netresearch/nr-llm": [
             {
@@ -75,6 +75,16 @@
                 "description": "Locate preview elements with overlay room; keep discard tag inside small viewports",
                 "url": "patches/webcon-easy-workspace-fix-discard-tag-viewport.patch",
                 "sha256": "ce810baab108ce12fd1c99bc2007704df5469e41e97835f22f9220d2be1b8181",
+                "depth": 1,
+                "extra": {
+                    "provenance": "root"
+                }
+            },
+            {
+                "package": "webconsulting/webcon-easy-workspace",
+                "description": "Remove toolbar filter and language scope tabs",
+                "url": "patches/webcon-easy-workspace-remove-toolbar-tabs-language-scope.patch",
+                "sha256": "899784bcd7a51d8aa81ac12b15cb2ffc0f407a3c1788685f4fa41adee67f347e",
                 "depth": 1,
                 "extra": {
                     "provenance": "root"
