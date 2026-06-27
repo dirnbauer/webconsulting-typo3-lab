@@ -1,5 +1,5 @@
 {
-    "_hash": "51568d87517c9cd3a5681bb40326a94939bc828d909855dc5d41c3acd80ec86f",
+    "_hash": "5f0eb4b8b5608c65822c48f43663148b113ea0d7da8785199666fbf2b9c0d7de",
     "patches": {
         "netresearch/nr-llm": [
             {
@@ -50,69 +50,9 @@
         "friendsoftypo3/visual-editor": [
             {
                 "package": "friendsoftypo3/visual-editor",
-                "description": "Fix preview URL generation for workspace-only pages (NEW_PLACEHOLDER)",
-                "url": "patches/friendsoftypo3-visual-editor-fix-workspace-new-page-preview.patch",
-                "sha256": "700f24fdeecfb9f207092f1b3ee84110e1be019ba94520269346d9979975f53c",
-                "depth": 1,
-                "extra": {
-                    "provenance": "root"
-                }
-            },
-            {
-                "package": "friendsoftypo3/visual-editor",
-                "description": "Decode JSON save body when getParsedBody() is an empty array",
-                "url": "patches/friendsoftypo3-visual-editor-fix-save-json-body.patch",
-                "sha256": "fd7899be9a9e0f82fe8a1a932ec245d2d31850a6aa13c953788332f2b990c1f9",
-                "depth": 1,
-                "extra": {
-                    "provenance": "root"
-                }
-            },
-            {
-                "package": "friendsoftypo3/visual-editor",
-                "description": "Element library panel and inline link editing",
-                "url": "patches/friendsoftypo3-visual-editor-element-library-and-links.patch",
-                "sha256": "8f41c6378a886ba6575ea851f6f38dae545d1fbf4ce5a89c8c9a7e93cdd7b99b",
-                "depth": 1,
-                "extra": {
-                    "provenance": "root"
-                }
-            },
-            {
-                "package": "friendsoftypo3/visual-editor",
-                "description": "Do not send tx_container_parent:0 on drag move when EXT:container is absent",
-                "url": "patches/friendsoftypo3-visual-editor-fix-tx-container-parent-zero.patch",
-                "sha256": "609db5de428e1cb9cce3e9d43c1047a8a1ad139b253ca77029247d7be8d843db",
-                "depth": 1,
-                "extra": {
-                    "provenance": "root"
-                }
-            },
-            {
-                "package": "friendsoftypo3/visual-editor",
-                "description": "Add missing useDataHandler import so element-library drops save and refresh",
-                "url": "patches/friendsoftypo3-visual-editor-fix-usedatahandler-import.patch",
-                "sha256": "38f31f78cc9d5696d70a2b8dad3bef3e25948d54b73b09927ad2051cffe191de",
-                "depth": 1,
-                "extra": {
-                    "provenance": "root"
-                }
-            },
-            {
-                "package": "friendsoftypo3/visual-editor",
-                "description": "Make element-library preview handle drop without native HTML5 drop",
-                "url": "patches/friendsoftypo3-visual-editor-fix-element-library-preview-drop.patch",
-                "sha256": "780a71bc4266d8b92b09e5a44b4057530ec2954fee1ebfb5a476fd8fb7a02326",
-                "depth": 1,
-                "extra": {
-                    "provenance": "root"
-                }
-            },
-            {
-                "package": "friendsoftypo3/visual-editor",
-                "description": "Float RTE toolbar at content width, lift overflow-clipping ancestors (e.g. accordion content) and flip it below near the viewport top, so toolbar icons are never clipped (editable.css + ve-editable-rich-text)",
-                "url": "patches/friendsoftypo3-visual-editor-fix-toolbar-small-block.patch",
-                "sha256": "6fec60530f1cdcaaa45ae8a7ac3782ccfeea5074c0f16348c79462a4a581f165",
+                "description": "Rebased local Visual Editor fixes for 1.8.0",
+                "url": "patches/friendsoftypo3-visual-editor-1.8-local-fixes.patch",
+                "sha256": "a9daac97bb4b015969da73ad62b06c38d3378f6e97ab7e32496afeb5daa93389",
                 "depth": 1,
                 "extra": {
                     "provenance": "root"
@@ -134,7 +74,7 @@
                 "package": "webconsulting/webcon-easy-workspace",
                 "description": "Locate preview elements with overlay room; keep discard tag inside small viewports",
                 "url": "patches/webcon-easy-workspace-fix-discard-tag-viewport.patch",
-                "sha256": "26a3c8f054a86bd601312f0cffdd81d8377d236e868cd7a541194329b3497dfa",
+                "sha256": "200e41983f73a9245e73cd097a1617e0b20ec8ecdf14e408db096d0296a10f3b",
                 "depth": 1,
                 "extra": {
                     "provenance": "root"
