@@ -13129,16 +13129,16 @@
         },
         {
             "name": "webconsulting/webcon-easy-workspace",
-            "version": "v1.3.4",
+            "version": "v1.3.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/typo3-webcon-easy-workspace.git",
-                "reference": "2ada9320374441d9e0cca8257a3b64e1d3f6dee3"
+                "reference": "ffe1851d39fb2c7c7f6afc02ec6c79e06d4fcc6d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/typo3-webcon-easy-workspace/zipball/2ada9320374441d9e0cca8257a3b64e1d3f6dee3",
-                "reference": "2ada9320374441d9e0cca8257a3b64e1d3f6dee3",
+                "url": "https://api.github.com/repos/dirnbauer/typo3-webcon-easy-workspace/zipball/ffe1851d39fb2c7c7f6afc02ec6c79e06d4fcc6d",
+                "reference": "ffe1851d39fb2c7c7f6afc02ec6c79e06d4fcc6d",
                 "shasum": ""
             },
             "require": {
@@ -13222,7 +13222,7 @@
                 "issues": "https://github.com/dirnbauer/typo3-webcon-easy-workspace/issues",
                 "source": "https://github.com/dirnbauer/typo3-webcon-easy-workspace"
             },
-            "time": "2026-06-26T18:11:27+00:00"
+            "time": "2026-06-27T12:44:36+00:00"
         },
         {
             "name": "webconsulting/webcon-workspace-chatops",

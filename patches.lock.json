@@ -1,5 +1,5 @@
 {
-    "_hash": "5f0eb4b8b5608c65822c48f43663148b113ea0d7da8785199666fbf2b9c0d7de",
+    "_hash": "3a1ca704603de2deeb0720baa6f0d582a793ec02ec956b0cd33a134389c5cd75",
     "patches": {
         "netresearch/nr-llm": [
             {
@@ -64,7 +64,7 @@
                 "package": "webconsulting/webcon-easy-workspace",
                 "description": "Toolbar list: toggle switches, Seiteneigenschaften card redesign with intent line, correct TYPO3 labels",
                 "url": "patches/webcon-easy-workspace-toolbar-toggle-and-seiteneigenschaften.patch",
-                "sha256": "a317ba5e4a076e8dcd6fa8c8ac3f315f7042f8b18af007733ea7e50f0c5271e6",
+                "sha256": "a9140327d874dff87af77967f852a7867a4a97ec31317e3ef5322477e7290251",
                 "depth": 1,
                 "extra": {
                     "provenance": "root"
@@ -74,7 +74,7 @@
                 "package": "webconsulting/webcon-easy-workspace",
                 "description": "Locate preview elements with overlay room; keep discard tag inside small viewports",
                 "url": "patches/webcon-easy-workspace-fix-discard-tag-viewport.patch",
-                "sha256": "200e41983f73a9245e73cd097a1617e0b20ec8ecdf14e408db096d0296a10f3b",
+                "sha256": "ce810baab108ce12fd1c99bc2007704df5469e41e97835f22f9220d2be1b8181",
                 "depth": 1,
                 "extra": {
                     "provenance": "root"

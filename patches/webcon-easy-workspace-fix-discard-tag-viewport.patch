@@ -1,13 +1,22 @@
 diff --git a/Resources/Public/JavaScript/menu-preview-locate.js b/Resources/Public/JavaScript/menu-preview-locate.js
-index 7435c00..910294d 100644
+index 7435c00..caf2709 100644
 --- a/Resources/Public/JavaScript/menu-preview-locate.js
 +++ b/Resources/Public/JavaScript/menu-preview-locate.js
-@@ -34,0 +35,4 @@
+@@ -32,6 +32,10 @@ const CONFIRM_FLASH_STYLE = {
+   scrollMarginBottom: '48px',
+ };
+ const CONFIRM_FLASH_DURATION = 1600;
 +const LOCATE_TOP_RESERVE = 96;
 +const LOCATE_MIN_TOP_RESERVE = 48;
 +const LOCATE_VIEWPORT_RESERVE_RATIO = 0.5;
 +const LOCATE_HORIZONTAL_MARGIN = 24;
-@@ -193 +197,48 @@
+
+ export function isPreviewGate(doc) {
+   if (!doc) return false;
+@@ -190,7 +194,54 @@ export function restoreVeToolbar(restore) {
+   }
+ }
+
 -export function highlightInIframe(host, item, { announce = false } = {}) {
 +function scrollTargetIntoPreview(el, { behavior = 'smooth' } = {}) {
 +  const doc = el.ownerDocument;
@@ -57,29 +66,49 @@ index 7435c00..910294d 100644
 +}
 +
 +export function highlightInIframe(host, item, { announce = false, behavior = 'smooth' } = {}) {
-@@ -234,5 +285 @@
+   clearIframeHighlight(host);
+   const target = locateTarget(item);
+   const liveUid = target.liveUid;
+@@ -231,11 +282,7 @@ export function highlightInIframe(host, item, { announce = false } = {}) {
+   }
+   const { el, isVeWrapper } = located;
+
 -  try {
 -    el.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'nearest' });
 -  } catch {
 -    el.scrollIntoView();
 -  }
 +  scrollTargetIntoPreview(el, { behavior });
-@@ -339,5 +386 @@
+
+   if (isVeWrapper) {
+     host._iframeHighlight = { el, isVeWrapper: true, veRestore: revealVeToolbar(el) };
+@@ -336,11 +383,7 @@ function refocusAfterReload(iframe, item, prior) {
+   const settle = (attempt) => {
+     const located = locateInDoc(doc, item);
+     if (located) {
 -      try {
 -        located.el.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'nearest' });
 -      } catch {
 -        located.el.scrollIntoView();
 -      }
 +      scrollTargetIntoPreview(located.el);
-@@ -392 +435 @@
+       flashConfirmation(located.el, located.isVeWrapper, win);
+       return;
+     }
+@@ -389,7 +432,7 @@ export function isKnownPreviewWindow(host, source) {
+ export function previewDiscard(host, item) {
+   const located = locateInAnyIframe(host, item);
+   if (!located) return;
 -  highlightInIframe(host, item, { announce: false });
 +  highlightInIframe(host, item, { announce: false, behavior: 'auto' });
-@@ -441 +484,15 @@
+   try {
+     const doc = located.doc;
+     const existing = doc.querySelector('.wew-discard-tag');
+@@ -438,7 +481,17 @@ export function previewDiscard(host, item) {
+     const left = viewportWidth > 0
+       ? Math.max(scrollX + 8, Math.min(rect.left + scrollX, scrollX + viewportWidth - tagWidth - 8))
+       : rect.left + scrollX;
 -    tag.style.top = `${rect.top + scrollY - tagHeight - 6}px`;
-+    // Prefer above the element; if there isn't room (small viewport, or the
-+    // element sits near the top), flip below it; then clamp into the visible
-+    // viewport so the tag is never pushed off-screen. Without this, at small
-+    // browser heights the tag landed at a negative top and "did not show".
 +    const viewportHeight = doc.defaultView?.innerHeight || doc.documentElement.clientHeight || 0;
 +    let top = rect.top + scrollY - tagHeight - 6;
 +    if (rect.top - tagHeight - 6 < 8) {
@@ -91,3 +120,6 @@ index 7435c00..910294d 100644
 +      top = Math.max(minTop, Math.min(top, maxTop));
 +    }
 +    tag.style.top = `${top}px`;
+     tag.style.left = `${left}px`;
+   } catch {
+     /* DOM access guarded — cross-origin iframes throw silently. */
