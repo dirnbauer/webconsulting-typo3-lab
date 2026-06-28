@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5c6d9fa854db79837c25d782f1176a82",
+    "content-hash": "9a5acb12c54b95efc21038be99795935",
     "packages": [
         {
             "name": "apache-solr-for-typo3/solr",
@@ -2033,12 +2033,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/typo3-mcp-server.git",
-                "reference": "8553f66d480180bf1535ce03106e1a4ee17c91eb"
+                "reference": "7ff2b35c6db9726f9c119a3a31b541580e0c5d3d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/typo3-mcp-server/zipball/8553f66d480180bf1535ce03106e1a4ee17c91eb",
-                "reference": "8553f66d480180bf1535ce03106e1a4ee17c91eb",
+                "url": "https://api.github.com/repos/dirnbauer/typo3-mcp-server/zipball/7ff2b35c6db9726f9c119a3a31b541580e0c5d3d",
+                "reference": "7ff2b35c6db9726f9c119a3a31b541580e0c5d3d",
                 "shasum": ""
             },
             "require": {
@@ -2146,7 +2146,7 @@
             ],
             "description": "TYPO3 extension that provides a Model Context Protocol (MCP) server for interacting with TYPO3 pages and records",
             "homepage": "https://github.com/dirnbauer/typo3-mcp-server",
-            "time": "2026-06-27T17:34:44+00:00"
+            "time": "2026-06-28T13:46:06+00:00"
         },
         {
             "name": "in2code/powermail",
@@ -5935,16 +5935,16 @@
         },
         {
             "name": "symfony/cache-contracts",
-            "version": "v3.7.0",
+            "version": "v3.7.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/cache-contracts.git",
-                "reference": "225e8a254166bd3442e370c6f50145465db63831"
+                "reference": "9789738bc19af1106dc54d6afba9a0b467516cf2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/cache-contracts/zipball/225e8a254166bd3442e370c6f50145465db63831",
-                "reference": "225e8a254166bd3442e370c6f50145465db63831",
+                "url": "https://api.github.com/repos/symfony/cache-contracts/zipball/9789738bc19af1106dc54d6afba9a0b467516cf2",
+                "reference": "9789738bc19af1106dc54d6afba9a0b467516cf2",
                 "shasum": ""
             },
             "require": {
@@ -5991,7 +5991,7 @@
                 "standards"
             ],
             "support": {
-                "source": "https://github.com/symfony/cache-contracts/tree/v3.7.0"
+                "source": "https://github.com/symfony/cache-contracts/tree/v3.7.1"
             },
             "funding": [
                 {
@@ -6011,7 +6011,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2026-05-05T15:33:14+00:00"
+            "time": "2026-06-05T06:23:12+00:00"
         },
         {
             "name": "symfony/clock",
@@ -6354,16 +6354,16 @@
         },
         {
             "name": "symfony/deprecation-contracts",
-            "version": "v3.7.0",
+            "version": "v3.7.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/deprecation-contracts.git",
-                "reference": "50f59d1f3ca46d41ac911f97a78626b6756af35b"
+                "reference": "f3202fa1b5097b0af062dc978b32ecf63404e31d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/deprecation-contracts/zipball/50f59d1f3ca46d41ac911f97a78626b6756af35b",
-                "reference": "50f59d1f3ca46d41ac911f97a78626b6756af35b",
+                "url": "https://api.github.com/repos/symfony/deprecation-contracts/zipball/f3202fa1b5097b0af062dc978b32ecf63404e31d",
+                "reference": "f3202fa1b5097b0af062dc978b32ecf63404e31d",
                 "shasum": ""
             },
             "require": {
@@ -6401,7 +6401,7 @@
             "description": "A generic function and convention to trigger deprecation notices",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/deprecation-contracts/tree/v3.7.0"
+                "source": "https://github.com/symfony/deprecation-contracts/tree/v3.7.1"
             },
             "funding": [
                 {
@@ -6421,7 +6421,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2026-04-13T15:52:40+00:00"
+            "time": "2026-06-05T06:23:12+00:00"
         },
         {
             "name": "symfony/doctrine-messenger",
@@ -6586,16 +6586,16 @@
         },
         {
             "name": "symfony/event-dispatcher-contracts",
-            "version": "v3.7.0",
+            "version": "v3.7.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/event-dispatcher-contracts.git",
-                "reference": "ccba7060602b7fed0b03c85bf025257f76d9ef32"
+                "reference": "c7de7a00ffb67842132da02ea92988a39ccd9f4e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/event-dispatcher-contracts/zipball/ccba7060602b7fed0b03c85bf025257f76d9ef32",
-                "reference": "ccba7060602b7fed0b03c85bf025257f76d9ef32",
+                "url": "https://api.github.com/repos/symfony/event-dispatcher-contracts/zipball/c7de7a00ffb67842132da02ea92988a39ccd9f4e",
+                "reference": "c7de7a00ffb67842132da02ea92988a39ccd9f4e",
                 "shasum": ""
             },
             "require": {
@@ -6642,7 +6642,7 @@
                 "standards"
             ],
             "support": {
-                "source": "https://github.com/symfony/event-dispatcher-contracts/tree/v3.7.0"
+                "source": "https://github.com/symfony/event-dispatcher-contracts/tree/v3.7.1"
             },
             "funding": [
                 {
@@ -6662,7 +6662,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2026-01-05T13:30:16+00:00"
+            "time": "2026-06-05T06:23:12+00:00"
         },
         {
             "name": "symfony/expression-language",
@@ -8356,16 +8356,16 @@
         },
         {
             "name": "symfony/service-contracts",
-            "version": "v3.7.0",
+            "version": "v3.7.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/service-contracts.git",
-                "reference": "d25d82433a80eba6aa0e6c24b61d7370d99e444a"
+                "reference": "c0a284bab1ed8aa0417e3d69250ab437739563a0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/service-contracts/zipball/d25d82433a80eba6aa0e6c24b61d7370d99e444a",
-                "reference": "d25d82433a80eba6aa0e6c24b61d7370d99e444a",
+                "url": "https://api.github.com/repos/symfony/service-contracts/zipball/c0a284bab1ed8aa0417e3d69250ab437739563a0",
+                "reference": "c0a284bab1ed8aa0417e3d69250ab437739563a0",
                 "shasum": ""
             },
             "require": {
@@ -8419,7 +8419,7 @@
                 "standards"
             ],
             "support": {
-                "source": "https://github.com/symfony/service-contracts/tree/v3.7.0"
+                "source": "https://github.com/symfony/service-contracts/tree/v3.7.1"
             },
             "funding": [
                 {
@@ -8439,7 +8439,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2026-03-28T09:44:51+00:00"
+            "time": "2026-06-16T09:55:08+00:00"
         },
         {
             "name": "symfony/string",
@@ -8634,16 +8634,16 @@
         },
         {
             "name": "symfony/translation-contracts",
-            "version": "v3.7.0",
+            "version": "v3.7.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/translation-contracts.git",
-                "reference": "0ab302977a952b42fd51475c4ebac81f8da0a95d"
+                "reference": "ccb206b98faccc511ebae8e5fad50f2dc0b30621"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/translation-contracts/zipball/0ab302977a952b42fd51475c4ebac81f8da0a95d",
-                "reference": "0ab302977a952b42fd51475c4ebac81f8da0a95d",
+                "url": "https://api.github.com/repos/symfony/translation-contracts/zipball/ccb206b98faccc511ebae8e5fad50f2dc0b30621",
+                "reference": "ccb206b98faccc511ebae8e5fad50f2dc0b30621",
                 "shasum": ""
             },
             "require": {
@@ -8692,7 +8692,7 @@
                 "standards"
             ],
             "support": {
-                "source": "https://github.com/symfony/translation-contracts/tree/v3.7.0"
+                "source": "https://github.com/symfony/translation-contracts/tree/v3.7.1"
             },
             "funding": [
                 {
@@ -8712,7 +8712,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2026-01-05T13:30:16+00:00"
+            "time": "2026-06-05T06:23:12+00:00"
         },
         {
             "name": "symfony/type-info",
@@ -12590,10 +12590,16 @@
         {
             "name": "webconsulting/flue",
             "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dirnbauer/flue.git",
+                "reference": "01609edabbf82f96ddf40176969c870d4bedda75"
+            },
             "dist": {
-                "type": "path",
-                "url": "packages/flue",
-                "reference": "7a5f4bd98ebf14c6861a8e1d0647c5a8e871914a"
+                "type": "zip",
+                "url": "https://api.github.com/repos/dirnbauer/flue/zipball/01609edabbf82f96ddf40176969c870d4bedda75",
+                "reference": "01609edabbf82f96ddf40176969c870d4bedda75",
+                "shasum": ""
             },
             "require": {
                 "php": "^8.3",
@@ -12608,6 +12614,7 @@
                 "netresearch/nr-vault": "Stores the LLM API key; the trigger service injects it per request, never on disk.",
                 "webconsulting/skillflow": "Exports skills (SKILL.md) to the Flue sidecar and shares the {uid} context resolver."
             },
+            "default-branch": true,
             "type": "typo3-cms-extension",
             "extra": {
                 "typo3/cms": {
@@ -12630,7 +12637,7 @@
                 }
             ],
             "description": "TYPO3 control plane for the Flue agent framework - define/trigger durable AI flows, inject page context, export skillflow skills, mirror runs, all driven from a backend module.",
-            "homepage": "https://webconsulting.at",
+            "homepage": "https://github.com/dirnbauer/flue",
             "keywords": [
                 "AI",
                 "Flue",
@@ -12641,10 +12648,11 @@
                 "mcp",
                 "workflow"
             ],
-            "transport-options": {
-                "symlink": true,
-                "relative": true
-            }
+            "support": {
+                "issues": "https://github.com/dirnbauer/flue/issues",
+                "source": "https://github.com/dirnbauer/flue"
+            },
+            "time": "2026-06-28T13:50:39+00:00"
         },
         {
             "name": "webconsulting/records-list-examples",
@@ -13269,27 +13277,29 @@
             "time": "2026-06-27T17:50:16+00:00"
         },
         {
-            "name": "webconsulting/webcon-workspace-chatops",
+            "name": "webconsulting/webcon-mcp-chat-bridge",
             "version": "dev-main",
             "source": {
                 "type": "git",
-                "url": "https://github.com/dirnbauer/typo3-webcon-workspace-chatops.git",
-                "reference": "6682566f7ba05c40022654caed8b5ac4d29c8828"
+                "url": "https://github.com/dirnbauer/webcon-mcp-chat-bridge.git",
+                "reference": "c70b3f98f15b24604bcdc6eceb711fae12845172"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/typo3-webcon-workspace-chatops/zipball/6682566f7ba05c40022654caed8b5ac4d29c8828",
-                "reference": "6682566f7ba05c40022654caed8b5ac4d29c8828",
+                "url": "https://api.github.com/repos/dirnbauer/webcon-mcp-chat-bridge/zipball/c70b3f98f15b24604bcdc6eceb711fae12845172",
+                "reference": "c70b3f98f15b24604bcdc6eceb711fae12845172",
                 "shasum": ""
             },
             "require": {
+                "hn/typo3-mcp-server": "^0.1 || dev-main",
                 "php": "^8.2",
                 "typo3/cms-backend": "^14.3",
                 "typo3/cms-core": "^14.3",
+                "typo3/cms-fluid": "^14.3",
+                "typo3/cms-frontend": "^14.3",
                 "typo3/cms-workspaces": "^14.3"
             },
             "suggest": {
-                "mcp/sdk": "Optional PHP MCP server/client SDK when exposing these services directly to MCP clients.",
                 "symfony/notifier": "Optional notifier abstraction if a project prefers Symfony transports over the built-in TYPO3 RequestFactory adapters.",
                 "webconsulting/webcon-easy-workspace": "Provides the editor-facing pending item list this extension can notify about."
             },
@@ -13297,7 +13307,7 @@
             "type": "typo3-cms-extension",
             "extra": {
                 "typo3/cms": {
-                    "extension-key": "webcon_workspace_chatops",
+                    "extension-key": "webcon_mcp_chat_bridge",
                     "version": "0.1.0",
                     "Package": {
                         "providesPackages": []
@@ -13306,7 +13316,7 @@
             },
             "autoload": {
                 "psr-4": {
-                    "Webconsulting\\WebconWorkspaceChatops\\": "Classes/"
+                    "Webconsulting\\WebconMcpChatBridge\\": "Classes/"
                 }
             },
             "license": [
@@ -13319,22 +13329,22 @@
                     "role": "Developer"
                 }
             ],
-            "description": "Webcon Workspace ChatOps - Chat and MCP integration layer for TYPO3 workspace approvals.",
-            "homepage": "https://github.com/dirnbauer/typo3-webcon-workspace-chatops",
+            "description": "Webcon MCP Chat Bridge - Slack, Teams, WhatsApp and automation bridge for TYPO3 MCP tools.",
+            "homepage": "https://github.com/dirnbauer/webcon-mcp-chat-bridge",
             "keywords": [
-                "ChatOps",
                 "MCP",
                 "Microsoft Teams",
                 "Slack",
                 "TYPO3",
                 "WhatsApp",
+                "chat bridge",
                 "workspaces"
             ],
             "support": {
-                "issues": "https://github.com/dirnbauer/typo3-webcon-workspace-chatops/issues",
-                "source": "https://github.com/dirnbauer/typo3-webcon-workspace-chatops"
+                "issues": "https://github.com/dirnbauer/webcon-mcp-chat-bridge/issues",
+                "source": "https://github.com/dirnbauer/webcon-mcp-chat-bridge"
             },
-            "time": "2026-06-27T10:25:53+00:00"
+            "time": "2026-06-28T13:44:34+00:00"
         },
         {
             "name": "webconsulting/workos-auth",
@@ -15670,7 +15680,7 @@
         "webconsulting/desiderio": 20,
         "webconsulting/docx-editor": 20,
         "webconsulting/flue": 20,
-        "webconsulting/webcon-workspace-chatops": 20
+        "webconsulting/webcon-mcp-chat-bridge": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,
