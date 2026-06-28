@@ -10,6 +10,10 @@ additional_fqdns: []
 database:
     type: mariadb
     version: "10.11"
+upload_dirs:
+    - fileadmin
+    - ../packages/flue-bridge/node_modules
+    - ../vendor/webconsulting/docx-editor/node_modules
 use_dns_when_possible: true
 composer_version: "2"
 ddev_version_constraint: ">= v1.25.2"
