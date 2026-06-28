@@ -4,6 +4,7 @@ docroot: public
 php_version: "8.3"
 webserver_type: apache-fpm
 xdebug_enabled: false
+performance_mode: mutagen
 additional_hostnames: []
 additional_fqdns: []
 database:
