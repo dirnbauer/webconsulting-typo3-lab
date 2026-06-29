@@ -1,4 +1,18 @@
 <?php
+$webconMcpChatBridgeApiToken = (string)getenv('WEBCON_MCP_CHAT_BRIDGE_API_TOKEN');
+$webconMcpChatBridgeSlackWebhook = (string)getenv('WEBCON_MCP_CHAT_BRIDGE_SLACK_WEBHOOK');
+$webconMcpChatBridgeTeamsWebhook = (string)getenv('WEBCON_MCP_CHAT_BRIDGE_TEAMS_WEBHOOK');
+$webconMcpChatBridgeWhatsAppPhoneNumberId = (string)getenv('WEBCON_MCP_CHAT_BRIDGE_WHATSAPP_PHONE_NUMBER_ID');
+$webconMcpChatBridgeWhatsAppAccessToken = (string)getenv('WEBCON_MCP_CHAT_BRIDGE_WHATSAPP_ACCESS_TOKEN');
+$webconMcpChatBridgeWhatsAppRecipients = (string)getenv('WEBCON_MCP_CHAT_BRIDGE_WHATSAPP_RECIPIENTS');
+$webconMcpChatBridgeAllowedTables = implode(',', [
+    'pages',
+    'tt_content',
+    'tx_news_domain_model_news',
+    'sys_file_reference',
+    'sys_file_metadata',
+]);
+
 return [
     'BE' => [
         'debug' => true,
@@ -176,6 +190,32 @@ return [
             'zeroorder_input_1' => 'value',
             'zeroorder_input_2' => '',
             'zeroorder_input_3' => '',
+        ],
+        'webcon_mcp_chat_bridge' => [
+            'enabled' => true,
+            'apiPath' => '/webcon-mcp-chat-bridge/api',
+            'apiToken' => $webconMcpChatBridgeApiToken,
+            'allowUnsignedDevelopmentRequests' => true,
+            'developmentBackendUserId' => 1,
+            'defaultWorkspaceId' => 1,
+            'approvalStageId' => 1,
+            'publishStageId' => -10,
+            'maxBatchCalls' => 10,
+            'strictDocumentImportByDefault' => true,
+            'allowedTables' => $webconMcpChatBridgeAllowedTables,
+            'notifyAfterRecordPublished' => false,
+            'slackEnabled' => $webconMcpChatBridgeSlackWebhook !== '',
+            'slackWebhookUrl' => $webconMcpChatBridgeSlackWebhook,
+            'teamsEnabled' => $webconMcpChatBridgeTeamsWebhook !== '',
+            'teamsWebhookUrl' => $webconMcpChatBridgeTeamsWebhook,
+            'teamsPayloadMode' => 'adaptiveCard',
+            'whatsappEnabled' => $webconMcpChatBridgeWhatsAppPhoneNumberId !== ''
+                && $webconMcpChatBridgeWhatsAppAccessToken !== '',
+            'whatsappPhoneNumberId' => $webconMcpChatBridgeWhatsAppPhoneNumberId,
+            'whatsappAccessToken' => $webconMcpChatBridgeWhatsAppAccessToken,
+            'whatsappDefaultRecipients' => $webconMcpChatBridgeWhatsAppRecipients,
+            'whatsappTemplateName' => '',
+            'whatsappTemplateLanguage' => 'en_US',
         ],
         'workos_auth' => [
             'apiKey' => (string)getenv('TYPO3_WORKOS_API_KEY'),
