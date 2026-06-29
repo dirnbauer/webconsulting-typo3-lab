@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9a5acb12c54b95efc21038be99795935",
+    "content-hash": "9f592ddcf9ed6730693d3528afde0aad",
     "packages": [
         {
             "name": "apache-solr-for-typo3/solr",
@@ -2939,16 +2939,16 @@
         },
         {
             "name": "netresearch/nr-llm",
-            "version": "dev-main",
+            "version": "v0.12.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/netresearch/t3x-nr-llm.git",
-                "reference": "0d78ba94790ba3dbc6bb8aee023d80a47683efc1"
+                "reference": "fb3de42fac52b82ed3e6e06dcba6e86e5a3063b3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/netresearch/t3x-nr-llm/zipball/0d78ba94790ba3dbc6bb8aee023d80a47683efc1",
-                "reference": "0d78ba94790ba3dbc6bb8aee023d80a47683efc1",
+                "url": "https://api.github.com/repos/netresearch/t3x-nr-llm/zipball/fb3de42fac52b82ed3e6e06dcba6e86e5a3063b3",
+                "reference": "fb3de42fac52b82ed3e6e06dcba6e86e5a3063b3",
                 "shasum": ""
             },
             "require": {
@@ -2970,7 +2970,6 @@
             "suggest": {
                 "typo3/cms-dashboard": "Adds AI usage / cost widgets to the TYPO3 dashboard"
             },
-            "default-branch": true,
             "type": "typo3-cms-extension",
             "extra": {
                 "captainhook": {
@@ -3101,45 +3100,45 @@
                 "issues": "https://github.com/netresearch/t3x-nr-llm/issues",
                 "source": "https://github.com/netresearch/t3x-nr-llm"
             },
-            "time": "2026-06-27T08:11:30+00:00"
+            "time": "2026-06-11T15:26:54+00:00"
         },
         {
             "name": "netresearch/nr-mcp-agent",
             "version": "dev-main",
             "source": {
                 "type": "git",
-                "url": "https://github.com/dirnbauer/t3x-nr-mcp-agent.git",
-                "reference": "197f01d7b1a04a884f8e75cd658c5112993f76f1"
+                "url": "https://github.com/netresearch/t3x-nr-mcp-agent.git",
+                "reference": "30a610882d522e1946ef87a7a884578927693d8d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/t3x-nr-mcp-agent/zipball/197f01d7b1a04a884f8e75cd658c5112993f76f1",
-                "reference": "197f01d7b1a04a884f8e75cd658c5112993f76f1",
+                "url": "https://api.github.com/repos/netresearch/t3x-nr-mcp-agent/zipball/30a610882d522e1946ef87a7a884578927693d8d",
+                "reference": "30a610882d522e1946ef87a7a884578927693d8d",
                 "shasum": ""
             },
             "require": {
-                "netresearch/nr-llm": "dev-main",
+                "netresearch/nr-llm": "^0.12.0",
                 "php": "^8.2",
                 "phpoffice/phpword": "^1.0",
                 "smalot/pdfparser": "^2.0",
-                "typo3/cms-backend": "^14.3",
-                "typo3/cms-core": "^14.3"
+                "typo3/cms-backend": "^13.4 || ^14.0",
+                "typo3/cms-core": "^13.4 || ^14.0"
             },
             "require-dev": {
                 "captainhook/captainhook": "^5.0",
                 "captainhook/hook-installer": "^1.0",
                 "friendsofphp/php-cs-fixer": "^3.0",
                 "infection/infection": "^0.29",
-                "phpat/phpat": "^0.11",
-                "phpstan/phpstan": "^2.1",
-                "phpunit/phpunit": "^11.5",
+                "phpat/phpat": "^0.12",
+                "phpstan/phpstan": "^2.0",
+                "phpunit/phpunit": "^10.5 || ^11.0",
                 "rector/rector": "^2.0",
                 "saschaegerer/phpstan-typo3": "^3.0",
-                "typo3/testing-framework": "^9.0"
+                "typo3/testing-framework": "^8.0 || ^9.0"
             },
             "suggest": {
                 "hn/typo3-mcp-server": "For TYPO3 content management tools (^1.0)",
-                "netresearch/nr-vault": "For secure API key storage (^0.5)",
+                "netresearch/nr-vault": "For secure API key storage (^0.4)",
                 "phpoffice/phpspreadsheet": "^3.0 — Required for XLSX upload support"
             },
             "default-branch": true,
@@ -3176,7 +3175,7 @@
                     "@ci:tests"
                 ],
                 "ci:phpstan": [
-                    ".Build/bin/phpstan analyse -c Build/phpstan/phpstan.neon --no-progress --memory-limit=1G"
+                    ".Build/bin/phpstan analyse -c Build/phpstan/phpstan.neon --no-progress"
                 ],
                 "ci:cgl": [
                     ".Build/bin/php-cs-fixer fix --dry-run --diff"
@@ -3234,7 +3233,7 @@
                 "issues": "https://github.com/netresearch/t3x-nr-mcp-agent/issues",
                 "source": "https://github.com/netresearch/t3x-nr-mcp-agent"
             },
-            "time": "2026-04-30T07:42:10+00:00"
+            "time": "2026-06-21T15:43:20+00:00"
         },
         {
             "name": "netresearch/nr-vault",
@@ -15655,12 +15654,6 @@
     ],
     "aliases": [
         {
-            "package": "netresearch/nr-llm",
-            "version": "dev-main",
-            "alias": "0.10.x-dev",
-            "alias_normalized": "0.10.9999999.9999999-dev"
-        },
-        {
             "package": "webconsulting/desiderio",
             "version": "dev-main",
             "alias": "2.11.0",
@@ -15672,7 +15665,6 @@
         "apache-solr-for-typo3/solr": 10,
         "hn/typo3-mcp-server": 20,
         "in2code/powermail": 20,
-        "netresearch/nr-llm": 20,
         "netresearch/nr-mcp-agent": 20,
         "sgalinski/sg-apicore": 20,
         "studiomitte/friendlycaptcha": 20,

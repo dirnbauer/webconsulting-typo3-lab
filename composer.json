@@ -131,7 +131,7 @@
     },
     {
       "type": "vcs",
-      "url": "https://github.com/dirnbauer/t3x-nr-mcp-agent.git"
+      "url": "https://github.com/netresearch/t3x-nr-mcp-agent.git"
     },
     {
       "type": "vcs",
@@ -162,7 +162,7 @@
     "hn/typo3-mcp-server": "dev-main",
     "in2code/powermail": "dev-typo3-v14",
     "league/commonmark": "^2.7",
-    "netresearch/nr-llm": "dev-main as 0.10.x-dev",
+    "netresearch/nr-llm": "^0.12",
     "netresearch/nr-mcp-agent": "dev-main",
     "netresearch/nr-vault": "^0.10",
     "netresearch/t3-cowriter": "^3.1",
