@@ -1,18 +1,6 @@
 {
-    "_hash": "4ae65835bd54662cda19bce1da2a094bbecd7f14c713653ca3ba5455a0bc2a92",
+    "_hash": "d764682e10fb80b3afa27dca0837d237cb7cddd3d7503f03e29e02057e9cc21a",
     "patches": {
-        "netresearch/nr-llm": [
-            {
-                "package": "netresearch/nr-llm",
-                "description": "Size the LLM backend module icon correctly (viewBox padding so it matches sibling icons)",
-                "url": "patches/netresearch-nr-llm-module-icon-size.patch",
-                "sha256": "3ac099276fa4a3319e16ac28ddfe196359c57bbf865641bf543c4e913269b1df",
-                "depth": 1,
-                "extra": {
-                    "provenance": "root"
-                }
-            }
-        ],
         "netresearch/nr-vault": [
             {
                 "package": "netresearch/nr-vault",
