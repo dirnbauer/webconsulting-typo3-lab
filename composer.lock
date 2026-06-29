@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "03eecf7882666ad2465b011e512fad07",
+    "content-hash": "9c2131ccb770cebab3a3a4ab6a060045",
     "packages": [
         {
             "name": "apache-solr-for-typo3/solr",
@@ -3107,13 +3107,13 @@
             "version": "dev-main",
             "source": {
                 "type": "git",
-                "url": "https://github.com/netresearch/t3x-nr-mcp-agent.git",
-                "reference": "30a610882d522e1946ef87a7a884578927693d8d"
+                "url": "https://github.com/dirnbauer/t3x-nr-mcp-agent.git",
+                "reference": "c43a751073222ef766a12ee4b14b2943f4cf5c56"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/netresearch/t3x-nr-mcp-agent/zipball/30a610882d522e1946ef87a7a884578927693d8d",
-                "reference": "30a610882d522e1946ef87a7a884578927693d8d",
+                "url": "https://api.github.com/repos/dirnbauer/t3x-nr-mcp-agent/zipball/c43a751073222ef766a12ee4b14b2943f4cf5c56",
+                "reference": "c43a751073222ef766a12ee4b14b2943f4cf5c56",
                 "shasum": ""
             },
             "require": {
@@ -3121,8 +3121,8 @@
                 "php": "^8.2",
                 "phpoffice/phpword": "^1.0",
                 "smalot/pdfparser": "^2.0",
-                "typo3/cms-backend": "^13.4 || ^14.0",
-                "typo3/cms-core": "^13.4 || ^14.0"
+                "typo3/cms-backend": "^14.3",
+                "typo3/cms-core": "^14.3"
             },
             "require-dev": {
                 "captainhook/captainhook": "^5.0",
@@ -3130,15 +3130,15 @@
                 "friendsofphp/php-cs-fixer": "^3.0",
                 "infection/infection": "^0.29",
                 "phpat/phpat": "^0.12",
-                "phpstan/phpstan": "^2.0",
-                "phpunit/phpunit": "^10.5 || ^11.0",
+                "phpstan/phpstan": "^2.1",
+                "phpunit/phpunit": "^11.5",
                 "rector/rector": "^2.0",
                 "saschaegerer/phpstan-typo3": "^3.0",
-                "typo3/testing-framework": "^8.0 || ^9.0"
+                "typo3/testing-framework": "^9.0"
             },
             "suggest": {
                 "hn/typo3-mcp-server": "For TYPO3 content management tools (^1.0)",
-                "netresearch/nr-vault": "For secure API key storage (^0.4)",
+                "netresearch/nr-vault": "For secure API key storage (^0.5)",
                 "phpoffice/phpspreadsheet": "^3.0 — Required for XLSX upload support"
             },
             "default-branch": true,
@@ -3175,7 +3175,7 @@
                     "@ci:tests"
                 ],
                 "ci:phpstan": [
-                    ".Build/bin/phpstan analyse -c Build/phpstan/phpstan.neon --no-progress"
+                    ".Build/bin/phpstan analyse -c Build/phpstan/phpstan.neon --no-progress --memory-limit=1G"
                 ],
                 "ci:cgl": [
                     ".Build/bin/php-cs-fixer fix --dry-run --diff"
@@ -3219,7 +3219,7 @@
                 }
             ],
             "description": "AI chat assistant for the TYPO3 backend using nr-llm and MCP server",
-            "homepage": "https://github.com/netresearch/t3x-nr-mcp-agent",
+            "homepage": "https://github.com/dirnbauer/t3x-nr-mcp-agent",
             "keywords": [
                 "AI",
                 "LLM",
@@ -3230,10 +3230,10 @@
                 "extension"
             ],
             "support": {
-                "issues": "https://github.com/netresearch/t3x-nr-mcp-agent/issues",
-                "source": "https://github.com/netresearch/t3x-nr-mcp-agent"
+                "issues": "https://github.com/dirnbauer/t3x-nr-mcp-agent/issues",
+                "source": "https://github.com/dirnbauer/t3x-nr-mcp-agent"
             },
-            "time": "2026-06-21T15:43:20+00:00"
+            "time": "2026-06-29T16:43:24+00:00"
         },
         {
             "name": "netresearch/nr-vault",
@@ -11972,7 +11972,7 @@
             "dist": {
                 "type": "path",
                 "url": "packages/a2a_integration",
-                "reference": "14c7bd8771bdd99a70cd6936b8fc3af70b240810"
+                "reference": "da24dd49948fbe91c332a465c925178f468aaa22"
             },
             "require": {
                 "php": "^8.3",
@@ -12032,7 +12032,7 @@
             "dist": {
                 "type": "path",
                 "url": "packages/a2ui_integration",
-                "reference": "be39bf4980251144f1807787d4e91b7d7c6b9011"
+                "reference": "821f9a284b9fd8c085011f5f7bdf7290ec9fdf0e"
             },
             "require": {
                 "php": "^8.3",
@@ -12250,7 +12250,7 @@
             "dist": {
                 "type": "path",
                 "url": "packages/agui_integration",
-                "reference": "2188396701952cb6f506e2ab18aba4147e1cf17c"
+                "reference": "da37c27c0d524fd636f8d4b0b85634ba35f66d3f"
             },
             "require": {
                 "php": "^8.3",
@@ -12310,7 +12310,7 @@
             "dist": {
                 "type": "path",
                 "url": "packages/ap2_integration",
-                "reference": "49e39e61985b4a1b0f4c41eec1174ff0bd8401d8"
+                "reference": "9047e44d90c8591fba9472088d2f2f507d2e5c16"
             },
             "require": {
                 "php": "^8.3",
@@ -13079,7 +13079,7 @@
             "dist": {
                 "type": "path",
                 "url": "packages/ucp_integration",
-                "reference": "678e9dd030eeab102755c98cb1f7a7c98e68a7f9"
+                "reference": "99108cdb24dc6028fb7c8b4c29d2937b60f50bdb"
             },
             "require": {
                 "php": "^8.3",
