@@ -1,6 +1,9 @@
 <?php
 $webconMcpChatBridgeApiToken = (string)getenv('WEBCON_MCP_CHAT_BRIDGE_API_TOKEN');
 $webconMcpChatBridgeSlackWebhook = (string)getenv('WEBCON_MCP_CHAT_BRIDGE_SLACK_WEBHOOK');
+$webconMcpChatBridgeSlackSigningSecret = (string)getenv('WEBCON_MCP_CHAT_BRIDGE_SLACK_SIGNING_SECRET');
+$webconMcpChatBridgeSlackBotToken = (string)getenv('WEBCON_MCP_CHAT_BRIDGE_SLACK_BOT_TOKEN');
+$webconMcpChatBridgeSlackBotUserId = (string)getenv('WEBCON_MCP_CHAT_BRIDGE_SLACK_BOT_USER_ID');
 $webconMcpChatBridgeTeamsWebhook = (string)getenv('WEBCON_MCP_CHAT_BRIDGE_TEAMS_WEBHOOK');
 $webconMcpChatBridgeWhatsAppPhoneNumberId = (string)getenv('WEBCON_MCP_CHAT_BRIDGE_WHATSAPP_PHONE_NUMBER_ID');
 $webconMcpChatBridgeWhatsAppAccessToken = (string)getenv('WEBCON_MCP_CHAT_BRIDGE_WHATSAPP_ACCESS_TOKEN');
@@ -194,6 +197,8 @@ return [
         'webcon_mcp_chat_bridge' => [
             'enabled' => true,
             'apiPath' => '/webcon-mcp-chat-bridge/api',
+            'slackCommandPath' => '/webcon-mcp-chat-bridge/slack',
+            'slackEventsPath' => '/webcon-mcp-chat-bridge/slack/events',
             'apiToken' => $webconMcpChatBridgeApiToken,
             'allowUnsignedDevelopmentRequests' => true,
             'developmentBackendUserId' => 1,
@@ -206,6 +211,10 @@ return [
             'notifyAfterRecordPublished' => false,
             'slackEnabled' => $webconMcpChatBridgeSlackWebhook !== '',
             'slackWebhookUrl' => $webconMcpChatBridgeSlackWebhook,
+            'slackSigningSecret' => $webconMcpChatBridgeSlackSigningSecret,
+            'slackBotToken' => $webconMcpChatBridgeSlackBotToken,
+            'slackBotUserId' => $webconMcpChatBridgeSlackBotUserId,
+            'pdfTextExtractorCommand' => 'pdftotext',
             'teamsEnabled' => $webconMcpChatBridgeTeamsWebhook !== '',
             'teamsWebhookUrl' => $webconMcpChatBridgeTeamsWebhook,
             'teamsPayloadMode' => 'adaptiveCard',
