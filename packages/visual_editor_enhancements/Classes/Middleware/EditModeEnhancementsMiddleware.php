@@ -64,15 +64,19 @@ final readonly class EditModeEnhancementsMiddleware implements MiddlewareInterfa
      * @return array{
      *     elementLibraryEnabled: bool,
      *     elementLibraryLinks: bool,
+     *     editableLinksEnabled: bool,
      *     elementLibraryColumns: int,
      *     contentAddedFeedback: array{title: string, message: string}
      * }
      */
     private function getConfiguration(): array
     {
+        $editableLinksEnabled = $this->isEditableLinksEnabled() && $this->getUserBoolSetting('tx_visualeditor_showLinks', true);
+
         return [
             'elementLibraryEnabled' => $this->isElementLibraryEnabled() && $this->getUserBoolSetting('tx_visualeditor_showLibrary', true),
-            'elementLibraryLinks' => $this->isElementLibraryEnabled() && $this->getUserBoolSetting('tx_visualeditor_showLinks', false),
+            'elementLibraryLinks' => $editableLinksEnabled,
+            'editableLinksEnabled' => $editableLinksEnabled,
             'elementLibraryColumns' => $this->getElementLibraryColumns(),
             'contentAddedFeedback' => $this->getContentAddedFeedback(),
         ];
@@ -81,6 +85,11 @@ final readonly class EditModeEnhancementsMiddleware implements MiddlewareInterfa
     private function isElementLibraryEnabled(): bool
     {
         return (bool)($GLOBALS['TYPO3_CONF_VARS']['EXTENSIONS']['visual_editor_enhancements']['elementLibraryEnabled'] ?? false);
+    }
+
+    private function isEditableLinksEnabled(): bool
+    {
+        return (bool)($GLOBALS['TYPO3_CONF_VARS']['EXTENSIONS']['visual_editor_enhancements']['editableLinksEnabled'] ?? true);
     }
 
     private function getUserBoolSetting(string $key, bool $default): bool

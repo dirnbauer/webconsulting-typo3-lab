@@ -40,7 +40,7 @@ ExtensionManagementUtility::addUserSetting(
         'config' => [
             'type' => 'check',
             'renderType' => 'checkboxToggle',
-            'default' => 0,
+            'default' => 1,
         ],
     ],
     'after:tx_visualeditor_showLibrary'

@@ -21,14 +21,14 @@
     </unit>
     <unit id="showLinks">
       <segment state="final">
-        <source>Enable inline link editing (experimental)</source>
-        <target>Inline-Linkbearbeitung aktivieren (experimentell)</target>
+        <source>Show link edit buttons</source>
+        <target>Link-Bearbeitungsschaltflächen anzeigen</target>
       </segment>
     </unit>
     <unit id="showLinks.description">
       <segment state="final">
-        <source>Shows a link icon next to link fields so the TYPO3 link browser can be opened directly in the visual editor. Experimental.</source>
-        <target>Zeigt neben Linkfeldern ein Link-Symbol, über das der TYPO3-Linkbrowser direkt im visuellen Editor geöffnet werden kann. Experimentell.</target>
+        <source>Shows a link icon next to editable link fields so the TYPO3 link browser can be opened directly in the visual editor.</source>
+        <target>Zeigt neben bearbeitbaren Linkfeldern ein Link-Symbol, über das der TYPO3-Linkbrowser direkt im visuellen Editor geöffnet werden kann.</target>
       </segment>
     </unit>
     <unit id="panelColumns">

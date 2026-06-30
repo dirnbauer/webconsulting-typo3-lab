@@ -39,12 +39,21 @@ export class VeEditableLink extends LitElement {
     this.active = false;
     this.buttonStyle = '';
     this.hovered = false;
+    this.pointerActivated = false;
     this.syncRaf = 0;
     this.trackingViewport = false;
     this.clippedAncestors = [];
     this.focusAnchor = null;
     this.onFocusChange = (event) => {
       this.#rememberFocusAnchor(event);
+      this.#scheduleSync();
+    };
+    this.onPointerDown = (event) => {
+      const anchor = this.#anchorFromEvent(event);
+      this.pointerActivated = anchor !== null;
+      if (anchor !== null) {
+        this.focusAnchor = anchor;
+      }
       this.#scheduleSync();
     };
     this.onViewportChange = () => this.#scheduleSync();
@@ -56,11 +65,13 @@ export class VeEditableLink extends LitElement {
     // into the editable text's shadow DOM (the contenteditable).
     document.addEventListener('focusin', this.onFocusChange);
     document.addEventListener('focusout', this.onFocusChange);
+    document.addEventListener('pointerdown', this.onPointerDown, true);
   }
 
   disconnectedCallback() {
     document.removeEventListener('focusin', this.onFocusChange);
     document.removeEventListener('focusout', this.onFocusChange);
+    document.removeEventListener('pointerdown', this.onPointerDown, true);
     this.#stopViewportTracking();
     this.#restoreClipping();
     if (this.syncRaf) {
@@ -97,6 +108,7 @@ export class VeEditableLink extends LitElement {
   #sync() {
     const group = this.#anchorElement();
     const next = this.hovered
+      || this.pointerActivated
       || this.matches(':focus-within')
       || (group !== null && typeof group.matches === 'function' && group.matches(':focus-within'));
 
@@ -137,7 +149,15 @@ export class VeEditableLink extends LitElement {
 
   #anchorFromEvent(event) {
     const path = typeof event.composedPath === 'function' ? event.composedPath() : [];
+    if (path.includes(this)) {
+      return null;
+    }
+
     const previous = this.previousElementSibling;
+    const targetedControl = this.#targetedControlFromPath(path, previous);
+    if (targetedControl !== null) {
+      return targetedControl;
+    }
 
     for (const node of path) {
       if (!(node instanceof Element) || node === this) {
@@ -153,6 +173,50 @@ export class VeEditableLink extends LitElement {
       && path.some((node) => node instanceof Node && (node === previous || previous.contains(node)))
     ) {
       return previous;
+    }
+
+    return null;
+  }
+
+  #targetedControlFromPath(path, scope) {
+    for (const node of path) {
+      if (!(node instanceof Element)) {
+        continue;
+      }
+
+      const control = this.#controlForNode(node, scope);
+      if (control !== null) {
+        return control;
+      }
+    }
+
+    return null;
+  }
+
+  #controlForNode(node, scope) {
+    const control = this.#closestControl(node);
+    if (control === null) {
+      return null;
+    }
+
+    if (scope === null) {
+      return control;
+    }
+
+    if (control === scope || scope.contains(control)) {
+      return control;
+    }
+
+    return null;
+  }
+
+  #closestControl(node) {
+    if (node.matches('a[href], button, [data-slot="button"], [role="button"], [role="link"]')) {
+      return node;
+    }
+
+    if (node.matches('ve-editable-text, ve-editable-rich-text')) {
+      return node.closest('a[href], button, [data-slot="button"], [role="button"], [role="link"]') ?? node;
     }
 
     return null;
@@ -281,7 +345,7 @@ export class VeEditableLink extends LitElement {
   }
 
   render() {
-    // experimental, per-user opt-in: render nothing when link editing is off
+    // Respect the per-user Visual Editor setup toggle.
     if (!isEditableLinksEnabled()) {
       return html``;
     }

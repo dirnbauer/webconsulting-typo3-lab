@@ -18,12 +18,12 @@
     </unit>
     <unit id="showLinks">
       <segment>
-        <source>Enable inline link editing (experimental)</source>
+        <source>Show link edit buttons</source>
       </segment>
     </unit>
     <unit id="showLinks.description">
       <segment>
-        <source>Shows a link icon next to link fields so the TYPO3 link browser can be opened directly in the visual editor. Experimental.</source>
+        <source>Shows a link icon next to editable link fields so the TYPO3 link browser can be opened directly in the visual editor.</source>
       </segment>
     </unit>
     <unit id="panelColumns">

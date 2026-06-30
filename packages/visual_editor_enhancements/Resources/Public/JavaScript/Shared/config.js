@@ -7,7 +7,8 @@ export function isElementLibraryEnabled() {
 }
 
 export function isEditableLinksEnabled() {
-  return !!enhancementConfig().elementLibraryLinks;
+  const config = enhancementConfig();
+  return !!(config.editableLinksEnabled ?? config.elementLibraryLinks);
 }
 
 export function elementLibraryColumns() {
