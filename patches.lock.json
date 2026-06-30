@@ -1,5 +1,5 @@
 {
-    "_hash": "3f7023d82e230b2946fcdc14906c94a4b541413dba302a807b4a4c4a77122228",
+    "_hash": "dfc9d88a78e448e9946d5f0bdaa38d7cee569a4f8d07398edf0453e3080e61e9",
     "patches": {
         "netresearch/nr-vault": [
             {
@@ -40,7 +40,7 @@
                 "package": "webconsulting/webcon-easy-workspace",
                 "description": "Toolbar list: toggle switches, Seiteneigenschaften card redesign with intent line, correct TYPO3 labels",
                 "url": "patches/webcon-easy-workspace-toolbar-toggle-and-seiteneigenschaften.patch",
-                "sha256": "a9140327d874dff87af77967f852a7867a4a97ec31317e3ef5322477e7290251",
+                "sha256": "56c72bbb8c50c5539c8610f9836d1ee2e37c1cb6a9d1786b4dc5f37b4df41294",
                 "depth": 1,
                 "extra": {
                     "provenance": "root"
@@ -51,6 +51,18 @@
                 "description": "Locate preview elements with overlay room; keep discard tag inside small viewports",
                 "url": "patches/webcon-easy-workspace-fix-discard-tag-viewport.patch",
                 "sha256": "ce810baab108ce12fd1c99bc2007704df5469e41e97835f22f9220d2be1b8181",
+                "depth": 1,
+                "extra": {
+                    "provenance": "root"
+                }
+            }
+        ],
+        "webconsulting/agentation": [
+            {
+                "package": "webconsulting/agentation",
+                "description": "Respect backend user setup default and explicit toolbar toggle",
+                "url": "patches/webconsulting-agentation-respect-user-setup-toggle.patch",
+                "sha256": "ca8532a9ad4e3c147fd7eedbac7cad43794c1b28bf5d02ab58d830ca4f2ba8e4",
                 "depth": 1,
                 "extra": {
                     "provenance": "root"

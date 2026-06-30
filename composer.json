@@ -242,6 +242,9 @@
       "webconsulting/webcon-easy-workspace": {
         "Toolbar list: toggle switches, Seiteneigenschaften card redesign with intent line, correct TYPO3 labels": "patches/webcon-easy-workspace-toolbar-toggle-and-seiteneigenschaften.patch",
         "Locate preview elements with overlay room; keep discard tag inside small viewports": "patches/webcon-easy-workspace-fix-discard-tag-viewport.patch"
+      },
+      "webconsulting/agentation": {
+        "Respect backend user setup default and explicit toolbar toggle": "patches/webconsulting-agentation-respect-user-setup-toggle.patch"
       }
     }
   }

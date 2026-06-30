@@ -1,0 +1,118 @@
+diff --git a/Configuration/TCA/Overrides/be_users.php b/Configuration/TCA/Overrides/be_users.php
+index 3b0a793..b7c3e0a 100644
+--- a/Configuration/TCA/Overrides/be_users.php
++++ b/Configuration/TCA/Overrides/be_users.php
+@@ -4,9 +4,19 @@ declare(strict_types=1);
+
+ defined('TYPO3') or die();
+
++use TYPO3\CMS\Core\Configuration\ExtensionConfiguration;
+ use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
++use TYPO3\CMS\Core\Utility\GeneralUtility;
+
+ (static function (): void {
++    $defaultOptIn = false;
++    try {
++        $configuration = GeneralUtility::makeInstance(ExtensionConfiguration::class)->get('agentation');
++        $defaultOptIn = is_array($configuration) && (bool)($configuration['defaultOptIn'] ?? false);
++    } catch (\Throwable) {
++        // Extension configuration may be unavailable during early setup.
++    }
++
+     ExtensionManagementUtility::addUserSetting(
+         'agentation_backend_enabled',
+         [
+@@ -14,6 +24,7 @@ use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
+             'config' => [
+                 'type' => 'check',
+                 'renderType' => 'checkboxToggle',
++                'default' => $defaultOptIn ? 1 : 0,
+             ],
+         ]
+     );
+@@ -25,6 +36,7 @@ use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
+             'config' => [
+                 'type' => 'check',
+                 'renderType' => 'checkboxToggle',
++                'default' => $defaultOptIn ? 1 : 0,
+             ],
+         ]
+     );
+diff --git a/Tests/Unit/Service/UserToolbarSettingsServiceTest.php b/Tests/Unit/Service/UserToolbarSettingsServiceTest.php
+new file mode 100644
+index 0000000..d9bbc1e
+--- /dev/null
++++ b/Tests/Unit/Service/UserToolbarSettingsServiceTest.php
+@@ -0,0 +1,72 @@
++<?php
++
++declare(strict_types=1);
++
++namespace WebConsulting\Agentation\Tests\Unit\Service;
++
++use PHPUnit\Framework\MockObject\MockObject;
++use PHPUnit\Framework\TestCase;
++use TYPO3\CMS\Core\Authentication\UserSettings;
++use TYPO3\CMS\Core\Configuration\ExtensionConfiguration;
++use WebConsulting\Agentation\Service\ConfigurationService;
++use WebConsulting\Agentation\Service\UserToolbarSettingsService;
++
++final class UserToolbarSettingsServiceTest extends TestCase
++{
++    public function testBackendSettingOffOverridesDefaultOptIn(): void
++    {
++        $service = new UserToolbarSettingsService($this->createConfigurationService(true));
++        $backendUser = new class {
++            public array $user = ['uid' => 1];
++
++            public function getUserSettings(): UserSettings
++            {
++                return new UserSettings(['agentation_backend_enabled' => 0]);
++            }
++        };
++
++        self::assertFalse($service->isBackendToolbarEnabled($backendUser));
++    }
++
++    public function testMissingBackendSettingUsesDefaultOptIn(): void
++    {
++        $service = new UserToolbarSettingsService($this->createConfigurationService(true));
++        $backendUser = new class {
++            public array $user = ['uid' => 1];
++
++            public function getUserSettings(): UserSettings
++            {
++                return new UserSettings([]);
++            }
++        };
++
++        self::assertTrue($service->isBackendToolbarEnabled($backendUser));
++    }
++
++    public function testFrontendSettingOffOverridesDefaultOptIn(): void
++    {
++        $service = new UserToolbarSettingsService($this->createConfigurationService(true));
++        $backendUser = new class {
++            public array $user = ['uid' => 1];
++
++            public function getUserSettings(): UserSettings
++            {
++                return new UserSettings(['agentation_frontend_enabled' => '0']);
++            }
++        };
++
++        self::assertFalse($service->isFrontendToolbarEnabled($backendUser));
++    }
++
++    private function createConfigurationService(bool $defaultOptIn): ConfigurationService
++    {
++        /** @var ExtensionConfiguration&MockObject $extensionConfiguration */
++        $extensionConfiguration = $this->createMock(ExtensionConfiguration::class);
++        $extensionConfiguration
++            ->method('get')
++            ->with('agentation')
++            ->willReturn(['defaultOptIn' => $defaultOptIn]);
++
++        return new ConfigurationService($extensionConfiguration);
++    }
++}
