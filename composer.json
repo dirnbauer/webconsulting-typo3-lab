@@ -50,15 +50,15 @@
         "symlink": true,
         "versions": {
           "webconsulting/site-package": "14.3.3",
-          "webconsulting/a2ui-integration": "2.1.0",
-          "webconsulting/agui-integration": "0.1.0",
-          "webconsulting/a2a-integration": "0.1.0",
-          "webconsulting/ucp-integration": "0.1.0",
-          "webconsulting/ap2-integration": "0.1.0",
-          "webconsulting/agentstack-integration": "0.1.0",
+          "webconsulting/agent-nexus": "1.0.0",
           "webconsulting/visual-editor-enhancements": "0.1.0"
         }
       }
+    },
+    {
+      "name": "agent-nexus",
+      "type": "vcs",
+      "url": "https://github.com/dirnbauer/typo3-agent-nexus.git"
     },
     {
       "type": "vcs",
@@ -205,12 +205,8 @@
     "typo3/cms-workspaces": "^14.3",
     "typo3/theme-camino": "^14.3",
     "wapplersystems/multisite-belogin": "^14.1",
-    "webconsulting/a2a-integration": "^0.1",
-    "webconsulting/a2ui-integration": "^2.0",
     "webconsulting/agentation": "^1.1",
-    "webconsulting/agentstack-integration": "^0.1",
-    "webconsulting/agui-integration": "^0.1",
-    "webconsulting/ap2-integration": "^0.1",
+    "webconsulting/agent-nexus": "^1.0",
     "webconsulting/api-capability-bridge": "^1.0",
     "webconsulting/desiderio": "dev-main as 2.11.0",
     "webconsulting/docx-editor": "dev-main",
@@ -221,7 +217,6 @@
     "webconsulting/skillflow": "^1.0",
     "webconsulting/typo3-capability-manifest": "^1.0",
     "webconsulting/typo3-x402-paywall": "^1.0",
-    "webconsulting/ucp-integration": "^0.1",
     "webconsulting/visual-editor-enhancements": "^0.1",
     "webconsulting/webcon-easy-workspace": "^1.2.8",
     "webconsulting/webcon-mcp-chat-bridge": "dev-main",

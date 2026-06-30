@@ -1,0 +1,304 @@
+diff --git a/Classes/Service/LocalizationService.php b/Classes/Service/LocalizationService.php
+index e88005f..8fba081 100644
+--- a/Classes/Service/LocalizationService.php
++++ b/Classes/Service/LocalizationService.php
+@@ -67,6 +67,8 @@ final readonly class LocalizationService
+         'context.news',
+         'record.pageRecord',
+         'record.newsRecord',
++        'toolbar.primaryIntent.page',
++        'toolbar.primaryIntent.news',
+         'state.live',
+         'state.new',
+         'state.delete',
+diff --git a/Resources/Private/Language/de.locallang.xlf b/Resources/Private/Language/de.locallang.xlf
+index 5ddc1ad..05d6887 100644
+--- a/Resources/Private/Language/de.locallang.xlf
++++ b/Resources/Private/Language/de.locallang.xlf
+@@ -1305,14 +1305,26 @@
+     </unit>
+     <unit id="record.pageRecord">
+       <segment>
+-        <source>Page record</source>
+-        <target state="translated">Seitendatensatz</target>
++        <source>Page properties</source>
++        <target state="translated">Seiteneigenschaften</target>
+       </segment>
+     </unit>
+     <unit id="record.newsRecord">
+       <segment>
+-        <source>News record</source>
+-        <target state="translated">News-Datensatz</target>
++        <source>News article</source>
++        <target state="translated">News-Artikel</target>
++      </segment>
++    </unit>
++    <unit id="toolbar.primaryIntent.page">
++      <segment>
++        <source>The content elements below belong to this page and publish together with it.</source>
++        <target state="translated">Die Inhaltselemente unten gehören zu dieser Seite und werden mit ihr veröffentlicht.</target>
++      </segment>
++    </unit>
++    <unit id="toolbar.primaryIntent.news">
++      <segment>
++        <source>The content elements below belong to this article and publish together with it.</source>
++        <target state="translated">Die Inhaltselemente unten gehören zu diesem Artikel und werden mit ihm veröffentlicht.</target>
+       </segment>
+     </unit>
+     <unit id="state.live">
+diff --git a/Resources/Private/Language/locallang.xlf b/Resources/Private/Language/locallang.xlf
+index cced2c4..7a0b26b 100644
+--- a/Resources/Private/Language/locallang.xlf
++++ b/Resources/Private/Language/locallang.xlf
+@@ -1305,14 +1305,26 @@
+     </unit>
+     <unit id="record.pageRecord">
+       <segment>
+-        <source>Page record</source>
+-        <target state="translated">Page record</target>
++        <source>Page properties</source>
++        <target state="translated">Page properties</target>
+       </segment>
+     </unit>
+     <unit id="record.newsRecord">
+       <segment>
+-        <source>News record</source>
+-        <target state="translated">News record</target>
++        <source>News article</source>
++        <target state="translated">News article</target>
++      </segment>
++    </unit>
++    <unit id="toolbar.primaryIntent.page">
++      <segment>
++        <source>The content elements below belong to this page and publish together with it.</source>
++        <target state="translated">The content elements below belong to this page and publish together with it.</target>
++      </segment>
++    </unit>
++    <unit id="toolbar.primaryIntent.news">
++      <segment>
++        <source>The content elements below belong to this article and publish together with it.</source>
++        <target state="translated">The content elements below belong to this article and publish together with it.</target>
+       </segment>
+     </unit>
+     <unit id="state.live">
+diff --git a/Resources/Private/Partials/Toolbar/ListItem.html b/Resources/Private/Partials/Toolbar/ListItem.html
+index ece7b1e..cfec60b 100644
+--- a/Resources/Private/Partials/Toolbar/ListItem.html
++++ b/Resources/Private/Partials/Toolbar/ListItem.html
+@@ -75,6 +75,18 @@
+                 </span>
+             </f:if>
+
++            <f:if condition="{item.isPrimary} && ({item.table} == 'pages' || {item.table} == 'tx_news_domain_model_news')">
++                <span class="wew-list__intent">
++                    <span class="wew-list__intent-icon" aria-hidden="true"></span>
++                    <span class="wew-list__intent-text">
++                        <f:if condition="{item.table} == 'pages'">
++                            <f:then><f:translate key="LLL:EXT:webcon_easy_workspace/Resources/Private/Language/locallang.xlf:toolbar.primaryIntent.page" /></f:then>
++                            <f:else><f:translate key="LLL:EXT:webcon_easy_workspace/Resources/Private/Language/locallang.xlf:toolbar.primaryIntent.news" /></f:else>
++                        </f:if>
++                    </span>
++                </span>
++            </f:if>
++
+             <f:if condition="{item.isChanged}">
+                 <span class="wew-list__change-actions">
+                     <f:if condition="{item.historyUrl}">
+diff --git a/Resources/Public/Css/easy-workspace.css b/Resources/Public/Css/easy-workspace.css
+index f062073..35d59de 100644
+--- a/Resources/Public/Css/easy-workspace.css
++++ b/Resources/Public/Css/easy-workspace.css
+@@ -550,17 +550,18 @@ webcon-easy-workspace-menu-v2.wew-menu-host--compact-toolbar {
+     background: color-mix(in srgb, var(--typo3-link-color, var(--bs-primary)) 12%, transparent);
+     border-bottom: 2px solid color-mix(in srgb, var(--typo3-link-color, var(--bs-primary)) 35%, transparent);
+ }
+-.wew-list__row--primary[data-table="pages"] {
+-    margin: .4rem .45rem .45rem;
+-    border: 1px solid color-mix(in srgb, var(--typo3-link-color, var(--bs-primary)) 42%, var(--typo3-component-border-color, var(--bs-border-color)));
+-    border-radius: 6px;
+-    background:
+-        linear-gradient(135deg,
+-            color-mix(in srgb, var(--typo3-link-color, var(--bs-primary)) 22%, transparent),
+-            color-mix(in srgb, var(--typo3-link-color, var(--bs-primary)) 9%, transparent));
+-    box-shadow:
+-        inset 0 1px 0 color-mix(in srgb, var(--bs-white, #fff) 11%, transparent),
+-        0 6px 14px color-mix(in srgb, var(--bs-black, #000) 18%, transparent);
++.wew-list__row--primary[data-table="pages"],
++.wew-list__row--primary[data-table="tx_news_domain_model_news"] {
++    /* Flat, calm card — a single solid tint mixed onto the panel
++       background (works in light and dark), a hairline border and a
++       barely-there shadow. The gradient + heavy drop shadow we had
++       before read as a "button" and fought the list; this just
++       reads as "the parent record this group belongs to". */
++    margin: .5rem .5rem .4rem;
++    border: 1px solid color-mix(in srgb, var(--typo3-link-color, var(--bs-primary)) 28%, var(--typo3-component-border-color, var(--bs-border-color)));
++    border-radius: 8px;
++    background: color-mix(in srgb, var(--typo3-link-color, var(--bs-primary)) 8%, var(--typo3-component-bg, var(--bs-body-bg)));
++    box-shadow: 0 1px 2px color-mix(in srgb, var(--bs-black, #000) 7%, transparent);
+     overflow: hidden;
+ }
+ .wew-list__row--primary .wew-list__label {
+@@ -583,46 +584,35 @@ webcon-easy-workspace-menu-v2.wew-menu-host--compact-toolbar {
+     font-size: 13.5px;
+ }
+ .wew-list__primary-kicker {
++    /* Clean eyebrow: record-class icon + uppercase label, no pill.
++       The icon glyph comes from --wew-primary-icon (set per table
++       below) so pages and news each show their own record icon. */
+     display: inline-flex;
+     align-items: center;
+     align-self: flex-start;
+-    gap: .35rem;
++    gap: .3rem;
+     max-width: 100%;
+-    padding: .08rem .45rem;
+-    border: 1px solid color-mix(in srgb, var(--typo3-link-color, var(--bs-primary)) 38%, transparent);
+-    border-radius: 999px;
+-    background: color-mix(in srgb, var(--typo3-link-color, var(--bs-primary)) 14%, transparent);
++    margin-bottom: .15rem;
+     color: var(--typo3-link-color, var(--bs-primary));
+     font-size: 9.5px;
+     font-weight: 700;
+     line-height: 1.35;
+-    letter-spacing: .06em;
++    letter-spacing: .07em;
+     text-transform: uppercase;
+     white-space: nowrap;
+ }
+ .wew-list__primary-kicker::before {
+     content: "";
+-    width: 7px;
+-    height: 7px;
+-    border-radius: 50%;
++    flex-shrink: 0;
++    width: 13px;
++    height: 13px;
+     background: currentColor;
+-    box-shadow: 0 0 0 3px color-mix(in srgb, currentColor 16%, transparent);
+-}
+-/* Larger leading icon on the primary row's title so it reads as
+-   a record-class glyph, not a tiny decoration. */
+-.wew-list__row--primary[data-table="pages"] .wew-list__title-text::before,
+-.wew-list__row--primary[data-table="tx_news_domain_model_news"] .wew-list__title-text::before {
+-    content: "";
+-    display: inline-block;
+-    width: 18px;
+-    height: 18px;
+-    margin-right: .5rem;
+-    vertical-align: -4px;
+-    background: var(--typo3-link-color, var(--bs-primary));
+     -webkit-mask: var(--wew-primary-icon) center / contain no-repeat;
+             mask: var(--wew-primary-icon) center / contain no-repeat;
+-    opacity: .9;
+ }
++/* The record-class icon now lives in the kicker eyebrow above the
++   title (.wew-list__primary-kicker::before), so the title stays a
++   clean text line — no duplicate leading glyph. */
+ .wew-list__row--primary[data-table="pages"] {
+     --wew-primary-icon: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill="currentColor" d="M3 1.5A.5.5 0 0 1 3.5 1h6a.5.5 0 0 1 .354.146l3 3A.5.5 0 0 1 13 4.5V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V1.5Zm6.5 1.207V4.5h1.793L9.5 2.707Z"/></svg>');
+ }
+@@ -630,21 +620,58 @@ webcon-easy-workspace-menu-v2.wew-menu-host--compact-toolbar {
+     --wew-primary-icon: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill="currentColor" d="M1.5 2h11A1.5 1.5 0 0 1 14 3.5V13h1v1H1V3.5A1.5 1.5 0 0 1 2.5 2H1.5Zm1 1.5V13h10V3.5h-10Zm1.5 2h7v1H4v-1Zm0 2.5h7v1H4v-1Zm0 2.5h5v1H4v-1Z"/></svg>');
+ }
+
++/* ---- Intent caption on the primary card ----
++   One muted line that spells out the parent→children relationship
++   in words ("the content elements below belong to this page and
++   publish together with it"), so the connection is explicit and
++   not carried by the visual indent alone. */
++.wew-list__intent {
++    display: flex;
++    align-items: flex-start;
++    gap: .35rem;
++    margin-top: .15rem;
++    color: var(--typo3-text-color-secondary, var(--bs-secondary-color));
++    font-size: 10.5px;
++    line-height: 1.35;
++}
++.wew-list__intent-icon {
++    flex-shrink: 0;
++    width: 13px;
++    height: 13px;
++    margin-top: .06rem;
++    background: currentColor;
++    -webkit-mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill="none" stroke="black" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" d="M4 3v4.5a2 2 0 0 0 2 2h6.5M10.5 7 13 9.5 10.5 12"/></svg>') center / contain no-repeat;
++            mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill="none" stroke="black" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" d="M4 3v4.5a2 2 0 0 0 2 2h6.5M10.5 7 13 9.5 10.5 12"/></svg>') center / contain no-repeat;
++    opacity: .8;
++}
++.wew-list__intent-text {
++    min-width: 0;
++}
++
+ /* ---- Content element rows (children of the primary above) ----
+-   No indent — hierarchy is carried by a continuous left rail
+-   (declared below) that runs from the colheader strip down
+-   through every CE row, the same pattern TYPO3's main navigation
+-   uses for sub-items. */
++   Indented so they read as a child group of the page/news card
++   above: row text sits at --wew-child-indent and a continuous left
++   rail (--wew-child-rail) runs from the colheader strip down
++   through every CE row — the same pattern TYPO3's main navigation
++   uses for sub-items — placed just inside the card's left edge so
++   it visually descends from the parent. */
++.wew-list {
++    --wew-child-indent: 1.55rem;
++    --wew-child-rail: .65rem;
++}
+ .wew-list__row[data-table="tt_content"]:not(.wew-list__row--primary)::before {
+     content: "";
+     position: absolute;
+-    left: 0;
++    left: var(--wew-child-rail);
+     top: 0;
+     bottom: -1px;
+-    width: 3px;
++    width: 2px;
+     border-radius: 0;
+     background: color-mix(in srgb, var(--bs-secondary-color, #6c757d) 35%, transparent);
+ }
++.wew-list__row[data-table="tt_content"]:not(.wew-list__row--primary) .wew-list__label {
++    padding-left: var(--wew-child-indent);
++}
+ /* Changed CE rows: the rail switches to the primary info color
+    so "modified" still reads at a glance — same color as the
+    short rounded stripe used on pages/news primary rows, just
+@@ -695,7 +722,7 @@ webcon-easy-workspace-menu-v2.wew-menu-host--compact-toolbar {
+    way they'd see them in Web → Layout. */
+ .wew-list__colheader {
+     list-style: none;
+-    padding: .35rem .85rem .15rem;
++    padding: .35rem .85rem .15rem var(--wew-child-indent, 1.55rem);
+     font-size: 10px;
+     font-weight: 700;
+     text-transform: uppercase;
+@@ -715,10 +742,10 @@ webcon-easy-workspace-menu-v2.wew-menu-host--compact-toolbar {
+ .wew-list__colheader::before {
+     content: "";
+     position: absolute;
+-    left: 0;
++    left: var(--wew-child-rail, .65rem);
+     top: 0;
+     bottom: -1px;
+-    width: 3px;
++    width: 2px;
+     background: color-mix(in srgb, var(--bs-secondary-color, #6c757d) 35%, transparent);
+ }
+ .wew-list__colheader-label {
+diff --git a/Resources/Public/JavaScript/components/wew-toolbar-menu.js b/Resources/Public/JavaScript/components/wew-toolbar-menu.js
+index 6873259..f8b99a0 100644
+--- a/Resources/Public/JavaScript/components/wew-toolbar-menu.js
++++ b/Resources/Public/JavaScript/components/wew-toolbar-menu.js
+@@ -682,6 +682,13 @@ export class WebconEasyWorkspaceMenu extends LitElement {
+               </span>
+             ` : ''}
+
++            ${item.isPrimary && (item.table === 'pages' || item.table === 'tx_news_domain_model_news') ? html`
++              <span class="wew-list__intent">
++                <span class="wew-list__intent-icon" aria-hidden="true"></span>
++                <span class="wew-list__intent-text">${this._label(item.table === 'pages' ? 'toolbar.primaryIntent.page' : 'toolbar.primaryIntent.news')}</span>
++              </span>
++            ` : ''}
++
+             ${item.isChanged ? html`
+               <span class="wew-list__change-actions">
+                 ${item.historyUrl ? html`

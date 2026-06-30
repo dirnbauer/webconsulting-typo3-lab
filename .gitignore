@@ -32,6 +32,9 @@ scripts/*
 /packages/ap2_integration/
 # Separate repo (github.com/dirnbauer/typo3-agentstack-integration), referenced via composer path repo
 /packages/agentstack_integration/
+# Separate repo (github.com/dirnbauer/typo3-agent-nexus), referenced via composer path repo
+/packages/agent_nexus/
+/.ddev/traefik/
 /backup-*/
 /.tarballs/*
 !/.tarballs/README.md
