@@ -1,6 +1,7 @@
 import {onMessage, sendMessage} from '@typo3/visual-editor/Shared/iframe-messaging';
 import {elementLibraryOpen} from '@webconsulting/visual-editor-enhancements/Shared/local-stores';
 import {isEditableLinksEnabled, isElementLibraryEnabled} from '@webconsulting/visual-editor-enhancements/Shared/config';
+import '@webconsulting/visual-editor-enhancements/Frontend/visual-editor-patches';
 import '@webconsulting/visual-editor-enhancements/Frontend/components/ve-editable-link';
 
 function initializeAccentBridge() {

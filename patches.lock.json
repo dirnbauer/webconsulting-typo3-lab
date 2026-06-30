@@ -1,5 +1,5 @@
 {
-    "_hash": "d764682e10fb80b3afa27dca0837d237cb7cddd3d7503f03e29e02057e9cc21a",
+    "_hash": "3f7023d82e230b2946fcdc14906c94a4b541413dba302a807b4a4c4a77122228",
     "patches": {
         "netresearch/nr-vault": [
             {
@@ -29,18 +29,6 @@
                 "description": "Guard workspace move-pointer overlay when the live record is missing",
                 "url": "patches/typo3-cms-core-fix-workspace-move-pointer-missing-live-record.patch",
                 "sha256": "3e68ab3ee23f72eb894d0f55025a728bd2813275709d3a9a132145beed4feea3",
-                "depth": 1,
-                "extra": {
-                    "provenance": "root"
-                }
-            }
-        ],
-        "friendsoftypo3/visual-editor": [
-            {
-                "package": "friendsoftypo3/visual-editor",
-                "description": "Rebased local Visual Editor fixes for 1.8.0",
-                "url": "patches/friendsoftypo3-visual-editor-1.8-local-fixes.patch",
-                "sha256": "43c156546f2775b1269b931facd8ac075fdec9b1ac4f1320f2003eac4966fd97",
                 "depth": 1,
                 "extra": {
                     "provenance": "root"

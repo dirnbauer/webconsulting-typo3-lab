@@ -27,6 +27,10 @@ final readonly class EditModeEnhancementsMiddleware implements MiddlewareInterfa
     public function process(ServerRequestInterface $request, RequestHandlerInterface $handler): ResponseInterface
     {
         if ($this->isEditModeRequest($request)) {
+            $this->assetCollector->addStyleSheet(
+                'visual-editor-enhancements-editable-overrides',
+                'EXT:visual_editor_enhancements/Resources/Public/Css/editable-overrides.css',
+            );
             $this->assetCollector->addJavaScriptModule('@webconsulting/visual-editor-enhancements/Frontend/index');
             $this->loadLanguageLabelsInline();
             $this->addConfigurationInline();
