@@ -20,20 +20,10 @@ apps/*/.next/
 scripts/*
 /var/labels/*
 /packages/bad_shop_watch/
-# Separate repo (github.com/dirnbauer/typo3-a2ui-integration), referenced via composer path repo
-/packages/a2ui_integration/
-# Separate repo (github.com/dirnbauer/typo3-agui-integration), referenced via composer path repo
-/packages/agui_integration/
-# Separate repo (github.com/dirnbauer/typo3-a2a-integration), referenced via composer path repo
-/packages/a2a_integration/
-# Separate repo (github.com/dirnbauer/typo3-ucp-integration), referenced via composer path repo
-/packages/ucp_integration/
-# Separate repo (github.com/dirnbauer/typo3-ap2-integration), referenced via composer path repo
-/packages/ap2_integration/
-# Separate repo (github.com/dirnbauer/typo3-agentstack-integration), referenced via composer path repo
-/packages/agentstack_integration/
 # Separate repo (github.com/dirnbauer/typo3-agent-nexus), referenced via composer path repo
 /packages/agent_nexus/
+# Separate repo (github.com/dirnbauer/typo3-visual-editor-enhancements), referenced via composer path repo
+/packages/visual_editor_enhancements/
 /.ddev/traefik/
 /backup-*/
 /.tarballs/*

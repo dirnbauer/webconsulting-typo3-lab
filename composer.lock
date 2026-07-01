@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "caa571d8a8b9bb71d75aa9c7733dbee4",
+    "content-hash": "2869e1a5ea81e5e50b7dbe2ebd2ab51a",
     "packages": [
         {
             "name": "apache-solr-for-typo3/solr",
@@ -11972,7 +11972,7 @@
             "dist": {
                 "type": "path",
                 "url": "packages/agent_nexus",
-                "reference": "839c206dbd0713199ef4ee0299a37060f59f3471"
+                "reference": "46f1a7a113691127d2eff32b73c93825bc982953"
             },
             "require": {
                 "php": "^8.3",
@@ -12565,7 +12565,7 @@
             "dist": {
                 "type": "path",
                 "url": "packages/site_package",
-                "reference": "4aa0d3f52e0217d7a2e770d9f8b753f1fba96960"
+                "reference": "4e77c959aa8b230c1baead0bbe6cc3e5126949d5"
             },
             "require": {
                 "apache-solr-for-typo3/solr": "^14.0@beta",
@@ -12837,11 +12837,11 @@
         },
         {
             "name": "webconsulting/visual-editor-enhancements",
-            "version": "0.1.0",
+            "version": "0.2.0",
             "dist": {
                 "type": "path",
                 "url": "packages/visual_editor_enhancements",
-                "reference": "e3b0fc777978c3d6ff90a3eeee7131a64f91b7f8"
+                "reference": "f15ced5a588227c5de46eb95785d8eb2c73b65a2"
             },
             "require": {
                 "friendsoftypo3/visual-editor": "^1.8",
@@ -12866,7 +12866,14 @@
             "license": [
                 "GPL-2.0-or-later"
             ],
-            "description": "Local Visual Editor enhancements: element library, editable link helper, and editor UI bridges.",
+            "authors": [
+                {
+                    "name": "webconsulting GmbH",
+                    "email": "office@webconsulting.at",
+                    "homepage": "https://webconsulting.at"
+                }
+            ],
+            "description": "Visual Editor enhancements: element library, editable link helper, select/category field chooser, and editor UI bridges.",
             "homepage": "https://webconsulting.at",
             "keywords": [
                 "TYPO3",
@@ -12874,6 +12881,10 @@
                 "frontend-editing",
                 "visual-editor"
             ],
+            "support": {
+                "issues": "https://github.com/dirnbauer/typo3-visual-editor-enhancements/issues",
+                "source": "https://github.com/dirnbauer/typo3-visual-editor-enhancements"
+            },
             "transport-options": {
                 "symlink": true,
                 "relative": true

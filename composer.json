@@ -51,7 +51,7 @@
         "versions": {
           "webconsulting/site-package": "14.3.3",
           "webconsulting/agent-nexus": "1.0.0",
-          "webconsulting/visual-editor-enhancements": "0.1.0"
+          "webconsulting/visual-editor-enhancements": "0.2.0"
         }
       }
     },
@@ -59,6 +59,11 @@
       "name": "agent-nexus",
       "type": "vcs",
       "url": "https://github.com/dirnbauer/typo3-agent-nexus.git"
+    },
+    {
+      "name": "visual-editor-enhancements",
+      "type": "vcs",
+      "url": "https://github.com/dirnbauer/typo3-visual-editor-enhancements.git"
     },
     {
       "type": "vcs",
@@ -217,7 +222,7 @@
     "webconsulting/skillflow": "^1.0",
     "webconsulting/typo3-capability-manifest": "^1.0",
     "webconsulting/typo3-x402-paywall": "^1.0",
-    "webconsulting/visual-editor-enhancements": "^0.1",
+    "webconsulting/visual-editor-enhancements": "^0.2",
     "webconsulting/webcon-easy-workspace": "^1.2.8",
     "webconsulting/webcon-mcp-chat-bridge": "dev-main",
     "webconsulting/workos-auth": "^1.1"
