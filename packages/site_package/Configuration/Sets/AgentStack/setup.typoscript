@@ -1,4 +1,4 @@
-# Render the Agent Stack frontend plugins (A2UI / AG-UI / A2A / UCP / AP2)
+# Render the Agent Nexus frontend plugins (A2UI / AG-UI / A2A / UCP / AP2)
 # through the site's content-element wrapper (lib.contentElement), so each one
 # appears framed + styled like every other content element. The plugin's own
 # output is the cObj "20" (EXTBASEPLUGIN); the generic AgentStackPlugin FSC
@@ -7,16 +7,6 @@ lib.contentElement.templateRootPaths.250 = EXT:site_package/Resources/Private/Fl
 
 tt_content.agentnexus_inquiry =< lib.contentElement
 tt_content.agentnexus_inquiry {
-    templateName = AgentStackPlugin
-    20 = EXTBASEPLUGIN
-    20 {
-        extensionName = AgentNexus
-        pluginName = Inquiry
-    }
-}
-
-tt_content.a2uiintegration_inquiry =< lib.contentElement
-tt_content.a2uiintegration_inquiry {
     templateName = AgentStackPlugin
     20 = EXTBASEPLUGIN
     20 {
@@ -35,28 +25,8 @@ tt_content.agentnexus_assistant {
     }
 }
 
-tt_content.aguiintegration_assistant =< lib.contentElement
-tt_content.aguiintegration_assistant {
-    templateName = AgentStackPlugin
-    20 = EXTBASEPLUGIN
-    20 {
-        extensionName = AgentNexus
-        pluginName = Assistant
-    }
-}
-
 tt_content.agentnexus_concierge =< lib.contentElement
 tt_content.agentnexus_concierge {
-    templateName = AgentStackPlugin
-    20 = EXTBASEPLUGIN
-    20 {
-        extensionName = AgentNexus
-        pluginName = Concierge
-    }
-}
-
-tt_content.a2aintegration_concierge =< lib.contentElement
-tt_content.a2aintegration_concierge {
     templateName = AgentStackPlugin
     20 = EXTBASEPLUGIN
     20 {
@@ -75,28 +45,8 @@ tt_content.agentnexus_checkout {
     }
 }
 
-tt_content.ucpintegration_checkout =< lib.contentElement
-tt_content.ucpintegration_checkout {
-    templateName = AgentStackPlugin
-    20 = EXTBASEPLUGIN
-    20 {
-        extensionName = AgentNexus
-        pluginName = Checkout
-    }
-}
-
 tt_content.agentnexus_trustedsurface =< lib.contentElement
 tt_content.agentnexus_trustedsurface {
-    templateName = AgentStackPlugin
-    20 = EXTBASEPLUGIN
-    20 {
-        extensionName = AgentNexus
-        pluginName = TrustedSurface
-    }
-}
-
-tt_content.ap2integration_trustedsurface =< lib.contentElement
-tt_content.ap2integration_trustedsurface {
     templateName = AgentStackPlugin
     20 = EXTBASEPLUGIN
     20 {

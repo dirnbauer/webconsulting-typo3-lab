@@ -43,12 +43,6 @@ jobs:
           TOKEN: ${{ secrets.PACKAGES_TOKEN || github.token }}
         run: |
           for spec in \
-            "typo3-a2ui-integration:a2ui_integration" \
-            "typo3-agui-integration:agui_integration" \
-            "typo3-a2a-integration:a2a_integration" \
-            "typo3-ucp-integration:ucp_integration" \
-            "typo3-ap2-integration:ap2_integration" \
-            "typo3-agentstack-integration:agentstack_integration" \
             "typo3-agent-nexus:agent_nexus"; do
             repo="${spec%%:*}"; dir="${spec##*:}"
             git clone --depth 1 "https://x-access-token:${TOKEN}@github.com/dirnbauer/${repo}.git" "packages/${dir}"
