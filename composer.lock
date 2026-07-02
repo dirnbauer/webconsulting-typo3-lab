@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a18fa7e8e5b72eea54bce8e2b475eff0",
+    "content-hash": "8210c4442ef8d469ef98221c89fbadde",
     "packages": [
         {
             "name": "apache-solr-for-typo3/solr",
@@ -11968,11 +11968,11 @@
         },
         {
             "name": "webconsulting/agent-nexus",
-            "version": "1.0.0",
+            "version": "2.0.1",
             "dist": {
                 "type": "path",
                 "url": "packages/agent_nexus",
-                "reference": "8af26941c954ee605cc91c72422f6bc041d74e58"
+                "reference": "fd4cf346eaaae69bfe9e4fe5dfc900813420d1c2"
             },
             "require": {
                 "php": "^8.3",
@@ -11990,7 +11990,7 @@
             "extra": {
                 "typo3/cms": {
                     "extension-key": "agent_nexus",
-                    "version": "2.0.0",
+                    "version": "2.0.1",
                     "Package": {
                         "providesPackages": []
                     }

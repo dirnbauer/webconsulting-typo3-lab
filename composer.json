@@ -50,7 +50,7 @@
         "symlink": true,
         "versions": {
           "webconsulting/site-package": "14.3.3",
-          "webconsulting/agent-nexus": "1.0.0",
+          "webconsulting/agent-nexus": "2.0.1",
           "webconsulting/visual-editor-enhancements": "0.2.3"
         }
       }
@@ -211,7 +211,7 @@
     "typo3/theme-camino": "^14.3",
     "wapplersystems/multisite-belogin": "^14.1",
     "webconsulting/agentation": "^1.1",
-    "webconsulting/agent-nexus": "^1.0",
+    "webconsulting/agent-nexus": "^2.0",
     "webconsulting/api-capability-bridge": "^1.0",
     "webconsulting/desiderio": "dev-main as 2.11.0",
     "webconsulting/docx-editor": "dev-main",
