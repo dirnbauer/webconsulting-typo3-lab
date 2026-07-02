@@ -12565,7 +12565,7 @@
             "dist": {
                 "type": "path",
                 "url": "packages/site_package",
-                "reference": "f03180b3cf216e7eb7071c47fa9c46182871e769"
+                "reference": "74629a3e90d403ecb6bbf5285ea29d307a3333ba"
             },
             "require": {
                 "apache-solr-for-typo3/solr": "^14.0@beta",
@@ -12610,16 +12610,16 @@
         },
         {
             "name": "webconsulting/skillflow",
-            "version": "v1.2.0",
+            "version": "v1.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/skillflow.git",
-                "reference": "b3ca8c0fe13038f5df0955df0997bfb66173c070"
+                "reference": "d98ed37acc6fce141e41282635c3e1d928b1de56"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/skillflow/zipball/b3ca8c0fe13038f5df0955df0997bfb66173c070",
-                "reference": "b3ca8c0fe13038f5df0955df0997bfb66173c070",
+                "url": "https://api.github.com/repos/dirnbauer/skillflow/zipball/d98ed37acc6fce141e41282635c3e1d928b1de56",
+                "reference": "d98ed37acc6fce141e41282635c3e1d928b1de56",
                 "shasum": ""
             },
             "require": {
@@ -12651,7 +12651,7 @@
                 "GPL-2.0-or-later"
             ],
             "description": "Agent Skills for TYPO3 - manage Anthropic-style skills, import them from folders or git repositories, attach them to workspace stages and pages, and run them against content (SEO, tone, QA). Local/DDEV installs only.",
-            "time": "2026-07-02T04:54:38+00:00"
+            "time": "2026-07-02T09:30:05+00:00"
         },
         {
             "name": "webconsulting/typo3-capability-manifest",
