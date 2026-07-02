@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6e9d1c0f1aec12453fe0178bd757dbe7",
+    "content-hash": "a18fa7e8e5b72eea54bce8e2b475eff0",
     "packages": [
         {
             "name": "apache-solr-for-typo3/solr",
@@ -11972,7 +11972,7 @@
             "dist": {
                 "type": "path",
                 "url": "packages/agent_nexus",
-                "reference": "fa9d4925fa0e33f9b607e1d85703fbae78d93df4"
+                "reference": "8af26941c954ee605cc91c72422f6bc041d74e58"
             },
             "require": {
                 "php": "^8.3",
@@ -11984,13 +11984,13 @@
             },
             "suggest": {
                 "friendsoftypo3/content-blocks": "Can be used to expose the frontend protocol plugins as richer content blocks.",
-                "netresearch/nr-llm": "Enables real LLM-backed A2UI generation where configured; otherwise Agent Nexus uses deterministic demos."
+                "netresearch/nr-llm": "Enables real LLM-backed behavior across the frontend plugins (A2UI generation, AG-UI streamed answers, A2A routing, UCP rationale) where configured; otherwise Agent Nexus uses deterministic demos."
             },
             "type": "typo3-cms-extension",
             "extra": {
                 "typo3/cms": {
                     "extension-key": "agent_nexus",
-                    "version": "1.0.0",
+                    "version": "2.0.0",
                     "Package": {
                         "providesPackages": []
                     }
@@ -12354,12 +12354,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/flue.git",
-                "reference": "01609edabbf82f96ddf40176969c870d4bedda75"
+                "reference": "35afd8b30ee6054bb93a5e29de73c476f61bc3d4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/flue/zipball/01609edabbf82f96ddf40176969c870d4bedda75",
-                "reference": "01609edabbf82f96ddf40176969c870d4bedda75",
+                "url": "https://api.github.com/repos/dirnbauer/flue/zipball/35afd8b30ee6054bb93a5e29de73c476f61bc3d4",
+                "reference": "35afd8b30ee6054bb93a5e29de73c476f61bc3d4",
                 "shasum": ""
             },
             "require": {
@@ -12413,7 +12413,7 @@
                 "issues": "https://github.com/dirnbauer/flue/issues",
                 "source": "https://github.com/dirnbauer/flue"
             },
-            "time": "2026-06-28T13:50:39+00:00"
+            "time": "2026-07-02T04:55:06+00:00"
         },
         {
             "name": "webconsulting/records-list-examples",
@@ -12610,16 +12610,16 @@
         },
         {
             "name": "webconsulting/skillflow",
-            "version": "v1.1.1",
+            "version": "v1.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/skillflow.git",
-                "reference": "10a7e4683ca1cdf45398e592971a605bd8c11332"
+                "reference": "b3ca8c0fe13038f5df0955df0997bfb66173c070"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/skillflow/zipball/10a7e4683ca1cdf45398e592971a605bd8c11332",
-                "reference": "10a7e4683ca1cdf45398e592971a605bd8c11332",
+                "url": "https://api.github.com/repos/dirnbauer/skillflow/zipball/b3ca8c0fe13038f5df0955df0997bfb66173c070",
+                "reference": "b3ca8c0fe13038f5df0955df0997bfb66173c070",
                 "shasum": ""
             },
             "require": {
@@ -12651,7 +12651,7 @@
                 "GPL-2.0-or-later"
             ],
             "description": "Agent Skills for TYPO3 - manage Anthropic-style skills, import them from folders or git repositories, attach them to workspace stages and pages, and run them against content (SEO, tone, QA). Local/DDEV installs only.",
-            "time": "2026-06-20T17:55:08+00:00"
+            "time": "2026-07-02T04:54:38+00:00"
         },
         {
             "name": "webconsulting/typo3-capability-manifest",
