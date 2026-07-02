@@ -12610,16 +12610,16 @@
         },
         {
             "name": "webconsulting/skillflow",
-            "version": "v1.3.0",
+            "version": "v1.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/skillflow.git",
-                "reference": "d98ed37acc6fce141e41282635c3e1d928b1de56"
+                "reference": "c47e31b1758ee9a01cc2f38f03e280eb65944edb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/skillflow/zipball/d98ed37acc6fce141e41282635c3e1d928b1de56",
-                "reference": "d98ed37acc6fce141e41282635c3e1d928b1de56",
+                "url": "https://api.github.com/repos/dirnbauer/skillflow/zipball/c47e31b1758ee9a01cc2f38f03e280eb65944edb",
+                "reference": "c47e31b1758ee9a01cc2f38f03e280eb65944edb",
                 "shasum": ""
             },
             "require": {
@@ -12651,7 +12651,7 @@
                 "GPL-2.0-or-later"
             ],
             "description": "Agent Skills for TYPO3 - manage Anthropic-style skills, import them from folders or git repositories, attach them to workspace stages and pages, and run them against content (SEO, tone, QA). Local/DDEV installs only.",
-            "time": "2026-07-02T09:30:05+00:00"
+            "time": "2026-07-02T09:44:08+00:00"
         },
         {
             "name": "webconsulting/typo3-capability-manifest",
