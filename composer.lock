@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2869e1a5ea81e5e50b7dbe2ebd2ab51a",
+    "content-hash": "d35c65df378868dbd4ae0234f76a0277",
     "packages": [
         {
             "name": "apache-solr-for-typo3/solr",
@@ -11972,7 +11972,7 @@
             "dist": {
                 "type": "path",
                 "url": "packages/agent_nexus",
-                "reference": "46f1a7a113691127d2eff32b73c93825bc982953"
+                "reference": "fa9d4925fa0e33f9b607e1d85703fbae78d93df4"
             },
             "require": {
                 "php": "^8.3",
@@ -12565,7 +12565,7 @@
             "dist": {
                 "type": "path",
                 "url": "packages/site_package",
-                "reference": "4e77c959aa8b230c1baead0bbe6cc3e5126949d5"
+                "reference": "317cd6ad322f8a1b1d0067edd962d3730aca084c"
             },
             "require": {
                 "apache-solr-for-typo3/solr": "^14.0@beta",
@@ -12837,11 +12837,11 @@
         },
         {
             "name": "webconsulting/visual-editor-enhancements",
-            "version": "0.2.0",
+            "version": "0.2.1",
             "dist": {
                 "type": "path",
                 "url": "packages/visual_editor_enhancements",
-                "reference": "f15ced5a588227c5de46eb95785d8eb2c73b65a2"
+                "reference": "130aa5c36c3c74355ecefd774bc8b3db1b51c26e"
             },
             "require": {
                 "friendsoftypo3/visual-editor": "^1.8",
