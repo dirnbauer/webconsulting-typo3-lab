@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3dfe988d4c6c25134ac1ddb79acc1561",
+    "content-hash": "01eb659cb7b2e6a0926d9e294aaa9bc1",
     "packages": [
         {
             "name": "apache-solr-for-typo3/solr",
@@ -12565,7 +12565,7 @@
             "dist": {
                 "type": "path",
                 "url": "packages/site_package",
-                "reference": "088c69a5f05c37e187ae5257f31fbe9104144ebd"
+                "reference": "545d4d848b269204364fcdc3e71f37c05f124037"
             },
             "require": {
                 "apache-solr-for-typo3/solr": "^14.0@beta",
@@ -12837,11 +12837,11 @@
         },
         {
             "name": "webconsulting/visual-editor-enhancements",
-            "version": "0.5.0",
+            "version": "0.6.0",
             "dist": {
                 "type": "path",
                 "url": "packages/visual_editor_enhancements",
-                "reference": "4456384350f2f97d5c01a4dee66b2db1c3335bc1"
+                "reference": "2bfcdf3c7d6306d95743d0a33a7d6ce003e2415c"
             },
             "require": {
                 "friendsoftypo3/visual-editor": "^1.8",
