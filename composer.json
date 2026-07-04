@@ -32,11 +32,6 @@
       "url": "https://github.com/dirnbauer/innesto"
     },
     {
-      "name": "skillflow",
-      "type": "vcs",
-      "url": "https://github.com/dirnbauer/skillflow.git"
-    },
-    {
       "type": "vcs",
       "url": "https://github.com/dirnbauer/flue.git"
     },
@@ -51,6 +46,8 @@
         "versions": {
           "webconsulting/site-package": "14.3.3",
           "webconsulting/agent-nexus": "2.0.1",
+          "webconsulting/opentag-bridge": "0.1.0",
+          "webconsulting/skillflow": "1.5.1",
           "webconsulting/visual-editor-enhancements": "0.7.0"
         }
       }
@@ -64,6 +61,11 @@
       "name": "visual-editor-enhancements",
       "type": "vcs",
       "url": "https://github.com/dirnbauer/typo3-visual-editor-enhancements.git"
+    },
+    {
+      "name": "opentag-bridge",
+      "type": "vcs",
+      "url": "https://github.com/dirnbauer/typo3-opentag-bridge.git"
     },
     {
       "type": "vcs",
@@ -213,9 +215,10 @@
     "webconsulting/agentation": "^1.1",
     "webconsulting/agent-nexus": "^2.0",
     "webconsulting/api-capability-bridge": "^1.0",
-    "webconsulting/desiderio": "dev-main as 2.12.0",
+    "webconsulting/desiderio": "dev-main as 2.13.0",
     "webconsulting/docx-editor": "dev-main",
     "webconsulting/flue": "dev-main",
+    "webconsulting/opentag-bridge": "^0.1",
     "webconsulting/records-list-examples": "^1.1",
     "webconsulting/records-list-types": "^1.0.3",
     "webconsulting/site-package": "^14.3",
