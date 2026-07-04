@@ -24,6 +24,10 @@ scripts/*
 /packages/agent_nexus/
 # Separate repo (github.com/dirnbauer/typo3-visual-editor-enhancements), referenced via composer path repo
 /packages/visual_editor_enhancements/
+# Separate repo (github.com/dirnbauer/typo3-opentag-bridge), referenced via composer path repo
+/packages/opentag_bridge/
+# Separate repo (github.com/dirnbauer/skillflow), referenced via composer path repo
+/packages/skillflow/
 /.ddev/traefik/
 /backup-*/
 /.tarballs/*
