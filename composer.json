@@ -51,7 +51,7 @@
         "versions": {
           "webconsulting/site-package": "14.3.3",
           "webconsulting/agent-nexus": "2.0.1",
-          "webconsulting/visual-editor-enhancements": "0.6.0"
+          "webconsulting/visual-editor-enhancements": "0.7.0"
         }
       }
     },
@@ -213,7 +213,7 @@
     "webconsulting/agentation": "^1.1",
     "webconsulting/agent-nexus": "^2.0",
     "webconsulting/api-capability-bridge": "^1.0",
-    "webconsulting/desiderio": "dev-main as 2.11.0",
+    "webconsulting/desiderio": "dev-main as 2.12.0",
     "webconsulting/docx-editor": "dev-main",
     "webconsulting/flue": "dev-main",
     "webconsulting/records-list-examples": "^1.1",
@@ -222,7 +222,7 @@
     "webconsulting/skillflow": "^1.2",
     "webconsulting/typo3-capability-manifest": "^1.0",
     "webconsulting/typo3-x402-paywall": "^1.0",
-    "webconsulting/visual-editor-enhancements": "^0.6",
+    "webconsulting/visual-editor-enhancements": "^0.7",
     "webconsulting/webcon-easy-workspace": "^1.2.8",
     "webconsulting/webcon-mcp-chat-bridge": "dev-main",
     "webconsulting/workos-auth": "^1.1"

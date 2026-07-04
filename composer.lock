@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "01eb659cb7b2e6a0926d9e294aaa9bc1",
+    "content-hash": "aea58e22835b24dc1b32e3678afc0141",
     "packages": [
         {
             "name": "apache-solr-for-typo3/solr",
@@ -12171,12 +12171,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/desiderio.git",
-                "reference": "036560dee699ef722a719bb134e648c55e1274df"
+                "reference": "a3e04dbc6a75ecc85e9f2f50b4ceba027eef2095"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/desiderio/zipball/036560dee699ef722a719bb134e648c55e1274df",
-                "reference": "036560dee699ef722a719bb134e648c55e1274df",
+                "url": "https://api.github.com/repos/dirnbauer/desiderio/zipball/a3e04dbc6a75ecc85e9f2f50b4ceba027eef2095",
+                "reference": "a3e04dbc6a75ecc85e9f2f50b4ceba027eef2095",
                 "shasum": ""
             },
             "require": {
@@ -12213,7 +12213,7 @@
             "extra": {
                 "typo3/cms": {
                     "extension-key": "desiderio",
-                    "version": "2.11.0",
+                    "version": "2.12.0",
                     "Package": {
                         "providesPackages": []
                     }
@@ -12249,7 +12249,7 @@
                 }
             ],
             "description": "Desiderio — shadcn/ui-inspired Fluid 5 component library, 255 content elements, and theme layer for TYPO3 14",
-            "time": "2026-06-27T18:14:44+00:00"
+            "time": "2026-07-04T06:39:39+00:00"
         },
         {
             "name": "webconsulting/docx-editor",
@@ -12565,7 +12565,7 @@
             "dist": {
                 "type": "path",
                 "url": "packages/site_package",
-                "reference": "545d4d848b269204364fcdc3e71f37c05f124037"
+                "reference": "e6da4ada90151d712ddc0e5f6c3fd0bab0e52792"
             },
             "require": {
                 "apache-solr-for-typo3/solr": "^14.0@beta",
@@ -12837,11 +12837,11 @@
         },
         {
             "name": "webconsulting/visual-editor-enhancements",
-            "version": "0.6.0",
+            "version": "0.7.0",
             "dist": {
                 "type": "path",
                 "url": "packages/visual_editor_enhancements",
-                "reference": "2bfcdf3c7d6306d95743d0a33a7d6ce003e2415c"
+                "reference": "f5703ee047027da019869c3c3b4339fc8866d3b7"
             },
             "require": {
                 "friendsoftypo3/visual-editor": "^1.8",
@@ -12850,6 +12850,10 @@
                 "typo3/cms-core": "^14.3",
                 "typo3/cms-fluid": "^14.3",
                 "typo3/cms-frontend": "^14.3"
+            },
+            "require-dev": {
+                "friendsoftypo3/content-blocks": "^2.4",
+                "phpunit/phpunit": "^11.5 || ^12.5"
             },
             "type": "typo3-cms-extension",
             "extra": {
@@ -12862,6 +12866,16 @@
                     "Webconsulting\\VisualEditorEnhancements\\": "Classes/",
                     "TYPO3\\CMS\\VisualEditor\\ViewHelpers\\Render\\": "Classes/VisualEditor/ViewHelpers/Render/"
                 }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "Webconsulting\\VisualEditorEnhancements\\Tests\\": "Tests/"
+                }
+            },
+            "scripts": {
+                "test": [
+                    "phpunit --configuration=phpunit.xml.dist"
+                ]
             },
             "license": [
                 "GPL-2.0-or-later"
@@ -15368,8 +15382,8 @@
         {
             "package": "webconsulting/desiderio",
             "version": "dev-main",
-            "alias": "2.11.0",
-            "alias_normalized": "2.11.0.0"
+            "alias": "2.12.0",
+            "alias_normalized": "2.12.0.0"
         }
     ],
     "minimum-stability": "dev",
