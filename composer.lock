@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2f8db0b8335dbde2a9ffa822af195b2c",
+    "content-hash": "a251b1a1a2d8b47a96cfe8f9a4e9b534",
     "packages": [
         {
             "name": "apache-solr-for-typo3/solr",
@@ -12171,12 +12171,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/desiderio.git",
-                "reference": "41b6e99b809ee8155db5795c123530ed0b885f32"
+                "reference": "029a921e1a690281112ef4511e68280567b2d36e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/desiderio/zipball/41b6e99b809ee8155db5795c123530ed0b885f32",
-                "reference": "41b6e99b809ee8155db5795c123530ed0b885f32",
+                "url": "https://api.github.com/repos/dirnbauer/desiderio/zipball/029a921e1a690281112ef4511e68280567b2d36e",
+                "reference": "029a921e1a690281112ef4511e68280567b2d36e",
                 "shasum": ""
             },
             "require": {
@@ -12249,7 +12249,7 @@
                 }
             ],
             "description": "Desiderio — shadcn/ui-inspired Fluid 5 component library, 255 content elements, and theme layer for TYPO3 14",
-            "time": "2026-07-04T10:09:16+00:00"
+            "time": "2026-07-04T11:05:09+00:00"
         },
         {
             "name": "webconsulting/docx-editor",
@@ -12421,7 +12421,7 @@
             "dist": {
                 "type": "path",
                 "url": "packages/opentag_bridge",
-                "reference": "2863566ef5975c75bb623fa6192a5cefcd7723af"
+                "reference": "f2ce82d8fcbde0f8501d0255d575803da43b475c"
             },
             "require": {
                 "php": "^8.3",
@@ -12644,7 +12644,7 @@
             "dist": {
                 "type": "path",
                 "url": "packages/site_package",
-                "reference": "0313364d40adf1f0b72f0be575641e316d072a16"
+                "reference": "2bfa4fbc8709904454531e8b5625df9a0000bf15"
             },
             "require": {
                 "apache-solr-for-typo3/solr": "^14.0@beta",
@@ -12913,11 +12913,11 @@
         },
         {
             "name": "webconsulting/visual-editor-enhancements",
-            "version": "0.7.1",
+            "version": "0.8.0",
             "dist": {
                 "type": "path",
                 "url": "packages/visual_editor_enhancements",
-                "reference": "ba52d76cb21a3360dde51049c5834ba0f55d0857"
+                "reference": "945b2b85e9184379b50c7c5030ea3a787c1e43f3"
             },
             "require": {
                 "friendsoftypo3/visual-editor": "^1.8",
