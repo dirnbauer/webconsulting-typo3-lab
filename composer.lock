@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7b637d20ed20daef0d6bac4a02327b62",
+    "content-hash": "2f8db0b8335dbde2a9ffa822af195b2c",
     "packages": [
         {
             "name": "apache-solr-for-typo3/solr",
@@ -12644,7 +12644,7 @@
             "dist": {
                 "type": "path",
                 "url": "packages/site_package",
-                "reference": "725661e583c462fd21d09fe87e14a5f6c103ec1f"
+                "reference": "0313364d40adf1f0b72f0be575641e316d072a16"
             },
             "require": {
                 "apache-solr-for-typo3/solr": "^14.0@beta",
@@ -12913,11 +12913,11 @@
         },
         {
             "name": "webconsulting/visual-editor-enhancements",
-            "version": "0.7.0",
+            "version": "0.7.1",
             "dist": {
                 "type": "path",
                 "url": "packages/visual_editor_enhancements",
-                "reference": "f5703ee047027da019869c3c3b4339fc8866d3b7"
+                "reference": "ba52d76cb21a3360dde51049c5834ba0f55d0857"
             },
             "require": {
                 "friendsoftypo3/visual-editor": "^1.8",
@@ -15458,8 +15458,8 @@
         {
             "package": "webconsulting/desiderio",
             "version": "dev-main",
-            "alias": "2.12.0",
-            "alias_normalized": "2.12.0.0"
+            "alias": "2.13.0",
+            "alias_normalized": "2.13.0.0"
         }
     ],
     "minimum-stability": "dev",
