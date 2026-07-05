@@ -26,21 +26,42 @@ echo "==> Refreshing Desiderio styleguide seed content"
 ddev exec vendor/bin/typo3 desiderio:styleguide:seed --no-interaction
 
 echo "==> Retiring legacy Desiderio content-type URLs"
-ddev mysql -e "UPDATE pages SET hidden=1 WHERE uid=1093 OR pid=1093 OR (pid=505 AND slug='/content-types' AND sys_language_uid > 0);"
+# The seeded hub page (slug /content-types, holds the element catalog) stays
+# visible; only the retired legacy chapter pages BELOW it stay hidden.
+ddev mysql -e "UPDATE pages SET hidden=1 WHERE pid=1093 OR (pid=505 AND slug='/content-types' AND sys_language_uid > 0);"
+ddev mysql -e "UPDATE pages SET hidden=0 WHERE uid=1093 AND deleted=0;"
+# Legacy target-group detail pages are superseded by the seeded /for-* pages.
+ddev mysql -e "UPDATE pages SET hidden=1 WHERE uid IN (983,984,985,1094) AND deleted=0;"
 
-redirects=(
-  "/desiderio/content-types|t3://page?uid=1138&_language=0"
-  "/desiderio/content-types/content-editorial|t3://page?uid=1138&_language=0"
-  "/desiderio/content-types/leads-conversion|t3://page?uid=1139&_language=0"
-  "/desiderio/content-types/data-dashboards|t3://page?uid=1140&_language=0"
-  "/desiderio/content-types/features-benefits|t3://page?uid=1141&_language=0"
-  "/desiderio/content-types/footers-utility-areas|t3://page?uid=1142&_language=0"
-  "/desiderio/content-types/hero-landing-intros|t3://page?uid=1143&_language=0"
-  "/desiderio/content-types/navigation-wayfinding|t3://page?uid=1144&_language=0"
-  "/desiderio/content-types/plans-pricing|t3://page?uid=1145&_language=0"
-  "/desiderio/content-types/trust-social-proof|t3://page?uid=1146&_language=0"
-  "/desiderio/content-types/people-team|t3://page?uid=1147&_language=0"
+# Resolve redirect targets by slug so reseeded page uids never go stale.
+page_uid_by_slug() {
+  ddev mysql -N -e "SELECT uid FROM pages WHERE slug='$1' AND sys_language_uid=0 AND deleted=0 AND hidden=0 ORDER BY uid LIMIT 1" | tr -d '[:space:]'
+}
+
+redirects=()
+declare -A slug_map=(
+  ["/desiderio/content-types/content-editorial"]="/desiderio-content"
+  ["/desiderio/content-types/leads-conversion"]="/desiderio-conversion"
+  ["/desiderio/content-types/data-dashboards"]="/desiderio-data"
+  ["/desiderio/content-types/features-benefits"]="/desiderio-features"
+  ["/desiderio/content-types/footers-utility-areas"]="/desiderio-footer"
+  ["/desiderio/content-types/hero-landing-intros"]="/desiderio-hero"
+  ["/desiderio/content-types/navigation-wayfinding"]="/desiderio-navigation"
+  ["/desiderio/content-types/plans-pricing"]="/desiderio-pricing"
+  ["/desiderio/content-types/trust-social-proof"]="/desiderio-social-proof"
+  ["/desiderio/content-types/people-team"]="/desiderio-team"
+  ["/desiderio/target-groups/for-agencies-integrators/"]="/for-agencies"
+  ["/desiderio/target-groups/for-in-house-marketing-product-teams/"]="/for-inhouse-teams"
+  ["/desiderio/target-groups/for-freelancers-solo-developers/"]="/for-freelancers"
 )
+for source_path in "${!slug_map[@]}"; do
+  uid="$(page_uid_by_slug "${slug_map[$source_path]}")"
+  if [ -n "${uid}" ]; then
+    redirects+=("${source_path}|t3://page?uid=${uid}&_language=0")
+  fi
+done
+# The bare /content-types URL is answered by the visible hub page itself.
+ddev mysql -e "DELETE FROM sys_redirect WHERE source_host='webconsulting-typo3-lab.ddev.site' AND source_path='/desiderio/content-types';"
 
 for redirect in "${redirects[@]}"; do
   source_path="${redirect%%|*}"
