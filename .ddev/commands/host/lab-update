@@ -22,6 +22,47 @@ ddev exec env COMPOSER_DISCARD_CHANGES=true composer update "${composer_args[@]}
 echo "==> Running TYPO3 extension setup"
 ddev exec vendor/bin/typo3 extension:setup --no-interaction
 
+echo "==> Refreshing Desiderio styleguide seed content"
+ddev exec vendor/bin/typo3 desiderio:styleguide:seed --no-interaction
+
+echo "==> Retiring legacy Desiderio content-type URLs"
+ddev mysql -e "UPDATE pages SET hidden=1 WHERE uid=1093 OR pid=1093 OR (pid=505 AND slug='/content-types' AND sys_language_uid > 0);"
+
+redirects=(
+  "/desiderio/content-types|t3://page?uid=1138&_language=0"
+  "/desiderio/content-types/content-editorial|t3://page?uid=1138&_language=0"
+  "/desiderio/content-types/leads-conversion|t3://page?uid=1139&_language=0"
+  "/desiderio/content-types/data-dashboards|t3://page?uid=1140&_language=0"
+  "/desiderio/content-types/features-benefits|t3://page?uid=1141&_language=0"
+  "/desiderio/content-types/footers-utility-areas|t3://page?uid=1142&_language=0"
+  "/desiderio/content-types/hero-landing-intros|t3://page?uid=1143&_language=0"
+  "/desiderio/content-types/navigation-wayfinding|t3://page?uid=1144&_language=0"
+  "/desiderio/content-types/plans-pricing|t3://page?uid=1145&_language=0"
+  "/desiderio/content-types/trust-social-proof|t3://page?uid=1146&_language=0"
+  "/desiderio/content-types/people-team|t3://page?uid=1147&_language=0"
+)
+
+for redirect in "${redirects[@]}"; do
+  source_path="${redirect%%|*}"
+  target="${redirect#*|}"
+  ddev mysql -e "
+    UPDATE sys_redirect
+       SET target='${target}', disabled=0, deleted=0, updatedon=UNIX_TIMESTAMP(), target_statuscode=307
+     WHERE source_host='webconsulting-typo3-lab.ddev.site'
+       AND source_path='${source_path}';
+    INSERT INTO sys_redirect
+      (pid, updatedon, createdon, deleted, disabled, source_host, source_path, target, target_statuscode, redirect_type, creation_type, integrity_status)
+    SELECT
+      0, UNIX_TIMESTAMP(), UNIX_TIMESTAMP(), 0, 0, 'webconsulting-typo3-lab.ddev.site', '${source_path}', '${target}', 307, 'default', 1, 'no_conflict'
+    WHERE NOT EXISTS (
+      SELECT 1 FROM sys_redirect
+       WHERE source_host='webconsulting-typo3-lab.ddev.site'
+         AND source_path='${source_path}'
+         AND deleted=0
+    );
+  "
+done
+
 echo "==> Flushing TYPO3 caches"
 ddev exec vendor/bin/typo3 cache:flush --no-interaction
 
