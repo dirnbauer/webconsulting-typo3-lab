@@ -1,0 +1,32 @@
+#!/usr/bin/env bash
+
+## Description: Update the TYPO3 Lab to the latest Composer package versions, publish assets, run extension setup, and flush caches.
+## Usage: lab-update [composer update arguments]
+## Example: "ddev lab-update" | "ddev lab-update webconsulting/desiderio -W"
+
+set -euo pipefail
+
+cd "${DDEV_APPROOT}"
+
+composer_args=("$@")
+if [ "${#composer_args[@]}" -eq 0 ]; then
+  composer_args=(-W)
+fi
+
+echo "==> Updating Composer packages"
+echo "    composer update ${composer_args[*]} --no-interaction"
+# The lab installs many packages from source. Local fixes belong in their
+# package repositories, not in vendor/, so dirty vendor checkouts are discarded.
+ddev exec env COMPOSER_DISCARD_CHANGES=true composer update "${composer_args[@]}" --no-interaction
+
+echo "==> Running TYPO3 extension setup"
+ddev exec vendor/bin/typo3 extension:setup --no-interaction
+
+echo "==> Flushing TYPO3 caches"
+ddev exec vendor/bin/typo3 cache:flush --no-interaction
+
+echo "==> Installed Webconsulting extension versions"
+ddev exec composer show --direct --no-interaction \
+  | awk '/^(webconsulting|dirnbauer|sgalinski|studiomitte|hn|in2code|georgringer|t3g|apache-solr-for-typo3)\// { print }'
+
+echo "Done. If a browser tab still shows old CSS, hard-refresh it; TYPO3 and published extension assets are updated."

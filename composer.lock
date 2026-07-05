@@ -1636,16 +1636,16 @@
         },
         {
             "name": "guzzlehttp/guzzle",
-            "version": "7.12.3",
+            "version": "7.13.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/guzzle.git",
-                "reference": "9aa17bcdd777ee31df9fc83c337ca4ca2340def3"
+                "reference": "55901a76dfd2006a0cc012b9e3c5b487f796478d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/9aa17bcdd777ee31df9fc83c337ca4ca2340def3",
-                "reference": "9aa17bcdd777ee31df9fc83c337ca4ca2340def3",
+                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/55901a76dfd2006a0cc012b9e3c5b487f796478d",
+                "reference": "55901a76dfd2006a0cc012b9e3c5b487f796478d",
                 "shasum": ""
             },
             "require": {
@@ -1664,7 +1664,7 @@
                 "bamarni/composer-bin-plugin": "^1.8.2",
                 "ext-curl": "*",
                 "guzzle/client-integration-tests": "3.0.2",
-                "guzzlehttp/test-server": "^0.5.1",
+                "guzzlehttp/test-server": "^0.6",
                 "php-http/message-factory": "^1.1",
                 "phpunit/phpunit": "^8.5.52 || ^9.6.34",
                 "psr/log": "^1.1 || ^2.0 || ^3.0"
@@ -1744,7 +1744,7 @@
             ],
             "support": {
                 "issues": "https://github.com/guzzle/guzzle/issues",
-                "source": "https://github.com/guzzle/guzzle/tree/7.12.3"
+                "source": "https://github.com/guzzle/guzzle/tree/7.13.1"
             },
             "funding": [
                 {
@@ -1760,7 +1760,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2026-06-23T15:29:02+00:00"
+            "time": "2026-06-29T20:14:18+00:00"
         },
         {
             "name": "guzzlehttp/promises",
@@ -2493,16 +2493,16 @@
         },
         {
             "name": "logiscape/mcp-sdk-php",
-            "version": "v1.7.3",
+            "version": "v1.7.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/logiscape/mcp-sdk-php.git",
-                "reference": "aae7343fcf2e9394c67cf0323bba2fa0fad62927"
+                "reference": "febd211afba98b8067e4e493cd2eccb980885148"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/logiscape/mcp-sdk-php/zipball/aae7343fcf2e9394c67cf0323bba2fa0fad62927",
-                "reference": "aae7343fcf2e9394c67cf0323bba2fa0fad62927",
+                "url": "https://api.github.com/repos/logiscape/mcp-sdk-php/zipball/febd211afba98b8067e4e493cd2eccb980885148",
+                "reference": "febd211afba98b8067e4e493cd2eccb980885148",
                 "shasum": ""
             },
             "require": {
@@ -2532,9 +2532,9 @@
             "description": "Model Context Protocol SDK for PHP",
             "support": {
                 "issues": "https://github.com/logiscape/mcp-sdk-php/issues",
-                "source": "https://github.com/logiscape/mcp-sdk-php/tree/v1.7.3"
+                "source": "https://github.com/logiscape/mcp-sdk-php/tree/v1.7.4"
             },
-            "time": "2026-06-05T22:45:18+00:00"
+            "time": "2026-07-03T19:44:39+00:00"
         },
         {
             "name": "lolli42/finediff",
@@ -3108,16 +3108,16 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/t3x-nr-mcp-agent.git",
-                "reference": "c43a751073222ef766a12ee4b14b2943f4cf5c56"
+                "reference": "c7d92ff907cb4a01c39383401692ec85ee20623c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/t3x-nr-mcp-agent/zipball/c43a751073222ef766a12ee4b14b2943f4cf5c56",
-                "reference": "c43a751073222ef766a12ee4b14b2943f4cf5c56",
+                "url": "https://api.github.com/repos/dirnbauer/t3x-nr-mcp-agent/zipball/c7d92ff907cb4a01c39383401692ec85ee20623c",
+                "reference": "c7d92ff907cb4a01c39383401692ec85ee20623c",
                 "shasum": ""
             },
             "require": {
-                "netresearch/nr-llm": "^0.12.0",
+                "netresearch/nr-llm": "^0.12.0 || ^0.13.0",
                 "php": "^8.2",
                 "phpoffice/phpword": "^1.0",
                 "smalot/pdfparser": "^2.0",
@@ -3181,16 +3181,16 @@
                     ".Build/bin/php-cs-fixer fix --dry-run --diff"
                 ],
                 "ci:tests": [
-                    ".Build/bin/phpunit -c Build/phpunit.xml"
+                    "php -d memory_limit=1G .Build/bin/phpunit -c Build/phpunit.xml"
                 ],
                 "ci:tests:unit": [
-                    ".Build/bin/phpunit -c Build/phpunit.xml --testsuite unit"
+                    "php -d memory_limit=1G .Build/bin/phpunit -c Build/phpunit.xml --testsuite unit"
                 ],
                 "ci:tests:functional": [
-                    ".Build/bin/phpunit -c Build/phpunit.xml --testsuite functional"
+                    "php -d memory_limit=1G .Build/bin/phpunit -c Build/phpunit.xml --testsuite functional"
                 ],
                 "ci:tests:architecture": [
-                    ".Build/bin/phpunit -c Build/phpunit.xml --testsuite architecture"
+                    "php -d memory_limit=1G .Build/bin/phpunit -c Build/phpunit.xml --testsuite architecture"
                 ],
                 "ci:mutation": [
                     ".Build/bin/infection --configuration=infection.json.dist --threads=4 --no-progress"
@@ -3233,20 +3233,20 @@
                 "issues": "https://github.com/dirnbauer/t3x-nr-mcp-agent/issues",
                 "source": "https://github.com/dirnbauer/t3x-nr-mcp-agent"
             },
-            "time": "2026-06-29T16:43:24+00:00"
+            "time": "2026-06-29T21:06:54+00:00"
         },
         {
             "name": "netresearch/nr-vault",
-            "version": "v0.10.0",
+            "version": "v0.10.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/netresearch/t3x-nr-vault.git",
-                "reference": "cbb5ecf8900abc5721617e293c0718cd6f74d466"
+                "reference": "2f4bec55dfe5b58e92527928f270ab7b49b1ec52"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/netresearch/t3x-nr-vault/zipball/cbb5ecf8900abc5721617e293c0718cd6f74d466",
-                "reference": "cbb5ecf8900abc5721617e293c0718cd6f74d466",
+                "url": "https://api.github.com/repos/netresearch/t3x-nr-vault/zipball/2f4bec55dfe5b58e92527928f270ab7b49b1ec52",
+                "reference": "2f4bec55dfe5b58e92527928f270ab7b49b1ec52",
                 "shasum": ""
             },
             "require": {
@@ -3385,7 +3385,7 @@
                 "issues": "https://github.com/netresearch/t3x-nr-vault/issues",
                 "source": "https://github.com/netresearch/t3x-nr-vault"
             },
-            "time": "2026-06-11T14:50:52+00:00"
+            "time": "2026-07-03T16:51:36+00:00"
         },
         {
             "name": "netresearch/t3-cowriter",
@@ -3740,20 +3740,19 @@
         },
         {
             "name": "nikic/php-parser",
-            "version": "v5.7.0",
+            "version": "v5.8.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nikic/PHP-Parser.git",
-                "reference": "dca41cd15c2ac9d055ad70dbfd011130757d1f82"
+                "reference": "044a6a392ff8ad0d61f14370a5fbbd0a0107152f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/dca41cd15c2ac9d055ad70dbfd011130757d1f82",
-                "reference": "dca41cd15c2ac9d055ad70dbfd011130757d1f82",
+                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/044a6a392ff8ad0d61f14370a5fbbd0a0107152f",
+                "reference": "044a6a392ff8ad0d61f14370a5fbbd0a0107152f",
                 "shasum": ""
             },
             "require": {
-                "ext-ctype": "*",
                 "ext-json": "*",
                 "ext-tokenizer": "*",
                 "php": ">=7.4"
@@ -3792,9 +3791,9 @@
             ],
             "support": {
                 "issues": "https://github.com/nikic/PHP-Parser/issues",
-                "source": "https://github.com/nikic/PHP-Parser/tree/v5.7.0"
+                "source": "https://github.com/nikic/PHP-Parser/tree/v5.8.0"
             },
-            "time": "2025-12-06T11:56:16+00:00"
+            "time": "2026-07-04T14:30:18+00:00"
         },
         {
             "name": "opis/json-schema",
@@ -12171,12 +12170,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/desiderio.git",
-                "reference": "029a921e1a690281112ef4511e68280567b2d36e"
+                "reference": "8c87de17114b498dd7c2ff9a9ef47233db12697b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/desiderio/zipball/029a921e1a690281112ef4511e68280567b2d36e",
-                "reference": "029a921e1a690281112ef4511e68280567b2d36e",
+                "url": "https://api.github.com/repos/dirnbauer/desiderio/zipball/8c87de17114b498dd7c2ff9a9ef47233db12697b",
+                "reference": "8c87de17114b498dd7c2ff9a9ef47233db12697b",
                 "shasum": ""
             },
             "require": {
@@ -12249,7 +12248,7 @@
                 }
             ],
             "description": "Desiderio — shadcn/ui-inspired Fluid 5 component library, 255 content elements, and theme layer for TYPO3 14",
-            "time": "2026-07-04T11:05:09+00:00"
+            "time": "2026-07-05T13:14:10+00:00"
         },
         {
             "name": "webconsulting/docx-editor",
@@ -13083,12 +13082,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/webcon-mcp-chat-bridge.git",
-                "reference": "c70b3f98f15b24604bcdc6eceb711fae12845172"
+                "reference": "b18e50cec6379005ff6d6233c5f782a7a668204d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/webcon-mcp-chat-bridge/zipball/c70b3f98f15b24604bcdc6eceb711fae12845172",
-                "reference": "c70b3f98f15b24604bcdc6eceb711fae12845172",
+                "url": "https://api.github.com/repos/dirnbauer/webcon-mcp-chat-bridge/zipball/b18e50cec6379005ff6d6233c5f782a7a668204d",
+                "reference": "b18e50cec6379005ff6d6233c5f782a7a668204d",
                 "shasum": ""
             },
             "require": {
@@ -13101,6 +13100,7 @@
                 "typo3/cms-workspaces": "^14.3"
             },
             "suggest": {
+                "netresearch/nr-mcp-agent": "Optional AI chatbot wrapper for Slack app mentions and direct-message request/response chat.",
                 "symfony/notifier": "Optional notifier abstraction if a project prefers Symfony transports over the built-in TYPO3 RequestFactory adapters.",
                 "webconsulting/webcon-easy-workspace": "Provides the editor-facing pending item list this extension can notify about."
             },
@@ -13109,7 +13109,7 @@
             "extra": {
                 "typo3/cms": {
                     "extension-key": "webcon_mcp_chat_bridge",
-                    "version": "0.1.0",
+                    "version": "0.2.0",
                     "Package": {
                         "providesPackages": []
                     }
@@ -13145,7 +13145,7 @@
                 "issues": "https://github.com/dirnbauer/webcon-mcp-chat-bridge/issues",
                 "source": "https://github.com/dirnbauer/webcon-mcp-chat-bridge"
             },
-            "time": "2026-06-28T13:44:34+00:00"
+            "time": "2026-07-02T04:36:41+00:00"
         },
         {
             "name": "webconsulting/workos-auth",
@@ -13739,11 +13739,11 @@
         },
         {
             "name": "phpstan/phpstan",
-            "version": "2.2.2",
+            "version": "2.2.5",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/e5cc34d491a90e79c216d824f60fe21fd4d93bd6",
-                "reference": "e5cc34d491a90e79c216d824f60fe21fd4d93bd6",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/909c1e5fef7989ac0d0c1c5c42e32a5c4f6198a0",
+                "reference": "909c1e5fef7989ac0d0c1c5c42e32a5c4f6198a0",
                 "shasum": ""
             },
             "require": {
@@ -13799,7 +13799,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2026-06-05T09:00:01+00:00"
+            "time": "2026-07-05T06:31:06+00:00"
         },
         {
             "name": "phpunit/php-code-coverage",
