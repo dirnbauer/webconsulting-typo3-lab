@@ -44,10 +44,12 @@ the site level rather than through wrapper Site Sets in `packages/site_package/`
 
 | Identifier | Config path | Local URL | Root page | Languages |
 |---|---|---|---:|---|
-| `camino` | `config/sites/camino` | `/` | `99` | English |
+| `desiderio` | `config/sites/desiderio` | `/` | `505` | English, German, Chinese, Hungarian |
+| `camino` | `config/sites/camino` | `/camino/` | `99` | English |
 | `blog` | `config/sites/blog` | `/blog/` | `15` | German, English, Chinese |
 | `14lts` | `config/sites/14lts` | `/14/` | `69` | English |
 | `typo3-blog` | `config/sites/typo3-blog` | `/typo3-blog/` | `390` | English |
+| `desiderio-corporate-starter` | `config/sites/desiderio-corporate-starter` | `/desiderio-corporate-starter/` | `740` | English |
 | `mtug-camp-munich-2026` | `config/sites/mtug-camp-munich-2026` | `/mtug-camp-munich-2026/` | `933` | German, English, Chinese, Hungarian |
 
 ### MTUG Camp Munich page tree (Powermail)
@@ -66,8 +68,6 @@ Powermail forms for translated site languages live in the same storage folder
 Local ticket URL:
 
 `https://webconsulting-typo3-lab.ddev.site/mtug-camp-munich-2026/ticket-anmeldung`
-| `desiderio-corporate-starter` | `config/sites/desiderio-corporate-starter` | `/desiderio-corporate-starter/` | `740` | English |
-| `desiderio` | `config/sites/desiderio` | `/desiderio/` | `505` | English, German, Chinese, Hungarian |
 
 List the runtime state after changes:
 
@@ -212,12 +212,12 @@ current environment.
 
 | Demo | URL |
 |---|---|
-| Camino | `https://webconsulting-typo3-lab.ddev.site/` |
+| Desiderio | `https://webconsulting-typo3-lab.ddev.site/` |
+| Camino | `https://webconsulting-typo3-lab.ddev.site/camino/` |
 | Blog | `https://webconsulting-typo3-lab.ddev.site/blog/` |
 | Blog Bootstrap | `https://webconsulting-typo3-lab.ddev.site/14/` |
 | TYPO3 Blog | `https://webconsulting-typo3-lab.ddev.site/typo3-blog/` |
 | Desiderio corporate starter | `https://webconsulting-typo3-lab.ddev.site/desiderio-corporate-starter/` |
-| TYPO3Camp Vienna | `https://webconsulting-typo3-lab.ddev.site/desiderio/` |
 | MTUG Camp Munich | `https://webconsulting-typo3-lab.ddev.site/mtug-camp-munich-2026/` |
 | MTUG Camp Munich tickets | `https://webconsulting-typo3-lab.ddev.site/mtug-camp-munich-2026/ticket-anmeldung` |
 
@@ -234,7 +234,7 @@ ddev exec vendor/bin/typo3 cache:flush
 Frontend smoke check (from repository root):
 
 ```bash
-for url in / /14/ /blog/ /typo3-blog/ /desiderio-corporate-starter/ /desiderio/ /mtug-camp-munich-2026/ /mtug-camp-munich-2026/ticket-anmeldung; do
+for url in / /camino/ /14/ /blog/ /typo3-blog/ /desiderio-corporate-starter/ /mtug-camp-munich-2026/ /mtug-camp-munich-2026/ticket-anmeldung; do
   ddev exec curl -k -s -o /dev/null -w "$url %{http_code}\n" "https://webconsulting-typo3-lab.ddev.site$url"
 done
 ```
