@@ -1,4 +1,4 @@
-base: 'https://webconsulting-typo3-lab.ddev.site/'
+base: 'https://webconsulting-typo3-lab.ddev.site/camino/'
 dependencies:
   - webconsulting/site-package-camino
 languages:

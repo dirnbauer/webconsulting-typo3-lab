@@ -1,4 +1,4 @@
-base: 'https://webconsulting-typo3-lab.ddev.site/desiderio/'
+base: 'https://webconsulting-typo3-lab.ddev.site/'
 dependencies:
   - webconsulting/solr-defaults
   - studiomitte/friendlycaptcha
