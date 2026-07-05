@@ -45,6 +45,7 @@ jobs:
           for spec in \
             "typo3-agent-nexus:agent_nexus" \
             "typo3-opentag-bridge:opentag_bridge" \
+            "skillflow:skillflow" \
             "typo3-visual-editor-enhancements:visual_editor_enhancements"; do
             repo="${spec%%:*}"; dir="${spec##*:}"
             git clone --depth 1 "https://x-access-token:${TOKEN}@github.com/dirnbauer/${repo}.git" "packages/${dir}"
