@@ -15,7 +15,7 @@ use TYPO3\CMS\Core\DataHandling\DataHandler;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 /**
- * Seeds the de/zh/hu translations of the typo3-vienna-camp-2026 site's two
+ * Seeds the de/zh/hu translations of the desiderio site's two
  * utility pages — the search page (uid 738) and the 404 page (uid 737).
  *
  * WHY A COMMAND (and not raw SQL)

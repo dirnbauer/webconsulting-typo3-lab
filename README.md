@@ -66,7 +66,7 @@ unless you are composing a custom Desiderio stack by hand.
 | `config/sites/typo3-blog` | `/typo3-blog/` | `390` | English | `webconsulting/site-package-blog` |
 | `config/sites/mtug-camp-munich-2026` | `/mtug-camp-munich-2026/` | `933` | German, English, Chinese, Hungarian | `webconsulting/site-package-search`, `studiomitte/friendlycaptcha`, `webconsulting/desiderio-powermail`, `webconsulting/desiderio-content-elements`, `webconsulting/desiderio-preset-corporate`, `desiderio/content-blocks-bundle` |
 | `config/sites/desiderio-corporate-starter` | `/desiderio-corporate-starter/` | `740` | English | `webconsulting/site-package-search`, `webconsulting/desiderio-preset-corporate` |
-| `config/sites/typo3-vienna-camp-2026` | `/typo3-vienna-camp-2026/` | `505` | English, German, Chinese, Hungarian | `studiomitte/friendlycaptcha`, `webconsulting/desiderio-powermail`, `webconsulting/desiderio-content-elements`, `webconsulting/desiderio-preset-corporate` |
+| `config/sites/desiderio` | `/desiderio/` | `505` | English, German, Chinese, Hungarian | `studiomitte/friendlycaptcha`, `webconsulting/desiderio-powermail`, `webconsulting/desiderio-content-elements`, `webconsulting/desiderio-preset-corporate` |
 
 All local URLs use `https://webconsulting-typo3-lab.ddev.site`.
 
@@ -216,8 +216,8 @@ even when they are not listed as root Composer package names.
 | `blog/bootstrap-53` | `webconsulting/site-package-blog-bootstrap` |
 | `webconsulting/desiderio-preset-corporate` | Desiderio demo sites in `config/sites/` |
 | `webconsulting/desiderio-news` | `config/sites/blog` |
-| `webconsulting/desiderio-content-elements` | `config/sites/typo3-vienna-camp-2026` |
-| `webconsulting/desiderio-powermail` | `config/sites/typo3-vienna-camp-2026` |
+| `webconsulting/desiderio-content-elements` | `config/sites/desiderio` |
+| `webconsulting/desiderio-powermail` | `config/sites/desiderio` |
 | `desiderio/content-blocks-bundle` | `config/sites/mtug-camp-munich-2026` |
 
 ### Development Tooling
@@ -380,7 +380,7 @@ DDEV exposes the project at:
 | Blog Bootstrap demo | `https://webconsulting-typo3-lab.ddev.site/14/` |
 | Blog generated demo | `https://webconsulting-typo3-lab.ddev.site/typo3-blog/` |
 | Desiderio corporate starter | `https://webconsulting-typo3-lab.ddev.site/desiderio-corporate-starter/` |
-| TYPO3Camp Vienna demo | `https://webconsulting-typo3-lab.ddev.site/typo3-vienna-camp-2026/` |
+| TYPO3Camp Vienna demo | `https://webconsulting-typo3-lab.ddev.site/desiderio/` |
 | MTUG Camp Munich demo | `https://webconsulting-typo3-lab.ddev.site/mtug-camp-munich-2026/` |
 | MTUG Camp Munich tickets | `https://webconsulting-typo3-lab.ddev.site/mtug-camp-munich-2026/ticket-anmeldung` |
 
@@ -491,7 +491,7 @@ reflection and framework rules.
 Basic frontend smoke check:
 
 ```bash
-for url in / /14/ /blog/ /typo3-blog/ /desiderio-corporate-starter/ /typo3-vienna-camp-2026/ /mtug-camp-munich-2026/ /mtug-camp-munich-2026/ticket-anmeldung; do
+for url in / /14/ /blog/ /typo3-blog/ /desiderio-corporate-starter/ /desiderio/ /mtug-camp-munich-2026/ /mtug-camp-munich-2026/ticket-anmeldung; do
   ddev exec curl -k -s -o /dev/null -w "$url %{http_code}\n" "https://webconsulting-typo3-lab.ddev.site$url"
 done
 ```

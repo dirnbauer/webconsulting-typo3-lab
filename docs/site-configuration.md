@@ -67,7 +67,7 @@ Local ticket URL:
 
 `https://webconsulting-typo3-lab.ddev.site/mtug-camp-munich-2026/ticket-anmeldung`
 | `desiderio-corporate-starter` | `config/sites/desiderio-corporate-starter` | `/desiderio-corporate-starter/` | `740` | English |
-| `typo3-vienna-camp-2026` | `config/sites/typo3-vienna-camp-2026` | `/typo3-vienna-camp-2026/` | `505` | English, German, Chinese, Hungarian |
+| `desiderio` | `config/sites/desiderio` | `/desiderio/` | `505` | English, German, Chinese, Hungarian |
 
 List the runtime state after changes:
 
@@ -217,7 +217,7 @@ current environment.
 | Blog Bootstrap | `https://webconsulting-typo3-lab.ddev.site/14/` |
 | TYPO3 Blog | `https://webconsulting-typo3-lab.ddev.site/typo3-blog/` |
 | Desiderio corporate starter | `https://webconsulting-typo3-lab.ddev.site/desiderio-corporate-starter/` |
-| TYPO3Camp Vienna | `https://webconsulting-typo3-lab.ddev.site/typo3-vienna-camp-2026/` |
+| TYPO3Camp Vienna | `https://webconsulting-typo3-lab.ddev.site/desiderio/` |
 | MTUG Camp Munich | `https://webconsulting-typo3-lab.ddev.site/mtug-camp-munich-2026/` |
 | MTUG Camp Munich tickets | `https://webconsulting-typo3-lab.ddev.site/mtug-camp-munich-2026/ticket-anmeldung` |
 
@@ -234,7 +234,7 @@ ddev exec vendor/bin/typo3 cache:flush
 Frontend smoke check (from repository root):
 
 ```bash
-for url in / /14/ /blog/ /typo3-blog/ /desiderio-corporate-starter/ /typo3-vienna-camp-2026/ /mtug-camp-munich-2026/ /mtug-camp-munich-2026/ticket-anmeldung; do
+for url in / /14/ /blog/ /typo3-blog/ /desiderio-corporate-starter/ /desiderio/ /mtug-camp-munich-2026/ /mtug-camp-munich-2026/ticket-anmeldung; do
   ddev exec curl -k -s -o /dev/null -w "$url %{http_code}\n" "https://webconsulting-typo3-lab.ddev.site$url"
 done
 ```

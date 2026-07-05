@@ -103,7 +103,7 @@ with or without Site Sets from this package:
 | `config/sites/blog` | `georgringer/news`, `webconsulting/desiderio-news` |
 | `config/sites/mtug-camp-munich-2026` | `studiomitte/friendlycaptcha`, `webconsulting/desiderio-powermail`, `webconsulting/desiderio-content-elements`, `webconsulting/desiderio-preset-corporate`, `desiderio/content-blocks-bundle` |
 | `config/sites/desiderio-corporate-starter` | `webconsulting/desiderio-preset-corporate` |
-| `config/sites/typo3-vienna-camp-2026` | `studiomitte/friendlycaptcha`, `webconsulting/desiderio-powermail`, `webconsulting/desiderio-content-elements`, `webconsulting/desiderio-preset-corporate` |
+| `config/sites/desiderio` | `studiomitte/friendlycaptcha`, `webconsulting/desiderio-powermail`, `webconsulting/desiderio-content-elements`, `webconsulting/desiderio-preset-corporate` |
 
 For the full site inventory and troubleshooting, see
 [docs/site-configuration.md](../../docs/site-configuration.md).
