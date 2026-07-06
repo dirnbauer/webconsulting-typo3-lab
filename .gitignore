@@ -28,6 +28,8 @@ scripts/*
 /packages/opentag_bridge/
 # Separate repo (github.com/dirnbauer/skillflow), referenced via composer path repo
 /packages/skillflow/
+# Separate repo (abilities registry, strategy item 19), referenced via composer path repo
+/packages/abilities/
 /.ddev/traefik/
 /backup-*/
 /.tarballs/*
