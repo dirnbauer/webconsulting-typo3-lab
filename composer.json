@@ -240,6 +240,9 @@
   "extra": {
     "composer-exit-on-patch-failure": true,
     "patches": {
+      "apache-solr-for-typo3/solr": {
+        "Guard enhanced-routing filter concatenation for sparse filter arrays": "patches/apache-solr-for-typo3-solr-fix-sparse-filter-concat.patch"
+      },
       "netresearch/nr-vault": {
         "Accept array $pasteUpdate in processCmdmap_preProcess (copy/move with update payload)": "patches/netresearch-nr-vault-fix-cmdmap-hook-pasteupdate-type.patch",
         "Size the Vault backend module icon correctly (viewBox padding so it matches sibling icons)": "patches/netresearch-nr-vault-module-icon-size.patch"
