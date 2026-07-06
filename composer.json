@@ -27,6 +27,14 @@
   },
   "repositories": [
     {
+      "name": "local-desiderio",
+      "type": "path",
+      "url": "../desiderio",
+      "options": {
+        "symlink": false
+      }
+    },
+    {
       "name": "innesto",
       "type": "vcs",
       "url": "https://github.com/dirnbauer/innesto"
