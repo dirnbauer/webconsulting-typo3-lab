@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8d841520b5829e5cf3e8b3083e248b13",
+    "content-hash": "7a1b5fd47ba82d94516946bdb07e4589",
     "packages": [
         {
             "name": "apache-solr-for-typo3/solr",
@@ -12879,6 +12879,76 @@
             "time": "2026-06-20T17:55:08+00:00"
         },
         {
+            "name": "webconsulting/typo3-llms-txt",
+            "version": "dev-main",
+            "dist": {
+                "type": "path",
+                "url": "packages/llms_txt",
+                "reference": "ad7c4f7ddbee16e50ae01c2848e1ad4bdcf20305"
+            },
+            "require": {
+                "php": "^8.3",
+                "symfony/console": "^7.0",
+                "typo3/cms-core": "^14.3"
+            },
+            "require-dev": {
+                "phpstan/phpstan": "^2.0",
+                "phpunit/phpunit": "^11.0",
+                "webconsulting/typo3-abilities": "@dev"
+            },
+            "suggest": {
+                "hn/typo3-mcp-server": "agents.md advertises the MCP endpoint when installed",
+                "webconsulting/typo3-abilities": "agents.md lists the registered abilities when installed"
+            },
+            "type": "typo3-cms-extension",
+            "extra": {
+                "typo3/cms": {
+                    "extension-key": "llms_txt"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Webconsulting\\LlmsTxt\\": "Classes/"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "Webconsulting\\LlmsTxt\\Tests\\": "Tests/"
+                }
+            },
+            "scripts": {
+                "phpstan": [
+                    "php -d memory_limit=1G vendor/bin/phpstan analyse"
+                ],
+                "test": [
+                    "phpunit"
+                ]
+            },
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Kurt Dirnbauer",
+                    "email": "dirnbauer@webconsulting.at",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Serves /llms.txt and /agents.md per TYPO3 site, generated from the page tree and site configuration — deliberate publishing for the agent-readable web.",
+            "keywords": [
+                "aeo",
+                "agents",
+                "agents.md",
+                "ai",
+                "llms.txt",
+                "typo3"
+            ],
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
             "name": "webconsulting/typo3-x402-paywall",
             "version": "v1.0.3",
             "source": {
@@ -15541,6 +15611,7 @@
         "webconsulting/docx-editor": 20,
         "webconsulting/flue": 20,
         "webconsulting/typo3-abilities": 20,
+        "webconsulting/typo3-llms-txt": 20,
         "webconsulting/webcon-mcp-chat-bridge": 20
     },
     "prefer-stable": true,

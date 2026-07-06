@@ -2,7 +2,7 @@
 
 **The long-form strategy behind `/typo3-v14-strategy/`** — what exists, what the market did, what must change, what to add, what to delete. The lab page is the public condensation of this document; this file is the working strategy with implementation status and next steps per item.
 
-Last updated: 2026-07-06. Sources: full code inventory of the lab and all `github.com/dirnbauer` repositories, plus web research on the mid-2026 CMS, agent-standard and EU-regulatory landscape (primary sources linked inline where they matter).
+Last updated: 2026-07-07. Sources: full code inventory of the lab and all `github.com/dirnbauer` repositories, plus web research on the mid-2026 CMS, agent-standard and EU-regulatory landscape (primary sources linked inline where they matter).
 
 ---
 
@@ -44,11 +44,11 @@ The one-sentence verdict: **the lab is 12–24 months ahead of TYPO3 core, rough
 
 ### Honestly missing (as platform layers)
 
-- **No generalized trace/eval store.** Skillflow has verdict+score per run; opentag has a ledger; nothing unifies tool calls, cost, diffs and rollback paths across agents.
+- **No *unified* trace/eval store.** Skillflow has verdict+score per run; opentag has a ledger; since 2026-07-07 the abilities registry traces every execution attempt (`tx_abilities_trace`) — but nothing yet unifies tool calls, cost, diffs and rollback paths across all agent lanes.
 - **No retrieval infrastructure.** Zero embeddings, zero vector storage, no permission-aware context builder, no SEAL usage yet. Item 14 has the least code of anything on the page.
-- **No policy/consent records.** Policies are static YAML; there is no TCA-backed rule table linking policy decisions to executions.
-- **No generic durable job runtime.** TYPO3 Scheduler is cron; only the Flue experiment shows pause/resume/mirrored runs.
-- **No `llms.txt`/`agents.md` generation** anywhere in the stack, despite JSON-LD being in place.
+- **No policy/consent records.** Policies are static YAML (capability policies and the abilities policy alike); there is no TCA-backed rule table linking policy decisions to executions.
+- **No generic durable job runtime.** TYPO3 Scheduler is cron; only the Flue experiment shows pause/resume/mirrored runs. The 2026-07-28 MCP **Tasks** extension is the alignment target — see `docs/mcp-spec-2026-07-28-adoption.md`.
+- ~~No `llms.txt`/`agents.md` generation~~ **Shipped 2026-07-07**: `webconsulting/typo3-llms-txt` serves both files per site, generated from the page tree; agents.md advertises the MCP endpoint, the abilities registry, sitemap and the x402 lane.
 
 ---
 
@@ -91,7 +91,7 @@ Legend: ✅ shipped · 🌱 embryo in the lab · ⭕ direction only
 |---|---|---|---|
 | 1 | Dual-audience design | ✅ Desiderio | Keep; feeds item 20 |
 | 2 | Identity for agents | ✅ PATs, OAuth+PKCE, capability manifests · ⭕ agent users/expiry/consent | Agent-user concept with scoped, expiring credentials + consent records |
-| 3 | MCP toolbox discipline | ✅ 50 tools | Adopt 2026-07-28 spec (stateless core, **Tasks**, Extensions, MCP Apps); list in the official registry |
+| 3 | MCP toolbox discipline | ✅ 50 tools · 🌱 spec-adoption checklist ready | Execute `docs/mcp-spec-2026-07-28-adoption.md`: P0 hygiene before 07-28, SDK v2 transport migration in August, Tasks (→ 16), registry listing via `remotes` entry |
 | 4 | Agentic skills | ✅ Skillflow | Eval sets on top of run verdicts (→ 13) |
 | 5 | LLM-agnostic libraries | ✅ nr-llm + nr-vault | EU/local model profiles as a sovereignty option (→ 22) |
 | 6 | Token billing & usage | ✅ x402 tools · ⭕ per-account metering | Keep metering core; stay rail-agnostic (x402/AP2/MPP/ACP/UCP); explore inbound pay-per-crawl (→ 20) |
@@ -106,10 +106,10 @@ Legend: ✅ shipped · 🌱 embryo in the lab · ⭕ direction only
 
 | # | Item | Status | Next concrete step |
 |---|---|---|---|
-| 13 | AgentOps: traces, evals, rollback | 🌱 Skillflow runs (verdict/score) + opentag **Ledger** | Unify into one `agent_run` trace store (tool calls, diffs, cost, reviewer, rollback path); add eval sets + regression checks |
+| 13 | AgentOps: traces, evals, rollback | 🌱 Skillflow runs (verdict/score) + opentag **Ledger** + abilities **`tx_abilities_trace`** (every execution attempt incl. denials: ability, surface, input, outcome, duration, BE user — shipped 2026-07-07) | Unify into one `agent_run` trace store (tool calls, diffs, cost, reviewer, rollback path); add eval sets + regression checks |
 | 14 | Context fabric | ⭕ zero retrieval code | Build on **SEAL** when it matures: permission-aware semantic index over records/FAL/history; source-backed context, never raw scraping |
 | 15 | Governance: policy, consent, review | 🌱 opentag **PolicyGate + HITL gate**, capability-policy YAML | Promote policies from YAML to TCA records; risk tiers per tool/table/page subtree; consent ledger |
-| 16 | Durable runtime | 🌱 Flue durable runs mirrored into TYPO3 | Generalize: every long job exposes owner, state, affected records, retry policy, cost, next action; align with MCP **Tasks** |
+| 16 | Durable runtime | 🌱 Flue durable runs mirrored into TYPO3 | Generalize: every long job exposes owner, state, affected records, retry policy, cost, next action; align with MCP **Tasks** (`io.modelcontextprotocol/tasks` — concrete mapping for Publish/Rollback/Import in `docs/mcp-spec-2026-07-28-adoption.md`) |
 
 ### The agentic web (17–23) — NEW
 
@@ -123,16 +123,16 @@ Editors delegate from the tools they already live in ("draft a teaser about the 
 **19. A capability registry, not hand-rolled endpoints** — ✅ registry core shipped (`packages/abilities`, 2026-07-07) · 🌱 REST projection, TCA policy records
 The WordPress Abilities API proved the architecture: one typed, permissioned registry of what the CMS can do; MCP tools, REST routes, CLI commands and chat tools become *projections* of that registry. This is the architectural bet that outlives any single protocol.
 *Shipped:* `webconsulting/typo3-abilities` — `#[AsAbility]` registry schema exactly as specified (name, JSON-Schema contract, `resource:operation` scopes, capability-manifest risk tiers and side-effect vocabulary), one governed execution pipeline (policy gate → input validation → scopes → permission → execute → output validation), `config/abilities-policy.yaml` with deny/review_required (HITL)/max_risk_tier, CLI projection (`abilities:list|describe|run`), and the MCP projection: a compiler pass generates one `mcp.tool` per exposed ability — verified live, `ability_system_site-info` appears in `mcp:tool:list` beside the native tools. 86 unit tests, PHPStan max.
-*Next: REST projection on sg_apicore tokens/scopes; execution traces into the item-13 store; promote policy YAML to TCA records (→ 15); propose to the TYPO3 AI initiative (→ 23).*
+Execution traces shipped 2026-07-07 (`tx_abilities_trace`, → 13). How this relates to (and completes) the capability-manifest security envelope: `docs/wordpress-abilities-vs-capability-manifests.md`. *Next: REST projection on sg_apicore tokens/scopes; promote policy YAML to TCA records (→ 15); ability-vs-manifest cross-check audit rule; propose to the TYPO3 AI initiative (→ 23).*
 
-**20. The machine-readable, monetizable site** — 🌱 JSON-LD shipped; llms.txt missing
-AI Overviews cut clicks ~40%; browser agents operate sites directly; Cloudflare meters crawlers from Sept 2026. The answer is not to hide but to publish deliberately: schema.org JSON-LD (shipped), `llms.txt`/`agents.md` generated from the page tree, question-shaped content elements (shipped in Desiderio), agent-discoverable capability manifests — and, where content has value, **charge machine readers** via the x402 lane. Turn lost clicks into a licensed channel. *Next: an llms.txt/agents.md generator extension fed by page tree + site sets; pair with x402 gating tiers for AI crawlers.*
+**20. The machine-readable, monetizable site** — ✅ JSON-LD + llms.txt/agents.md shipped · 🌱 x402 pairing
+AI Overviews cut clicks ~40%; browser agents operate sites directly; Cloudflare meters crawlers from Sept 2026. The answer is not to hide but to publish deliberately: schema.org JSON-LD (shipped), `llms.txt`/`agents.md` (shipped 2026-07-07: `webconsulting/typo3-llms-txt` serves both per site from the page tree — visible/indexable pages only; agents.md advertises the MCP endpoint, abilities registry with risk tiers, sitemap and the x402 lane, each detected at runtime; per-site opt-out; `llmstxt:dump` CLI), question-shaped content elements (shipped in Desiderio) — and, where content has value, **charge machine readers** via the x402 lane. Turn lost clicks into a licensed channel. *Next: pair with x402 gating tiers for AI crawlers; per-site doktype/depth settings; `llms-full.txt` for high-value sections.*
 
 **21. Trust, provenance and AI-Act compliance** — 🌱 `typo3-deepfake-detection`; C2PA missing
 Art. 50 EU AI Act applies **2026-08-02**: disclose AI interaction, machine-readably mark generative output. FAL is the natural home for **C2PA Content Credentials** (sign on upload, preserve through processing, expose in meta); deepfake-detection covers the inbound direction (is this asset manipulated?); the agent trace store (13) doubles as the compliance log. EAA enforcement makes the accessibility discipline billable too. *Sales angle: compliance as a recurring service line, not a burden.* *Next: C2PA read/verify in FAL metadata + AI-disclosure content element + generative-output marking in the AI pipelines.*
 
-**22. European sovereignty as a product** — ✅ ingredients exist
-Data Act obligations, CLOUD-Act conflict, Salesforce buying Contentful: European enterprises increasingly cannot put their content operations on US SaaS. The stack in this lab — TYPO3 + nr-llm/nr-vault (choose or self-host models) + self-hosted agent bridges + own audit ledger — is a positioning US SaaS cannot copy: *"agentic CMS on EU-sovereign infrastructure, your models, your audit log, your data."* *Next: a reference architecture doc + hosting partner story; EU/local model profiles in nr-llm configuration.*
+**22. European sovereignty as a product** — ✅ ingredients exist · ✅ reference architecture written
+Data Act obligations, CLOUD-Act conflict, Salesforce buying Contentful: European enterprises increasingly cannot put their content operations on US SaaS. The stack in this lab — TYPO3 + nr-llm/nr-vault by Netresearch DTT GmbH (choose or self-host models) + self-hosted agent bridges + own audit ledger — is a positioning US SaaS cannot copy: *"agentic CMS on EU-sovereign infrastructure, your models, your audit log, your data."* The full layer-by-layer architecture, trust tiers (T0 own inference / T1 EU API / T2 non-EU opt-in), compliance mapping and hosting story: `docs/eu-sovereign-reference-architecture.md` (2026-07-07). *Next: hosting partner story; EU/local model profiles in nr-llm configuration.*
 
 **23. Standardize and upstream: shape TYPO3's AI initiative** — ⭕ strategic action
 Drupal institutionalized its AI push (28 orgs, 23 FTEs); TYPO3's initiative is early and interface-stage — which is an opportunity: the patterns in this lab (MCP server, capability registry, skills, workspace-staged agent writes) can become the *de-facto TYPO3 standard* if contributed now. The 12–24-month lead is worth most as ecosystem leadership, not as a private fork. *Next: TER releases for the mature extensions, initiative participation, one public reference implementation write-up per quarter.*
@@ -162,7 +162,7 @@ An installation is ready for the agentic era when it can answer, without hand-wa
 | **2026-07-28** | New MCP spec (Tasks, Extensions, Apps) — adopt in typo3-mcp-server |
 | **2026-08-02** | EU AI Act Art. 50 transparency in force — disclosure + marking service line |
 | **2026-09-15** | Cloudflare default-blocks mixed-use crawlers — pay-per-crawl consulting window opens |
-| 2026 H2 | Items 13/15 consolidation (trace store + policy records); llms.txt generator; C2PA read in FAL |
+| 2026 H2 | Items 13/15 consolidation (unify trace store — abilities lane ✅ — + policy records); ~~llms.txt generator~~ ✅ 2026-07-07; C2PA read in FAL |
 | 2027 | Capability registry proposal to the TYPO3 AI initiative; durable-runtime generalization (MCP Tasks); next TYPO3 LTS (~late 2027) — target: land patterns upstream |
 | 2027-12-02 | AI Act high-risk obligations (deferred) — governance layer becomes mandatory for some clients |
 | 2028–2030 | v14 support runs to 2029: migration + agentic-replatforming wave; ecosystem leadership pays out |

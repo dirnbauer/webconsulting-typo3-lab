@@ -30,6 +30,8 @@ scripts/*
 /packages/skillflow/
 # Separate repo (abilities registry, strategy item 19), referenced via composer path repo
 /packages/abilities/
+# Separate repo (llms.txt/agents.md generator, strategy item 20), referenced via composer path repo
+/packages/llms_txt/
 /.ddev/traefik/
 /backup-*/
 /.tarballs/*
