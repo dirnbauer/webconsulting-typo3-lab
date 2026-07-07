@@ -58,8 +58,18 @@ WordPress's real proof (Abilities API + official MCP Adapter) is **one registry,
 3. **Pitch order for the article's audience:** manifests answer "can I trust what I installed?", abilities answer "can I let agents act here?" — enterprises currently budget for the second question, which funds the first.
 4. **Upstream story (item 23):** WP proved a CMS core will accept an abilities registry; the TYPO3 proposal is stronger because it arrives *paired* with the supply-chain envelope WP still lacks.
 
-## 7. Follow-ups
+## 7. What the lab actually did (2026-07-07)
 
-- Cross-check audit rule: ability side effects ⊆ host extension manifest (new `capability:audit` check).
+The lab chose the **action surface** as the load-bearing layer and retired the standalone manifest tooling:
+
+- `typo3-capability-manifest` and `api-capability-bridge` were **removed from the lab and archived read-only** on GitHub. Their two jobs were absorbed: the bridge's news auto-CRUD + `/studio/*` endpoints became **abilities** (news/pages/content/workspaces, defined in the desktop connector), and its backend-user-bound opaque token provider (`be_user_uid`) moved into the **sg_apicore fork** where `tx_apicore_token` actually lives — no bridge extension needed.
+- The registry now serves **four projections of the same 18 abilities**, all verified live: CLI, MCP (`ability_*` tools), REST (`/api/abilities/v1/…` on the backend-user tokens), and the **TYPO3 Desktop Editor** (its news/pages/workspace operations delegate to the executor; the Electron app is unchanged on the wire).
+- The **security-envelope half is not gone, it moved up a layer**: risk tiers, side-effect declarations and `deny`/`review_required` policy (now `config/abilities-policy.yaml`) are enforced at *execution* time on every surface, and `mcp-server`'s own internal `Capabilities.yaml` enforcement is untouched. What the lab dropped is the *static per-extension audit* CLI — the [capability-manifests article](https://www.webconsulting.at/en/blog/typo3-extension-security-emdash-capability-manifests) remains its record, and the audit approach is still valid for supply-chain review; it is simply not what gates *agent actions* here.
+
+The pairing argument in §3 still holds in principle (an installation ideally wants both the CI-time envelope and the runtime surface); the lab's pragmatic call was that one governed runtime registry across four surfaces earns its keep first.
+
+## 8. Follow-ups
+
+- Cross-check audit rule: ability side effects ⊆ host extension manifest (would resurrect the manifest audit as a registry lint).
 - The article's Phase 2/3 roadmap (backend module, core proposal) should present both registries as one governance story.
 - Blog follow-up candidate: "From capability manifests to an Abilities API — what WordPress 6.9 validated about the TYPO3 approach."
