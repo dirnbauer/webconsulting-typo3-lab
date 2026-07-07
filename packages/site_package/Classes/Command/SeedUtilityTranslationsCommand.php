@@ -15,8 +15,9 @@ use TYPO3\CMS\Core\DataHandling\DataHandler;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 /**
- * Seeds the de/zh/hu translations of the desiderio site's two
- * utility pages — the search page (uid 738) and the 404 page (uid 737).
+ * Seeds translations for the desiderio site's utility pages:
+ * - de/zh/hu for the search page (uid 738) and the 404 page (uid 737)
+ * - de for the footer accessibility page (uid 736)
  *
  * WHY A COMMAND (and not raw SQL)
  * -------------------------------
@@ -38,10 +39,11 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
  */
 #[AsCommand(
     name: 'sitepackage:seed-utility-translations',
-    description: 'Seed de/zh/hu translations for the vienna-camp search + 404 pages (run after a styleguide reseed).',
+    description: 'Seed translations for the desiderio utility pages (run after a styleguide reseed).',
 )]
 final class SeedUtilityTranslationsCommand extends Command
 {
+    private const ACCESSIBILITY_PAGE = 736;
     private const SEARCH_PAGE = 738;
     private const NOTFOUND_PAGE = 737;
 
@@ -119,6 +121,19 @@ final class SeedUtilityTranslationsCommand extends Command
     ];
     private const ELEMENT_ORDER = ['desiderio_headersection', 'desiderio_contenthighlight', 'desiderio_sitemapgrid', 'desiderio_ctabanner'];
 
+    private const ACCESSIBILITY_DE = [
+        'pageTitle' => 'Barrierefreiheit',
+        'slug' => '/barrierefreiheit',
+        'description' => 'Erklärung zur Barrierefreiheit der Desiderio Demo-Website mit Konformitätsstatus, bekannten Einschränkungen und Kontaktmöglichkeit.',
+        'statementHeader' => 'Erklärung zur Barrierefreiheit',
+        'lastUpdated' => '6. Juli 2026',
+        'contactEmail' => 'accessibility@desiderio.example',
+        'statementContent' => '<p>Desiderio ist bestrebt, diese Demo-Website barrierefrei zugänglich zu machen. Maßstab sind die Web Content Accessibility Guidelines (WCAG) 2.1 auf Konformitätsstufe AA sowie die europäische Norm EN 301 549.</p><h3>Stand der Vereinbarkeit</h3><p>Die mit Desiderio ausgelieferten Inhaltselemente sind darauf ausgelegt, zentrale Anforderungen an Tastaturbedienbarkeit, sichtbare Fokuszustände, semantische Struktur, Alternativtexte und ausreichende Farbkontraste zu erfüllen. Diese Demo-Vorlage ersetzt jedoch keine vollständige Prüfung der konkret veröffentlichten Website.</p><h3>Bereits unterstützte Barrierefreiheit</h3><ul><li>Interaktive Elemente wie Links, Schaltflächen und Formularfelder sind per Tastatur erreichbar.</li><li>Layoutvorlagen verwenden semantische HTML-Strukturen, Landmarken und eine nachvollziehbare Überschriftenhierarchie.</li><li>Bildfelder enthalten Eingaben für Alternativtexte; dekorative Symbole werden für assistive Technologien ausgeblendet.</li><li>Die Theme-Ausgabe wird gegen Kontrastziele geprüft, damit Text und UI-Komponenten lesbar bleiben.</li></ul><h3>Bekannte Einschränkungen</h3><p>Redaktionell eingepflegte Inhalte, eingebettete Drittanbieter-Dienste und hochgeladene Dokumente müssen vor dem Go-live zusätzlich geprüft werden. Einzelne Demo-Inhalte können Platzhalter enthalten und sind nicht als abschließende rechtliche Erklärung zu verstehen.</p><h3>Feedback und Kontakt</h3><p>Wenn Ihnen eine Barriere auffällt oder Sie Informationen in einem barrierefreien Format benötigen, schreiben Sie bitte an <a href="mailto:accessibility@desiderio.example">accessibility@desiderio.example</a>. Bitte nennen Sie die betroffene Seite, das verwendete Gerät, den Browser und gegebenenfalls die eingesetzte assistive Technologie.</p><h3>Durchsetzungsverfahren</h3><p>Diese Seite ist eine Demo-Vorlage. Vor einer produktiven Veröffentlichung müssen Betreiber, zuständige Stelle, tatsächliche Kontaktdaten, Prüfdatum und der rechtliche Geltungsbereich ergänzt und geprüft werden.</p>',
+        'highlightHeader' => 'Wie Desiderio Barrierefreiheit technisch absichert',
+        'highlightContent' => '<p>Drei Mechanismen tragen die Umsetzung. Erstens ein <strong>WCAG-2.1-Kontrastcheck</strong>: Theme-Werte werden gegen Zielwerte für Text und UI-Komponenten geprüft. Zweitens <strong>übersetzte Assistenztexte</strong>: Screenreader-Labels, Carousel-Bedienelemente, Schließen-Schaltflächen und Pagination kommen aus XLIFF-Katalogen. Drittens <strong>Audits in der Entwicklung</strong>: Template-Prüfungen und Tests halten Landmarken, Fokuszustände und Überschriftenstruktur stabil.</p>',
+        'highlightLinkText' => 'Mehr zu den Elementen',
+    ];
+
     public function __construct(private readonly ConnectionPool $connectionPool)
     {
         parent::__construct();
@@ -130,6 +145,10 @@ final class SeedUtilityTranslationsCommand extends Command
         $this->initBackendUser();
 
         // Resolve current default-language source uids dynamically (they change on every reseed).
+        $accessibilityElements = [
+            'desiderio_accessibilitystatement' => $this->findContent(self::ACCESSIBILITY_PAGE, 'desiderio_accessibilitystatement'),
+            'desiderio_contenthighlight' => $this->findContent(self::ACCESSIBILITY_PAGE, 'desiderio_contenthighlight'),
+        ];
         $searchPlugin = $this->findContent(self::SEARCH_PAGE, 'solr_pi_results');
         $elements = [];
         foreach (self::ELEMENT_ORDER as $ctype) {
@@ -149,10 +168,16 @@ final class SeedUtilityTranslationsCommand extends Command
 
         foreach (array_keys(self::T) as $lang) {
             $this->cleanLanguage($lang, $searchPlugin, $elements, $groupUids, $linkUidsByGroup);
+            if ($lang === 1) {
+                $this->cleanAccessibilityLanguage($lang, $accessibilityElements);
+            }
             $this->seedPageRows($lang);
 
             // Content + nested collections: DataHandler localize (correct wiring), then set values.
             $contentSources = array_values(array_filter([$searchPlugin, ...array_values($elements)]));
+            if ($lang === 1) {
+                $contentSources = array_values(array_filter([...$contentSources, ...array_values($accessibilityElements)]));
+            }
             $this->localize('tt_content', $contentSources, $lang);
 
             /** @var array<string, array<int, array<string, mixed>>> $data */
@@ -196,6 +221,9 @@ final class SeedUtilityTranslationsCommand extends Command
                     }
                     $linkIndex++;
                 }
+            }
+            if ($lang === 1) {
+                $this->addAccessibilityTranslationData($data, $accessibilityElements);
             }
             $this->applyData($data);
 
@@ -274,6 +302,20 @@ final class SeedUtilityTranslationsCommand extends Command
         $delete('sitemap_grid_pages', 'l10n_parent', array_merge([], ...array_values($linkUidsByGroup)));
     }
 
+    /** @param array<string,?int> $elements */
+    private function cleanAccessibilityLanguage(int $lang, array $elements): void
+    {
+        $parents = array_values(array_filter($elements));
+        if ($parents === []) {
+            return;
+        }
+        $in = implode(',', array_map(static fn (mixed $v): int => is_numeric($v) ? (int)$v : 0, $parents));
+        $this->connectionPool->getConnectionForTable('tt_content')->executeStatement(
+            "DELETE FROM tt_content WHERE l18n_parent IN ($in) AND sys_language_uid = :l",
+            ['l' => $lang]
+        );
+    }
+
     /** @param int[] $sourceUids */
     private function localize(string $table, array $sourceUids, int $lang): void
     {
@@ -305,9 +347,28 @@ final class SeedUtilityTranslationsCommand extends Command
         $meta = self::LANG_META[$lang];
         $this->upsertPageTranslation(self::SEARCH_PAGE, $lang, $meta['pageTitleSearch'], $meta['slugSearch']);
         $this->upsertPageTranslation(self::NOTFOUND_PAGE, $lang, $meta['pageTitle404'], '/404');
+        if ($lang === 1) {
+            $this->upsertPageTranslation(
+                self::ACCESSIBILITY_PAGE,
+                $lang,
+                self::ACCESSIBILITY_DE['pageTitle'],
+                self::ACCESSIBILITY_DE['slug'],
+                [
+                    'description' => self::ACCESSIBILITY_DE['description'],
+                    'seo_title' => self::ACCESSIBILITY_DE['statementHeader'],
+                    'og_title' => self::ACCESSIBILITY_DE['pageTitle'],
+                    'og_description' => self::ACCESSIBILITY_DE['description'],
+                    'twitter_title' => self::ACCESSIBILITY_DE['pageTitle'],
+                    'twitter_description' => self::ACCESSIBILITY_DE['description'],
+                ],
+            );
+        }
     }
 
-    private function upsertPageTranslation(int $parent, int $lang, string $title, string $slug): void
+    /**
+     * @param array<string,string> $extraOverrides
+     */
+    private function upsertPageTranslation(int $parent, int $lang, string $title, string $slug, array $extraOverrides = []): void
     {
         $conn = $this->connectionPool->getConnectionForTable('pages');
         $conn->executeStatement(
@@ -318,7 +379,7 @@ final class SeedUtilityTranslationsCommand extends Command
         $now = time();
         $select = [];
         $params = ['src' => $parent];
-        $overrides = ['title' => $title, 'slug' => $slug, 'nav_title' => $title];
+        $overrides = ['title' => $title, 'slug' => $slug, 'nav_title' => $title, ...$extraOverrides];
         foreach ($cols as $col) {
             if ($col === 'uid') {
                 continue;
@@ -343,6 +404,41 @@ final class SeedUtilityTranslationsCommand extends Command
             'INSERT INTO pages (`' . implode('`, `', $insertCols) . '`) SELECT ' . implode(', ', $select) . ' FROM pages WHERE uid = :src',
             $params
         );
+    }
+
+    /**
+     * @param array<string,array<int,array<string,mixed>>> $data
+     * @param array<string,?int> $elements
+     */
+    private function addAccessibilityTranslationData(array &$data, array $elements): void
+    {
+        $statementUid = $elements['desiderio_accessibilitystatement'] ?? null;
+        if ($statementUid) {
+            $translatedUid = $this->translationUid('tt_content', $statementUid, 1);
+            if ($translatedUid) {
+                $data['tt_content'][$translatedUid] = [
+                    'header' => self::ACCESSIBILITY_DE['statementHeader'],
+                    'conformance_level' => 'aa',
+                    'content' => self::ACCESSIBILITY_DE['statementContent'],
+                    'contact_email' => self::ACCESSIBILITY_DE['contactEmail'],
+                    'last_updated' => self::ACCESSIBILITY_DE['lastUpdated'],
+                    'hidden' => 0,
+                ];
+            }
+        }
+
+        $highlightUid = $elements['desiderio_contenthighlight'] ?? null;
+        if ($highlightUid) {
+            $translatedUid = $this->translationUid('tt_content', $highlightUid, 1);
+            if ($translatedUid) {
+                $data['tt_content'][$translatedUid] = [
+                    'header' => self::ACCESSIBILITY_DE['highlightHeader'],
+                    'content' => self::ACCESSIBILITY_DE['highlightContent'],
+                    'link_text' => self::ACCESSIBILITY_DE['highlightLinkText'],
+                    'hidden' => 0,
+                ];
+            }
+        }
     }
 
     /** @return string[] */

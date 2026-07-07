@@ -1,0 +1,15 @@
+.content-highlight__cta:focus-visible {
+    outline: 2px solid var(--ring, currentColor);
+    outline-offset: 2px;
+    box-shadow: 0 0 0 3px color-mix(in oklch, var(--ring, currentColor) 50%, transparent);
+}
+
+.desiderio-footer__wordmark {
+    align-items: center;
+    min-height: 24px;
+}
+
+.desiderio-footer__wordmark:focus-visible {
+    outline: 2px solid var(--ring, currentColor);
+    outline-offset: 2px;
+}

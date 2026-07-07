@@ -8,6 +8,10 @@ plugin.tx_blog.view.partialRootPaths.100 = EXT:desiderio/Resources/Private/Parti
 
 lib.contentElement.templateRootPaths.300 = EXT:site_package/Resources/Private/FluidStyledContent/Templates/
 
+[site("identifier") == "desiderio"]
+page.includeCSS.sitePackageDesiderioA11y = EXT:site_package/Resources/Public/Css/desiderio-a11y.css
+[END]
+
 # EXT:blog registers its plugins as CType-based Extbase content elements.
 # Desiderio's FluidStyledContent wrapper needs to explicitly render the
 # extension-provided tt_content.<CType>.20 plugin output for these CTypes.
