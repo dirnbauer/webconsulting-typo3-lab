@@ -1,6 +1,6 @@
 # TYPO3 Agentic Strategy 2026–2030
 
-**The long-form strategy behind `/typo3-v14-strategy/`** — what exists, what the market did, what must change, what to add, what to delete. The lab page is the public condensation of this document; this file is the working strategy with implementation status and next steps per item.
+**The long-form strategy behind `/typo3-v14-strategy/`** — what exists, what the market did, what must change, what to add, what to delete. The lab page is the public condensation of this document; this file is the working strategy with implementation status and next steps per item. The page mirrors this document's shape: a reading map, three numbered parts (I platform 1–12, II operating layer 13–16, III agentic web 17–23), one fixed rhythm per pillar (Already here / Next / Why it sells) and the readiness check as the closing self-test.
 
 Last updated: 2026-07-07. Sources: full code inventory of the lab and all `github.com/dirnbauer` repositories, plus web research on the mid-2026 CMS, agent-standard and EU-regulatory landscape (primary sources linked inline where they matter).
 
