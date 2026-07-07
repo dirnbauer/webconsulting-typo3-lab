@@ -1,272 +1,262 @@
 {
-  "name": "webconsulting/typo3-lab",
-  "description": "Webconsulting TYPO3 Lab - DDEV-powered TYPO3 feature lab for experiments, demos, integrations and modern CMS workflows",
-  "license": "GPL-2.0-or-later",
-  "type": "project",
-  "minimum-stability": "dev",
-  "prefer-stable": true,
-  "config": {
-    "allow-plugins": {
-      "cweagans/composer-patches": true,
-      "php-http/discovery": true,
-      "typo3/class-alias-loader": true,
-      "typo3/cms-composer-installers": true
-    },
-    "platform": {
-      "php": "8.3.0"
-    },
-    "use-github-api": false,
-    "preferred-install": {
-      "typo3/*": "source",
-      "hn/typo3-mcp-server": "source",
-      "t3g/blog": "source",
-      "webconsulting/*": "source",
-      "*": "source"
-    },
-    "sort-packages": true
-  },
-  "repositories": [
-    {
-      "name": "local-desiderio",
-      "type": "path",
-      "url": "../desiderio",
-      "options": {
-        "symlink": false
-      }
-    },
-    {
-      "name": "innesto",
-      "type": "vcs",
-      "url": "https://github.com/dirnbauer/innesto"
-    },
-    {
-      "type": "vcs",
-      "url": "https://github.com/dirnbauer/flue.git"
-    },
-    {
-      "type": "path",
-      "url": "packages/*",
-      "exclude": [
-        "webconsulting/flue"
-      ],
-      "options": {
-        "symlink": true,
-        "versions": {
-          "webconsulting/site-package": "14.3.3",
-          "webconsulting/agent-nexus": "2.0.1",
-          "webconsulting/opentag-bridge": "0.1.0",
-          "webconsulting/skillflow": "1.5.1",
-          "webconsulting/visual-editor-enhancements": "0.8.0"
-        }
-      }
-    },
-    {
-      "name": "agent-nexus",
-      "type": "vcs",
-      "url": "https://github.com/dirnbauer/typo3-agent-nexus.git"
-    },
-    {
-      "name": "visual-editor-enhancements",
-      "type": "vcs",
-      "url": "https://github.com/dirnbauer/typo3-visual-editor-enhancements.git"
-    },
-    {
-      "name": "opentag-bridge",
-      "type": "vcs",
-      "url": "https://github.com/dirnbauer/typo3-opentag-bridge.git"
-    },
-    {
-      "type": "vcs",
-      "url": "https://github.com/dirnbauer/sg_apicore.git"
-    },
-    {
-      "type": "vcs",
-      "url": "https://github.com/dirnbauer/api-capability-bridge.git"
-    },
-    {
-      "type": "vcs",
-      "url": "https://github.com/dirnbauer/solr_numbered_pagination.git"
-    },
-    {
-      "type": "vcs",
-      "url": "https://github.com/dirnbauer/ext-solr.git"
-    },
-    {
-      "type": "vcs",
-      "url": "https://github.com/dirnbauer/typo3-agentation.git"
-    },
-    {
-      "name": "records-list-examples",
-      "type": "vcs",
-      "url": "https://github.com/dirnbauer/typo3-records-list-examples.git"
-    },
-    {
-      "type": "vcs",
-      "url": "https://github.com/dirnbauer/desiderio.git"
-    },
-    {
-      "type": "vcs",
-      "url": "https://github.com/dirnbauer/typo3-mcp-server.git"
-    },
-    {
-      "type": "vcs",
-      "url": "https://github.com/dirnbauer/blog.git"
-    },
-    {
-      "type": "vcs",
-      "url": "https://github.com/dirnbauer/powermail.git"
-    },
-    {
-      "type": "vcs",
-      "url": "https://github.com/dirnbauer/friendlycaptcha-typo3.git"
-    },
-    {
-      "type": "vcs",
-      "url": "https://github.com/dirnbauer/typo3-records-list-types.git"
-    },
-    {
-      "type": "vcs",
-      "url": "https://github.com/dirnbauer/typo3-x402-paywall.git"
-    },
-    {
-      "type": "vcs",
-      "url": "https://github.com/dirnbauer/typo3-capability-manifest.git"
-    },
-    {
-      "type": "vcs",
-      "url": "https://github.com/netresearch/t3x-nr-llm.git"
-    },
-    {
-      "type": "vcs",
-      "url": "https://github.com/netresearch/t3x-nr-vault.git"
-    },
-    {
-      "type": "vcs",
-      "url": "https://github.com/netresearch/t3x-cowriter.git"
-    },
-    {
-      "type": "vcs",
-      "url": "https://github.com/dirnbauer/t3x-nr-mcp-agent.git"
-    },
-    {
-      "type": "vcs",
-      "url": "https://github.com/dirnbauer/workos.git",
-      "no-api": true
-    },
-    {
-      "type": "vcs",
-      "url": "https://github.com/dirnbauer/typo3-webcon-easy-workspace.git"
-    },
-    {
-      "type": "vcs",
-      "url": "https://github.com/dirnbauer/webcon-mcp-chat-bridge.git"
-    },
-    {
-      "type": "vcs",
-      "url": "https://github.com/dirnbauer/typo3-docx.git"
-    }
-  ],
-  "require": {
-    "apache-solr-for-typo3/solr": "^14.0@beta",
-    "dirnbauer/innesto": "^1.0",
-    "friendsoftypo3/tt-address": "^10.0",
-    "friendsoftypo3/visual-editor": "^1.7.2",
-    "georgringer/context-edit-records": "^1.0",
-    "georgringer/news": "^14.0",
-    "georgringer/numbered-pagination": "^2.2",
-    "hn/typo3-mcp-server": "dev-main",
-    "in2code/powermail": "dev-typo3-v14",
-    "league/commonmark": "^2.7",
-    "netresearch/nr-llm": "^0.12",
-    "netresearch/nr-mcp-agent": "dev-main",
-    "netresearch/nr-vault": "^0.10",
-    "netresearch/t3-cowriter": "^3.1",
-    "sgalinski/sg-apicore": "dev-main",
-    "studiomitte/friendlycaptcha": "^14.0@dev",
-    "studiomitte/solr-numbered-pagination": "dev-main",
-    "supseven/inline-page-module": "^4.0",
-    "t3g/blog": "^15.0",
-    "typo3/class-alias-loader": "^2.0.1",
-    "typo3/cms-adminpanel": "^14.3",
-    "typo3/cms-backend": "^14.3",
-    "typo3/cms-belog": "^14.3",
-    "typo3/cms-beuser": "^14.3",
-    "typo3/cms-core": "^14.3",
-    "typo3/cms-dashboard": "^14.3",
-    "typo3/cms-extbase": "^14.3",
-    "typo3/cms-extensionmanager": "^14.3",
-    "typo3/cms-felogin": "^14.3",
-    "typo3/cms-filelist": "^14.3",
-    "typo3/cms-fluid": "^14.3",
-    "typo3/cms-fluid-styled-content": "^14.3",
-    "typo3/cms-form": "^14.3",
-    "typo3/cms-frontend": "^14.3",
-    "typo3/cms-impexp": "^14.3",
-    "typo3/cms-info": "^14.3",
-    "typo3/cms-install": "^14.3",
-    "typo3/cms-lowlevel": "^14.3",
-    "typo3/cms-reactions": "^14.3",
-    "typo3/cms-recycler": "^14.3",
-    "typo3/cms-redirects": "^14.3",
-    "typo3/cms-rte-ckeditor": "^14.3",
-    "typo3/cms-scheduler": "^14.3",
-    "typo3/cms-seo": "^14.3",
-    "typo3/cms-setup": "^14.3",
-    "typo3/cms-styleguide": "^14.3",
-    "typo3/cms-sys-note": "^14.3",
-    "typo3/cms-tstemplate": "^14.3",
-    "typo3/cms-viewpage": "^14.3",
-    "typo3/cms-webhooks": "^14.3",
-    "typo3/cms-workspaces": "^14.3",
-    "typo3/theme-camino": "^14.3",
-    "wapplersystems/multisite-belogin": "^14.1",
-    "webconsulting/agent-nexus": "^2.0",
-    "webconsulting/agentation": "^1.1",
-    "webconsulting/api-capability-bridge": "^1.0",
-    "webconsulting/desiderio": "dev-main as 2.13.0",
-    "webconsulting/docx-editor": "dev-main",
-    "webconsulting/flue": "dev-main",
-    "webconsulting/opentag-bridge": "^0.1",
-    "webconsulting/records-list-examples": "^1.1",
-    "webconsulting/records-list-types": "^1.0.3",
-    "webconsulting/site-package": "^14.3",
-    "webconsulting/skillflow": "^1.2",
-    "webconsulting/typo3-abilities": "dev-main",
-    "webconsulting/typo3-capability-manifest": "^1.0",
-    "webconsulting/typo3-llms-txt": "dev-main",
-    "webconsulting/typo3-x402-paywall": "^1.0",
-    "webconsulting/visual-editor-enhancements": "^0.8",
-    "webconsulting/webcon-easy-workspace": "^1.2.8",
-    "webconsulting/webcon-mcp-chat-bridge": "dev-main",
-    "webconsulting/workos-auth": "^1.1"
-  },
-  "require-dev": {
-    "cweagans/composer-patches": "^2.0",
-    "phpstan/phpstan": "^2.1",
-    "phpunit/phpunit": "^12.5",
-    "saschaegerer/phpstan-typo3": "^3.0.1",
-    "typo3/testing-framework": "^9.5"
-  },
-  "extra": {
-    "composer-exit-on-patch-failure": true,
-    "patches": {
-      "apache-solr-for-typo3/solr": {
-        "Guard enhanced-routing filter concatenation for sparse filter arrays": "patches/apache-solr-for-typo3-solr-fix-sparse-filter-concat.patch"
-      },
-      "netresearch/nr-vault": {
-        "Accept array $pasteUpdate in processCmdmap_preProcess (copy/move with update payload)": "patches/netresearch-nr-vault-fix-cmdmap-hook-pasteupdate-type.patch",
-        "Size the Vault backend module icon correctly (viewBox padding so it matches sibling icons)": "patches/netresearch-nr-vault-module-icon-size.patch"
-      },
-      "typo3/cms-core": {
-        "Guard workspace move-pointer overlay when the live record is missing": "patches/typo3-cms-core-fix-workspace-move-pointer-missing-live-record.patch"
-      },
-      "webconsulting/webcon-easy-workspace": {
-        "Toolbar list: toggle switches, Seiteneigenschaften card redesign with intent line, correct TYPO3 labels": "patches/webcon-easy-workspace-toolbar-toggle-and-seiteneigenschaften.patch",
-        "Locate preview elements with overlay room; keep discard tag inside small viewports": "patches/webcon-easy-workspace-fix-discard-tag-viewport.patch"
-      },
-      "webconsulting/agentation": {
-        "Respect backend user setup default and explicit toolbar toggle": "patches/webconsulting-agentation-respect-user-setup-toggle.patch"
-      }
-    }
-  }
+	"name": "webconsulting/typo3-lab",
+	"description": "Webconsulting TYPO3 Lab - DDEV-powered TYPO3 feature lab for experiments, demos, integrations and modern CMS workflows",
+	"license": "GPL-2.0-or-later",
+	"type": "project",
+	"minimum-stability": "dev",
+	"prefer-stable": true,
+	"config": {
+		"allow-plugins": {
+			"cweagans/composer-patches": true,
+			"php-http/discovery": true,
+			"typo3/class-alias-loader": true,
+			"typo3/cms-composer-installers": true
+		},
+		"platform": {
+			"php": "8.3.0"
+		},
+		"use-github-api": false,
+		"preferred-install": {
+			"typo3/*": "source",
+			"hn/typo3-mcp-server": "source",
+			"t3g/blog": "source",
+			"webconsulting/*": "source",
+			"*": "source"
+		},
+		"sort-packages": true
+	},
+	"repositories": [
+		{
+			"name": "local-desiderio",
+			"type": "path",
+			"url": "../desiderio",
+			"options": {
+				"symlink": false
+			}
+		},
+		{
+			"name": "innesto",
+			"type": "vcs",
+			"url": "https://github.com/dirnbauer/innesto"
+		},
+		{
+			"type": "vcs",
+			"url": "https://github.com/dirnbauer/flue.git"
+		},
+		{
+			"type": "path",
+			"url": "packages/*",
+			"exclude": [
+				"webconsulting/flue"
+			],
+			"options": {
+				"symlink": true,
+				"versions": {
+					"webconsulting/site-package": "14.3.3",
+					"webconsulting/agent-nexus": "2.0.1",
+					"webconsulting/opentag-bridge": "0.1.0",
+					"webconsulting/skillflow": "1.5.1",
+					"webconsulting/visual-editor-enhancements": "0.8.0"
+				}
+			}
+		},
+		{
+			"name": "agent-nexus",
+			"type": "vcs",
+			"url": "https://github.com/dirnbauer/typo3-agent-nexus.git"
+		},
+		{
+			"name": "visual-editor-enhancements",
+			"type": "vcs",
+			"url": "https://github.com/dirnbauer/typo3-visual-editor-enhancements.git"
+		},
+		{
+			"name": "opentag-bridge",
+			"type": "vcs",
+			"url": "https://github.com/dirnbauer/typo3-opentag-bridge.git"
+		},
+		{
+			"type": "vcs",
+			"url": "https://github.com/dirnbauer/sg_apicore.git"
+		},
+		{
+			"type": "vcs",
+			"url": "https://github.com/dirnbauer/solr_numbered_pagination.git"
+		},
+		{
+			"type": "vcs",
+			"url": "https://github.com/dirnbauer/ext-solr.git"
+		},
+		{
+			"type": "vcs",
+			"url": "https://github.com/dirnbauer/typo3-agentation.git"
+		},
+		{
+			"name": "records-list-examples",
+			"type": "vcs",
+			"url": "https://github.com/dirnbauer/typo3-records-list-examples.git"
+		},
+		{
+			"type": "vcs",
+			"url": "https://github.com/dirnbauer/desiderio.git"
+		},
+		{
+			"type": "vcs",
+			"url": "https://github.com/dirnbauer/typo3-mcp-server.git"
+		},
+		{
+			"type": "vcs",
+			"url": "https://github.com/dirnbauer/blog.git"
+		},
+		{
+			"type": "vcs",
+			"url": "https://github.com/dirnbauer/powermail.git"
+		},
+		{
+			"type": "vcs",
+			"url": "https://github.com/dirnbauer/friendlycaptcha-typo3.git"
+		},
+		{
+			"type": "vcs",
+			"url": "https://github.com/dirnbauer/typo3-records-list-types.git"
+		},
+		{
+			"type": "vcs",
+			"url": "https://github.com/dirnbauer/typo3-x402-paywall.git"
+		},
+		{
+			"type": "vcs",
+			"url": "https://github.com/netresearch/t3x-nr-llm.git"
+		},
+		{
+			"type": "vcs",
+			"url": "https://github.com/netresearch/t3x-nr-vault.git"
+		},
+		{
+			"type": "vcs",
+			"url": "https://github.com/netresearch/t3x-cowriter.git"
+		},
+		{
+			"type": "vcs",
+			"url": "https://github.com/dirnbauer/t3x-nr-mcp-agent.git"
+		},
+		{
+			"type": "vcs",
+			"url": "https://github.com/dirnbauer/workos.git",
+			"no-api": true
+		},
+		{
+			"type": "vcs",
+			"url": "https://github.com/dirnbauer/typo3-webcon-easy-workspace.git"
+		},
+		{
+			"type": "vcs",
+			"url": "https://github.com/dirnbauer/webcon-mcp-chat-bridge.git"
+		},
+		{
+			"type": "vcs",
+			"url": "https://github.com/dirnbauer/typo3-docx.git"
+		}
+	],
+	"require": {
+		"apache-solr-for-typo3/solr": "^14.0@beta",
+		"dirnbauer/innesto": "^1.0",
+		"friendsoftypo3/tt-address": "^10.0",
+		"friendsoftypo3/visual-editor": "^1.7.2",
+		"georgringer/context-edit-records": "^1.0",
+		"georgringer/news": "^14.0",
+		"georgringer/numbered-pagination": "^2.2",
+		"hn/typo3-mcp-server": "dev-main",
+		"in2code/powermail": "dev-typo3-v14",
+		"league/commonmark": "^2.7",
+		"netresearch/nr-llm": "^0.12",
+		"netresearch/nr-mcp-agent": "dev-main",
+		"netresearch/nr-vault": "^0.10",
+		"netresearch/t3-cowriter": "^3.1",
+		"sgalinski/sg-apicore": "dev-main",
+		"studiomitte/friendlycaptcha": "^14.0@dev",
+		"studiomitte/solr-numbered-pagination": "dev-main",
+		"supseven/inline-page-module": "^4.0",
+		"t3g/blog": "^15.0",
+		"typo3/class-alias-loader": "^2.0.1",
+		"typo3/cms-adminpanel": "^14.3",
+		"typo3/cms-backend": "^14.3",
+		"typo3/cms-belog": "^14.3",
+		"typo3/cms-beuser": "^14.3",
+		"typo3/cms-core": "^14.3",
+		"typo3/cms-dashboard": "^14.3",
+		"typo3/cms-extbase": "^14.3",
+		"typo3/cms-extensionmanager": "^14.3",
+		"typo3/cms-felogin": "^14.3",
+		"typo3/cms-filelist": "^14.3",
+		"typo3/cms-fluid": "^14.3",
+		"typo3/cms-fluid-styled-content": "^14.3",
+		"typo3/cms-form": "^14.3",
+		"typo3/cms-frontend": "^14.3",
+		"typo3/cms-impexp": "^14.3",
+		"typo3/cms-info": "^14.3",
+		"typo3/cms-install": "^14.3",
+		"typo3/cms-lowlevel": "^14.3",
+		"typo3/cms-reactions": "^14.3",
+		"typo3/cms-recycler": "^14.3",
+		"typo3/cms-redirects": "^14.3",
+		"typo3/cms-rte-ckeditor": "^14.3",
+		"typo3/cms-scheduler": "^14.3",
+		"typo3/cms-seo": "^14.3",
+		"typo3/cms-setup": "^14.3",
+		"typo3/cms-styleguide": "^14.3",
+		"typo3/cms-sys-note": "^14.3",
+		"typo3/cms-tstemplate": "^14.3",
+		"typo3/cms-viewpage": "^14.3",
+		"typo3/cms-webhooks": "^14.3",
+		"typo3/cms-workspaces": "^14.3",
+		"typo3/theme-camino": "^14.3",
+		"wapplersystems/multisite-belogin": "^14.1",
+		"webconsulting/agent-nexus": "^2.0",
+		"webconsulting/agentation": "^1.1",
+		"webconsulting/desiderio": "dev-main as 2.13.0",
+		"webconsulting/docx-editor": "dev-main",
+		"webconsulting/flue": "dev-main",
+		"webconsulting/opentag-bridge": "^0.1",
+		"webconsulting/records-list-examples": "^1.1",
+		"webconsulting/records-list-types": "^1.0.3",
+		"webconsulting/site-package": "^14.3",
+		"webconsulting/skillflow": "^1.2",
+		"webconsulting/typo3-abilities": "dev-main",
+		"webconsulting/typo3-llms-txt": "dev-main",
+		"webconsulting/typo3-x402-paywall": "^1.0",
+		"webconsulting/visual-editor-enhancements": "^0.8",
+		"webconsulting/webcon-easy-workspace": "^1.2.8",
+		"webconsulting/webcon-mcp-chat-bridge": "dev-main",
+		"webconsulting/workos-auth": "^1.1"
+	},
+	"require-dev": {
+		"cweagans/composer-patches": "^2.0",
+		"phpstan/phpstan": "^2.1",
+		"phpunit/phpunit": "^12.5",
+		"saschaegerer/phpstan-typo3": "^3.0.1",
+		"typo3/testing-framework": "^9.5"
+	},
+	"extra": {
+		"composer-exit-on-patch-failure": true,
+		"patches": {
+			"apache-solr-for-typo3/solr": {
+				"Guard enhanced-routing filter concatenation for sparse filter arrays": "patches/apache-solr-for-typo3-solr-fix-sparse-filter-concat.patch"
+			},
+			"netresearch/nr-vault": {
+				"Accept array $pasteUpdate in processCmdmap_preProcess (copy/move with update payload)": "patches/netresearch-nr-vault-fix-cmdmap-hook-pasteupdate-type.patch",
+				"Size the Vault backend module icon correctly (viewBox padding so it matches sibling icons)": "patches/netresearch-nr-vault-module-icon-size.patch"
+			},
+			"typo3/cms-core": {
+				"Guard workspace move-pointer overlay when the live record is missing": "patches/typo3-cms-core-fix-workspace-move-pointer-missing-live-record.patch"
+			},
+			"webconsulting/webcon-easy-workspace": {
+				"Toolbar list: toggle switches, Seiteneigenschaften card redesign with intent line, correct TYPO3 labels": "patches/webcon-easy-workspace-toolbar-toggle-and-seiteneigenschaften.patch",
+				"Locate preview elements with overlay room; keep discard tag inside small viewports": "patches/webcon-easy-workspace-fix-discard-tag-viewport.patch"
+			},
+			"webconsulting/agentation": {
+				"Respect backend user setup default and explicit toolbar toggle": "patches/webconsulting-agentation-respect-user-setup-toggle.patch"
+			}
+		}
+	}
 }

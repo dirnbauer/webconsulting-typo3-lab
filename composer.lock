@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7a1b5fd47ba82d94516946bdb07e4589",
+    "content-hash": "7f8246d0a61199d21bad9b39ff1ed4ef",
     "packages": [
         {
             "name": "apache-solr-for-typo3/solr",
@@ -5469,12 +5469,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/sg_apicore.git",
-                "reference": "2e457acaf8354e3a1304f4b9586bb7de3f0d8672"
+                "reference": "bb2c5edb0a5c72d9e7d3b71b1ee929459b67119d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/sg_apicore/zipball/2e457acaf8354e3a1304f4b9586bb7de3f0d8672",
-                "reference": "2e457acaf8354e3a1304f4b9586bb7de3f0d8672",
+                "url": "https://api.github.com/repos/dirnbauer/sg_apicore/zipball/bb2c5edb0a5c72d9e7d3b71b1ee929459b67119d",
+                "reference": "bb2c5edb0a5c72d9e7d3b71b1ee929459b67119d",
                 "shasum": ""
             },
             "require": {
@@ -5491,7 +5491,8 @@
                 "phpstan/phpstan": "^2.1",
                 "phpstan/phpstan-phpunit": "^2.0",
                 "phpunit/phpunit": "^12.1",
-                "typo3/testing-framework": "^9.5 || ^10.0"
+                "typo3/testing-framework": "^9.5 || ^10.0",
+                "webconsulting/typo3-abilities": "dev-main"
             },
             "default-branch": true,
             "type": "typo3-cms-extension",
@@ -5543,7 +5544,7 @@
                 "typo3",
                 "typo3-extension"
             ],
-            "time": "2026-06-20T18:04:04+00:00"
+            "time": "2026-07-07T07:50:15+00:00"
         },
         {
             "name": "smalot/pdfparser",
@@ -12126,45 +12127,6 @@
             "time": "2026-06-20T17:54:55+00:00"
         },
         {
-            "name": "webconsulting/api-capability-bridge",
-            "version": "v1.0.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/dirnbauer/api-capability-bridge.git",
-                "reference": "ff091ff06e068c72ab1e34749a6cda3ad0185b00"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/api-capability-bridge/zipball/ff091ff06e068c72ab1e34749a6cda3ad0185b00",
-                "reference": "ff091ff06e068c72ab1e34749a6cda3ad0185b00",
-                "shasum": ""
-            },
-            "require": {
-                "php": "^8.3",
-                "sgalinski/sg-apicore": "dev-main",
-                "typo3/cms-backend": "^14.3",
-                "typo3/cms-core": "^14.3",
-                "webconsulting/typo3-capability-manifest": "^1.0"
-            },
-            "type": "typo3-cms-extension",
-            "extra": {
-                "typo3/cms": {
-                    "extension-key": "api_capability_bridge",
-                    "version": "1.0.1"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Webconsulting\\ApiCapabilityBridge\\": "Classes/"
-                }
-            },
-            "license": [
-                "GPL-2.0-or-later"
-            ],
-            "description": "Capability-policy wrapper for sg_apicore resources.",
-            "time": "2026-06-20T17:54:55+00:00"
-        },
-        {
             "name": "webconsulting/desiderio",
             "version": "dev-main",
             "dist": {
@@ -12730,7 +12692,7 @@
             "dist": {
                 "type": "path",
                 "url": "packages/abilities",
-                "reference": "021bd1c5d54f6343ed6e209639c9314832df3d37"
+                "reference": "d0a121ac48ee2b032f9c3570575279028f08a242"
             },
             "require": {
                 "php": "^8.3",
@@ -12795,96 +12757,12 @@
             }
         },
         {
-            "name": "webconsulting/typo3-capability-manifest",
-            "version": "v1.0.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/dirnbauer/typo3-capability-manifest.git",
-                "reference": "d9edba86902739981617732ecea81f6f7701c0d0"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/typo3-capability-manifest/zipball/d9edba86902739981617732ecea81f6f7701c0d0",
-                "reference": "d9edba86902739981617732ecea81f6f7701c0d0",
-                "shasum": ""
-            },
-            "require": {
-                "nikic/php-parser": "^5.0",
-                "php": "^8.2",
-                "symfony/console": "^6.4 || ^7.0",
-                "symfony/finder": "^6.4 || ^7.0",
-                "symfony/yaml": "^6.4 || ^7.0",
-                "typo3/cms-core": "^13.4 || ^14.0"
-            },
-            "require-dev": {
-                "friendsofphp/php-cs-fixer": "^3.0",
-                "phpstan/phpstan": "^2.0",
-                "phpunit/phpunit": "^11.0"
-            },
-            "bin": [
-                "bin/capability-audit"
-            ],
-            "type": "typo3-cms-extension",
-            "extra": {
-                "typo3/cms": {
-                    "extension-key": "capability_manifest"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Webconsulting\\CapabilityManifest\\": "src/"
-                }
-            },
-            "autoload-dev": {
-                "psr-4": {
-                    "Webconsulting\\CapabilityManifest\\Tests\\": "tests/"
-                }
-            },
-            "scripts": {
-                "test": [
-                    "phpunit"
-                ],
-                "analyze": [
-                    "phpstan analyse"
-                ],
-                "fix-cs": [
-                    "php-cs-fixer fix"
-                ]
-            },
-            "license": [
-                "GPL-2.0-or-later"
-            ],
-            "authors": [
-                {
-                    "name": "webconsulting",
-                    "email": "office@webconsulting.at",
-                    "homepage": "https://www.webconsulting.at",
-                    "role": "Lead Developer"
-                }
-            ],
-            "description": "Extension capability manifests for TYPO3 — declare, audit, and enforce what your extensions actually do.",
-            "homepage": "https://github.com/dirnbauer/typo3-capability-manifest",
-            "keywords": [
-                "audit",
-                "capability",
-                "extension",
-                "manifest",
-                "security",
-                "typo3"
-            ],
-            "support": {
-                "issues": "https://github.com/dirnbauer/typo3-capability-manifest/issues",
-                "source": "https://github.com/dirnbauer/typo3-capability-manifest"
-            },
-            "time": "2026-06-20T17:55:08+00:00"
-        },
-        {
             "name": "webconsulting/typo3-llms-txt",
             "version": "dev-main",
             "dist": {
                 "type": "path",
                 "url": "packages/llms_txt",
-                "reference": "ad7c4f7ddbee16e50ae01c2848e1ad4bdcf20305"
+                "reference": "ddb65cd6c5406646f9e16bd722b8c0d9c66e7189"
             },
             "require": {
                 "php": "^8.3",
