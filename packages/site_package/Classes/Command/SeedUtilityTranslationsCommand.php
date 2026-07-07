@@ -121,16 +121,67 @@ final class SeedUtilityTranslationsCommand extends Command
     ];
     private const ELEMENT_ORDER = ['desiderio_headersection', 'desiderio_contenthighlight', 'desiderio_sitemapgrid', 'desiderio_ctabanner'];
 
+    private const ACCESSIBILITY_EN = [
+        'pageTitle' => 'Accessibility statement',
+        'slug' => '/accessibility',
+        'description' => 'Accessibility statement and WCAG 2.2 AA audit summary for the Desiderio demo website.',
+        'statementHeader' => 'Accessibility statement and WCAG 2.2 audit',
+        'lastUpdated' => '7 July 2026',
+        'contactEmail' => 'accessibility@desiderio.example',
+        'statementContent' => <<<'HTML'
+<p>Desiderio aims to make this demo website accessible. The benchmark for this statement is <strong>WCAG 2.2, conformance level AA</strong>. This page now includes a real technical audit of representative Desiderio pages, not only a generic template text.</p>
+<h3>Audit scope</h3>
+<p>The audit was run on 7 July 2026 against the local Desiderio site at <code>https://webconsulting-typo3-lab.ddev.site/</code>. The automated part covered 10 representative pages in two viewport sizes: desktop <code>1280x900</code> and mobile <code>390x844</code>.</p>
+<ul><li><a href="/">Home</a></li><li><a href="/accessibility/">Accessibility statement</a></li><li><a href="/technical-features/">Technical features</a></li><li><a href="/features/">The Desiderio ecosystem</a></li><li><a href="/content-types/">Content types</a></li><li><a href="/target-groups/">Target groups</a></li><li><a href="/geo-ai-search/">GEO and AI search</a></li><li><a href="/success-stories/">Success stories</a></li><li><a href="/desiderio-powermail-lab/">Powermail Lab</a></li><li><a href="/search/">Search</a></li></ul>
+<h3>Tools and test method</h3>
+<p>The technical audit used Chrome through Playwright and axe-core 4.12.1 with WCAG 2.0, 2.1 and 2.2 A/AA rule tags. Additional deterministic checks inspected page language, page title, landmarks, exactly one main heading, heading order, skip link availability, image alternative text, image dimensions, viewport zoom settings, keyboard focusability, visible focus indicators, target-size candidates, document links, embedded content, audio and video.</p>
+<h3>Automated and code-inspected result</h3>
+<p>The tested sample produced <strong>0 automated axe violations</strong> after remediation. The audit also found <strong>0 unresolved small-target candidates</strong>, <strong>0 missing image alt attributes</strong>, <strong>0 missing image dimensions</strong>, <strong>0 detected document links</strong>, <strong>0 detected embeds</strong> and <strong>0 detected audio/video elements</strong> in the tested sample. All tested pages had one main <code>h1</code>, a page language, a skip link and keyboard-reachable interactive controls.</p>
+<p>The audit found focus and target-size issues in shared button, gallery, link and blog-list patterns. These were remediated with a Desiderio-scoped CSS override before this statement was updated. It also found badge contrast issues in the ecosystem page; these were remediated with stronger foreground colors.</p>
+<h3>Items marked “to be tested manually”</h3>
+<p>The following points cannot be proven completely by automation and are therefore explicitly marked <strong>to be tested manually</strong> before a formal production conformance claim is made:</p>
+<ul><li><strong>Screen reader behaviour — to be tested manually:</strong> reading order, landmark announcements, form announcements and dynamic search suggestions with the supported combinations, for example VoiceOver/Safari, NVDA/Firefox and JAWS/Chrome.</li><li><strong>Focus not obscured and real-device operation — to be tested manually:</strong> keyboard and touch use on the supported devices, including sticky header/footer situations and browser UI overlays.</li><li><strong>Zoom, reflow and forced-colors modes — to be tested manually:</strong> 200% and 400% zoom, browser text resizing, high-contrast or forced-colors modes and operating-system reduced-motion settings.</li><li><strong>Code-block contrast on the technical-features page — to be tested manually:</strong> automated computation measured passing ratios, but the code block uses a decorative background, so final visual confirmation is required.</li><li><strong>Forms and validation — to be tested manually:</strong> full Powermail submission, validation errors, CAPTCHA behaviour and confirmation messages with assistive technology.</li><li><strong>Legal statement data — to be tested manually:</strong> responsible organization, real contact address, enforcement body, publication date and jurisdiction-specific wording.</li><li><strong>Future media, PDFs, office documents and third-party embeds — to be tested manually:</strong> none were detected in the tested sample, but any added material needs its own review.</li></ul>
+<h3>Current conformance status</h3>
+<p>Based on the automated and code-inspected audit sample, the tested Desiderio pages have no unresolved automated WCAG 2.2 A/AA violations. A final legal conformance statement still requires the manual checks listed above.</p>
+<h3>Feedback and contact</h3>
+<p>If you find an accessibility barrier or need information in another format, email <a href="mailto:accessibility@desiderio.example">accessibility@desiderio.example</a>. Please include the affected page, device, browser and assistive technology if available.</p>
+HTML,
+        'highlightHeader' => 'What was tested and what remains manual',
+        'highlightContent' => <<<'HTML'
+<p>The audit covered 10 representative Desiderio pages across desktop and mobile viewports with axe-core, structural DOM checks and real Tab navigation. The tested sample now has no unresolved automated violations. Manual confirmation is still required for screen readers, real-device focus visibility, zoom/reflow, forced-colors mode, full form validation and legal approval of this statement.</p>
+HTML,
+        'highlightLinkText' => 'More engineering facts',
+    ];
+
     private const ACCESSIBILITY_DE = [
         'pageTitle' => 'Barrierefreiheit',
         'slug' => '/barrierefreiheit',
-        'description' => 'Erklärung zur Barrierefreiheit der Desiderio Demo-Website mit Konformitätsstatus, bekannten Einschränkungen und Kontaktmöglichkeit.',
-        'statementHeader' => 'Erklärung zur Barrierefreiheit',
-        'lastUpdated' => '6. Juli 2026',
+        'description' => 'Erklärung zur Barrierefreiheit und WCAG-2.2-AA-Prüfbericht für die Desiderio Demo-Website.',
+        'statementHeader' => 'Erklärung zur Barrierefreiheit und WCAG-2.2-Prüfung',
+        'lastUpdated' => '7. Juli 2026',
         'contactEmail' => 'accessibility@desiderio.example',
-        'statementContent' => '<p>Desiderio ist bestrebt, diese Demo-Website barrierefrei zugänglich zu machen. Maßstab sind die Web Content Accessibility Guidelines (WCAG) 2.1 auf Konformitätsstufe AA sowie die europäische Norm EN 301 549.</p><h3>Stand der Vereinbarkeit</h3><p>Die mit Desiderio ausgelieferten Inhaltselemente sind darauf ausgelegt, zentrale Anforderungen an Tastaturbedienbarkeit, sichtbare Fokuszustände, semantische Struktur, Alternativtexte und ausreichende Farbkontraste zu erfüllen. Diese Demo-Vorlage ersetzt jedoch keine vollständige Prüfung der konkret veröffentlichten Website.</p><h3>Bereits unterstützte Barrierefreiheit</h3><ul><li>Interaktive Elemente wie Links, Schaltflächen und Formularfelder sind per Tastatur erreichbar.</li><li>Layoutvorlagen verwenden semantische HTML-Strukturen, Landmarken und eine nachvollziehbare Überschriftenhierarchie.</li><li>Bildfelder enthalten Eingaben für Alternativtexte; dekorative Symbole werden für assistive Technologien ausgeblendet.</li><li>Die Theme-Ausgabe wird gegen Kontrastziele geprüft, damit Text und UI-Komponenten lesbar bleiben.</li></ul><h3>Bekannte Einschränkungen</h3><p>Redaktionell eingepflegte Inhalte, eingebettete Drittanbieter-Dienste und hochgeladene Dokumente müssen vor dem Go-live zusätzlich geprüft werden. Einzelne Demo-Inhalte können Platzhalter enthalten und sind nicht als abschließende rechtliche Erklärung zu verstehen.</p><h3>Feedback und Kontakt</h3><p>Wenn Ihnen eine Barriere auffällt oder Sie Informationen in einem barrierefreien Format benötigen, schreiben Sie bitte an <a href="mailto:accessibility@desiderio.example">accessibility@desiderio.example</a>. Bitte nennen Sie die betroffene Seite, das verwendete Gerät, den Browser und gegebenenfalls die eingesetzte assistive Technologie.</p><h3>Durchsetzungsverfahren</h3><p>Diese Seite ist eine Demo-Vorlage. Vor einer produktiven Veröffentlichung müssen Betreiber, zuständige Stelle, tatsächliche Kontaktdaten, Prüfdatum und der rechtliche Geltungsbereich ergänzt und geprüft werden.</p>',
-        'highlightHeader' => 'Wie Desiderio Barrierefreiheit technisch absichert',
-        'highlightContent' => '<p>Drei Mechanismen tragen die Umsetzung. Erstens ein <strong>WCAG-2.1-Kontrastcheck</strong>: Theme-Werte werden gegen Zielwerte für Text und UI-Komponenten geprüft. Zweitens <strong>übersetzte Assistenztexte</strong>: Screenreader-Labels, Carousel-Bedienelemente, Schließen-Schaltflächen und Pagination kommen aus XLIFF-Katalogen. Drittens <strong>Audits in der Entwicklung</strong>: Template-Prüfungen und Tests halten Landmarken, Fokuszustände und Überschriftenstruktur stabil.</p>',
+        'statementContent' => <<<'HTML'
+<p>Desiderio ist bestrebt, diese Demo-Website barrierefrei zugänglich zu machen. Maßstab dieser Erklärung sind die <strong>Web Content Accessibility Guidelines (WCAG) 2.2 auf Konformitätsstufe AA</strong>. Diese Seite enthält jetzt eine echte technische Prüfung repräsentativer Desiderio-Seiten und nicht nur einen allgemeinen Vorlagentext.</p>
+<h3>Prüfumfang</h3>
+<p>Die Prüfung wurde am 7. Juli 2026 gegen die lokale Desiderio-Website unter <code>https://webconsulting-typo3-lab.ddev.site/</code> durchgeführt. Der automatisierte Teil umfasste 10 repräsentative Seiten in zwei Viewports: Desktop <code>1280x900</code> und Mobil <code>390x844</code>.</p>
+<ul><li><a href="/">Startseite</a></li><li><a href="/de/barrierefreiheit/">Barrierefreiheit</a></li><li><a href="/technical-features/">Technical features</a></li><li><a href="/features/">Desiderio ecosystem</a></li><li><a href="/content-types/">Content types</a></li><li><a href="/target-groups/">Target groups</a></li><li><a href="/geo-ai-search/">GEO and AI search</a></li><li><a href="/success-stories/">Success stories</a></li><li><a href="/desiderio-powermail-lab/">Powermail Lab</a></li><li><a href="/search/">Search</a></li></ul>
+<h3>Werkzeuge und Prüfmethode</h3>
+<p>Die technische Prüfung verwendete Chrome über Playwright und axe-core 4.12.1 mit WCAG-2.0-, WCAG-2.1- und WCAG-2.2-Regeln für A und AA. Zusätzlich wurden DOM-Prüfungen für Seitensprache, Seitentitel, Landmarken, genau eine Hauptüberschrift, Überschriftenreihenfolge, Skip-Link, Alternativtexte, Bildabmessungen, Zoom-Einstellungen, Tastaturfokus, sichtbare Fokusindikatoren, Zielgrößen, Dokumentlinks, eingebettete Inhalte sowie Audio und Video durchgeführt.</p>
+<h3>Automatisiertes und codebasiertes Ergebnis</h3>
+<p>Die geprüfte Stichprobe ergab nach den Korrekturen <strong>0 automatisierte axe-Verstöße</strong>. Außerdem fand die Prüfung <strong>0 ungelöste Zielgrößen-Kandidaten</strong>, <strong>0 fehlende Bild-Alternativtexte</strong>, <strong>0 fehlende Bildabmessungen</strong>, <strong>0 erkannte Dokumentlinks</strong>, <strong>0 erkannte eingebettete Inhalte</strong> und <strong>0 erkannte Audio-/Video-Elemente</strong> in der Stichprobe. Alle geprüften Seiten hatten genau ein Haupt-<code>h1</code>, eine Seitensprache, einen Skip-Link und per Tastatur erreichbare Bedienelemente.</p>
+<p>Die Prüfung fand Fokus- und Zielgrößenprobleme in gemeinsamen Button-, Galerie-, Link- und Bloglisten-Mustern. Diese wurden vor der Aktualisierung dieser Erklärung mit einer Desiderio-spezifischen CSS-Korrektur behoben. Außerdem wurden Kontrastprobleme bei Badges auf der Ecosystem-Seite gefunden und mit stärkeren Vordergrundfarben behoben.</p>
+<h3>Punkte mit Hinweis „to be tested manually“</h3>
+<p>Die folgenden Punkte können nicht vollständig automatisiert bewiesen werden und sind daher ausdrücklich als <strong>to be tested manually</strong> markiert, bevor eine formale produktive Konformitätsaussage getroffen wird:</p>
+<ul><li><strong>Screenreader-Verhalten — to be tested manually:</strong> Lesereihenfolge, Landmark-Ansagen, Formularansagen und dynamische Suchvorschläge mit den unterstützten Kombinationen, zum Beispiel VoiceOver/Safari, NVDA/Firefox und JAWS/Chrome.</li><li><strong>Fokus nicht verdeckt und Bedienung auf echten Geräten — to be tested manually:</strong> Tastatur- und Touch-Bedienung auf unterstützten Geräten, inklusive Sticky Header/Footer und Browser-Overlays.</li><li><strong>Zoom, Reflow und Forced-Colors-Modus — to be tested manually:</strong> 200% und 400% Zoom, Textvergrößerung, High-Contrast/Forced-Colors und Betriebssystem-Einstellung für reduzierte Bewegung.</li><li><strong>Codeblock-Kontrast auf der Technical-features-Seite — to be tested manually:</strong> Die automatisierte Berechnung ergab ausreichende Kontrastwerte, der Codeblock verwendet aber einen dekorativen Hintergrund. Deshalb ist eine finale Sichtprüfung erforderlich.</li><li><strong>Formulare und Validierung — to be tested manually:</strong> vollständige Powermail-Übermittlung, Validierungsfehler, CAPTCHA-Verhalten und Bestätigungsmeldungen mit assistiver Technologie.</li><li><strong>Rechtliche Angaben — to be tested manually:</strong> verantwortliche Organisation, echte Kontaktadresse, Durchsetzungsstelle, Veröffentlichungsdatum und rechtlicher Geltungsbereich.</li><li><strong>Zukünftige Medien, PDFs, Office-Dokumente und Drittanbieter-Einbettungen — to be tested manually:</strong> In der geprüften Stichprobe wurden keine gefunden; neu hinzugefügte Inhalte benötigen eine eigene Prüfung.</li></ul>
+<h3>Aktueller Konformitätsstatus</h3>
+<p>Auf Basis der automatisierten und codebasierten Stichprobe haben die geprüften Desiderio-Seiten keine ungelösten automatisierten WCAG-2.2-A/AA-Verstöße. Eine abschließende rechtliche Konformitätserklärung setzt weiterhin die oben genannten manuellen Prüfungen voraus.</p>
+<h3>Feedback und Kontakt</h3>
+<p>Wenn Ihnen eine Barriere auffällt oder Sie Informationen in einem anderen Format benötigen, schreiben Sie bitte an <a href="mailto:accessibility@desiderio.example">accessibility@desiderio.example</a>. Bitte nennen Sie die betroffene Seite, das verwendete Gerät, den Browser und gegebenenfalls die eingesetzte assistive Technologie.</p>
+HTML,
+        'highlightHeader' => 'Was geprüft wurde und was manuell bleibt',
+        'highlightContent' => <<<'HTML'
+<p>Die Prüfung umfasste 10 repräsentative Desiderio-Seiten in Desktop- und Mobil-Viewports mit axe-core, strukturellen DOM-Prüfungen und echter Tab-Navigation. Die geprüfte Stichprobe hat aktuell keine ungelösten automatisierten Verstöße. Manuell zu bestätigen bleiben Screenreader, echte Geräte, Fokus-Sichtbarkeit, Zoom/Reflow, Forced-Colors-Modus, vollständige Formularvalidierung und rechtliche Freigabe dieser Erklärung.</p>
+HTML,
         'highlightLinkText' => 'Mehr zu den Elementen',
     ];
 
@@ -165,6 +216,8 @@ final class SeedUtilityTranslationsCommand extends Command
             $searchPlugin ?? 'MISSING',
             implode(',', array_map(static fn ($u) => $u ?? 'MISSING', $elements)),
             count($groupUids)));
+
+        $this->applyAccessibilitySourceData($accessibilityElements);
 
         foreach (array_keys(self::T) as $lang) {
             $this->cleanLanguage($lang, $searchPlugin, $elements, $groupUids, $linkUidsByGroup);
@@ -404,6 +457,50 @@ final class SeedUtilityTranslationsCommand extends Command
             'INSERT INTO pages (`' . implode('`, `', $insertCols) . '`) SELECT ' . implode(', ', $select) . ' FROM pages WHERE uid = :src',
             $params
         );
+    }
+
+    /** @param array<string,?int> $elements */
+    private function applyAccessibilitySourceData(array $elements): void
+    {
+        $data = [
+            'pages' => [
+                self::ACCESSIBILITY_PAGE => [
+                    'title' => self::ACCESSIBILITY_EN['pageTitle'],
+                    'nav_title' => 'Accessibility',
+                    'slug' => self::ACCESSIBILITY_EN['slug'],
+                    'description' => self::ACCESSIBILITY_EN['description'],
+                    'seo_title' => self::ACCESSIBILITY_EN['statementHeader'],
+                    'og_title' => self::ACCESSIBILITY_EN['pageTitle'],
+                    'og_description' => self::ACCESSIBILITY_EN['description'],
+                    'twitter_title' => self::ACCESSIBILITY_EN['pageTitle'],
+                    'twitter_description' => self::ACCESSIBILITY_EN['description'],
+                ],
+            ],
+        ];
+
+        $statementUid = $elements['desiderio_accessibilitystatement'] ?? null;
+        if ($statementUid) {
+            $data['tt_content'][$statementUid] = [
+                'header' => self::ACCESSIBILITY_EN['statementHeader'],
+                'conformance_level' => 'aa',
+                'content' => self::ACCESSIBILITY_EN['statementContent'],
+                'contact_email' => self::ACCESSIBILITY_EN['contactEmail'],
+                'last_updated' => self::ACCESSIBILITY_EN['lastUpdated'],
+                'hidden' => 0,
+            ];
+        }
+
+        $highlightUid = $elements['desiderio_contenthighlight'] ?? null;
+        if ($highlightUid) {
+            $data['tt_content'][$highlightUid] = [
+                'header' => self::ACCESSIBILITY_EN['highlightHeader'],
+                'content' => self::ACCESSIBILITY_EN['highlightContent'],
+                'link_text' => self::ACCESSIBILITY_EN['highlightLinkText'],
+                'hidden' => 0,
+            ];
+        }
+
+        $this->applyData($data);
     }
 
     /**

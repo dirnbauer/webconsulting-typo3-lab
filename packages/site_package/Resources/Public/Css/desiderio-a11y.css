@@ -4,6 +4,40 @@
     box-shadow: 0 0 0 3px color-mix(in oklch, var(--ring, currentColor) 50%, transparent);
 }
 
+.desiderio-content-element :where(a, button, input, select, textarea, summary):focus-visible,
+[data-slot="button"]:focus-visible,
+[data-slot="input"]:focus-visible {
+    outline: 2px solid var(--ring, currentColor) !important;
+    outline-offset: 2px !important;
+    box-shadow: 0 0 0 3px color-mix(in oklch, var(--ring, currentColor) 50%, transparent) !important;
+}
+
+.gallery__featured-link,
+.use-case-grid__link,
+.content-grid__title-link,
+a[rel="bookmark"],
+a[href*="#comments"],
+a[href^="/success-stories/"] {
+    display: inline-flex !important;
+    align-items: center !important;
+    min-height: 24px !important;
+}
+
+.gallery__thumb:focus-visible {
+    outline: 2px solid var(--ring, currentColor) !important;
+    outline-offset: 2px !important;
+    box-shadow: 0 0 0 3px color-mix(in oklch, var(--ring, currentColor) 50%, transparent) !important;
+}
+
+.ap2-ts__badge {
+    color: #881337 !important;
+}
+
+.a2a-cc__badge,
+.a2a-cc__skill.is-active {
+    color: #064e3b !important;
+}
+
 .desiderio-footer__wordmark {
     align-items: center;
     min-height: 24px;
