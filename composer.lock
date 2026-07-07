@@ -12178,7 +12178,7 @@
             "dist": {
                 "type": "path",
                 "url": "../desiderio",
-                "reference": "4a211058a7ea7b7d63e063f4c123195942706d29"
+                "reference": "535205797da4be73c2705dbaaef0889c8a4e9946"
             },
             "require": {
                 "friendsoftypo3/content-blocks": "^2.2",
@@ -12202,12 +12202,13 @@
                 "typo3/testing-framework": "^9.0"
             },
             "suggest": {
-                "apache-solr-for-typo3/solr": "Optional. Drives the shadcn-styled Solr search templates.",
-                "friendsoftypo3/visual-editor": "Optional. Inline visual editing when templates use f:render.text for text fields.",
-                "georgringer/news": "Optional. Drives the shadcn-styled News templates and the DesiderioNews backend layout.",
-                "in2code/powermail": "Optional. Drives the shadcn-styled Powermail templates and demo form seeder.",
-                "studiomitte/friendlycaptcha": "Optional. Protects the bundled TYPO3 Form Framework and Powermail lab forms with Friendly Captcha. For TYPO3 14 install the fork: add the VCS repository https://github.com/dirnbauer/friendlycaptcha-typo3 and require studiomitte/friendlycaptcha:^14.0@dev. Without it the captcha element renders an inert placeholder and validation passes.",
-                "t3g/blog": "Optional. Drives the shadcn-styled t3g/blog overrides shipped under webconsulting/desiderio-blog."
+                "apache-solr-for-typo3/solr": "Optional. Drives the shadcn-styled Solr search templates. Thank you to dkd Internet Service GmbH and the TYPO3-Solr team.",
+                "friendsoftypo3/visual-editor": "Optional. Inline visual editing when templates use f:render.text for text fields. Thank you to the friends of TYPO3 maintainers.",
+                "georgringer/news": "Optional. Drives the shadcn-styled News templates and the DesiderioNews backend layout. Thank you, Georg Ringer.",
+                "in2code/powermail": "Optional. Drives the shadcn-styled Powermail templates and demo form seeder. Thank you, in2code.",
+                "netresearch/nr-llm": "Optional. Netresearch's AI foundation for TYPO3 — the shared LLM provider layer behind the agentic features shown in the styleguide, alongside nr-mcp-agent, nr-vault and t3-cowriter. Thank you, Netresearch DTT GmbH.",
+                "studiomitte/friendlycaptcha": "Optional. Protects the bundled TYPO3 Form Framework and Powermail lab forms with Friendly Captcha. For TYPO3 14 install the fork: add the VCS repository https://github.com/dirnbauer/friendlycaptcha-typo3 and require studiomitte/friendlycaptcha:^14.0@dev. Without it the captcha element renders an inert placeholder and validation passes. Thank you, Studio Mitte.",
+                "t3g/blog": "Optional. Drives the shadcn-styled t3g/blog overrides shipped under webconsulting/desiderio-blog. Thank you, TYPO3 GmbH."
             },
             "type": "typo3-cms-extension",
             "extra": {
