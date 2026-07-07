@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7f8246d0a61199d21bad9b39ff1ed4ef",
+    "content-hash": "52eaf45f4517e1232051e44ffb8c8752",
     "packages": [
         {
             "name": "apache-solr-for-typo3/solr",
@@ -2301,6 +2301,52 @@
                 "typo3"
             ],
             "time": "2026-06-20T18:04:04+00:00"
+        },
+        {
+            "name": "kdirnbauer/typo3-desktop-connector",
+            "version": "dev-main",
+            "dist": {
+                "type": "path",
+                "url": "../desktop-news-typo3/packages/typo3-extension",
+                "reference": "1e0c468a2ae409f82f4a2588c0862c28e6b4f562"
+            },
+            "require": {
+                "firebase/php-jwt": "^6.10 || ^7.0",
+                "php": "^8.2",
+                "typo3/cms-core": "^13.0 || ^14.0",
+                "webconsulting/typo3-abilities": "dev-main"
+            },
+            "require-dev": {
+                "typo3/testing-framework": "^9.5 || ^10.0"
+            },
+            "suggest": {
+                "georgringer/news": "For news management functionality",
+                "typo3/cms-workspaces": "For workspace support"
+            },
+            "type": "typo3-cms-extension",
+            "extra": {
+                "typo3/cms": {
+                    "extension-key": "typo3_desktop_connector"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "KDirnbauer\\Typo3DesktopConnector\\": "Classes/"
+                }
+            },
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Kurt Dirnbauer"
+                }
+            ],
+            "description": "API layer for TYPO3 Desktop Editor",
+            "transport-options": {
+                "symlink": false,
+                "relative": true
+            }
         },
         {
             "name": "league/commonmark",
@@ -12692,7 +12738,7 @@
             "dist": {
                 "type": "path",
                 "url": "packages/abilities",
-                "reference": "d0a121ac48ee2b032f9c3570575279028f08a242"
+                "reference": "55fe05a7e06dc62b1d704153346b5716b5711e75"
             },
             "require": {
                 "php": "^8.3",
@@ -15481,6 +15527,7 @@
         "apache-solr-for-typo3/solr": 10,
         "hn/typo3-mcp-server": 20,
         "in2code/powermail": 20,
+        "kdirnbauer/typo3-desktop-connector": 20,
         "netresearch/nr-mcp-agent": 20,
         "sgalinski/sg-apicore": 20,
         "studiomitte/friendlycaptcha": 20,

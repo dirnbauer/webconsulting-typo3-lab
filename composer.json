@@ -27,6 +27,13 @@
 	},
 	"repositories": [
 		{
+			"type": "path",
+			"url": "../desktop-news-typo3/packages/typo3-extension",
+			"options": {
+				"symlink": false
+			}
+		},
+		{
 			"name": "local-desiderio",
 			"type": "path",
 			"url": "../desiderio",
@@ -168,6 +175,7 @@
 		"georgringer/numbered-pagination": "^2.2",
 		"hn/typo3-mcp-server": "dev-main",
 		"in2code/powermail": "dev-typo3-v14",
+		"kdirnbauer/typo3-desktop-connector": "dev-main",
 		"league/commonmark": "^2.7",
 		"netresearch/nr-llm": "^0.12",
 		"netresearch/nr-mcp-agent": "dev-main",
