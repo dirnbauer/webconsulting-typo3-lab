@@ -7,6 +7,12 @@ on:
     paths:
       - 'tools/tmp_austria_register/**'
       - '.github/workflows/tmp-austria-register-validation.yml'
+  pull_request:
+    branches:
+      - main
+    paths:
+      - 'tools/tmp_austria_register/**'
+      - '.github/workflows/tmp-austria-register-validation.yml'
 
 permissions:
   contents: read
