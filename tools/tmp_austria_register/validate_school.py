@@ -47,7 +47,8 @@ data = {
 action = urllib.parse.urljoin(URL, str(form.get("action") or URL))
 r = s.post(action, data=data, headers={"Referer": URL}, timeout=90)
 r.raise_for_status()
-(OUT / "02-results.html").write_text(r.text, encoding="utf-8")n = BeautifulSoup(r.text, "lxml")
+(OUT / "02-results.html").write_text(r.text, encoding="utf-8")
+n = BeautifulSoup(r.text, "lxml")
 items = n.select("div.skz")
 info: dict[str, object] = {
     "status": r.status_code,
