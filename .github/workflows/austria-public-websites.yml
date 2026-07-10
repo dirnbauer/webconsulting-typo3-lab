@@ -7,6 +7,12 @@ on:
     paths:
       - 'tools/austria_public_websites/**'
       - '.github/workflows/austria-public-websites.yml'
+  pull_request:
+    branches:
+      - main
+    paths:
+      - 'tools/austria_public_websites/**'
+      - '.github/workflows/austria-public-websites.yml'
   workflow_dispatch:
 
 permissions:
