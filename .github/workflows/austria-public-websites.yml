@@ -1,0 +1,57 @@
+name: Build Austrian public website register
+
+on:
+  push:
+    branches:
+      - research/austria-public-websites-20260710
+    paths:
+      - 'tools/austria_public_websites/**'
+      - '.github/workflows/austria-public-websites.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build-register:
+    name: Build register
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+
+      - name: Install importer dependencies
+        run: python -m pip install --disable-pip-version-check requests beautifulsoup4 lxml pyshp
+
+      - name: Build register
+        run: python tools/austria_public_websites/build_register.py
+
+      - name: Create portable archive
+        if: always()
+        run: |
+          if [ -d out ]; then
+            tar -czf austria-public-websites.tar.gz out
+          else
+            mkdir -p out
+            printf 'Importer did not create an output directory.\n' > out/ERROR.txt
+            tar -czf austria-public-websites.tar.gz out
+          fi
+
+      - name: Upload register artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: austria-public-websites
+          path: |
+            out/**
+            austria-public-websites.tar.gz
+          if-no-files-found: error
+          retention-days: 14
