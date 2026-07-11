@@ -12,6 +12,10 @@ lib.contentElement.templateRootPaths.300 = EXT:site_package/Resources/Private/Fl
 page.includeCSS.sitePackageDesiderioA11y = EXT:site_package/Resources/Public/Css/desiderio-a11y.css
 [END]
 
+[site("identifier") == "desiderio" && page["uid"] == 1149]
+page.bodyTagAdd = class="technical-features-page"
+[END]
+
 # EXT:blog registers its plugins as CType-based Extbase content elements.
 # Desiderio's FluidStyledContent wrapper needs to explicitly render the
 # extension-provided tt_content.<CType>.20 plugin output for these CTypes.
