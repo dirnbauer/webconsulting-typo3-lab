@@ -48,6 +48,11 @@ a[href^="/success-stories/"] {
     outline-offset: 2px;
 }
 
+/* The Powermail field wrapper already supplies an 8px gap. */
+.d-powermail :where([data-powermail-field-error]:not(:empty)) {
+    margin-top: 0;
+}
+
 .technical-features-page .content-grid .content-grid__item {
     padding: var(--d-spacing-lg, 1.5rem);
 }

@@ -10,6 +10,10 @@ lib.contentElement.templateRootPaths.300 = EXT:site_package/Resources/Private/Fl
 
 [site("identifier") == "desiderio"]
 page.includeCSS.sitePackageDesiderioA11y = EXT:site_package/Resources/Public/Css/desiderio-a11y.css
+page.includeJSFooter.sitePackageDesiderioPowermailA11y = EXT:site_package/Resources/Public/JavaScript/desiderio-powermail-a11y.js
+page.includeJSFooter.sitePackageDesiderioPowermailA11y.defer = 1
+
+plugin.tx_powermail.view.partialRootPaths.2000000 = EXT:site_package/Resources/Private/Extensions/Powermail/Partials/
 [END]
 
 [site("identifier") == "desiderio" && page["uid"] == 1149]
