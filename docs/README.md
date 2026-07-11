@@ -7,6 +7,7 @@ local TYPO3 extension package.
 
 | Document | Purpose |
 |---|---|
+| [ai-content-examples.md](ai-content-examples.md) | GPT-5.6 Terra/Luna routing, Content Assistant and Cowriter setup, and GPT Image 2 examples. |
 | [site-configuration.md](site-configuration.md) | Canonical site inventory, `config/sites/` conventions, and troubleshooting for duplicate root pages, orphaned configs, and workspace staging. |
 | [ddev-bootstrap.md](ddev-bootstrap.md) | Canonical DDEV bootstrap: `dump.sql.gz` from git, fileadmin from [curt.at](https://curt.at/downloads/typo3-lab/fileadmin-v1.2.0.tar.gz) (~122 MB), export/import, and maintainer upload. |
 | [news-api-studio-spec.md](news-api-studio-spec.md) | Product and implementation specification for the News API Studio app. |

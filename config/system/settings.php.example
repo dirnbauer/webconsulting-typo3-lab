@@ -108,13 +108,30 @@ return [
             'rateLimitTokenWindow' => '300',
             'refreshTokenLifetime' => '2592000',
         ],
+        'nr_llm' => [
+            'image' => [
+                'dalle' => [
+                    'baseUrl' => '',
+                    'timeout' => '300',
+                ],
+            ],
+            'providers' => [
+                'openai' => [
+                    // sitepackage:configure-ai-examples copies the configured
+                    // OpenAI provider's opaque nr-vault identifier here.
+                    'apiKeyIdentifier' => '',
+                ],
+            ],
+        ],
         'nr_mcp_agent' => [
             'allowedGroups' => '',
             'autoArchiveDays' => '30',
             'enableMcp' => '1',
             'enablePdfTextExtraction' => '1',
             'enablePromptInjectionFilter' => '1',
-            'llmTaskUid' => '4',
+            // Set to the seeded backend-assistant task UID by
+            // sitepackage:configure-ai-examples.
+            'llmTaskUid' => '0',
             'maxActiveConversationsPerUser' => '3',
             'maxConversationsPerUser' => '50',
             'maxExtractedTextLength' => '20000',
