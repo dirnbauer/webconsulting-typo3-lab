@@ -7,9 +7,11 @@ plugin.tx_news.view.partialRootPaths.100 = EXT:desiderio/Resources/Private/Parti
 plugin.tx_blog.view.partialRootPaths.100 = EXT:desiderio/Resources/Private/Partials/
 
 lib.contentElement.templateRootPaths.300 = EXT:site_package/Resources/Private/FluidStyledContent/Templates/
+page.10.paths.100 = EXT:site_package/Resources/Private/Templates/
 
 [site("identifier") == "desiderio"]
 page.includeCSS.sitePackageDesiderioA11y = EXT:site_package/Resources/Public/Css/desiderio-a11y.css
+page.includeCSS.sitePackageSystemPages = EXT:site_package/Resources/Public/Css/system-pages.css
 page.includeJSFooter.sitePackageDesiderioPowermailA11y = EXT:site_package/Resources/Public/JavaScript/desiderio-powermail-a11y.js
 page.includeJSFooter.sitePackageDesiderioPowermailA11y.defer = 1
 
@@ -18,6 +20,10 @@ plugin.tx_powermail.view.partialRootPaths.2000000 = EXT:site_package/Resources/P
 
 [site("identifier") == "desiderio" && page["uid"] == 1149]
 page.bodyTagAdd = class="technical-features-page"
+[END]
+
+[site("identifier") == "desiderio" && page["uid"] == 737]
+page.bodyTagAdd = class="page-not-found"
 [END]
 
 # EXT:blog registers its plugins as CType-based Extbase content elements.

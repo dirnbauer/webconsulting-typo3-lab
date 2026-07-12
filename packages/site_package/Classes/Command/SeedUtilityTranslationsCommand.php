@@ -49,9 +49,30 @@ final class SeedUtilityTranslationsCommand extends Command
 
     /** sys_language_uid => page-level metadata */
     private const LANG_META = [
-        1 => ['slugSearch' => '/suche', 'pageTitleSearch' => 'Suche', 'pageTitle404' => 'Seite nicht gefunden'],
-        2 => ['slugSearch' => '/search', 'pageTitleSearch' => '搜索', 'pageTitle404' => '页面未找到'],
-        3 => ['slugSearch' => '/kereses', 'pageTitleSearch' => 'Keresés', 'pageTitle404' => 'Az oldal nem található'],
+        1 => [
+            'slugSearch' => '/suche',
+            'pageTitleSearch' => 'Suche',
+            'pageTitle404' => 'Seite nicht gefunden',
+            'pageDescription404' => 'Die angeforderte Seite wurde nicht gefunden. Prüfen Sie die Webadresse oder nutzen Sie einen der Links unten, um fortzufahren.',
+        ],
+        2 => [
+            'slugSearch' => '/search',
+            'pageTitleSearch' => '搜索',
+            'pageTitle404' => '页面未找到',
+            'pageDescription404' => '找不到您请求的页面。请检查网址，或使用下方的链接继续浏览。',
+        ],
+        3 => [
+            'slugSearch' => '/kereses',
+            'pageTitleSearch' => 'Keresés',
+            'pageTitle404' => 'Az oldal nem található',
+            'pageDescription404' => 'A kért oldal nem található. Ellenőrizze a webcímet, vagy folytassa az alábbi hivatkozások egyikével.',
+        ],
+    ];
+
+    private const NOTFOUND_EN = [
+        'pageTitle' => 'Page not found',
+        'description' => 'The page you requested could not be found. Check the web address, or use one of the links below to continue.',
+        'sitemapHeader' => 'Important pages',
     ];
 
     /** sys_language_uid => translated strings */
@@ -59,15 +80,15 @@ final class SeedUtilityTranslationsCommand extends Command
         1 => [
             'searchHeader' => 'Suche',
             'hs_eyebrow' => 'Fehler 404',
-            'hs_header' => 'Diese Seite hat heute frei',
-            'hs_subheadline' => 'Die aufgerufene Adresse existiert nicht (mehr). Die gute Nachricht: Alles Sehenswerte ist nur einen Klick entfernt — und ja, sogar diese Fehlerseite besteht aus geseedeten Desiderio-Elementen.',
-            'ch_header' => 'Was vermutlich passiert ist',
-            'ch_content' => '<p>Eine vertippte Adresse, ein veraltetes Lesezeichen oder ein Link auf Inhalte, die beim Neuaufbau dieses Styleguides umgezogen sind. Nutzen Sie die Übersicht unten – oder gehen Sie direkt zurück zur Startseite.</p>',
+            'hs_header' => 'Seite nicht gefunden',
+            'hs_subheadline' => 'Die angeforderte Seite wurde nicht gefunden.',
+            'ch_header' => 'Zurück zur Startseite',
+            'ch_content' => '<p>Nutzen Sie die Übersicht unten oder kehren Sie zur Startseite zurück.</p>',
             'ch_link_text' => 'Zurück zur Startseite',
-            'sg_header' => 'Von hier geht\'s weiter',
-            'cta_header' => 'Hier nichts — dort alles',
-            'cta_description' => 'Die Startseite erzählt die ganze Geschichte: 255 Elemente, 15 Themes und der eine Befehl, der diese Website geseedet hat (404-Seite inklusive).',
-            'cta_text' => 'Bring mich zur Startseite',
+            'sg_header' => 'Wichtige Seiten',
+            'cta_header' => 'Zur Startseite',
+            'cta_description' => 'Kehren Sie zur Startseite zurück.',
+            'cta_text' => 'Zur Startseite',
             'groups' => ['Hier starten', 'Für Ihr Team', 'Element-Kapitel', 'Recht & Projekt'],
             'links' => ['Startseite', 'Technische Funktionen', 'GEO & KI-Suche', 'Erfolgsgeschichten',
                 'Agenturen & Integratoren', 'Inhouse-Teams', 'Freelancer & Solo-Devs',
@@ -77,15 +98,15 @@ final class SeedUtilityTranslationsCommand extends Command
         2 => [
             'searchHeader' => '搜索',
             'hs_eyebrow' => '错误 404',
-            'hs_header' => '这个页面今天休息了',
-            'hs_subheadline' => '您打开的地址不存在（或已不存在）。好消息是：值得一看的内容都只需一次点击即可到达——是的，连这个错误页面也是由预置的 Desiderio 元素搭建而成。',
-            'ch_header' => '可能发生了什么',
-            'ch_content' => '<p>可能是地址输入有误、书签已过期，或是指向某个内容的链接——而该内容在本样式指南重新预置时已被移动。请使用下方的导航，或直接返回首页。</p>',
+            'hs_header' => '页面未找到',
+            'hs_subheadline' => '找不到您请求的页面。',
+            'ch_header' => '返回首页',
+            'ch_content' => '<p>请使用下方的页面列表，或返回首页。</p>',
             'ch_link_text' => '返回首页',
-            'sg_header' => '从这里找到方向',
-            'cta_header' => '这里什么都没有 — 精彩都在那边',
-            'cta_description' => '首页讲述了完整的故事：255 个元素、15 套主题，以及那条预置了整个网站（包括这个 404 页面）的命令。',
-            'cta_text' => '带我回首页',
+            'sg_header' => '重要页面',
+            'cta_header' => '返回首页',
+            'cta_description' => '返回网站首页。',
+            'cta_text' => '返回首页',
             'groups' => ['从这里开始', '为你的团队', '元素章节', '法律与项目'],
             'links' => ['首页', '技术特性', 'GEO 与 AI 搜索', '成功案例',
                 '代理商与集成商', '内部团队', '自由职业者与独立开发者',
@@ -95,15 +116,15 @@ final class SeedUtilityTranslationsCommand extends Command
         3 => [
             'searchHeader' => 'Keresés',
             'hs_eyebrow' => '404-es hiba',
-            'hs_header' => 'Ez az oldal ma szabadnapot vett ki',
-            'hs_subheadline' => 'A megnyitott cím nem (már nem) létezik. A jó hír: minden, amit érdemes megnézni, egyetlen kattintásnyira van — és igen, még ez a hibaoldal is előre betöltött Desiderio-elemekből épült fel.',
-            'ch_header' => 'Mi történhetett',
-            'ch_content' => '<p>Elgépelt cím, elavult könyvjelző, vagy egy olyan tartalomra mutató hivatkozás, amely a styleguide újratöltésekor áthelyeződött. Használja az alábbi áttekintést, vagy térjen vissza egyenesen a kezdőlapra.</p>',
+            'hs_header' => 'Az oldal nem található',
+            'hs_subheadline' => 'A kért oldal nem található.',
+            'ch_header' => 'Vissza a kezdőlapra',
+            'ch_content' => '<p>Használja az alábbi oldallistát, vagy térjen vissza a kezdőlapra.</p>',
             'ch_link_text' => 'Vissza a kezdőlapra',
-            'sg_header' => 'Innen megtalálja az utat',
-            'cta_header' => 'Itt semmi — ott minden',
-            'cta_description' => 'A kezdőlapon ott a teljes történet: 255 elem, 15 téma, és az az egyetlen parancs, amely az egész oldalt feltöltötte (a 404-es oldallal együtt).',
-            'cta_text' => 'Vigyél a kezdőlapra',
+            'sg_header' => 'Fontos oldalak',
+            'cta_header' => 'Vissza a kezdőlapra',
+            'cta_description' => 'Térjen vissza a webhely kezdőlapjára.',
+            'cta_text' => 'Vissza a kezdőlapra',
             'groups' => ['Kezdje itt', 'A csapatának', 'Elem-fejezetek', 'Jog és projekt'],
             'links' => ['Kezdőlap', 'Technikai jellemzők', 'GEO és AI-keresés', 'Sikertörténetek',
                 'Ügynökségek és integrátorok', 'Belső csapatok', 'Szabadúszók és egyéni fejlesztők',
@@ -120,6 +141,7 @@ final class SeedUtilityTranslationsCommand extends Command
         'desiderio_ctabanner' => ['header' => 'cta_header', 'description' => 'cta_description', 'cta_text' => 'cta_text'],
     ];
     private const ELEMENT_ORDER = ['desiderio_headersection', 'desiderio_contenthighlight', 'desiderio_sitemapgrid', 'desiderio_ctabanner'];
+    private const NOTFOUND_VISIBLE_ELEMENTS = ['desiderio_sitemapgrid'];
 
     private const ACCESSIBILITY_EN = [
         'pageTitle' => 'Accessibility statement',
@@ -217,6 +239,7 @@ HTML,
             implode(',', array_map(static fn ($u) => $u ?? 'MISSING', $elements)),
             count($groupUids)));
 
+        $this->applyNotFoundSourceData($elements);
         $this->applyAccessibilitySourceData($accessibilityElements);
 
         foreach (array_keys(self::T) as $lang) {
@@ -254,7 +277,7 @@ HTML,
                 if (!$tUid) {
                     continue;
                 }
-                $fields = ['hidden' => 0];
+                $fields = ['hidden' => in_array($ctype, self::NOTFOUND_VISIBLE_ELEMENTS, true) ? 0 : 1];
                 foreach (self::ELEMENT_FIELDS[$ctype] as $col => $key) {
                     $fields[$col] = self::T[$lang][$key];
                 }
@@ -399,7 +422,21 @@ HTML,
     {
         $meta = self::LANG_META[$lang];
         $this->upsertPageTranslation(self::SEARCH_PAGE, $lang, $meta['pageTitleSearch'], $meta['slugSearch']);
-        $this->upsertPageTranslation(self::NOTFOUND_PAGE, $lang, $meta['pageTitle404'], '/404');
+        $this->upsertPageTranslation(
+            self::NOTFOUND_PAGE,
+            $lang,
+            $meta['pageTitle404'],
+            '/404',
+            [
+                'description' => $meta['pageDescription404'],
+                'abstract' => $meta['pageDescription404'],
+                'seo_title' => $meta['pageTitle404'],
+                'og_title' => $meta['pageTitle404'],
+                'og_description' => $meta['pageDescription404'],
+                'twitter_title' => $meta['pageTitle404'],
+                'twitter_description' => $meta['pageDescription404'],
+            ],
+        );
         if ($lang === 1) {
             $this->upsertPageTranslation(
                 self::ACCESSIBILITY_PAGE,
@@ -457,6 +494,39 @@ HTML,
             'INSERT INTO pages (`' . implode('`, `', $insertCols) . '`) SELECT ' . implode(', ', $select) . ' FROM pages WHERE uid = :src',
             $params
         );
+    }
+
+    /** @param array<string,?int> $elements */
+    private function applyNotFoundSourceData(array $elements): void
+    {
+        $data = [
+            'pages' => [
+                self::NOTFOUND_PAGE => [
+                    'title' => self::NOTFOUND_EN['pageTitle'],
+                    'nav_title' => self::NOTFOUND_EN['pageTitle'],
+                    'description' => self::NOTFOUND_EN['description'],
+                    'abstract' => self::NOTFOUND_EN['description'],
+                    'seo_title' => self::NOTFOUND_EN['pageTitle'],
+                    'og_title' => self::NOTFOUND_EN['pageTitle'],
+                    'og_description' => self::NOTFOUND_EN['description'],
+                    'twitter_title' => self::NOTFOUND_EN['pageTitle'],
+                    'twitter_description' => self::NOTFOUND_EN['description'],
+                ],
+            ],
+        ];
+
+        foreach ($elements as $ctype => $uid) {
+            if ($uid === null) {
+                continue;
+            }
+            $fields = ['hidden' => in_array($ctype, self::NOTFOUND_VISIBLE_ELEMENTS, true) ? 0 : 1];
+            if ($ctype === 'desiderio_sitemapgrid') {
+                $fields['header'] = self::NOTFOUND_EN['sitemapHeader'];
+            }
+            $data['tt_content'][$uid] = $fields;
+        }
+
+        $this->applyData($data);
     }
 
     /** @param array<string,?int> $elements */

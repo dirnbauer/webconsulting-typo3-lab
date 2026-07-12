@@ -1,0 +1,43 @@
+/* Keep utility pages quiet and compact. The page template already supplies the h1. */
+.desiderio-system-page--error {
+    padding-block: clamp(3rem, 8vw, 6rem);
+}
+
+.desiderio-system-page--error .desiderio-system-page__header {
+    max-width: 42rem;
+    margin-bottom: clamp(2.5rem, 6vw, 4rem);
+}
+
+.desiderio-system-page--error .desiderio-system-page__header h1 {
+    width: auto;
+    padding: 0;
+    text-wrap: balance;
+    background: transparent;
+    border: 0;
+}
+
+.desiderio-system-page--error .desiderio-system-page__header p {
+    max-width: 62ch;
+}
+
+.desiderio-system-page--error .desiderio-system-page__actions {
+    margin-top: 0.5rem;
+}
+
+.desiderio-system-page--error .sitemap-grid-section {
+    padding-block: 0;
+    background: transparent;
+}
+
+.desiderio-system-page--error .desiderio-system-page__content > .desiderio-section > .desiderio-container {
+    padding-inline: 0;
+}
+
+.desiderio-system-page--error .sitemap-grid__title {
+    padding-top: 2rem;
+    border-top: 1px solid var(--border);
+}
+
+.page-not-found .desiderio-breadcrumb {
+    display: none;
+}
