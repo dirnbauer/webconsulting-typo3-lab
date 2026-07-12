@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "dace055a93a0fedd9bf01d60de96635e",
+    "content-hash": "ad76c34ab2a6a64ad792f1084fb349ee",
     "packages": [
         {
             "name": "apache-solr-for-typo3/solr",
@@ -12896,16 +12896,16 @@
         },
         {
             "name": "webconsulting/visual-editor-enhancements",
-            "version": "v0.8.0",
+            "version": "dev-main",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/typo3-visual-editor-enhancements.git",
-                "reference": "945b2b85e9184379b50c7c5030ea3a787c1e43f3"
+                "reference": "50edfb224d1577bcd8c7e0513972a2419753eb6b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/typo3-visual-editor-enhancements/zipball/945b2b85e9184379b50c7c5030ea3a787c1e43f3",
-                "reference": "945b2b85e9184379b50c7c5030ea3a787c1e43f3",
+                "url": "https://api.github.com/repos/dirnbauer/typo3-visual-editor-enhancements/zipball/50edfb224d1577bcd8c7e0513972a2419753eb6b",
+                "reference": "50edfb224d1577bcd8c7e0513972a2419753eb6b",
                 "shasum": ""
             },
             "require": {
@@ -12920,6 +12920,7 @@
                 "friendsoftypo3/content-blocks": "^2.4",
                 "phpunit/phpunit": "^11.5 || ^12.5"
             },
+            "default-branch": true,
             "type": "typo3-cms-extension",
             "extra": {
                 "typo3/cms": {
@@ -12964,7 +12965,7 @@
                 "issues": "https://github.com/dirnbauer/typo3-visual-editor-enhancements/issues",
                 "source": "https://github.com/dirnbauer/typo3-visual-editor-enhancements"
             },
-            "time": "2026-07-04T13:56:04+00:00"
+            "time": "2026-07-12T18:17:01+00:00"
         },
         {
             "name": "webconsulting/webcon-easy-workspace",
@@ -15391,7 +15392,8 @@
         "webconsulting/flue": 20,
         "webconsulting/skillflow": 20,
         "webconsulting/typo3-abilities": 20,
-        "webconsulting/typo3-llms-txt": 20
+        "webconsulting/typo3-llms-txt": 20,
+        "webconsulting/visual-editor-enhancements": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,
