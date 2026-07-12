@@ -48,6 +48,6 @@ For TYPO3 14.3+ classic-mode installations, keep these fields aligned in
 * ``extra.typo3/cms.Package.providesPackages``
 
 The extension version in Composer metadata must match the release tag used for
-the package, for example ``14.1.0`` for tag ``v14.1.0`` when the package is
+the package, for example ``14.3.4`` for tag ``v14.3.4`` when the package is
 released independently, or the lab repository tag when the package ships as part
-of the TYPO3 Lab monorepo.
+of the TYPO3 Lab monorepo. The current package metadata is ``14.3.4``.

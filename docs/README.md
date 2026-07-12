@@ -1,46 +1,25 @@
-# Project Documentation
-
-This directory contains project documentation that is not specific to one
-local TYPO3 extension package.
-
-## Available Documents
+# Project documentation
 
 | Document | Purpose |
 |---|---|
 | [ai-content-examples.md](ai-content-examples.md) | GPT-5.6 Terra/Luna routing, Content Assistant and Cowriter setup, and GPT Image 2 examples. |
-| [site-configuration.md](site-configuration.md) | Canonical site inventory, `config/sites/` conventions, and troubleshooting for duplicate root pages, orphaned configs, and workspace staging. |
-| [ddev-bootstrap.md](ddev-bootstrap.md) | Canonical DDEV bootstrap: `dump.sql.gz` from git, fileadmin from [curt.at](https://curt.at/downloads/typo3-lab/fileadmin-v1.2.0.tar.gz) (~122 MB), export/import, and maintainer upload. |
-| [news-api-studio-spec.md](news-api-studio-spec.md) | Product and implementation specification for the News API Studio app. |
-| [reports/typo3-v14-upgrade-20260516-213338.md](reports/typo3-v14-upgrade-20260516-213338.md) | Report for the TYPO3 14-only site package upgrade and verification pass. |
+| [workos-frontend-plugins.md](workos-frontend-plugins.md) | WorkOS page tree, extension configuration, Desiderio overrides, shadcn token contract, and verification. |
+| [site-configuration.md](site-configuration.md) | Canonical site inventory, configuration conventions, and site troubleshooting. |
+| [ddev-bootstrap.md](ddev-bootstrap.md) | Database and fileadmin bootstrap, reset, cleanup, and export procedures. |
+| [news-api-studio-spec.md](news-api-studio-spec.md) | Product and implementation specification for News API Studio. |
+| [eu-sovereign-reference-architecture.md](eu-sovereign-reference-architecture.md) | EU-sovereign deployment reference architecture. |
+| [mcp-spec-2026-07-28-adoption.md](mcp-spec-2026-07-28-adoption.md) | MCP specification adoption notes. |
+| [typo3-agentic-strategy-2026.md](typo3-agentic-strategy-2026.md) | Agentic TYPO3 strategy. |
+| [wordpress-abilities-vs-capability-manifests.md](wordpress-abilities-vs-capability-manifests.md) | Capability model comparison. |
+| [reports/typo3-v14-upgrade-20260516-213338.md](reports/typo3-v14-upgrade-20260516-213338.md) | Historical TYPO3 14 upgrade report. |
 
-## Related Documentation
+Related documentation:
 
-| Path | Purpose |
-|---|---|
-| [../README.md](../README.md) | Main project setup, DDEV notes, site package overview, and verification commands. |
-| [../packages/site_package/README.md](../packages/site_package/README.md) | Local TYPO3 site package/provider extension documentation. |
-| [../packages/site_package/Documentation/Index.rst](../packages/site_package/Documentation/Index.rst) | TYPO3 RST documentation for the TYPO3 14-only site package. |
-| [../apps/news-api-studio/README.md](../apps/news-api-studio/README.md) | News API Studio setup, build commands, and app usage. |
-| [../apps/news-api-studio/ARCHITECTURE.md](../apps/news-api-studio/ARCHITECTURE.md) | News API Studio technical architecture. |
-| [../patches/README.md](../patches/README.md) | Composer patch workflow and current patch list. |
+- [Root README](../README.md) — setup, runtime, sites, and quality commands.
+- [Site package README](../packages/site_package/README.md) — local provider extension.
+- [Site package TYPO3 manual](../packages/site_package/Documentation/Index.rst).
+- [News API Studio README](../apps/news-api-studio/README.md).
+- [Composer patch workflow](../patches/README.md).
 
-## Root README Coverage
-
-The root README is the canonical high-level index for:
-
-- The precise lab feature inventory.
-- Configured DDEV services and local URLs.
-- TYPO3 Site Set and demo site mappings (operational detail in
-  [site-configuration.md](site-configuration.md)).
-- API, capability, MCP, workspace, and News API Studio features.
-- Extension, Site Set dependency, and acknowledgement inventory.
-
-## Documentation Maintenance
-
-- Keep the root README focused on repo setup and operational commands.
-- Keep package-specific behavior in the package README.
-- Keep TYPO3 extension manual content in `packages/site_package/Documentation/`.
-- Keep app-specific details in `apps/news-api-studio/`.
-- Update this index when adding new Markdown documents under `docs/`.
-- Keep generated or time-stamped reports under `docs/reports/` and link them
-  from the table above instead of duplicating their content in the root README.
+Keep operational setup in the root README, project-wide procedures here,
+package behavior in package documentation, and app behavior beside each app.

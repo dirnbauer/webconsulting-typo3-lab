@@ -1,0 +1,53 @@
+# Lab-only WorkOS frontend rendering. The upstream extension owns behaviour;
+# this set supplies Desiderio/shadcn presentation for the Desiderio demo site.
+plugin.tx_workosauth_login.view {
+  templateRootPaths.100 = EXT:site_package/Resources/Private/Extensions/WorkosAuth/Templates/
+  partialRootPaths.100 = EXT:site_package/Resources/Private/Extensions/WorkosAuth/Partials/
+}
+
+plugin.tx_workosauth_account.view {
+  templateRootPaths.100 = EXT:site_package/Resources/Private/Extensions/WorkosAuth/Templates/
+  partialRootPaths.100 = EXT:site_package/Resources/Private/Extensions/WorkosAuth/Partials/
+}
+
+plugin.tx_workosauth_team.view {
+  templateRootPaths.100 = EXT:site_package/Resources/Private/Extensions/WorkosAuth/Templates/
+  partialRootPaths.100 = EXT:site_package/Resources/Private/Extensions/WorkosAuth/Partials/
+}
+
+# Desiderio owns tt_content rendering and therefore needs an explicit bridge
+# from each direct CType to the Extbase plugin object registered by WorkOS.
+tt_content.workosauth_login =< lib.contentElement
+tt_content.workosauth_login {
+  templateName = WorkosAuthPlugin
+  templateRootPaths.300 = EXT:site_package/Resources/Private/FluidStyledContent/Templates/
+  variables.pluginContent = EXTBASEPLUGIN
+  variables.pluginContent {
+    extensionName = WorkosAuth
+    pluginName = Login
+  }
+}
+
+tt_content.workosauth_account =< lib.contentElement
+tt_content.workosauth_account {
+  templateName = WorkosAuthPlugin
+  templateRootPaths.300 = EXT:site_package/Resources/Private/FluidStyledContent/Templates/
+  variables.pluginContent = EXTBASEPLUGIN
+  variables.pluginContent {
+    extensionName = WorkosAuth
+    pluginName = Account
+  }
+}
+
+tt_content.workosauth_team =< lib.contentElement
+tt_content.workosauth_team {
+  templateName = WorkosAuthPlugin
+  templateRootPaths.300 = EXT:site_package/Resources/Private/FluidStyledContent/Templates/
+  variables.pluginContent = EXTBASEPLUGIN
+  variables.pluginContent {
+    extensionName = WorkosAuth
+    pluginName = Team
+  }
+}
+
+page.includeCSS.sitePackageWorkosShadcn = EXT:site_package/Resources/Public/Css/workos-shadcn.css

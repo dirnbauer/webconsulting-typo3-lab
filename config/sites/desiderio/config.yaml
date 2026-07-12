@@ -8,6 +8,7 @@ dependencies:
   - webconsulting/desiderio-preset-corporate
   - dirnbauer/innesto
   - webconsulting/site-package-agentstack
+  - webconsulting/site-package-workos
 errorHandling:
   -
     errorCode: 404

@@ -1,13 +1,13 @@
 # Site-wide execution policy for the abilities registry
 # (webconsulting/typo3-abilities). Applies to EVERY surface an ability is
 # executed on: CLI (abilities:run), MCP (ability_* tools), REST
-# (/api/abilities/v1) and the desktop connector.
+# (/api/abilities/v1), and optional desktop clients.
 #
 # Rule grammar: exact ability name, "namespace/*", "*", "risk:<tier>",
 # "scope:<scope>" (prefix), "side-effect:<subsystem>" (prefix).
 # deny always wins; review_required blocks unless the execution context
-# carries an explicit human approval (CLI --approve-review, desktop
-# publish confirmation); max_risk_tier caps the tier outright.
+# carries an explicit human approval (for example CLI --approve-review or a
+# client-side publish confirmation); max_risk_tier caps the tier outright.
 policy:
   name: "webconsulting lab abilities policy"
   deny:

@@ -33,26 +33,46 @@ jobs:
           path: ~/.composer/cache/files
           key: composer-files-${{ runner.os }}-${{ hashFiles('composer.lock') }}
 
-      # The integration extensions live in their own repos and are gitignored here,
-      # so a fresh checkout lacks the packages/* path packages composer expects.
-      # Clone them so `composer install` can resolve the path repository.
-      # PACKAGES_TOKEN (a PAT with read access) is only needed for any private repo;
-      # public repos resolve with the default github.token.
-      - name: Fetch path-package sources
-        env:
-          TOKEN: ${{ secrets.PACKAGES_TOKEN || github.token }}
-        run: |
-          for spec in \
-            "typo3-agent-nexus:agent_nexus" \
-            "typo3-opentag-bridge:opentag_bridge" \
-            "skillflow:skillflow" \
-            "typo3-visual-editor-enhancements:visual_editor_enhancements"; do
-            repo="${spec%%:*}"; dir="${spec##*:}"
-            git clone --depth 1 "https://x-access-token:${TOKEN}@github.com/dirnbauer/${repo}.git" "packages/${dir}"
-          done
-
       - name: Install dependencies
         run: composer install --no-interaction --no-progress --prefer-dist
 
       - name: Run quality suite
         run: Build/Scripts/runTests.sh -s ci
+
+  node-quality:
+    name: Node quality
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: |
+            package-lock.json
+            apps/news-api-studio/package-lock.json
+            packages/flue-bridge/package-lock.json
+
+      - name: Install and audit root tools
+        run: |
+          npm ci
+          npm audit --audit-level=high
+
+      - name: Check News API Studio
+        working-directory: apps/news-api-studio
+        run: |
+          npm ci
+          npm audit --audit-level=high
+          npm run typecheck
+          npm run build
+
+      - name: Install and audit Flue bridge
+        working-directory: packages/flue-bridge
+        run: |
+          npm ci
+          npm audit --audit-level=high

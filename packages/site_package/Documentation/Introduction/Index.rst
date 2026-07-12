@@ -17,17 +17,20 @@ Feature inventory
 
 The package provides:
 
-* Five Site Sets: base, search, Blog, Blog Bootstrap, and Camino.
+* Six Site Sets: base, search, Blog, Blog Bootstrap, Camino, and WorkOS.
 * Admin Panel defaults through TypoScript and backend user TSconfig.
 * The global ``cowriter`` RTE preset.
 * Visual Editor Cowriter module preloading through PSR-15 middleware.
 * Shared Desiderio partial paths for EXT:news and EXT:blog.
 * Shared Solr defaults and numbered pagination partials.
 * MCP table metadata for ``tt_address`` as ``Addresses``.
+* Lab-only WorkOS Login, Account, and Team presentation overrides using
+  Desiderio's semantic shadcn tokens.
 
 Desiderio corporate, content-element, Powermail, and news presets are supplied
 by ``webconsulting/desiderio`` and are attached directly in site configuration.
-This package does not ship additional Desiderio wrapper Site Sets.
+The optional WorkOS Site Set is a lab-specific presentation integration. Other
+Desiderio features remain attached directly in site configuration.
 
 All Desiderio demo sites in the lab must render through the provided shadcn/ui
 page templates from ``webconsulting/desiderio-shadcnui-templates``. The Site

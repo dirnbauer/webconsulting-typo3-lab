@@ -68,6 +68,12 @@ The lab chose the **action surface** as the load-bearing layer and retired the s
 
 The pairing argument in §3 still holds in principle (an installation ideally wants both the CI-time envelope and the runtime surface); the lab's pragmatic call was that one governed runtime registry across four surfaces earns its keep first.
 
+**Current install note (2026-07-10):** the private desktop connector is now an
+optional local integration and is not required by this repository's Composer
+install. The 18-ability/four-projection measurement above describes the
+connector-enabled validation run; the base lab keeps the registry, policy,
+CLI/MCP/REST infrastructure, and installs cleanly without private credentials.
+
 ## 8. Follow-ups
 
 - Cross-check audit rule: ability side effects ⊆ host extension manifest (would resurrect the manifest audit as a registry lint).

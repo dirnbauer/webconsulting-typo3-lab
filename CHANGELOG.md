@@ -6,6 +6,12 @@ All notable changes to Webconsulting TYPO3 Lab are documented in this file.
 
 ### Added
 
+- Added a Desiderio WorkOS frontend plugin lab with an overview page and
+  focused Login/Registration, Account, and Team subpages.
+- Added lab-owned WorkOS Fluid overrides, a direct CType rendering bridge, and
+  semantic shadcn token CSS without modifying the upstream extension.
+- Added the idempotent `sitepackage:seed-workos-frontend` DataHandler command,
+  frontend-user storage, and a dedicated WorkOS setup/verification guide.
 - Wired the MTUG Camp Munich ticket registration Powermail form on page `934`
   (`Ticket-Anmeldung`) to the form records stored in sysfolder `940`
   (`Powermail Daten`), with thank-you redirects to page `941` and translated
@@ -15,8 +21,23 @@ All notable changes to Webconsulting TYPO3 Lab are documented in this file.
 
 ### Changed
 
-- Pinned `webconsulting/desiderio` to `^2.6` (`v2.6.0`) instead of
-  `dev-main as 2.5.99`.
+- Updated `webconsulting/desiderio` to stable `^2.13`, refreshed direct
+  integration packages, and updated the Composer lock without security
+  advisories.
+- Restricted the Composer path repository to the local site package; public
+  integrations now resolve from Packagist/VCS and CI no longer clones package
+  sources manually. The private desktop connector is no longer a required lab
+  dependency.
+- Bumped `webconsulting/site-package` to `14.3.4` and PHP `^8.3`.
+- Rewrote the root, DDEV, site configuration, and site-package documentation
+  against the current install and reduced `.ddev/config.yaml` to active
+  project settings.
+- Refreshed npm lockfiles and added CI coverage for deterministic Node installs,
+  high-severity audits, News API Studio typechecking/building, and the Flue
+  bridge.
+- Purged 18,343 soft-deleted database rows, confirmed there are no orphan
+  records, rebuilt the reference index for 16,853 records, and refreshed the
+  cleaned `dump.sql.gz` snapshot.
 - Documented the MTUG ticket form page tree and ticket URL in
   [docs/site-configuration.md](docs/site-configuration.md) and the root README
   smoke checks.

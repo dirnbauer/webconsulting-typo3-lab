@@ -7,6 +7,13 @@
 CMD=$1
 YAML_FILE=".ddev/typo3-solr/config.yaml"
 SOLR_HEALTH_URL="http://typo3-solr:8983/solr/admin/info/system?wt=json"
+START_PROJECT=1
+
+for arg in "${@:2}"; do
+    if [ "$arg" = "--no-start" ]; then
+        START_PROJECT=0
+    fi
+done
 
 wait_for_solr() {
     for _ in {1..30}; do
@@ -22,16 +29,20 @@ wait_for_solr() {
 }
 
 # Start the project if not already running, so we can interact with solr
-ddev_status=$(ddev describe -j | ddev exec "yq -p=json eval '.raw.status'")
-if [ "$ddev_status" = "stopped" ]; then
-    ddev start
+if [ "$START_PROJECT" -eq 1 ]; then
+    ddev_status=$(ddev describe -j | ddev exec "yq -p=json eval '.raw.status'")
+    if [ "$ddev_status" = "stopped" ]; then
+        ddev start
+    fi
 fi
 
 case $CMD in
 apply)
-    if [ -n "$2" ]; then
-        YAML_FILE="$2"
-    fi
+    for arg in "${@:2}"; do
+        if [ "$arg" != "--no-start" ]; then
+            YAML_FILE="$arg"
+        fi
+    done
 
     if [ ! -f "$YAML_FILE" ]; then
         echo "Add-on config file $YAML_FILE does not exist."

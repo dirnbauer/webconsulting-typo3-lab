@@ -1,5 +1,5 @@
 ## Flue sidecar — real @flue/runtime (Node 22) bridging TYPO3 into durable AI
-## agents/workflows. Hand-authored (NOT #ddev-generated). Modeled on
+## agents/workflows. Hand-authored and user-managed. Modeled on
 ## docker-compose.typo3-solr.yaml. Reach TYPO3 from here by the Docker service
 ## name `web` (http://web/mcp), not the *.ddev.site host.
 ##
@@ -11,10 +11,24 @@ services:
     container_name: ddev-${DDEV_SITENAME}-flue
     hostname: ${DDEV_SITENAME}-flue
     image: node:22-bookworm
-    # Install once if needed, then run the Flue dev server (app.ts scaffolded by `flue init`).
+    # Keep Linux-native dependencies in a container volume instead of using the
+    # macOS node_modules directory from the bind-mounted project.
     # chmod the shared skills volume so the web container's PHP user (SkillExporter)
     # can write exported SKILL.md dirs into the root-owned volume.
-    command: ["sh", "-c", "chmod 0777 /app/.agents/skills 2>/dev/null; cd /app && (test -d node_modules || npm install --no-audit --no-fund) && (test -f flue.config.ts || npm run init) && npm run dev"]
+    command:
+      - sh
+      - -c
+      - |
+        set -eu
+        chmod 0777 /app/.agents/skills 2>/dev/null || true
+        cd /app
+        lock_hash="$$(sha256sum package-lock.json | cut -d ' ' -f1)"
+        if [ ! -f node_modules/.package-lock.sha256 ] || [ "$$(cat node_modules/.package-lock.sha256)" != "$$lock_hash" ]; then
+          npm ci --no-audit --no-fund
+          printf '%s\n' "$$lock_hash" > node_modules/.package-lock.sha256
+        fi
+        test -f flue.config.ts || npm run init
+        exec npm run dev
     working_dir: /app
     restart: "no"
     labels:
@@ -31,6 +45,7 @@ services:
       # ANTHROPIC_API_KEY intentionally absent — injected per request by the control plane.
     volumes:
       - "../packages/flue-bridge:/app"
+      - "flue-node-modules:/app/node_modules"
       # Flue auto-discovers Agent Skills under <cwd>/.agents/skills/ at context init;
       # the working_dir is /app, so the exported-skills volume MUST mount there (not /app/skills).
       - "flue-skills:/app/.agents/skills"
@@ -46,3 +61,4 @@ services:
 volumes:
   flue-skills:
   flue-data:
+  flue-node-modules:

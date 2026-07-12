@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "075447597bd818faf2b19b72756ff2a4",
+    "content-hash": "d115a6639625d7cfdf5c7527e51481d2",
     "packages": [
         {
             "name": "apache-solr-for-typo3/solr",
@@ -1636,22 +1636,22 @@
         },
         {
             "name": "guzzlehttp/guzzle",
-            "version": "7.13.2",
+            "version": "7.14.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/guzzle.git",
-                "reference": "bcd989ad36c92d42a3715379af91f2defee5b8dd"
+                "reference": "aef242412e13128b5049864867bb49fc37dd39de"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/bcd989ad36c92d42a3715379af91f2defee5b8dd",
-                "reference": "bcd989ad36c92d42a3715379af91f2defee5b8dd",
+                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/aef242412e13128b5049864867bb49fc37dd39de",
+                "reference": "aef242412e13128b5049864867bb49fc37dd39de",
                 "shasum": ""
             },
             "require": {
                 "ext-json": "*",
-                "guzzlehttp/promises": "^2.5",
-                "guzzlehttp/psr7": "^2.12.3",
+                "guzzlehttp/promises": "^2.5.1",
+                "guzzlehttp/psr7": "^2.12.4",
                 "php": "^7.2.5 || ^8.0",
                 "psr/http-client": "^1.0",
                 "symfony/deprecation-contracts": "^2.5 || ^3.0",
@@ -1744,7 +1744,7 @@
             ],
             "support": {
                 "issues": "https://github.com/guzzle/guzzle/issues",
-                "source": "https://github.com/guzzle/guzzle/tree/7.13.2"
+                "source": "https://github.com/guzzle/guzzle/tree/7.14.0"
             },
             "funding": [
                 {
@@ -1760,20 +1760,20 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2026-07-05T19:00:11+00:00"
+            "time": "2026-07-08T22:54:09+00:00"
         },
         {
             "name": "guzzlehttp/promises",
-            "version": "2.5.0",
+            "version": "2.5.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/promises.git",
-                "reference": "4360e982f87f5f258bf872d094647791db2f4c8e"
+                "reference": "9ad1e4fc607446a055b95870c7f668e93b5cff29"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/promises/zipball/4360e982f87f5f258bf872d094647791db2f4c8e",
-                "reference": "4360e982f87f5f258bf872d094647791db2f4c8e",
+                "url": "https://api.github.com/repos/guzzle/promises/zipball/9ad1e4fc607446a055b95870c7f668e93b5cff29",
+                "reference": "9ad1e4fc607446a055b95870c7f668e93b5cff29",
                 "shasum": ""
             },
             "require": {
@@ -1828,7 +1828,7 @@
             ],
             "support": {
                 "issues": "https://github.com/guzzle/promises/issues",
-                "source": "https://github.com/guzzle/promises/tree/2.5.0"
+                "source": "https://github.com/guzzle/promises/tree/2.5.1"
             },
             "funding": [
                 {
@@ -1844,20 +1844,20 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2026-06-02T12:23:43+00:00"
+            "time": "2026-07-08T15:48:39+00:00"
         },
         {
             "name": "guzzlehttp/psr7",
-            "version": "2.12.3",
+            "version": "2.12.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/psr7.git",
-                "reference": "7ec62dc3f44aa218487dbed81a9bf9bc647be55d"
+                "reference": "51e27f9e2b332ab3e72f4520d5ff4f3c68c3577c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/psr7/zipball/7ec62dc3f44aa218487dbed81a9bf9bc647be55d",
-                "reference": "7ec62dc3f44aa218487dbed81a9bf9bc647be55d",
+                "url": "https://api.github.com/repos/guzzle/psr7/zipball/51e27f9e2b332ab3e72f4520d5ff4f3c68c3577c",
+                "reference": "51e27f9e2b332ab3e72f4520d5ff4f3c68c3577c",
                 "shasum": ""
             },
             "require": {
@@ -1947,7 +1947,7 @@
             ],
             "support": {
                 "issues": "https://github.com/guzzle/psr7/issues",
-                "source": "https://github.com/guzzle/psr7/tree/2.12.3"
+                "source": "https://github.com/guzzle/psr7/tree/2.12.4"
             },
             "funding": [
                 {
@@ -1963,7 +1963,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2026-06-23T15:21:08+00:00"
+            "time": "2026-07-08T15:56:20+00:00"
         },
         {
             "name": "halaxa/json-machine",
@@ -2301,52 +2301,6 @@
                 "typo3"
             ],
             "time": "2026-06-20T18:04:04+00:00"
-        },
-        {
-            "name": "kdirnbauer/typo3-desktop-connector",
-            "version": "dev-main",
-            "dist": {
-                "type": "path",
-                "url": "../desktop-news-typo3/packages/typo3-extension",
-                "reference": "1e0c468a2ae409f82f4a2588c0862c28e6b4f562"
-            },
-            "require": {
-                "firebase/php-jwt": "^6.10 || ^7.0",
-                "php": "^8.2",
-                "typo3/cms-core": "^13.0 || ^14.0",
-                "webconsulting/typo3-abilities": "dev-main"
-            },
-            "require-dev": {
-                "typo3/testing-framework": "^9.5 || ^10.0"
-            },
-            "suggest": {
-                "georgringer/news": "For news management functionality",
-                "typo3/cms-workspaces": "For workspace support"
-            },
-            "type": "typo3-cms-extension",
-            "extra": {
-                "typo3/cms": {
-                    "extension-key": "typo3_desktop_connector"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "KDirnbauer\\Typo3DesktopConnector\\": "Classes/"
-                }
-            },
-            "license": [
-                "GPL-2.0-or-later"
-            ],
-            "authors": [
-                {
-                    "name": "Kurt Dirnbauer"
-                }
-            ],
-            "description": "API layer for TYPO3 Desktop Editor",
-            "transport-options": {
-                "symlink": false,
-                "relative": true
-            }
         },
         {
             "name": "league/commonmark",
@@ -4856,16 +4810,16 @@
         },
         {
             "name": "phpstan/phpdoc-parser",
-            "version": "2.3.2",
+            "version": "2.3.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpdoc-parser.git",
-                "reference": "a004701b11273a26cd7955a61d67a7f1e525a45a"
+                "reference": "fb19eedd2bb67ff8cf7a5502ad329e701d6398a3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpdoc-parser/zipball/a004701b11273a26cd7955a61d67a7f1e525a45a",
-                "reference": "a004701b11273a26cd7955a61d67a7f1e525a45a",
+                "url": "https://api.github.com/repos/phpstan/phpdoc-parser/zipball/fb19eedd2bb67ff8cf7a5502ad329e701d6398a3",
+                "reference": "fb19eedd2bb67ff8cf7a5502ad329e701d6398a3",
                 "shasum": ""
             },
             "require": {
@@ -4897,9 +4851,9 @@
             "description": "PHPDoc parser with support for nullable, intersection and generic types",
             "support": {
                 "issues": "https://github.com/phpstan/phpdoc-parser/issues",
-                "source": "https://github.com/phpstan/phpdoc-parser/tree/2.3.2"
+                "source": "https://github.com/phpstan/phpdoc-parser/tree/2.3.3"
             },
-            "time": "2026-01-25T14:56:51+00:00"
+            "time": "2026-07-08T07:01:06+00:00"
         },
         {
             "name": "psr/cache",
@@ -12024,11 +11978,17 @@
         },
         {
             "name": "webconsulting/agent-nexus",
-            "version": "2.0.1",
-            "dist": {
-                "type": "path",
-                "url": "packages/agent_nexus",
+            "version": "v2.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dirnbauer/typo3-agent-nexus.git",
                 "reference": "fd4cf346eaaae69bfe9e4fe5dfc900813420d1c2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dirnbauer/typo3-agent-nexus/zipball/fd4cf346eaaae69bfe9e4fe5dfc900813420d1c2",
+                "reference": "fd4cf346eaaae69bfe9e4fe5dfc900813420d1c2",
+                "shasum": ""
             },
             "require": {
                 "php": "^8.3",
@@ -12084,10 +12044,7 @@
                 "issues": "https://github.com/dirnbauer/typo3-agent-nexus/issues",
                 "source": "https://github.com/dirnbauer/typo3-agent-nexus"
             },
-            "transport-options": {
-                "symlink": true,
-                "relative": true
-            }
+            "time": "2026-07-02T09:15:25+00:00"
         },
         {
             "name": "webconsulting/agentation",
@@ -12184,11 +12141,17 @@
         },
         {
             "name": "webconsulting/desiderio",
-            "version": "dev-main",
+            "version": "v2.13.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dirnbauer/desiderio.git",
+                "reference": "41b6e99b809ee8155db5795c123530ed0b885f32"
+            },
             "dist": {
-                "type": "path",
-                "url": "../desiderio",
-                "reference": "535205797da4be73c2705dbaaef0889c8a4e9946"
+                "type": "zip",
+                "url": "https://api.github.com/repos/dirnbauer/desiderio/zipball/41b6e99b809ee8155db5795c123530ed0b885f32",
+                "reference": "41b6e99b809ee8155db5795c123530ed0b885f32",
+                "shasum": ""
             },
             "require": {
                 "friendsoftypo3/content-blocks": "^2.2",
@@ -12212,13 +12175,12 @@
                 "typo3/testing-framework": "^9.0"
             },
             "suggest": {
-                "apache-solr-for-typo3/solr": "Optional. Drives the shadcn-styled Solr search templates. Thank you to dkd Internet Service GmbH and the TYPO3-Solr team.",
-                "friendsoftypo3/visual-editor": "Optional. Inline visual editing when templates use f:render.text for text fields. Thank you to the friends of TYPO3 maintainers.",
-                "georgringer/news": "Optional. Drives the shadcn-styled News templates and the DesiderioNews backend layout. Thank you, Georg Ringer.",
-                "in2code/powermail": "Optional. Drives the shadcn-styled Powermail templates and demo form seeder. Thank you, in2code.",
-                "netresearch/nr-llm": "Optional. Netresearch's AI foundation for TYPO3 — the shared LLM provider layer behind the agentic features shown in the styleguide, alongside nr-mcp-agent, nr-vault and t3-cowriter. Thank you, Netresearch DTT GmbH.",
-                "studiomitte/friendlycaptcha": "Optional. Protects the bundled TYPO3 Form Framework and Powermail lab forms with Friendly Captcha. For TYPO3 14 install the fork: add the VCS repository https://github.com/dirnbauer/friendlycaptcha-typo3 and require studiomitte/friendlycaptcha:^14.0@dev. Without it the captcha element renders an inert placeholder and validation passes. Thank you, Studio Mitte.",
-                "t3g/blog": "Optional. Drives the shadcn-styled t3g/blog overrides shipped under webconsulting/desiderio-blog. Thank you, TYPO3 GmbH."
+                "apache-solr-for-typo3/solr": "Optional. Drives the shadcn-styled Solr search templates.",
+                "friendsoftypo3/visual-editor": "Optional. Inline visual editing when templates use f:render.text for text fields.",
+                "georgringer/news": "Optional. Drives the shadcn-styled News templates and the DesiderioNews backend layout.",
+                "in2code/powermail": "Optional. Drives the shadcn-styled Powermail templates and demo form seeder.",
+                "studiomitte/friendlycaptcha": "Optional. Protects the bundled TYPO3 Form Framework and Powermail lab forms with Friendly Captcha. For TYPO3 14 install the fork: add the VCS repository https://github.com/dirnbauer/friendlycaptcha-typo3 and require studiomitte/friendlycaptcha:^14.0@dev. Without it the captcha element renders an inert placeholder and validation passes.",
+                "t3g/blog": "Optional. Drives the shadcn-styled t3g/blog overrides shipped under webconsulting/desiderio-blog."
             },
             "type": "typo3-cms-extension",
             "extra": {
@@ -12260,10 +12222,7 @@
                 }
             ],
             "description": "Desiderio — shadcn/ui-inspired Fluid 5 component library, 255 content elements, and theme layer for TYPO3 14",
-            "transport-options": {
-                "symlink": false,
-                "relative": true
-            }
+            "time": "2026-07-04T10:09:16+00:00"
         },
         {
             "name": "webconsulting/docx-editor",
@@ -12431,11 +12390,17 @@
         },
         {
             "name": "webconsulting/opentag-bridge",
-            "version": "0.1.0",
+            "version": "v0.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dirnbauer/typo3-opentag-bridge.git",
+                "reference": "2863566ef5975c75bb623fa6192a5cefcd7723af"
+            },
             "dist": {
-                "type": "path",
-                "url": "packages/opentag_bridge",
-                "reference": "f2ce82d8fcbde0f8501d0255d575803da43b475c"
+                "type": "zip",
+                "url": "https://api.github.com/repos/dirnbauer/typo3-opentag-bridge/zipball/2863566ef5975c75bb623fa6192a5cefcd7723af",
+                "reference": "2863566ef5975c75bb623fa6192a5cefcd7723af",
+                "shasum": ""
             },
             "require": {
                 "php": "^8.3",
@@ -12503,10 +12468,7 @@
                 "issues": "https://github.com/dirnbauer/typo3-opentag-bridge/issues",
                 "source": "https://github.com/dirnbauer/typo3-opentag-bridge"
             },
-            "transport-options": {
-                "symlink": true,
-                "relative": true
-            }
+            "time": "2026-07-04T08:00:21+00:00"
         },
         {
             "name": "webconsulting/records-list-examples",
@@ -12654,11 +12616,11 @@
         },
         {
             "name": "webconsulting/site-package",
-            "version": "14.3.3",
+            "version": "14.3.4",
             "dist": {
                 "type": "path",
                 "url": "packages/site_package",
-                "reference": "ab33f5ea0728a508fb03a0d4726d5c6b4360ec33"
+                "reference": "d9694c6b75872acd32190ca17e18b3a7978d1ef6"
             },
             "require": {
                 "apache-solr-for-typo3/solr": "^14.0@beta",
@@ -12666,24 +12628,27 @@
                 "georgringer/news": "^14.0",
                 "netresearch/nr-llm": "^0.16.1",
                 "netresearch/t3-cowriter": "^3.1",
-                "php": "^8.2",
+                "php": "^8.3",
                 "studiomitte/solr-numbered-pagination": "dev-main",
                 "t3g/blog": "^15.0",
                 "typo3/cms-adminpanel": "^14.3",
                 "typo3/cms-core": "^14.3",
                 "typo3/theme-camino": "^14.3",
-                "webconsulting/desiderio": "^2.6"
+                "webconsulting/desiderio": "^2.13"
             },
             "require-dev": {
                 "phpstan/phpstan": "^2.1",
                 "saschaegerer/phpstan-typo3": "^3.0.1",
                 "typo3/testing-framework": "^9.5"
             },
+            "suggest": {
+                "webconsulting/workos-auth": "Enables the optional Desiderio/shadcn WorkOS frontend plugin Site Set."
+            },
             "type": "typo3-cms-extension",
             "extra": {
                 "typo3/cms": {
                     "extension-key": "site_package",
-                    "version": "14.3.3",
+                    "version": "14.3.4",
                     "Package": {
                         "providesPackages": []
                     }
@@ -12697,7 +12662,7 @@
             "license": [
                 "GPL-2.0-or-later"
             ],
-            "description": "Webconsulting TYPO3 Lab site package - shared Site Sets, editor defaults, Solr defaults, Admin Panel defaults, and Visual Editor Cowriter integration",
+            "description": "Webconsulting TYPO3 Lab site package - shared Site Sets, Desiderio integration, editor defaults, Solr defaults, Admin Panel defaults, and Visual Editor Cowriter integration",
             "transport-options": {
                 "symlink": true,
                 "relative": true
@@ -12705,11 +12670,17 @@
         },
         {
             "name": "webconsulting/skillflow",
-            "version": "1.5.1",
-            "dist": {
-                "type": "path",
-                "url": "packages/skillflow",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dirnbauer/skillflow.git",
                 "reference": "4cd0226aba90b72fb16e06396b1f9b71c8ec79f0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dirnbauer/skillflow/zipball/4cd0226aba90b72fb16e06396b1f9b71c8ec79f0",
+                "reference": "4cd0226aba90b72fb16e06396b1f9b71c8ec79f0",
+                "shasum": ""
             },
             "require": {
                 "ext-zip": "*",
@@ -12725,6 +12696,7 @@
                 "phpstan/phpstan": "^2.1",
                 "saschaegerer/phpstan-typo3": "^3.0.1"
             },
+            "default-branch": true,
             "type": "typo3-cms-extension",
             "extra": {
                 "typo3/cms": {
@@ -12740,24 +12712,29 @@
                 "GPL-2.0-or-later"
             ],
             "description": "Agent Skills for TYPO3 - manage Anthropic-style skills, import them from folders or git repositories, attach them to workspace stages and pages, and run them against content (SEO, tone, QA). Local/DDEV installs only.",
-            "transport-options": {
-                "symlink": true,
-                "relative": true
-            }
+            "time": "2026-07-04T09:45:40+00:00"
         },
         {
             "name": "webconsulting/typo3-abilities",
             "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dirnbauer/typo3-abilities.git",
+                "reference": "1d3a59be02b66f22bbf8d1a43ba12568811709ca"
+            },
             "dist": {
-                "type": "path",
-                "url": "packages/abilities",
-                "reference": "e611f7ea482e24e27ae3f096bb23a6b7213498ba"
+                "type": "zip",
+                "url": "https://api.github.com/repos/dirnbauer/typo3-abilities/zipball/1d3a59be02b66f22bbf8d1a43ba12568811709ca",
+                "reference": "1d3a59be02b66f22bbf8d1a43ba12568811709ca",
+                "shasum": ""
             },
             "require": {
                 "php": "^8.3",
                 "symfony/console": "^7.0",
                 "symfony/yaml": "^7.0",
-                "typo3/cms-core": "^14.3"
+                "typo3/cms-backend": "^14.3",
+                "typo3/cms-core": "^14.3",
+                "typo3/cms-fluid": "^14.3"
             },
             "require-dev": {
                 "phpstan/phpstan": "^2.0",
@@ -12767,6 +12744,7 @@
                 "hn/typo3-mcp-server": "Registered abilities are projected as MCP tools automatically",
                 "webconsulting/typo3-capability-manifest": "Shares the side-effect subsystem vocabulary and policy semantics"
             },
+            "default-branch": true,
             "type": "typo3-cms-extension",
             "extra": {
                 "typo3/cms": {
@@ -12810,18 +12788,21 @@
                 "registry",
                 "typo3"
             ],
-            "transport-options": {
-                "symlink": true,
-                "relative": true
-            }
+            "time": "2026-07-08T10:56:16+00:00"
         },
         {
             "name": "webconsulting/typo3-llms-txt",
             "version": "dev-main",
-            "dist": {
-                "type": "path",
-                "url": "packages/llms_txt",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dirnbauer/typo3-llms-txt.git",
                 "reference": "ddb65cd6c5406646f9e16bd722b8c0d9c66e7189"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dirnbauer/typo3-llms-txt/zipball/ddb65cd6c5406646f9e16bd722b8c0d9c66e7189",
+                "reference": "ddb65cd6c5406646f9e16bd722b8c0d9c66e7189",
+                "shasum": ""
             },
             "require": {
                 "php": "^8.3",
@@ -12837,6 +12818,7 @@
                 "hn/typo3-mcp-server": "agents.md advertises the MCP endpoint when installed",
                 "webconsulting/typo3-abilities": "agents.md lists the registered abilities when installed"
             },
+            "default-branch": true,
             "type": "typo3-cms-extension",
             "extra": {
                 "typo3/cms": {
@@ -12880,10 +12862,7 @@
                 "llms.txt",
                 "typo3"
             ],
-            "transport-options": {
-                "symlink": true,
-                "relative": true
-            }
+            "time": "2026-07-06T22:38:01+00:00"
         },
         {
             "name": "webconsulting/typo3-x402-paywall",
@@ -12985,11 +12964,17 @@
         },
         {
             "name": "webconsulting/visual-editor-enhancements",
-            "version": "0.8.0",
+            "version": "v0.8.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dirnbauer/typo3-visual-editor-enhancements.git",
+                "reference": "945b2b85e9184379b50c7c5030ea3a787c1e43f3"
+            },
             "dist": {
-                "type": "path",
-                "url": "packages/visual_editor_enhancements",
-                "reference": "3da1ed165149dc30bd127e1b405e6b328010f978"
+                "type": "zip",
+                "url": "https://api.github.com/repos/dirnbauer/typo3-visual-editor-enhancements/zipball/945b2b85e9184379b50c7c5030ea3a787c1e43f3",
+                "reference": "945b2b85e9184379b50c7c5030ea3a787c1e43f3",
+                "shasum": ""
             },
             "require": {
                 "friendsoftypo3/visual-editor": "^1.8",
@@ -13047,10 +13032,7 @@
                 "issues": "https://github.com/dirnbauer/typo3-visual-editor-enhancements/issues",
                 "source": "https://github.com/dirnbauer/typo3-visual-editor-enhancements"
             },
-            "transport-options": {
-                "symlink": true,
-                "relative": true
-            }
+            "time": "2026-07-04T13:56:04+00:00"
         },
         {
             "name": "webconsulting/webcon-easy-workspace",
@@ -15533,12 +15515,6 @@
             "version": "0.16.1.0",
             "alias": "0.13.99",
             "alias_normalized": "0.13.99.0"
-        },
-        {
-            "package": "webconsulting/desiderio",
-            "version": "dev-main",
-            "alias": "2.13.0",
-            "alias_normalized": "2.13.0.0"
         }
     ],
     "minimum-stability": "dev",
@@ -15546,14 +15522,13 @@
         "apache-solr-for-typo3/solr": 10,
         "hn/typo3-mcp-server": 20,
         "in2code/powermail": 20,
-        "kdirnbauer/typo3-desktop-connector": 20,
         "netresearch/nr-mcp-agent": 20,
         "sgalinski/sg-apicore": 20,
         "studiomitte/friendlycaptcha": 20,
         "studiomitte/solr-numbered-pagination": 20,
-        "webconsulting/desiderio": 20,
         "webconsulting/docx-editor": 20,
         "webconsulting/flue": 20,
+        "webconsulting/skillflow": 20,
         "webconsulting/typo3-abilities": 20,
         "webconsulting/typo3-llms-txt": 20,
         "webconsulting/webcon-mcp-chat-bridge": 20

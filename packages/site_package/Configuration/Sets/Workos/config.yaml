@@ -1,0 +1,6 @@
+name: webconsulting/site-package-workos
+label: 'Webconsulting Lab: WorkOS frontend plugins'
+hidden: true
+dependencies:
+  - webconsulting/site-package
+  - webconsulting/desiderio

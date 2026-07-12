@@ -1,524 +1,165 @@
 # Webconsulting TYPO3 Lab
 
-A DDEV-powered TYPO3 14.3 feature lab for experiments, demos, integrations,
-API-driven editorial workflows, and modern CMS development.
+A DDEV-powered TYPO3 14.3 feature lab for Desiderio, frontend editing,
+search, content APIs, agent workflows, authentication, and extension demos.
 
-Thank you to [Kanti](https://github.com/Kanti) for the original
-[andersundsehr/ddev-demo-setup-visual-editor](https://github.com/andersundsehr/ddev-demo-setup-visual-editor)
-Visual Editor DDEV demo this lab started from.
+[GitHub repository](https://github.com/dirnbauer/webconsulting-typo3-lab) ·
+[Project documentation](docs/README.md) ·
+[WorkOS frontend plugins](docs/workos-frontend-plugins.md)
 
-[Repository](https://github.com/dirnbauer/webconsulting-typo3-lab) ·
-[Jump to DDEV setup](#ddev-setup) ·
-[Feature inventory](#feature-inventory) ·
-[Extension inventory](#extension-inventory) ·
-[Project structure](#project-structure) ·
-[Documentation](#documentation)
+## Quick start
 
-[What is the Visual Editor?](https://github.com/andersundsehr/visual_editor)
-
-The GitHub repository is active, public, unarchived, and uses `main` as the
-default branch.
-
-## Feature Inventory
-
-### Platform and Local Runtime
-
-| Feature | Current implementation |
-|---|---|
-| TYPO3 target | TYPO3 CMS `^14.3` with PHP platform `8.3.0`. |
-| Local runtime | DDEV project `webconsulting-typo3-lab`, type `typo3`, docroot `public`, PHP `8.3`, Apache FPM, MariaDB `10.11`. |
-| TYPO3 context | `TYPO3_CONTEXT=Development` in `.ddev/config.yaml`. |
-| Search runtime | DDEV Solr addon with `typo3-solr` on port `8983`. |
-| Database UI | phpMyAdmin is enabled through `.ddev/docker-compose.phpmyadmin.yaml`; launch with `ddev phpmyadmin` or HTTPS port `8037`. |
-| Secret handling | `config/system/settings.php` is local-only; `config/system/settings.php.example` documents environment-based WorkOS and TYPO3 encryption secrets. |
-
-### TYPO3 Site Package
-
-The local package `webconsulting/site-package` is versioned as `14.1.0`,
-supports TYPO3 `^14.3`, and replaces the former `packages/adminpanel_defaults`
-and `packages/visual_editor_defaults` extensions.
-
-| Site Set | Purpose |
-|---|---|
-| `webconsulting/site-package` | Base defaults, Admin Panel, Cowriter RTE preset, MCP table config, and Cowriter preload middleware. |
-| `webconsulting/site-package-search` | Shared Solr integration through `webconsulting/solr-defaults` and numbered pagination partials. |
-| `webconsulting/site-package-blog` | Blog standalone rendering through `webconsulting/desiderio-blog-standalone`. |
-| `webconsulting/site-package-blog-bootstrap` | Blog Bootstrap 5.3 demo rendering. |
-| `webconsulting/site-package-camino` | Camino demo rendering with `typo3/theme-camino`. |
-
-Desiderio corporate, content-element, Powermail, and news presets come from
-`webconsulting/desiderio` and are attached directly in site configuration.
-
-All Desiderio demo sites in this lab must render through the provided shadcn/ui
-page templates from `webconsulting/desiderio-shadcnui-templates`. Do not swap
-in generic Fluid Styled Content or legacy Desiderio shells for these sites. The
-Site Set is pulled in transitively by `webconsulting/desiderio-preset-corporate`
-and `webconsulting/desiderio-blog-standalone`; site configs should not repeat it
-unless you are composing a custom Desiderio stack by hand.
-
-### Configured Demo Sites
-
-| Site config | Local URL | Root page | Languages | Dependencies |
-|---|---|---:|---|---|
-| `config/sites/desiderio` | `/` | `505` | English, German, Chinese, Hungarian | `studiomitte/friendlycaptcha`, `webconsulting/desiderio-powermail`, `webconsulting/desiderio-content-elements`, `webconsulting/desiderio-preset-corporate` |
-| `config/sites/camino` | `/camino/` | `99` | English | `webconsulting/site-package-camino` |
-| `config/sites/blog` | `/blog/` | `15` | German, English, Chinese | `georgringer/news`, `webconsulting/site-package-blog`, `webconsulting/desiderio-news` |
-| `config/sites/14lts` | `/14` | `69` | English | `webconsulting/site-package-blog-bootstrap` |
-| `config/sites/typo3-blog` | `/typo3-blog/` | `390` | English | `webconsulting/site-package-blog` |
-| `config/sites/mtug-camp-munich-2026` | `/mtug-camp-munich-2026/` | `933` | German, English, Chinese, Hungarian | `webconsulting/site-package-search`, `studiomitte/friendlycaptcha`, `webconsulting/desiderio-powermail`, `webconsulting/desiderio-content-elements`, `webconsulting/desiderio-preset-corporate`, `desiderio/content-blocks-bundle` |
-| `config/sites/desiderio-corporate-starter` | `/desiderio-corporate-starter/` | `740` | English | `webconsulting/site-package-search`, `webconsulting/desiderio-preset-corporate` |
-
-All local URLs use `https://webconsulting-typo3-lab.ddev.site`.
-
-See [docs/site-configuration.md](docs/site-configuration.md) for the canonical
-site inventory, file layout conventions, and troubleshooting for duplicate root
-pages, orphaned configs, autogenerated stubs, and workspace staging.
-
-### Editing and Editorial Workflow
-
-| Feature | Packages and files |
-|---|---|
-| Frontend editing | `friendsoftypo3/visual-editor`. |
-| Inline page module support | `supseven/inline-page-module` for TYPO3 14 inline `news` content elements. |
-| Rich text defaults | `RTE.default.preset = cowriter` in `packages/site_package/Configuration/Sets/SitePackage/page.tsconfig`. |
-| Cowriter preload | `packages/site_package/Classes/Middleware/CowriterPreloadMiddleware.php` preloads `netresearch/t3-cowriter` modules in Visual Editor edit mode. |
-| Backend contextual editing | `georgringer/context-edit-records`. |
-| Workspace editing | TYPO3 `cms-workspaces`, `webconsulting/webcon-easy-workspace`, and workspace overlay patches from `webconsulting/typo3-workspace-overlay-patch`. |
-| Admin Panel defaults | TYPO3 `cms-adminpanel` is enabled through the base site package Site Set and user TSconfig. |
-
-### Content, Search, and Rendering
-
-| Feature | Packages and configuration |
-|---|---|
-| News publishing | `georgringer/news` with route enhancers for list, page, category, tag, and detail routes in `config/sites/blog/config.yaml`. |
-| Blog rendering | `t3g/blog` with standalone and Bootstrap Site Sets. |
-| Desiderio rendering | `webconsulting/desiderio`, shadcn/ui page templates via `webconsulting/desiderio-shadcnui-templates`, Desiderio corporate presets, Desiderio content elements, Desiderio Powermail integration, and Desiderio partial paths in the site package. |
-| Camino rendering | `typo3/theme-camino` through `webconsulting/site-package-camino`. |
-| Search | `apache-solr-for-typo3/solr`, `studiomitte/solr-numbered-pagination`, `georgringer/numbered-pagination`, and per-language Solr cores in site configs. |
-| Forms | `in2code/powermail`, including Desiderio Powermail usage on the Desiderio demo site. |
-| Spam protection | `studiomitte/friendlycaptcha` on the Desiderio demo site. |
-| DOCX editing | `webconsulting/docx-editor` for backend DOCX workflows. |
-| Address data | `friendsoftypo3/tt-address`, exposed to MCP tools as `Addresses` by `packages/site_package/ext_localconf.php`. |
-| Record demos | `webconsulting/records-list-types` and `webconsulting/records-list-examples` for catalog, timeline, gallery, event, address book, and dashboard views. |
-
-### API, Capability, and Agent Workflows
-
-| Feature | Packages and files |
-|---|---|
-| API layer | `sgalinski/sg-apicore`. |
-| News CRUD policy | `config/capability-policy.yaml` defines token-authenticated API `news`, version `1`, resource `/news`, soft deletes, scoped read/write operations, and CORS for `localhost:3000` and `localhost:3001`. |
-| News capability manifest | `config/capabilities/news/Capabilities.yaml` scopes News database reads/writes, FAL access under `public/fileadmin`, cache access, TCA overrides, routing, CLI, and no outbound network access. |
-| Capability bridge | `webconsulting/api-capability-bridge`. |
-| Capability manifests | `webconsulting/typo3-capability-manifest`. |
-| MCP server | `hn/typo3-mcp-server` plus `netresearch/nr-mcp-agent`. |
-| AI and assistant features | `webconsulting/agentation`, `netresearch/nr-llm`, `netresearch/t3-cowriter`, and `netresearch/nr-vault`. |
-| Authentication | `webconsulting/workos-auth` plus `EXT:multisite_belogin` (`wapplersystems/multisite-belogin`) for cross-site/domain backend login. |
-| Paywall experiments | `webconsulting/typo3-x402-paywall`. |
-
-### News API Studio
-
-`apps/news-api-studio` is a Next.js 16, React 19, Tailwind v4, and Electron 39
-desktop app for editing EXT:news records through the TYPO3 API layer.
-
-Implemented app features:
-
-- Two-column records browser and TCA-driven form editor.
-- Resizable records column with persisted width.
-- Light, dark, and system themes mirrored to Electron window chrome.
-- Multiple encrypted connection profiles using Electron `safeStorage`.
-- First-run onboarding for local, staging, or live TYPO3 profiles.
-- Create, update, delete, submit, publish, and preview workflows for News
-  records.
-- File upload support through `/studio/files/upload`.
-- Workspace switcher and workspace-aware record loading.
-- Local draft recovery and unsaved-change prompts.
-- Native menu, keyboard shortcuts, single-instance lock, and remembered window
-  state.
-
-### Quality, Patches, and Verification
-
-| Feature | Implementation |
-|---|---|
-| Composer reproducibility | `composer.lock` pins VCS/dev package references. |
-| Vendor patches | `cweagans/composer-patches` applies workspace query overlay patches to `typo3/cms-backend` and `typo3/cms-core`. |
-| PHP analysis | `Build/Scripts/runTests.sh -s phpstan` uses `Build/phpstan/phpstan.neon` at maximum level with `saschaegerer/phpstan-typo3`. |
-| CI-style local check | `Build/Scripts/runTests.sh -s ci` validates Composer metadata, PHP syntax, TYPO3 YAML, and PHPStan. |
-
-## Extension Inventory
-
-### TYPO3 Core and Theme Packages
-
-The project requires these TYPO3 packages directly:
-
-`typo3/class-alias-loader`, `typo3/cms-adminpanel`, `typo3/cms-backend`,
-`typo3/cms-belog`, `typo3/cms-beuser`, `typo3/cms-core`,
-`typo3/cms-dashboard`, `typo3/cms-extbase`,
-`typo3/cms-extensionmanager`, `typo3/cms-felogin`,
-`typo3/cms-filelist`, `typo3/cms-fluid`,
-`typo3/cms-fluid-styled-content`, `typo3/cms-form`,
-`typo3/cms-frontend`, `typo3/cms-impexp`,
-`typo3/cms-indexed-search`, `typo3/cms-info`,
-`typo3/cms-install`, `typo3/cms-lowlevel`,
-`typo3/cms-reactions`, `typo3/cms-recycler`,
-`typo3/cms-redirects`, `typo3/cms-rte-ckeditor`,
-`typo3/cms-scheduler`, `typo3/cms-seo`, `typo3/cms-setup`,
-`typo3/cms-styleguide`, `typo3/cms-sys-note`,
-`typo3/cms-tstemplate`, `typo3/cms-viewpage`,
-`typo3/cms-webhooks`, `typo3/cms-workspaces`, and
-`typo3/theme-camino`.
-
-### Community, Agency, and Lab Extensions
-
-| Composer package | Constraint | Role in this lab |
-|---|---:|---|
-| `apache-solr-for-typo3/solr` | `^14.0@beta` | Solr search integration from [TYPO3-Solr/ext-solr](https://github.com/TYPO3-Solr/ext-solr). |
-| `friendsoftypo3/tt-address` | `^10.0` | Address records and MCP-exposed address table. |
-| `friendsoftypo3/visual-editor` | `^1.6` | Frontend page editing. |
-| `georgringer/context-edit-records` | `^1.0` | Contextual backend record editing. |
-| `georgringer/news` | `^14.0` | News records and blog/news routes. |
-| `georgringer/numbered-pagination` | `^2.2` | Numbered pagination support. |
-| `hn/typo3-mcp-server` | `dev-main` | TYPO3 MCP server integration. |
-| `in2code/powermail` | `dev-typo3-v14` | Forms and Desiderio form demos. |
-| `netresearch/nr-llm` | `dev-main as 0.7.x-dev` | LLM integration building block. |
-| `netresearch/nr-mcp-agent` | `dev-main` | MCP agent integration. |
-| `netresearch/nr-vault` | `^0.5` | Vault/secret support for Netresearch integrations. |
-| `netresearch/t3-cowriter` | `^3.1` | Cowriter RTE and Visual Editor support. |
-| `sgalinski/sg-apicore` | `dev-main` | TYPO3 API layer. |
-| `studiomitte/friendlycaptcha` | `^14.0@dev` | Friendly Captcha integration for form demos. |
-| `studiomitte/solr-numbered-pagination` | `dev-main` | Solr numbered pagination partials. |
-| `supseven/inline-page-module` | `^4.0` | Inline TYPO3 14 page module elements. |
-| `t3g/blog` | `^15.0` | Blog Site Sets and routes. |
-| `wapplersystems/multisite-belogin` | `^14.1` | `EXT:multisite_belogin`; cross-site/domain backend login so backend users can work in the frontend across domains. |
-| `webconsulting/agentation` | `^1.1` | Agent-oriented TYPO3 workflow experiments. |
-| `webconsulting/api-capability-bridge` | `^1.0` | Capability policy bridge for APIs. |
-| `webconsulting/desiderio` | `^2.6` | Desiderio rendering, templates, and presets. |
-| `webconsulting/docx-editor` | `dev-main` | DOCX editing extension for backend workflows (tracks upstream main). |
-| `webconsulting/records-list-examples` | `^1.1` | Demo data and examples for Records List Types. |
-| `webconsulting/records-list-types` | `^1.0` | Catalog, timeline, gallery, event, address book, and dashboard record lists. |
-| `webconsulting/site-package` | `^14.1` | Local site package with shared Site Sets and defaults. |
-| `webconsulting/typo3-capability-manifest` | `^1.0` | Capability manifest support. |
-| `webconsulting/typo3-workspace-overlay-patch` | `^1.0` | Workspace query overlay patch bundle. |
-| `webconsulting/typo3-x402-paywall` | `^1.0` | x402 paywall experiments. |
-| `webconsulting/webcon-easy-workspace` | `^1.0` | Workspace workflow helpers. |
-| `webconsulting/workos-auth` | `^1.1` | WorkOS authentication. |
-
-### Site Set and Preset Dependencies
-
-These Site Set dependencies are used by the local package or site
-configuration. They are provided by installed TYPO3 extensions and presets,
-even when they are not listed as root Composer package names.
-
-| Site Set dependency | Used by |
-|---|---|
-| `webconsulting/solr-defaults` | `webconsulting/site-package-search` |
-| `webconsulting/desiderio-shadcnui-templates` | `webconsulting/desiderio-preset-corporate`, `webconsulting/desiderio-blog-standalone` |
-| `webconsulting/desiderio-blog-standalone` | `webconsulting/site-package-blog` |
-| `blog/bootstrap-53` | `webconsulting/site-package-blog-bootstrap` |
-| `webconsulting/desiderio-preset-corporate` | Desiderio demo sites in `config/sites/` |
-| `webconsulting/desiderio-news` | `config/sites/blog` |
-| `webconsulting/desiderio-content-elements` | `config/sites/desiderio` |
-| `webconsulting/desiderio-powermail` | `config/sites/desiderio` |
-| `desiderio/content-blocks-bundle` | `config/sites/mtug-camp-munich-2026` |
-
-### Development Tooling
-
-| Composer package | Constraint | Role |
-|---|---:|---|
-| `cweagans/composer-patches` | `^2.0` | Applies vendor patches during Composer install. |
-| `phpstan/phpstan` | `^2.1` | Static analysis. |
-| `phpunit/phpunit` | `^11.5` | Test runner. |
-| `saschaegerer/phpstan-typo3` | `^3.0.1` | TYPO3-aware PHPStan rules and reflection. |
-| `typo3/testing-framework` | `^9.5` | TYPO3 test framework. |
-
-## Thanks and Attribution
-
-Special thanks to [Netresearch DTT GmbH](https://www.netresearch.de/) for the
-Netresearch TYPO3 extensions used here (`netresearch/t3-cowriter`,
-`netresearch/nr-llm`, `netresearch/nr-mcp-agent`, and
-`netresearch/nr-vault`) and for their TYPO3 documentation methodology that
-informed this documentation pass.
-
-Thank you to all TYPO3 core contributors and to the maintainers of every
-extension listed in the extension inventory above. This lab depends on their
-work across TYPO3 CMS, Visual Editor, Solr, News, Blog, Powermail, MCP,
-WorkOS, Desiderio, Records List Types, capability tooling, workspace tooling,
-testing, and static analysis.
-
-## Project Structure
-
-| Path | Purpose |
-|---|---|
-| `.ddev/` | Local DDEV runtime, Solr addon, WorkOS path/no-proxy compose files, and phpMyAdmin compose files. |
-| `config/sites/` | TYPO3 site configurations and Site Set dependencies. |
-| `config/capability-policy.yaml` | API capability policy for token-authenticated News CRUD. |
-| `config/capabilities/news/Capabilities.yaml` | Capability manifest for the News API resource. |
-| `config/system/settings.php.example` | Template for local TYPO3 settings and secret loading. |
-| `packages/site_package/` | Main local TYPO3 provider/theme extension. |
-| `patches/` | Composer patches applied to vendor packages. |
-| `docs/` | Project documentation and product specs. |
-| `apps/news-api-studio/` | Shared Next.js/Electron editorial workstation. |
-| `public/` | TYPO3 public document root. |
-
-## Site Package
-
-The shared project defaults live in
-`packages/site_package`. The package replaces the former
-`packages/adminpanel_defaults` and `packages/visual_editor_defaults`
-extensions.
-
-The main Site Sets are:
-
-| Site Set | Used for |
-|---|---|
-| `webconsulting/site-package` | Base defaults, Admin Panel, RTE, MCP table config, Cowriter preload middleware. |
-| `webconsulting/site-package-search` | Shared Solr and numbered pagination defaults. |
-| `webconsulting/site-package-blog` | Blog standalone pages with Desiderio template override. |
-| `webconsulting/site-package-blog-bootstrap` | Blog Bootstrap demo pages. |
-| `webconsulting/site-package-camino` | Camino theme demo site. |
-
-See [packages/site_package/README.md](packages/site_package/README.md) for
-the package-specific documentation.
-
-## DDEV Setup
-
-### Prerequisites
-
-- [DDEV](https://ddev.com/) installed
-- Docker or OrbStack running
-
-### First-Time Setup
-
-Bootstrap needs two artifacts: the database dump from git and the fileadmin
-archive from curt.at.
-
-| Artifact | Source | Local path |
-|---|---|---|
-| Database dump | Git repository | `dump.sql.gz` |
-| Fileadmin archive | https://curt.at/downloads/typo3-lab/fileadmin-v1.2.0.tar.gz (~122 MB) | `.tarballs/fileadmin.tar.gz` |
+Requirements: Docker, DDEV `>=1.25.2`, and Git.
 
 ```bash
+git clone https://github.com/dirnbauer/webconsulting-typo3-lab.git
+cd webconsulting-typo3-lab
 cp config/system/settings.php.example config/system/settings.php
+
 ddev start
 ddev composer install
-
-# Database (from git)
 ddev import-db --file=dump.sql.gz
 
-# Fileadmin (from curt.at)
 mkdir -p .tarballs
 curl -L -o .tarballs/fileadmin.tar.gz \
   https://curt.at/downloads/typo3-lab/fileadmin-v1.2.0.tar.gz
 ddev import-files --source=.tarballs/fileadmin.tar.gz
 
 ddev typo3 extension:setup
+ddev typo3 sitepackage:seed-workos-frontend
 ddev typo3 cache:flush
 ```
 
-Canonical bootstrap reference (export, import, curt.at upload, verification):
-[docs/ddev-bootstrap.md](docs/ddev-bootstrap.md).
+Open `https://webconsulting-typo3-lab.ddev.site/typo3/`. The imported local
+demo account is `admin` / `Demo123*`.
 
-Open the TYPO3 backend:
+The database is versioned as `dump.sql.gz`; fileadmin is distributed separately
+because of its size. See [DDEV bootstrap](docs/ddev-bootstrap.md) for reset and
+export procedures.
 
-```bash
-ddev launch /typo3/module/web/edit
-```
+## Runtime
 
-Local demo credentials:
-
-- User: `admin`
-- Password: `Demo123*`
-
-If you want to update `EXT:visual_editor`, run:
-
-```bash
-ddev composer u friendsoftypo3/visual-editor
-```
-
-### Settings and Secrets
-
-`config/system/settings.php` is gitignored. TYPO3's Install Tool writes plain
-values to this file when extension settings are saved. The committed
-`config/system/settings.php.example` keeps secrets behind `getenv()` calls.
-
-DDEV reads local secret values from `.ddev/config.local.yaml`, which is also
-gitignored.
-
-Create `.ddev/config.local.yaml` with the following content and fill in the
-actual values:
-
-```yaml
-web_environment:
-  - TYPO3_WORKOS_API_KEY=<workos-api-key>
-  - TYPO3_WORKOS_CLIENT_ID=<workos-client-id>
-  - TYPO3_WORKOS_COOKIE_PASSWORD=<workos-cookie-password>
-  - TYPO3_ENCRYPTION_KEY=<typo3-encryption-key>
-```
-
-| Variable | Where to find it |
+| Component | Configuration |
 |---|---|
-| `TYPO3_WORKOS_API_KEY` | [WorkOS Dashboard](https://dashboard.workos.com/) -> API Keys |
-| `TYPO3_WORKOS_CLIENT_ID` | WorkOS Dashboard -> Configuration |
-| `TYPO3_WORKOS_COOKIE_PASSWORD` | Generate with `openssl rand -base64 32`. |
-| `TYPO3_ENCRYPTION_KEY` | From an existing setup or generate with `openssl rand -hex 48`. |
+| TYPO3 | `^14.3` |
+| PHP | `8.3` |
+| DDEV | TYPO3 project, Apache FPM, Mutagen |
+| Database | MariaDB `10.11` |
+| Search | TYPO3 Solr DDEV add-on |
+| Local URL | `https://webconsulting-typo3-lab.ddev.site` |
 
-After creating or updating `.ddev/config.local.yaml`, run:
+Local secrets belong in the ignored `config/system/settings.php` or DDEV
+environment variables. The committed `settings.php.example` contains only
+environment lookups and non-secret defaults.
 
-```bash
-ddev restart
-```
+## Demo sites
 
-### Useful Local URLs
+| Site | Path | Root page |
+|---|---|---:|
+| Desiderio | `/` | `505` |
+| Camino | `/camino/` | `99` |
+| Blog | `/blog/` | `15` |
+| Blog Bootstrap | `/14/` | `69` |
+| TYPO3 Blog | `/typo3-blog/` | `390` |
+| Desiderio corporate starter | `/desiderio-corporate-starter/` | `740` |
+| MTUG Camp Munich 2026 | `/mtug-camp-munich-2026/` | `933` |
 
-DDEV exposes the project at:
+The canonical inventory, languages, Site Set dependencies, and troubleshooting
+live in [Site configuration](docs/site-configuration.md).
 
-| Target | URL |
+## WorkOS frontend plugin lab
+
+The Desiderio site includes one overview and three focused plugin pages:
+
+| Surface | URL | CType |
+|---|---|---|
+| Overview | `/features/workos/frontend-plugins/` | navigation and explanatory content |
+| Login and registration | `/features/workos/frontend-plugins/login/` | `workosauth_login` |
+| Account center | `/features/workos/frontend-plugins/account-center/` | `workosauth_account` |
+| Team administration | `/features/workos/frontend-plugins/team-administration/` | `workosauth_team` |
+
+The lab keeps `webconsulting/workos-auth` as the behavior and security owner.
+The local site package overrides only Fluid presentation and CSS. The result
+uses Desiderio's semantic shadcn token system and responds to the active
+`lagoon` preset without editing vendor files.
+
+See [WorkOS frontend plugins](docs/workos-frontend-plugins.md) for WorkOS
+dashboard redirects, environment variables, page UIDs, rendering architecture,
+expected states, and verification.
+
+## Local site package
+
+`packages/site_package` is version `14.3.4` and provides six TYPO3 Site Sets:
+
+| Site Set | Purpose |
 |---|---|
-| Backend | `https://webconsulting-typo3-lab.ddev.site/typo3/` |
-| phpMyAdmin | `ddev phpmyadmin` or `https://webconsulting-typo3-lab.ddev.site:8037/` |
-| Desiderio demo | `https://webconsulting-typo3-lab.ddev.site/` |
-| Camino demo | `https://webconsulting-typo3-lab.ddev.site/camino/` |
-| Blog demo | `https://webconsulting-typo3-lab.ddev.site/blog/` |
-| Blog Bootstrap demo | `https://webconsulting-typo3-lab.ddev.site/14/` |
-| Blog generated demo | `https://webconsulting-typo3-lab.ddev.site/typo3-blog/` |
-| Desiderio corporate starter | `https://webconsulting-typo3-lab.ddev.site/desiderio-corporate-starter/` |
-| MTUG Camp Munich demo | `https://webconsulting-typo3-lab.ddev.site/mtug-camp-munich-2026/` |
-| MTUG Camp Munich tickets | `https://webconsulting-typo3-lab.ddev.site/mtug-camp-munich-2026/ticket-anmeldung` |
+| `webconsulting/site-package` | Base editor, Admin Panel, RTE, middleware, and MCP defaults |
+| `webconsulting/site-package-search` | Solr defaults and numbered pagination |
+| `webconsulting/site-package-blog` | Desiderio standalone Blog rendering |
+| `webconsulting/site-package-blog-bootstrap` | Bootstrap Blog demo rendering |
+| `webconsulting/site-package-camino` | Camino demo rendering |
+| `webconsulting/site-package-workos` | Lab-only WorkOS Fluid overrides, plugin bridge, and CSS |
 
-### phpMyAdmin
+Desiderio corporate sites use the page templates supplied by Desiderio's
+shadcn Site Set. Per-site style, icon, and preset values remain in
+`config/sites/*/settings.yaml`.
 
-The phpMyAdmin DDEV addon is enabled. The active compose files are:
+## Dependency policy
 
-- `.ddev/docker-compose.phpmyadmin.yaml`
-- `.ddev/docker-compose.phpmyadmin_norouter.yaml`
+Composer resolves the lab-owned `site_package` from its local path repository.
+Other public integrations resolve from Packagist or their declared VCS
+repositories, so a clean checkout no longer depends on sibling directories or
+CI-time repository cloning. The private desktop connector is not a required lab
+dependency and may be installed locally when its repository credentials are
+available.
 
-Launch it with:
-
-```bash
-ddev phpmyadmin
-```
-
-Disabled generated copies are retained as `.yaml.disabled` files. To disable
-phpMyAdmin locally, move the active files aside and restart DDEV:
+After dependency changes, run:
 
 ```bash
-mv .ddev/docker-compose.phpmyadmin.yaml .ddev/docker-compose.phpmyadmin.yaml.disabled
-mv .ddev/docker-compose.phpmyadmin_norouter.yaml .ddev/docker-compose.phpmyadmin_norouter.yaml.disabled
-ddev restart
+ddev composer update <package> --with-all-dependencies
+ddev typo3 extension:setup
+ddev typo3 cache:flush
+Build/Scripts/runTests.sh -s ci
 ```
-
-## Editor Defaults
-
-The Cowriter RTE preset is enabled through the shared site package set:
-
-```text
-packages/site_package/Configuration/Sets/SitePackage/page.tsconfig
-```
-
-```typoscript
-RTE.default.preset = cowriter
-```
-
-Visual Editor edit mode also gets the Cowriter JavaScript modules preloaded by:
-
-```text
-packages/site_package/Classes/Middleware/CowriterPreloadMiddleware.php
-```
-
-## News API Studio
-
-The News API Studio app lives in `apps/news-api-studio`.
-
-```bash
-cd apps/news-api-studio
-npm install
-npm run dev
-npm run electron:dev
-```
-
-More app-specific documentation:
-
-- [apps/news-api-studio/README.md](apps/news-api-studio/README.md)
-- [apps/news-api-studio/ARCHITECTURE.md](apps/news-api-studio/ARCHITECTURE.md)
-- [docs/news-api-studio-spec.md](docs/news-api-studio-spec.md)
-
-## Dependency Refreshes
-
-Most lab extensions now use caret (`^x.y`) Composer constraints. A small set of
-TYPO3 14 integrations still track VCS branches because they have no matching
-semver tag yet: `hn/typo3-mcp-server`, `in2code/powermail`, `netresearch/nr-llm`
-(with a `0.7.x-dev` alias for dependency resolution), `netresearch/nr-mcp-agent`,
-`sgalinski/sg-apicore`, and `studiomitte/solr-numbered-pagination`.
-
-After refreshing package references, commit the resulting `composer.lock`
-changes so the TYPO3 lab stays reproducible across machines.
-
-Useful commands:
-
-```bash
-ddev composer update --lock
-ddev composer install
-```
-
-## Vendor Patches
-
-Vendor patches are managed with `cweagans/composer-patches`.
-
-Current patch documentation:
-
-- [patches/README.md](patches/README.md)
-- [patches/UPSTREAM_ISSUE.md](patches/UPSTREAM_ISSUE.md)
-
-Run `ddev composer install` after changing patch definitions.
 
 ## Verification
 
-Useful checks before committing project configuration changes:
-
 ```bash
-composer validate --no-check-publish
-Build/Scripts/runTests.sh -s phpstan
+ddev composer validate --strict --no-check-publish
+ddev composer audit
 Build/Scripts/runTests.sh -s ci
-ddev exec vendor/bin/typo3 lint:yaml config/sites packages/site_package/Configuration/Sets
-ddev exec vendor/bin/typo3 site:list
-ddev exec vendor/bin/typo3 extension:setup
-ddev exec vendor/bin/typo3 cache:flush
+ddev typo3 lint:yaml config/sites packages/site_package/Configuration/Sets
+ddev typo3 site:list
+ddev typo3 sitepackage:seed-workos-frontend
+ddev typo3 cache:flush
 ```
 
-PHPStan uses the TYPO3-aware configuration in `Build/phpstan/phpstan.neon` at
-maximum level and includes `saschaegerer/phpstan-typo3` for TYPO3 API
-reflection and framework rules.
-
-Basic frontend smoke check:
+Frontend smoke test:
 
 ```bash
-for url in / /camino/ /14/ /blog/ /typo3-blog/ /desiderio-corporate-starter/ /mtug-camp-munich-2026/ /mtug-camp-munich-2026/ticket-anmeldung; do
-  ddev exec curl -k -s -o /dev/null -w "$url %{http_code}\n" "https://webconsulting-typo3-lab.ddev.site$url"
+for url in / /camino/ /blog/ /14/ /typo3-blog/ \
+  /desiderio-corporate-starter/ /mtug-camp-munich-2026/ \
+  /features/workos/frontend-plugins/ \
+  /features/workos/frontend-plugins/login/ \
+  /features/workos/frontend-plugins/account-center/ \
+  /features/workos/frontend-plugins/team-administration/; do
+  ddev exec curl -k -s -o /dev/null -w "$url %{http_code}\\n" \
+    "https://webconsulting-typo3-lab.ddev.site$url"
 done
 ```
 
 ## Documentation
 
-- [docs/README.md](docs/README.md) - documentation index.
-- [docs/site-configuration.md](docs/site-configuration.md) - site inventory,
-  conventions, and troubleshooting for `config/sites/`.
-- [docs/ddev-bootstrap.md](docs/ddev-bootstrap.md) - database and fileadmin
-  export/import for reproducible DDEV setup.
-- [packages/site_package/README.md](packages/site_package/README.md) -
-  provider/theme extension notes.
-- [apps/news-api-studio/README.md](apps/news-api-studio/README.md) -
-  app setup and build commands.
-- [apps/news-api-studio/ARCHITECTURE.md](apps/news-api-studio/ARCHITECTURE.md) -
-  app architecture reference.
-- [patches/README.md](patches/README.md) - vendor patch workflow.
-- [docs/reports/typo3-v14-upgrade-20260516-213338.md](docs/reports/typo3-v14-upgrade-20260516-213338.md) -
-  TYPO3 14 upgrade report for the local site package.
+- [Project documentation index](docs/README.md)
+- [WorkOS frontend plugins](docs/workos-frontend-plugins.md)
+- [Site configuration](docs/site-configuration.md)
+- [DDEV bootstrap and snapshots](docs/ddev-bootstrap.md)
+- [Site package README](packages/site_package/README.md)
+- [News API Studio](apps/news-api-studio/README.md)
+- [Composer patches](patches/README.md)
 
-## Release Notes
+## Credits
 
-Current release: **v1.3.0**. See [CHANGELOG.md](CHANGELOG.md) for release notes.
-
-## License
-
-This project is released under the GNU General Public License version 2.0 or
-later, the standard TYPO3-compatible license for TYPO3 projects and extensions.
-See [LICENSE](LICENSE).
+The lab started from Kanti's Visual Editor DDEV demo and builds on TYPO3,
+Desiderio, Visual Editor, Solr, News, Blog, Powermail, WorkOS Auth, the
+Netresearch integrations, and the other packages pinned in `composer.lock`.

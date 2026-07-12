@@ -11,7 +11,7 @@ Install the extension through Composer from the repository root:
 
     composer install
 
-The package requires TYPO3 14.3 or newer and PHP 8.2 or newer. TYPO3 13 support
+The package requires TYPO3 14.3 or newer and PHP 8.3 or newer. TYPO3 13 support
 has been removed.
 
 In this lab, the package is wired as a path repository:
@@ -19,7 +19,7 @@ In this lab, the package is wired as a path repository:
 ..  code-block:: bash
     :caption: Path repository install
 
-    composer require webconsulting/site-package:^14.1
+    composer require webconsulting/site-package:^14.3
 
 Run TYPO3 extension setup after dependency changes:
 

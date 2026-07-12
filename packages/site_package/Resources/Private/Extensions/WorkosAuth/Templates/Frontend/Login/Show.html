@@ -1,0 +1,143 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+
+<section class="workos-ui workos-ui--auth" aria-label="{f:translate(key: 'workos_auth.messages:plugin.login.title')}">
+    <f:if condition="{configured}">
+        <f:then>
+            <f:if condition="{isLoggedIn}">
+                <div class="workos-card" data-slot="card">
+                    <div class="workos-auth-summary">
+                        <f:if condition="{avatarUrl}">
+                            <span class="workos-avatar" data-slot="avatar">
+                                <img src="{avatarUrl}" alt="" referrerpolicy="no-referrer" loading="lazy" />
+                            </span>
+                        </f:if>
+                        <p class="workos-auth-summary__name">
+                            <f:if condition="{displayName}">
+                                <f:then>
+                                    <f:translate key="workos_auth.messages:frontend.login.signedInAs" arguments="{name: displayName}" />
+                                </f:then>
+                                <f:else>
+                                    <f:translate key="workos_auth.messages:frontend.login.signedIn" />
+                                </f:else>
+                            </f:if>
+                        </p>
+                    </div>
+                    <a href="{logoutUrl}" class="workos-button workos-button--secondary workos-button--block" data-slot="button" data-variant="secondary">
+                        <f:translate key="workos_auth.messages:frontend.login.signOut" />
+                    </a>
+                </div>
+
+                <f:if condition="{workosProfile}">
+                    <details class="workos-disclosure">
+                        <summary><f:translate key="workos_auth.messages:frontend.login.profileData" /></summary>
+                        <div class="workos-disclosure__content">
+                            <div class="workos-table-wrap">
+                                <table class="workos-table" data-slot="table">
+                                    <tbody>
+                                        <f:if condition="{workosProfile.id}">
+                                            <tr><th scope="row"><f:translate key="workos_auth.messages:frontend.login.profileId" /></th><td>{workosProfile.id}</td></tr>
+                                        </f:if>
+                                        <f:if condition="{workosProfile.email}">
+                                            <tr><th scope="row"><f:translate key="workos_auth.messages:frontend.login.profileEmail" /></th><td>{workosProfile.email}</td></tr>
+                                        </f:if>
+                                        <f:if condition="{workosProfile.firstName}">
+                                            <tr><th scope="row"><f:translate key="workos_auth.messages:frontend.login.profileFirstName" /></th><td>{workosProfile.firstName}</td></tr>
+                                        </f:if>
+                                        <f:if condition="{workosProfile.lastName}">
+                                            <tr><th scope="row"><f:translate key="workos_auth.messages:frontend.login.profileLastName" /></th><td>{workosProfile.lastName}</td></tr>
+                                        </f:if>
+                                        <f:if condition="{workosProfile.emailVerified}">
+                                            <tr><th scope="row"><f:translate key="workos_auth.messages:frontend.login.profileEmailVerified" /></th><td>{workosProfile.emailVerified}</td></tr>
+                                        </f:if>
+                                        <f:if condition="{workosProfile.lastSignInAt}">
+                                            <tr><th scope="row"><f:translate key="workos_auth.messages:frontend.login.profileLastSignIn" /></th><td>{workosProfile.lastSignInAt}</td></tr>
+                                        </f:if>
+                                        <f:if condition="{workosProfile.createdAt}">
+                                            <tr><th scope="row"><f:translate key="workos_auth.messages:frontend.login.profileCreated" /></th><td>{workosProfile.createdAt}</td></tr>
+                                        </f:if>
+                                        <f:if condition="{workosProfile.updatedAt}">
+                                            <tr><th scope="row"><f:translate key="workos_auth.messages:frontend.login.profileUpdated" /></th><td>{workosProfile.updatedAt}</td></tr>
+                                        </f:if>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <f:if condition="{workosProfile.metadata}">
+                                <h3 class="workos-subsection-title"><f:translate key="workos_auth.messages:frontend.login.customMetadata" /></h3>
+                                <div class="workos-table-wrap">
+                                    <table class="workos-table" data-slot="table">
+                                        <tbody>
+                                            <f:for each="{workosProfile.metadata}" as="value" key="key">
+                                                <tr><th scope="row">{key}</th><td>{value}</td></tr>
+                                            </f:for>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </f:if>
+                        </div>
+                    </details>
+                </f:if>
+            </f:if>
+
+            <f:if condition="!{isLoggedIn}">
+                <div class="workos-card" data-slot="card">
+                    <div class="workos-card__header" data-slot="card-header">
+                        <h2 class="workos-card__title"><f:translate key="workos_auth.messages:frontend.login.signIn" /></h2>
+                        <p class="workos-card__description"><f:translate key="workos_auth.messages:plugin.login.description" /></p>
+                    </div>
+
+                    <f:if condition="{authError}">
+                        <div class="workos-alert workos-alert--danger" role="alert" data-slot="alert">{authError}</div>
+                    </f:if>
+
+                    <f:form action="passwordAuth" method="post" class="workos-form" requestToken="{requestToken}">
+                        <f:form.hidden name="returnTo" value="{returnToUrl}" />
+                        <div class="workos-field">
+                            <label class="workos-label" for="workos-email"><f:translate key="workos_auth.messages:common.email" /></label>
+                            <input class="workos-input" data-slot="input" id="workos-email" type="email" name="email" required="required" autocomplete="email" placeholder="{f:translate(key: 'workos_auth.messages:frontend.login.emailPlaceholder')}" />
+                        </div>
+                        <div class="workos-field">
+                            <label class="workos-label" for="workos-password"><f:translate key="workos_auth.messages:common.password" /></label>
+                            <input class="workos-input" data-slot="input" id="workos-password" type="password" name="password" required="required" autocomplete="current-password" placeholder="{f:translate(key: 'workos_auth.messages:frontend.login.passwordPlaceholder')}" />
+                        </div>
+                        <button type="submit" class="workos-button workos-button--block" data-slot="button">
+                            <f:translate key="workos_auth.messages:frontend.login.signIn" />
+                        </button>
+                    </f:form>
+
+                    <div class="workos-divider"><f:translate key="workos_auth.messages:common.or" /></div>
+
+                    <f:form action="magicAuthSend" method="post" class="workos-form" requestToken="{requestToken}">
+                        <f:form.hidden name="returnTo" value="{returnToUrl}" />
+                        <div class="workos-magic-row">
+                            <label class="workos-field">
+                                <span class="workos-label"><f:translate key="workos_auth.messages:common.email" /></span>
+                                <input class="workos-input" data-slot="input" type="email" name="email" required="required" autocomplete="email" placeholder="{f:translate(key: 'workos_auth.messages:frontend.login.emailPlaceholder')}" />
+                            </label>
+                            <button type="submit" class="workos-button workos-button--outline" data-slot="button" data-variant="outline">
+                                <f:translate key="workos_auth.messages:frontend.login.emailCode" />
+                            </button>
+                        </div>
+                    </f:form>
+
+                    <div class="workos-social-grid" aria-label="{f:translate(key: 'workos_auth.messages:common.or')}">
+                        <f:for each="{socialProviders}" as="provider">
+                            <f:render partial="SocialButton" arguments="{provider: provider}" />
+                        </f:for>
+                    </div>
+
+                    <p class="workos-footnote">
+                        <f:translate key="workos_auth.messages:frontend.login.noAccount" />
+                        <f:link.action action="signUp" arguments="{returnTo: returnToUrl}"><f:translate key="workos_auth.messages:frontend.login.signUp" /></f:link.action>
+                    </p>
+                </div>
+            </f:if>
+        </f:then>
+        <f:else>
+            <div class="workos-alert workos-alert--warning" role="status" data-slot="alert">
+                <f:translate key="workos_auth.messages:common.notConfigured" />
+            </div>
+        </f:else>
+    </f:if>
+</section>
+</html>

@@ -1,0 +1,59 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+
+<section class="workos-ui workos-ui--auth" aria-labelledby="workos-signup-title">
+    <f:if condition="{configured}">
+        <f:then>
+            <div class="workos-card" data-slot="card">
+                <div class="workos-card__header" data-slot="card-header">
+                    <h2 class="workos-card__title" id="workos-signup-title"><f:translate key="workos_auth.messages:frontend.signup.title" /></h2>
+                    <p class="workos-card__description"><f:translate key="workos_auth.messages:frontend.signup.subtitle" /></p>
+                </div>
+
+                <f:if condition="{authError}">
+                    <div class="workos-alert workos-alert--danger" role="alert" data-slot="alert">{authError}</div>
+                </f:if>
+
+                <f:form action="signUpSubmit" method="post" class="workos-form" requestToken="{requestToken}">
+                    <f:form.hidden name="returnTo" value="{returnToUrl}" />
+                    <div class="workos-form__grid">
+                        <div class="workos-field">
+                            <label class="workos-label" for="workos-first-name"><f:translate key="workos_auth.messages:frontend.signup.firstName" /></label>
+                            <input class="workos-input" data-slot="input" id="workos-first-name" type="text" name="firstName" value="{savedFirstName}" autocomplete="given-name" placeholder="{f:translate(key: 'workos_auth.messages:frontend.signup.firstNamePlaceholder')}" />
+                        </div>
+                        <div class="workos-field">
+                            <label class="workos-label" for="workos-last-name"><f:translate key="workos_auth.messages:frontend.signup.lastName" /></label>
+                            <input class="workos-input" data-slot="input" id="workos-last-name" type="text" name="lastName" value="{savedLastName}" autocomplete="family-name" placeholder="{f:translate(key: 'workos_auth.messages:frontend.signup.lastNamePlaceholder')}" />
+                        </div>
+                    </div>
+
+                    <div class="workos-field">
+                        <label class="workos-label" for="workos-signup-email"><f:translate key="workos_auth.messages:common.email" /></label>
+                        <input class="workos-input" data-slot="input" id="workos-signup-email" type="email" name="email" value="{savedEmail}" required="required" autocomplete="email" placeholder="{f:translate(key: 'workos_auth.messages:frontend.login.emailPlaceholder')}" />
+                    </div>
+
+                    <div class="workos-field">
+                        <label class="workos-label" for="workos-signup-password"><f:translate key="workos_auth.messages:common.password" /></label>
+                        <input class="workos-input" data-slot="input" id="workos-signup-password" type="password" name="password" required="required" autocomplete="new-password" minlength="10" placeholder="{f:translate(key: 'workos_auth.messages:frontend.signup.passwordPlaceholder')}" />
+                        <p class="workos-help"><f:translate key="workos_auth.messages:frontend.signup.passwordHint" /></p>
+                    </div>
+
+                    <div class="workos-field">
+                        <label class="workos-label" for="workos-signup-password-confirm"><f:translate key="workos_auth.messages:frontend.signup.confirmPassword" /></label>
+                        <input class="workos-input" data-slot="input" id="workos-signup-password-confirm" type="password" name="passwordConfirm" required="required" autocomplete="new-password" minlength="10" placeholder="{f:translate(key: 'workos_auth.messages:frontend.signup.passwordConfirmPlaceholder')}" />
+                    </div>
+
+                    <button type="submit" class="workos-button workos-button--block" data-slot="button"><f:translate key="workos_auth.messages:frontend.signup.submit" /></button>
+                </f:form>
+
+                <p class="workos-footnote">
+                    <f:translate key="workos_auth.messages:frontend.signup.hasAccount" />
+                    <f:link.action action="show" arguments="{returnTo: returnToUrl}"><f:translate key="workos_auth.messages:frontend.signup.signIn" /></f:link.action>
+                </p>
+            </div>
+        </f:then>
+        <f:else>
+            <div class="workos-alert workos-alert--warning" role="status" data-slot="alert"><f:translate key="workos_auth.messages:common.notConfigured" /></div>
+        </f:else>
+    </f:if>
+</section>
+</html>

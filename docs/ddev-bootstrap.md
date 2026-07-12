@@ -50,6 +50,7 @@ curl -L -o .tarballs/fileadmin.tar.gz \
 ddev import-files --source=.tarballs/fileadmin.tar.gz
 
 ddev typo3 extension:setup
+ddev typo3 sitepackage:seed-workos-frontend
 ddev typo3 cache:flush
 ddev typo3 site:list
 ```
@@ -65,6 +66,10 @@ Demo credentials (from root README): `admin` / `Demo123*`
 Without the fileadmin archive, pages render but FAL references break (images,
 downloads, Powermail uploads). Regenerate locally with the export command below
 if you maintain the lab.
+
+WorkOS secrets are optional for the rest of the lab. To exercise authentication,
+configure the three `TYPO3_WORKOS_*` environment variables described in
+[workos-frontend-plugins.md](workos-frontend-plugins.md), then restart DDEV.
 
 ## Export (maintainers — refresh lab snapshot)
 
@@ -99,7 +104,12 @@ ddev typo3 lint:yaml config/sites
 ddev typo3 site:list
 ddev typo3 cache:flush
 
-for url in / /blog/ /typo3-blog/ /mtug-camp-munich-2026/ /mtug-camp-munich-2026/ticket-anmeldung; do
+for url in / /blog/ /typo3-blog/ /mtug-camp-munich-2026/ \
+  /mtug-camp-munich-2026/ticket-anmeldung \
+  /features/workos/frontend-plugins/ \
+  /features/workos/frontend-plugins/login/ \
+  /features/workos/frontend-plugins/account-center/ \
+  /features/workos/frontend-plugins/team-administration/; do
   ddev exec curl -k -s -o /dev/null -w "$url %{http_code}\n" \
     "https://webconsulting-typo3-lab.ddev.site$url"
 done
@@ -125,6 +135,7 @@ To reset the database without touching fileadmin:
 ```bash
 ddev import-db --file=dump.sql.gz
 ddev typo3 extension:setup
+ddev typo3 sitepackage:seed-workos-frontend
 ddev typo3 cache:flush
 ```
 
@@ -134,6 +145,7 @@ ddev typo3 cache:flush
 ddev import-db --file=dump.sql.gz
 ddev import-files --source=.tarballs/fileadmin.tar.gz
 ddev typo3 extension:setup
+ddev typo3 sitepackage:seed-workos-frontend
 ddev typo3 cache:flush
 ```
 
@@ -158,3 +170,4 @@ Then export database and fileadmin as above.
 
 - [../README.md](../README.md) — DDEV prerequisites, secrets, local URLs
 - [site-configuration.md](site-configuration.md) — active site configs and troubleshooting
+- [workos-frontend-plugins.md](workos-frontend-plugins.md) — WorkOS configuration and plugin demo

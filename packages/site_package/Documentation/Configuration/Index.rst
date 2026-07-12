@@ -32,6 +32,10 @@ The extension provides these TYPO3 Site Sets:
     *   - ``webconsulting/site-package-camino``
         - ``webconsulting/site-package-search``, ``typo3/theme-camino``
         - Camino demo rendering.
+    *   - ``webconsulting/site-package-workos``
+        - ``webconsulting/site-package``, ``webconsulting/desiderio``
+        - Lab-only WorkOS Fluid overrides, direct CType rendering bridge, and
+          semantic shadcn token CSS.
 
 Configured lab sites
 ====================
@@ -66,6 +70,30 @@ The current lab site configurations use the package as follows:
     *   - :file:`config/sites/desiderio-corporate-starter`
         - ``webconsulting/site-package-search``
         - ``webconsulting/desiderio-preset-corporate``
+    *   - :file:`config/sites/desiderio`
+        - ``webconsulting/site-package-workos``
+        - ``webconsulting/desiderio-preset-corporate``,
+          ``webconsulting/desiderio-content-elements``,
+          ``webconsulting/desiderio-powermail``
+
+WorkOS frontend plugin integration
+==================================
+
+The hidden ``webconsulting/site-package-workos`` Site Set is intended for the
+Desiderio lab site. It supplies template and partial root paths for the Login,
+Account, and Team Extbase plugins, bridges the direct WorkOS content types into
+Desiderio content-element rendering, and includes the token-based stylesheet.
+
+Create or refresh the matching page tree with:
+
+..  code-block:: bash
+    :caption: Seed WorkOS frontend demo pages
+
+    vendor/bin/typo3 sitepackage:seed-workos-frontend
+
+The command writes through TYPO3 DataHandler and can be run repeatedly. WorkOS
+controllers, security, and API behavior remain in ``webconsulting/workos-auth``.
+
 Desiderio shadcn/ui templates
 =============================
 

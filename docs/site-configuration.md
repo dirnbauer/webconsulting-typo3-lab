@@ -69,6 +69,28 @@ Local ticket URL:
 
 `https://webconsulting-typo3-lab.ddev.site/mtug-camp-munich-2026/ticket-anmeldung`
 
+### Desiderio WorkOS frontend plugin tree
+
+The Desiderio root site enables the hidden
+`webconsulting/site-package-workos` Site Set. The lab-owned page records are:
+
+| Page UID | Role | Slug | Notes |
+|---:|---|---|---|
+| `1249` | Overview | `/features/workos/frontend-plugins` | Links to all three frontend plugins |
+| `1250` | Login and registration | `/features/workos/frontend-plugins/login` | `workosauth_login` |
+| `1251` | Account center | `/features/workos/frontend-plugins/account-center` | `workosauth_account` |
+| `1252` | Team administration | `/features/workos/frontend-plugins/team-administration` | `workosauth_team` |
+| `1248` | Frontend-user storage | `/workos-frontend-users` | Sysfolder below root `505`; contains group `2` |
+
+Create or refresh the complete tree with the idempotent DataHandler command:
+
+```bash
+ddev typo3 sitepackage:seed-workos-frontend
+```
+
+Rendering and WorkOS configuration are documented in
+[workos-frontend-plugins.md](workos-frontend-plugins.md).
+
 List the runtime state after changes:
 
 ```bash
@@ -220,6 +242,10 @@ current environment.
 | Desiderio corporate starter | `https://webconsulting-typo3-lab.ddev.site/desiderio-corporate-starter/` |
 | MTUG Camp Munich | `https://webconsulting-typo3-lab.ddev.site/mtug-camp-munich-2026/` |
 | MTUG Camp Munich tickets | `https://webconsulting-typo3-lab.ddev.site/mtug-camp-munich-2026/ticket-anmeldung` |
+| WorkOS frontend plugins | `https://webconsulting-typo3-lab.ddev.site/features/workos/frontend-plugins/` |
+| WorkOS login and registration | `https://webconsulting-typo3-lab.ddev.site/features/workos/frontend-plugins/login/` |
+| WorkOS account center | `https://webconsulting-typo3-lab.ddev.site/features/workos/frontend-plugins/account-center/` |
+| WorkOS team administration | `https://webconsulting-typo3-lab.ddev.site/features/workos/frontend-plugins/team-administration/` |
 
 ## Verification Checklist
 
@@ -234,7 +260,13 @@ ddev exec vendor/bin/typo3 cache:flush
 Frontend smoke check (from repository root):
 
 ```bash
-for url in / /camino/ /14/ /blog/ /typo3-blog/ /desiderio-corporate-starter/ /mtug-camp-munich-2026/ /mtug-camp-munich-2026/ticket-anmeldung; do
+for url in / /camino/ /14/ /blog/ /typo3-blog/ \
+  /desiderio-corporate-starter/ /mtug-camp-munich-2026/ \
+  /mtug-camp-munich-2026/ticket-anmeldung \
+  /features/workos/frontend-plugins/ \
+  /features/workos/frontend-plugins/login/ \
+  /features/workos/frontend-plugins/account-center/ \
+  /features/workos/frontend-plugins/team-administration/; do
   ddev exec curl -k -s -o /dev/null -w "$url %{http_code}\n" "https://webconsulting-typo3-lab.ddev.site$url"
 done
 ```

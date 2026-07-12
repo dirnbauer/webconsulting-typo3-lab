@@ -476,6 +476,7 @@ HTML,
                     'twitter_description' => self::ACCESSIBILITY_EN['description'],
                 ],
             ],
+            'tt_content' => [],
         ];
 
         $statementUid = $elements['desiderio_accessibilitystatement'] ?? null;
