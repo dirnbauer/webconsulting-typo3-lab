@@ -1,0 +1,19 @@
+# NVIDIA SkillSpector for EXT:skillflow's mandatory skill review checks.
+# skillflow picks the binary up automatically (extension configuration:
+# security.skillspectorEnabled/skillspectorBinary) and scans every imported
+# skill with `skillspector scan --format json --no-llm`.
+#
+# The tool is installed via pipx into the persistent ddev-global-cache volume,
+# so container restarts only re-link the binary instead of re-downloading;
+# the first start after this file is added takes a minute longer.
+webimage_extra_packages: [pipx]
+hooks:
+  post-start:
+    - exec: >-
+        export PIPX_HOME=/mnt/ddev-global-cache/skillspector/pipx
+        PIPX_BIN_DIR=/mnt/ddev-global-cache/skillspector/bin;
+        test -x "$PIPX_BIN_DIR/skillspector"
+        || pipx install 'git+https://github.com/NVIDIA/skillspector.git'
+        || true;
+        sudo ln -sf "$PIPX_BIN_DIR/skillspector" /usr/local/bin/skillspector
+        || true
