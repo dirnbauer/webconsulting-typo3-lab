@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a75c8a2645247ca74dc7771f87adc8b7",
+    "content-hash": "d664f5a54dd366cc4b6fd04a308e64da",
     "packages": [
         {
             "name": "apache-solr-for-typo3/solr",
@@ -11978,16 +11978,16 @@
         },
         {
             "name": "webconsulting/agent-nexus",
-            "version": "v2.0.1",
+            "version": "v2.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/typo3-agent-nexus.git",
-                "reference": "fd4cf346eaaae69bfe9e4fe5dfc900813420d1c2"
+                "reference": "442b2279e2a1f19d72f9f6f81961ad001f3cfb62"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/typo3-agent-nexus/zipball/fd4cf346eaaae69bfe9e4fe5dfc900813420d1c2",
-                "reference": "fd4cf346eaaae69bfe9e4fe5dfc900813420d1c2",
+                "url": "https://api.github.com/repos/dirnbauer/typo3-agent-nexus/zipball/442b2279e2a1f19d72f9f6f81961ad001f3cfb62",
+                "reference": "442b2279e2a1f19d72f9f6f81961ad001f3cfb62",
                 "shasum": ""
             },
             "require": {
@@ -12006,7 +12006,7 @@
             "extra": {
                 "typo3/cms": {
                     "extension-key": "agent_nexus",
-                    "version": "2.0.1",
+                    "version": "2.0.2",
                     "Package": {
                         "providesPackages": []
                     }
@@ -12044,7 +12044,7 @@
                 "issues": "https://github.com/dirnbauer/typo3-agent-nexus/issues",
                 "source": "https://github.com/dirnbauer/typo3-agent-nexus"
             },
-            "time": "2026-07-02T09:15:25+00:00"
+            "time": "2026-07-12T06:23:34+00:00"
         },
         {
             "name": "webconsulting/agentation",
