@@ -1,12 +1,12 @@
 {
-    "_hash": "e44d6689809f0c559aafadb400631842da1c345c0876016d05bdf0f4ea7b2c1f",
+    "_hash": "927efc0cb271036ff4f705c9739e1239ac05e284eeb932cb0ef4f4477eb31fb1",
     "patches": {
         "apache-solr-for-typo3/solr": [
             {
                 "package": "apache-solr-for-typo3/solr",
                 "description": "Guard enhanced-routing filter concatenation for sparse filter arrays",
                 "url": "patches/apache-solr-for-typo3-solr-fix-sparse-filter-concat.patch",
-                "sha256": "df9fdc41c0b507176313c5611e27961e262f4bb36dd542b563bdc087d9d74cb2",
+                "sha256": "535c9f89c843fa8ed8e3542388ca40830d1c350450ec931920fa9304773ef397",
                 "depth": 1,
                 "extra": {
                     "provenance": "root"
