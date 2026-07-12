@@ -368,10 +368,45 @@
   box-shadow: 0 0 0 var(--d-ring-width, 2px) color-mix(in oklch, var(--ring) 30%, transparent);
 }
 
-.workos-social-button svg {
-  width: 1rem;
-  height: 1rem;
+.workos-social-icon {
+  display: inline-grid;
+  width: 1.25rem;
+  height: 1.25rem;
+  place-items: center;
   flex: none;
+  transition: transform 0.15s ease;
+}
+
+.workos-social-icon__svg {
+  display: block;
+  width: 1.125rem;
+  height: 1.125rem;
+  overflow: visible;
+}
+
+.workos-social-icon__svg--github {
+  width: 1.2rem;
+  height: 1.2rem;
+}
+
+.workos-social-icon__svg--apple {
+  width: 1.15rem;
+  height: 1.15rem;
+  transform: translateY(-0.025rem);
+}
+
+.workos-social-button:hover .workos-social-icon {
+  transform: translateY(-1px) scale(1.04);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .workos-social-icon {
+    transition: none;
+  }
+
+  .workos-social-button:hover .workos-social-icon {
+    transform: none;
+  }
 }
 
 .workos-footnote {
