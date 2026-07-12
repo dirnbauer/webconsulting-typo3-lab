@@ -1,23 +1,7 @@
 <?php
-$webconMcpChatBridgeApiToken = (string)getenv('WEBCON_MCP_CHAT_BRIDGE_API_TOKEN');
-$webconMcpChatBridgeSlackWebhook = (string)getenv('WEBCON_MCP_CHAT_BRIDGE_SLACK_WEBHOOK');
-$webconMcpChatBridgeSlackSigningSecret = (string)getenv('WEBCON_MCP_CHAT_BRIDGE_SLACK_SIGNING_SECRET');
-$webconMcpChatBridgeSlackBotToken = (string)getenv('WEBCON_MCP_CHAT_BRIDGE_SLACK_BOT_TOKEN');
-$webconMcpChatBridgeSlackBotUserId = (string)getenv('WEBCON_MCP_CHAT_BRIDGE_SLACK_BOT_USER_ID');
-$webconMcpChatBridgeTeamsWebhook = (string)getenv('WEBCON_MCP_CHAT_BRIDGE_TEAMS_WEBHOOK');
-$webconMcpChatBridgeWhatsAppPhoneNumberId = (string)getenv('WEBCON_MCP_CHAT_BRIDGE_WHATSAPP_PHONE_NUMBER_ID');
-$webconMcpChatBridgeWhatsAppAccessToken = (string)getenv('WEBCON_MCP_CHAT_BRIDGE_WHATSAPP_ACCESS_TOKEN');
-$webconMcpChatBridgeWhatsAppRecipients = (string)getenv('WEBCON_MCP_CHAT_BRIDGE_WHATSAPP_RECIPIENTS');
 $workosFrontendStoragePid = max(0, (int)getenv('TYPO3_WORKOS_FRONTEND_STORAGE_PID'));
 $workosFrontendDefaultGroupUids = trim((string)getenv('TYPO3_WORKOS_FRONTEND_DEFAULT_GROUP_UIDS'));
 $workosFrontendAutoCreateUsers = $workosFrontendStoragePid > 0 && $workosFrontendDefaultGroupUids !== '';
-$webconMcpChatBridgeAllowedTables = implode(',', [
-    'pages',
-    'tt_content',
-    'tx_news_domain_model_news',
-    'sys_file_reference',
-    'sys_file_metadata',
-]);
 
 return [
     'BE' => [
@@ -213,38 +197,6 @@ return [
             'zeroorder_input_1' => 'value',
             'zeroorder_input_2' => '',
             'zeroorder_input_3' => '',
-        ],
-        'webcon_mcp_chat_bridge' => [
-            'enabled' => true,
-            'apiPath' => '/webcon-mcp-chat-bridge/api',
-            'slackCommandPath' => '/webcon-mcp-chat-bridge/slack',
-            'slackEventsPath' => '/webcon-mcp-chat-bridge/slack/events',
-            'apiToken' => $webconMcpChatBridgeApiToken,
-            'allowUnsignedDevelopmentRequests' => true,
-            'developmentBackendUserId' => 1,
-            'defaultWorkspaceId' => 1,
-            'approvalStageId' => 1,
-            'publishStageId' => -10,
-            'maxBatchCalls' => 10,
-            'strictDocumentImportByDefault' => true,
-            'allowedTables' => $webconMcpChatBridgeAllowedTables,
-            'notifyAfterRecordPublished' => false,
-            'slackEnabled' => $webconMcpChatBridgeSlackWebhook !== '',
-            'slackWebhookUrl' => $webconMcpChatBridgeSlackWebhook,
-            'slackSigningSecret' => $webconMcpChatBridgeSlackSigningSecret,
-            'slackBotToken' => $webconMcpChatBridgeSlackBotToken,
-            'slackBotUserId' => $webconMcpChatBridgeSlackBotUserId,
-            'pdfTextExtractorCommand' => 'pdftotext',
-            'teamsEnabled' => $webconMcpChatBridgeTeamsWebhook !== '',
-            'teamsWebhookUrl' => $webconMcpChatBridgeTeamsWebhook,
-            'teamsPayloadMode' => 'adaptiveCard',
-            'whatsappEnabled' => $webconMcpChatBridgeWhatsAppPhoneNumberId !== ''
-                && $webconMcpChatBridgeWhatsAppAccessToken !== '',
-            'whatsappPhoneNumberId' => $webconMcpChatBridgeWhatsAppPhoneNumberId,
-            'whatsappAccessToken' => $webconMcpChatBridgeWhatsAppAccessToken,
-            'whatsappDefaultRecipients' => $webconMcpChatBridgeWhatsAppRecipients,
-            'whatsappTemplateName' => '',
-            'whatsappTemplateLanguage' => 'en_US',
         ],
         'workos_auth' => [
             'apiKey' => (string)getenv('TYPO3_WORKOS_API_KEY'),

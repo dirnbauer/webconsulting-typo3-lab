@@ -52,11 +52,6 @@
 			"url": "https://github.com/dirnbauer/typo3-visual-editor-enhancements.git"
 		},
 		{
-			"name": "opentag-bridge",
-			"type": "vcs",
-			"url": "https://github.com/dirnbauer/typo3-opentag-bridge.git"
-		},
-		{
 			"name": "skillflow",
 			"type": "vcs",
 			"url": "https://github.com/dirnbauer/skillflow.git"
@@ -147,10 +142,6 @@
 		},
 		{
 			"type": "vcs",
-			"url": "https://github.com/dirnbauer/webcon-mcp-chat-bridge.git"
-		},
-		{
-			"type": "vcs",
 			"url": "https://github.com/dirnbauer/typo3-docx.git"
 		}
 	],
@@ -213,7 +204,6 @@
 		"webconsulting/desiderio": "^2.13",
 		"webconsulting/docx-editor": "dev-main",
 		"webconsulting/flue": "dev-main",
-		"webconsulting/opentag-bridge": "^0.1",
 		"webconsulting/records-list-examples": "^1.1",
 		"webconsulting/records-list-types": "^1.0.3",
 		"webconsulting/site-package": "^14.3",
@@ -223,7 +213,6 @@
 		"webconsulting/typo3-x402-paywall": "^1.0",
 		"webconsulting/visual-editor-enhancements": "^0.8",
 		"webconsulting/webcon-easy-workspace": "^1.3.9",
-		"webconsulting/webcon-mcp-chat-bridge": "dev-main",
 		"webconsulting/workos-auth": "^1.1"
 	},
 	"require-dev": {

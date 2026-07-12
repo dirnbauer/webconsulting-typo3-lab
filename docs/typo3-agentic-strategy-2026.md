@@ -34,9 +34,8 @@ The one-sentence verdict: **the lab is 12–24 months ahead of TYPO3 core, rough
 | Extension | What it proves |
 |---|---|
 | `agent_nexus` (2026-07-02) | TYPO3 can speak the whole agent-protocol family: **A2UI, AG-UI, A2A, UCP, AP2** — backend field-guide hub, five playgrounds, five frontend plugins, nr-llm-backed with deterministic fallbacks, human authorization gates, provenance-labelled runs ("Live model" vs "Scripted demo") |
-| `opentag_bridge` (2026-07-04) | Steering TYPO3 from **Slack/Discord/Telegram/WhatsApp** via AG-UI/CopilotKit OpenTag. Pipeline: `TokenGuard → RateLimiter → IdentityMapper → AgentRunner (nr_llm) → ToolRegistry (native + MCP) → PolicyGate → HITL approve gate → Ledger`. This is the embryonic reference implementation of items 13 (ledger) and 15 (policy + human-in-the-loop) |
 | `flue` + `flue-bridge` (2026-07-02) | TYPO3 as **control plane** for a durable agent runtime (`@flue/runtime`, Node 22 sidecar): exports Skillflow skills, consumes the MCP tools, triggers workflows, mirrors durable runs back into the backend — the embryo of item 16 |
-| `t3x-nr-mcp-agent` (2026-06-30) + `webcon-mcp-chat-bridge` | Backend AI chat module with MCP client, document extraction, conversation housekeeping — item 11 shipped |
+| `t3x-nr-mcp-agent` (2026-06-30) | Backend AI chat with MCP client — item 11 (the `webcon-mcp-chat-bridge` companion module was retired and its repo deleted 2026-07-08; the chat surface should be reframed as one governed command surface over abilities, not a bespoke module) |
 | ~~`typo3-capability-manifest` + `api-capability-bridge`~~ (retired + archived 2026-07-07) | Were the policy-checker/manifest seed of the abilities registry; their role is now the shipped registry (item 19) + the sg_apicore fork's REST projection. Repos archived read-only; the [capability-manifests article](https://www.webconsulting.at/en/blog/typo3-extension-security-emdash-capability-manifests) remains the historical record |
 | `typo3-deepfake-detection` (private) | Inbound media forensics — the trust/provenance lane (item 21) |
 | `typo3-camino-vercel` (2026-07-06) | TYPO3 14.3 on Vercel Functions — deployment modernization |
@@ -44,7 +43,7 @@ The one-sentence verdict: **the lab is 12–24 months ahead of TYPO3 core, rough
 
 ### Honestly missing (as platform layers)
 
-- **No *unified* trace/eval store.** Skillflow has verdict+score per run; opentag has a ledger; the abilities registry traces every execution attempt (`tx_abilities_trace`) across all four surfaces (`cli`/`mcp`/`rest`/`desktop`) — but nothing yet unifies tool calls, cost, diffs and rollback paths across all agent lanes.
+- **No *unified* trace/eval store.** Skillflow has verdict+score per run; the abilities registry traces every execution attempt (`tx_abilities_trace`) across all four surfaces (`cli`/`mcp`/`rest`/`desktop`) — but nothing yet unifies tool calls, cost, diffs and rollback paths across all agent lanes.
 - **No retrieval infrastructure.** Zero embeddings, zero vector storage, no permission-aware context builder, no SEAL usage yet. Item 14 has the least code of anything on the page.
 - **No policy/consent records.** Policies are static YAML (capability policies and the abilities policy alike); there is no TCA-backed rule table linking policy decisions to executions.
 - **No generic durable job runtime.** TYPO3 Scheduler is cron; only the Flue experiment shows pause/resume/mirrored runs. The 2026-07-28 MCP **Tasks** extension is the alignment target — see `docs/mcp-spec-2026-07-28-adoption.md`.
@@ -76,7 +75,7 @@ The one-sentence verdict: **the lab is 12–24 months ahead of TYPO3 core, rough
 ## 5. Strategic verdict
 
 1. **Add a third layer — "the agentic web" (items 17–23).** The first twelve items made TYPO3 *operable by agents*; 13–16 made that operation *manageable*; 17–23 make the whole installation *a citizen of the agentic web*: multi-protocol, discoverable, monetizable, provable, sovereign, and upstreamed.
-2. **Change what reality overtook.** MCP has a new spec and a foundation; the LLM abstraction (nr-llm/nr-vault) is shipped, not planned; payments went plural; the chatbot exists; items 13/15/16 have embryos in `opentag_bridge` and `flue`.
+2. **Change what reality overtook.** MCP has a new spec and a foundation; the LLM abstraction (nr-llm/nr-vault) is shipped, not planned; payments went plural; the chatbot exists; item 16 has an embryo in `flue`.
 3. **Delete decoration, keep discipline.** Retire the repeated tool-count boast (state it once, verified); retire chat-first framing (Gartner-trough buyers punish gimmicks); retire "should formalize" claims for things that now exist. **Audit result: no whole item dies** — all sixteen earned their place; the corrections are about status honesty and emphasis.
 
 ---
@@ -106,9 +105,9 @@ Legend: ✅ shipped · 🌱 embryo in the lab · ⭕ direction only
 
 | # | Item | Status | Next concrete step |
 |---|---|---|---|
-| 13 | AgentOps: traces, evals, rollback | 🌱 Skillflow runs (verdict/score) + opentag **Ledger** + abilities **`tx_abilities_trace`** (every execution attempt incl. denials: ability, surface, input, outcome, duration, BE user — shipped 2026-07-07) | Unify into one `agent_run` trace store (tool calls, diffs, cost, reviewer, rollback path); add eval sets + regression checks |
+| 13 | AgentOps: traces, evals, rollback | 🌱 Skillflow runs (verdict/score) + abilities **`tx_abilities_trace`** (every execution attempt incl. denials: ability, surface, input, outcome, duration, BE user — shipped 2026-07-07) | Unify into one `agent_run` trace store (tool calls, diffs, cost, reviewer, rollback path); add eval sets + regression checks |
 | 14 | Context fabric | ⭕ zero retrieval code | Build on **SEAL** when it matures: permission-aware semantic index over records/FAL/history; source-backed context, never raw scraping |
-| 15 | Governance: policy, consent, review | 🌱 opentag **PolicyGate + HITL gate**, capability-policy YAML | Promote policies from YAML to TCA records; risk tiers per tool/table/page subtree; consent ledger |
+| 15 | Governance: policy, consent, review | 🌱 abilities policy with review requirements, capability-policy YAML | Promote policies from YAML to TCA records; risk tiers per tool/table/page subtree; consent ledger |
 | 16 | Durable runtime | 🌱 Flue durable runs mirrored into TYPO3 | Generalize: every long job exposes owner, state, affected records, retry policy, cost, next action; align with MCP **Tasks** (`io.modelcontextprotocol/tasks` — concrete mapping for Publish/Rollback/Import in `docs/mcp-spec-2026-07-28-adoption.md`) |
 
 ### The agentic web (17–23) — NEW
@@ -117,8 +116,8 @@ Legend: ✅ shipped · 🌱 embryo in the lab · ⭕ direction only
 MCP connects tools; the agentic web also needs agent↔UI (A2UI), agent↔user streaming with approval gates (AG-UI), agent↔agent delegation (A2A), agent↔merchant discovery (UCP) and signed payment mandates (AP2). `agent_nexus` demos all five against a real LLM with deterministic fallbacks and human authorization gates. *Sales angle: TYPO3 as the CMS that can **receive** agents — inquiries, delegated tasks, shopping agents — not merely host content.*
 *Next: pick the two lanes with buyer pull (AG-UI approvals, UCP/commerce discovery) and productize them beyond the playground.*
 
-**18. Channel operations: steer TYPO3 from Slack & Co.** — 🌱 `opentag_bridge`
-Editors delegate from the tools they already live in ("draft a teaser about the summer opening on page 12"); TYPO3 drafts, replies with a summary, and publishes only after an Approve tap. Self-hosted, permission-mapped, budgeted, fully ledgered — the opposite of per-seat cloud bots that are blind to the CMS. *Next: harden the identity mapping and ship Discord/Teams connectors; promote the Ledger/PolicyGate into the platform layer (13/15).*
+**18. Channel operations** — ⭕ direction only
+Editors should eventually be able to delegate from the tools they already use while TYPO3 keeps identity, permission, review and publication controls authoritative. No channel bridge is currently part of the lab. *Next: validate buyer demand and define a protocol-neutral, governed integration before implementation.*
 
 **19. A capability registry, not hand-rolled endpoints** — ✅ registry + all four projections shipped (2026-07-07) · 🌱 TCA policy records
 The WordPress Abilities API proved the architecture: one typed, permissioned registry of what the CMS can do; MCP tools, REST routes, CLI commands and the desktop editor become *projections* of that registry. This is the architectural bet that outlives any single protocol — and the lab now runs entirely on it: `typo3-capability-manifest` + `api-capability-bridge` were **retired and archived**, their role taken by the registry plus the sg_apicore fork's REST projection.

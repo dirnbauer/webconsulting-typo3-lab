@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d664f5a54dd366cc4b6fd04a308e64da",
+    "content-hash": "b474c1032dd00e276f376d823e3f8e3a",
     "packages": [
         {
             "name": "apache-solr-for-typo3/solr",
@@ -12389,88 +12389,6 @@
             "time": "2026-07-02T04:55:06+00:00"
         },
         {
-            "name": "webconsulting/opentag-bridge",
-            "version": "v0.1.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/dirnbauer/typo3-opentag-bridge.git",
-                "reference": "2863566ef5975c75bb623fa6192a5cefcd7723af"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/typo3-opentag-bridge/zipball/2863566ef5975c75bb623fa6192a5cefcd7723af",
-                "reference": "2863566ef5975c75bb623fa6192a5cefcd7723af",
-                "shasum": ""
-            },
-            "require": {
-                "php": "^8.3",
-                "typo3/cms-backend": "^14.3",
-                "typo3/cms-core": "^14.3",
-                "typo3/cms-extbase": "^14.3",
-                "typo3/cms-fluid": "^14.3",
-                "typo3/cms-frontend": "^14.3"
-            },
-            "require-dev": {
-                "phpstan/phpstan": "^2.1",
-                "phpunit/phpunit": "^11.5 || ^12.5",
-                "saschaegerer/phpstan-typo3": "^3.0.1"
-            },
-            "suggest": {
-                "hn/typo3-mcp-server": "Exposes its 30+ MCP tools (ReadTable, BulkWrite, PublishWorkspace, ...) as additional agent tools, in-process.",
-                "netresearch/nr-llm": "Powers the agent loop with your configured LLM providers/models (e.g. gpt-4o-mini); without it the bridge answers deterministically.",
-                "typo3/cms-redirects": "Enables the create_redirect ops tool.",
-                "typo3/cms-workspaces": "Enables workspace-aware drafting and the review/publish tools."
-            },
-            "type": "typo3-cms-extension",
-            "extra": {
-                "typo3/cms": {
-                    "extension-key": "opentag_bridge",
-                    "version": "0.1.0",
-                    "Package": {
-                        "providesPackages": []
-                    }
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Webconsulting\\OpentagBridge\\": "Classes/"
-                }
-            },
-            "autoload-dev": {
-                "psr-4": {
-                    "Webconsulting\\OpentagBridge\\Tests\\": "Tests/"
-                }
-            },
-            "license": [
-                "GPL-2.0-or-later"
-            ],
-            "authors": [
-                {
-                    "name": "webconsulting GmbH",
-                    "email": "office@webconsulting.at",
-                    "homepage": "https://webconsulting.at"
-                }
-            ],
-            "description": "Steer TYPO3 from Slack & Co: AG-UI agent backend for CopilotKit OpenTag — nr_llm powered agent loop, tiered tool policy, human-in-the-loop approvals and a full audit ledger.",
-            "homepage": "https://webconsulting.at",
-            "keywords": [
-                "AG-UI",
-                "CopilotKit",
-                "LLM",
-                "OpenTag",
-                "Slack",
-                "TYPO3",
-                "agent",
-                "chatops",
-                "human-in-the-loop"
-            ],
-            "support": {
-                "issues": "https://github.com/dirnbauer/typo3-opentag-bridge/issues",
-                "source": "https://github.com/dirnbauer/typo3-opentag-bridge"
-            },
-            "time": "2026-07-04T08:00:21+00:00"
-        },
-        {
             "name": "webconsulting/records-list-examples",
             "version": "v1.2.2",
             "source": {
@@ -13130,77 +13048,6 @@
                 "source": "https://github.com/dirnbauer/typo3-webcon-easy-workspace"
             },
             "time": "2026-06-29T19:10:46+00:00"
-        },
-        {
-            "name": "webconsulting/webcon-mcp-chat-bridge",
-            "version": "dev-main",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/dirnbauer/webcon-mcp-chat-bridge.git",
-                "reference": "b18e50cec6379005ff6d6233c5f782a7a668204d"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/webcon-mcp-chat-bridge/zipball/b18e50cec6379005ff6d6233c5f782a7a668204d",
-                "reference": "b18e50cec6379005ff6d6233c5f782a7a668204d",
-                "shasum": ""
-            },
-            "require": {
-                "hn/typo3-mcp-server": "^0.1 || dev-main",
-                "php": "^8.2",
-                "typo3/cms-backend": "^14.3",
-                "typo3/cms-core": "^14.3",
-                "typo3/cms-fluid": "^14.3",
-                "typo3/cms-frontend": "^14.3",
-                "typo3/cms-workspaces": "^14.3"
-            },
-            "suggest": {
-                "netresearch/nr-mcp-agent": "Optional AI chatbot wrapper for Slack app mentions and direct-message request/response chat.",
-                "symfony/notifier": "Optional notifier abstraction if a project prefers Symfony transports over the built-in TYPO3 RequestFactory adapters.",
-                "webconsulting/webcon-easy-workspace": "Provides the editor-facing pending item list this extension can notify about."
-            },
-            "default-branch": true,
-            "type": "typo3-cms-extension",
-            "extra": {
-                "typo3/cms": {
-                    "extension-key": "webcon_mcp_chat_bridge",
-                    "version": "0.2.0",
-                    "Package": {
-                        "providesPackages": []
-                    }
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Webconsulting\\WebconMcpChatBridge\\": "Classes/"
-                }
-            },
-            "license": [
-                "GPL-2.0-or-later"
-            ],
-            "authors": [
-                {
-                    "name": "webconsulting",
-                    "homepage": "https://webconsulting.at",
-                    "role": "Developer"
-                }
-            ],
-            "description": "Webcon MCP Chat Bridge - Slack, Teams, WhatsApp and automation bridge for TYPO3 MCP tools.",
-            "homepage": "https://github.com/dirnbauer/webcon-mcp-chat-bridge",
-            "keywords": [
-                "MCP",
-                "Microsoft Teams",
-                "Slack",
-                "TYPO3",
-                "WhatsApp",
-                "chat bridge",
-                "workspaces"
-            ],
-            "support": {
-                "issues": "https://github.com/dirnbauer/webcon-mcp-chat-bridge/issues",
-                "source": "https://github.com/dirnbauer/webcon-mcp-chat-bridge"
-            },
-            "time": "2026-07-02T04:36:41+00:00"
         },
         {
             "name": "webconsulting/workos-auth",
@@ -15530,8 +15377,7 @@
         "webconsulting/flue": 20,
         "webconsulting/skillflow": 20,
         "webconsulting/typo3-abilities": 20,
-        "webconsulting/typo3-llms-txt": 20,
-        "webconsulting/webcon-mcp-chat-bridge": 20
+        "webconsulting/typo3-llms-txt": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,
