@@ -8,6 +8,9 @@ $webconMcpChatBridgeTeamsWebhook = (string)getenv('WEBCON_MCP_CHAT_BRIDGE_TEAMS_
 $webconMcpChatBridgeWhatsAppPhoneNumberId = (string)getenv('WEBCON_MCP_CHAT_BRIDGE_WHATSAPP_PHONE_NUMBER_ID');
 $webconMcpChatBridgeWhatsAppAccessToken = (string)getenv('WEBCON_MCP_CHAT_BRIDGE_WHATSAPP_ACCESS_TOKEN');
 $webconMcpChatBridgeWhatsAppRecipients = (string)getenv('WEBCON_MCP_CHAT_BRIDGE_WHATSAPP_RECIPIENTS');
+$workosFrontendStoragePid = max(0, (int)getenv('TYPO3_WORKOS_FRONTEND_STORAGE_PID'));
+$workosFrontendDefaultGroupUids = trim((string)getenv('TYPO3_WORKOS_FRONTEND_DEFAULT_GROUP_UIDS'));
+$workosFrontendAutoCreateUsers = $workosFrontendStoragePid > 0 && $workosFrontendDefaultGroupUids !== '';
 $webconMcpChatBridgeAllowedTables = implode(',', [
     'pages',
     'tt_content',
@@ -258,14 +261,14 @@ return [
             'backendSuccessPath' => '/main',
             'clientId' => (string)getenv('TYPO3_WORKOS_CLIENT_ID'),
             'cookiePassword' => (string)getenv('TYPO3_WORKOS_COOKIE_PASSWORD'),
-            'frontendAutoCreateUsers' => true,
+            'frontendAutoCreateUsers' => $workosFrontendAutoCreateUsers,
             'frontendCallbackPath' => '/workos-auth/frontend/callback',
-            'frontendDefaultGroupUids' => '2',
+            'frontendDefaultGroupUids' => $workosFrontendDefaultGroupUids,
             'frontendEnabled' => true,
             'frontendLinkByEmail' => true,
             'frontendLoginPath' => '/workos-auth/frontend/login',
             'frontendLogoutPath' => '/workos-auth/frontend/logout',
-            'frontendStoragePid' => 1248,
+            'frontendStoragePid' => $workosFrontendStoragePid,
             'frontendSuccessRedirect' => '/features/workos/frontend-plugins/account-center',
         ],
     ],

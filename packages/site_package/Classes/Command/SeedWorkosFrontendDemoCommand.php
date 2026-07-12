@@ -152,6 +152,10 @@ final class SeedWorkosFrontendDemoCommand extends Command
                 ['Frontend storage page' => (string)$storagePageUid],
                 ['Frontend group' => (string)$frontendGroupUid],
             );
+            $io->note([
+                sprintf('TYPO3_WORKOS_FRONTEND_STORAGE_PID=%d', $storagePageUid),
+                sprintf('TYPO3_WORKOS_FRONTEND_DEFAULT_GROUP_UIDS=%d', $frontendGroupUid),
+            ]);
 
             return Command::SUCCESS;
         } catch (\Throwable $exception) {

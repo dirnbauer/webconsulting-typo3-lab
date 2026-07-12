@@ -7,14 +7,14 @@ and Team are separate plugins.
 
 ## Page tree
 
-| UID | Page | URL / role | Plugin CType |
-|---:|---|---|---|
-| `1075` | WorkOS Auth | `/features/workos/` | parent feature page |
-| `1249` | WorkOS frontend plugins | `/features/workos/frontend-plugins/` | overview |
-| `1250` | Login and registration | `/features/workos/frontend-plugins/login/` | `workosauth_login` |
-| `1251` | Account center | `/features/workos/frontend-plugins/account-center/` | `workosauth_account` |
-| `1252` | Team administration | `/features/workos/frontend-plugins/team-administration/` | `workosauth_team` |
-| `1248` | WorkOS frontend users | sysfolder below root page `505` | frontend users and group `2` |
+| Page | URL / role | Plugin CType |
+|---|---|---|
+| WorkOS Auth | `/features/workos/` | parent feature page |
+| WorkOS frontend plugins | `/features/workos/frontend-plugins/` | overview |
+| Login and registration | `/features/workos/frontend-plugins/login/` | `workosauth_login` |
+| Account center | `/features/workos/frontend-plugins/account-center/` | `workosauth_account` |
+| Team administration | `/features/workos/frontend-plugins/team-administration/` | `workosauth_team` |
+| WorkOS frontend users | sysfolder below the root page | frontend users and their default group |
 
 Recreate or refresh these records idempotently through TYPO3 DataHandler:
 
@@ -23,8 +23,9 @@ ddev typo3 sitepackage:seed-workos-frontend
 ```
 
 The command updates existing matching records, creates missing records, orders
-the page/content trees, and prints the resulting UIDs. It does not use raw SQL
-for writes.
+the page/content trees, and prints the resulting UIDs plus the two environment
+variables needed for frontend-user provisioning. UIDs depend on the imported
+database state; the command does not use raw SQL for writes.
 
 ## Extension configuration
 
@@ -35,8 +36,8 @@ The committed defaults in `config/system/settings.php.example` use:
 | `apiKey` | `TYPO3_WORKOS_API_KEY` environment variable |
 | `clientId` | `TYPO3_WORKOS_CLIENT_ID` environment variable |
 | `cookiePassword` | `TYPO3_WORKOS_COOKIE_PASSWORD` environment variable |
-| `frontendStoragePid` | `1248` |
-| `frontendDefaultGroupUids` | `2` |
+| `frontendStoragePid` | `TYPO3_WORKOS_FRONTEND_STORAGE_PID` environment variable (printed by the seeder) |
+| `frontendDefaultGroupUids` | `TYPO3_WORKOS_FRONTEND_DEFAULT_GROUP_UIDS` environment variable (printed by the seeder) |
 | `frontendSuccessRedirect` | `/features/workos/frontend-plugins/account-center` |
 | `frontendCallbackPath` | `/workos-auth/frontend/callback` |
 | `frontendLoginPath` | `/workos-auth/frontend/login` |
@@ -50,9 +51,13 @@ web_environment:
   - TYPO3_WORKOS_API_KEY=sk_test_replace_me
   - TYPO3_WORKOS_CLIENT_ID=client_replace_me
   - TYPO3_WORKOS_COOKIE_PASSWORD=replace_with_a_long_random_secret
+  - TYPO3_WORKOS_FRONTEND_STORAGE_PID=replace_with_the_seeded_storage_uid
+  - TYPO3_WORKOS_FRONTEND_DEFAULT_GROUP_UIDS=replace_with_the_seeded_group_uid
 ```
 
-Restart DDEV after changing environment variables. Never commit these values.
+Run the seeder first, copy its two numeric values into the local environment,
+and restart DDEV after changing environment variables. Never commit these
+values.
 
 In the WorkOS dashboard, configure the local frontend callback as an allowed
 redirect URI:

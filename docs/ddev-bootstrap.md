@@ -67,8 +67,9 @@ Without the fileadmin archive, pages render but FAL references break (images,
 downloads, Powermail uploads). Regenerate locally with the export command below
 if you maintain the lab.
 
-WorkOS secrets are optional for the rest of the lab. To exercise authentication,
-configure the three `TYPO3_WORKOS_*` environment variables described in
+WorkOS credentials and provisioning IDs are optional for the rest of the lab.
+To exercise authentication, configure the five `TYPO3_WORKOS_*` environment
+variables described in
 [workos-frontend-plugins.md](workos-frontend-plugins.md), then restart DDEV.
 
 ## Export (maintainers — refresh lab snapshot)
