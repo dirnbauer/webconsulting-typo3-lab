@@ -15,16 +15,18 @@ use TYPO3\CMS\Core\DataHandling\DataHandler;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 /**
- * Seeds translations for the desiderio site's utility pages:
- * - de/zh/hu for the search page (uid 738) and the 404 page (uid 737)
+ * Normalizes and translates the desiderio site's utility pages:
+ * - standard 404 source content plus de/zh/hu translations (uid 737)
+ * - de/zh/hu for the search page (uid 738)
  * - de for the footer accessibility page (uid 736)
  *
  * WHY A COMMAND (and not raw SQL)
  * -------------------------------
  * The 404 page's content is owned by desiderio's `desiderio:seed-styleguide-pages`,
  * which re-creates the elements with NEW uids on every run. The desiderio product
- * seeder is English-only by design, so these lab-specific translations live here
- * and must be re-applied after each reseed:
+ * seeder is English-only by design and may restore promotional 404 copy, so the
+ * lab-specific source normalization and translations live here and must be
+ * re-applied after each reseed:
  *
  *     ddev exec vendor/bin/typo3 sitepackage:seed-utility-translations
  *     ddev exec vendor/bin/typo3 cache:flush
@@ -35,7 +37,7 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
  * needs the exact wiring DataHandler produces. So content translations go through
  * DataHandler `localize` (correct wiring guaranteed); only the page rows, which
  * are trivial and stable, are written directly. Idempotent: re-running replaces
- * the translations it owns.
+ * the source values and translations it owns.
  */
 #[AsCommand(
     name: 'sitepackage:seed-utility-translations',
@@ -72,7 +74,16 @@ final class SeedUtilityTranslationsCommand extends Command
     private const NOTFOUND_EN = [
         'pageTitle' => 'Page not found',
         'description' => 'The page you requested could not be found. Check the web address, or use one of the links below to continue.',
-        'sitemapHeader' => 'Important pages',
+        'hs_eyebrow' => 'Error 404',
+        'hs_header' => 'Page not found',
+        'hs_subheadline' => 'The requested page could not be found.',
+        'ch_header' => 'Back to the homepage',
+        'ch_content' => '<p>Use the page list below or return to the homepage.</p>',
+        'ch_link_text' => 'Back to the homepage',
+        'sg_header' => 'Important pages',
+        'cta_header' => 'Back to the homepage',
+        'cta_description' => 'Return to the website homepage.',
+        'cta_text' => 'Back to the homepage',
     ];
 
     /** sys_language_uid => translated strings */
@@ -519,9 +530,11 @@ HTML,
             if ($uid === null) {
                 continue;
             }
-            $fields = ['hidden' => in_array($ctype, self::NOTFOUND_VISIBLE_ELEMENTS, true) ? 0 : 1];
-            if ($ctype === 'desiderio_sitemapgrid') {
-                $fields['header'] = self::NOTFOUND_EN['sitemapHeader'];
+            $fields = [
+                'hidden' => in_array($ctype, self::NOTFOUND_VISIBLE_ELEMENTS, true) ? 0 : 1,
+            ];
+            foreach (self::ELEMENT_FIELDS[$ctype] as $column => $key) {
+                $fields[$column] = self::NOTFOUND_EN[$key];
             }
             $data['tt_content'][$uid] = $fields;
         }
