@@ -26,19 +26,18 @@ Together: European enterprises are being pushed off US SaaS by law (Data Act, CL
 
 ## 2. The reference stack
 
-Seven layers. Every component is open source or self-hostable; every layer is exchangeable without abandoning the stack.
+Six layers. Every component is open source or self-hostable; every layer is exchangeable without abandoning the stack.
 
 | # | Layer | Component | Author / origin | Status |
 |---|---|---|---|---|
 | L1 | Content platform | TYPO3 v14.3 LTS + Desiderio design system | TYPO3 Association & community · webconsulting | ✅ |
 | L2 | LLM abstraction | `nr-llm` | **Netresearch DTT GmbH** | ✅ core · ⭕ named EU profiles |
 | L3 | Credential custody | `nr-vault` | **Netresearch DTT GmbH** | ✅ |
-| L4 | Agent bridges | `opentag_bridge` (+ `agent_nexus` protocol lanes) | webconsulting | 🌱 |
-| L5 | MCP tool surface | `typo3-mcp-server` (lab fork) | Marco Pfeiffer / hauptsacheNet · lab fork | ✅ |
-| L6 | Abilities registry | `typo3-abilities` + `typo3-capability-manifest` | webconsulting | ✅ core · 🌱 REST projection |
-| L7 | Audit & trace | Skillflow runs · opentag Ledger · nr-vault audit log | webconsulting · Netresearch DTT GmbH | 🌱 partial — see items 13/15 |
+| L4 | MCP tool surface | `typo3-mcp-server` (lab fork) | Marco Pfeiffer / hauptsacheNet · lab fork | ✅ |
+| L5 | Abilities registry | `typo3-abilities` + `typo3-capability-manifest` | webconsulting | ✅ core · 🌱 REST projection |
+| L6 | Audit & trace | Skillflow runs · abilities traces · nr-vault audit log | webconsulting · Netresearch DTT GmbH | 🌱 partial — see items 13/15 |
 
-**Credit where it is due:** the LLM foundation of this architecture — `nr-llm` and `nr-vault`, plus `nr-mcp-agent` and `t3-cowriter` used elsewhere in the lab — is the work of [Netresearch DTT GmbH](https://github.com/netresearch); the MCP server originates from Marco Pfeiffer (hauptsacheNet, [`hn/typo3-mcp-server`](https://github.com/hauptsacheNet/typo3-mcp-server)); TYPO3 itself is the product of the TYPO3 Association and its open-source community. The lab's contribution is selection, hardening, the bridge/registry/ledger layers, and this composition.
+**Credit where it is due:** the LLM foundation of this architecture — `nr-llm` and `nr-vault`, plus `nr-mcp-agent` and `t3-cowriter` used elsewhere in the lab — is the work of [Netresearch DTT GmbH](https://github.com/netresearch); the MCP server originates from Marco Pfeiffer (hauptsacheNet, [`hn/typo3-mcp-server`](https://github.com/hauptsacheNet/typo3-mcp-server)); TYPO3 itself is the product of the TYPO3 Association and its open-source community. The lab's contribution is selection, hardening, the registry and trace layers, and this composition.
 
 ### L1 — Content platform: TYPO3 v14 LTS
 
@@ -64,25 +63,17 @@ Honesty note: nr-llm ships provider management and encrypted key handling today 
 
 [`netresearch/nr-vault`](https://github.com/netresearch/t3x-nr-vault) (v0.10.1): envelope encryption, access control and audit logging for every secret the agentic layer touches — model API keys, bridge tokens, payment credentials. Keys live encrypted in the institution's own database, never in a third-party secret manager; every access is logged in the same jurisdiction as the data (§3).
 
-### L4 — Self-hosted agent bridges: opentag_bridge 🌱
-
-The pattern that makes channel operations sovereign: editors steer TYPO3 from Slack/Discord/Telegram/WhatsApp, but **the agent loop runs on own infrastructure** — the channel sees only prompts in and rendered results out. Pipeline (`webconsulting/opentag-bridge`, 0.1.0):
-
-`TokenGuard → RateLimiter → IdentityMapper → AgentRunner (nr-llm) → ToolRegistry (native + MCP) → PolicyGate → HITL approve gate → Ledger`
-
-Every stage is a sovereignty control: identity mapped to real backend users and their permissions, policy evaluated locally, human approval before publication, every step ledgered locally. `agent_nexus` extends the same discipline to the A2UI/AG-UI/A2A/UCP/AP2 protocol family with human authorization gates and provenance-labelled runs. Both are embryos (strategy items 17/18), not products — stated plainly.
-
-### L5 — MCP tool surface: typo3-mcp-server ✅
+### L4 — MCP tool surface: typo3-mcp-server ✅
 
 50 registered tools (verified 2026-07-06) across pages, content, records, files, schemas, workspaces, Solr, sites, logs, SafeCli and x402 — with **OAuth 2.1 + PKCE**, capability-manifest enforcement per tool, an FAL file sandbox, and workspace-aware writes (agents draft in workspaces; humans publish). The MCP server is self-hosted like everything else: an external agent connects to *your* endpoint under *your* token policy; no third-party gateway sits in the data path.
 
-### L6 — Abilities registry: typed, permissioned, policy-gated ✅/🌱
+### L5 — Abilities registry: typed, permissioned, policy-gated ✅/🌱
 
 `webconsulting/typo3-abilities` (registry core shipped 2026-07-07, strategy item 19): one `#[AsAbility]` registry of what the installation can do — JSON-Schema contracts, `resource:operation` scopes, risk tiers and side-effect vocabulary — executed through a single governed pipeline (policy gate → input validation → scopes → permission → execute → output validation), with `config/abilities-policy.yaml` supporting deny / review_required (HITL) / max_risk_tier. CLI and MCP projections are live; REST projection is 🌱. Sovereignty relevance: **the policy deciding what an agent may do is a file in your repository**, versioned and auditable — not a toggle in someone else's admin console.
 
-### L7 — Audit ledger / trace store 🌱 — partially shipped
+### L6 — Audit ledger / trace store 🌱 — partially shipped
 
-What exists: Skillflow run records (`tx_skillflow_run` with status/verdict/score/result_json), the opentag Ledger, nr-vault's access audit log — all in the installation's own database. What does **not** exist yet: the unified `agent_run` trace store correlating tool calls, diffs, cost, reviewer and rollback path across all agents (strategy item 13), and policy/consent decisions as TCA records rather than static YAML (item 15). This layer is the architecture's stated destination, roughly one-third real.
+What exists: Skillflow run records (`tx_skillflow_run` with status/verdict/score/result_json), abilities execution traces and nr-vault's access audit log — all in the installation's own database. What does **not** exist yet: the unified `agent_run` trace store correlating tool calls, diffs, cost, reviewer and rollback path across all agents (strategy item 13), and policy/consent decisions as TCA records rather than static YAML (item 15). This layer is the architecture's stated destination, roughly one-third real.
 
 ---
 
@@ -91,10 +82,9 @@ What exists: Skillflow run records (`tx_skillflow_run` with status/verdict/score
 ```
 ┌─ Sovereign perimeter (own DC or EU-jurisdiction provider) ────────────────┐
 │                                                                           │
-│  Channels ─▶ opentag_bridge ─▶ nr-llm ─▶ abilities/MCP tools ─▶ TYPO3 DB  │
-│  (Slack…)    (Token/Identity/   │  ▲       (policy gate, HITL,    + FAL   │
-│               Policy/Ledger)    │  │        workspace drafts)             │
-│                                 │  └── nr-vault (keys, encrypted, local)  │
+│  Agent clients ─▶ nr-llm ─▶ abilities/MCP tools ─▶ TYPO3 DB + FAL  │
+│                       │       (policy gate, HITL, workspace drafts) │
+│                       └── nr-vault (keys, encrypted, local)          │
 │                    T0 ──────────┼─▶ own vLLM/Ollama ... nothing leaves    │
 └─────────────────────────────────┼─────────────────────────────────────────┘
                      T1 ──────────┼─▶ EU API (Mistral/OVH/IONOS/STACKIT/…)
@@ -109,9 +99,9 @@ What exists: Skillflow run records (`tx_skillflow_run` with status/verdict/score
 | **T1** | EU API under EU jurisdiction (Mistral, OVHcloud, IONOS, STACKIT, Scaleway) | Prompt context per call | EU law governs the processor; Data-Act safeguard statements apply |
 | **T2** | Non-EU API (OpenAI, Anthropic, Google — any region) | Prompt context per call | Capability over custody; CLOUD-Act-exposed; requires explicit policy opt-in and Art. 50-consistent disclosure |
 
-The tiers are a *degradation path chosen deliberately per task*: T2 for a hard reasoning task over public content can be legitimate; T0/T1 for anything touching personal data or unpublished material. nr-llm makes the tier a configuration decision; the abilities policy (L6) is where it becomes enforceable per ability (⭕ — tier pinning per ability is direction, not yet code).
+The tiers are a *degradation path chosen deliberately per task*: T2 for a hard reasoning task over public content can be legitimate; T0/T1 for anything touching personal data or unpublished material. nr-llm makes the tier a configuration decision; the abilities policy (L5) is where it becomes enforceable per ability (⭕ — tier pinning per ability is direction, not yet code).
 
-**Where audit records live:** in the TYPO3 database of the installation — `tx_skillflow_run`, the opentag ledger and nr-vault's audit log share the backup regime, retention policy and jurisdiction of the content itself. No compliance evidence sits in a foreign vendor's console.
+**Where audit records live:** in the TYPO3 database of the installation — `tx_skillflow_run`, abilities traces and nr-vault's audit log share the backup regime, retention policy and jurisdiction of the content itself. No compliance evidence sits in a foreign vendor's console.
 
 ### Proving it — the sovereignty demo
 
@@ -136,7 +126,7 @@ Which architectural element answers which regulation — with status, because co
 | **Data Act** Ch. VII | Safeguards against unlawful non-EU government access; jurisdiction transparency | Self-hosting (T0) removes the question; T1 providers must publish safeguard statements — a §5 checklist item | ✅ / contractual |
 | **AI Act Art. 50(1)** (2026-08-02) | Disclose AI interaction | Provenance-labelled runs in agent_nexus ("Live model" vs "Scripted demo"); AI-disclosure content element planned | 🌱 — item 21 |
 | **AI Act Art. 50(2)** (marking; legacy systems until 2026-12) | Machine-readable marking of synthetic output | C2PA Content Credentials in FAL (sign on upload, preserve through processing, expose in meta) | ⭕ **not implemented** — item 21 |
-| **AI Act Art. 50** record-keeping (practical) | Show which system generated what, when, under whose approval | Run records + ledger (L7); unified trace store pending | 🌱 — item 13 |
+| **AI Act Art. 50** record-keeping (practical) | Show which system generated what, when, under whose approval | Run records + abilities traces (L6); unified trace store pending | 🌱 — item 13 |
 | **EAA / EN 301 549** (enforced since 2025-06; Carrefour order 2026-06) | Accessible digital services, 100% of applicable criteria | Desiderio WCAG discipline: checked presets, semantic markup, CI guards | ✅ — billable service line |
 | **GDPR** Art. 5/25 (minimization, by-design) | Least data leaves | Tiered model calls (§3); scoped context per task | ✅ pattern / 🌱 enforcement |
 | **GDPR** Art. 28/44 ff. (processors, transfers) | Lawful processing chain | T0 has no processor; T1 processors under EU law; T2 requires transfer basis — made explicit instead of implicit | ✅ decision surface |
@@ -187,11 +177,11 @@ The honesty section. This architecture is a positioning that ingredients support
 | Gap | Impact | Strategy item |
 |---|---|---|
 | **C2PA / Content Credentials not implemented** — no signing on upload, no preservation through processing, no marking of generative output | Art. 50(2) answer is a plan, not code; marking deadline 2026-08-02 (legacy marking 2026-12-02) | 21 |
-| **Trace store partial** — Skillflow verdicts + opentag ledger exist, but no unified `agent_run` record of tool calls/diffs/cost/reviewer/rollback | "Which agent changed what, and why" answerable per subsystem, not per installation | 13 |
+| **Trace store partial** — Skillflow verdicts + abilities traces exist, but no unified `agent_run` record of tool calls/diffs/cost/reviewer/rollback | "Which agent changed what, and why" answerable per subsystem, not per installation | 13 |
 | **Consent and policy records missing** — policies are YAML files, consent has no TCA table; no agent users with expiring scoped credentials | GDPR Art. 30-grade evidence for agent operations is manual today | 2 / 15 |
 | **EU model profiles not first-class in nr-llm config** — tiers are practice, not named switchable profiles; no per-ability tier pinning | The §3 tier discipline relies on operator diligence rather than enforcement | 5 / 22 |
 | **No retrieval layer** — zero embeddings/vector code; sovereign RAG story is direction only (SEAL when it matures) | "Your data grounds your models" is not yet demonstrable | 14 |
-| **Bridges are embryos** — opentag_bridge 0.1.0, agent_nexus is a field guide with playgrounds; hardening and Teams/Discord connectors pending | The channel-operations story demos well but is not production-certified | 17 / 18 |
+| **Protocol support is embryonic** — agent_nexus is a field guide with playgrounds rather than a production-certified integration | Multi-protocol agent operations still require productization | 17 / 18 |
 | **llms.txt / agents.md generation missing** | Machine-readable self-description of the sovereign site is JSON-LD-only today | 20 |
 
 Two closing cautions. First, this document is a reference *architecture*, not a certified compliance assessment — per-project legal review (Data Act contract terms, AI Act system classification, GDPR transfer analysis) remains mandatory. Second, the sovereignty market will attract decoration; the discipline that keeps this credible is the same one the strategy applies everywhere: **claim only what runs, date what is verified, and name what is missing.**
