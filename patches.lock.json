@@ -1,5 +1,5 @@
 {
-    "_hash": "927efc0cb271036ff4f705c9739e1239ac05e284eeb932cb0ef4f4477eb31fb1",
+    "_hash": "8697daf4b511617b12f06822ce956b4a376495967b2d04aa42867fef920689c5",
     "patches": {
         "apache-solr-for-typo3/solr": [
             {
@@ -41,28 +41,6 @@
                 "description": "Guard workspace move-pointer overlay when the live record is missing",
                 "url": "patches/typo3-cms-core-fix-workspace-move-pointer-missing-live-record.patch",
                 "sha256": "3e68ab3ee23f72eb894d0f55025a728bd2813275709d3a9a132145beed4feea3",
-                "depth": 1,
-                "extra": {
-                    "provenance": "root"
-                }
-            }
-        ],
-        "webconsulting/webcon-easy-workspace": [
-            {
-                "package": "webconsulting/webcon-easy-workspace",
-                "description": "Toolbar list: toggle switches, Seiteneigenschaften card redesign with intent line, correct TYPO3 labels",
-                "url": "patches/webcon-easy-workspace-toolbar-toggle-and-seiteneigenschaften.patch",
-                "sha256": "56c72bbb8c50c5539c8610f9836d1ee2e37c1cb6a9d1786b4dc5f37b4df41294",
-                "depth": 1,
-                "extra": {
-                    "provenance": "root"
-                }
-            },
-            {
-                "package": "webconsulting/webcon-easy-workspace",
-                "description": "Locate preview elements with overlay room; keep discard tag inside small viewports",
-                "url": "patches/webcon-easy-workspace-fix-discard-tag-viewport.patch",
-                "sha256": "ce810baab108ce12fd1c99bc2007704df5469e41e97835f22f9220d2be1b8181",
                 "depth": 1,
                 "extra": {
                     "provenance": "root"
