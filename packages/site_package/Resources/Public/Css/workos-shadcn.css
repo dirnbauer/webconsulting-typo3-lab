@@ -241,14 +241,14 @@
 }
 
 .workos-button--destructive {
-  color: var(--destructive);
+  color: var(--d-danger-text, var(--foreground));
   background: color-mix(in oklch, var(--destructive) 10%, transparent);
   border-color: color-mix(in oklch, var(--destructive) 35%, var(--border));
 }
 
 .workos-button--destructive:hover {
-  color: var(--destructive);
-  background: color-mix(in oklch, var(--destructive) 18%, transparent);
+  color: var(--d-danger-text, var(--foreground));
+  background: color-mix(in oklch, var(--destructive) 14%, transparent);
 }
 
 .workos-button--block {
@@ -272,7 +272,7 @@
 }
 
 .workos-alert--danger {
-  color: var(--destructive);
+  color: var(--d-danger-text, var(--foreground));
   background: color-mix(in oklch, var(--destructive) 8%, var(--card));
   border-color: color-mix(in oklch, var(--destructive) 35%, var(--border));
 }
@@ -560,7 +560,7 @@
 }
 
 .workos-badge--danger {
-  color: var(--destructive);
+  color: var(--d-danger-text, var(--foreground));
   background: color-mix(in oklch, var(--destructive) 10%, transparent);
   border-color: color-mix(in oklch, var(--destructive) 30%, var(--border));
 }

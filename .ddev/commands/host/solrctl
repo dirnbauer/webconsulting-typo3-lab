@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 #ddev-generated
 ## Description: Create and destroy solr cores and configsets
-## Usage: solrctl
-## Example: "ddev solrctl"
+## Usage: solrctl [apply|wipe|list] [config path] [--no-start]
+## Example: "ddev solrctl apply --no-start"
 
 CMD=$1
 YAML_FILE=".ddev/typo3-solr/config.yaml"
@@ -30,8 +30,8 @@ wait_for_solr() {
 
 # Start the project if not already running, so we can interact with solr
 if [ "$START_PROJECT" -eq 1 ]; then
-    ddev_status=$(ddev describe -j | ddev exec "yq -p=json eval '.raw.status'")
-    if [ "$ddev_status" = "stopped" ]; then
+    ddev_status=$(ddev describe -j 2>/dev/null | sed -n 's/.*"status":"\([^"]*\)","status_desc".*/\1/p')
+    if [ "$ddev_status" != "running" ]; then
         ddev start
     fi
 fi
@@ -84,10 +84,16 @@ list)
     echo "—————"
     echo "Create solr cores and configsets defined in .ddev/typo3-solr/config.yaml"
     echo "👉 ddev solrctl apply [config path] - relative to docroot, optional"
+    echo "👉 ddev solrctl apply --no-start - skip the automatic project start (for hooks)"
     echo ""
     echo -e "\033[1mWipe\033[0m"
     echo "—————"
     echo "Remove solr cores and configset"
     echo "👉 ddev solrctl wipe"
+    echo ""
+    echo -e "\033[1mList\033[0m"
+    echo "—————"
+    echo "List configured Solr cores"
+    echo "👉 ddev solrctl list [--no-start]"
     ;;
 esac

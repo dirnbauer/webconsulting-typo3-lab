@@ -1,6 +1,6 @@
 <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
 
-<section class="workos-ui workos-ui--auth" aria-label="{f:translate(key: 'workos_auth.messages:plugin.login.title')}">
+<section class="workos-auth-plugin workos-ui workos-ui--auth" aria-label="{f:translate(key: 'workos_auth.messages:plugin.login.title')}">
     <f:if condition="{configured}">
         <f:then>
             <f:if condition="{isLoggedIn}">
@@ -120,7 +120,7 @@
                         </div>
                     </f:form>
 
-                    <div class="workos-social-grid" aria-label="{f:translate(key: 'workos_auth.messages:common.or')}">
+                    <div class="workos-social-grid" role="group" aria-label="{f:translate(key: 'workos_auth.messages:common.or')}">
                         <f:for each="{socialProviders}" as="provider">
                             <f:render partial="SocialButton" arguments="{provider: provider}" />
                         </f:for>

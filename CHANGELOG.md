@@ -16,8 +16,6 @@ All notable changes to Webconsulting TYPO3 Lab are documented in this file.
   (`Ticket-Anmeldung`) to the form records stored in sysfolder `940`
   (`Powermail Daten`), with thank-you redirects to page `941` and translated
   form variants for English, Chinese, and Hungarian.
-- Refreshed `dump.sql.gz` after the Powermail plugin publish and database
-  cleanup.
 
 ### Changed
 
@@ -35,9 +33,6 @@ All notable changes to Webconsulting TYPO3 Lab are documented in this file.
 - Refreshed npm lockfiles and added CI coverage for deterministic Node installs,
   high-severity audits, News API Studio typechecking/building, and the Flue
   bridge.
-- Purged 18,343 soft-deleted database rows, confirmed there are no orphan
-  records, rebuilt the reference index for 16,853 records, and refreshed the
-  cleaned `dump.sql.gz` snapshot.
 - Documented the MTUG ticket form page tree and ticket URL in
   [docs/site-configuration.md](docs/site-configuration.md) and the root README
   smoke checks.
