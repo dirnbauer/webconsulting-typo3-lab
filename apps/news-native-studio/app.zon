@@ -1,0 +1,37 @@
+.{
+    .id = "at.webconsulting.typo3.pulse",
+    .name = "pulse-newsroom",
+    .display_name = "PULSE - TYPO3 Newsroom",
+    .description = "A spatial native newsroom and one-click image room for TYPO3 editors.",
+    .version = "0.3.0",
+    .icons = .{"assets/icon.png"},
+    .platforms = .{"macos"},
+    .permissions = .{ "view", "command" },
+    .capabilities = .{ "native_views", "gpu_surfaces" },
+    .shell = .{
+        .windows = .{
+            .{
+                .label = "main",
+                .title = "PULSE - TYPO3 Newsroom",
+                .width = 1440,
+                .height = 920,
+                .min_width = 1120,
+                .min_height = 720,
+                .titlebar = "hidden_inset_tall",
+                .restore_state = true,
+                .restore_policy = "center_on_primary",
+                .views = .{
+                    .{ .label = "pulse-canvas", .kind = "gpu_surface", .fill = true, .role = "TYPO3 editorial canvas", .accessibility_label = "PULSE Newsroom", .gpu_backend = "metal", .gpu_pixel_format = "bgra8_unorm", .gpu_present_mode = "timer", .gpu_alpha_mode = "opaque", .gpu_color_space = "srgb", .gpu_vsync = true },
+                },
+            },
+        },
+    },
+    .security = .{
+        .navigation = .{
+            .allowed_origins = .{ "zero://app", "zero://inline" },
+            .external_links = .{ .action = "deny" },
+        },
+    },
+    .web_engine = "system",
+    .cef = .{ .dir = "third_party/cef/macos", .auto_install = false },
+}

@@ -1,0 +1,271 @@
+<column background="background">
+  <row height="58" padding="12" cross="center" gap="12" background="surface" window-drag="true">
+    <spacer width="74"/>
+    <row gap="9" cross="center">
+      <icon name="circle-dot" foreground="accent"/>
+      <text><span weight="bold">PULSE</span></text>
+      <text foreground="text_muted">Newsroom</text>
+    </row>
+    <spacer grow="1"/>
+    <row gap="10" cross="center">
+      <text foreground="text_muted">TYPO3 workspace</text>
+      <badge foreground="success">Connected</badge>
+      <button size="sm" variant="ghost" icon="terminal" on-press="open_commands">Commands</button>
+      <button size="sm" variant="primary" icon="plus" on-press="new_story">New story</button>
+    </row>
+  </row>
+
+  <row grow="1">
+    <column width="270" padding="16" gap="14" background="surface">
+      <row cross="center">
+        <column gap="2" grow="1">
+          <text size="heading">Stories</text>
+          <text foreground="text_muted">Choose what to work on</text>
+        </column>
+        <button size="icon" variant="ghost" icon="refresh-cw" label="Refresh stories" on-press="save"/>
+      </row>
+      <search-field size="sm" text="{search}" placeholder="Search stories" on-input="search_edit" label="Search stories"/>
+      <scroll grow="1" overscroll="rubber_band">
+        <column gap="6">
+          <for each="visibleStories" key="id" as="s">
+            <list-item selected="{s.selected}" on-press="select_story:{s.id}" label="{s.title}">
+              <column gap="6" padding="3" grow="1">
+                <row cross="center" gap="8">
+                  <text foreground="text_muted"><span mono="true">{s.eyebrow}</span></text>
+                  <spacer grow="1"/>
+                  <badge>{s.state}</badge>
+                </row>
+                <text><span weight="bold">{s.title}</span></text>
+                <row cross="center" gap="8">
+                  <progress value="{s.score / 100}" grow="1"/>
+                  <text foreground="text_muted"><span mono="true">{s.score}%</span></text>
+                </row>
+              </column>
+              <context-menu>
+                <menu-item on-press="select_story:{s.id}">Open story</menu-item>
+                <menu-item on-press="submit_review">Send to review</menu-item>
+                <separator/>
+                <menu-item on-press="publish">Publish</menu-item>
+              </context-menu>
+            </list-item>
+          </for>
+          <else>
+            <column padding="16" gap="8" cross="center">
+              <icon name="search" foreground="text_muted"/>
+              <text foreground="text_muted">No stories found</text>
+            </column>
+          </else>
+        </column>
+      </scroll>
+      <row gap="8" cross="center">
+        <badge>{reviewCount}</badge>
+        <text foreground="text_muted">waiting for review</text>
+      </row>
+    </column>
+
+    <column grow="1" padding="24" gap="18">
+      <column gap="6">
+        <row gap="8" cross="center">
+          <text foreground="text_muted"><span mono="true">{currentEyebrow}</span></text>
+          <badge>{currentState}</badge>
+          <spacer grow="1"/>
+          <text foreground="text_muted">{currentUpdated}</text>
+        </row>
+        <text size="heading" wrap="true">{title}</text>
+      </column>
+
+      <toggle-group gap="4" label="Story workflow">
+        <toggle-button grow="1" icon="edit" selected="{lens == 'write'}" on-toggle="show_write">1  Story</toggle-button>
+        <toggle-button grow="1" icon="eye" selected="{lens == 'visual'}" on-toggle="show_visual">2  Image</toggle-button>
+        <toggle-button grow="1" icon="send" selected="{lens == 'review'}" on-toggle="show_review">3  Review</toggle-button>
+      </toggle-group>
+
+      <if test="{lens == 'write'}">
+        <column grow="1" gap="16">
+          <column gap="4">
+            <text size="heading">Shape the story</text>
+            <text foreground="text_muted">Start with the promise. You can refine everything later.</text>
+          </column>
+          <column gap="8">
+            <text>Headline</text>
+            <text-field size="lg" text="{title}" placeholder="What is the clearest promise?" on-input="title_edit" label="News headline"/>
+            <text foreground="text_muted">A good headline tells the reader what changed.</text>
+          </column>
+          <column gap="8">
+            <text>Summary</text>
+            <textarea text="{brief}" placeholder="Explain the story in one or two sentences" on-input="brief_edit" label="News summary" height="84"/>
+          </column>
+          <column grow="1" gap="8">
+            <row cross="center">
+              <text>Article</text>
+              <spacer grow="1"/>
+              <text foreground="text_muted">TYPO3 rich text</text>
+            </row>
+            <textarea text="{body}" placeholder="Write the story here..." on-input="body_edit" label="Story body" grow="1"/>
+          </column>
+        </column>
+      </if>
+      <else>
+        <if test="{lens == 'visual'}">
+          <column grow="1" gap="16">
+            <column gap="4">
+              <text size="heading">Prepare the image</text>
+              <text foreground="text_muted">Pick one improvement. PULSE always keeps the original.</text>
+            </column>
+            <row grow="1" gap="16">
+              <stack grow="1">
+                <panel background="surface_subtle" radius="lg"/>
+                <column padding="28" gap="12" main="center" cross="center">
+                  <icon name="eye" width="38" height="38" foreground="accent"/>
+                  <text size="heading">city-listening-room-hero.jpg</text>
+                  <text foreground="text_muted">2400 x 1600 · FAL /news/culture/2026</text>
+                  <badge foreground="success">{imageStatus}</badge>
+                  <text foreground="text_muted">{imageHint}</text>
+                </column>
+              </stack>
+
+              <column width="260" gap="12">
+                <column gap="6">
+                  <text><span weight="bold">Recommended</span></text>
+                  <text foreground="text_muted" wrap="true">Isolate the subject for cleaner cards and social previews.</text>
+                  <button variant="primary" icon="x-circle" on-press="image_remove_background">Remove background</button>
+                </column>
+                <separator/>
+                <text foreground="text_muted">OTHER ONE-CLICK FIXES</text>
+                <button variant="secondary" icon="circle-dot" on-press="image_subject_crop">Crop around subject</button>
+                <button variant="secondary" icon="sun" on-press="image_relit">Improve lighting</button>
+                <button variant="secondary" icon="arrow-up" on-press="image_upscale">Increase sharpness</button>
+                <button size="sm" variant="ghost" icon="chevron-left" on-press="undo_image">Restore original</button>
+              </column>
+            </row>
+            <column gap="8">
+              <text>Alternative text</text>
+              <textarea text="{altText}" placeholder="Describe what matters in the image" on-input="alt_edit" label="Alternative text" height="74"/>
+              <text foreground="text_muted">This description helps people using screen readers.</text>
+            </column>
+          </column>
+        </if>
+        <else>
+          <column grow="1" gap="18">
+            <column gap="4">
+              <text size="heading">Review before publishing</text>
+              <text foreground="text_muted">Everything important is collected here. Nothing goes live until you confirm.</text>
+            </column>
+            <panel padding="22" background="surface_subtle" radius="lg">
+              <column gap="12">
+                <row gap="8" cross="center">
+                  <text foreground="text_muted"><span mono="true">{currentEyebrow}</span></text>
+                  <badge>{currentState}</badge>
+                </row>
+                <text size="display" wrap="true">{title}</text>
+                <text foreground="text_muted" wrap="true">{brief}</text>
+                <separator/>
+                <text wrap="true">{body}</text>
+              </column>
+            </panel>
+            <row gap="10">
+              <panel grow="1" padding="14" background="surface">
+                <row gap="9" cross="center">
+                  <icon name="edit" foreground="success"/>
+                  <column gap="2"><text><span weight="bold">Story complete</span></text><text foreground="text_muted">Headline, summary and article</text></column>
+                </row>
+              </panel>
+              <panel grow="1" padding="14" background="surface">
+                <row gap="9" cross="center">
+                  <icon name="eye" foreground="success"/>
+                  <column gap="2"><text><span weight="bold">Image ready</span></text><text foreground="text_muted">Visual and alternative text</text></column>
+                </row>
+              </panel>
+            </row>
+          </column>
+        </else>
+      </else>
+
+      <separator/>
+      <row gap="8" cross="center">
+        <text foreground="text_muted">{dirtyLabel}</text>
+        <spacer grow="1"/>
+        <button size="sm" variant="ghost" disabled="{not canGoBack}" icon="chevron-left" on-press="previous_step">Back</button>
+        <button size="sm" variant="secondary" icon="save" on-press="save">Save</button>
+        <if test="{lens == 'write'}">
+          <button variant="primary" icon="arrow-up" on-press="next_step">Continue to image</button>
+        </if>
+        <else>
+          <if test="{lens == 'visual'}">
+            <button variant="primary" icon="arrow-up" on-press="next_step">Continue to review</button>
+          </if>
+          <else>
+            <button variant="primary" icon="arrow-up" disabled="{not canPublish}" on-press="publish">Publish story</button>
+          </else>
+        </else>
+      </row>
+    </column>
+
+    <column width="286" padding="20" gap="18" background="surface">
+      <column gap="4">
+        <text foreground="text_muted">STEP {stepNumber} OF 3</text>
+        <text size="heading">{stepTitle}</text>
+        <text foreground="text_muted" wrap="true">{stepHelp}</text>
+      </column>
+      <progress value="{stepProgress}"/>
+      <separator/>
+
+      <if test="{lens == 'write'}">
+        <column gap="14" grow="1">
+          <text><span weight="bold">For this step</span></text>
+          <row gap="10" cross="start"><badge>1</badge><text wrap="true">Write a clear headline</text></row>
+          <row gap="10" cross="start"><badge>2</badge><text wrap="true">Summarize why it matters</text></row>
+          <row gap="10" cross="start"><badge>3</badge><text wrap="true">Add the article text</text></row>
+          <spacer grow="1"/>
+          <alert text="You are safe to explore">
+            <text wrap="true">Changes stay in the TYPO3 workspace until the final publish step.</text>
+          </alert>
+        </column>
+      </if>
+      <else>
+        <if test="{lens == 'visual'}">
+          <column gap="14" grow="1">
+            <text><span weight="bold">For this step</span></text>
+            <row gap="10" cross="start"><badge>1</badge><text wrap="true">Choose one visual improvement</text></row>
+            <row gap="10" cross="start"><badge>2</badge><text wrap="true">Check the result</text></row>
+            <row gap="10" cross="start"><badge>3</badge><text wrap="true">Confirm the alternative text</text></row>
+            <spacer grow="1"/>
+            <alert text="Original always preserved">
+              <text wrap="true">PULSE creates a new FAL derivative. Restore the original at any time.</text>
+            </alert>
+          </column>
+        </if>
+        <else>
+          <column gap="14" grow="1">
+            <text><span weight="bold">Ready to publish</span></text>
+            <row gap="10" cross="center"><icon name="edit" foreground="success"/><text grow="1">Story content</text><text foreground="success">Ready</text></row>
+            <row gap="10" cross="center"><icon name="eye" foreground="success"/><text grow="1">Hero image</text><text foreground="success">Ready</text></row>
+            <row gap="10" cross="center"><icon name="circle-dot" foreground="success"/><text grow="1">Alternative text</text><text foreground="success">Ready</text></row>
+            <separator/>
+            <row cross="center"><text grow="1">Readiness</text><text size="heading">{currentScore}%</text></row>
+            <progress value="{currentScoreFraction}"/>
+            <spacer grow="1"/>
+            <text foreground="text_muted" wrap="true">Publishing moves this story from the workspace to the live site.</text>
+          </column>
+        </else>
+      </else>
+    </column>
+  </row>
+
+  <status-bar>{activity}</status-bar>
+
+  <if test="{command_open}">
+    <dialog text="Commands" on-dismiss="close_commands">
+      <column width="480" gap="12" padding="8">
+        <search-field autofocus="true" placeholder="Search commands or stories" label="Command search"/>
+        <text foreground="text_muted">STORY</text>
+        <list-item icon="save" on-press="save">Save changes</list-item>
+        <list-item icon="edit" on-press="show_write">Open story step</list-item>
+        <list-item icon="eye" on-press="show_visual">Open image step</list-item>
+        <list-item icon="send" on-press="show_review">Open review step</list-item>
+        <separator/>
+        <button variant="ghost" on-press="close_commands">Close</button>
+      </column>
+    </dialog>
+  </if>
+</column>
