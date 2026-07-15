@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ad76c34ab2a6a64ad792f1084fb349ee",
+    "content-hash": "6232c3abb5c2aeabb41b9225129f5d13",
     "packages": [
         {
             "name": "apache-solr-for-typo3/solr",
@@ -237,16 +237,16 @@
         },
         {
             "name": "christian-riesen/base32",
-            "version": "1.6.0",
+            "version": "1.6.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ChristianRiesen/base32.git",
-                "reference": "2e82dab3baa008e24a505649b0d583c31d31e894"
+                "reference": "03082b946c111eb6ab41a98626fee33360c5232c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ChristianRiesen/base32/zipball/2e82dab3baa008e24a505649b0d583c31d31e894",
-                "reference": "2e82dab3baa008e24a505649b0d583c31d31e894",
+                "url": "https://api.github.com/repos/ChristianRiesen/base32/zipball/03082b946c111eb6ab41a98626fee33360c5232c",
+                "reference": "03082b946c111eb6ab41a98626fee33360c5232c",
                 "shasum": ""
             },
             "require": {
@@ -290,9 +290,9 @@
             ],
             "support": {
                 "issues": "https://github.com/ChristianRiesen/base32/issues",
-                "source": "https://github.com/ChristianRiesen/base32/tree/1.6.0"
+                "source": "https://github.com/ChristianRiesen/base32/tree/1.6.1"
             },
-            "time": "2021-02-26T10:19:33+00:00"
+            "time": "2026-07-11T19:29:43+00:00"
         },
         {
             "name": "composer/class-map-generator",
@@ -1636,22 +1636,22 @@
         },
         {
             "name": "guzzlehttp/guzzle",
-            "version": "7.14.0",
+            "version": "7.14.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/guzzle.git",
-                "reference": "aef242412e13128b5049864867bb49fc37dd39de"
+                "reference": "fa88c57803501ad0770f5cddb1e60525d49da9a1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/aef242412e13128b5049864867bb49fc37dd39de",
-                "reference": "aef242412e13128b5049864867bb49fc37dd39de",
+                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/fa88c57803501ad0770f5cddb1e60525d49da9a1",
+                "reference": "fa88c57803501ad0770f5cddb1e60525d49da9a1",
                 "shasum": ""
             },
             "require": {
                 "ext-json": "*",
                 "guzzlehttp/promises": "^2.5.1",
-                "guzzlehttp/psr7": "^2.12.4",
+                "guzzlehttp/psr7": "^2.12.5",
                 "php": "^7.2.5 || ^8.0",
                 "psr/http-client": "^1.0",
                 "symfony/deprecation-contracts": "^2.5 || ^3.0",
@@ -1744,7 +1744,7 @@
             ],
             "support": {
                 "issues": "https://github.com/guzzle/guzzle/issues",
-                "source": "https://github.com/guzzle/guzzle/tree/7.14.0"
+                "source": "https://github.com/guzzle/guzzle/tree/7.14.2"
             },
             "funding": [
                 {
@@ -1760,7 +1760,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2026-07-08T22:54:09+00:00"
+            "time": "2026-07-14T18:15:01+00:00"
         },
         {
             "name": "guzzlehttp/promises",
@@ -1848,16 +1848,16 @@
         },
         {
             "name": "guzzlehttp/psr7",
-            "version": "2.12.4",
+            "version": "2.12.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/psr7.git",
-                "reference": "51e27f9e2b332ab3e72f4520d5ff4f3c68c3577c"
+                "reference": "9365d578a9fd1552ad6ca9c3cb530708526feb09"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/psr7/zipball/51e27f9e2b332ab3e72f4520d5ff4f3c68c3577c",
-                "reference": "51e27f9e2b332ab3e72f4520d5ff4f3c68c3577c",
+                "url": "https://api.github.com/repos/guzzle/psr7/zipball/9365d578a9fd1552ad6ca9c3cb530708526feb09",
+                "reference": "9365d578a9fd1552ad6ca9c3cb530708526feb09",
                 "shasum": ""
             },
             "require": {
@@ -1947,7 +1947,7 @@
             ],
             "support": {
                 "issues": "https://github.com/guzzle/psr7/issues",
-                "source": "https://github.com/guzzle/psr7/tree/2.12.4"
+                "source": "https://github.com/guzzle/psr7/tree/2.12.5"
             },
             "funding": [
                 {
@@ -1963,7 +1963,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2026-07-08T15:56:20+00:00"
+            "time": "2026-07-13T01:27:20+00:00"
         },
         {
             "name": "halaxa/json-machine",
@@ -10416,23 +10416,23 @@
         },
         {
             "name": "typo3/cms-form",
-            "version": "v14.3.4",
+            "version": "14.3.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/TYPO3-CMS/form.git",
-                "reference": "3307aae5867a885cd239226c9dda2791ad711f56"
+                "reference": "63a185bf96ca90bf02e9a3244f53034802b225af"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/TYPO3-CMS/form/zipball/3307aae5867a885cd239226c9dda2791ad711f56",
-                "reference": "3307aae5867a885cd239226c9dda2791ad711f56",
+                "url": "https://api.github.com/repos/TYPO3-CMS/form/zipball/63a185bf96ca90bf02e9a3244f53034802b225af",
+                "reference": "63a185bf96ca90bf02e9a3244f53034802b225af",
                 "shasum": ""
             },
             "require": {
                 "psr/http-message": "^1.1 || ^2.0",
                 "symfony/expression-language": "^7.4.8",
-                "typo3/cms-core": "14.3.4",
-                "typo3/cms-frontend": "14.3.4"
+                "typo3/cms-core": "14.3.*@dev",
+                "typo3/cms-frontend": "14.3.*@dev"
             },
             "conflict": {
                 "typo3/cms": "*"
@@ -10487,7 +10487,7 @@
                     "type": "membership"
                 }
             ],
-            "time": "2026-06-16T08:52:34+00:00"
+            "time": "2026-07-14T12:37:53+00:00"
         },
         {
             "name": "typo3/cms-frontend",
@@ -12590,25 +12590,21 @@
         {
             "name": "webconsulting/skillflow",
             "version": "dev-main",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/dirnbauer/skillflow.git",
-                "reference": "556727d855178062fb3ba53e2542a4f18e3d630d"
-            },
             "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/skillflow/zipball/556727d855178062fb3ba53e2542a4f18e3d630d",
-                "reference": "556727d855178062fb3ba53e2542a4f18e3d630d",
-                "shasum": ""
+                "type": "path",
+                "url": "packages/skillflow",
+                "reference": "989d62c2608793304925e8c17bc113523e27f43d"
             },
             "require": {
-                "ext-zip": "*",
+                "apache-solr-for-typo3/solr": "^14.0@beta",
                 "league/commonmark": "^2.7",
+                "netresearch/nr-llm": "^0.16.1",
                 "php": "^8.2",
                 "symfony/process": "^7.0",
-                "symfony/yaml": "^7.0",
                 "typo3/cms-backend": "^14.3",
                 "typo3/cms-core": "^14.3",
+                "typo3/cms-extbase": "^14.3",
+                "typo3/cms-frontend": "^14.3",
                 "typo3/cms-workspaces": "^14.3"
             },
             "require-dev": {
@@ -12616,7 +12612,6 @@
                 "phpunit/phpunit": "^11.5",
                 "saschaegerer/phpstan-typo3": "^3.0.1"
             },
-            "default-branch": true,
             "type": "typo3-cms-extension",
             "extra": {
                 "typo3/cms": {
@@ -12644,8 +12639,66 @@
             "license": [
                 "GPL-2.0-or-later"
             ],
-            "description": "Agent Skills for TYPO3 - manage Anthropic-style skills, import them from folders or git repositories, attach them to workspace stages and pages, and run them against content (SEO, tone, QA). Local/DDEV installs only.",
-            "time": "2026-07-12T16:40:11+00:00"
+            "description": "Run nr_llm-managed Agent Skills in TYPO3 workspace and page review workflows.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "webconsulting/skillspector",
+            "version": "dev-main",
+            "dist": {
+                "type": "path",
+                "url": "packages/skillspector",
+                "reference": "bc7821e4d7c2293c40e9fbdd7122637ef4bf0313"
+            },
+            "require": {
+                "netresearch/nr-llm": "^0.16.1",
+                "php": "^8.2",
+                "symfony/process": "^7.0",
+                "symfony/yaml": "^7.0",
+                "typo3/cms-backend": "^14.3",
+                "typo3/cms-core": "^14.3",
+                "typo3/cms-scheduler": "^14.3"
+            },
+            "require-dev": {
+                "phpstan/phpstan": "^2.1",
+                "phpunit/phpunit": "^11.5",
+                "saschaegerer/phpstan-typo3": "^3.0.1"
+            },
+            "type": "typo3-cms-extension",
+            "extra": {
+                "typo3/cms": {
+                    "extension-key": "skillspector"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Webconsulting\\Skillspector\\": "Classes/"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "Webconsulting\\Skillspector\\Tests\\": "Tests/"
+                }
+            },
+            "scripts": {
+                "analyse": [
+                    "phpstan analyse"
+                ],
+                "test": [
+                    "phpunit"
+                ]
+            },
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "description": "Advisory security, NVIDIA SkillSpector and license checks for nr_llm skills.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
         },
         {
             "name": "webconsulting/typo3-abilities",
@@ -15392,6 +15445,7 @@
         "webconsulting/docx-editor": 20,
         "webconsulting/flue": 20,
         "webconsulting/skillflow": 20,
+        "webconsulting/skillspector": 20,
         "webconsulting/typo3-abilities": 20,
         "webconsulting/typo3-llms-txt": 20,
         "webconsulting/visual-editor-enhancements": 20

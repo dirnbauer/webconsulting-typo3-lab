@@ -53,8 +53,21 @@
 		},
 		{
 			"name": "skillflow",
-			"type": "vcs",
-			"url": "https://github.com/dirnbauer/skillflow.git"
+			"type": "path",
+			"url": "packages/skillflow",
+			"options": {
+				"symlink": true,
+				"versions": {"webconsulting/skillflow": "dev-main"}
+			}
+		},
+		{
+			"name": "skillspector",
+			"type": "path",
+			"url": "packages/skillspector",
+			"options": {
+				"symlink": true,
+				"versions": {"webconsulting/skillspector": "dev-main"}
+			}
 		},
 		{
 			"name": "typo3-abilities",
@@ -208,6 +221,7 @@
 		"webconsulting/records-list-types": "^1.0.3",
 		"webconsulting/site-package": "^14.3",
 		"webconsulting/skillflow": "dev-main",
+		"webconsulting/skillspector": "dev-main",
 		"webconsulting/typo3-abilities": "dev-main",
 		"webconsulting/typo3-llms-txt": "dev-main",
 		"webconsulting/typo3-x402-paywall": "^1.0",
@@ -227,6 +241,9 @@
 		"patches": {
 			"apache-solr-for-typo3/solr": {
 				"Guard enhanced-routing filter concatenation for sparse filter arrays": "patches/apache-solr-for-typo3-solr-fix-sparse-filter-concat.patch"
+			},
+			"netresearch/nr-llm": {
+				"Support OpenAI Responses API for tool calls": "patches/netresearch-nr-llm-openai-responses-api.patch"
 			},
 			"netresearch/nr-vault": {
 				"Accept array $pasteUpdate in processCmdmap_preProcess (copy/move with update payload)": "patches/netresearch-nr-vault-fix-cmdmap-hook-pasteupdate-type.patch",

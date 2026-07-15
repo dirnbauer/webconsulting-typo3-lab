@@ -23,7 +23,7 @@ The one-sentence verdict: **the lab is 12–24 months ahead of TYPO3 core, rough
 | Capability | Evidence |
 |---|---|
 | MCP server, **50 registered tools** (verified 2026-07-06 via `mcp:tool:list`) across pages, content, records, files, schemas, workspaces, Solr, sites, logs, SafeCli, x402 | `typo3-mcp-server`, OAuth + PKCE, capability-manifest enforcement, FAL file sandbox, workspace-aware everything |
-| Agent skills as governed records | `skillflow`: `tx_skillflow_skill` + `tx_skillflow_run` (status/verdict/score/result_json), workspace-stage auto-runs, EnvironmentGuard (Dev+DDEV only), three runners (Anthropic API, Claude Code CLI with tool whitelist, nr-llm) |
+| Agent skills as governed records | `nr_llm`: authoritative `tx_nrllm_skill` records and lifecycle; `skillflow`: `tx_skillflow_run` reports (status/verdict/score/result_json), workspace-stage auto-runs, EnvironmentGuard (Dev+DDEV only), and nr_llm/Anthropic/Claude CLI runners |
 | Attribute-driven API layer | `sg_apicore`: capability-policy YAML (deny / review_required / max_risk_score), scoped tokens, CORS allowlist, auto-CRUD |
 | Paid content / machine payments | `typo3-x402-paywall` + five x402 MCP tools |
 | Design system agents can parse | `desiderio`: typed Content Blocks, schema.org JSON-LD (`StructuredDataViewHelper`), semantic markup, WCAG-checked presets |

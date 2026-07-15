@@ -1,5 +1,5 @@
 {
-    "_hash": "8697daf4b511617b12f06822ce956b4a376495967b2d04aa42867fef920689c5",
+    "_hash": "e50d828ed910709e02d1f7a1b908a44872008794bec22316aaf6e092c042e95c",
     "patches": {
         "apache-solr-for-typo3/solr": [
             {
@@ -7,6 +7,18 @@
                 "description": "Guard enhanced-routing filter concatenation for sparse filter arrays",
                 "url": "patches/apache-solr-for-typo3-solr-fix-sparse-filter-concat.patch",
                 "sha256": "535c9f89c843fa8ed8e3542388ca40830d1c350450ec931920fa9304773ef397",
+                "depth": 1,
+                "extra": {
+                    "provenance": "root"
+                }
+            }
+        ],
+        "netresearch/nr-llm": [
+            {
+                "package": "netresearch/nr-llm",
+                "description": "Support OpenAI Responses API for tool calls",
+                "url": "patches/netresearch-nr-llm-openai-responses-api.patch",
+                "sha256": "5b8e3b297cf5ccbcc288ff1d2eeb9404898fc8013d5ea876355938cf8820a776",
                 "depth": 1,
                 "extra": {
                     "provenance": "root"

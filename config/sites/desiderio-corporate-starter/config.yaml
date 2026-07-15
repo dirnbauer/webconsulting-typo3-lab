@@ -41,8 +41,8 @@ routeEnhancers:
     aspects:
       skill:
         type: PersistedAliasMapper
-        tableName: tx_skillflow_skill
-        routeFieldName: identifier
+        tableName: tx_nrllm_skill
+        routeFieldName: name
   SolrSearch:
     type: SolrFacetMaskAndCombineEnhancer
     extensionKey: tx_solr
