@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6232c3abb5c2aeabb41b9225129f5d13",
+    "content-hash": "994b13164988addba9302d2ab68ea006",
     "packages": [
         {
             "name": "apache-solr-for-typo3/solr",
@@ -12390,6 +12390,67 @@
             "time": "2026-07-02T04:55:06+00:00"
         },
         {
+            "name": "webconsulting/image-workbench",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dirnbauer/typo3-image-workbench.git",
+                "reference": "616fc0d4604199cc60672becc255722d45f90e5a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dirnbauer/typo3-image-workbench/zipball/616fc0d4604199cc60672becc255722d45f90e5a",
+                "reference": "616fc0d4604199cc60672becc255722d45f90e5a",
+                "shasum": ""
+            },
+            "require": {
+                "netresearch/nr-llm": "^0.16.1",
+                "php": ">=8.3 <8.5",
+                "typo3/cms-backend": "^14.3",
+                "typo3/cms-filelist": "^14.3"
+            },
+            "default-branch": true,
+            "type": "typo3-cms-extension",
+            "extra": {
+                "typo3/cms": {
+                    "extension-key": "image_workbench"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Webconsulting\\ImageWorkbench\\": "Classes/"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "Webconsulting\\ImageWorkbench\\Tests\\": "Tests/"
+                }
+            },
+            "scripts": {
+                "assets:install": [
+                    "cd Build && npm ci"
+                ],
+                "assets:build": [
+                    "cd Build && npm run build"
+                ],
+                "check": [
+                    "@composer validate --strict --no-check-lock",
+                    "@php -l ext_emconf.php"
+                ]
+            },
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "webconsulting.at",
+                    "homepage": "https://www.webconsulting.at"
+                }
+            ],
+            "description": "Square, FAL-safe image editing and nr-llm image generation in the TYPO3 v14 backend.",
+            "time": "2026-07-19T11:58:24+00:00"
+        },
+        {
             "name": "webconsulting/records-list-examples",
             "version": "v1.2.2",
             "source": {
@@ -15444,6 +15505,7 @@
         "studiomitte/solr-numbered-pagination": 20,
         "webconsulting/docx-editor": 20,
         "webconsulting/flue": 20,
+        "webconsulting/image-workbench": 20,
         "webconsulting/skillflow": 20,
         "webconsulting/skillspector": 20,
         "webconsulting/typo3-abilities": 20,

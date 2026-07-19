@@ -29,6 +29,10 @@
 		},
 		{
 			"type": "vcs",
+			"url": "https://github.com/dirnbauer/typo3-image-workbench.git"
+		},
+		{
+			"type": "vcs",
 			"url": "https://github.com/dirnbauer/flue.git"
 		},
 		{
@@ -217,6 +221,7 @@
 		"webconsulting/desiderio": "^2.13",
 		"webconsulting/docx-editor": "dev-main",
 		"webconsulting/flue": "dev-main",
+		"webconsulting/image-workbench": "dev-main",
 		"webconsulting/records-list-examples": "^1.1",
 		"webconsulting/records-list-types": "^1.0.3",
 		"webconsulting/site-package": "^14.3",
