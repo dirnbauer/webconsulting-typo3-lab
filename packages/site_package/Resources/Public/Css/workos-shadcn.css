@@ -36,7 +36,7 @@
   color: var(--card-foreground);
   background: var(--card);
   border: 1px solid var(--border);
-  border-radius: var(--radius-lg, var(--radius));
+  border-radius: var(--d-radius-lg);
   box-shadow: var(--shadow-sm, var(--d-surface-shadow));
 }
 
@@ -146,7 +146,7 @@
   color: var(--foreground);
   background: var(--background);
   border: 1px solid var(--input);
-  border-radius: var(--radius-md, var(--radius));
+  border-radius: var(--d-radius-md);
   font: inherit;
   font-size: var(--d-control-text, 0.9rem);
   outline: none;
@@ -186,7 +186,7 @@
   color: var(--primary-foreground);
   background: var(--primary);
   border: 1px solid transparent;
-  border-radius: var(--radius-md, var(--radius));
+  border-radius: var(--d-radius-md);
   font: inherit;
   font-size: var(--d-control-text, 0.88rem);
   font-weight: 600;
@@ -266,7 +266,7 @@
   color: var(--card-foreground);
   background: var(--card);
   border: 1px solid var(--border);
-  border-radius: var(--radius-md, var(--radius));
+  border-radius: var(--d-radius-md);
   font-size: 0.9rem;
   line-height: 1.5;
 }
@@ -349,7 +349,7 @@
   color: var(--foreground);
   background: var(--background);
   border: 1px solid var(--border);
-  border-radius: var(--radius-md, var(--radius));
+  border-radius: var(--d-radius-md);
   font-size: 0.82rem;
   font-weight: 600;
   text-decoration: none;
@@ -432,7 +432,7 @@
   color: var(--card-foreground);
   background: var(--card);
   border: 1px solid var(--border);
-  border-radius: var(--radius-lg, var(--radius));
+  border-radius: var(--d-radius-lg);
 }
 
 .workos-disclosure summary {
@@ -453,7 +453,7 @@
 .workos-table-wrap {
   overflow-x: auto;
   border: 1px solid var(--border);
-  border-radius: var(--radius-md, var(--radius));
+  border-radius: var(--d-radius-md);
 }
 
 .workos-table {
@@ -559,7 +559,7 @@
   display: grid;
   overflow: hidden;
   border: 1px solid var(--border);
-  border-radius: var(--radius-md, var(--radius));
+  border-radius: var(--d-radius-md);
 }
 
 .workos-item {
@@ -601,7 +601,7 @@
   color: var(--secondary-foreground);
   background: var(--secondary);
   border: 1px solid var(--border);
-  border-radius: var(--radius-sm, var(--radius));
+  border-radius: var(--d-radius-sm);
   font-size: 0.68rem;
   font-weight: 650;
   line-height: 1;
@@ -633,7 +633,7 @@
   color: var(--foreground);
   background: var(--muted);
   border: 1px solid var(--border);
-  border-radius: var(--radius-sm, var(--radius));
+  border-radius: var(--d-radius-sm);
   font-family: var(--font-mono, monospace);
   font-size: 0.78rem;
 }
@@ -645,7 +645,7 @@
   padding: 1rem;
   background: var(--muted);
   border: 1px solid var(--border);
-  border-radius: var(--radius-md, var(--radius));
+  border-radius: var(--d-radius-md);
 }
 
 .workos-mfa-enrollment img {
@@ -654,7 +654,7 @@
   object-fit: contain;
   background: var(--background);
   border: 0.5rem solid var(--background);
-  border-radius: var(--radius-md, var(--radius));
+  border-radius: var(--d-radius-md);
 }
 
 .workos-org-switcher {
@@ -663,7 +663,7 @@
   padding: 0.9rem;
   background: var(--muted);
   border: 1px solid var(--border);
-  border-radius: var(--radius-md, var(--radius));
+  border-radius: var(--d-radius-md);
 }
 
 .workos-org-switcher__label {
@@ -700,7 +700,7 @@
   padding: 0.9rem;
   background: var(--background);
   border: 1px solid var(--border);
-  border-radius: var(--radius-md, var(--radius));
+  border-radius: var(--d-radius-md);
 }
 
 .workos-portal-card__icon {
@@ -710,7 +710,7 @@
   place-items: center;
   color: var(--primary-foreground);
   background: var(--primary);
-  border-radius: var(--radius-sm, var(--radius));
+  border-radius: var(--d-radius-sm);
   font-family: var(--font-mono, monospace);
   font-size: 0.7rem;
   font-weight: 700;
