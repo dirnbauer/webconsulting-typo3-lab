@@ -57,12 +57,8 @@
 		},
 		{
 			"name": "skillflow",
-			"type": "path",
-			"url": "packages/skillflow",
-			"options": {
-				"symlink": true,
-				"versions": {"webconsulting/skillflow": "dev-main"}
-			}
+			"type": "vcs",
+			"url": "https://github.com/dirnbauer/skillflow.git"
 		},
 		{
 			"name": "skillspector",

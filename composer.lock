@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "994b13164988addba9302d2ab68ea006",
+    "content-hash": "2da828e561bf806cb9264aeda36eea70",
     "packages": [
         {
             "name": "apache-solr-for-typo3/solr",
@@ -12651,21 +12651,25 @@
         {
             "name": "webconsulting/skillflow",
             "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dirnbauer/skillflow.git",
+                "reference": "556727d855178062fb3ba53e2542a4f18e3d630d"
+            },
             "dist": {
-                "type": "path",
-                "url": "packages/skillflow",
-                "reference": "989d62c2608793304925e8c17bc113523e27f43d"
+                "type": "zip",
+                "url": "https://api.github.com/repos/dirnbauer/skillflow/zipball/556727d855178062fb3ba53e2542a4f18e3d630d",
+                "reference": "556727d855178062fb3ba53e2542a4f18e3d630d",
+                "shasum": ""
             },
             "require": {
-                "apache-solr-for-typo3/solr": "^14.0@beta",
+                "ext-zip": "*",
                 "league/commonmark": "^2.7",
-                "netresearch/nr-llm": "^0.16.1",
                 "php": "^8.2",
                 "symfony/process": "^7.0",
+                "symfony/yaml": "^7.0",
                 "typo3/cms-backend": "^14.3",
                 "typo3/cms-core": "^14.3",
-                "typo3/cms-extbase": "^14.3",
-                "typo3/cms-frontend": "^14.3",
                 "typo3/cms-workspaces": "^14.3"
             },
             "require-dev": {
@@ -12673,6 +12677,7 @@
                 "phpunit/phpunit": "^11.5",
                 "saschaegerer/phpstan-typo3": "^3.0.1"
             },
+            "default-branch": true,
             "type": "typo3-cms-extension",
             "extra": {
                 "typo3/cms": {
@@ -12700,11 +12705,8 @@
             "license": [
                 "GPL-2.0-or-later"
             ],
-            "description": "Run nr_llm-managed Agent Skills in TYPO3 workspace and page review workflows.",
-            "transport-options": {
-                "symlink": true,
-                "relative": true
-            }
+            "description": "Agent Skills for TYPO3 - manage Anthropic-style skills, import them from folders or git repositories, attach them to workspace stages and pages, and run them against content (SEO, tone, QA). Local/DDEV installs only.",
+            "time": "2026-07-12T16:40:11+00:00"
         },
         {
             "name": "webconsulting/skillspector",
