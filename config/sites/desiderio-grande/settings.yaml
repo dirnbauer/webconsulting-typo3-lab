@@ -11,3 +11,7 @@ desiderioGrande.footer.copyrightText: 'Astryx for TYPO3 — a webconsulting lab 
 # sites do the same the other way round. Keep in step with the --hosts option
 # passed to desiderio:library:seed for this site's library folder.
 elementLibrary.hosts: 'desiderio_grande,core'
+
+# The "Element Library" sysfolder holding one demo record per element, created
+# by: desiderio:library:seed --parent=1290 --hosts=desiderio_grande,core
+elementLibrary.storagePid: 1306
