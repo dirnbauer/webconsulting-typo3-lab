@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2da828e561bf806cb9264aeda36eea70",
+    "content-hash": "9a260e972ca049cafb274ff3d173e711",
     "packages": [
         {
             "name": "apache-solr-for-typo3/solr",
@@ -643,16 +643,16 @@
         },
         {
             "name": "dirnbauer/innesto",
-            "version": "v1.2.1",
+            "version": "v1.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/innesto",
-                "reference": "32e8deed46a4ebd81b951f2eac40d525bda78c43"
+                "reference": "2a86460d2b2835fc9d08923d530782c775177028"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/innesto/zipball/32e8deed46a4ebd81b951f2eac40d525bda78c43",
-                "reference": "32e8deed46a4ebd81b951f2eac40d525bda78c43",
+                "url": "https://api.github.com/repos/dirnbauer/innesto/zipball/2a86460d2b2835fc9d08923d530782c775177028",
+                "reference": "2a86460d2b2835fc9d08923d530782c775177028",
                 "shasum": ""
             },
             "require": {
@@ -686,7 +686,7 @@
                 }
             ],
             "description": "Innesto — grafts shadcn/ui registry components onto TYPO3 as Desiderio-styled Content Blocks",
-            "time": "2026-06-20T17:54:55+00:00"
+            "time": "2026-07-25T14:16:01+00:00"
         },
         {
             "name": "doctrine/dbal",
@@ -12141,16 +12141,16 @@
         },
         {
             "name": "webconsulting/desiderio",
-            "version": "v2.13.1",
+            "version": "v2.14.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/desiderio.git",
-                "reference": "2d865a6af02c074b5c31e5b789dd732031b16ef8"
+                "reference": "de46d6f118e45ddb6eb99e0c25de946c10f23f7c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/desiderio/zipball/2d865a6af02c074b5c31e5b789dd732031b16ef8",
-                "reference": "2d865a6af02c074b5c31e5b789dd732031b16ef8",
+                "url": "https://api.github.com/repos/dirnbauer/desiderio/zipball/de46d6f118e45ddb6eb99e0c25de946c10f23f7c",
+                "reference": "de46d6f118e45ddb6eb99e0c25de946c10f23f7c",
                 "shasum": ""
             },
             "require": {
@@ -12187,7 +12187,7 @@
             "extra": {
                 "typo3/cms": {
                     "extension-key": "desiderio",
-                    "version": "2.13.1",
+                    "version": "2.14.0",
                     "Package": {
                         "providesPackages": []
                     }
@@ -12223,7 +12223,7 @@
                 }
             ],
             "description": "Desiderio — shadcn/ui-inspired Fluid 5 component library, 244 Desiderio Content Blocks, and theme layer for TYPO3 14",
-            "time": "2026-07-12T18:31:53+00:00"
+            "time": "2026-07-25T14:17:29+00:00"
         },
         {
             "name": "webconsulting/docx-editor",
@@ -12527,16 +12527,16 @@
         },
         {
             "name": "webconsulting/records-list-types",
-            "version": "v1.0.6",
+            "version": "v1.0.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/typo3-records-list-types.git",
-                "reference": "72e459714660540018b4fdd06944d869e26a540c"
+                "reference": "d6991a405d481db9eba310112438c6c76922776e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/typo3-records-list-types/zipball/72e459714660540018b4fdd06944d869e26a540c",
-                "reference": "72e459714660540018b4fdd06944d869e26a540c",
+                "url": "https://api.github.com/repos/dirnbauer/typo3-records-list-types/zipball/d6991a405d481db9eba310112438c6c76922776e",
+                "reference": "d6991a405d481db9eba310112438c6c76922776e",
                 "shasum": ""
             },
             "require": {
@@ -12559,7 +12559,7 @@
             "extra": {
                 "typo3/cms": {
                     "extension-key": "records_list_types",
-                    "version": "1.0.5",
+                    "version": "1.0.7",
                     "Package": {
                         "providesPackages": []
                     },
@@ -12592,7 +12592,7 @@
                 "issues": "https://github.com/dirnbauer/typo3-records-list-types/issues",
                 "source": "https://github.com/dirnbauer/typo3-records-list-types"
             },
-            "time": "2026-06-20T18:04:04+00:00"
+            "time": "2026-07-25T10:38:11+00:00"
         },
         {
             "name": "webconsulting/site-package",
