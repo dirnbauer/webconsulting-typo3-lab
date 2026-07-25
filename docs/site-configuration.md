@@ -51,6 +51,36 @@ the site level rather than through wrapper Site Sets in `packages/site_package/`
 | `typo3-blog` | `config/sites/typo3-blog` | `/typo3-blog/` | `390` | English |
 | `desiderio-corporate-starter` | `config/sites/desiderio-corporate-starter` | `/desiderio-corporate-starter/` | `740` | English |
 | `mtug-camp-munich-2026` | `config/sites/mtug-camp-munich-2026` | `/mtug-camp-munich-2026/` | `933` | German, English, Chinese, Hungarian |
+| `desiderio-grande` | `config/sites/desiderio-grande` | `/desiderio-grande/` | `1290` | English, German |
+
+### Two themes, two sites
+
+`desiderio-grande` runs the lab's second theme, `EXT:desiderio_grande` — Meta's
+Astryx design system rendered server-side. Every other site here runs Desiderio.
+A site picks one or the other by which content-element set it depends on; they
+never mix on one page.
+
+Because both extensions feed the same element-library picker, each site declares
+which providers its picker offers:
+
+```yaml
+# Desiderio sites
+elementLibrary.hosts: 'desiderio,innesto,core'
+
+# config/sites/desiderio-grande/settings.yaml
+elementLibrary.hosts: 'desiderio_grande,core'
+```
+
+Pass the same list to `desiderio:library:seed --hosts=…` so each site's library
+folder holds matching demo records. Leaving the setting empty lists every
+installed provider, which is what sites configured before it existed still do.
+
+Rebuild its page tree with:
+
+```bash
+ddev exec vendor/bin/typo3 desiderio-grande:site:seed --dry-run
+ddev exec vendor/bin/typo3 desiderio-grande:site:seed
+```
 
 ### MTUG Camp Munich page tree (Powermail)
 
@@ -240,6 +270,8 @@ current environment.
 | Blog Bootstrap | `https://webconsulting-typo3-lab.ddev.site/14/` |
 | TYPO3 Blog | `https://webconsulting-typo3-lab.ddev.site/typo3-blog/` |
 | Desiderio corporate starter | `https://webconsulting-typo3-lab.ddev.site/desiderio-corporate-starter/` |
+| Astryx (Desiderio Grande) | `https://webconsulting-typo3-lab.ddev.site/desiderio-grande/` |
+| Astryx components hub | `https://webconsulting-typo3-lab.ddev.site/desiderio-grande/components/` |
 | MTUG Camp Munich | `https://webconsulting-typo3-lab.ddev.site/mtug-camp-munich-2026/` |
 | MTUG Camp Munich tickets | `https://webconsulting-typo3-lab.ddev.site/mtug-camp-munich-2026/ticket-anmeldung` |
 | WorkOS frontend plugins | `https://webconsulting-typo3-lab.ddev.site/features/workos/frontend-plugins/` |
