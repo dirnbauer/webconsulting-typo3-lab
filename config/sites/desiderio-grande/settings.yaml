@@ -1,0 +1,13 @@
+desiderioGrande.theme.default: neutral
+desiderioGrande.theme.colorScheme: system
+desiderioGrande.theme.schemeToggle: true
+desiderioGrande.brand.wordmark: 'Astryx'
+desiderioGrande.brand.tagline: 'Meta''s open design system, server-rendered for TYPO3 — 250 content elements, seven themes, no JavaScript framework.'
+desiderioGrande.header.breadcrumb: true
+desiderioGrande.footer.legalPageIds: '1292,1293,1294'
+desiderioGrande.footer.copyrightText: 'Astryx for TYPO3 — a webconsulting lab site'
+
+# This site offers only its own theme's elements in the picker; the Desiderio
+# sites do the same the other way round. Keep in step with the --hosts option
+# passed to desiderio:library:seed for this site's library folder.
+elementLibrary.hosts: 'desiderio_grande,core'

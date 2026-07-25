@@ -13,3 +13,4 @@ desiderio.brand.tagline: 'Community · Barcamp · TYPO3'
 # Visual Editor element-library picker: per-site sysfolder seeded by
 # desiderio:library:seed --parent=933 (previews render in this site's shadcn preset).
 elementLibrary.storagePid: 1064
+elementLibrary.hosts: 'desiderio,innesto,core'

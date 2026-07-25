@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "50ff092036dfe743fa7172a66546385d",
+    "content-hash": "7ce0411d57e869c7a8263496556f90e6",
     "packages": [
         {
             "name": "apache-solr-for-typo3/solr",
@@ -12141,16 +12141,16 @@
         },
         {
             "name": "webconsulting/desiderio",
-            "version": "v3.1.0",
+            "version": "v3.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/desiderio.git",
-                "reference": "81c0bad5a102db0b97d560174d2d58f3d940650c"
+                "reference": "dbbb73fd399109ae0ec0e0a65d72a49404d02af7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/desiderio/zipball/81c0bad5a102db0b97d560174d2d58f3d940650c",
-                "reference": "81c0bad5a102db0b97d560174d2d58f3d940650c",
+                "url": "https://api.github.com/repos/dirnbauer/desiderio/zipball/dbbb73fd399109ae0ec0e0a65d72a49404d02af7",
+                "reference": "dbbb73fd399109ae0ec0e0a65d72a49404d02af7",
                 "shasum": ""
             },
             "require": {
@@ -12187,7 +12187,7 @@
             "extra": {
                 "typo3/cms": {
                     "extension-key": "desiderio",
-                    "version": "3.1.0",
+                    "version": "3.2.0",
                     "Package": {
                         "providesPackages": []
                     }
@@ -12223,7 +12223,64 @@
                 }
             ],
             "description": "Desiderio — shadcn/ui-inspired Fluid 5 component library, 244 Desiderio Content Blocks, and theme layer for TYPO3 14",
-            "time": "2026-07-25T21:02:03+00:00"
+            "time": "2026-07-25T21:25:20+00:00"
+        },
+        {
+            "name": "webconsulting/desiderio-grande",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "packages/desiderio_grande",
+                "reference": "a6797e1c3beba01b0acbea7bb45977f3a879c33d"
+            },
+            "require": {
+                "friendsoftypo3/content-blocks": "^2.2",
+                "php": "^8.3",
+                "typo3/cms-core": "^14.3",
+                "typo3/cms-fluid": "^14.3",
+                "webconsulting/desiderio": "^3.2"
+            },
+            "suggest": {
+                "friendsoftypo3/visual-editor": "Optional. Inline visual editing and the element library plus-button. Thank you to the friends of TYPO3 maintainers."
+            },
+            "type": "typo3-cms-extension",
+            "extra": {
+                "typo3/cms": {
+                    "extension-key": "desiderio_grande",
+                    "web-dir": "public"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Webconsulting\\DesiderioGrande\\": "Classes/"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "Webconsulting\\DesiderioGrande\\Tests\\": "Tests/"
+                }
+            },
+            "scripts": {
+                "test": [
+                    "phpunit --configuration=phpunit.xml.dist"
+                ],
+                "audit-elements": [
+                    "php scripts/audit-content-elements.php"
+                ]
+            },
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "webconsulting studio"
+                }
+            ],
+            "description": "Desiderio Grande — the Astryx design system, server-rendered for TYPO3 14: 250 Content Blocks, seven runtime-switchable themes, no JavaScript framework",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
         },
         {
             "name": "webconsulting/docx-editor",

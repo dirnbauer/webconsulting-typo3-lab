@@ -46,6 +46,16 @@
 			}
 		},
 		{
+			"type": "path",
+			"url": "packages/desiderio_grande",
+			"options": {
+				"symlink": true,
+				"versions": {
+					"webconsulting/desiderio-grande": "0.1.0"
+				}
+			}
+		},
+		{
 			"name": "agent-nexus",
 			"type": "vcs",
 			"url": "https://github.com/dirnbauer/typo3-agent-nexus.git"
@@ -215,6 +225,7 @@
 		"webconsulting/agent-nexus": "^2.0.2",
 		"webconsulting/agentation": "^1.1",
 		"webconsulting/desiderio": "^3.0",
+		"webconsulting/desiderio-grande": "^0.1",
 		"webconsulting/docx-editor": "dev-main",
 		"webconsulting/flue": "dev-main",
 		"webconsulting/image-workbench": "dev-main",
