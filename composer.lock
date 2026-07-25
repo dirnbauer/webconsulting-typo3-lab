@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9a260e972ca049cafb274ff3d173e711",
+    "content-hash": "50ff092036dfe743fa7172a66546385d",
     "packages": [
         {
             "name": "apache-solr-for-typo3/solr",
@@ -12141,16 +12141,16 @@
         },
         {
             "name": "webconsulting/desiderio",
-            "version": "v2.14.0",
+            "version": "v3.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/desiderio.git",
-                "reference": "de46d6f118e45ddb6eb99e0c25de946c10f23f7c"
+                "reference": "59cef1dd8c80b4ef81ed5ee036ecdc97dfcfe223"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/desiderio/zipball/de46d6f118e45ddb6eb99e0c25de946c10f23f7c",
-                "reference": "de46d6f118e45ddb6eb99e0c25de946c10f23f7c",
+                "url": "https://api.github.com/repos/dirnbauer/desiderio/zipball/59cef1dd8c80b4ef81ed5ee036ecdc97dfcfe223",
+                "reference": "59cef1dd8c80b4ef81ed5ee036ecdc97dfcfe223",
                 "shasum": ""
             },
             "require": {
@@ -12187,7 +12187,7 @@
             "extra": {
                 "typo3/cms": {
                     "extension-key": "desiderio",
-                    "version": "2.14.0",
+                    "version": "3.0.0",
                     "Package": {
                         "providesPackages": []
                     }
@@ -12223,7 +12223,7 @@
                 }
             ],
             "description": "Desiderio — shadcn/ui-inspired Fluid 5 component library, 244 Desiderio Content Blocks, and theme layer for TYPO3 14",
-            "time": "2026-07-25T14:17:29+00:00"
+            "time": "2026-07-25T16:13:28+00:00"
         },
         {
             "name": "webconsulting/docx-editor",
@@ -12600,7 +12600,7 @@
             "dist": {
                 "type": "path",
                 "url": "packages/site_package",
-                "reference": "d9694c6b75872acd32190ca17e18b3a7978d1ef6"
+                "reference": "fbd3ade698736abb95b19f0d35887c7ab97f8f6a"
             },
             "require": {
                 "apache-solr-for-typo3/solr": "^14.0@beta",
@@ -12614,7 +12614,7 @@
                 "typo3/cms-adminpanel": "^14.3",
                 "typo3/cms-core": "^14.3",
                 "typo3/theme-camino": "^14.3",
-                "webconsulting/desiderio": "^2.13"
+                "webconsulting/desiderio": "^3.0"
             },
             "require-dev": {
                 "phpstan/phpstan": "^2.1",
