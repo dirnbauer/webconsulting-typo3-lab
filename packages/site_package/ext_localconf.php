@@ -28,3 +28,20 @@ $GLOBALS['TYPO3_CONF_VARS']['EXTENSIONS']['news']['manualSorting'] = '1';
 // regular TYPO3 record/page modules and News API Studio instead. This also
 // keeps /typo3/module/web/NewsAdministration/ from being registered.
 $GLOBALS['TYPO3_CONF_VARS']['EXTENSIONS']['news']['showAdministrationModule'] = '0';
+
+// Serve processed images as WebP. Measured on this install: a 640×800 portrait
+// is 114 KB as the default quality-85 JPEG and 77 KB as WebP — and images are
+// 95% of a chapter page's weight (1,287 KB of 1,354 KB), so nothing else on the
+// page is worth optimising until this is.
+//
+// SVG stays SVG; it is not a raster format and converting it would rasterise
+// icons. Everything else, including PNG, goes to WebP — alpha survives, so the
+// signature artwork and the logo marks keep their transparency.
+//
+// Core's own default configuration recommends exactly this ("Ideally, use
+// webp/avif here (future default?)"). It lives here rather than in
+// config/system/settings.php because that file is git-ignored.
+$GLOBALS['TYPO3_CONF_VARS']['GFX']['imageFileConversionFormats'] = [
+    'svg' => 'svg',
+    'default' => 'webp',
+];
