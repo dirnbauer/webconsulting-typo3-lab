@@ -399,17 +399,26 @@ HTML,
             }
         }
 
+        $fileUidValue = $file->getProperty('uid');
+        if (!is_int($fileUidValue) && !is_numeric($fileUidValue)) {
+            throw new \RuntimeException(sprintf('Imported screenshot "%s" has no valid FAL uid.', $fileName), 1785002404);
+        }
+        $fileUid = (int)$fileUidValue;
+        if ($fileUid <= 0) {
+            throw new \RuntimeException(sprintf('Imported screenshot "%s" has no valid FAL uid.', $fileName), 1785002405);
+        }
+
         $now = time();
         $metadataConnection = $this->connectionPool->getConnectionForTable('sys_file_metadata');
         $metadataUid = $metadataConnection->select(
             ['uid'],
             'sys_file_metadata',
-            ['file' => $file->getUid(), 'sys_language_uid' => 0],
+            ['file' => $fileUid, 'sys_language_uid' => 0],
         )->fetchOne();
         $metadata = [
             'pid' => 0,
             'tstamp' => $now,
-            'file' => $file->getUid(),
+            'file' => $fileUid,
             'sys_language_uid' => 0,
             'title' => $title,
             'alternative' => $alternative,
@@ -440,7 +449,7 @@ HTML,
                 'hidden' => 0,
                 'deleted' => 0,
                 'sys_language_uid' => 0,
-                'uid_local' => $file->getUid(),
+                'uid_local' => $fileUid,
                 'uid_foreign' => $contentUid,
                 'tablenames' => 'tt_content',
                 'fieldname' => 'media',
