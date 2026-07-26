@@ -12175,16 +12175,16 @@
         },
         {
             "name": "webconsulting/desiderio",
-            "version": "v3.7.0",
+            "version": "v3.8.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/desiderio.git",
-                "reference": "07c56df86cb9eb3eb0ec63c44c2a0b0348d018a7"
+                "reference": "89c7544915229ff077281ceb4813ba5207fc2ffc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/desiderio/zipball/07c56df86cb9eb3eb0ec63c44c2a0b0348d018a7",
-                "reference": "07c56df86cb9eb3eb0ec63c44c2a0b0348d018a7",
+                "url": "https://api.github.com/repos/dirnbauer/desiderio/zipball/89c7544915229ff077281ceb4813ba5207fc2ffc",
+                "reference": "89c7544915229ff077281ceb4813ba5207fc2ffc",
                 "shasum": ""
             },
             "require": {
@@ -12259,7 +12259,7 @@
                 }
             ],
             "description": "Desiderio — shadcn/ui-inspired Fluid 5 component library, 244 Desiderio Content Blocks, and theme layer for TYPO3 14",
-            "time": "2026-07-26T14:35:59+00:00"
+            "time": "2026-07-26T17:58:52+00:00"
         },
         {
             "name": "webconsulting/desiderio-grande",
