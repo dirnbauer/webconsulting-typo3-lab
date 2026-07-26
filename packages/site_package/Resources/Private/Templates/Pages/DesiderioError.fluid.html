@@ -6,10 +6,10 @@
 
 <f:layout name="Pages/Default"/>
 
-<f:variable name="homeParameter" value="{breadcrumb.0.link -> f:or(alternative: 't3://page?uid={site.rootPageId}')}"/>
-<f:variable name="homeUri" value="{f:uri.typolink(parameter: homeParameter)}"/>
-
 <f:section name="Main">
+    <f:variable name="homeParameter" value="{breadcrumb.0.link -> f:or(alternative: 't3://page?uid={site.rootPageId}')}"/>
+    <f:variable name="homeUri" value="{f:uri.typolink(parameter: homeParameter)}"/>
+
     <section class="desiderio-system-page desiderio-system-page--error">
         <d:layout.container>
             <header class="desiderio-system-page__header">

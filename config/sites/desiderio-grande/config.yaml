@@ -4,6 +4,13 @@ websiteTitle: 'Astryx'
 dependencies:
   - webconsulting/desiderio-grande
   - webconsulting/desiderio-grande-content-elements
+  - webconsulting/desiderio-grande-search
+solr_enabled_read: true
+solr_host_read: typo3-solr
+solr_path_read: /
+solr_port_read: '8983'
+solr_scheme_read: http
+solr_use_write_connection: false
 errorHandling:
   -
     errorCode: 404
@@ -19,6 +26,7 @@ languages:
     flag: us
     iso-639-1: en
     fallbackType: strict
+    solr_core_read: core_en
   -
     languageId: 1
     title: German
@@ -29,6 +37,7 @@ languages:
     iso-639-1: de
     fallbackType: fallback
     fallbacks: '0'
+    solr_core_read: core_de
 routeEnhancers:
   PageTypeSuffix:
     type: PageType
