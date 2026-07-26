@@ -36,3 +36,8 @@ scripts/*
 !/.tarballs/README.md
 /.abilities-demo-token
 /backup-abilities-reseed/
+
+# Ad-hoc local DB dumps (20 MB+, stale the moment they are written) stay out
+# of version control. Real backups live in .ddev/db_snapshots and ~/backups.
+dump.sql.gz
+*.sql.gz

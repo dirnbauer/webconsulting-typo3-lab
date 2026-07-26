@@ -1,0 +1,6 @@
+[mysqld]
+# TYPO3 Content Blocks add a very large number of fields to tt_content in this
+# lab. MariaDB can operate the existing DYNAMIC row-format table, but strict
+# CREATE TABLE validation rejects the complete schema during ddev import-db.
+# This is limited to the local DDEV database and keeps versioned dumps restorable.
+innodb_strict_mode=OFF
