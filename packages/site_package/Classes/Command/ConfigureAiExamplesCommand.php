@@ -21,7 +21,7 @@ use TYPO3\CMS\Core\Database\ConnectionPool;
  */
 #[AsCommand(
     name: 'sitepackage:configure-ai-examples',
-    description: 'Configure GPT-5.6 Terra/Luna, GPT Image 2, Cowriter examples, and the backend assistant task.',
+    description: 'Configure GPT-5.6 Terra/Luna, GPT-5 mini for tools, GPT Image 2, and the AI examples.',
 )]
 final class ConfigureAiExamplesCommand extends Command
 {
@@ -98,6 +98,23 @@ PROMPT;
                     'is_default' => 0,
                 ],
             );
+            $toolModelUid = $this->ensureModel(
+                'gpt-5-mini',
+                [
+                    'name' => 'GPT-5 mini',
+                    'description' => 'Tool-capable OpenAI model for nr-llm agent workflows using Chat Completions.',
+                    'provider_uid' => $providerUid,
+                    'model_id' => 'gpt-5-mini',
+                    'context_length' => 128_000,
+                    'max_output_tokens' => 32_000,
+                    'capabilities' => 'chat,vision,streaming,tools',
+                    'default_timeout' => 120,
+                    'cost_input' => 30,
+                    'cost_output' => 120,
+                    'is_active' => 1,
+                    'is_default' => 0,
+                ],
+            );
             $imageUid = $this->ensureModel(
                 'gpt-image-2',
                 [
@@ -145,11 +162,11 @@ PROMPT;
                 'backend-assistant',
                 [
                     'name' => 'TYPO3 Backend Assistant',
-                    'description' => 'Dedicated GPT-5.6 Terra configuration for nr-mcp-agent.',
-                    'model_uid' => $terraUid,
+                    'description' => 'Dedicated tool-compatible GPT-5 mini configuration for Webconsulting TYPO3 AI Chat.',
+                    'model_uid' => $toolModelUid,
                     'system_prompt' => self::BACKEND_CONFIGURATION_PROMPT,
                     'max_tokens' => 16_384,
-                    'timeout' => 180,
+                    'timeout' => 120,
                     'is_default' => 0,
                 ],
             );
@@ -173,7 +190,7 @@ PROMPT;
                 'backend-assistant',
                 [
                     'name' => 'TYPO3 Backend Assistant',
-                    'description' => 'General TYPO3 backend agent prompt used by nr-mcp-agent.',
+                    'description' => 'General TYPO3 backend agent prompt used by Webconsulting TYPO3 AI Chat.',
                     'category' => 'system',
                     'configuration_uid' => $backendConfigurationUid,
                     'prompt_template' => self::BACKEND_ASSISTANT_PROMPT,
@@ -192,9 +209,10 @@ PROMPT;
             $io->definitionList(
                 ['Default content model' => 'gpt-5.6-terra'],
                 ['Low-end model' => 'gpt-5.6-luna'],
+                ['Tool model' => 'gpt-5-mini'],
                 ['Image model' => 'gpt-image-2'],
                 ['Cowriter tasks' => (string)$taskCount],
-                ['nr-mcp-agent task UID' => (string)$backendTaskUid],
+                ['TYPO3 AI Chat task UID' => (string)$backendTaskUid],
             );
 
             return Command::SUCCESS;
@@ -484,8 +502,8 @@ PROMPT;
         }
         $this->extensionConfiguration->set('nr_llm', $nrLlm);
 
-        $agent = (array)$this->extensionConfiguration->get('nr_mcp_agent');
-        $agent['llmTaskUid'] = (string)$backendTaskUid;
-        $this->extensionConfiguration->set('nr_mcp_agent', $agent);
+        $chat = (array)$this->extensionConfiguration->get('webconsulting_ai_chat');
+        $chat['llmTaskUid'] = (string)$backendTaskUid;
+        $this->extensionConfiguration->set('webconsulting_ai_chat', $chat);
     }
 }

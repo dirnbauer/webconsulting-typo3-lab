@@ -37,7 +37,7 @@ Six layers. Every component is open source or self-hostable; every layer is exch
 | L5 | Abilities registry | `typo3-abilities` + `typo3-capability-manifest` | webconsulting | ✅ core · 🌱 REST projection |
 | L6 | Audit & trace | Skillflow runs · abilities traces · nr-vault audit log | webconsulting · Netresearch DTT GmbH | 🌱 partial — see items 13/15 |
 
-**Credit where it is due:** the LLM foundation of this architecture — `nr-llm` and `nr-vault`, plus `nr-mcp-agent` and `t3-cowriter` used elsewhere in the lab — is the work of [Netresearch DTT GmbH](https://github.com/netresearch); the MCP server originates from Marco Pfeiffer (hauptsacheNet, [`hn/typo3-mcp-server`](https://github.com/hauptsacheNet/typo3-mcp-server)); TYPO3 itself is the product of the TYPO3 Association and its open-source community. The lab's contribution is selection, hardening, the registry and trace layers, and this composition.
+**Credit where it is due:** the LLM foundation of this architecture — `nr-llm`, `nr-vault`, `t3-cowriter`, and the original `nr-mcp-agent` on which Webconsulting TYPO3 AI Chat is based — is the work of [Netresearch DTT GmbH](https://github.com/netresearch); the MCP server originates from Marco Pfeiffer (hauptsacheNet, [`hn/typo3-mcp-server`](https://github.com/hauptsacheNet/typo3-mcp-server)); TYPO3 itself is the product of the TYPO3 Association and its open-source community. The lab's contribution is selection, hardening, the registry and trace layers, the modern governed chat surfaces, and this composition.
 
 ### L1 — Content platform: TYPO3 v14 LTS
 

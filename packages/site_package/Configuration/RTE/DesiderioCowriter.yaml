@@ -1,0 +1,16 @@
+# Lab integration preset: preserve the complete Desiderio editing vocabulary
+# and add t3-cowriter's four CKEditor controls.
+imports:
+  - { resource: 'EXT:desiderio/Configuration/RTE/Desiderio.yaml' }
+
+editor:
+  config:
+    importModules:
+      - { module: '@netresearch/t3_cowriter/cowriter', exports: ['Cowriter'] }
+
+    toolbar:
+      items:
+        - cowriter
+        - cowriterVision
+        - cowriterTranslate
+        - cowriterTemplates

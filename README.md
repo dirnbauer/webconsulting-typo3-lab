@@ -52,6 +52,12 @@ Local secrets belong in the ignored `config/system/settings.php` or DDEV
 environment variables. The committed `settings.php.example` contains only
 environment lookups and non-secret defaults.
 
+`nr-vault` secrets in a database dump are not portable by themselves. The
+Vault master key is derived from the machine-local `TYPO3_ENCRYPTION_KEY`, which
+must never be committed or copied with a public dump. A new machine should use
+a newly generated TYPO3 encryption key and enter its own Vault values. See
+[DDEV bootstrap](docs/ddev-bootstrap.md#vault-secrets-on-a-new-machine).
+
 ## Demo sites
 
 | Site | Path | Root page |

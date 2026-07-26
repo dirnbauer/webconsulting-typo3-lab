@@ -72,6 +72,44 @@ To exercise authentication, configure the five `TYPO3_WORKOS_*` environment
 variables described in
 [workos-frontend-plugins.md](workos-frontend-plugins.md), then restart DDEV.
 
+## Vault secrets on a new machine
+
+The database snapshot contains nr-vault ciphertext, encrypted per-secret keys,
+and non-secret identifiers. It does **not** contain the Vault master key.
+nr-vault derives that key from TYPO3's `encryptionKey`; this lab reads it from
+the machine-local `TYPO3_ENCRYPTION_KEY` environment variable in
+`config/system/settings.php`. The local settings file and DDEV
+`config.local.yaml` are ignored by Git.
+
+Generate a different key for every independently administered installation:
+
+```bash
+openssl rand -hex 48
+```
+
+Add the generated value only to the new machine's ignored
+`.ddev/config.local.yaml`, then restart DDEV:
+
+```yaml
+web_environment:
+  - TYPO3_ENCRYPTION_KEY=PASTE_THE_NEW_96_CHARACTER_VALUE_HERE
+```
+
+```bash
+ddev restart
+```
+
+The imported Vault values are intentionally unreadable with this new key.
+Enter replacement API keys in **Admin Tools → Vault**, then select the new
+Vault identifier in the corresponding nr-llm provider or other integration.
+Do not copy `config/system/settings.php`, `.ddev/config.local.yaml`, or
+`TYPO3_ENCRYPTION_KEY` from the source machine.
+
+If the installation is intentionally being migrated with its secrets, transfer
+the original encryption key separately through an approved secret channel.
+Possession of both the database dump and that key makes the Vault values
+decryptable.
+
 ## Export (maintainers — refresh lab snapshot)
 
 Run after site cleanup, content edits, or before a release that updates `dump.sql.gz`.
@@ -83,6 +121,8 @@ ddev export-db --file=dump.sql.gz
 ```
 
 Writes a gzip-compressed SQL dump of the `db` database to the project root.
+The dump contains only encrypted nr-vault payloads. Never distribute the
+source machine's `TYPO3_ENCRYPTION_KEY` with it.
 
 ### Fileadmin
 

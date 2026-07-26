@@ -35,7 +35,7 @@ The one-sentence verdict: **the lab is 12–24 months ahead of TYPO3 core, rough
 |---|---|
 | `agent_nexus` (2026-07-02) | TYPO3 can speak the whole agent-protocol family: **A2UI, AG-UI, A2A, UCP, AP2** — backend field-guide hub, five playgrounds, five frontend plugins, nr-llm-backed with deterministic fallbacks, human authorization gates, provenance-labelled runs ("Live model" vs "Scripted demo") |
 | `flue` + `flue-bridge` (2026-07-02) | TYPO3 as **control plane** for a durable agent runtime (`@flue/runtime`, Node 22 sidecar): exports Skillflow skills, consumes the MCP tools, triggers workflows, mirrors durable runs back into the backend — the embryo of item 16 |
-| `t3x-nr-mcp-agent` (2026-06-30) | Backend AI chat with MCP client — item 11 (the `webcon-mcp-chat-bridge` companion module was retired and its repo deleted 2026-07-08; the chat surface should be reframed as one governed command surface over abilities, not a bespoke module) |
+| `webconsulting/typo3-ai-chat` (2026-07-26) | Modern governed backend operator chat, derived from Netresearch's `nr-mcp-agent`: shared assistant-ui runtime in the top-right drawer and Tools module, execution ledger, approvals, rich attachments, direct nr-llm tools, and optional durable Flue lane — item 11 |
 | ~~`typo3-capability-manifest` + `api-capability-bridge`~~ (retired + archived 2026-07-07) | Were the policy-checker/manifest seed of the abilities registry; their role is now the shipped registry (item 19) + the sg_apicore fork's REST projection. Repos archived read-only; the [capability-manifests article](https://www.webconsulting.at/en/blog/typo3-extension-security-emdash-capability-manifests) remains the historical record |
 | `typo3-deepfake-detection` (private) | Inbound media forensics — the trust/provenance lane (item 21) |
 | `typo3-camino-vercel` (2026-07-06) | TYPO3 14.3 on Vercel Functions — deployment modernization |
@@ -98,7 +98,7 @@ Legend: ✅ shipped · 🌱 embryo in the lab · ⭕ direction only
 | 8 | Backend headless by design | ✅ Content Blocks, VE, workspaces | Keep |
 | 9 | Contract-first APIs | ✅ sg_apicore | Fold into the capability registry (→ 19) |
 | 10 | Annotation instead of chat | ✅/🌱 Agentation plumbing | Close the loop: annotation → agent run → workspace diff |
-| 11 | MCP chatbot / assistant | ✅ nr-mcp-agent + chat bridge | Reframe: one command surface over governed tools, not the product |
+| 11 | MCP chatbot / assistant | ✅ Webconsulting TYPO3 AI Chat: inline drawer + full module + governed direct/Flue lanes | Keep it as one command surface over governed tools; add shared trace/eval storage rather than another chat |
 | 12 | AI-optimized codebase | ✅ Desiderio discipline | Keep; CI guards are the moat |
 
 ### Operating layer (13–16)
