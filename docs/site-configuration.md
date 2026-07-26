@@ -79,7 +79,7 @@ Rebuild its page tree with:
 
 ```bash
 ddev exec vendor/bin/typo3 desiderio-grande:site:seed --dry-run
-ddev exec vendor/bin/typo3 desiderio-grande:site:seed
+ddev exec vendor/bin/typo3 desiderio-grande:site:seed --content
 ```
 
 ### MTUG Camp Munich page tree (Powermail)
