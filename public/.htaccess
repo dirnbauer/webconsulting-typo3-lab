@@ -275,6 +275,24 @@ AddDefaultCharset utf-8
 
 
 
+
+### Begin: StaticFileCache (encoding of the stored files) ###
+<FilesMatch "\.gz$">
+	SetEnv no-gzip 1
+	SetEnv no-brotli 1
+	<IfModule mod_headers.c>
+		Header set Content-Encoding gzip
+	</IfModule>
+</FilesMatch>
+<FilesMatch "\.br$">
+	SetEnv no-gzip 1
+	SetEnv no-brotli 1
+	<IfModule mod_headers.c>
+		Header set Content-Encoding br
+	</IfModule>
+</FilesMatch>
+### End: StaticFileCache (encoding) ###
+
 ### Begin: Rewriting and Access ###
 
 <IfModule mod_rewrite.c>
@@ -286,6 +304,105 @@ AddDefaultCharset utf-8
 	# mod_rewrite in .htaccess files without knowing the RewriteBase
 	RewriteCond $0#%{REQUEST_URI} ([^#]*)#(.*)\1$
 	RewriteRule ^.*$ - [E=CWD:%2]
+
+	### Begin: StaticFileCache (preparation) ###
+	# Serves a pre-rendered page straight from disk, so a cache hit never boots
+	# PHP at all. Everything below is a guard: the rewrite only fires when it is
+	# certain the visitor may see the anonymous version of the page.
+
+	RewriteRule .* - [E=SFC_ROOT:%{DOCUMENT_ROOT}]
+
+	# Cleanup URI
+	RewriteCond %{REQUEST_URI} ^.*$
+	RewriteRule .* - [E=SFC_URI:/%{REQUEST_URI}]
+	RewriteCond %{REQUEST_URI} ^/.*$
+	RewriteRule .* - [E=SFC_URI:%{REQUEST_URI}]
+	RewriteCond %{REQUEST_URI} ^/?$
+	RewriteRule .* - [E=SFC_URI:/]
+
+	# Cleanup HOST
+	RewriteCond %{HTTP_HOST} ^([^:]+)(:[0-9]+)?$
+	RewriteRule .* - [E=SFC_HOST:%1]
+
+	# An EXT:solr indexing request must reach PHP: it has to index the real page,
+	# not a copy of it, and it must not have its own request cached either.
+	RewriteCond %{HTTP:X-Tx-Solr-Iq} .+
+	RewriteRule .* - [E=SFC_HOST:invalid-host]
+
+	# Same for EXT:crawler.
+	RewriteCond %{HTTP:X-T3Crawler} .+
+	RewriteRule .* - [E=SFC_HOST:invalid-host]
+
+	# Scheme
+	RewriteRule .* - [E=SFC_PROTOCOL:http]
+	RewriteCond %{SERVER_PORT} ^443$ [OR]
+	RewriteCond %{HTTP:X-Forwarded-Proto} https
+	RewriteRule .* - [E=SFC_PROTOCOL:https]
+
+	# Port
+	RewriteRule .* - [E=SFC_PORT:80]
+	RewriteCond %{ENV:SFC_PROTOCOL} ^https$ [NC]
+	RewriteRule .* - [E=SFC_PORT:443]
+	RewriteCond %{SERVER_PORT} ^[0-9]+$
+	RewriteRule .* - [E=SFC_PORT:%{SERVER_PORT}]
+	RewriteCond %{HTTP:X-Forwarded-Port} ^[0-9]+$
+	RewriteRule .* - [E=SFC_PORT:%{HTTP:X-Forwarded-Port}]
+
+	RewriteRule .* - [E=SFC_FULLPATH:typo3temp/assets/tx_staticfilecache/%{ENV:SFC_PROTOCOL}_%{ENV:SFC_HOST}_%{ENV:SFC_PORT}%{ENV:SFC_URI}/index]
+
+	# Pick the best encoding the client accepts, falling back when the file for
+	# that encoding was never written (br, gzip, php, plain).
+	RewriteRule .* - [E=SFC_EXT:]
+	RewriteCond %{HTTP:Accept-Encoding} br [NC]
+	RewriteRule .* - [E=SFC_EXT:.br]
+	RewriteCond %{ENV:SFC_ROOT}/%{ENV:SFC_FULLPATH}%{ENV:SFC_EXT} !-f
+	RewriteRule .* - [E=SFC_EXT:]
+	RewriteCond %{ENV:SFC_EXT} ^$
+	RewriteCond %{HTTP:Accept-Encoding} gzip [NC]
+	RewriteRule .* - [E=SFC_EXT:.gz]
+	RewriteCond %{ENV:SFC_EXT} ^\.gz$
+	RewriteCond %{ENV:SFC_ROOT}/%{ENV:SFC_FULLPATH}%{ENV:SFC_EXT} !-f
+	RewriteRule .* - [E=SFC_EXT:]
+	RewriteCond %{ENV:SFC_EXT} ^$
+	RewriteRule .* - [E=SFC_EXT:.php]
+	RewriteCond %{ENV:SFC_ROOT}/%{ENV:SFC_FULLPATH}%{ENV:SFC_EXT} !-f
+	RewriteRule .* - [E=SFC_EXT:]
+
+	RewriteRule .* - [E=SFC_FULLPATH:%{ENV:SFC_FULLPATH}%{ENV:SFC_EXT}]
+
+	### Begin: StaticFileCache (main) ###
+
+	# Anything with a query string renders normally. That is what keeps the
+	# element library (?elementLibrary, ?elPreview), Solr results (?q=), the
+	# suggest endpoint (?type=7384) and ?no_cache out of the static cache.
+	RewriteCond %{QUERY_STRING} ^$
+
+	# Only if a static file was actually written for this URL.
+	RewriteCond %{ENV:SFC_ROOT}/%{ENV:SFC_FULLPATH} -f
+
+	# A logged-in frontend or backend user must never be served the anonymous
+	# copy. StaticFileCache sets this cookie for exactly that purpose.
+	RewriteCond %{HTTP_COOKIE} !staticfilecache [NC]
+
+	# Workspace preview links.
+	RewriteCond %{HTTP_COOKIE} !ADMCMD_prev [NC]
+
+	# GET only: a POST is a form submission and must reach PHP.
+	RewriteCond %{REQUEST_METHOD} GET
+
+	RewriteRule .* %{ENV:SFC_ROOT}/%{ENV:SFC_FULLPATH} [L]
+
+	# The cache directory is not browsable from outside.
+	RewriteCond %{ENV:SFC_URI} ^/typo3temp/assets/tx_staticfilecache/.*
+	RewriteCond %{ENV:REDIRECT_STATUS} ^$
+	RewriteRule .* - [F,L]
+
+	RewriteCond %{REQUEST_FILENAME} !-f
+	RewriteCond %{REQUEST_FILENAME} !-d
+	RewriteCond %{REQUEST_FILENAME} !-l
+	RewriteRule ^.*\.sfc$ %{ENV:CWD}index.php?eID=sfc_manifest [QSA,L]
+
+	### End: StaticFileCache ###
 
 	# Rules to set ApplicationContext based on hostname
 	#RewriteCond %{HTTP_HOST} ^dev\.example\.com$

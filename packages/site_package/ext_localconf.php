@@ -45,3 +45,17 @@ $GLOBALS['TYPO3_CONF_VARS']['GFX']['imageFileConversionFormats'] = [
     'svg' => 'svg',
     'default' => 'webp',
 ];
+
+// StaticFileCache: let Apache serve the static files, never the PHP fallback.
+//
+// The fallback middleware is a convenience for setups whose webserver has no
+// rewrite rules. It guards less than the rules do: it strips the query string
+// before looking up the cached path, and it has no check for ADMCMD_prev — so a
+// workspace preview link is answered with the live cached page instead of the
+// workspace version. Measured here: 0.047s (from cache) instead of a render.
+//
+// public/.htaccess carries the full rule set, including the ADMCMD_prev and
+// logged-in-cookie guards, and it is verified to serve a cache hit in ~0.011s
+// without booting PHP. With one correct path there is no reason to keep a
+// second, weaker one.
+$GLOBALS['TYPO3_CONF_VARS']['EXTENSIONS']['staticfilecache']['useFallbackMiddleware'] = '0';
