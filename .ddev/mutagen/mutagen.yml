@@ -25,6 +25,17 @@ sync:
         - "/var"
         - "/packages/flue-bridge/node_modules"
         - "/vendor/webconsulting/docx-editor/node_modules"
+        # The desktop apps are separate projects that happen to live in this
+        # repository: nothing in composer.json or config/ refers to them, and
+        # the TYPO3 container never runs them. Their build output is 1.65 GB of
+        # the 1.8 GB under apps/ — a 349 MB Electron framework, a 193 MB .dmg,
+        # a 187 MB .zip, a 116 MB native module — and pushing that through the
+        # sync is what makes it time out mid-flush and drop files, which has
+        # cost a vendor/autoload.php more than once.
+        - "/apps/*/node_modules"
+        - "/apps/*/dist"
+        - "/apps/*/.next"
+        - "/apps/*/out"
         # vcs like .git can be ignored for safety, but then some
         # composer operations may fail if they use dev versions/git.
         # vcs: true
