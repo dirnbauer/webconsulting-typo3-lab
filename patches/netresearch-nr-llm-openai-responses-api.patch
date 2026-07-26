@@ -1,0 +1,302 @@
+Subject: Support OpenAI Responses API for tool calls
+
+GPT-5.6 tool calls need the Responses API when reasoning is enabled or when a
+restricted API key does not grant access to Chat Completions. Keep the legacy
+endpoint as the default, but allow an nr_llm configuration to select
+`api_mode: responses`. Also forward `reasoning_effort` on the legacy path so
+operators can explicitly disable reasoning there.
+
+diff --git a/Classes/Provider/OpenAiProvider.php b/Classes/Provider/OpenAiProvider.php
+index 11b7394..8da9045 100644
+--- a/Classes/Provider/OpenAiProvider.php
++++ b/Classes/Provider/OpenAiProvider.php
+@@ -43,6 +43,8 @@ final class OpenAiProvider extends AbstractProvider implements
+ 
+     private const ENDPOINT_CHAT_COMPLETIONS = 'chat/completions';
+ 
++    private const ENDPOINT_RESPONSES = 'responses';
++
+     private const DEFAULT_CHAT_MODEL = 'gpt-5.2';
+     private const DEFAULT_EMBEDDING_MODEL = 'text-embedding-3-small';
+ 
+@@ -182,6 +184,10 @@ final class OpenAiProvider extends AbstractProvider implements
+ 
+         $model = $this->getString($options, 'model', $this->getDefaultModel());
+ 
++        if ($this->getString($options, 'api_mode') === 'responses') {
++            return $this->responsesCompletionWithTools($messages, $tools, $options, $model);
++        }
++
+         $payload = [
+             'model' => $model,
+             'messages' => $messages,
+@@ -199,6 +205,11 @@ final class OpenAiProvider extends AbstractProvider implements
+             $payload['tool_choice'] = $options['tool_choice'];
+         }
+ 
++        $reasoningEffort = $this->getString($options, 'reasoning_effort');
++        if ($reasoningEffort !== '') {
++            $payload['reasoning_effort'] = $reasoningEffort;
++        }
++
+         $response = $this->sendRequest(self::ENDPOINT_CHAT_COMPLETIONS, $payload, timeout: $this->resolveRequestTimeout($options));
+ 
+         $choices = $this->getList($response, 'choices');
+@@ -237,6 +248,177 @@ final class OpenAiProvider extends AbstractProvider implements
+         );
+     }
+ 
++    /**
++     * Execute an nr_llm tool loop through OpenAI's Responses API.
++     *
++     * @param list<array<string, mixed>> $messages
++     * @param list<ToolSpec>             $tools
++     * @param array<string, mixed>       $options
++     */
++    private function responsesCompletionWithTools(
++        array $messages,
++        array $tools,
++        array $options,
++        string $model,
++    ): CompletionResponse {
++        $payload = [
++            'model' => $model,
++            'input' => $this->buildResponsesInput($messages),
++            'tools' => array_map(
++                static fn(ToolSpec $spec): array => [
++                    'type' => 'function',
++                    'name' => $spec->name,
++                    'description' => $spec->description,
++                    'parameters' => $spec->parameters,
++                ],
++                $tools,
++            ),
++            'max_output_tokens' => $this->getInt($options, 'max_tokens', 4096),
++            'store' => false,
++            ...$this->buildSamplingParams($model, $options),
++        ];
++
++        $reasoningEffort = $this->getString($options, 'reasoning_effort');
++        if ($reasoningEffort !== '') {
++            $payload['reasoning'] = ['effort' => $reasoningEffort];
++        }
++
++        if (isset($options['tool_choice'])) {
++            $payload['tool_choice'] = $options['tool_choice'];
++        }
++        if (isset($options['parallel_tool_calls'])) {
++            $payload['parallel_tool_calls'] = $this->getBool($options, 'parallel_tool_calls');
++        }
++
++        $response = $this->sendRequest(
++            self::ENDPOINT_RESPONSES,
++            $payload,
++            timeout: $this->resolveRequestTimeout($options),
++        );
++        $usage = $this->getArray($response, 'usage');
++        $contentParts = [];
++        $toolCalls = [];
++
++        foreach ($this->getList($response, 'output') as $rawItem) {
++            $item = $this->asArray($rawItem);
++            $type = $this->getString($item, 'type');
++
++            if ($type === 'message') {
++                foreach ($this->getList($item, 'content') as $rawPart) {
++                    $part = $this->asArray($rawPart);
++                    if ($this->getString($part, 'type') === 'output_text') {
++                        $text = $this->getString($part, 'text');
++                        if ($text !== '') {
++                            $contentParts[] = $text;
++                        }
++                    }
++                }
++                continue;
++            }
++
++            if ($type !== 'function_call') {
++                continue;
++            }
++
++            $id = $this->getString($item, 'call_id', $this->getString($item, 'id'));
++            $name = $this->getString($item, 'name');
++            if ($id === '' || $name === '') {
++                continue;
++            }
++
++            $arguments = json_decode($this->getString($item, 'arguments', '{}'), true);
++            $toolCalls[] = ToolCall::function(
++                $id,
++                $name,
++                is_array($arguments) ? $arguments : [],
++            );
++        }
++
++        $status = $this->getString($response, 'status', 'completed');
++        $incompleteDetails = $this->getArray($response, 'incomplete_details');
++        $finishReason = $this->getString($incompleteDetails, 'reason') === 'max_output_tokens'
++            ? 'length'
++            : ($toolCalls !== [] ? 'tool_calls' : ($status === 'completed' ? 'stop' : $status));
++
++        return new CompletionResponse(
++            content: implode("\n", $contentParts),
++            model: $this->getString($response, 'model', $model),
++            usage: $this->createUsageStatistics(
++                promptTokens: $this->getInt($usage, 'input_tokens'),
++                completionTokens: $this->getInt($usage, 'output_tokens'),
++            ),
++            finishReason: $finishReason,
++            provider: $this->getIdentifier(),
++            toolCalls: $toolCalls !== [] ? $toolCalls : null,
++            metadata: $this->rawResponseMetadata($options, $response),
++        );
++    }
++
++    /**
++     * Convert the chat-shaped history used by nr_llm into Responses input
++     * items. Tool calls and their results must be separate correlated items.
++     *
++     * @param list<array<string, mixed>> $messages
++     *
++     * @return list<array<string, mixed>>
++     */
++    private function buildResponsesInput(array $messages): array
++    {
++        $input = [];
++
++        foreach ($messages as $message) {
++            $role = $this->getString($message, 'role');
++            $content = $this->getString($message, 'content');
++
++            if ($role === 'tool') {
++                $callId = $this->getString($message, 'tool_call_id');
++                if ($callId !== '') {
++                    $input[] = [
++                        'type' => 'function_call_output',
++                        'call_id' => $callId,
++                        'output' => $content,
++                    ];
++                }
++                continue;
++            }
++
++            if ($role === 'assistant' && isset($message['tool_calls']) && is_array($message['tool_calls'])) {
++                if ($content !== '') {
++                    $input[] = ['role' => 'assistant', 'content' => $content];
++                }
++
++                foreach ($message['tool_calls'] as $rawToolCall) {
++                    $toolCall = $this->asArray($rawToolCall);
++                    $function = $this->getArray($toolCall, 'function');
++                    $id = $this->getString($toolCall, 'id');
++                    $name = $this->getString($function, 'name');
++                    if ($id === '' || $name === '') {
++                        continue;
++                    }
++
++                    $arguments = $function['arguments'] ?? '{}';
++                    if (is_array($arguments)) {
++                        $arguments = json_encode($arguments !== [] ? $arguments : new \stdClass(), JSON_THROW_ON_ERROR);
++                    }
++
++                    $input[] = [
++                        'type' => 'function_call',
++                        'call_id' => $id,
++                        'name' => $name,
++                        'arguments' => is_string($arguments) ? $arguments : '{}',
++                    ];
++                }
++                continue;
++            }
++
++            if ($role !== '') {
++                $input[] = ['role' => $role, 'content' => $content];
++            }
++        }
++
++        return $input;
++    }
++
+     public function supportsTools(): bool
+     {
+         return true;
+diff --git a/Tests/Unit/Provider/OpenAiProviderTest.php b/Tests/Unit/Provider/OpenAiProviderTest.php
+index ea2f98e..b3b8dfa 100644
+--- a/Tests/Unit/Provider/OpenAiProviderTest.php
++++ b/Tests/Unit/Provider/OpenAiProviderTest.php
+@@ -553,6 +553,75 @@ class OpenAiProviderTest extends AbstractUnitTestCase
+         self::assertEquals(['location' => 'Tokyo'], $toolCall->arguments);
+     }
+ 
++    #[Test]
++    public function chatCompletionWithToolsForwardsReasoningEffortOnLegacyEndpoint(): void
++    {
++        $payload = $this->captureToolsPayload(
++            [['role' => 'user', 'content' => 'hi']],
++            [ToolSpec::function('get_time', 'Get time', ['type' => 'object', 'properties' => []])],
++            ['reasoning_effort' => 'none'],
++        );
++
++        self::assertSame('none', $payload['reasoning_effort']);
++        self::assertArrayHasKey('messages', $payload);
++        self::assertArrayNotHasKey('input', $payload);
++    }
++
++    #[Test]
++    public function chatCompletionWithToolsSupportsResponsesApi(): void
++    {
++        $captured = null;
++        $subject = $this->createCapturingSubject($captured, [
++            'id' => 'resp-test',
++            'status' => 'completed',
++            'model' => 'gpt-5.6-terra',
++            'output' => [
++                [
++                    'type' => 'function_call',
++                    'call_id' => 'call_123',
++                    'name' => 'get_weather',
++                    'arguments' => '{"location":"Vienna"}',
++                ],
++            ],
++            'usage' => ['input_tokens' => 12, 'output_tokens' => 4, 'total_tokens' => 16],
++        ]);
++        $messages = [
++            ChatMessage::user('What is the weather?'),
++            ChatMessage::assistantToolCalls([ToolCall::function('call_old', 'get_weather', ['location' => 'Graz'])]),
++            ChatMessage::toolResult('call_old', '{"temperature":20}'),
++        ];
++        $tools = [
++            ToolSpec::function(
++                'get_weather',
++                'Get weather',
++                ['type' => 'object', 'properties' => ['location' => ['type' => 'string']]],
++            ),
++        ];
++
++        $result = $subject->chatCompletionWithTools($messages, $tools, [
++            'api_mode' => 'responses',
++            'model' => 'gpt-5.6-terra',
++            'reasoning_effort' => 'medium',
++            'parallel_tool_calls' => true,
++        ]);
++
++        $payload = $this->decodeCaptured($captured);
++        self::assertArrayNotHasKey('messages', $payload);
++        self::assertSame('gpt-5.6-terra', $payload['model']);
++        self::assertSame(['effort' => 'medium'], $payload['reasoning']);
++        self::assertTrue($payload['parallel_tool_calls']);
++        self::assertSame('get_weather', $payload['tools'][0]['name']);
++        self::assertSame('function_call', $payload['input'][1]['type']);
++        self::assertSame('function_call_output', $payload['input'][2]['type']);
++        self::assertSame('call_old', $payload['input'][2]['call_id']);
++
++        self::assertSame('tool_calls', $result->finishReason);
++        self::assertNotNull($result->toolCalls);
++        self::assertSame('get_weather', $result->toolCalls[0]->name);
++        self::assertSame(['location' => 'Vienna'], $result->toolCalls[0]->arguments);
++        self::assertSame(16, $result->usage->totalTokens);
++    }
++
+     #[Test]
+     public function chatCompletionWithToolsSkipsMalformedToolCall(): void
+     {

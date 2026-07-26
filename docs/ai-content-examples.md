@@ -5,13 +5,13 @@ reproducible through TYPO3 console commands:
 
 | Package | Installed target |
 |---|---:|
-| `netresearch/nr-llm` | `0.16.1` |
-| `netresearch/nr-vault` | `0.10.1` |
-| `netresearch/t3-cowriter` | `3.1.1` |
+| `netresearch/nr-llm` | `0.25.0` |
+| `netresearch/nr-vault` | `0.12.1` |
+| `netresearch/t3-cowriter` | `3.5.0` |
 | `netresearch/nr-mcp-agent` | latest `main` |
 
 `nr-mcp-agent` still declares `nr-llm ^0.12 || ^0.13`, although its current
-API usage works with 0.16.1. The root requirement therefore installs 0.16.1
+API usage works with 0.25.0. The root requirement therefore installs 0.25.0
 with a temporary `0.13.99` Composer compatibility alias. Keep the alias until
 the agent package widens its upstream constraint; the project verification
 suite must continue to exercise the combination.
@@ -50,10 +50,10 @@ preservation, translation nuance, and tool use are not low-end work. Luna is
 used only where the output is tightly constrained and cheaply verifiable.
 
 OpenAI recommends `medium` reasoning as the balanced starting point and `low`
-for latency-sensitive work. `nr-llm` 0.16.1 uses Chat Completions and does not
-expose the GPT-5.6 `reasoning.effort` control, so this lab deliberately stores
-no inert option: GPT-5.6 uses OpenAI's default `medium` effort. Model-tier
-routing still provides the intended Terra/Luna cost boundary.
+for latency-sensitive work. The lab's GPT-5.6 configurations use the Responses
+API compatibility patch with `reasoning_effort: none`; model-tier routing
+provides the intended Terra/Luna cost boundary without adding reasoning-token
+latency to interactive TYPO3 tool calls.
 
 References: [GPT-5.6 model guidance](https://developers.openai.com/api/docs/guides/latest-model),
 [GPT-5.6 Terra](https://developers.openai.com/api/docs/models/gpt-5.6-terra),
