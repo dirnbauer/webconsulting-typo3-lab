@@ -48,10 +48,11 @@ preservation, translation nuance, and tool use are not low-end work. Luna is
 used only where the output is tightly constrained and cheaply verifiable.
 
 OpenAI recommends `medium` reasoning as the balanced starting point and `low`
-for latency-sensitive work. The lab's GPT-5.6 configurations use the Responses
-API compatibility patch with `reasoning_effort: none`; model-tier routing
-provides the intended Terra/Luna cost boundary without adding reasoning-token
-latency to interactive TYPO3 tool calls.
+for latency-sensitive work. Current GPT-5.6 Chat Completions support function
+tools directly, so the lab no longer needs its Responses API compatibility
+patch. nr-llm 0.25 does not expose a reasoning-effort option on this path;
+GPT-5.6 therefore uses OpenAI's model default while Terra/Luna routing preserves
+the intended quality and cost boundary.
 
 References: [GPT-5.6 model guidance](https://developers.openai.com/api/docs/guides/latest-model),
 [GPT-5.6 Terra](https://developers.openai.com/api/docs/models/gpt-5.6-terra),

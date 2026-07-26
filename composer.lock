@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7ce0411d57e869c7a8263496556f90e6",
+    "content-hash": "a27c2430335906977b6fd07ce35ab248",
     "packages": [
         {
             "name": "apache-solr-for-typo3/solr",
@@ -1169,16 +1169,16 @@
         },
         {
             "name": "friendsoftypo3/content-blocks",
-            "version": "2.4.7",
+            "version": "2.4.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/FriendsOfTYPO3/content-blocks.git",
-                "reference": "9f2b13b5f605cd6576b9a1dec10b559c59af3c66"
+                "reference": "47ffa2db718907eff883728e7fcaf99511dcb74d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FriendsOfTYPO3/content-blocks/zipball/9f2b13b5f605cd6576b9a1dec10b559c59af3c66",
-                "reference": "9f2b13b5f605cd6576b9a1dec10b559c59af3c66",
+                "url": "https://api.github.com/repos/FriendsOfTYPO3/content-blocks/zipball/47ffa2db718907eff883728e7fcaf99511dcb74d",
+                "reference": "47ffa2db718907eff883728e7fcaf99511dcb74d",
                 "shasum": ""
             },
             "require": {
@@ -1190,10 +1190,10 @@
                 "symfony/finder": "^7.4",
                 "symfony/var-exporter": "^7.4 || ^8.0",
                 "symfony/yaml": "^7.4",
-                "typo3/cms-backend": "^14.3",
-                "typo3/cms-core": "^14.3",
-                "typo3/cms-fluid": "^14.3",
-                "typo3/cms-frontend": "^14.3"
+                "typo3/cms-backend": "^14.3.5",
+                "typo3/cms-core": "^14.3.5",
+                "typo3/cms-fluid": "^14.3.5",
+                "typo3/cms-frontend": "^14.3.5"
             },
             "replace": {
                 "contentblocks/content-blocks": "*"
@@ -1204,14 +1204,14 @@
                 "friendsofphp/php-cs-fixer": "^3.22",
                 "phpstan/phpstan": "^2.1",
                 "phpstan/phpstan-phpunit": "^2.0",
-                "typo3/cms-extbase": "^14.3",
-                "typo3/cms-extensionmanager": "^14.3",
-                "typo3/cms-filelist": "^14.3",
-                "typo3/cms-install": "^14.3",
-                "typo3/cms-lowlevel": "^14.3",
-                "typo3/cms-rte-ckeditor": "^14.3",
-                "typo3/cms-tstemplate": "^14.3",
-                "typo3/cms-workspaces": "^14.3",
+                "typo3/cms-extbase": "^14.3.5",
+                "typo3/cms-extensionmanager": "^14.3.5",
+                "typo3/cms-filelist": "^14.3.5",
+                "typo3/cms-install": "^14.3.5",
+                "typo3/cms-lowlevel": "^14.3.5",
+                "typo3/cms-rte-ckeditor": "^14.3.5",
+                "typo3/cms-tstemplate": "^14.3.5",
+                "typo3/cms-workspaces": "^14.3.5",
                 "typo3/coding-standards": "0.8.x-dev",
                 "typo3/testing-framework": "^9.5"
             },
@@ -1225,7 +1225,7 @@
                             "symfony/var-exporter": ""
                         }
                     },
-                    "version": "2.4.7",
+                    "version": "2.4.8",
                     "web-dir": ".Build/public",
                     "extension-key": "content_blocks"
                 }
@@ -1254,7 +1254,7 @@
                 "issues": "https://github.com/FriendsOfTYPO3/content-blocks/issues",
                 "source": "https://github.com/FriendsOfTYPO3/content-blocks"
             },
-            "time": "2026-06-25T15:33:34+00:00"
+            "time": "2026-07-22T14:34:41+00:00"
         },
         {
             "name": "friendsoftypo3/tt-address",
@@ -2939,20 +2939,20 @@
         },
         {
             "name": "netresearch/nr-llm",
-            "version": "v0.16.1",
+            "version": "v0.25.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/netresearch/t3x-nr-llm.git",
-                "reference": "ea72095bb7256fba0742c9a75ea2bb1368b8faa0"
+                "reference": "1017d4a63b54a20a44dcfce16bc64d3423a44bcf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/netresearch/t3x-nr-llm/zipball/ea72095bb7256fba0742c9a75ea2bb1368b8faa0",
-                "reference": "ea72095bb7256fba0742c9a75ea2bb1368b8faa0",
+                "url": "https://api.github.com/repos/netresearch/t3x-nr-llm/zipball/1017d4a63b54a20a44dcfce16bc64d3423a44bcf",
+                "reference": "1017d4a63b54a20a44dcfce16bc64d3423a44bcf",
                 "shasum": ""
             },
             "require": {
-                "netresearch/nr-vault": "^0.10.1",
+                "netresearch/nr-vault": "^0.10.1 || ^0.11.0 || ^0.12.0",
                 "php": "^8.2",
                 "psr/http-client": "^1.0",
                 "psr/http-factory": "^1.0",
@@ -2972,6 +2972,7 @@
             },
             "suggest": {
                 "apache-solr-for-typo3/solr": "Site-search RAG tools retrieve evidence from the Solr index when installed",
+                "poppler-utils": "System package (not a Composer package) providing pdftoppm/pdfimages — enables DocumentAnalysisService's rasterization fallback for providers without native PDF ingestion",
                 "tpwd/ke_search": "Site-search RAG tools retrieve evidence from the ke_search index when installed",
                 "typo3/cms-dashboard": "Adds AI usage / cost widgets to the TYPO3 dashboard",
                 "typo3/cms-indexed-search": "Site-search RAG tools retrieve evidence from the indexed_search index when installed"
@@ -2986,7 +2987,7 @@
                         "providesPackages": []
                     },
                     "extension-key": "nr_llm",
-                    "version": "0.16.1",
+                    "version": "0.25.0",
                     "web-dir": ".Build/Web"
                 }
             },
@@ -3009,44 +3010,44 @@
                     "@ci:test:php:fuzzy"
                 ],
                 "ci:cgl": [
-                    "sh -c 'if [ -f /.dockerenv ] || [ -n \"${CI:-}\" ]; then php-cs-fixer fix; else ./Build/Scripts/runTests.sh -s cgl; fi'"
+                    "sh -c 'if [ -f /.dockerenv ] || [ -n \"${CI:-}\" ]; then php-cs-fixer fix \"$@\"; else ./Build/Scripts/runTests.sh -s cgl \"$@\"; fi' --"
                 ],
                 "ci:full": [
                     "@ci",
                     "@ci:test:php:functional"
                 ],
                 "ci:test:php:cgl": [
-                    "sh -c 'if [ -f /.dockerenv ] || [ -n \"${CI:-}\" ]; then php-cs-fixer fix --dry-run --diff; else ./Build/Scripts/runTests.sh -s cgl -n; fi'"
+                    "sh -c 'if [ -f /.dockerenv ] || [ -n \"${CI:-}\" ]; then php-cs-fixer fix --dry-run --diff \"$@\"; else ./Build/Scripts/runTests.sh -s cgl -n \"$@\"; fi' --"
                 ],
                 "ci:test:php:functional": [
-                    "sh -c 'if [ -f /.dockerenv ] || [ -n \"${CI:-}\" ]; then phpunit -c Build/FunctionalTests.xml; else ./Build/Scripts/runTests.sh -s functional; fi'"
+                    "sh -c 'if [ -f /.dockerenv ] || [ -n \"${CI:-}\" ]; then phpunit -c Build/FunctionalTests.xml \"$@\"; else ./Build/Scripts/runTests.sh -s functional \"$@\"; fi' --"
                 ],
                 "ci:test:php:fuzzy": [
-                    "sh -c 'if [ -f /.dockerenv ] || [ -n \"${CI:-}\" ]; then phpunit -c Build/phpunit.xml --testsuite fuzzy; else ./Build/Scripts/runTests.sh -s fuzzy; fi'"
+                    "sh -c 'if [ -f /.dockerenv ] || [ -n \"${CI:-}\" ]; then phpunit -c Build/phpunit.xml --testsuite fuzzy \"$@\"; else ./Build/Scripts/runTests.sh -s fuzzy \"$@\"; fi' --"
                 ],
                 "ci:test:php:integration": [
-                    "sh -c 'if [ -f /.dockerenv ] || [ -n \"${CI:-}\" ]; then phpunit -c Build/phpunit.xml --testsuite integration; else ./Build/Scripts/runTests.sh -s integration; fi'"
+                    "sh -c 'if [ -f /.dockerenv ] || [ -n \"${CI:-}\" ]; then phpunit -c Build/phpunit.xml --testsuite integration \"$@\"; else ./Build/Scripts/runTests.sh -s integration \"$@\"; fi' --"
                 ],
                 "ci:test:php:lint": [
                     "sh -c 'if [ -f /.dockerenv ] || [ -n \"${CI:-}\" ]; then find Classes Configuration Tests -name \"*.php\" -print0 | xargs -0 -n1 -P$(nproc 2>/dev/null || echo 4) php -l >/dev/null; else ./Build/Scripts/runTests.sh -s lint; fi'"
                 ],
                 "ci:test:php:mutation": [
-                    "sh -c 'if [ -f /.dockerenv ] || [ -n \"${CI:-}\" ]; then infection --configuration=infection.json.dist --threads=4 -s --no-progress; else ./Build/Scripts/runTests.sh -s mutation; fi'"
+                    "sh -c 'if [ -f /.dockerenv ] || [ -n \"${CI:-}\" ]; then infection --configuration=infection.json.dist --threads=4 -s --no-progress \"$@\"; else ./Build/Scripts/runTests.sh -s mutation \"$@\"; fi' --"
                 ],
                 "ci:test:php:mutation:ci": [
-                    "sh -c 'if [ -f /.dockerenv ] || [ -n \"${CI:-}\" ]; then infection --configuration=infection.json.dist --threads=4 --no-progress; else ./Build/Scripts/runTests.sh -s mutation; fi'"
+                    "sh -c 'if [ -f /.dockerenv ] || [ -n \"${CI:-}\" ]; then infection --configuration=infection.json.dist --threads=4 --no-progress \"$@\"; else ./Build/Scripts/runTests.sh -s mutation \"$@\"; fi' --"
                 ],
                 "ci:test:php:phpstan": [
-                    "sh -c 'if [ -f /.dockerenv ] || [ -n \"${CI:-}\" ]; then phpstan analyse -c Build/phpstan/phpstan.neon; else ./Build/Scripts/runTests.sh -s phpstan; fi'"
+                    "sh -c 'if [ -f /.dockerenv ] || [ -n \"${CI:-}\" ]; then phpstan analyse -c Build/phpstan/phpstan.neon \"$@\"; else ./Build/Scripts/runTests.sh -s phpstan \"$@\"; fi' --"
                 ],
                 "ci:test:php:phpstan:baseline": [
                     "phpstan analyse -c Build/phpstan/phpstan.neon --generate-baseline Build/phpstan-baseline.neon"
                 ],
                 "ci:test:php:rector": [
-                    "sh -c 'if [ -f /.dockerenv ] || [ -n \"${CI:-}\" ]; then rector process --config Build/rector/rector.php --dry-run; else ./Build/Scripts/runTests.sh -s rector -n; fi'"
+                    "sh -c 'if [ -f /.dockerenv ] || [ -n \"${CI:-}\" ]; then rector process --config Build/rector/rector.php --dry-run \"$@\"; else ./Build/Scripts/runTests.sh -s rector -n \"$@\"; fi' --"
                 ],
                 "ci:test:php:unit": [
-                    "sh -c 'if [ -f /.dockerenv ] || [ -n \"${CI:-}\" ]; then phpunit -c Build/phpunit.xml --testsuite unit; else ./Build/Scripts/runTests.sh -s unit; fi'"
+                    "sh -c 'if [ -f /.dockerenv ] || [ -n \"${CI:-}\" ]; then phpunit -c Build/phpunit.xml --testsuite unit \"$@\"; else ./Build/Scripts/runTests.sh -s unit \"$@\"; fi' --"
                 ],
                 "cs:fix": [
                     "@ci:cgl"
@@ -3110,48 +3111,47 @@
                 "issues": "https://github.com/netresearch/t3x-nr-llm/issues",
                 "source": "https://github.com/netresearch/t3x-nr-llm"
             },
-            "time": "2026-07-10T13:45:23+00:00"
+            "time": "2026-07-24T09:43:10+00:00"
         },
         {
             "name": "netresearch/nr-mcp-agent",
-            "version": "dev-main",
+            "version": "v0.7.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/dirnbauer/t3x-nr-mcp-agent.git",
-                "reference": "c7d92ff907cb4a01c39383401692ec85ee20623c"
+                "url": "https://github.com/netresearch/t3x-nr-mcp-agent.git",
+                "reference": "f262f339baf885fe841fd5d6f53f490d39364f9d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/t3x-nr-mcp-agent/zipball/c7d92ff907cb4a01c39383401692ec85ee20623c",
-                "reference": "c7d92ff907cb4a01c39383401692ec85ee20623c",
+                "url": "https://api.github.com/repos/netresearch/t3x-nr-mcp-agent/zipball/f262f339baf885fe841fd5d6f53f490d39364f9d",
+                "reference": "f262f339baf885fe841fd5d6f53f490d39364f9d",
                 "shasum": ""
             },
             "require": {
-                "netresearch/nr-llm": "^0.12.0 || ^0.13.0",
+                "netresearch/nr-llm": "^0.25",
                 "php": "^8.2",
                 "phpoffice/phpword": "^1.0",
                 "smalot/pdfparser": "^2.0",
-                "typo3/cms-backend": "^14.3",
-                "typo3/cms-core": "^14.3"
+                "typo3/cms-backend": "^13.4 || ^14.0",
+                "typo3/cms-core": "^13.4 || ^14.0"
             },
             "require-dev": {
                 "captainhook/captainhook": "^5.0",
                 "captainhook/hook-installer": "^1.0",
                 "friendsofphp/php-cs-fixer": "^3.0",
-                "infection/infection": "^0.29",
+                "infection/infection": "^0.29 || ^0.34",
                 "phpat/phpat": "^0.12",
-                "phpstan/phpstan": "^2.1",
-                "phpunit/phpunit": "^11.5",
+                "phpstan/phpstan": "^2.0",
+                "phpunit/phpunit": "^10.5 || ^11.0",
                 "rector/rector": "^2.0",
                 "saschaegerer/phpstan-typo3": "^3.0",
-                "typo3/testing-framework": "^9.0"
+                "typo3/testing-framework": "^8.0 || ^9.0"
             },
             "suggest": {
                 "hn/typo3-mcp-server": "For TYPO3 content management tools (^1.0)",
-                "netresearch/nr-vault": "For secure API key storage (^0.5)",
+                "netresearch/nr-vault": "For secure API key storage (^0.4)",
                 "phpoffice/phpspreadsheet": "^3.0 — Required for XLSX upload support"
             },
-            "default-branch": true,
             "type": "typo3-cms-extension",
             "extra": {
                 "captainhook": {
@@ -3185,22 +3185,22 @@
                     "@ci:tests"
                 ],
                 "ci:phpstan": [
-                    ".Build/bin/phpstan analyse -c Build/phpstan/phpstan.neon --no-progress --memory-limit=1G"
+                    ".Build/bin/phpstan analyse -c Build/phpstan/phpstan.neon --no-progress"
                 ],
                 "ci:cgl": [
                     ".Build/bin/php-cs-fixer fix --dry-run --diff"
                 ],
                 "ci:tests": [
-                    "php -d memory_limit=1G .Build/bin/phpunit -c Build/phpunit.xml"
+                    ".Build/bin/phpunit -c Build/phpunit.xml"
                 ],
                 "ci:tests:unit": [
-                    "php -d memory_limit=1G .Build/bin/phpunit -c Build/phpunit.xml --testsuite unit"
+                    ".Build/bin/phpunit -c Build/phpunit.xml --testsuite unit"
                 ],
                 "ci:tests:functional": [
-                    "php -d memory_limit=1G .Build/bin/phpunit -c Build/phpunit.xml --testsuite functional"
+                    ".Build/bin/phpunit -c Build/phpunit.xml --testsuite functional"
                 ],
                 "ci:tests:architecture": [
-                    "php -d memory_limit=1G .Build/bin/phpunit -c Build/phpunit.xml --testsuite architecture"
+                    ".Build/bin/phpunit -c Build/phpunit.xml --testsuite architecture"
                 ],
                 "ci:mutation": [
                     ".Build/bin/infection --configuration=infection.json.dist --threads=4 --no-progress"
@@ -3229,7 +3229,7 @@
                 }
             ],
             "description": "AI chat assistant for the TYPO3 backend using nr-llm and MCP server",
-            "homepage": "https://github.com/dirnbauer/t3x-nr-mcp-agent",
+            "homepage": "https://github.com/netresearch/t3x-nr-mcp-agent",
             "keywords": [
                 "AI",
                 "LLM",
@@ -3240,23 +3240,23 @@
                 "extension"
             ],
             "support": {
-                "issues": "https://github.com/dirnbauer/t3x-nr-mcp-agent/issues",
-                "source": "https://github.com/dirnbauer/t3x-nr-mcp-agent"
+                "issues": "https://github.com/netresearch/t3x-nr-mcp-agent/issues",
+                "source": "https://github.com/netresearch/t3x-nr-mcp-agent"
             },
-            "time": "2026-06-29T21:06:54+00:00"
+            "time": "2026-07-24T10:30:26+00:00"
         },
         {
             "name": "netresearch/nr-vault",
-            "version": "v0.10.2",
+            "version": "v0.12.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/netresearch/t3x-nr-vault.git",
-                "reference": "942c5a3c0d25f986aee2a9aeb15653a29a329028"
+                "reference": "cb16223c2bf7fa0309efa9566ebc7238d8e07d78"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/netresearch/t3x-nr-vault/zipball/942c5a3c0d25f986aee2a9aeb15653a29a329028",
-                "reference": "942c5a3c0d25f986aee2a9aeb15653a29a329028",
+                "url": "https://api.github.com/repos/netresearch/t3x-nr-vault/zipball/cb16223c2bf7fa0309efa9566ebc7238d8e07d78",
+                "reference": "cb16223c2bf7fa0309efa9566ebc7238d8e07d78",
                 "shasum": ""
             },
             "require": {
@@ -3273,7 +3273,11 @@
                 "mikey179/vfsstream": "^1.6",
                 "netresearch/typo3-ci-workflows": "^1.0",
                 "roave/security-advisories": "dev-latest",
+                "typo3/cms-dashboard": "^13.4 || ^14.3",
                 "typo3/cms-scheduler": "^13.4 || ^14.3"
+            },
+            "suggest": {
+                "typo3/cms-dashboard": "Adds vault secret count and audit activity widgets to the TYPO3 dashboard"
             },
             "type": "typo3-cms-extension",
             "extra": {
@@ -3395,31 +3399,31 @@
                 "issues": "https://github.com/netresearch/t3x-nr-vault/issues",
                 "source": "https://github.com/netresearch/t3x-nr-vault"
             },
-            "time": "2026-07-17T11:49:39+00:00"
+            "time": "2026-07-25T06:38:01+00:00"
         },
         {
             "name": "netresearch/t3-cowriter",
-            "version": "v3.1.1",
+            "version": "v3.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/netresearch/t3x-cowriter.git",
-                "reference": "900f5e75c6d440de5a0d6146298662958bf8ea74"
+                "reference": "54af1afc529db9ae09ed439bc0f77d56f95a1fa1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/netresearch/t3x-cowriter/zipball/900f5e75c6d440de5a0d6146298662958bf8ea74",
-                "reference": "900f5e75c6d440de5a0d6146298662958bf8ea74",
+                "url": "https://api.github.com/repos/netresearch/t3x-cowriter/zipball/54af1afc529db9ae09ed439bc0f77d56f95a1fa1",
+                "reference": "54af1afc529db9ae09ed439bc0f77d56f95a1fa1",
                 "shasum": ""
             },
             "require": {
-                "netresearch/nr-llm": ">=0.3 <1.0",
+                "netresearch/nr-llm": "^0.25",
                 "php": "^8.2",
-                "typo3/cms-backend": "^13.4 || ^14.0",
-                "typo3/cms-core": "^13.4 || ^14.0",
-                "typo3/cms-rte-ckeditor": "^13.4 || ^14.0"
+                "typo3/cms-backend": "^13.4 || ^14.3",
+                "typo3/cms-core": "^13.4 || ^14.3",
+                "typo3/cms-rte-ckeditor": "^13.4 || ^14.3"
             },
             "require-dev": {
-                "netresearch/typo3-ci-workflows": "^1.1"
+                "netresearch/typo3-ci-workflows": "^1.3"
             },
             "type": "typo3-cms-extension",
             "extra": {
@@ -3538,7 +3542,7 @@
                 "source": "https://github.com/netresearch/t3x-cowriter",
                 "docs": "https://github.com/netresearch/t3x-cowriter"
             },
-            "time": "2026-03-24T17:39:07+00:00"
+            "time": "2026-07-24T10:29:51+00:00"
         },
         {
             "name": "nette/schema",
@@ -12616,19 +12620,12 @@
                 "url": "https://github.com/dirnbauer/typo3-image-workbench.git",
                 "reference": "616fc0d4604199cc60672becc255722d45f90e5a"
             },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/typo3-image-workbench/zipball/616fc0d4604199cc60672becc255722d45f90e5a",
-                "reference": "616fc0d4604199cc60672becc255722d45f90e5a",
-                "shasum": ""
-            },
             "require": {
-                "netresearch/nr-llm": "^0.16.1",
+                "netresearch/nr-llm": "^0.25",
                 "php": ">=8.3 <8.5",
                 "typo3/cms-backend": "^14.3",
                 "typo3/cms-filelist": "^14.3"
             },
-            "default-branch": true,
             "type": "typo3-cms-extension",
             "extra": {
                 "typo3/cms": {
@@ -12640,34 +12637,10 @@
                     "Webconsulting\\ImageWorkbench\\": "Classes/"
                 }
             },
-            "autoload-dev": {
-                "psr-4": {
-                    "Webconsulting\\ImageWorkbench\\Tests\\": "Tests/"
-                }
-            },
-            "scripts": {
-                "assets:install": [
-                    "cd Build && npm ci"
-                ],
-                "assets:build": [
-                    "cd Build && npm run build"
-                ],
-                "check": [
-                    "@composer validate --strict --no-check-lock",
-                    "@php -l ext_emconf.php"
-                ]
-            },
             "license": [
                 "GPL-2.0-or-later"
             ],
-            "authors": [
-                {
-                    "name": "webconsulting.at",
-                    "homepage": "https://www.webconsulting.at"
-                }
-            ],
-            "description": "Square, FAL-safe image editing and nr-llm image generation in the TYPO3 v14 backend.",
-            "time": "2026-07-19T11:58:24+00:00"
+            "description": "Square, FAL-safe image editing and nr-llm image generation in the TYPO3 v14 backend."
         },
         {
             "name": "webconsulting/records-list-examples",
@@ -12819,14 +12792,14 @@
             "dist": {
                 "type": "path",
                 "url": "packages/site_package",
-                "reference": "fbd3ade698736abb95b19f0d35887c7ab97f8f6a"
+                "reference": "7173ff4b212a2c9c85710dfad4cf82f0305999ef"
             },
             "require": {
                 "apache-solr-for-typo3/solr": "^14.0@beta",
                 "friendsoftypo3/visual-editor": "^1.7",
                 "georgringer/news": "^14.0",
-                "netresearch/nr-llm": "^0.16.1",
-                "netresearch/t3-cowriter": "^3.1",
+                "netresearch/nr-llm": "^0.25",
+                "netresearch/t3-cowriter": "^3.5",
                 "php": "^8.3",
                 "studiomitte/solr-numbered-pagination": "dev-main",
                 "t3g/blog": "^15.0",
@@ -12933,10 +12906,10 @@
             "dist": {
                 "type": "path",
                 "url": "packages/skillspector",
-                "reference": "bc7821e4d7c2293c40e9fbdd7122637ef4bf0313"
+                "reference": "210f8207ec710d1b89e806aa9f232426ca8cd058"
             },
             "require": {
-                "netresearch/nr-llm": "^0.16.1",
+                "netresearch/nr-llm": "^0.25",
                 "php": "^8.2",
                 "symfony/process": "^7.0",
                 "symfony/yaml": "^7.0",
@@ -15707,20 +15680,12 @@
             "time": "2026-07-23T09:46:45+00:00"
         }
     ],
-    "aliases": [
-        {
-            "package": "netresearch/nr-llm",
-            "version": "0.16.1.0",
-            "alias": "0.13.99",
-            "alias_normalized": "0.13.99.0"
-        }
-    ],
+    "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
         "apache-solr-for-typo3/solr": 10,
         "hn/typo3-mcp-server": 20,
         "in2code/powermail": 20,
-        "netresearch/nr-mcp-agent": 20,
         "sgalinski/sg-apicore": 20,
         "studiomitte/friendlycaptcha": 20,
         "studiomitte/solr-numbered-pagination": 20,

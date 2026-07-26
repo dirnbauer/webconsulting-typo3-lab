@@ -28,8 +28,36 @@
 			"url": "https://github.com/dirnbauer/innesto"
 		},
 		{
-			"type": "vcs",
-			"url": "https://github.com/dirnbauer/typo3-image-workbench.git"
+			"name": "image-workbench-nr-llm-025",
+			"type": "package",
+			"package": {
+				"name": "webconsulting/image-workbench",
+				"version": "dev-main",
+				"description": "Square, FAL-safe image editing and nr-llm image generation in the TYPO3 v14 backend.",
+				"license": "GPL-2.0-or-later",
+				"type": "typo3-cms-extension",
+				"source": {
+					"type": "git",
+					"url": "https://github.com/dirnbauer/typo3-image-workbench.git",
+					"reference": "616fc0d4604199cc60672becc255722d45f90e5a"
+				},
+				"require": {
+					"php": ">=8.3 <8.5",
+					"netresearch/nr-llm": "^0.25",
+					"typo3/cms-backend": "^14.3",
+					"typo3/cms-filelist": "^14.3"
+				},
+				"autoload": {
+					"psr-4": {
+						"Webconsulting\\ImageWorkbench\\": "Classes/"
+					}
+				},
+				"extra": {
+					"typo3/cms": {
+						"extension-key": "image_workbench"
+					}
+				}
+			}
 		},
 		{
 			"type": "vcs",
@@ -240,9 +268,6 @@
 		"webconsulting/visual-editor-enhancements": "dev-main",
 		"webconsulting/webcon-easy-workspace": "^1.3.9",
 		"webconsulting/workos-auth": "^1.1"
-	},
-	"provide": {
-		"netresearch/nr-llm": "0.16.99"
 	},
 	"require-dev": {
 		"cweagans/composer-patches": "^2.0",

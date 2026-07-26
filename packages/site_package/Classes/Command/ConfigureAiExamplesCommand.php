@@ -331,13 +331,13 @@ PROMPT;
         ] as $identifier) {
             $connection->update(
                 'tx_nrllm_configuration',
-                ['model_uid' => $terraUid, 'temperature' => '1.00', 'top_p' => '1.00', 'tstamp' => time()],
+                ['model_uid' => $terraUid, 'temperature' => '1.00', 'top_p' => '1.00', 'options' => '', 'tstamp' => time()],
                 ['identifier' => $identifier, 'deleted' => 0],
             );
         }
         $connection->update(
             'tx_nrllm_configuration',
-            ['model_uid' => $lunaUid, 'temperature' => '1.00', 'top_p' => '1.00', 'tstamp' => time()],
+            ['model_uid' => $lunaUid, 'temperature' => '1.00', 'top_p' => '1.00', 'options' => '', 'tstamp' => time()],
             ['identifier' => 'solr-search-query-enhancer', 'deleted' => 0],
         );
     }
