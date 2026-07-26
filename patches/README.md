@@ -13,7 +13,6 @@ and reinstall the affected dependency instead.
 | Package | Purpose |
 | --- | --- |
 | `apache-solr-for-typo3/solr` | Normalize sparse filter arrays before enhanced-route processing. |
-| `netresearch/nr-llm` | Add the OpenAI Responses API path required for reasoning models with function tools. |
 | `typo3/cms-core` | Guard workspace move-pointer overlays when no live record exists. |
 | `webconsulting/agentation` | Respect explicit backend-user toolbar settings and the configured opt-in default. |
 

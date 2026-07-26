@@ -1,5 +1,5 @@
 {
-    "_hash": "e50d828ed910709e02d1f7a1b908a44872008794bec22316aaf6e092c042e95c",
+    "_hash": "b3a2dfc8567f6144d9d6ae0ad242b90e1893d22a2fd8377993391e3c597aafc4",
     "patches": {
         "apache-solr-for-typo3/solr": [
             {
@@ -18,29 +18,7 @@
                 "package": "netresearch/nr-llm",
                 "description": "Support OpenAI Responses API for tool calls",
                 "url": "patches/netresearch-nr-llm-openai-responses-api.patch",
-                "sha256": "5b8e3b297cf5ccbcc288ff1d2eeb9404898fc8013d5ea876355938cf8820a776",
-                "depth": 1,
-                "extra": {
-                    "provenance": "root"
-                }
-            }
-        ],
-        "netresearch/nr-vault": [
-            {
-                "package": "netresearch/nr-vault",
-                "description": "Accept array $pasteUpdate in processCmdmap_preProcess (copy/move with update payload)",
-                "url": "patches/netresearch-nr-vault-fix-cmdmap-hook-pasteupdate-type.patch",
-                "sha256": "db075dad8ec7cc378efc9458c4660d9198e0e8923c75f0561d26768ad4193460",
-                "depth": 1,
-                "extra": {
-                    "provenance": "root"
-                }
-            },
-            {
-                "package": "netresearch/nr-vault",
-                "description": "Size the Vault backend module icon correctly (viewBox padding so it matches sibling icons)",
-                "url": "patches/netresearch-nr-vault-module-icon-size.patch",
-                "sha256": "8f0638c5ab47fdc9fa564afe99c974a6711e1f18c73069fd98d399b68988e5c8",
+                "sha256": "350ad09dd743acd4bb8572057f1687b68d8d07711742e2e810eb521a95f37647",
                 "depth": 1,
                 "extra": {
                     "provenance": "root"

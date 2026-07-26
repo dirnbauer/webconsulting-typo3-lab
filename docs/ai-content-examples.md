@@ -8,13 +8,11 @@ reproducible through TYPO3 console commands:
 | `netresearch/nr-llm` | `0.25.0` |
 | `netresearch/nr-vault` | `0.12.1` |
 | `netresearch/t3-cowriter` | `3.5.0` |
-| `netresearch/nr-mcp-agent` | latest `main` |
+| `netresearch/nr-mcp-agent` | `0.7.0` |
 
-`nr-mcp-agent` still declares `nr-llm ^0.12 || ^0.13`, although its current
-API usage works with 0.25.0. The root requirement therefore installs 0.25.0
-with a temporary `0.13.99` Composer compatibility alias. Keep the alias until
-the agent package widens its upstream constraint; the project verification
-suite must continue to exercise the combination.
+`nr-mcp-agent` 0.7.0 uses nr-llm's Agent Runtime and officially requires
+`nr-llm ^0.25`, so the former Composer compatibility alias is no longer
+necessary.
 
 ## Configure models and Cowriter examples
 
