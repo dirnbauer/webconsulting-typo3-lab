@@ -4,38 +4,49 @@ All notable changes to Webconsulting TYPO3 Lab are documented in this file.
 
 ## Unreleased
 
+## v2.0.0 - 2026-08-06
+
 ### Added
 
-- Added a Desiderio WorkOS frontend plugin lab with an overview page and
-  focused Login/Registration, Account, and Team subpages.
-- Added lab-owned WorkOS Fluid overrides, a direct CType rendering bridge, and
-  semantic shadcn token CSS without modifying the upstream extension.
-- Added the idempotent `sitepackage:seed-workos-frontend` DataHandler command,
-  frontend-user storage, and a dedicated WorkOS setup/verification guide.
-- Wired the MTUG Camp Munich ticket registration Powermail form on page `934`
-  (`Ticket-Anmeldung`) to the form records stored in sysfolder `940`
-  (`Powermail Daten`), with thank-you redirects to page `941` and translated
-  form variants for English, Chinese, and Hungarian.
+- Added the external Astryx for TYPO3 showcase and its own site configuration,
+  template tree and seed command.
+- Added the official `vite-plugin-typo3` and Vite Asset Collector build,
+  together with the official `s2b/ddev-vite-sidecar` add-on.
+- Added a Playwright and axe-core regression harness for Desiderio, Powermail,
+  Blog and Astryx on desktop and mobile viewports.
+- Added shared stdio MCP configuration and setup documentation for Codex,
+  Claude Code and Cursor.
+- Added a Desiderio WorkOS frontend plugin lab with semantic shadcn token CSS
+  and idempotent demo-data seeding.
 
 ### Changed
 
-- Updated `webconsulting/desiderio` to stable `^2.13`, refreshed direct
-  integration packages, and updated the Composer lock without security
-  advisories.
-- Restricted the Composer path repository to the local site package; public
-  integrations now resolve from Packagist/VCS and CI no longer clones package
-  sources manually. The private desktop connector is no longer a required lab
-  dependency.
-- Bumped `webconsulting/site-package` to `14.3.4` and PHP `^8.3`.
-- Rewrote the root, DDEV, site configuration, and site-package documentation
-  against the current install and reduced `.ddev/config.yaml` to active
-  project settings.
-- Refreshed npm lockfiles and added CI coverage for deterministic Node installs,
-  high-severity audits, News API Studio typechecking/building, and the Flue
-  bridge.
-- Documented the MTUG ticket form page tree and ticket URL in
-  [docs/site-configuration.md](docs/site-configuration.md) and the root README
-  smoke checks.
+- Updated the lab to TYPO3 14.3.5, PHP 8.4, DDEV 1.25.3, Node.js 24 and Solr
+  10.0.0; both installed DDEV add-ons are pinned to their current releases.
+- Updated Desiderio to 4.x, Innesto to 2.x, Astryx to 1.x, Agentation to
+  1.1.5, Flue to 0.2, WorkOS Auth to 2.0 and the remaining direct Composer and
+  npm dependencies to their supported current constraints.
+- Normalized owned Composer packages, PHP namespaces and GitHub sources to
+  `webconsulting`, `Webconsulting` and `github.com/dirnbauer` respectively.
+- Split Desiderio, Astryx and lab-specific Classic Content wrappers into
+  independent template trees while retaining shadcn-inspired styling.
+- Made compiled Vite assets the reliable default and HMR an explicit local
+  opt-in, without custom manifest readers, asset ViewHelpers or server probes.
+- Updated all seed workflows to exclude video content by default while keeping
+  the explicit video-generation capability.
+- Rewrote the root README and operational documentation around the current
+  architecture, Site Sets, DDEV services, MCP clients and validation workflow.
+
+### Removed
+
+- Removed the embedded predecessor theme package and its obsolete site
+  configuration after extracting Astryx into its own versioned repository.
+- Removed the root Fluid Styled Content dependency and renamed the remaining
+  lab-owned compatibility wrappers to Classic Content.
+- Removed the local Agentation Composer patch after publishing the fix
+  upstream.
+- Removed all seeded video content elements, database file records and physical
+  video files from the lab.
 
 ## v1.3.0 - 2026-06-06
 
