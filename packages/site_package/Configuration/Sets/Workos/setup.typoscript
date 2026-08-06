@@ -20,7 +20,7 @@ plugin.tx_workosauth_team.view {
 tt_content.workosauth_login =< lib.contentElement
 tt_content.workosauth_login {
   templateName = WorkosAuthPlugin
-  templateRootPaths.300 = EXT:site_package/Resources/Private/FluidStyledContent/Templates/
+  templateRootPaths.300 = EXT:site_package/Resources/Private/ClassicContent/Templates/
   variables.pluginContent = EXTBASEPLUGIN
   variables.pluginContent {
     extensionName = WorkosAuth
@@ -31,7 +31,7 @@ tt_content.workosauth_login {
 tt_content.workosauth_account =< lib.contentElement
 tt_content.workosauth_account {
   templateName = WorkosAuthPlugin
-  templateRootPaths.300 = EXT:site_package/Resources/Private/FluidStyledContent/Templates/
+  templateRootPaths.300 = EXT:site_package/Resources/Private/ClassicContent/Templates/
   variables.pluginContent = EXTBASEPLUGIN
   variables.pluginContent {
     extensionName = WorkosAuth
@@ -42,7 +42,7 @@ tt_content.workosauth_account {
 tt_content.workosauth_team =< lib.contentElement
 tt_content.workosauth_team {
   templateName = WorkosAuthPlugin
-  templateRootPaths.300 = EXT:site_package/Resources/Private/FluidStyledContent/Templates/
+  templateRootPaths.300 = EXT:site_package/Resources/Private/ClassicContent/Templates/
   variables.pluginContent = EXTBASEPLUGIN
   variables.pluginContent {
     extensionName = WorkosAuth

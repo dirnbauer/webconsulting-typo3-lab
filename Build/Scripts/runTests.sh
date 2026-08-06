@@ -4,11 +4,12 @@ set -euo pipefail
 
 ROOT_DIR="$(cd "$(dirname "$0")/../.." && pwd)"
 SUITE="ci"
+PHP_VERSION=""
 
 while getopts "s:p:d:nx" option; do
     case "${option}" in
         s) SUITE="${OPTARG}" ;;
-        p) ;;
+        p) PHP_VERSION="${OPTARG}" ;;
         d) ;;
         n) ;;
         x) ;;
@@ -17,6 +18,14 @@ while getopts "s:p:d:nx" option; do
 done
 
 cd "${ROOT_DIR}"
+
+if [[ -n "${PHP_VERSION}" ]]; then
+    CURRENT_PHP_VERSION="$(php -r 'echo PHP_MAJOR_VERSION . "." . PHP_MINOR_VERSION;')"
+    if [[ "${CURRENT_PHP_VERSION}" != "${PHP_VERSION}" ]]; then
+        echo "Requested PHP ${PHP_VERSION}, running PHP ${CURRENT_PHP_VERSION}." >&2
+        exit 2
+    fi
+fi
 
 case "${SUITE}" in
     composerValidate)
@@ -30,13 +39,28 @@ case "${SUITE}" in
             | xargs -0 -n 1 php -l
         ;;
     yaml)
-        vendor/bin/typo3 lint:yaml config/sites packages/site_package/Configuration/Sets
+        YAML_FILE_COUNT=0
+        while IFS= read -r -d '' YAML_FILE; do
+            vendor/bin/typo3 lint:yaml --parse-tags "${YAML_FILE}" >/dev/null
+            YAML_FILE_COUNT=$((YAML_FILE_COUNT + 1))
+        done < <(find config packages -type f \( -name '*.yaml' -o -name '*.yml' \) \
+            -not -path '*/vendor/*' -not -path '*/node_modules/*' -print0)
+        echo "Validated ${YAML_FILE_COUNT} YAML files."
+        ;;
+    frontend)
+        npm run build
+        npm audit --audit-level=high
+        ;;
+    e2e)
+        npm run test:e2e
         ;;
     ci)
         "${BASH_SOURCE[0]}" -s composerValidate
         "${BASH_SOURCE[0]}" -s phpLint
         "${BASH_SOURCE[0]}" -s yaml
         "${BASH_SOURCE[0]}" -s phpstan
+        "${BASH_SOURCE[0]}" -s frontend
+        "${BASH_SOURCE[0]}" -s e2e
         ;;
     *)
         echo "Unknown suite: ${SUITE}" >&2

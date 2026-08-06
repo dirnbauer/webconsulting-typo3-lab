@@ -39,6 +39,7 @@ cp config/system/settings.php.example config/system/settings.php
 
 ddev start
 ddev composer install
+ddev npm ci
 
 # Database (from dump.sql.gz in the git repository)
 ddev import-db --file=dump.sql.gz
@@ -50,6 +51,7 @@ curl -L -o .tarballs/fileadmin.tar.gz \
 ddev import-files --source=.tarballs/fileadmin.tar.gz
 
 ddev typo3 extension:setup
+ddev vite build
 ddev typo3 sitepackage:seed-workos-frontend
 ddev typo3 cache:flush
 ddev typo3 site:list
@@ -211,4 +213,5 @@ Then export database and fileadmin as above.
 
 - [../README.md](../README.md) — DDEV prerequisites, secrets, local URLs
 - [site-configuration.md](site-configuration.md) — active site configs and troubleshooting
+- [mcp-clients.md](mcp-clients.md) — local Codex, Claude Code, and Cursor setup
 - [workos-frontend-plugins.md](workos-frontend-plugins.md) — WorkOS configuration and plugin demo

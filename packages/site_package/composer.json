@@ -4,18 +4,19 @@
     "type": "typo3-cms-extension",
     "license": "GPL-2.0-or-later",
     "require": {
-        "php": "^8.3",
+        "php": "^8.4",
         "apache-solr-for-typo3/solr": "^14.0@beta",
-        "friendsoftypo3/visual-editor": "^1.7",
+        "friendsoftypo3/visual-editor": "^1.9",
         "georgringer/news": "^14.0",
         "netresearch/nr-llm": "^0.25",
         "netresearch/t3-cowriter": "^3.5",
+        "praetorius/vite-asset-collector": "^1.18",
         "studiomitte/solr-numbered-pagination": "dev-main",
         "t3g/blog": "^15.0",
         "typo3/cms-adminpanel": "^14.3",
         "typo3/cms-core": "^14.3",
         "typo3/theme-camino": "^14.3",
-        "webconsulting/desiderio": "^3.0"
+        "webconsulting/desiderio": "^4.0"
     },
     "suggest": {
         "webconsulting/workos-auth": "Enables the optional Desiderio/shadcn WorkOS frontend plugin Site Set."

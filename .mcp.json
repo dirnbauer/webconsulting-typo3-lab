@@ -1,0 +1,17 @@
+{
+  "mcpServers": {
+    "typo3-local": {
+      "type": "stdio",
+      "command": "ddev",
+      "args": [
+        "exec",
+        "-p",
+        "webconsulting-typo3-lab",
+        "--",
+        "php",
+        "vendor/bin/typo3",
+        "mcp:server"
+      ]
+    }
+  }
+}

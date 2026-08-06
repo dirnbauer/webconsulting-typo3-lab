@@ -1,12 +1,26 @@
 {
   "name": "webconsulting-typo3-lab",
   "private": true,
+  "type": "module",
   "license": "GPL-2.0-or-later",
+  "scripts": {
+    "build": "vite build",
+    "dev": "vite",
+    "test:e2e:install": "PLAYWRIGHT_BROWSERS_PATH=${PLAYWRIGHT_BROWSERS_PATH:-var/playwright/browsers} playwright install chromium",
+    "test:e2e": "npm run test:e2e:install && PLAYWRIGHT_BROWSERS_PATH=${PLAYWRIGHT_BROWSERS_PATH:-var/playwright/browsers} playwright test",
+    "test:e2e:headed": "npm run test:e2e:install && PLAYWRIGHT_BROWSERS_PATH=${PLAYWRIGHT_BROWSERS_PATH:-var/playwright/browsers} playwright test --headed"
+  },
   "devDependencies": {
-    "shadcn": "^4.1.2"
+    "@axe-core/playwright": "^4.12.1",
+    "@playwright/test": "^1.62.1",
+    "shadcn": "^4.5.0",
+    "vite": "^8.2.1",
+    "vite-plugin-typo3": "^3.0.0"
   },
   "dependencies": {
-    "agentation-mcp": "^1.2.0",
-    "motion": "^12.38.0"
+    "agentation-mcp": "^1.2.0"
+  },
+  "allowScripts": {
+    "better-sqlite3@12.11.1": true
   }
 }

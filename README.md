@@ -1,15 +1,33 @@
 # Webconsulting TYPO3 Lab
 
-A DDEV-powered TYPO3 14.3 feature lab for Desiderio, frontend editing,
-search, content APIs, agent workflows, authentication, and extension demos.
+A DDEV-powered TYPO3 14.3 integration lab for server-rendered design systems,
+content editing, search, forms, APIs and governed agent workflows.
 
-[GitHub repository](https://github.com/dirnbauer/webconsulting-typo3-lab) ·
-[Project documentation](docs/README.md) ·
-[WorkOS frontend plugins](docs/workos-frontend-plugins.md)
+[Documentation](docs/README.md) ·
+[Site inventory](docs/site-configuration.md) ·
+[MCP clients](docs/mcp-clients.md) ·
+[GitHub](https://github.com/dirnbauer/webconsulting-typo3-lab)
+
+## Runtime
+
+| Component | Version or policy |
+|---|---|
+| TYPO3 | `14.3.x` |
+| PHP | `8.4` minimum |
+| DDEV | `>=1.25.3`, Apache FPM, Mutagen |
+| Database | MariaDB `10.11` |
+| Node.js | `24` inside DDEV |
+| Frontend | Vite `8`, official TYPO3 plugin and asset collector |
+| Search | Apache Solr `10` through `ddev/ddev-typo3-solr` |
+| Browser regression | Playwright + axe-core, desktop and mobile Chromium |
+
+The Composer platform is PHP 8.4. Run Composer, npm and Vite inside DDEV so
+native Node packages are installed for Linux rather than the host platform.
 
 ## Quick start
 
-Requirements: Docker, DDEV `>=1.25.2`, and Git.
+Requirements: Docker or OrbStack, DDEV `>=1.25.3`, Git and the two demo-data
+artifacts described in [DDEV bootstrap](docs/ddev-bootstrap.md).
 
 ```bash
 git clone https://github.com/dirnbauer/webconsulting-typo3-lab.git
@@ -18,6 +36,7 @@ cp config/system/settings.php.example config/system/settings.php
 
 ddev start
 ddev composer install
+ddev npm ci
 ddev import-db --file=dump.sql.gz
 
 mkdir -p .tarballs
@@ -26,43 +45,79 @@ curl -L -o .tarballs/fileadmin.tar.gz \
 ddev import-files --source=.tarballs/fileadmin.tar.gz
 
 ddev typo3 extension:setup
-ddev typo3 sitepackage:seed-workos-frontend
+ddev vite build
 ddev typo3 cache:flush
 ```
 
-Open `https://webconsulting-typo3-lab.ddev.site/typo3/`. The imported local
-demo account is `admin` / `Demo123*`.
+Open `https://webconsulting-typo3-lab.ddev.site/typo3/`. The imported demo
+account (`admin` / `Demo123*`) is for this local DDEV installation only.
 
-The database is versioned as `dump.sql.gz`; fileadmin is distributed separately
-because of its size. See [DDEV bootstrap](docs/ddev-bootstrap.md) for reset and
-export procedures.
+Never commit `config/system/settings.php`, `.ddev/config.local.yaml`, Vault
+keys, API tokens or generated DDEV compose files.
 
-## Runtime
+## Design-system ownership
 
-| Component | Configuration |
-|---|---|
-| TYPO3 | `^14.3` |
-| PHP | `8.3` |
-| DDEV | TYPO3 project, Apache FPM, Mutagen |
-| Database | MariaDB `10.11` |
-| Search | TYPO3 Solr DDEV add-on |
-| Local URL | `https://webconsulting-typo3-lab.ddev.site` |
+The two frontend systems share TYPO3 infrastructure but own separate template
+and asset trees:
 
-Local secrets belong in the ignored `config/system/settings.php` or DDEV
-environment variables. The committed `settings.php.example` contains only
-environment lookups and non-secret defaults.
+- [Desiderio](https://github.com/dirnbauer/desiderio) provides its shadcn/ui-
+  inspired Fluid 5 components, ClassicContent renderers, page shell and 244
+  Content Blocks.
+- [Astryx for TYPO3](https://github.com/dirnbauer/astryx-typo3) provides its own
+  Astryx page shell, Fluid components, templates, CSS and 250 Content Blocks.
+  It does not import React or StyleX into the browser.
+- [Innesto](https://github.com/dirnbauer/innesto) extends the Desiderio element
+  library under the `Webconsulting` PHP namespace.
 
-`nr-vault` secrets in a database dump are not portable by themselves. The
-Vault master key is derived from the machine-local `TYPO3_ENCRYPTION_KEY`, which
-must never be committed or copied with a public dump. A new machine should use
-a newly generated TYPO3 encryption key and enter its own Vault values. See
-[DDEV bootstrap](docs/ddev-bootstrap.md#vault-secrets-on-a-new-machine).
+Sites select one frontend tree through Site Set dependencies. Provider filters
+such as `elementLibrary.hosts: 'desiderio,innesto,core'` prevent the two
+catalogues from being mixed in an editor's element picker.
 
-## Demo sites
+`typo3/cms-fluid-styled-content` is intentionally not installed. TYPO3 Core
+owns the TCA for classic content records; Desiderio owns their rendering under
+`Resources/Private/ClassicContent`. The Blog on the Desiderio site uses
+`blog/integration`, not the standalone Blog theme that requires Fluid Styled
+Content.
 
-| Site | Path | Root page |
+## Frontend assets
+
+The project uses only the official Simon Praetorius toolchain:
+
+- `vite-plugin-typo3` discovers each extension's
+  `Configuration/ViteEntrypoints.json`;
+- `praetorius/vite-asset-collector` resolves the generated manifest;
+- `s2b/ddev-vite-sidecar` exposes the optional development server.
+
+There is no custom manifest reader, asset ViewHelper or server detector. The
+compiled manifest is the reliable default, so pages keep their CSS when no
+development process is running.
+
+```bash
+ddev npm ci
+ddev vite build
+```
+
+For HMR, add the explicit URL to the ignored `.ddev/config.local.yaml`, restart
+DDEV, and start Vite in a second terminal:
+
+```yaml
+web_environment:
+  - TYPO3_VITE_DEV_SERVER=https://vite-webconsulting-typo3-lab.ddev.site
+```
+
+```bash
+ddev restart
+ddev vite dev
+```
+
+Removing the variable returns the site to manifest mode.
+
+## Sites
+
+| Site | Local path | Root page |
 |---|---|---:|
 | Desiderio | `/` | `505` |
+| Astryx for TYPO3 | `/astryx-typo3/` | `1290` |
 | Camino | `/camino/` | `99` |
 | Blog | `/blog/` | `15` |
 | Blog Bootstrap | `/14/` | `69` |
@@ -70,102 +125,86 @@ a newly generated TYPO3 encryption key and enter its own Vault values. See
 | Desiderio corporate starter | `/desiderio-corporate-starter/` | `740` |
 | MTUG Camp Munich 2026 | `/mtug-camp-munich-2026/` | `933` |
 
-The canonical inventory, languages, Site Set dependencies, and troubleshooting
-live in [Site configuration](docs/site-configuration.md).
+The complete language and Site Set inventory lives in
+[Site configuration](docs/site-configuration.md).
 
-## WorkOS frontend plugin lab
+## Content and video policy
 
-The Desiderio site includes one overview and three focused plugin pages:
+The shipped database, Fileadmin and default element-library seeds contain no
+video content elements and no video files. Video-capable components and
+generation commands remain available only as explicit, opt-in tooling. Do not
+commit generated captures, audio, transcripts or browser recordings.
 
-| Surface | URL | CType |
-|---|---|---|
-| Overview | `/features/workos/frontend-plugins/` | navigation and explanatory content |
-| Login and registration | `/features/workos/frontend-plugins/login/` | `workosauth_login` |
-| Account center | `/features/workos/frontend-plugins/account-center/` | `workosauth_account` |
-| Team administration | `/features/workos/frontend-plugins/team-administration/` | `workosauth_team` |
+## MCP and agent clients
 
-The lab keeps `webconsulting/workos-auth` as the behavior and security owner.
-The local site package overrides only Fluid presentation and CSS. The result
-uses Desiderio's semantic shadcn token system and responds to the active
-`lagoon` preset without editing vendor files.
-
-See [WorkOS frontend plugins](docs/workos-frontend-plugins.md) for WorkOS
-dashboard redirects, environment variables, page UIDs, rendering architecture,
-expected states, and verification.
-
-## Local site package
-
-`packages/site_package` is version `14.3.4` and provides six TYPO3 Site Sets:
-
-| Site Set | Purpose |
-|---|---|
-| `webconsulting/site-package` | Base editor, Admin Panel, RTE, middleware, and MCP defaults |
-| `webconsulting/site-package-search` | Solr defaults and numbered pagination |
-| `webconsulting/site-package-blog` | Desiderio standalone Blog rendering |
-| `webconsulting/site-package-blog-bootstrap` | Bootstrap Blog demo rendering |
-| `webconsulting/site-package-camino` | Camino demo rendering |
-| `webconsulting/site-package-workos` | Lab-only WorkOS Fluid overrides, plugin bridge, and CSS |
-
-Desiderio corporate sites use the page templates supplied by Desiderio's
-shadcn Site Set. Per-site style, icon, and preset values remain in
-`config/sites/*/settings.yaml`.
-
-## Dependency policy
-
-Composer resolves the lab-owned `site_package` from its local path repository.
-Other public integrations resolve from Packagist or their declared VCS
-repositories, so a clean checkout no longer depends on sibling directories or
-CI-time repository cloning. The private desktop connector is not a required lab
-dependency and may be installed locally when its repository credentials are
-available.
-
-After dependency changes, run:
-
-```bash
-ddev composer update <package> --with-all-dependencies
-ddev typo3 extension:setup
-ddev typo3 cache:flush
-Build/Scripts/runTests.sh -s ci
-```
+The local MCP server uses stdio and therefore needs no dedicated network port.
+The committed `.mcp.json` starts it through the named DDEV project, so commands
+also work when a client was opened from another directory. Codex, Claude Code
+and Cursor setup and health checks are documented in
+[MCP clients](docs/mcp-clients.md).
 
 ## Verification
+
+The canonical test entrypoint supports suites through `-s` and validates a
+requested PHP minor through `-p`:
+
+```bash
+ddev exec Build/Scripts/runTests.sh -s ci -p 8.4
+```
+
+Individual checks:
 
 ```bash
 ddev composer validate --strict --no-check-publish
 ddev composer audit
-Build/Scripts/runTests.sh -s ci
+ddev exec Build/Scripts/runTests.sh -s phpstan -p 8.4
+ddev exec Build/Scripts/runTests.sh -s frontend
+ddev exec Build/Scripts/runTests.sh -s e2e
 ddev typo3 lint:yaml config/sites packages/site_package/Configuration/Sets
 ddev typo3 site:list
-ddev typo3 sitepackage:seed-workos-frontend
-ddev typo3 cache:flush
+ddev solrctl list
 ```
 
-Frontend smoke test:
+The Playwright suite checks Records List, Powermail, Blog and Astryx at desktop
+and mobile widths. It rejects missing or 4xx/5xx stylesheets, accidental Vite
+development URLs, missing/multiple H1 elements, horizontal overflow, video
+markup, console failures and serious or critical WCAG violations.
+
+## Maintenance
+
+After dependency changes:
 
 ```bash
-for url in / /camino/ /blog/ /14/ /typo3-blog/ \
-  /desiderio-corporate-starter/ /mtug-camp-munich-2026/ \
-  /features/workos/frontend-plugins/ \
-  /features/workos/frontend-plugins/login/ \
-  /features/workos/frontend-plugins/account-center/ \
-  /features/workos/frontend-plugins/team-administration/; do
-  ddev exec curl -k -s -o /dev/null -w "$url %{http_code}\\n" \
-    "https://webconsulting-typo3-lab.ddev.site$url"
-done
+ddev composer update <package> --with-all-dependencies
+ddev npm install
+ddev typo3 extension:setup
+ddev vite build
+ddev typo3 cache:flush
+ddev exec Build/Scripts/runTests.sh -s ci -p 8.4
 ```
+
+Do not use `git clean -fdX` in this project: ignored paths include local DDEV
+configuration and database snapshots. Inspect cleanup candidates first and
+remove only reproducible caches or generated outputs.
 
 ## Documentation
 
-- [Project documentation index](docs/README.md)
-- [WorkOS frontend plugins](docs/workos-frontend-plugins.md)
+- [Documentation index](docs/README.md)
+- [DDEV bootstrap and backups](docs/ddev-bootstrap.md)
 - [Site configuration](docs/site-configuration.md)
-- [DDEV bootstrap and snapshots](docs/ddev-bootstrap.md)
-- [Site package README](packages/site_package/README.md)
-- [News API Studio](apps/news-api-studio/README.md)
-- [Composer patches](patches/README.md)
+- [MCP clients](docs/mcp-clients.md)
+- [WorkOS frontend plugins](docs/workos-frontend-plugins.md)
+- [Site-package internals](packages/site_package/README.md)
 
-## Credits
+## Credits and licences
 
-The lab started from Kanti's Visual Editor DDEV demo and builds on TYPO3,
-Desiderio, Visual Editor, Solr, News, Blog, Powermail, WorkOS Auth, the
-Netresearch integrations, and the other packages pinned in `composer.lock`.
+Thank you to the TYPO3 community; Simon Praetorius and the Vite integration
+contributors; the DDEV and TYPO3-Solr teams; the Content Blocks, Visual Editor,
+News, Blog and Powermail maintainers; Netresearch; and every extension author
+represented in `composer.lock`.
+
+Special thanks go to the Astryx team, Meta Open Source, the Facebook design-
+systems community and all Astryx contributors. The pinned upstream Astryx
+release is MIT-licensed, copyright 2026 Meta Platforms, Inc.; the exact licence
+text and pinned source commit are retained in
+[Astryx for TYPO3's third-party notice](https://github.com/dirnbauer/astryx-typo3/blob/main/THIRD_PARTY_NOTICES.md).

@@ -1,5 +1,5 @@
 {
-    "_hash": "42595c334d8977f2ffb434d846dce8f457f5b31720bb05d6f2edf8379b5296bb",
+    "_hash": "fe6af6181bd43fc8442e8884e03f12218f58778cec75a81a9497a7233a3704e1",
     "patches": {
         "apache-solr-for-typo3/solr": [
             {
@@ -19,18 +19,6 @@
                 "description": "Guard workspace move-pointer overlay when the live record is missing",
                 "url": "patches/typo3-cms-core-fix-workspace-move-pointer-missing-live-record.patch",
                 "sha256": "3e68ab3ee23f72eb894d0f55025a728bd2813275709d3a9a132145beed4feea3",
-                "depth": 1,
-                "extra": {
-                    "provenance": "root"
-                }
-            }
-        ],
-        "webconsulting/agentation": [
-            {
-                "package": "webconsulting/agentation",
-                "description": "Respect backend user setup default and explicit toolbar toggle",
-                "url": "patches/webconsulting-agentation-respect-user-setup-toggle.patch",
-                "sha256": "ca8532a9ad4e3c147fd7eedbac7cad43794c1b28bf5d02ab58d830ca4f2ba8e4",
                 "depth": 1,
                 "extra": {
                     "provenance": "root"

@@ -23,6 +23,7 @@ sync:
         - "/public/fileadmin"
         - "/public/typo3temp"
         - "/var"
+        - "/node_modules"
         - "/packages/flue-bridge/node_modules"
         - "/vendor/webconsulting/docx-editor/node_modules"
         # The desktop apps are separate projects that happen to live in this
@@ -36,6 +37,14 @@ sync:
         - "/apps/*/dist"
         - "/apps/*/.next"
         - "/apps/*/out"
+        - "/apps/news-api-studio/node_modules"
+        - "/apps/news-api-studio/dist"
+        - "/apps/news-api-studio/.next"
+        - "/apps/news-api-studio/out"
+        - "/apps/news-native-studio/node_modules"
+        - "/apps/news-native-studio/dist"
+        - "/apps/news-native-studio/.next"
+        - "/apps/news-native-studio/out"
         # vcs like .git can be ignored for safety, but then some
         # composer operations may fail if they use dev versions/git.
         # vcs: true

@@ -1,0 +1,16 @@
+# Playwright's Chromium runtime for the regression harness. Browser binaries
+# remain in the DDEV user cache; these shared libraries make every rebuilt web
+# container capable of executing them.
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends \
+        libasound2t64 \
+        libatk-bridge2.0-0t64 \
+        libatk1.0-0t64 \
+        libatspi2.0-0t64 \
+        libgbm1 \
+        libxcomposite1 \
+        libxdamage1 \
+        libxfixes3 \
+        libxkbcommon0 \
+        libxrandr2 \
+    && rm -rf /var/lib/apt/lists/*

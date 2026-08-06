@@ -81,7 +81,7 @@ adds presentation in `webconsulting/site-package-workos`:
 |---|---|
 | `Configuration/Sets/Workos/config.yaml` | Hidden lab Site Set and dependencies |
 | `Configuration/Sets/Workos/setup.typoscript` | WorkOS template paths, direct CType-to-Extbase bridge, CSS include |
-| `Resources/Private/FluidStyledContent/Templates/WorkosAuthPlugin.fluid.html` | Desiderio content-element wrapper |
+| `Resources/Private/ClassicContent/Templates/WorkosAuthPlugin.fluid.html` | Desiderio content-element wrapper |
 | `Resources/Private/Extensions/WorkosAuth/Templates/` | Lab-owned Login, Account, and Team templates |
 | `Resources/Private/Extensions/WorkosAuth/Partials/` | Social sign-in partial |
 | `Resources/Public/Css/workos-shadcn.css` | Semantic component styling |

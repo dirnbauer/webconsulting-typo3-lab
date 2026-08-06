@@ -1,7 +1,7 @@
 name: webconsulting-typo3-lab
 type: typo3
 docroot: public
-php_version: "8.3"
+php_version: "8.4"
 webserver_type: apache-fpm
 xdebug_enabled: false
 performance_mode: mutagen
@@ -10,16 +10,19 @@ database:
   version: "10.11"
 upload_dirs:
   - fileadmin
+  - ../node_modules
   - ../packages/flue-bridge/node_modules
   - ../vendor/webconsulting/docx-editor/node_modules
 use_dns_when_possible: true
 share_default_provider: cloudflared
 composer_version: "2"
-ddev_version_constraint: ">= v1.25.2"
+nodejs_version: "24"
+ddev_version_constraint: ">= v1.25.3"
 web_environment:
-  - TYPO3_CONTEXT=Development
+  - TYPO3_CONTEXT=Development/DDEV
+  - PLAYWRIGHT_BROWSERS_PATH=/mnt/ddev-global-cache/playwright
 corepack_enable: false
 
 hooks:
   post-start:
-    - exec-host: ddev solrctl apply --no-start
+    - exec-host: ddev solrctl apply

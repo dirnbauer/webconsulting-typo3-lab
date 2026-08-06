@@ -4,9 +4,9 @@ dependencies:
   - studiomitte/friendlycaptcha
   - webconsulting/desiderio-powermail
   - webconsulting/desiderio-content-elements
-  - webconsulting/desiderio-blog-standalone
+  - webconsulting/desiderio-blog
   - webconsulting/desiderio-preset-corporate
-  - dirnbauer/innesto
+  - webconsulting/innesto
   - webconsulting/site-package-agentstack
   - webconsulting/site-package-workos
 errorHandling:

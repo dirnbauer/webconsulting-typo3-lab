@@ -8,6 +8,21 @@ use Webconsulting\SitePackage\Bootstrap\McpTableConfiguration;
 
 McpTableConfiguration::register();
 
+// Keep the compiled Vite manifest as the reliable default. The official
+// Vite Asset Collector otherwise enables its development server
+// automatically for every DDEV request, even when no Vite process is
+// running. Developers can opt into HMR explicitly by providing the URL, for
+// example TYPO3_VITE_DEV_SERVER=https://vite-webconsulting-typo3-lab.ddev.site.
+// This follows the extension's documented configuration and deliberately
+// contains no custom manifest reader or server detection.
+$viteDevServerUri = trim((string)getenv('TYPO3_VITE_DEV_SERVER'));
+$GLOBALS['TYPO3_CONF_VARS']['EXTENSIONS']['vite_asset_collector']['useDevServer']
+    = $viteDevServerUri !== '';
+if ($viteDevServerUri !== '') {
+    $GLOBALS['TYPO3_CONF_VARS']['EXTENSIONS']['vite_asset_collector']['devServerUri']
+        = $viteDevServerUri;
+}
+
 // Enrich Desiderio's field-specific RTE preset with the Cowriter plugin.
 // Desiderio Content Blocks explicitly select `richtextConfiguration:
 // desiderio`, so `RTE.default.preset = cowriter` alone only reaches generic

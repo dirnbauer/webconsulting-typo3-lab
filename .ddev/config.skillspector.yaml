@@ -4,7 +4,7 @@
 # skill with `skillspector scan --format json --no-llm`.
 #
 # The tool is installed via pipx into the persistent ddev-global-cache volume,
-# so container restarts only re-link the binary instead of re-downloading;
+# so container restarts only link the binary into the user's writable bin;
 # the first start after this file is added takes a minute longer.
 webimage_extra_packages: [pipx]
 hooks:
@@ -15,5 +15,6 @@ hooks:
         test -x "$PIPX_BIN_DIR/skillspector"
         || pipx install 'git+https://github.com/NVIDIA/skillspector.git'
         || true;
-        sudo ln -sf "$PIPX_BIN_DIR/skillspector" /usr/local/bin/skillspector
+        install -d "$HOME/.local/bin";
+        ln -sf "$PIPX_BIN_DIR/skillspector" "$HOME/.local/bin/skillspector"
         || true

@@ -1,0 +1,19 @@
+astryx.theme.default: neutral
+astryx.theme.colorScheme: system
+astryx.theme.schemeToggle: true
+astryx.brand.wordmark: 'Astryx'
+astryx.brand.tagline: 'Meta''s open design system, server-rendered for TYPO3 — 250 content elements, twenty-five themes, no JavaScript component framework.'
+astryx.header.breadcrumb: true
+astryx.footer.legalPageIds: '1292,1293,1294'
+astryx.footer.copyrightText: 'Astryx for TYPO3 — a webconsulting lab site'
+
+# The loupe in the header submits to page 1308, which carries the Solr plugin.
+astryx.search.enabled: true
+astryx.search.targetPageId: '1308'
+
+# This site offers Astryx and TYPO3 core elements in the element picker.
+elementLibrary.hosts: 'astryx_typo3,core'
+
+# Seeded without video by default. Pass --include-video explicitly when a
+# generated video demo is wanted again.
+elementLibrary.storagePid: 1306

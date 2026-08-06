@@ -2,7 +2,7 @@
 
 Local TYPO3 14.3 provider extension for shared lab Site Sets, editor defaults,
 Desiderio integration, Solr defaults, Admin Panel defaults, and Visual Editor
-Cowriter integration. Package version: `14.3.4`; PHP requirement: `^8.3`.
+Cowriter integration. Package version: `14.3.4`; PHP requirement: `^8.4`.
 
 ## Site Sets
 
@@ -34,6 +34,11 @@ to `config/sites/desiderio/config.yaml`.
 | `Classes/Middleware/CowriterPreloadMiddleware.php` | Visual Editor Cowriter module preload |
 | `Classes/Bootstrap/McpTableConfiguration.php` | `tt_address` MCP table metadata |
 
+`ext_localconf.php` also configures the official Vite Asset Collector. Compiled
+manifest assets are the default; setting `TYPO3_VITE_DEV_SERVER` explicitly
+enables HMR. The package contains no manifest reader, dev-server detector or
+asset ViewHelper.
+
 WorkOS controllers, authentication, request tokens, routing, API calls, and
 provisioning remain in `webconsulting/workos-auth`. The lab package changes
 presentation only and never edits vendor files.
@@ -54,6 +59,8 @@ elements through TYPO3 DataHandler. Full details are in
 ```bash
 ddev composer validate --strict --no-check-publish
 Build/Scripts/runTests.sh -s ci
+ddev vite build
+ddev npm run test:e2e
 ddev typo3 lint:yaml config/sites packages/site_package/Configuration/Sets
 ddev typo3 sitepackage:seed-workos-frontend
 ddev typo3 cache:flush

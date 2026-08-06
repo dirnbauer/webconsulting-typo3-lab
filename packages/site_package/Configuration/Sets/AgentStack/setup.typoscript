@@ -1,9 +1,9 @@
 # Render the Agent Nexus frontend plugins (A2UI / AG-UI / A2A / UCP / AP2)
 # through the site's content-element wrapper (lib.contentElement), so each one
 # appears framed + styled like every other content element. The plugin's own
-# output is the cObj "20" (EXTBASEPLUGIN); the generic AgentStackPlugin FSC
+# output is the cObj "20" (EXTBASEPLUGIN); the generic AgentStackPlugin classic
 # template renders the element header + that plugin output.
-lib.contentElement.templateRootPaths.250 = EXT:site_package/Resources/Private/FluidStyledContent/Templates/
+lib.contentElement.templateRootPaths.250 = EXT:site_package/Resources/Private/ClassicContent/Templates/
 
 tt_content.agentnexus_inquiry =< lib.contentElement
 tt_content.agentnexus_inquiry {
