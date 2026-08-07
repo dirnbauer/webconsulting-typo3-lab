@@ -54,12 +54,15 @@ case "${SUITE}" in
     e2e)
         npm run test:e2e
         ;;
-    ci)
+    quality)
         "${BASH_SOURCE[0]}" -s composerValidate
         "${BASH_SOURCE[0]}" -s phpLint
         "${BASH_SOURCE[0]}" -s yaml
         "${BASH_SOURCE[0]}" -s phpstan
         "${BASH_SOURCE[0]}" -s frontend
+        ;;
+    ci)
+        "${BASH_SOURCE[0]}" -s quality
         "${BASH_SOURCE[0]}" -s e2e
         ;;
     *)
