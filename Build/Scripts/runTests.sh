@@ -52,6 +52,10 @@ case "${SUITE}" in
         npm audit --audit-level=high
         ;;
     e2e)
+        # Vite emits content-hashed filenames. Cached frontend pages may still
+        # reference the previous manifest after a rebuild, so exercise the
+        # freshly built assets rather than stale page-cache markup.
+        vendor/bin/typo3 cache:flush
         npm run test:e2e
         ;;
     quality)

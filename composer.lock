@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f504c5d7592b8536c27ce105438ce926",
+    "content-hash": "692f46b9ba0691a9bfbe40725f7da30e",
     "packages": [
         {
             "name": "apache-solr-for-typo3/solr",
@@ -10321,6 +10321,75 @@
             "time": "2026-07-14T12:26:05+00:00"
         },
         {
+            "name": "typo3/cms-fluid-styled-content",
+            "version": "v14.3.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/TYPO3-CMS/fluid_styled_content.git",
+                "reference": "4fa54be5e51328f7e908d5a79649824a5da2f56e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/TYPO3-CMS/fluid_styled_content/zipball/4fa54be5e51328f7e908d5a79649824a5da2f56e",
+                "reference": "4fa54be5e51328f7e908d5a79649824a5da2f56e",
+                "shasum": ""
+            },
+            "require": {
+                "typo3/cms-core": "14.3.5",
+                "typo3/cms-fluid": "14.3.5",
+                "typo3/cms-frontend": "14.3.5"
+            },
+            "conflict": {
+                "typo3/cms": "*"
+            },
+            "type": "typo3-cms-framework",
+            "extra": {
+                "typo3/cms": {
+                    "Package": {
+                        "partOfFactoryDefault": true
+                    },
+                    "extension-key": "fluid_styled_content"
+                },
+                "branch-alias": {
+                    "dev-main": "14.3.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "TYPO3\\CMS\\FluidStyledContent\\": "Classes/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "TYPO3 Core Team",
+                    "email": "typo3cms@typo3.org",
+                    "role": "Developer"
+                }
+            ],
+            "description": "TYPO3 CMS Fluid Styled Content - Fluid templates for TYPO3 content elements.",
+            "homepage": "https://typo3.community/",
+            "support": {
+                "chat": "https://typo3.community/meet/slack/",
+                "docs": "https://docs.typo3.org/c/typo3/cms-fluid-styled-content/main/en-us/",
+                "forum": "https://talk.typo3.org/",
+                "issues": "https://forge.typo3.org/issues/",
+                "rss": "https://news.typo3.com/rss/",
+                "security": "https://typo3.org/security/",
+                "source": "https://github.com/TYPO3/typo3/"
+            },
+            "funding": [
+                {
+                    "url": "https://typo3.org/membership",
+                    "type": "membership"
+                }
+            ],
+            "time": "2026-07-14T12:26:05+00:00"
+        },
+        {
             "name": "typo3/cms-form",
             "version": "v14.3.5",
             "source": {
@@ -12112,16 +12181,16 @@
         },
         {
             "name": "webconsulting/desiderio",
-            "version": "v4.0.3",
+            "version": "v4.0.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/desiderio.git",
-                "reference": "fb152306a55d9bfb21df1af579b71a4bbee45525"
+                "reference": "9cb5d8363fcdb00663e096c49299f00ca7aed83a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/desiderio/zipball/fb152306a55d9bfb21df1af579b71a4bbee45525",
-                "reference": "fb152306a55d9bfb21df1af579b71a4bbee45525",
+                "url": "https://api.github.com/repos/dirnbauer/desiderio/zipball/9cb5d8363fcdb00663e096c49299f00ca7aed83a",
+                "reference": "9cb5d8363fcdb00663e096c49299f00ca7aed83a",
                 "shasum": ""
             },
             "require": {
@@ -12161,7 +12230,7 @@
             "extra": {
                 "typo3/cms": {
                     "extension-key": "desiderio",
-                    "version": "4.0.3",
+                    "version": "4.0.5",
                     "Package": {
                         "providesPackages": []
                     }
@@ -12197,7 +12266,7 @@
                 }
             ],
             "description": "Desiderio — shadcn/ui-inspired Fluid 5 component library, 244 Desiderio Content Blocks, and theme layer for TYPO3 14",
-            "time": "2026-08-06T21:32:52+00:00"
+            "time": "2026-08-07T07:02:48+00:00"
         },
         {
             "name": "webconsulting/docx-editor",
@@ -12589,7 +12658,7 @@
             "dist": {
                 "type": "path",
                 "url": "packages/site_package",
-                "reference": "5212f893b5b1ee8bd0328e2c278d0cf40468d187"
+                "reference": "0b3b6b66665477ef7cba7b7aa00ac5a10dca9474"
             },
             "require": {
                 "apache-solr-for-typo3/solr": "^14.0@beta",
@@ -12603,6 +12672,7 @@
                 "t3g/blog": "^15.0",
                 "typo3/cms-adminpanel": "^14.3",
                 "typo3/cms-core": "^14.3",
+                "typo3/cms-fluid-styled-content": "^14.3",
                 "typo3/theme-camino": "^14.3",
                 "webconsulting/desiderio": "^4.0"
             },
@@ -13217,16 +13287,16 @@
         },
         {
             "name": "webconsulting/webcon-easy-workspace",
-            "version": "v14.0.2",
+            "version": "v1.3.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/typo3-webcon-easy-workspace.git",
-                "reference": "ffe1851d39fb2c7c7f6afc02ec6c79e06d4fcc6d"
+                "reference": "2f42eda52d83dcd0f1145aa99f0815bf47546cf9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/typo3-webcon-easy-workspace/zipball/ffe1851d39fb2c7c7f6afc02ec6c79e06d4fcc6d",
-                "reference": "ffe1851d39fb2c7c7f6afc02ec6c79e06d4fcc6d",
+                "url": "https://api.github.com/repos/dirnbauer/typo3-webcon-easy-workspace/zipball/2f42eda52d83dcd0f1145aa99f0815bf47546cf9",
+                "reference": "2f42eda52d83dcd0f1145aa99f0815bf47546cf9",
                 "shasum": ""
             },
             "require": {
@@ -13251,7 +13321,7 @@
             "extra": {
                 "typo3/cms": {
                     "extension-key": "webcon_easy_workspace",
-                    "version": "1.3.2",
+                    "version": "1.3.9",
                     "Package": {
                         "providesPackages": []
                     }
@@ -13310,7 +13380,7 @@
                 "issues": "https://github.com/dirnbauer/typo3-webcon-easy-workspace/issues",
                 "source": "https://github.com/dirnbauer/typo3-webcon-easy-workspace"
             },
-            "time": "2026-06-27T12:44:36+00:00"
+            "time": "2026-06-29T19:10:46+00:00"
         },
         {
             "name": "webconsulting/workos-auth",

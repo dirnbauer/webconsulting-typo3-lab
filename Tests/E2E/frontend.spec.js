@@ -10,10 +10,12 @@ const pages = [
   {
     name: "Powermail support",
     path: "/desiderio-powermail/support/",
+    modernHeading: true,
   },
   {
     name: "blog",
     path: "/features/blog",
+    modernHeading: true,
   },
   {
     name: "Astryx",
@@ -67,6 +69,9 @@ for (const target of pages) {
     }
 
     if (target.modernHeading) {
+      await expect(heading).toHaveAttribute("data-slot", "typography");
+      await expect(heading).toHaveAttribute("data-variant", "h1");
+
       const headingStyle = await heading.evaluate((element) => {
         const style = getComputedStyle(element);
         return {
