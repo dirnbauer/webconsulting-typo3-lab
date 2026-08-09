@@ -25,6 +25,18 @@
         "--user",
         "admin"
       ]
+    },
+    "typo3-local": {
+      "command": "ddev",
+      "args": [
+        "exec",
+        "-p",
+        "webconsulting-typo3-lab",
+        "--",
+        "php",
+        "vendor/bin/typo3",
+        "mcp:server"
+      ]
     }
   }
 }
