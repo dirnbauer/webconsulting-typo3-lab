@@ -26,3 +26,8 @@ corepack_enable: false
 hooks:
   post-start:
     - exec-host: ddev solrctl apply
+    - exec: >-
+        mkdir -p var/log var/lock;
+        nohup flock -n var/lock/desiderio-library-warm.lock
+        vendor/bin/typo3 desiderio:library:warm
+        > var/log/desiderio-library-warm.log 2>&1 </dev/null &
