@@ -107,7 +107,7 @@ push_to_coolify() {
     echo "Exporting DDEV database..."
     ddev export-db --file="${SYNC_WORK_DIR}/database.sql.gz"
     echo "Archiving DDEV fileadmin..."
-    tar -czf "${SYNC_WORK_DIR}/fileadmin.tar.gz" -C public fileadmin
+    COPYFILE_DISABLE=1 tar --no-xattrs -czf "${SYNC_WORK_DIR}/fileadmin.tar.gz" -C public fileadmin
     ddev exec php -r 'echo (require "/var/www/html/config/system/settings.php")["SYS"]["encryptionKey"];' \
         > "${SYNC_WORK_DIR}/encryption-key"
     chmod 0600 "${SYNC_WORK_DIR}/encryption-key"
@@ -164,7 +164,7 @@ pull_from_coolify() {
 
     mkdir -p "${local_backup_dir}"
     ddev snapshot --name="pre-coolify-pull-${timestamp}"
-    tar -czf "${local_backup_dir}/fileadmin.tar.gz" -C public fileadmin
+    COPYFILE_DISABLE=1 tar --no-xattrs -czf "${local_backup_dir}/fileadmin.tar.gz" -C public fileadmin
 
     ssh "${SSH_OPTIONS[@]}" "${REMOTE_HOST}" \
         "docker exec '${database_container}' sh -c 'MYSQL_PWD=\"\$MARIADB_PASSWORD\" exec mariadb-dump --single-transaction --quick --skip-lock-tables -u\"\$MARIADB_USER\" \"\$MARIADB_DATABASE\"' | gzip -1" \
