@@ -87,9 +87,7 @@ status() {
     echo
     echo "Remote Coolify containers:"
     ssh "${SSH_OPTIONS[@]}" "${REMOTE_HOST}" \
-        docker ps \
-        --filter "label=${STACK_LABEL}" \
-        --format 'table {{.Names}}\t{{.Status}}\t{{.Image}}'
+        "docker ps --filter 'label=${STACK_LABEL}' --format 'table {{.Names}}\t{{.Status}}\t{{.Image}}'"
 }
 
 push_to_coolify() {

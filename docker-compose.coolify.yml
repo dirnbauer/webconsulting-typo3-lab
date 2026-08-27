@@ -37,6 +37,9 @@ services:
       - --character-set-server=utf8mb4
       - --collation-server=utf8mb4_unicode_ci
       - --innodb-file-per-table=1
+      # The Content Blocks lab intentionally has a very wide tt_content table.
+      # Match the DDEV setting so a complete dump can be restored.
+      - --innodb-strict-mode=OFF
     environment:
       MARIADB_DATABASE: typo3
       MARIADB_PASSWORD: ${SERVICE_PASSWORD_DB}
