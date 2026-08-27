@@ -1,4 +1,8 @@
 base: 'https://webconsulting-typo3-lab.ddev.site/mtug-camp-munich-2026/'
+baseVariants:
+  -
+    base: 'https://typo3-lab.webconsulting.at/mtug-camp-munich-2026/'
+    condition: 'applicationContext == "Production"'
 dependencies:
   - webconsulting/site-package-search
   - studiomitte/friendlycaptcha

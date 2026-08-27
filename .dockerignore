@@ -1,0 +1,32 @@
+.git
+.DS_Store
+**/.git
+**/.DS_Store
+.github
+.ddev
+.idea
+.cursor
+.firecrawl
+.tarballs
+apps
+backup-*
+node_modules
+**/node_modules
+vendor
+**/vendor
+var
+public/_assets
+public/fileadmin
+config/system/additional.php
+config/system/settings.php
+*.sql
+*.sql.gz
+npm-debug.log*
+
+# Local checkouts of separately versioned extensions. Production installs the
+# locked Git revisions through Composer instead of copying these worktrees.
+packages/abilities
+packages/agent_nexus
+packages/llms_txt
+packages/skillflow
+packages/visual_editor_enhancements

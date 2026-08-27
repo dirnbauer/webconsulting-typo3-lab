@@ -1,4 +1,8 @@
 base: 'https://webconsulting-typo3-lab.ddev.site/astryx-typo3/'
+baseVariants:
+  -
+    base: 'https://typo3-lab.webconsulting.at/astryx-typo3/'
+    condition: 'applicationContext == "Production"'
 rootPageId: 1290
 websiteTitle: 'Astryx'
 dependencies:

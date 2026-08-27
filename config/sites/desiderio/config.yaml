@@ -1,4 +1,8 @@
 base: 'https://webconsulting-typo3-lab.ddev.site/'
+baseVariants:
+  -
+    base: 'https://typo3-lab.webconsulting.at/'
+    condition: 'applicationContext == "Production"'
 dependencies:
   - webconsulting/solr-defaults
   - studiomitte/friendlycaptcha

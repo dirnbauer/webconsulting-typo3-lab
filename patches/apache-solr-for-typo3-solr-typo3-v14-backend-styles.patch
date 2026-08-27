@@ -1,0 +1,188 @@
+diff --git a/Resources/Public/Css/Backend/indexingconfigurationselectorfield.css b/Resources/Public/Css/Backend/indexingconfigurationselectorfield.css
+index d50fadec..1bdf70e1 100644
+--- a/Resources/Public/Css/Backend/indexingconfigurationselectorfield.css
++++ b/Resources/Public/Css/Backend/indexingconfigurationselectorfield.css
+@@ -1,22 +1,27 @@
+-
+ table.tx_solr-TCEforms {
+-	background: none;
++    background: none;
+ }
+
+ table.tx_solr-TCEforms a {
+-	display: none;
++    display: none;
+ }
+
+ table.tx_solr-TCEforms table.typo3-TCEforms-select-checkbox tbody {
+-	display: table-row-group;
++    display: table-row-group;
++}
++
++table.tx_solr-TCEforms table.typo3-TCEforms-select-checkbox td.c-labelCell {
++    color: var(--typo3-text-color-base);
++    font-size: var(--typo3-font-size);
++    line-height: var(--typo3-line-height);
+ }
+
+
+ /* scheduler layout fixes */
+ .tx_scheduler_mod1 .extra_fields_tx_solr_scheduler_ReIndexTask table.typo3-TCEforms {
+-	width: auto;
++    width: auto;
+ }
+
+ .tx_scheduler_mod1 .extra_fields_tx_solr_scheduler_ReIndexTask .tx_solr-TCEforms td {
+-	padding-left: 0;
+-}
+\ No newline at end of file
++    padding-left: 0;
++}
+diff --git a/Resources/Public/Css/ModAdmin/index.css b/Resources/Public/Css/ModAdmin/index.css
+index 39a6e4b7..980c672e 100644
+--- a/Resources/Public/Css/ModAdmin/index.css
++++ b/Resources/Public/Css/ModAdmin/index.css
+@@ -1,34 +1,34 @@
+-
+ .docheader-funcmenu select {
+-	max-width: 500px;
++    font-size: var(--typo3-font-size);
++    max-width: 500px;
+ }
+
+ .tx_solr_mod-admin h3 {
+-	margin-bottom: 30px;
++    color: var(--typo3-text-color-base);
++    margin-bottom: calc(var(--typo3-spacing) * 1.5);
+ }
+
+ .tx_solr_mod-admin fieldset {
+-	padding: 10px;
+-	margin-top: 10px;
+-
+-	border: none;
+-	border-top: 2px solid #aaa;
++    border: none;
++    border-top: 2px solid var(--typo3-component-border-color);
++    margin-top: calc(var(--typo3-spacing) * .5);
++    padding: calc(var(--typo3-spacing) * .5);
+ }
+
+ .tx_solr_mod-admin legend {
+-	position: relative;
+-	bottom: 2px;
+-	padding: 0 10px;
+-
+-	font-size: 12px;
+-	color: #555;
++    bottom: 2px;
++    color: var(--typo3-text-color-variant);
++    font-size: var(--typo3-font-size);
++    line-height: var(--typo3-line-height);
++    padding: 0 calc(var(--typo3-spacing) * .5);
++    position: relative;
+ }
+
+ .tx_solr_mod-admin hr {
+-	border: none;
+-	border-bottom: 1px solid #cdcdcd;
++    border: none;
++    border-bottom: var(--typo3-component-border-width) solid var(--typo3-component-border-color);
+ }
+
+ .tx_solr_mod-admin hr.double {
+-	border-width: 2px;
+-}
+\ No newline at end of file
++    border-width: 2px;
++}
+diff --git a/Resources/Public/Css/Report/index.css b/Resources/Public/Css/Report/index.css
+index 398ccd0f..94111b83 100644
+--- a/Resources/Public/Css/Report/index.css
++++ b/Resources/Public/Css/Report/index.css
+@@ -1,29 +1,29 @@
+ #typo3-inner-docbody p {
+-	margin: 7px 0;
++    color: var(--typo3-text-color-base);
++    font-size: var(--typo3-font-size);
++    line-height: var(--typo3-line-height);
++    margin: calc(var(--typo3-spacing) * .4) 0;
+ }
+
+ table.tx_solr_index_list {
+-	width: 100%;
++    width: 100%;
+ }
+
+ .tx_solr_index_list td {
+-	padding: 2px 4px;
+-	vertical-align: middle;
+-	height: 20px;
+-	font-size: 11px;
+-	border-bottom: 1px solid #dee0e1;
+-}
+-
+-.tx_solr_index_list .bgColor2 td {
+-	text-align: left;
+-	font-weight: bold;
+-	color: #fff;
++    border-bottom: var(--typo3-component-border-width) solid var(--typo3-component-border-color);
++    color: var(--typo3-text-color-base);
++    font-size: var(--typo3-font-size);
++    height: auto;
++    line-height: var(--typo3-line-height);
++    padding: calc(var(--typo3-spacing) * .5) calc(var(--typo3-spacing) * .75);
++    vertical-align: middle;
+ }
+
+ #tx-solr-connection {
+-	float: right;
++    float: right;
+ }
+
+ #tx-solr-connection select {
+-	max-width: 300px;
++    font-size: var(--typo3-font-size);
++    max-width: 300px;
+ }
+diff --git a/Resources/Public/StyleSheets/Backend/IndexingConfigurationSelectorField.css b/Resources/Public/StyleSheets/Backend/IndexingConfigurationSelectorField.css
+index 71f08594..1bdf70e1 100644
+--- a/Resources/Public/StyleSheets/Backend/IndexingConfigurationSelectorField.css
++++ b/Resources/Public/StyleSheets/Backend/IndexingConfigurationSelectorField.css
+@@ -1,26 +1,27 @@
+-
+ table.tx_solr-TCEforms {
+-	background: none;
++    background: none;
+ }
+
+ table.tx_solr-TCEforms a {
+-	display: none;
++    display: none;
+ }
+
+ table.tx_solr-TCEforms table.typo3-TCEforms-select-checkbox tbody {
+-	display: table-row-group;
++    display: table-row-group;
+ }
+
+ table.tx_solr-TCEforms table.typo3-TCEforms-select-checkbox td.c-labelCell {
+-	font-size: 12px;
++    color: var(--typo3-text-color-base);
++    font-size: var(--typo3-font-size);
++    line-height: var(--typo3-line-height);
+ }
+
+
+ /* scheduler layout fixes */
+ .tx_scheduler_mod1 .extra_fields_tx_solr_scheduler_ReIndexTask table.typo3-TCEforms {
+-	width: auto;
++    width: auto;
+ }
+
+ .tx_scheduler_mod1 .extra_fields_tx_solr_scheduler_ReIndexTask .tx_solr-TCEforms td {
+-	padding-left: 0;
+-}
+\ No newline at end of file
++    padding-left: 0;
++}

@@ -1,0 +1,75 @@
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile.coolify
+    environment:
+      BASIC_AUTH_PASSWORD: ${SERVICE_PASSWORD_BASIC}
+      BASIC_AUTH_USER: ${BASIC_AUTH_USER:-lab}
+      TYPO3_CONTEXT: Production
+      TYPO3_DB_DATABASE: typo3
+      TYPO3_DB_HOST: database
+      TYPO3_DB_PASSWORD: ${SERVICE_PASSWORD_DB}
+      TYPO3_DB_PORT: 3306
+      TYPO3_DB_USER: ${SERVICE_USER_DB}
+      TYPO3_MAIL_TRANSPORT: ${TYPO3_MAIL_TRANSPORT:-mbox}
+      TYPO3_WORKOS_API_KEY: ${TYPO3_WORKOS_API_KEY:-}
+      TYPO3_WORKOS_CLIENT_ID: ${TYPO3_WORKOS_CLIENT_ID:-}
+      TYPO3_WORKOS_COOKIE_PASSWORD: ${TYPO3_WORKOS_COOKIE_PASSWORD:-}
+      TYPO3_WORKOS_FRONTEND_DEFAULT_GROUP_UIDS: ${TYPO3_WORKOS_FRONTEND_DEFAULT_GROUP_UIDS:-}
+      TYPO3_WORKOS_FRONTEND_STORAGE_PID: ${TYPO3_WORKOS_FRONTEND_STORAGE_PID:-0}
+    depends_on:
+      database:
+        condition: service_healthy
+      typo3-solr:
+        condition: service_healthy
+    volumes:
+      - typo3_fileadmin:/var/www/html/public/fileadmin
+      - typo3_runtime:/var/www/html/var
+      - typo3_secrets:/run/typo3-secrets
+    labels:
+      - at.webconsulting.stack=typo3-lab
+    restart: unless-stopped
+
+  database:
+    image: mariadb:10.11
+    command:
+      - --character-set-server=utf8mb4
+      - --collation-server=utf8mb4_unicode_ci
+      - --innodb-file-per-table=1
+    environment:
+      MARIADB_DATABASE: typo3
+      MARIADB_PASSWORD: ${SERVICE_PASSWORD_DB}
+      MARIADB_ROOT_PASSWORD: ${SERVICE_PASSWORD_ROOT}
+      MARIADB_USER: ${SERVICE_USER_DB}
+    volumes:
+      - typo3_database:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
+      interval: 10s
+      timeout: 5s
+      retries: 12
+      start_period: 30s
+    labels:
+      - at.webconsulting.stack=typo3-lab
+    restart: unless-stopped
+
+  typo3-solr:
+    build:
+      context: .
+      dockerfile: Dockerfile.solr.coolify
+    environment:
+      SOLR_HEAP: 1g
+      TYPO3_SOLR_ENABLED_CORES: english german hungarian chinese
+    volumes:
+      - typo3_solr:/var/solr/data
+    labels:
+      - at.webconsulting.stack=typo3-lab
+    restart: unless-stopped
+
+volumes:
+  typo3_database:
+  typo3_fileadmin:
+  typo3_runtime:
+  typo3_secrets:
+  typo3_solr:

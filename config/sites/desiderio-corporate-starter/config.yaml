@@ -1,4 +1,8 @@
 base: 'https://webconsulting-typo3-lab.ddev.site/desiderio-corporate-starter/'
+baseVariants:
+  -
+    base: 'https://typo3-lab.webconsulting.at/desiderio-corporate-starter/'
+    condition: 'applicationContext == "Production"'
 dependencies:
   - webconsulting/site-package-search
   - webconsulting/desiderio-preset-corporate

@@ -1,4 +1,8 @@
 base: 'https://webconsulting-typo3-lab.ddev.site/typo3-blog/'
+baseVariants:
+  -
+    base: 'https://typo3-lab.webconsulting.at/typo3-blog/'
+    condition: 'applicationContext == "Production"'
 contentSecurityPolicies: {  }
 dependencies:
   - webconsulting/site-package-blog

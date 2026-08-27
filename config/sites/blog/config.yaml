@@ -1,4 +1,8 @@
 base: 'https://webconsulting-typo3-lab.ddev.site/blog/'
+baseVariants:
+  -
+    base: 'https://typo3-lab.webconsulting.at/blog/'
+    condition: 'applicationContext == "Production"'
 dependencies:
   - georgringer/news
   - webconsulting/site-package-blog

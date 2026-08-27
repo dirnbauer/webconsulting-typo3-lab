@@ -1,0 +1,37 @@
+# syntax=docker/dockerfile:1.7
+
+FROM alpine:3.23 AS ext-solr
+
+ARG EXT_SOLR_REF=96834e83592d59c350005216821ee502cfee8ece
+ARG EXT_SOLR_SHA256=22187e6933e0d8c09dca55b50dcfe4605f2cb74262e5eadee8547c2e19173be8
+
+RUN apk add --no-cache ca-certificates curl tar \
+    && curl -fsSL \
+        "https://codeload.github.com/TYPO3-Solr/ext-solr/tar.gz/${EXT_SOLR_REF}" \
+        -o /tmp/ext-solr.tar.gz \
+    && echo "${EXT_SOLR_SHA256}  /tmp/ext-solr.tar.gz" | sha256sum -c - \
+    && mkdir -p /source \
+    && tar -xzf /tmp/ext-solr.tar.gz -C /source --strip-components=1
+
+FROM solr:10.0.0
+
+ENV TERM=linux
+
+USER root
+RUN rm -rf /opt/solr/server/solr/* \
+    && chown -R solr:solr /var/solr /opt/solr
+
+COPY --from=ext-solr --chown=solr:solr /source/Resources/Private/Solr/ /var/solr/data/
+COPY --from=ext-solr --chown=solr:solr /source/Docker/SolrServer/docker-entrypoint-initdb.d/disable-cores.sh /docker-entrypoint-initdb.d/disable-cores.sh
+COPY --from=ext-solr --chown=root:root /source/Docker/SolrServer/healthcheck.sh /usr/local/bin/healthcheck.sh
+
+RUN chmod 0755 /usr/local/bin/healthcheck.sh /docker-entrypoint-initdb.d/disable-cores.sh \
+    && mkdir -p /var/solr/data/data \
+    && chown -R solr:solr /var/solr/data
+
+USER solr
+
+HEALTHCHECK --interval=30s --timeout=10s --start-period=60s --retries=5 \
+    CMD /usr/local/bin/healthcheck.sh
+
+CMD ["solr-foreground", "--user-managed"]

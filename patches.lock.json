@@ -1,12 +1,12 @@
 {
-    "_hash": "fe6af6181bd43fc8442e8884e03f12218f58778cec75a81a9497a7233a3704e1",
+    "_hash": "6cac1ab216ce7df26168d18b72f81712dac1390c12cef819e67f61d10ef13f29",
     "patches": {
         "apache-solr-for-typo3/solr": [
             {
                 "package": "apache-solr-for-typo3/solr",
-                "description": "Guard enhanced-routing filter concatenation for sparse filter arrays",
-                "url": "patches/apache-solr-for-typo3-solr-fix-sparse-filter-concat.patch",
-                "sha256": "535c9f89c843fa8ed8e3542388ca40830d1c350450ec931920fa9304773ef397",
+                "description": "Align legacy backend styles with TYPO3 v14 design tokens",
+                "url": "patches/apache-solr-for-typo3-solr-typo3-v14-backend-styles.patch",
+                "sha256": "f8aea3239d52ef46163739c0997acf3cbec936cae3ef5b2f12fe37311bed5490",
                 "depth": 1,
                 "extra": {
                     "provenance": "root"
