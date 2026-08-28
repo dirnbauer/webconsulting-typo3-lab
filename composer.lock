@@ -2045,16 +2045,16 @@
         },
         {
             "name": "hn/typo3-mcp-server",
-            "version": "v0.6.1",
+            "version": "v0.6.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/typo3-mcp-server.git",
-                "reference": "90c4dbabdc3932cbfee1131f76384833e07461e8"
+                "reference": "f4aca8ae62022414780630b32d9df090d5d90847"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/typo3-mcp-server/zipball/90c4dbabdc3932cbfee1131f76384833e07461e8",
-                "reference": "90c4dbabdc3932cbfee1131f76384833e07461e8",
+                "url": "https://api.github.com/repos/dirnbauer/typo3-mcp-server/zipball/f4aca8ae62022414780630b32d9df090d5d90847",
+                "reference": "f4aca8ae62022414780630b32d9df090d5d90847",
                 "shasum": ""
             },
             "require": {
@@ -2170,7 +2170,7 @@
             ],
             "description": "TYPO3 extension that provides a Model Context Protocol (MCP) server for interacting with TYPO3 pages and records",
             "homepage": "https://github.com/dirnbauer/typo3-mcp-server",
-            "time": "2026-08-27T17:47:13+00:00"
+            "time": "2026-08-28T06:50:40+00:00"
         },
         {
             "name": "in2code/powermail",
@@ -5362,12 +5362,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/sg_apicore.git",
-                "reference": "bb2c5edb0a5c72d9e7d3b71b1ee929459b67119d"
+                "reference": "7e8f1e8dd18ecddecc441485840c457dfd72aafb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/sg_apicore/zipball/bb2c5edb0a5c72d9e7d3b71b1ee929459b67119d",
-                "reference": "bb2c5edb0a5c72d9e7d3b71b1ee929459b67119d",
+                "url": "https://api.github.com/repos/dirnbauer/sg_apicore/zipball/7e8f1e8dd18ecddecc441485840c457dfd72aafb",
+                "reference": "7e8f1e8dd18ecddecc441485840c457dfd72aafb",
                 "shasum": ""
             },
             "require": {
@@ -5437,7 +5437,7 @@
                 "typo3",
                 "typo3-extension"
             ],
-            "time": "2026-07-07T07:50:15+00:00"
+            "time": "2026-08-27T20:43:17+00:00"
         },
         {
             "name": "smalot/pdfparser",
