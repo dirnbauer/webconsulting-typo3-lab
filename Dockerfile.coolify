@@ -77,11 +77,11 @@ RUN composer install \
         node_modules \
     && cp config/system/settings.php.example config/system/settings.php \
     && cp config/system/additional.coolify.php config/system/additional.php \
-    && mkdir -p public/fileadmin var /run/typo3-secrets \
+    && mkdir -p public/fileadmin public/typo3temp/assets var /run/typo3-secrets \
     && printf 'ok\n' > public/healthz \
-    && chown -R www-data:www-data public/fileadmin var /run/typo3-secrets \
+    && chown -R www-data:www-data public/fileadmin public/typo3temp var /run/typo3-secrets \
     && chmod 0755 public public/_assets \
-    && chmod 0755 public/fileadmin var
+    && chmod 0755 public/fileadmin public/typo3temp public/typo3temp/assets var
 
 COPY docker/coolify/apache-vhost.conf /etc/apache2/sites-available/000-default.conf
 COPY docker/coolify/php.ini /usr/local/etc/php/conf.d/zz-typo3-production.ini
