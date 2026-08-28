@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "aa472935cc8d521774d927fea53d0980",
+    "content-hash": "c9fabc8ceb6d0b362d0b56b1a0fd68e4",
     "packages": [
         {
             "name": "apache-solr-for-typo3/solr",
@@ -12181,16 +12181,16 @@
         },
         {
             "name": "webconsulting/astryx-typo3",
-            "version": "v1.0.1",
+            "version": "v1.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/astryx-typo3.git",
-                "reference": "1e00283eaa4b697aedc96ff0e42ddf44340d958c"
+                "reference": "b9d01dcf54e0e58584920f91d51cb081ee8cb32a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/astryx-typo3/zipball/1e00283eaa4b697aedc96ff0e42ddf44340d958c",
-                "reference": "1e00283eaa4b697aedc96ff0e42ddf44340d958c",
+                "url": "https://api.github.com/repos/dirnbauer/astryx-typo3/zipball/b9d01dcf54e0e58584920f91d51cb081ee8cb32a",
+                "reference": "b9d01dcf54e0e58584920f91d51cb081ee8cb32a",
                 "shasum": ""
             },
             "require": {
@@ -12242,7 +12242,7 @@
                 }
             ],
             "description": "Astryx for TYPO3 — the Astryx design system, server-rendered for TYPO3 14: 250 Content Blocks, seven runtime-switchable themes, no JavaScript framework",
-            "time": "2026-08-06T21:00:28+00:00"
+            "time": "2026-08-28T07:43:26+00:00"
         },
         {
             "name": "webconsulting/desiderio",

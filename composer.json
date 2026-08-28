@@ -189,9 +189,9 @@
 		}
 	],
 	"require": {
+		"php": "^8.4",
 		"apache-solr-for-typo3/solr": "^14.0@RC",
 		"cweagans/composer-patches": "^2.0",
-		"php": "^8.4",
 		"friendsoftypo3/tt-address": "^10.0",
 		"friendsoftypo3/visual-editor": "^1.9",
 		"georgringer/context-edit-records": "^1.0",
@@ -247,7 +247,7 @@
 		"wapplersystems/multisite-belogin": "^14.1",
 		"webconsulting/agent-nexus": "^2.0.2",
 		"webconsulting/agentation": "^1.1",
-		"webconsulting/astryx-typo3": "^1.0",
+		"webconsulting/astryx-typo3": "^1.0.2",
 		"webconsulting/desiderio": "^4.0.6",
 		"webconsulting/docx-editor": "dev-main",
 		"webconsulting/flue": "^0.2",
