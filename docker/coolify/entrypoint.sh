@@ -15,7 +15,8 @@ mkdir -p \
     /run/typo3-secrets \
     /var/www/html/config/system \
     /var/www/html/public/fileadmin \
-    /var/www/html/public/typo3temp/assets \
+    /var/www/html/public/typo3temp/assets/_processed_ \
+    /var/www/html/public/typo3temp/assets/images \
     /var/www/html/var
 
 if [ ! -s /run/typo3-secrets/encryption-key ]; then
@@ -36,6 +37,8 @@ chmod 0755 \
     /var/www/html/public/fileadmin \
     /var/www/html/public/typo3temp \
     /var/www/html/public/typo3temp/assets \
+    /var/www/html/public/typo3temp/assets/_processed_ \
+    /var/www/html/public/typo3temp/assets/images \
     /var/www/html/var
 
 exec docker-php-entrypoint "$@"
