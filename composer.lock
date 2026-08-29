@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c9fabc8ceb6d0b362d0b56b1a0fd68e4",
+    "content-hash": "ef1a2463e1c37ddfb35536ee5c0533a6",
     "packages": [
         {
             "name": "apache-solr-for-typo3/solr",
@@ -2174,16 +2174,16 @@
         },
         {
             "name": "in2code/powermail",
-            "version": "14.0.1",
+            "version": "14.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/powermail.git",
-                "reference": "5069e125a42805bfca3d9af8ea1a7e02ae9659e1"
+                "reference": "71f11b227225d8994455f4d325199ddd94b52f2d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/powermail/zipball/5069e125a42805bfca3d9af8ea1a7e02ae9659e1",
-                "reference": "5069e125a42805bfca3d9af8ea1a7e02ae9659e1",
+                "url": "https://api.github.com/repos/dirnbauer/powermail/zipball/71f11b227225d8994455f4d325199ddd94b52f2d",
+                "reference": "71f11b227225d8994455f4d325199ddd94b52f2d",
                 "shasum": ""
             },
             "require": {
@@ -2242,7 +2242,7 @@
                     "cms-package-dir": "{$vendor-dir}/typo3/cms",
                     "web-dir": ".build/public",
                     "extension-key": "powermail",
-                    "version": "14.0.1",
+                    "version": "14.0.2",
                     "Package": {
                         "providesPackages": []
                     },
@@ -2291,7 +2291,7 @@
                     "phpunit -c phpunit.xml.dist"
                 ],
                 "test:functional": [
-                    "phpunit -c .project/tests/phpunit-functional.xml"
+                    "@php -d memory_limit=1G .build/vendor/bin/phpunit -c .project/tests/phpunit-functional.xml"
                 ]
             },
             "license": [
@@ -2325,7 +2325,7 @@
                 "spamprevention",
                 "typo3"
             ],
-            "time": "2026-08-27T17:25:29+00:00"
+            "time": "2026-08-29T07:37:06+00:00"
         },
         {
             "name": "league/commonmark",
