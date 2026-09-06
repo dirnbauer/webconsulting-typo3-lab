@@ -40,14 +40,22 @@ That proves Flue can authenticate to TYPO3 and call its tools.
 ## Step 2 — scaffold + run the sidecar
 
 In DDEV this is automatic: `ddev restart` brings up the `flue` service
-(`.ddev/docker-compose.flue.yaml`), which on first boot runs
-`(npm install) && (flue init) && flue dev`. `flue init` writes **`flue.config.ts`**;
+(`.ddev/docker-compose.flue.yaml`). Startup runs `npm ci` when the lockfile
+changes, initializes a missing `flue.config.ts`, and starts `flue dev`.
+`flue init` writes **`flue.config.ts`**;
 `agents/page-report.ts` + `workflows/page-report.ts` are already provided and
 discovered under `agents/` / `workflows/`. To drive it by hand inside the
 container: `ddev exec -s flue sh -c 'cd /app && npm run dev'`.
 
 The sidecar is reachable from the web container at `http://<sitename>-flue:3583`
 (`flue dev`'s default port; no host port is published).
+
+Verify its read-only health endpoint from this lab with:
+
+```bash
+ddev exec curl -fsS http://flue:3583/openapi.json
+ddev exec -s flue npm audit --audit-level=high
+```
 
 > ⚠️ **`flue dev` hot-reload is unreliable for `workflows/` (and `agents/`/`lib/`)
 > edits** — it logs "rebuilt" but keeps serving a stale build. After editing a

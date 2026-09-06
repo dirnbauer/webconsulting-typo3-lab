@@ -16,7 +16,7 @@
                 <f:if condition="{identifier}">
                     <p><code class="sf-mono">{identifier}</code></p>
                 </f:if>
-                <p><f:link.page pageUid="{TSFE.id}" class="sf-btn sf-btn--ghost">&larr;
+                <p><f:link.page class="sf-btn sf-btn--ghost">&larr;
                     <f:translate key="LLL:EXT:skillflow/Resources/Private/Language/locallang_db.xlf:plugin.skilldetail.back" default="Back to skills" />
                 </f:link.page></p>
             </div>
@@ -24,7 +24,7 @@
         <f:else>
             <article class="sf-skill">
                 <nav class="sf-skill__bc">
-                    <f:link.page pageUid="{TSFE.id}" class="sf-skill__back">&larr;
+                    <f:link.page class="sf-skill__back">&larr;
                         <f:translate key="LLL:EXT:skillflow/Resources/Private/Language/locallang_db.xlf:plugin.skilldetail.back" default="Back to skills" />
                     </f:link.page>
                 </nav>

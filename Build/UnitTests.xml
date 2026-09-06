@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit bootstrap="../vendor/autoload.php" cacheDirectory="../var/phpunit" colors="true" failOnWarning="true" failOnRisky="true">
+    <testsuites>
+        <testsuite name="Local packages">
+            <directory>../packages/site_package/Tests/Unit</directory>
+            <directory>../packages/skillspector/Tests/Unit</directory>
+        </testsuite>
+    </testsuites>
+</phpunit>

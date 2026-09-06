@@ -4,6 +4,29 @@ All notable changes to Webconsulting TYPO3 Lab are documented in this file.
 
 ## Unreleased
 
+### Maintenance — 2026-09-06
+
+- Set TYPO3 14.3.6 as the minimum core version; the lab was already running
+  that latest stable release.
+- Simplified Cowriter import loading and moved the address icon override into
+  TCA configuration. Removed obsolete MCP registration, an unused skill hash,
+  the unselected Blog Bootstrap Site Set, legacy Skillspector metadata, retired
+  patch experiments and their unused functional-test framework.
+- Removed the unused root shadcn CLI and its 210 npm packages. Updated the
+  vulnerable URI/query parsers in all three npm locks and aligned News API
+  Studio's Tiptap packages on 3.31.3.
+- Added both local packages to PHP linting and PHPStan on PHP 8.4, wired their
+  PHPUnit tests into the quality runner, and added the Composer audit gate.
+- Consolidated the site-package manual into its README and corrected the
+  bootstrap, database distribution, active Site Sets and Fluid Styled Content
+  documentation.
+- Applied Cursor's thermo-nuclear code-quality review: removed Skills
+  Inspector's unused import-refresh and attachment paths, file classifier and
+  report helpers. Fixed scanner directory isolation and cleanup after failed
+  preparation, with regressions exercised through a local process fixture.
+- Aligned the skills-only Solr filter with the nr_llm record type used by the
+  current index queue.
+
 ## v2.0.0 - 2026-08-06
 
 ### Added

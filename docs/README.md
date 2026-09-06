@@ -6,6 +6,7 @@ extension-specific behaviour remains in each extension repository.
 
 | Document | Purpose |
 |---|---|
+| [coolify-deployment.md](coolify-deployment.md) | Deployment architecture and explicit DDEV synchronization procedures. |
 | [ddev-bootstrap.md](ddev-bootstrap.md) | Database/Fileadmin import, backups, reset and release snapshots. |
 | [site-configuration.md](site-configuration.md) | Active sites, Site Set ownership, languages and validation. |
 | [mcp-clients.md](mcp-clients.md) | Codex, Claude Code and Cursor stdio setup and troubleshooting. |
@@ -20,9 +21,10 @@ extension-specific behaviour remains in each extension repository.
 Package and app documentation:
 
 - [Local site package](../packages/site_package/README.md)
-- [Local site-package TYPO3 manual](../packages/site_package/Documentation/Index.rst)
+- [Skills Inspector](../packages/skillspector/README.md)
 - [News API Studio](../apps/news-api-studio/README.md)
 - [Composer patches](../patches/README.md)
 
-Historical reports under `docs/reports/` describe completed migrations. They
-are evidence, not current setup instructions.
+The site-package README is its canonical manual. Retired patch experiments
+and superseded upgrade reports remain available in Git history; active patch
+requirements are documented in `patches/README.md`.

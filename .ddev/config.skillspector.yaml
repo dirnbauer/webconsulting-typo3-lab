@@ -1,7 +1,6 @@
-# NVIDIA SkillSpector for EXT:skillflow's mandatory skill review checks.
-# skillflow picks the binary up automatically (extension configuration:
-# security.skillspectorEnabled/skillspectorBinary) and scans every imported
-# skill with `skillspector scan --format json --no-llm`.
+# NVIDIA SkillSpector for EXT:skillspector's advisory review of nr_llm skills.
+# The inspector discovers the binary through skillspectorBinary and uses
+# `skillspector scan --format json --no-llm` unless LLM analysis is enabled.
 #
 # The tool is installed via pipx into the persistent ddev-global-cache volume,
 # so container restarts only link the binary into the user's writable bin;

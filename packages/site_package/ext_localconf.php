@@ -4,10 +4,6 @@ declare(strict_types=1);
 
 defined('TYPO3') or die();
 
-use Webconsulting\SitePackage\Bootstrap\McpTableConfiguration;
-
-McpTableConfiguration::register();
-
 // Keep the compiled Vite manifest as the reliable default. The official
 // Vite Asset Collector otherwise enables its development server
 // automatically for every DDEV request, even when no Vite process is

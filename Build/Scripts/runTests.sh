@@ -6,13 +6,10 @@ ROOT_DIR="$(cd "$(dirname "$0")/../.." && pwd)"
 SUITE="ci"
 PHP_VERSION=""
 
-while getopts "s:p:d:nx" option; do
+while getopts "s:p:" option; do
     case "${option}" in
         s) SUITE="${OPTARG}" ;;
         p) PHP_VERSION="${OPTARG}" ;;
-        d) ;;
-        n) ;;
-        x) ;;
         *) exit 2 ;;
     esac
 done
@@ -29,14 +26,20 @@ fi
 
 case "${SUITE}" in
     composerValidate)
-        composer validate --no-check-publish
+        composer validate --strict --no-check-publish
+        ;;
+    composerAudit)
+        composer audit
         ;;
     phpstan)
         vendor/bin/phpstan analyse --configuration=Build/phpstan/phpstan.neon --memory-limit=512M --no-progress
         ;;
     phpLint|lint)
-        find packages/site_package -name '*.php' -not -path '*/vendor/*' -print0 \
+        find packages/site_package packages/skillspector -name '*.php' -not -path '*/vendor/*' -print0 \
             | xargs -0 -n 1 php -l
+        ;;
+    unit)
+        vendor/bin/phpunit --configuration=Build/UnitTests.xml
         ;;
     yaml)
         YAML_FILE_COUNT=0
@@ -60,9 +63,11 @@ case "${SUITE}" in
         ;;
     quality)
         "${BASH_SOURCE[0]}" -s composerValidate
+        "${BASH_SOURCE[0]}" -s composerAudit
         "${BASH_SOURCE[0]}" -s phpLint
         "${BASH_SOURCE[0]}" -s yaml
         "${BASH_SOURCE[0]}" -s phpstan
+        "${BASH_SOURCE[0]}" -s unit
         "${BASH_SOURCE[0]}" -s frontend
         ;;
     ci)

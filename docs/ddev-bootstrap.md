@@ -1,217 +1,99 @@
-# DDEV Bootstrap — Database and Fileadmin
+# DDEV bootstrap and backups
 
-Reproducible first-time setup for the Webconsulting TYPO3 Lab using DDEV.
+A fresh checkout needs a matching database dump and Fileadmin archive from the
+lab maintainer. Neither artifact is committed: `dump.sql.gz` and `.tarballs/`
+are ignored. Keep the two exports together so TYPO3 file references match the
+physical files.
 
-The lab needs **two artifacts** besides Composer dependencies:
-
-| Artifact | Source | Local path | Purpose |
-|---|---|---|---|
-| Database dump | Git repository (project root) | `dump.sql.gz` | Full MariaDB state after cleanup |
-| Fileadmin archive | [curt.at](https://curt.at/downloads/typo3-lab/fileadmin-v1.2.0.tar.gz) | `.tarballs/fileadmin.tar.gz` | `public/fileadmin/` assets (FAL, uploads, demo media) |
-
-### Hosted fileadmin archive (curt.at)
-
-| | |
+| Artifact | Local path |
 |---|---|
-| **Public URL** | https://curt.at/downloads/typo3-lab/fileadmin-v1.2.0.tar.gz |
-| **Server path** | `public_html/sites/curt.at/public/downloads/typo3-lab/fileadmin-v1.2.0.tar.gz` |
-| **Size** | ~122 MB |
-| **Save as** | `.tarballs/fileadmin.tar.gz` before `ddev import-files` |
+| Database export | `dump.sql.gz` |
+| Matching Fileadmin export | `.tarballs/fileadmin.tar.gz` |
 
-Download and verify:
+The [historical v1.2.0 Fileadmin archive](https://curt.at/downloads/typo3-lab/fileadmin-v1.2.0.tar.gz)
+belongs to that old demo snapshot. It is not a replacement for the matching
+archive of the current database.
 
-```bash
-mkdir -p .tarballs
-curl -L -o .tarballs/fileadmin.tar.gz \
-  https://curt.at/downloads/typo3-lab/fileadmin-v1.2.0.tar.gz
-curl -sI https://curt.at/downloads/typo3-lab/fileadmin-v1.2.0.tar.gz | head -1
-# Expected: HTTP/2 200 (redirects to www.curt.at)
-```
+## First-time setup
 
-## First-Time Import (new machine)
+After cloning the repository and obtaining both artifacts:
 
 ```bash
-git clone https://github.com/dirnbauer/webconsulting-typo3-lab.git
-cd webconsulting-typo3-lab
-
 cp config/system/settings.php.example config/system/settings.php
-# Optional secrets: .ddev/config.local.yaml (see root README)
-
 ddev start
 ddev composer install
 ddev npm ci
-
-# Database (from dump.sql.gz in the git repository)
 ddev import-db --file=dump.sql.gz
-
-# Fileadmin (download from curt.at — required for images, PDFs, Desiderio assets)
-mkdir -p .tarballs
-curl -L -o .tarballs/fileadmin.tar.gz \
-  https://curt.at/downloads/typo3-lab/fileadmin-v1.2.0.tar.gz
 ddev import-files --source=.tarballs/fileadmin.tar.gz
-
 ddev typo3 extension:setup
 ddev vite build
-ddev typo3 sitepackage:seed-workos-frontend
 ddev typo3 cache:flush
-ddev typo3 site:list
+ddev exec Build/Scripts/runTests.sh -s ci -p 8.4
 ```
 
-Open the backend:
+Open `https://webconsulting-typo3-lab.ddev.site/typo3/`. The supplied local demo
+account is `admin` / `Demo123*`. PHP 8.4, Node.js 24 and the DDEV services are
+configured in `.ddev/config.yaml`.
 
-```bash
-ddev launch /typo3/
-```
+Run npm inside DDEV. Host-installed native dependencies can make the Linux
+build fail with missing Rolldown bindings. `ddev npm ci` reinstalls exactly the
+locked dependencies for the container platform.
 
-Demo credentials (from root README): `admin` / `Demo123*`
+## Credentials and encrypted data
 
-Without the fileadmin archive, pages render but FAL references break (images,
-downloads, Powermail uploads). Regenerate locally with the export command below
-if you maintain the lab.
-
-WorkOS credentials and provisioning IDs are optional for the rest of the lab.
-To exercise authentication, configure the five `TYPO3_WORKOS_*` environment
-variables described in
-[workos-frontend-plugins.md](workos-frontend-plugins.md), then restart DDEV.
-
-## Vault secrets on a new machine
-
-The database snapshot contains nr-vault ciphertext, encrypted per-secret keys,
-and non-secret identifiers. It does **not** contain the Vault master key.
-nr-vault derives that key from TYPO3's `encryptionKey`; this lab reads it from
-the machine-local `TYPO3_ENCRYPTION_KEY` environment variable in
-`config/system/settings.php`. The local settings file and DDEV
-`config.local.yaml` are ignored by Git.
-
-Generate a different key for every independently administered installation:
+`config/system/settings.php` and `.ddev/config.local.yaml` remain local. A
+clone used with new credentials must receive its own TYPO3 encryption key:
 
 ```bash
 openssl rand -hex 48
 ```
 
-Add the generated value only to the new machine's ignored
-`.ddev/config.local.yaml`, then restart DDEV:
+Set that new value as `TYPO3_ENCRYPTION_KEY` in the ignored local DDEV
+configuration and restart DDEV. Imported Vault entries cannot be decrypted
+with the new key; enter replacement provider credentials through the Vault
+backend. WorkOS configuration is described in
+[workos-frontend-plugins.md](workos-frontend-plugins.md).
 
-```yaml
-web_environment:
-  - TYPO3_ENCRYPTION_KEY=PASTE_THE_NEW_96_CHARACTER_VALUE_HERE
-```
-
-```bash
-ddev restart
-```
-
-The imported Vault values are intentionally unreadable with this new key.
-Enter replacement API keys in **Admin Tools → Vault**, then select the new
-Vault identifier in the corresponding nr-llm provider or other integration.
-Do not copy `config/system/settings.php`, `.ddev/config.local.yaml`, or
-`TYPO3_ENCRYPTION_KEY` from the source machine.
-
-If the installation is intentionally being migrated with its secrets, transfer
+For an intentional migration that must preserve existing credentials, transfer
 the original encryption key separately through an approved secret channel.
-Possession of both the database dump and that key makes the Vault values
-decryptable.
+Never distribute it with the database dump. The dump also contains account and
+application data, so it is not a public release asset.
 
-## Export (maintainers — refresh lab snapshot)
-
-Run after site cleanup, content edits, or before a release that updates `dump.sql.gz`.
-
-### Database
-
-```bash
-ddev export-db --file=dump.sql.gz
-```
-
-Writes a gzip-compressed SQL dump of the `db` database to the project root.
-The dump contains only encrypted nr-vault payloads. Never distribute the
-source machine's `TYPO3_ENCRYPTION_KEY` with it.
-
-### Fileadmin
-
-DDEV has `import-files` but no `export-files` command. Archive `public/fileadmin`
-manually:
+## Export a matching pair
 
 ```bash
 mkdir -p .tarballs
-tar -czf .tarballs/fileadmin.tar.gz -C public fileadmin
+ddev export-db --file=dump.sql.gz
+tar -czf .tarballs/fileadmin.tar.gz -C public/fileadmin .
 ```
 
-The archive contains the **contents** of `fileadmin/` (not a nested `fileadmin`
-folder). `ddev import-files` extracts into TYPO3's default upload directory
-(`public/fileadmin` for project type `typo3`).
+The archive root contains Fileadmin's contents, without another `fileadmin/`
+directory. Store the pair privately with its Git revision. Publish or deploy
+only through a separately authorized release procedure; see
+[coolify-deployment.md](coolify-deployment.md) for the current deployment setup.
 
-### Post-export verification
+## Restore existing local data
 
-```bash
-ddev typo3 lint:yaml config/sites
-ddev typo3 site:list
-ddev typo3 cache:flush
-
-for url in / /blog/ /typo3-blog/ /mtug-camp-munich-2026/ \
-  /mtug-camp-munich-2026/ticket-anmeldung \
-  /features/workos/frontend-plugins/ \
-  /features/workos/frontend-plugins/login/ \
-  /features/workos/frontend-plugins/account-center/ \
-  /features/workos/frontend-plugins/team-administration/; do
-  ddev exec curl -k -s -o /dev/null -w "$url %{http_code}\n" \
-    "https://webconsulting-typo3-lab.ddev.site$url"
-done
-```
-
-Commit `dump.sql.gz` when the database snapshot should ship with the repo. Upload
-a refreshed fileadmin archive to curt.at:
+Create a database snapshot and preserve current files before replacing them:
 
 ```bash
-scp -P 222 .tarballs/fileadmin.tar.gz \
-  curtaa@www.curt.at:public_html/sites/curt.at/public/downloads/typo3-lab/fileadmin-v1.2.0.tar.gz
-```
-
-| | |
-|---|---|
-| **Server path** | `public_html/sites/curt.at/public/downloads/typo3-lab/fileadmin-v1.2.0.tar.gz` |
-| **Public URL** | https://curt.at/downloads/typo3-lab/fileadmin-v1.2.0.tar.gz |
-
-## Database-Only Refresh
-
-To reset the database without touching fileadmin:
-
-```bash
-ddev import-db --file=dump.sql.gz
-ddev typo3 extension:setup
-ddev typo3 sitepackage:seed-workos-frontend
-ddev typo3 cache:flush
-```
-
-## Full Reset (database + files)
-
-```bash
+ddev snapshot --name before-import
+mkdir -p .tarballs
+tar -czf .tarballs/fileadmin-before-import.tar.gz -C public/fileadmin .
 ddev import-db --file=dump.sql.gz
 ddev import-files --source=.tarballs/fileadmin.tar.gz
 ddev typo3 extension:setup
-ddev typo3 sitepackage:seed-workos-frontend
 ddev typo3 cache:flush
 ```
 
-`import-files` **replaces** the target upload directory.
-
-## TYPO3 Cleanup Before Export
-
-Before exporting a clean snapshot, purge soft-deleted records and orphans:
+`import-files` replaces the upload directory. For a database-only refresh,
+omit that step. To undo a database import:
 
 ```bash
-ddev typo3 cleanup:deletedrecords -n
-ddev typo3 cleanup:orphanrecords -n
-ddev typo3 cache:flush
+ddev snapshot restore before-import
 ```
 
-`cleanup:deletedrecords` permanently removes all rows with `deleted=1`.
-`cleanup:orphanrecords` removes records that lost their page-tree connection.
-
-Then export database and fileadmin as above.
-
-## Related Documentation
-
-- [../README.md](../README.md) — DDEV prerequisites, secrets, local URLs
-- [site-configuration.md](site-configuration.md) — active site configs and troubleshooting
-- [mcp-clients.md](mcp-clients.md) — local Codex, Claude Code, and Cursor setup
-- [workos-frontend-plugins.md](workos-frontend-plugins.md) — WorkOS configuration and plugin demo
+After a restore, check `ddev typo3 site:list`, `ddev solrctl list`, and the
+quality suite. Demo seed commands are opt-in maintenance tools documented in
+the [site-package README](../packages/site_package/README.md); an ordinary
+restore does not require reseeding or purging records.

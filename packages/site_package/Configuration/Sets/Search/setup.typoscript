@@ -13,7 +13,7 @@ plugin.tx_solr.search {
     # Skills search = skills ONLY. The shared core also holds pages + news, so
     # restrict the listing query to skill documents and drop the generic
     # "Content type" facet (every hit is a skill, the block would be noise).
-    query.filter.onlySkills = type:tx_skillflow_skill
+    query.filter.onlySkills = type:tx_nrllm_skill
     faceting.facets.type >
     # The skill detail body has its own readable code/prose presentation.
     # EXT:solr's site highlighter adds sword_list[] to result links, which is

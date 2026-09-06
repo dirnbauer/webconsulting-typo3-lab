@@ -12,7 +12,7 @@ content editing, search, forms, APIs and governed agent workflows.
 
 | Component | Version or policy |
 |---|---|
-| TYPO3 | `14.3.x` |
+| TYPO3 | `14.3.6` (minimum `^14.3.6`) |
 | PHP | `8.4` minimum |
 | DDEV | `>=1.25.3`, Apache FPM, Mutagen |
 | Database | MariaDB `10.11` |
@@ -39,9 +39,7 @@ ddev composer install
 ddev npm ci
 ddev import-db --file=dump.sql.gz
 
-mkdir -p .tarballs
-curl -L -o .tarballs/fileadmin.tar.gz \
-  https://curt.at/downloads/typo3-lab/fileadmin-v1.2.0.tar.gz
+# Use the matching Fileadmin archive supplied with the database dump.
 ddev import-files --source=.tarballs/fileadmin.tar.gz
 
 ddev typo3 extension:setup
@@ -61,10 +59,10 @@ The two frontend systems share TYPO3 infrastructure but own separate template
 and asset trees:
 
 - [Desiderio](https://github.com/dirnbauer/desiderio) provides its shadcn/ui-
-  inspired Fluid 5 components, ClassicContent renderers, page shell and 244
+  inspired Fluid 5 components, ClassicContent renderers, page shell and
   Content Blocks.
 - [Astryx for TYPO3](https://github.com/dirnbauer/astryx-typo3) provides its own
-  Astryx page shell, Fluid components, templates, CSS and 250 Content Blocks.
+  Astryx page shell, Fluid components, templates, CSS and Content Blocks.
   It does not import React or StyleX into the browser.
 - [Innesto](https://github.com/dirnbauer/innesto) extends the Desiderio element
   library under the `Webconsulting` PHP namespace.
@@ -73,11 +71,11 @@ Sites select one frontend tree through Site Set dependencies. Provider filters
 such as `elementLibrary.hosts: 'desiderio,innesto,core'` prevent the two
 catalogues from being mixed in an editor's element picker.
 
-`typo3/cms-fluid-styled-content` is intentionally not installed. TYPO3 Core
-owns the TCA for classic content records; Desiderio owns their rendering under
-`Resources/Private/ClassicContent`. The Blog on the Desiderio site uses
-`blog/integration`, not the standalone Blog theme that requires Fluid Styled
-Content.
+`typo3/cms-fluid-styled-content` is installed for the standalone Blog and
+Camino demos. Desiderio renders classic content through its own
+`Resources/Private/ClassicContent` tree. The Blog embedded in the main
+Desiderio site uses `blog/integration`; the separate Blog sites use the
+standalone integration.
 
 ## Frontend assets
 
@@ -120,7 +118,7 @@ Removing the variable returns the site to manifest mode.
 | Astryx for TYPO3 | `/astryx-typo3/` | `1290` |
 | Camino | `/camino/` | `99` |
 | Blog | `/blog/` | `15` |
-| Blog Bootstrap | `/14/` | `69` |
+| Blog demo | `/14/` | `69` |
 | TYPO3 Blog | `/typo3-blog/` | `390` |
 | Desiderio corporate starter | `/desiderio-corporate-starter/` | `740` |
 | MTUG Camp Munich 2026 | `/mtug-camp-munich-2026/` | `933` |
@@ -158,12 +156,17 @@ Individual checks:
 ddev composer validate --strict --no-check-publish
 ddev composer audit
 ddev exec Build/Scripts/runTests.sh -s phpstan -p 8.4
+ddev exec Build/Scripts/runTests.sh -s unit -p 8.4
 ddev exec Build/Scripts/runTests.sh -s frontend
 ddev exec Build/Scripts/runTests.sh -s e2e
 ddev typo3 lint:yaml config/sites packages/site_package/Configuration/Sets
 ddev typo3 site:list
 ddev solrctl list
 ```
+
+The quality suite checks both local PHP packages at PHPStan maximum level on
+PHP 8.4 and runs their PHPUnit tests. It also validates Composer and YAML,
+builds the frontend, and audits Composer/npm dependencies.
 
 The Playwright suite checks Records List, Powermail, Blog and Astryx at desktop
 and mobile widths. It rejects missing or 4xx/5xx stylesheets, accidental Vite

@@ -13,7 +13,7 @@ mentions one.
 | `astryx-typo3` | `config/sites/astryx-typo3` | `/astryx-typo3/` | `1290` | EN, DE | Astryx for TYPO3 |
 | `camino` | `config/sites/camino` | `/camino/` | `99` | EN | TYPO3 Camino |
 | `blog` | `config/sites/blog` | `/blog/` | `15` | DE, EN, ZH | Desiderio Blog |
-| `14lts` | `config/sites/14lts` | `/14/` | `69` | EN | Blog Bootstrap demo |
+| `14lts` | `config/sites/14lts` | `/14/` | `69` | EN | Desiderio Blog |
 | `typo3-blog` | `config/sites/typo3-blog` | `/typo3-blog/` | `390` | EN | Desiderio Blog |
 | `desiderio-corporate-starter` | `config/sites/desiderio-corporate-starter` | `/desiderio-corporate-starter/` | `740` | EN | Desiderio |
 | `mtug-camp-munich-2026` | `config/sites/mtug-camp-munich-2026` | `/mtug-camp-munich-2026/` | `933` | DE, EN, ZH, HU | Desiderio |
@@ -61,14 +61,15 @@ the two extensions to share a visual implementation.
 
 ## Classic content and Blog
 
-The lab does not install `typo3/cms-fluid-styled-content`. TYPO3 Core provides
-the classic content record definitions, while Desiderio's `ClassicContent`
-tree provides their frontend rendering.
+The lab installs `typo3/cms-fluid-styled-content` for the standalone Blog and
+Camino demos. Desiderio owns classic-content rendering through its
+`ClassicContent` templates.
 
-The Desiderio root therefore uses `webconsulting/desiderio-blog`, whose optional
-dependency is `blog/integration`. Do not replace it with
-`webconsulting/desiderio-blog-standalone` unless the installation intentionally
-adds Fluid Styled Content and accepts Blog's standalone page-rendering stack.
+The main Desiderio root uses `webconsulting/desiderio-blog` and
+`blog/integration`. The three separate Blog sites (`blog`, `typo3-blog`, and
+`14lts`) use `webconsulting/site-package-blog`, which depends on
+`webconsulting/desiderio-blog-standalone`. No active site selects the retired
+Blog Bootstrap wrapper.
 
 ## Content seeding
 
