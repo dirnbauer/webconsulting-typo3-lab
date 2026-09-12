@@ -11,6 +11,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
 use TYPO3\CMS\Core\Configuration\ExtensionConfiguration;
 use TYPO3\CMS\Core\Database\ConnectionPool;
+use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 
 /**
  * Keeps the lab's nr-llm model routing and editor examples reproducible.
@@ -502,8 +503,13 @@ PROMPT;
         }
         $this->extensionConfiguration->set('nr_llm', $nrLlm);
 
-        $chat = (array)$this->extensionConfiguration->get('webconsulting_ai_chat');
-        $chat['llmTaskUid'] = (string)$backendTaskUid;
-        $this->extensionConfiguration->set('webconsulting_ai_chat', $chat);
+        // The AI Chat extension is optional in the lab (it is absent while the 2.0
+        // rewrite is in flight), and ExtensionConfiguration::get() throws for an
+        // extension that is not installed.
+        if (ExtensionManagementUtility::isLoaded('webconsulting_ai_chat')) {
+            $chat = (array)$this->extensionConfiguration->get('webconsulting_ai_chat');
+            $chat['llmTaskUid'] = (string)$backendTaskUid;
+            $this->extensionConfiguration->set('webconsulting_ai_chat', $chat);
+        }
     }
 }
