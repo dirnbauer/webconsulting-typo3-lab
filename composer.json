@@ -209,7 +209,7 @@
 		"typo3/theme-camino": "^14.3.7",
 		"wapplersystems/multisite-belogin": "^14.1.2",
 		"webconsulting/agent-nexus": "^2.0.2",
-		"webconsulting/agentation": "^1.1",
+		"webconsulting/agentation": "^1.2",
 		"webconsulting/astryx-typo3": "^1.0.2",
 		"webconsulting/desiderio": "^4.0.6",
 		"webconsulting/docx-editor": "dev-main",
@@ -222,10 +222,10 @@
 		"webconsulting/skillspector": "dev-main",
 		"webconsulting/typo3-abilities": "^1.0",
 		"webconsulting/typo3-llms-txt": "dev-main",
-		"webconsulting/typo3-x402-paywall": "^1.1",
+		"webconsulting/typo3-x402-paywall": "^1.2",
 		"webconsulting/visual-editor-enhancements": "dev-main",
 		"webconsulting/webcon-easy-workspace": "^1.4",
-		"webconsulting/workos-auth": "^2.0.1"
+		"webconsulting/workos-auth": "^2.1"
 	},
 	"require-dev": {
 		"phpstan/phpstan": "^2.2",
