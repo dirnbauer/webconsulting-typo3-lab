@@ -110,22 +110,17 @@ return [
                 ],
             ],
         ],
-        'nr_mcp_agent' => [
+        'webconsulting_ai_chat' => [
             'allowedGroups' => '',
             'autoArchiveDays' => '30',
             'enableMcp' => '1',
-            'enablePdfTextExtraction' => '1',
-            'enablePromptInjectionFilter' => '1',
             // Set to the seeded backend-assistant task UID by
             // sitepackage:configure-ai-examples.
             'llmTaskUid' => '0',
             'maxActiveConversationsPerUser' => '3',
             'maxConversationsPerUser' => '50',
-            'maxExtractedTextLength' => '20000',
             'maxMessageLength' => '10000',
-            'maxUploadFileSize' => '20971520',
             'processingStrategy' => 'exec',
-            'rejectActivePdfContent' => '1',
         ],
         'news' => [
             'advancedMediaPreview' => '1',

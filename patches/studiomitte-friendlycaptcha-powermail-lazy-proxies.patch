@@ -1,0 +1,167 @@
+diff --git a/Classes/FieldValidator/FormValidator.php b/Classes/FieldValidator/FormValidator.php
+index 6da67e7..716580b 100644
+--- a/Classes/FieldValidator/FormValidator.php
++++ b/Classes/FieldValidator/FormValidator.php
+@@ -10,7 +10,7 @@
+ 
+ class FormValidator extends AbstractValidator
+ {
+-    protected function isValid($value): void
++    protected function isValid(mixed $value): void
+     {
+         $friendlyCaptchaService = GeneralUtility::makeInstance(Api::class);
+         if (!$friendlyCaptchaService->verify()) {
+diff --git a/Classes/FieldValidator/PowermailValidator.php b/Classes/FieldValidator/PowermailValidator.php
+index c942f59..f591115 100644
+--- a/Classes/FieldValidator/PowermailValidator.php
++++ b/Classes/FieldValidator/PowermailValidator.php
+@@ -4,19 +4,24 @@
+ 
+ namespace StudioMitte\FriendlyCaptcha\FieldValidator;
+ 
++use In2code\Powermail\Domain\Model\Field;
++use In2code\Powermail\Domain\Model\Form;
++use In2code\Powermail\Domain\Model\Mail;
++use In2code\Powermail\Domain\Model\Page;
+ use In2code\Powermail\Domain\Validator\AbstractValidator;
+ use StudioMitte\FriendlyCaptcha\Service\Api;
+ use TYPO3\CMS\Core\Http\ServerRequest;
+ use TYPO3\CMS\Core\Utility\ArrayUtility;
+ use TYPO3\CMS\Core\Utility\GeneralUtility;
++use TYPO3\CMS\Extbase\Persistence\Generic\LazyLoadingProxy;
+ 
+ class PowermailValidator extends AbstractValidator
+ {
+-    /**
+-     * @param Mail $mail
+-     */
+-    public function isValid($mail): void
++    public function isValid(mixed $mail): void
+     {
++        if (!$mail instanceof Mail) {
++            return;
++        }
+         if (!$this->isFormWithCaptchaField($mail) || $this->isCaptchaCheckToSkip()) {
+             return;
+         }
+@@ -30,11 +35,23 @@ public function isValid($mail): void
+         }
+     }
+ 
+-    protected function isFormWithCaptchaField($mail): bool
++    protected function isFormWithCaptchaField(Mail $mail): bool
+     {
+-        foreach ($mail->getForm()->getPages() as $page) {
++        $form = $this->resolveLazyLoadingProxy($mail->getForm());
++        if (!$form instanceof Form) {
++            return false;
++        }
++
++        $pages = $form->getPages();
++
++        foreach ($pages as $page) {
++            $page = $this->resolveLazyLoadingProxy($page);
++            if (!$page instanceof Page) {
++                continue;
++            }
+             foreach ($page->getFields() as $field) {
+-                if ($field->getType() === 'friendlycaptcha') {
++                $field = $this->resolveLazyLoadingProxy($field);
++                if ($field instanceof Field && $field->getType() === 'friendlycaptcha') {
+                     return true;
+                 }
+             }
+@@ -49,38 +66,79 @@ protected function isFormWithCaptchaField($mail): bool
+      */
+     protected function isCaptchaCheckToSkip(): bool
+     {
+-        if (property_exists($this, 'flexForm')) {
+-            $action = $this->getActionName();
+-            $confirmationActive = $this->flexForm['settings']['flexform']['main']['confirmation'] === '1';
+-            $optinActive = $this->flexForm['settings']['flexform']['main']['optin'] === '1';
+-            if ($action === 'create' && $confirmationActive || $action === 'checkCreate' && $confirmationActive) {
+-                return true;
+-            }
++        $action = $this->getActionName();
++        $mainFlexFormSettings = $this->getMainFlexFormSettings();
++        $confirmationActive = ($mainFlexFormSettings['confirmation'] ?? '0') === '1';
++        $optinActive = ($mainFlexFormSettings['optin'] ?? '0') === '1';
++        if (($action === 'create' || $action === 'checkCreate') && $confirmationActive) {
++            return true;
++        }
+ 
+-            if ($action === 'optinConfirm' && $optinActive) {
+-                return true;
+-            }
++        if ($action === 'optinConfirm' && $optinActive) {
++            return true;
+         }
+ 
+         return false;
+     }
+ 
++    /**
++     * @return array<string, mixed>
++     */
++    protected function getMainFlexFormSettings(): array
++    {
++        /** @var mixed $settings */
++        $settings = $this->flexForm['settings'] ?? [];
++        if (!is_array($settings)) {
++            return [];
++        }
++        /** @var mixed $flexForm */
++        $flexForm = $settings['flexform'] ?? [];
++        if (!is_array($flexForm)) {
++            return [];
++        }
++        /** @var mixed $main */
++        $main = $flexForm['main'] ?? [];
++        if (!is_array($main)) {
++            return [];
++        }
++        /** @var array<string, mixed> $main */
++        return $main;
++    }
++
++    protected function resolveLazyLoadingProxy(mixed $value): mixed
++    {
++        if ($value instanceof LazyLoadingProxy) {
++            return $value->_loadRealInstance();
++        }
++        return $value;
++    }
++
+     /**
+      * @return string "confirmation" or "create"
+      */
+     protected function getActionName(): string
+     {
+-        /** @var ServerRequest $request */
+-        $request = $GLOBALS['TYPO3_REQUEST'];
+-        $pluginVariables = $request->getQueryParams()['tx_powermail_pi1'] ?? [];
++        $request = $GLOBALS['TYPO3_REQUEST'] ?? null;
++        if (!$request instanceof ServerRequest) {
++            return '';
++        }
++        $queryParams = $request->getQueryParams();
++        $pluginVariables = $queryParams['tx_powermail_pi1'] ?? [];
++        if (!is_array($pluginVariables)) {
++            $pluginVariables = [];
++        }
+ 
+         $requestBody = $request->getParsedBody();
+         $postVariables = [];
+         if (is_array($requestBody) && isset($requestBody['tx_powermail_pi1'])) {
+             $postVariables = $requestBody['tx_powermail_pi1'];
++            if (!is_array($postVariables)) {
++                $postVariables = [];
++            }
+         }
+ 
+         ArrayUtility::mergeRecursiveWithOverrule($pluginVariables, $postVariables);
+-        return $pluginVariables['action'];
++        $action = $pluginVariables['action'] ?? '';
++        return is_scalar($action) || $action instanceof \Stringable ? (string)$action : '';
+     }
+ }
