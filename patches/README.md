@@ -14,7 +14,15 @@ and reinstall the affected dependency instead.
 | --- | --- |
 | `apache-solr-for-typo3/solr` | Align legacy backend typography, spacing, borders, and colors with TYPO3 v14 design tokens. This patch contains CSS only and adds no behavior. |
 | `typo3/cms-core` | Guard workspace move-pointer overlays when no live record exists. |
-| `studiomitte/friendlycaptcha` | Resolve Extbase lazy-loading proxies in the Powermail validator (TYPO3 14 / powermail 14). Upstream PR studiomitte/friendlycaptcha-typo3#65 — drop this patch once it is released. |
+
+## Forked dependencies
+
+`studiomitte/friendlycaptcha` and `studiomitte/solr-numbered-pagination` are installed from
+our own forks (`github.com/dirnbauer/*`), not from upstream: upstream friendlycaptcha 2.3.0
+lacks the Extbase lazy-loading-proxy fix our Powermail 14 forms need, and
+solr-numbered-pagination has no tagged release supporting TYPO3 14 (newest tag 1.0.4 caps at
+TYPO3 13.4 / EXT:solr 13; v14 support exists only on upstream `main`). We do not contribute
+these changes upstream.
 
 ## Workflow
 

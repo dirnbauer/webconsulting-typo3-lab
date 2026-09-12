@@ -4,16 +4,16 @@
     "type": "typo3-cms-extension",
     "license": "GPL-2.0-or-later",
     "require": {
-        "apache-solr-for-typo3/solr": "^14.0@RC",
+        "apache-solr-for-typo3/solr": "^14.0.1",
         "friendsoftypo3/tt-address": "^10.0",
-        "friendsoftypo3/visual-editor": "^1.9",
+        "friendsoftypo3/visual-editor": "^1.10.2",
         "georgringer/news": "^14.0",
-        "netresearch/nr-llm": "^0.25",
-        "netresearch/t3-cowriter": "^3.5",
+        "netresearch/nr-llm": "^0.34",
+        "netresearch/t3-cowriter": "^3.6.7",
         "php": "^8.4",
         "praetorius/vite-asset-collector": "^1.18",
         "studiomitte/solr-numbered-pagination": "dev-main",
-        "t3g/blog": "^15.0",
+        "t3g/blog": "^14.0.1",
         "typo3/cms-adminpanel": "^14.3",
         "typo3/cms-core": "^14.3",
         "typo3/cms-fluid-styled-content": "^14.3",
@@ -35,7 +35,7 @@
     "extra": {
         "typo3/cms": {
             "extension-key": "site_package",
-            "version": "14.3.4",
+            "version": "14.3.5",
             "Package": {
                 "providesPackages": {}
             }
