@@ -2,4 +2,13 @@ name: webconsulting/site-package-blog
 label: 'Site Package: Blog'
 dependencies:
   - webconsulting/site-package-search
-  - webconsulting/desiderio-blog-standalone
+  # Desiderio base supplies page = PAGE with page.10 =< lib.fluidPage; the
+  # shadcn/ui set adds the DesiderioBlog page layout the blog roots use.
+  # blog/integration (via desiderio-blog) only overrides the page template on
+  # blog pages. Upstream t3g/blog's "standalone" set would replace page = PAGE
+  # with its own FLUIDTEMPLATE and bypass Desiderio entirely — our retired fork
+  # had patched that line to reuse lib.fluidPage, which is why the switch to
+  # upstream 14.0.1 broke these two sites.
+  - webconsulting/desiderio
+  - webconsulting/desiderio-shadcnui-templates
+  - webconsulting/desiderio-blog
