@@ -11,7 +11,6 @@ Cowriter integration. Package version: `14.3.4`; PHP requirement: `^8.4`.
 | `webconsulting/site-package` | — | Base defaults, Admin Panel, Cowriter RTE, middleware, and Blog plugin wrappers |
 | `webconsulting/site-package-search` | base, `webconsulting/solr-defaults` | Solr defaults and numbered pagination |
 | `webconsulting/site-package-blog` | search, `webconsulting/desiderio-blog-standalone` | Desiderio standalone Blog rendering |
-| `webconsulting/site-package-agentstack` | base, `webconsulting/desiderio` | Agent Nexus frontend plugin wrappers |
 | `webconsulting/site-package-camino` | search, `typo3/theme-camino` | Camino demo rendering |
 | `webconsulting/site-package-workos` | base, `webconsulting/desiderio` | Lab-only WorkOS Fluid overrides, plugin bridge, and shadcn token CSS |
 
