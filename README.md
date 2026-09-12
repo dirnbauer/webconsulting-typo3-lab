@@ -190,6 +190,22 @@ Do not use `git clean -fdX` in this project: ignored paths include local DDEV
 configuration and database snapshots. Inspect cleanup candidates first and
 remove only reproducible caches or generated outputs.
 
+## Development clones
+
+Own extensions are installed from their GitHub repositories. To iterate on one without a
+release, keep its clone under `packages/` (the DDEV web container only sees paths inside the
+project) and link it into `vendor/`:
+
+```bash
+ddev exec Build/Scripts/lab-link.sh webconsulting/typo3-abilities
+ddev exec Build/Scripts/lab-link.sh --restore webconsulting/typo3-abilities
+ddev exec Build/Scripts/lab-link.sh --status
+```
+
+Restore every link before `composer update` or before committing `composer.lock`; the quality
+runner refuses to run while a clone is linked. `Build/Scripts/extension-baseline-report.sh`
+prints the PHPStan level, CI, README and docs state of every own extension clone.
+
 ## Documentation
 
 - [Documentation index](docs/README.md)
