@@ -65,7 +65,6 @@ jobs:
           cache-dependency-path: |
             package-lock.json
             apps/news-api-studio/package-lock.json
-            packages/flue-bridge/package-lock.json
 
       - name: Install and audit root tools
         run: |
@@ -81,8 +80,3 @@ jobs:
           npm run typecheck
           npm run build
 
-      - name: Install and audit Flue bridge
-        working-directory: packages/flue-bridge
-        run: |
-          npm ci
-          npm audit --audit-level=high

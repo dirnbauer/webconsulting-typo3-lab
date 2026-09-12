@@ -24,7 +24,6 @@ sync:
         - "/public/typo3temp"
         - "/var"
         - "/node_modules"
-        - "/packages/flue-bridge/node_modules"
         - "/vendor/webconsulting/docx-editor/node_modules"
         # The desktop apps are separate projects that happen to live in this
         # repository: nothing in composer.json or config/ refers to them, and

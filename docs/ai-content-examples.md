@@ -158,18 +158,12 @@ The replacement chat is available both from the top-right tools icon and under
 ```php
 'webconsulting_ai_chat' => [
     'llmTaskUid' => '15',
-    'processingStrategy' => 'exec',
-    'enableMcp' => '1',
-    'enableFlue' => '1',
-    'flueFlowUid' => '4',
 ],
 ```
 
 Task UID 15 is the dedicated `TYPO3 Backend Assistant`. Direct messages run
 through nr-llm with the authenticated backend user's permissions and show tool
-arguments/results in the execution ledger. Flue flow UID 4 is the lab's
-page-edit draft-workspace flow; the Flue lane remains optional and preserves
-its MCP allowlist, short-lived token, and approval boundaries. Image and PDF
+arguments/results in the execution ledger. Image and PDF
 attachments are previewed before send and validated again by TYPO3/FAL.
 
 ## Create the two frontend manuals

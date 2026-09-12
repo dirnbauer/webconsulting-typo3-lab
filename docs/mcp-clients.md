@@ -10,7 +10,7 @@ ddev exec -p webconsulting-typo3-lab -- \
 Stdio starts one child process per client and does not bind a port. It is the
 preferred local transport because it cannot collide with another DDEV project
 and does not need OAuth or a bearer token. The HTTP `/mcp` route remains useful
-for authenticated remote integrations and the Flue container, but it is not
+for authenticated remote integrations, but it is not
 needed by local desktop clients.
 
 The project uses `hn/typo3-mcp-server` from the pinned commit in

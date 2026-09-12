@@ -34,8 +34,8 @@ The one-sentence verdict: **the lab is 12–24 months ahead of TYPO3 core, rough
 | Extension | What it proves |
 |---|---|
 | `agent_nexus` (2026-07-02) | TYPO3 can speak the whole agent-protocol family: **A2UI, AG-UI, A2A, UCP, AP2** — backend field-guide hub, five playgrounds, five frontend plugins, nr-llm-backed with deterministic fallbacks, human authorization gates, provenance-labelled runs ("Live model" vs "Scripted demo") |
-| `flue` + `flue-bridge` (2026-07-02) | TYPO3 as **control plane** for a durable agent runtime (`@flue/runtime`, Node 22 sidecar): exports Skillflow skills, consumes the MCP tools, triggers workflows, mirrors durable runs back into the backend — the embryo of item 16 |
-| `webconsulting/typo3-ai-chat` (2026-07-26) | Modern governed backend operator chat, derived from Netresearch's `nr-mcp-agent`: shared assistant-ui runtime in the top-right drawer and Tools module, execution ledger, approvals, rich attachments, direct nr-llm tools, and optional durable Flue lane — item 11 |
+| ~~`flue` + `flue-bridge`~~ (2026-07-02, retired 2026-09-12) | Was TYPO3 as control plane for a durable Node agent runtime. Retired: the sidecar, its repo and the lab wiring are gone; durable runs are now nr-llm agent runs (`tx_nrllm_agentrun_event`) and the MCP **Tasks** alignment in item 16 |
+| `webconsulting/typo3-ai-chat` (2026-07-26) | Modern governed backend operator chat, derived from Netresearch's `nr-mcp-agent`: shared assistant-ui runtime in the top-right drawer and Tools module, execution ledger, approvals, rich attachments, direct nr-llm tools — item 11 (2.0 rewrite 2026-09: shadcn chat UI, tools in-process through typo3-mcp-server) |
 | ~~`typo3-capability-manifest` + `api-capability-bridge`~~ (retired + archived 2026-07-07) | Were the policy-checker/manifest seed of the abilities registry; their role is now the shipped registry (item 19) + the sg_apicore fork's REST projection. Repos archived read-only; the [capability-manifests article](https://www.webconsulting.at/en/blog/typo3-extension-security-emdash-capability-manifests) remains the historical record |
 | `typo3-deepfake-detection` (private) | Inbound media forensics — the trust/provenance lane (item 21) |
 | `typo3-camino-vercel` (2026-07-06) | TYPO3 14.3 on Vercel Functions — deployment modernization |
@@ -46,7 +46,7 @@ The one-sentence verdict: **the lab is 12–24 months ahead of TYPO3 core, rough
 - **No *unified* trace/eval store.** Skillflow has verdict+score per run; the abilities registry traces every execution attempt (`tx_abilities_trace`) across all four surfaces (`cli`/`mcp`/`rest`/`desktop`) — but nothing yet unifies tool calls, cost, diffs and rollback paths across all agent lanes.
 - **No retrieval infrastructure.** Zero embeddings, zero vector storage, no permission-aware context builder, no SEAL usage yet. Item 14 has the least code of anything on the page.
 - **No policy/consent records.** Policies are static YAML (capability policies and the abilities policy alike); there is no TCA-backed rule table linking policy decisions to executions.
-- **No generic durable job runtime.** TYPO3 Scheduler is cron; only the Flue experiment shows pause/resume/mirrored runs. The 2026-07-28 MCP **Tasks** extension is the alignment target — see `docs/mcp-spec-2026-07-28-adoption.md`.
+- **No generic durable job runtime.** TYPO3 Scheduler is cron; nr-llm agent runs (pause for approval, resume, persisted trace) are the only durable primitive since the Flue experiment was retired. The 2026-07-28 MCP **Tasks** extension is the alignment target — see `docs/mcp-spec-2026-07-28-adoption.md`.
 - ~~No `llms.txt`/`agents.md` generation~~ **Shipped 2026-07-07**: `webconsulting/typo3-llms-txt` serves both files per site, generated from the page tree; agents.md advertises the MCP endpoint, the abilities registry, sitemap and the x402 lane.
 
 ---
@@ -75,7 +75,7 @@ The one-sentence verdict: **the lab is 12–24 months ahead of TYPO3 core, rough
 ## 5. Strategic verdict
 
 1. **Add a third layer — "the agentic web" (items 17–23).** The first twelve items made TYPO3 *operable by agents*; 13–16 made that operation *manageable*; 17–23 make the whole installation *a citizen of the agentic web*: multi-protocol, discoverable, monetizable, provable, sovereign, and upstreamed.
-2. **Change what reality overtook.** MCP has a new spec and a foundation; the LLM abstraction (nr-llm/nr-vault) is shipped, not planned; payments went plural; the chatbot exists; item 16 has an embryo in `flue`.
+2. **Change what reality overtook.** MCP has a new spec and a foundation; the LLM abstraction (nr-llm/nr-vault) is shipped, not planned; payments went plural; the chatbot exists; item 16's Flue embryo was retired in favour of nr-llm agent runs.
 3. **Delete decoration, keep discipline.** Retire the repeated tool-count boast (state it once, verified); retire chat-first framing (Gartner-trough buyers punish gimmicks); retire "should formalize" claims for things that now exist. **Audit result: no whole item dies** — all sixteen earned their place; the corrections are about status honesty and emphasis.
 
 ---
@@ -98,7 +98,7 @@ Legend: ✅ shipped · 🌱 embryo in the lab · ⭕ direction only
 | 8 | Backend headless by design | ✅ Content Blocks, VE, workspaces | Keep |
 | 9 | Contract-first APIs | ✅ sg_apicore | Fold into the capability registry (→ 19) |
 | 10 | Annotation instead of chat | ✅/🌱 Agentation plumbing | Close the loop: annotation → agent run → workspace diff |
-| 11 | MCP chatbot / assistant | ✅ Webconsulting TYPO3 AI Chat: inline drawer + full module + governed direct/Flue lanes | Keep it as one command surface over governed tools; add shared trace/eval storage rather than another chat |
+| 11 | MCP chatbot / assistant | ✅ Webconsulting TYPO3 AI Chat: inline drawer + full module, tools in-process via typo3-mcp-server | Keep it as one command surface over governed tools; add shared trace/eval storage rather than another chat |
 | 12 | AI-optimized codebase | ✅ Desiderio discipline | Keep; CI guards are the moat |
 
 ### Operating layer (13–16)
@@ -108,7 +108,7 @@ Legend: ✅ shipped · 🌱 embryo in the lab · ⭕ direction only
 | 13 | AgentOps: traces, evals, rollback | 🌱 Skillflow runs (verdict/score) + abilities **`tx_abilities_trace`** (every execution attempt incl. denials: ability, surface, input, outcome, duration, BE user — shipped 2026-07-07) | Unify into one `agent_run` trace store (tool calls, diffs, cost, reviewer, rollback path); add eval sets + regression checks |
 | 14 | Context fabric | ⭕ zero retrieval code | Build on **SEAL** when it matures: permission-aware semantic index over records/FAL/history; source-backed context, never raw scraping |
 | 15 | Governance: policy, consent, review | 🌱 abilities policy with review requirements, capability-policy YAML | Promote policies from YAML to TCA records; risk tiers per tool/table/page subtree; consent ledger |
-| 16 | Durable runtime | 🌱 Flue durable runs mirrored into TYPO3 | Generalize: every long job exposes owner, state, affected records, retry policy, cost, next action; align with MCP **Tasks** (`io.modelcontextprotocol/tasks` — concrete mapping for Publish/Rollback/Import in `docs/mcp-spec-2026-07-28-adoption.md`) |
+| 16 | Durable runtime | 🌱 nr-llm agent runs (approval pause/resume, persisted trace) | Generalize: every long job exposes owner, state, affected records, retry policy, cost, next action; align with MCP **Tasks** (`io.modelcontextprotocol/tasks` — concrete mapping for Publish/Rollback/Import in `docs/mcp-spec-2026-07-28-adoption.md`) |
 
 ### The agentic web (17–23) — NEW
 

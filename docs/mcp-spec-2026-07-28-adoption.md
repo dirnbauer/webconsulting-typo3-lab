@@ -124,7 +124,7 @@ Note: the stateless core is a *net win* for PHP — one request = one process is
 - [ ] Adopt `io.modelcontextprotocol/tasks` via SDK v2 for: `PublishWorkspace`, `RollbackWorkspace`, import/audit tools, `SolrIndexQueue`, `InstallExtension`.
 - [ ] Persist task state in a TYPO3 table (uid/handle, owner BE user, state, affected records, retry policy, cost, next action — the item-16 schema in `docs/typo3-agentic-strategy-2026.md`); execute via Scheduler/CLI worker or symfony messenger-style command so `tasks/get` polls DB state statelessly.
 - [ ] Wire `tasks/cancel` to workspace-safe abort; `tasks/update` for approval-gated publishes (mid-flight input).
-- [ ] Mirror task lifecycle into the Flue durable-run view (lab) — one shared vocabulary.
+- [x] ~~Mirror task lifecycle into the Flue durable-run view~~ — Flue retired 2026-09-12; nr-llm agent runs are the durable-run view.
 
 ### P3 — authorization modernization
 - [ ] Implement **CIMD** client registration (fetch + validate HTTPS client-id metadata documents, cache them); keep RFC 7591 endpoint for legacy clients, mark deprecated in docs.
