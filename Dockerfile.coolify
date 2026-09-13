@@ -114,11 +114,22 @@ EXPOSE 80
 # while PHP is fatal and TYPO3 renders nothing — during a total outage the
 # container still reported healthy and the deployment looked successful.
 #
+# The Host and X-Forwarded-Proto headers are not decoration. TYPO3 rejects any
+# host outside trustedHostsPattern, and resolves the site by the base URL in
+# config/sites, which is https on the public domain. A probe to a bare
+# 127.0.0.1 therefore never reaches a page, the container never turns healthy,
+# and the proxy takes it out of rotation — the check itself causes the outage
+# it is supposed to report.
+#
 # The start period covers the entrypoint's migration and the first cold-cache
 # request, which together take much longer than a warm one, so a slow boot is
 # not mistaken for a broken one.
 HEALTHCHECK --interval=30s --timeout=20s --start-period=300s --retries=5 \
-    CMD curl -fsS -o /dev/null --max-time 15 --user "${BASIC_AUTH_USER}:${BASIC_AUTH_PASSWORD}" http://127.0.0.1/ || exit 1
+    CMD curl -fsS -o /dev/null --max-time 15 \
+        --user "${BASIC_AUTH_USER}:${BASIC_AUTH_PASSWORD}" \
+        -H "Host: ${TYPO3_HEALTHCHECK_HOST:-typo3-lab.webconsulting.at}" \
+        -H "X-Forwarded-Proto: https" \
+        http://127.0.0.1/ || exit 1
 
 ENTRYPOINT ["/usr/local/bin/typo3-entrypoint"]
 CMD ["apache2-foreground"]
