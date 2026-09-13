@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "987db07d74f830cded556d2bb4c2f609",
+    "content-hash": "9216713b02d80dced9430833ab1da349",
     "packages": [
         {
             "name": "apache-solr-for-typo3/solr",
@@ -12444,16 +12444,16 @@
         },
         {
             "name": "webconsulting/desiderio",
-            "version": "v4.1.5",
+            "version": "v4.1.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/desiderio.git",
-                "reference": "32399d0f77d9aaab7a347c1b8914c94d8e709beb"
+                "reference": "48f8355bfeb9af887008cd4350333583b6e83c63"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/desiderio/zipball/32399d0f77d9aaab7a347c1b8914c94d8e709beb",
-                "reference": "32399d0f77d9aaab7a347c1b8914c94d8e709beb",
+                "url": "https://api.github.com/repos/dirnbauer/desiderio/zipball/48f8355bfeb9af887008cd4350333583b6e83c63",
+                "reference": "48f8355bfeb9af887008cd4350333583b6e83c63",
                 "shasum": ""
             },
             "require": {
@@ -12463,6 +12463,7 @@
                 "praetorius/vite-asset-collector": "^1.18",
                 "typo3/cms-core": "^14.3.6",
                 "typo3/cms-fluid": "^14.3.6",
+                "typo3/cms-fluid-styled-content": "^14.3",
                 "typo3/cms-form": "^14.3.6",
                 "typo3/cms-workspaces": "^14.3.6",
                 "webconsulting/visual-editor-enhancements": "^0.8 || ^1.0 || dev-main"
@@ -12479,7 +12480,7 @@
                 "phpunit/phpunit": "^12.4 || ^13.0",
                 "saschaegerer/phpstan-typo3": "^3.0",
                 "ssch/typo3-rector": "^3.16",
-                "t3g/blog": "^15.0.3",
+                "t3g/blog": "^14.0.1",
                 "typo3/coding-standards": "^0.8",
                 "typo3/testing-framework": "^9.5"
             },
@@ -12495,7 +12496,7 @@
             "extra": {
                 "typo3/cms": {
                     "extension-key": "desiderio",
-                    "version": "4.1.5",
+                    "version": "4.1.6",
                     "Package": {
                         "providesPackages": []
                     }
@@ -12546,7 +12547,7 @@
                 }
             ],
             "description": "Desiderio — shadcn/ui-inspired Fluid 5 component library, 244 Desiderio Content Blocks, and theme layer for TYPO3 14",
-            "time": "2026-09-13T15:22:25+00:00"
+            "time": "2026-09-13T17:53:10+00:00"
         },
         {
             "name": "webconsulting/docx-editor",
