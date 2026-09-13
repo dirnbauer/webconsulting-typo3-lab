@@ -40,6 +40,7 @@ RUN apt-get update \
         -e 's/^# *\(de_AT.UTF-8 UTF-8\)/\1/' \
         -e 's/^# *\(hu_HU.UTF-8 UTF-8\)/\1/' \
         -e 's/^# *\(zh_CN.UTF-8 UTF-8\)/\1/' \
+        -e 's/^# *\(de_DE.UTF-8 UTF-8\)/\1/' \
         /etc/locale.gen \
     && locale-gen \
     && docker-php-ext-configure gd --with-freetype --with-jpeg --with-webp \
