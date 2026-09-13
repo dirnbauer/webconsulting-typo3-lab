@@ -83,4 +83,16 @@ if [ "${TYPO3_RUN_SETUP:-1}" = "1" ]; then
     fi
 fi
 
+# Rendered pages are cached in the database, which is a persistent volume, so a
+# new image keeps serving the previous one's HTML: a template fix deploys
+# successfully and changes nothing visible. Only the "pages" group is dropped —
+# the system caches stay warm, so this does not send every worker off to rebuild
+# TCA and the DI container at once, which is what makes a full flush expensive
+# on a small host.
+if [ "${TYPO3_FLUSH_PAGE_CACHE:-1}" = "1" ]; then
+    echo "entrypoint: flushing the page cache so new templates are rendered"
+    su -s /bin/sh -c 'cd /var/www/html && php -d memory_limit=1536M vendor/bin/typo3 cache:flush --group pages' www-data \
+        || echo "entrypoint: WARNING page cache flush failed; pages may render from the previous release" >&2
+fi
+
 exec docker-php-entrypoint "$@"

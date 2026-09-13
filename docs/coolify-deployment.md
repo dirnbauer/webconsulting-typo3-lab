@@ -48,6 +48,14 @@ read from `~/.config/coolify-token` (override with `COOLIFY_TOKEN_FILE`, or pass
 and `fileadmin` are untouched, and are moved separately by `push` and `pull`
 below.
 
+On start the container also drops the `pages` cache group
+(`TYPO3_FLUSH_PAGE_CACHE=0` to skip). Rendered pages are cached in the database,
+which is a persistent volume, so without this a new image keeps serving the
+previous one's HTML and a template fix deploys successfully while changing
+nothing visible. Only that group is dropped: the system caches stay warm, so a
+deployment does not send every worker off to rebuild TCA and the DI container
+at once.
+
 On start the container also rotates any log in `var/log` over 50 MB
 (`TYPO3_LOG_MAX_BYTES`), keeping one previous generation as `.log.1`. TYPO3's
 FileWriter appends forever and nothing else rotates it, so the main log had
