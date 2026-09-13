@@ -244,6 +244,15 @@ deploy() {
         echo "Coolify rejected the token. Create a new one and try again." >&2
         exit 1
     fi
+    if [[ "${status}" == "403" ]]; then
+        # The token is valid but was created without "deploy". Coolify's
+        # permissions are granular (read, read:sensitive, write,
+        # write:sensitive, deploy, root) and default to the read ones, so a
+        # token made for this ends up unable to do it.
+        echo "Coolify accepted the token but refused the action: ${body}" >&2
+        echo "Create the token with the \"deploy\" permission at ${base_url}/security/api-tokens." >&2
+        exit 1
+    fi
     if [[ "${status}" != "200" && "${status}" != "201" ]]; then
         echo "Coolify answered ${status}: ${body}" >&2
         exit 1

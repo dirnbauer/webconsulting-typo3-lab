@@ -40,7 +40,9 @@ Build/Scripts/sync-coolify.sh deploy
 ```
 
 That asks Coolify to rebuild and redeploy the application from `main`. It needs
-an API token created at <https://coolify.webconsulting.at/security/api-tokens>,
+an API token created at <https://coolify.webconsulting.at/security/api-tokens>
+with the **deploy** permission — Coolify's permissions are granular and a token
+made without it authenticates fine, then answers 403 on the deploy call —
 read from `~/.config/coolify-token` (override with `COOLIFY_TOKEN_FILE`, or pass
 `COOLIFY_TOKEN` for a single run). Deploying ships **code only** — the database
 and `fileadmin` are untouched, and are moved separately by `push` and `pull`
