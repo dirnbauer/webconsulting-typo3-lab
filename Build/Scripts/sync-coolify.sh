@@ -230,8 +230,10 @@ deploy() {
     before="$(remote_image_tag || true)"
     echo "Currently deployed: ${before:-unknown}"
 
+    # POST, not GET: Coolify moved this endpoint and answers 405 on a GET.
     body="$(curl -sS -w $'\n%{http_code}' \
-        --max-time 30 \
+        --max-time 60 \
+        -X POST \
         -H "Authorization: Bearer ${token}" \
         "${base_url}/api/v1/deploy?uuid=${app_uuid}")" || {
         echo "Could not reach ${base_url}." >&2
