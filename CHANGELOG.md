@@ -4,6 +4,47 @@ All notable changes to Webconsulting TYPO3 Lab are documented in this file.
 
 ## Unreleased
 
+### Overhaul — 2026-09-13
+
+Platform
+
+- TYPO3 14.3.7 on PHP 8.4, EXT:solr 14.0.1 against Apache Solr 10.0.0, nr-llm
+  0.34, Powermail 14.0.3 and Visual Editor 1.10.2. `typo3/cms-setup` is gone,
+  merged into cms-backend in 14.3.
+- The blog, FriendlyCaptcha, sg-apicore and Solr pagination forks were retired
+  in favour of upstream releases, except the two studiomitte packages, which
+  stay on our forks because upstream has no TYPO3 14 tag.
+- The Flue sidecar is gone: service, volumes, bridge package, CI step, settings
+  and documentation. `typo3-opentag-bridge`, `api-capability-bridge`,
+  `typo3-workspace-overlay-patch`, `ext-solr` and `t3x-nr-mcp-agent` were
+  deleted after mirroring.
+- Skills now come from `dirnbauer/typo3-skills` as an nr-llm repo source: 60
+  skills replacing the 137 of the archived `webconsulting-skills`, indexed into
+  Solr on the six sites that carry the skillflow set.
+
+Own extensions
+
+- Released against this lab: typo3-abilities 1.0, typo3-mcp-server 0.7.1,
+  AI Chat 2.0.1 (rewritten on shadcn/ui with tools executed in-process),
+  Agent Nexus 3.0 with its own site branch, Desiderio 4.1.3, Astryx 2.0,
+  Easy Workspace 1.4, Records List Types 1.1.1, Visual Editor Enhancements 1.0,
+  Skillflow 1.6.1, WorkOS 2.1, Agentation 1.2, x402 Paywall 1.2, llms.txt 1.0,
+  Image Workbench 0.2, Innesto 2.1, Skillspector 1.0 and pw_teaser 8.0.
+- PHPStan level 8 is the baseline everywhere, with one CI workflow, a README
+  under 120 lines and an RST manual per extension. No videos are committed.
+
+Fixed along the way
+
+- Desiderio's site set now depends on fluid-styled-content, which assigns
+  `lib.contentElement` and was discarding earlier root paths.
+- Two section-header comments broken by Desiderio's 4.1.0 CSS split made
+  browsers drop the base `.badge` and `.section` rules and aborted this
+  repository's Vite build.
+- `Dockerfile.solr.coolify` built from EXT:solr 14.0.0-RC1 while the lock ran
+  14.0.1, so a rebuild would have served release-candidate configsets.
+- The blog site's English and Chinese root pages were hidden, so both declared
+  languages answered 404.
+
 ### Maintenance — 2026-09-06
 
 - Set TYPO3 14.3.6 as the minimum core version; the lab was already running
