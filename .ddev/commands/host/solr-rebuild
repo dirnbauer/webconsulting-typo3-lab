@@ -1,0 +1,33 @@
+#!/usr/bin/env bash
+## Description: Wipe and rebuild the Solr cores, restoring solr.xml first
+## Usage: solr-rebuild
+## Example: "ddev solr-rebuild"
+##
+## Why this exists: `ddev solrctl wipe` deletes solr.xml and the configsets but
+## leaves typo3lib/ in place, while `ddev solrctl apply` only restores solr.xml
+## when typo3lib/ is MISSING. After a wipe the guard therefore reports
+## "already registered", solr.xml never comes back, and core creation fails with
+## "Unable to create core [core_ar] Caused by: solr.ICUCollationField" — the
+## module list that EXT:solr declares in solr.xml is what loads analysis-extras.
+## Solr reads solr.xml only at startup, so the file must be in place before the
+## container restarts.
+set -euo pipefail
+cd "$(dirname "$0")/../.."
+
+CONTAINER="ddev-${DDEV_SITENAME}-typo3-solr"
+SOLR_XML="vendor/apache-solr-for-typo3/solr/Resources/Private/Solr/solr.xml"
+[ -f "$SOLR_XML" ] || { echo "EXT:solr not installed at $SOLR_XML"; exit 1; }
+
+echo "🗑️  Wiping cores and configsets"
+ddev solrctl wipe
+
+echo "🐳 Restoring solr.xml (wipe removes it; apply will not)"
+docker cp "$SOLR_XML" "$CONTAINER:/var/solr/data/solr.xml"
+docker exec -u root "$CONTAINER" chown solr:solr /var/solr/data/solr.xml
+
+echo "♻️  Restarting Solr so it reads the module list"
+docker restart "$CONTAINER" >/dev/null
+
+echo "📦 Applying configsets and creating cores"
+ddev solrctl apply
+ddev solrctl list
