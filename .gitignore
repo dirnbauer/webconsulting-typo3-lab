@@ -36,3 +36,6 @@ scripts/*
 # of version control. Real backups live in .ddev/db_snapshots and ~/backups.
 dump.sql.gz
 *.sql.gz
+# Safety copies taken before a destructive migration (table dumps, pre-update
+# composer.lock). Same reasoning: local, large and stale on arrival.
+/Build/backup/
