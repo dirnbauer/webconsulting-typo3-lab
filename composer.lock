@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c11a1a12663bc550d9448cd9f06ea37d",
+    "content-hash": "073252c069ebd42dda88ba4ada5a2f5f",
     "packages": [
         {
             "name": "apache-solr-for-typo3/solr",
@@ -4394,6 +4394,58 @@
             "time": "2026-01-06T21:53:42+00:00"
         },
         {
+            "name": "phpoffice/math",
+            "version": "0.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/PHPOffice/Math.git",
+                "reference": "fc31c8f57a7a81f962cbf389fd89f4d9d06fc99a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/PHPOffice/Math/zipball/fc31c8f57a7a81f962cbf389fd89f4d9d06fc99a",
+                "reference": "fc31c8f57a7a81f962cbf389fd89f4d9d06fc99a",
+                "shasum": ""
+            },
+            "require": {
+                "ext-dom": "*",
+                "ext-xml": "*",
+                "php": "^7.1|^8.0"
+            },
+            "require-dev": {
+                "phpstan/phpstan": "^0.12.88 || ^1.0.0",
+                "phpunit/phpunit": "^7.0 || ^9.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "PhpOffice\\Math\\": "src/Math/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Progi1984",
+                    "homepage": "https://lefevre.dev"
+                }
+            ],
+            "description": "Math - Manipulate Math Formula",
+            "homepage": "https://phpoffice.github.io/Math/",
+            "keywords": [
+                "MathML",
+                "officemathml",
+                "php"
+            ],
+            "support": {
+                "issues": "https://github.com/PHPOffice/Math/issues",
+                "source": "https://github.com/PHPOffice/Math/tree/0.3.0"
+            },
+            "time": "2025-05-29T08:31:49+00:00"
+        },
+        {
             "name": "phpoffice/phpspreadsheet",
             "version": "5.9.0",
             "source": {
@@ -4501,6 +4553,114 @@
                 "source": "https://github.com/PHPOffice/PhpSpreadsheet/tree/5.9.0"
             },
             "time": "2026-07-12T19:17:39+00:00"
+        },
+        {
+            "name": "phpoffice/phpword",
+            "version": "1.4.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/PHPOffice/PHPWord.git",
+                "reference": "6d75328229bc93790b37e93741adf70646cea958"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/PHPOffice/PHPWord/zipball/6d75328229bc93790b37e93741adf70646cea958",
+                "reference": "6d75328229bc93790b37e93741adf70646cea958",
+                "shasum": ""
+            },
+            "require": {
+                "ext-dom": "*",
+                "ext-gd": "*",
+                "ext-json": "*",
+                "ext-xml": "*",
+                "ext-zip": "*",
+                "php": "^7.1|^8.0",
+                "phpoffice/math": "^0.3"
+            },
+            "require-dev": {
+                "dompdf/dompdf": "^2.0 || ^3.0",
+                "ext-libxml": "*",
+                "friendsofphp/php-cs-fixer": "^3.3",
+                "mpdf/mpdf": "^7.0 || ^8.0",
+                "phpmd/phpmd": "^2.13",
+                "phpstan/phpstan": "^0.12.88 || ^1.0.0",
+                "phpstan/phpstan-phpunit": "^1.0 || ^2.0",
+                "phpunit/phpunit": ">=7.0",
+                "symfony/process": "^4.4 || ^5.0",
+                "tecnickcom/tcpdf": "^6.5"
+            },
+            "suggest": {
+                "dompdf/dompdf": "Allows writing PDF",
+                "ext-xmlwriter": "Allows writing OOXML and ODF",
+                "ext-xsl": "Allows applying XSL style sheet to headers, to main document part, and to footers of an OOXML template"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "PhpOffice\\PhpWord\\": "src/PhpWord"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "LGPL-3.0-only"
+            ],
+            "authors": [
+                {
+                    "name": "Mark Baker"
+                },
+                {
+                    "name": "Gabriel Bull",
+                    "email": "me@gabrielbull.com",
+                    "homepage": "http://gabrielbull.com/"
+                },
+                {
+                    "name": "Franck Lefevre",
+                    "homepage": "https://rootslabs.net/blog/"
+                },
+                {
+                    "name": "Ivan Lanin",
+                    "homepage": "http://ivan.lanin.org"
+                },
+                {
+                    "name": "Roman Syroeshko",
+                    "homepage": "http://ru.linkedin.com/pub/roman-syroeshko/34/a53/994/"
+                },
+                {
+                    "name": "Antoine de Troostembergh"
+                }
+            ],
+            "description": "PHPWord - A pure PHP library for reading and writing word processing documents (OOXML, ODF, RTF, HTML, PDF)",
+            "homepage": "https://phpoffice.github.io/PHPWord/",
+            "keywords": [
+                "ISO IEC 29500",
+                "OOXML",
+                "Office Open XML",
+                "OpenDocument",
+                "OpenXML",
+                "PhpOffice",
+                "PhpWord",
+                "Rich Text Format",
+                "WordprocessingML",
+                "doc",
+                "docx",
+                "html",
+                "odf",
+                "odt",
+                "office",
+                "pdf",
+                "php",
+                "reader",
+                "rtf",
+                "template",
+                "template processor",
+                "word",
+                "writer"
+            ],
+            "support": {
+                "issues": "https://github.com/PHPOffice/PHPWord/issues",
+                "source": "https://github.com/PHPOffice/PHPWord/tree/1.4.0"
+            },
+            "time": "2025-06-05T10:32:36+00:00"
         },
         {
             "name": "phpstan/phpdoc-parser",
@@ -5256,6 +5416,57 @@
                 "typo3-extension"
             ],
             "time": "2026-08-12T21:17:23+00:00"
+        },
+        {
+            "name": "smalot/pdfparser",
+            "version": "v2.12.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/smalot/pdfparser.git",
+                "reference": "2cfa0d92bd557875c9f52a75fde0e8392302a354"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/smalot/pdfparser/zipball/2cfa0d92bd557875c9f52a75fde0e8392302a354",
+                "reference": "2cfa0d92bd557875c9f52a75fde0e8392302a354",
+                "shasum": ""
+            },
+            "require": {
+                "ext-iconv": "*",
+                "ext-zlib": "*",
+                "php": ">=7.1",
+                "symfony/polyfill-mbstring": "^1.18"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Smalot\\PdfParser\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "LGPL-3.0"
+            ],
+            "authors": [
+                {
+                    "name": "Sebastien MALOT",
+                    "email": "sebastien@malot.fr"
+                }
+            ],
+            "description": "Pdf parser library. Can read and extract information from pdf file.",
+            "homepage": "https://www.pdfparser.org",
+            "keywords": [
+                "extract",
+                "parse",
+                "parser",
+                "pdf",
+                "text"
+            ],
+            "support": {
+                "issues": "https://github.com/smalot/pdfparser/issues",
+                "source": "https://github.com/smalot/pdfparser/tree/v2.12.5"
+            },
+            "time": "2026-04-17T11:37:58+00:00"
         },
         {
             "name": "solarium/solarium",
@@ -11914,35 +12125,49 @@
         },
         {
             "name": "webconsulting/agent-nexus",
-            "version": "v2.0.2",
+            "version": "v3.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/typo3-agent-nexus.git",
-                "reference": "442b2279e2a1f19d72f9f6f81961ad001f3cfb62"
+                "reference": "81881251676aec6859a085048232302c5dd74b20"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/typo3-agent-nexus/zipball/442b2279e2a1f19d72f9f6f81961ad001f3cfb62",
-                "reference": "442b2279e2a1f19d72f9f6f81961ad001f3cfb62",
+                "url": "https://api.github.com/repos/dirnbauer/typo3-agent-nexus/zipball/81881251676aec6859a085048232302c5dd74b20",
+                "reference": "81881251676aec6859a085048232302c5dd74b20",
                 "shasum": ""
             },
             "require": {
-                "php": "^8.3",
-                "typo3/cms-backend": "^14.3",
-                "typo3/cms-core": "^14.3",
-                "typo3/cms-extbase": "^14.3",
-                "typo3/cms-fluid": "^14.3",
-                "typo3/cms-frontend": "^14.3"
+                "php": "^8.4",
+                "typo3/cms-backend": "^14.3.7",
+                "typo3/cms-core": "^14.3.7",
+                "typo3/cms-extbase": "^14.3.7",
+                "typo3/cms-fluid": "^14.3.7",
+                "typo3/cms-fluid-styled-content": "^14.3.7",
+                "typo3/cms-frontend": "^14.3.7"
+            },
+            "require-dev": {
+                "dg/bypass-finals": "^1.9",
+                "friendsofphp/php-cs-fixer": "^3.90",
+                "phpstan/extension-installer": "^1.4",
+                "phpstan/phpstan": "^2.2",
+                "phpstan/phpstan-phpunit": "^2.0",
+                "phpunit/phpunit": "^11.5",
+                "saschaegerer/phpstan-typo3": "^3.1",
+                "typo3/coding-standards": "^0.8",
+                "typo3/testing-framework": "^9.5"
             },
             "suggest": {
                 "friendsoftypo3/content-blocks": "Can be used to expose the frontend protocol plugins as richer content blocks.",
-                "netresearch/nr-llm": "Enables real LLM-backed behavior across the frontend plugins (A2UI generation, AG-UI streamed answers, A2A routing, UCP rationale) where configured; otherwise Agent Nexus uses deterministic demos."
+                "netresearch/nr-llm": "Enables real LLM-backed behavior across the frontend plugins (A2UI generation, AG-UI streamed answers, A2A routing, UCP rationale) where configured; otherwise Agent Nexus uses deterministic demos.",
+                "webconsulting/desiderio": "^4.1 enables the \"Agent Nexus: Desiderio rendering\" site set, which renders the frontend plugins through the Desiderio component collection."
             },
             "type": "typo3-cms-extension",
             "extra": {
                 "typo3/cms": {
                     "extension-key": "agent_nexus",
-                    "version": "2.0.2",
+                    "web-dir": ".Build/Web",
+                    "version": "3.0.0",
                     "Package": {
                         "providesPackages": []
                     }
@@ -11953,6 +12178,37 @@
                     "Webconsulting\\AgentNexus\\": "Classes/"
                 }
             },
+            "autoload-dev": {
+                "psr-4": {
+                    "Webconsulting\\AgentNexus\\Tests\\": "Tests/"
+                }
+            },
+            "scripts": {
+                "ci": [
+                    "@ci:cgl",
+                    "@ci:phpstan",
+                    "@ci:tests:unit",
+                    "@ci:tests:functional"
+                ],
+                "ci:cgl": [
+                    "php-cs-fixer fix --config .php-cs-fixer.dist.php --diff --dry-run --using-cache no"
+                ],
+                "ci:php:lint": [
+                    "find Classes Configuration Tests ext_localconf.php -name '*.php' -print0 | xargs -0 -n1 -P4 php -l >/dev/null"
+                ],
+                "ci:phpstan": [
+                    "phpstan analyse --configuration phpstan.neon --no-progress"
+                ],
+                "ci:tests:functional": [
+                    "phpunit -c Build/phpunit/FunctionalTests.xml"
+                ],
+                "ci:tests:unit": [
+                    "phpunit -c Build/phpunit/UnitTests.xml"
+                ],
+                "fix:cgl": [
+                    "php-cs-fixer fix --config .php-cs-fixer.dist.php"
+                ]
+            },
             "license": [
                 "GPL-2.0-or-later"
             ],
@@ -11960,7 +12216,8 @@
                 {
                     "name": "webconsulting GmbH",
                     "email": "office@webconsulting.at",
-                    "homepage": "https://webconsulting.at"
+                    "homepage": "https://webconsulting.at",
+                    "role": "Developer"
                 }
             ],
             "description": "Agent Nexus - A unified TYPO3 v14 lab for A2UI, AG-UI, A2A, UCP and AP2 agent protocol demos.",
@@ -11980,7 +12237,7 @@
                 "issues": "https://github.com/dirnbauer/typo3-agent-nexus/issues",
                 "source": "https://github.com/dirnbauer/typo3-agent-nexus"
             },
-            "time": "2026-07-12T06:23:34+00:00"
+            "time": "2026-09-12T23:21:44+00:00"
         },
         {
             "name": "webconsulting/agentation",
@@ -12097,29 +12354,35 @@
         },
         {
             "name": "webconsulting/astryx-typo3",
-            "version": "v1.0.2",
+            "version": "v2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/astryx-typo3.git",
-                "reference": "b9d01dcf54e0e58584920f91d51cb081ee8cb32a"
+                "reference": "22f2cd6b2a2927ffe08580cbda76e9a5b2c8c799"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/astryx-typo3/zipball/b9d01dcf54e0e58584920f91d51cb081ee8cb32a",
-                "reference": "b9d01dcf54e0e58584920f91d51cb081ee8cb32a",
+                "url": "https://api.github.com/repos/dirnbauer/astryx-typo3/zipball/22f2cd6b2a2927ffe08580cbda76e9a5b2c8c799",
+                "reference": "22f2cd6b2a2927ffe08580cbda76e9a5b2c8c799",
                 "shasum": ""
             },
             "require": {
                 "friendsoftypo3/content-blocks": "^2.2",
                 "php": "^8.4",
                 "praetorius/vite-asset-collector": "^1.18",
-                "typo3/cms-core": "^14.3",
-                "typo3/cms-fluid": "^14.3",
-                "webconsulting/desiderio": "^4.0"
+                "typo3/cms-core": "^14.3.7",
+                "typo3/cms-fluid": "^14.3.7",
+                "webconsulting/desiderio": "^4.1"
             },
             "require-dev": {
+                "friendsofphp/php-cs-fixer": "^3.75",
+                "phpstan/phpstan": "^2",
+                "phpstan/phpstan-phpunit": "^2",
                 "phpunit/phpunit": "^11.5",
-                "symfony/yaml": "^7.3 || ^8.0"
+                "saschaegerer/phpstan-typo3": "^3.1",
+                "symfony/yaml": "^7.3 || ^8.0",
+                "typo3/coding-standards": "^0.8 || ^0.9",
+                "typo3/testing-framework": "^9.5"
             },
             "suggest": {
                 "friendsoftypo3/visual-editor": "Optional. Inline visual editing and the element library plus-button. Thank you to the friends of TYPO3 maintainers."
@@ -12142,11 +12405,30 @@
                 }
             },
             "scripts": {
+                "lint": [
+                    "find Classes Tests -name '*.php' -print0 | xargs -0 -n1 php -l"
+                ],
+                "cgl": [
+                    "php-cs-fixer fix --diff"
+                ],
+                "cgl:check": [
+                    "php-cs-fixer fix --dry-run --diff"
+                ],
+                "phpstan": [
+                    "@php -d memory_limit=-1 vendor/bin/phpstan analyse --configuration=phpstan.neon --no-progress"
+                ],
+                "test:unit": [
+                    "@php -d memory_limit=-1 vendor/bin/phpunit --configuration=Build/phpunit/UnitTests.xml"
+                ],
+                "test:functional": [
+                    "@php -d memory_limit=-1 vendor/bin/phpunit --configuration=Build/phpunit/FunctionalTests.xml"
+                ],
                 "test": [
-                    "phpunit --configuration=phpunit.xml.dist"
+                    "@test:unit",
+                    "@test:functional"
                 ],
                 "audit-elements": [
-                    "php scripts/audit-content-elements.php"
+                    "@php -d memory_limit=-1 vendor/bin/phpunit --configuration=Build/phpunit/UnitTests.xml --filter ContentElementAuditTest"
                 ]
             },
             "license": [
@@ -12157,21 +12439,21 @@
                     "name": "webconsulting studio"
                 }
             ],
-            "description": "Astryx for TYPO3 — the Astryx design system, server-rendered for TYPO3 14: 250 Content Blocks, seven runtime-switchable themes, no JavaScript framework",
-            "time": "2026-08-28T07:43:26+00:00"
+            "description": "Astryx for TYPO3 — the Astryx design system, server-rendered for TYPO3 14: 250 Content Blocks, 89 Fluid components, 25 runtime-switchable themes, no JavaScript framework",
+            "time": "2026-09-13T00:08:06+00:00"
         },
         {
             "name": "webconsulting/desiderio",
-            "version": "v4.0.6",
+            "version": "v4.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/desiderio.git",
-                "reference": "d82c6a521bc3204402c9054f143cd38ab8050824"
+                "reference": "c2f67f3e34ec64df38095070b5bf8687b052af8f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/desiderio/zipball/d82c6a521bc3204402c9054f143cd38ab8050824",
-                "reference": "d82c6a521bc3204402c9054f143cd38ab8050824",
+                "url": "https://api.github.com/repos/dirnbauer/desiderio/zipball/c2f67f3e34ec64df38095070b5bf8687b052af8f",
+                "reference": "c2f67f3e34ec64df38095070b5bf8687b052af8f",
                 "shasum": ""
             },
             "require": {
@@ -12189,18 +12471,20 @@
                 "webconsulting/shadcn2fluid-templates": "*"
             },
             "require-dev": {
+                "friendsofphp/php-cs-fixer": "^3.90",
                 "phpstan/extension-installer": "^1.4",
                 "phpstan/phpstan": "^2.1",
                 "phpstan/phpstan-phpunit": "^2.0",
                 "phpstan/phpstan-strict-rules": "^2.0",
-                "phpunit/phpunit": "^11.5",
+                "phpunit/phpunit": "^12.4 || ^13.0",
                 "saschaegerer/phpstan-typo3": "^3.0",
+                "ssch/typo3-rector": "^3.16",
                 "t3g/blog": "^15.0.3",
-                "typo3/testing-framework": "^9.0"
+                "typo3/coding-standards": "^0.8",
+                "typo3/testing-framework": "^9.5"
             },
             "suggest": {
                 "apache-solr-for-typo3/solr": "Optional. Drives the shadcn-styled Solr search templates. Thank you to dkd Internet Service GmbH and the TYPO3-Solr team.",
-                "friendsoftypo3/visual-editor": "Optional. Inline visual editing when templates use f:render.text for text fields. Thank you to the friends of TYPO3 maintainers.",
                 "georgringer/news": "Optional. Drives the shadcn-styled News templates and the DesiderioNews backend layout. Thank you, Georg Ringer.",
                 "in2code/powermail": "Optional. Drives the shadcn-styled Powermail templates and demo form seeder. Thank you, in2code.",
                 "netresearch/nr-llm": "Optional. Netresearch's AI foundation for TYPO3 — the shared LLM provider layer behind the agentic features shown in the styleguide, alongside nr-mcp-agent, nr-vault and t3-cowriter. Thank you, Netresearch DTT GmbH.",
@@ -12211,7 +12495,7 @@
             "extra": {
                 "typo3/cms": {
                     "extension-key": "desiderio",
-                    "version": "4.0.6",
+                    "version": "4.1.1",
                     "Package": {
                         "providesPackages": []
                     }
@@ -12232,10 +12516,25 @@
                     "@composer audit --no-dev --abandoned=fail"
                 ],
                 "phpstan": [
-                    "phpstan analyse --configuration=phpstan.neon.dist"
+                    "phpstan analyse --configuration=phpstan.neon"
                 ],
                 "test": [
-                    "phpunit --configuration=phpunit.xml.dist"
+                    "phpunit --configuration=Build/phpunit/UnitTests.xml"
+                ],
+                "test:functional": [
+                    "Build/Scripts/runFunctionalTests.sh"
+                ],
+                "cgl": [
+                    "php-cs-fixer fix --diff"
+                ],
+                "cgl:check": [
+                    "php-cs-fixer fix --dry-run --diff"
+                ],
+                "rector": [
+                    "rector process"
+                ],
+                "rector:check": [
+                    "rector process --dry-run"
                 ]
             },
             "license": [
@@ -12247,7 +12546,7 @@
                 }
             ],
             "description": "Desiderio — shadcn/ui-inspired Fluid 5 component library, 244 Desiderio Content Blocks, and theme layer for TYPO3 14",
-            "time": "2026-08-27T17:22:04+00:00"
+            "time": "2026-09-13T00:22:48+00:00"
         },
         {
             "name": "webconsulting/docx-editor",
@@ -12456,60 +12755,54 @@
         },
         {
             "name": "webconsulting/records-list-examples",
-            "version": "v1.2.2",
+            "version": "v1.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/typo3-records-list-examples.git",
-                "reference": "e0384c8b1305bde02142ab7b1cd34f691169b00d"
+                "reference": "5fa36e4099b3ffb6169f43caefe23825b59aa328"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/typo3-records-list-examples/zipball/e0384c8b1305bde02142ab7b1cd34f691169b00d",
-                "reference": "e0384c8b1305bde02142ab7b1cd34f691169b00d",
+                "url": "https://api.github.com/repos/dirnbauer/typo3-records-list-examples/zipball/5fa36e4099b3ffb6169f43caefe23825b59aa328",
+                "reference": "5fa36e4099b3ffb6169f43caefe23825b59aa328",
                 "shasum": ""
             },
             "require": {
-                "php": "^8.3",
-                "typo3/cms-backend": "^14.3",
-                "typo3/cms-core": "^14.3",
-                "typo3/cms-fluid": "^14.3",
-                "typo3/cms-recordlist": "^14.3",
-                "webconsulting/records-list-types": "^1.0"
+                "php": "^8.4",
+                "typo3/cms-backend": "^14.3.6",
+                "typo3/cms-core": "^14.3.6",
+                "typo3/cms-fluid": "^14.3.6",
+                "webconsulting/records-list-types": "^1.1"
             },
             "require-dev": {
+                "friendsofphp/php-cs-fixer": "^3.95.2",
                 "phpstan/phpstan": "^2.1",
+                "phpstan/phpstan-phpunit": "^2.0",
                 "phpstan/phpstan-strict-rules": "^2.0",
-                "saschaegerer/phpstan-typo3": "^3.0"
+                "phpunit/phpunit": "^11.2.5 || ^12.1.2 || ^13.0.2",
+                "saschaegerer/phpstan-typo3": "^3.0",
+                "typo3/coding-standards": "^0.9",
+                "typo3/testing-framework": "^9.5"
             },
             "type": "typo3-cms-extension",
             "extra": {
                 "typo3/cms": {
                     "extension-key": "records_list_examples",
-                    "version": "1.2.1",
+                    "version": "1.3.0",
                     "Package": {
                         "providesPackages": []
                     }
                 }
             },
-            "scripts": {
-                "ci": [
-                    "@check",
-                    "@security:audit",
-                    "@phpstan"
-                ],
-                "security:audit": [
-                    "composer audit --abandoned=report"
-                ],
-                "check": [
-                    "composer validate --strict --no-check-publish",
-                    "@check:xlf"
-                ],
-                "phpstan": [
-                    "phpstan analyse --no-progress --memory-limit=512M"
-                ],
-                "check:xlf": [
-                    "php Build/Scripts/validate-xlf.php"
-                ]
+            "autoload": {
+                "psr-4": {
+                    "Webconsulting\\RecordsListExamples\\": "Classes/"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "Webconsulting\\RecordsListExamples\\Tests\\": "Tests/"
+                }
             },
             "license": [
                 "GPL-2.0-or-later"
@@ -12527,7 +12820,7 @@
                 "issues": "https://github.com/dirnbauer/typo3-records-list-examples/issues",
                 "source": "https://github.com/dirnbauer/typo3-records-list-examples"
             },
-            "time": "2026-06-20T17:54:55+00:00"
+            "time": "2026-09-12T21:18:00+00:00"
         },
         {
             "name": "webconsulting/records-list-types",
@@ -12900,6 +13193,115 @@
                 "typo3"
             ],
             "time": "2026-09-12T21:09:45+00:00"
+        },
+        {
+            "name": "webconsulting/typo3-ai-chat",
+            "version": "v2.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dirnbauer/typo3-ai-chat.git",
+                "reference": "9290b5c1ecd7fb111015e14a159aab677daa06e6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dirnbauer/typo3-ai-chat/zipball/9290b5c1ecd7fb111015e14a159aab677daa06e6",
+                "reference": "9290b5c1ecd7fb111015e14a159aab677daa06e6",
+                "shasum": ""
+            },
+            "require": {
+                "hn/typo3-mcp-server": "^0.7",
+                "netresearch/nr-llm": "^0.34",
+                "php": "^8.4",
+                "phpoffice/phpword": "^1.0",
+                "smalot/pdfparser": "^2.0",
+                "typo3/cms-backend": "^14.3.7",
+                "typo3/cms-core": "^14.3.7"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^3.94",
+                "phpstan/phpstan": "^2.1",
+                "phpstan/phpstan-phpunit": "^2.0",
+                "phpunit/phpunit": "^12.4 || ^13.0",
+                "saschaegerer/phpstan-typo3": "^3.0",
+                "typo3/coding-standards": "^0.9",
+                "typo3/testing-framework": "^9.5"
+            },
+            "suggest": {
+                "phpoffice/phpspreadsheet": "^3.0 — Required for XLSX attachment text extraction"
+            },
+            "type": "typo3-cms-extension",
+            "extra": {
+                "typo3/cms": {
+                    "extension-key": "webconsulting_ai_chat",
+                    "web-dir": ".Build/Web"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Webconsulting\\Typo3AiChat\\": "Classes/"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "Webconsulting\\Typo3AiChat\\Tests\\": "Tests/"
+                }
+            },
+            "scripts": {
+                "ci": [
+                    "@ci:phpstan",
+                    "@ci:cgl",
+                    "@ci:tests"
+                ],
+                "ci:phpstan": [
+                    ".Build/bin/phpstan analyse -c phpstan.neon --no-progress --memory-limit=1G"
+                ],
+                "ci:cgl": [
+                    ".Build/bin/php-cs-fixer fix --dry-run --diff"
+                ],
+                "ci:tests": [
+                    "php -d memory_limit=1G .Build/bin/phpunit -c Build/phpunit.xml"
+                ],
+                "ci:tests:unit": [
+                    "php -d memory_limit=1G .Build/bin/phpunit -c Build/phpunit.xml --testsuite unit"
+                ],
+                "ci:tests:functional": [
+                    "php -d memory_limit=1G .Build/bin/phpunit -c Build/phpunit.xml --testsuite functional"
+                ],
+                "fix:cgl": [
+                    ".Build/bin/php-cs-fixer fix"
+                ]
+            },
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Webconsulting",
+                    "homepage": "https://github.com/dirnbauer",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "Netresearch DTT GmbH",
+                    "homepage": "https://www.netresearch.de/",
+                    "role": "Original nr-mcp-agent authors — with our sincere thanks"
+                }
+            ],
+            "description": "Governed AI operator chat for the TYPO3 backend: nr-llm agent runs driving in-process TYPO3 MCP tools",
+            "homepage": "https://github.com/dirnbauer/typo3-ai-chat",
+            "keywords": [
+                "AI",
+                "LLM",
+                "MCP",
+                "TYPO3",
+                "backend",
+                "chat",
+                "extension"
+            ],
+            "support": {
+                "issues": "https://github.com/dirnbauer/typo3-ai-chat/issues",
+                "source": "https://github.com/dirnbauer/typo3-ai-chat"
+            },
+            "time": "2026-09-12T22:57:05+00:00"
         },
         {
             "name": "webconsulting/typo3-llms-txt",

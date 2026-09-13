@@ -1,0 +1,22 @@
+base: 'https://webconsulting-typo3-lab.ddev.site/agent-nexus/'
+baseVariants:
+  -
+    base: 'https://typo3-lab.webconsulting.at/agent-nexus/'
+    condition: 'applicationContext == "Production"'
+dependencies:
+  # The plain agent-nexus set only wraps the plugins; Desiderio supplies
+  # page = PAGE and the shadcn/ui page layouts.
+  - webconsulting/agent-nexus-desiderio
+  - webconsulting/desiderio-shadcnui-templates
+errorHandling: {  }
+languages:
+  -
+    title: English
+    enabled: true
+    languageId: 0
+    base: /
+    locale: en_US.UTF-8
+    navigationTitle: English
+    flag: us
+rootPageId: 1400
+routes: {  }
