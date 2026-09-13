@@ -54,11 +54,18 @@ case "${SUITE}" in
         npm run build
         npm audit --audit-level=high
         ;;
+    deployPins)
+        php Build/Scripts/check-deploy-pins.php
+        ;;
+    siteLanguages)
+        Build/Scripts/check-site-languages.sh
+        ;;
     e2e)
         # Vite emits content-hashed filenames. Cached frontend pages may still
         # reference the previous manifest after a rebuild, so exercise the
         # freshly built assets rather than stale page-cache markup.
         vendor/bin/typo3 cache:flush
+        Build/Scripts/check-site-languages.sh
         npm run test:e2e
         ;;
     quality)
@@ -69,6 +76,7 @@ case "${SUITE}" in
         "${BASH_SOURCE[0]}" -s phpstan
         "${BASH_SOURCE[0]}" -s unit
         "${BASH_SOURCE[0]}" -s frontend
+        "${BASH_SOURCE[0]}" -s deployPins
         ;;
     ci)
         "${BASH_SOURCE[0]}" -s quality

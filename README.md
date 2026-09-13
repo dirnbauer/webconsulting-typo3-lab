@@ -159,6 +159,8 @@ ddev composer audit
 ddev exec Build/Scripts/runTests.sh -s phpstan -p 8.4
 ddev exec Build/Scripts/runTests.sh -s unit -p 8.4
 ddev exec Build/Scripts/runTests.sh -s frontend
+ddev exec Build/Scripts/runTests.sh -s deployPins
+ddev exec Build/Scripts/runTests.sh -s siteLanguages
 ddev exec Build/Scripts/runTests.sh -s e2e
 ddev typo3 lint:yaml config/sites packages/site_package/Configuration/Sets
 ddev typo3 site:list
@@ -168,6 +170,15 @@ ddev solrctl list
 The quality suite checks both local PHP packages at PHPStan maximum level on
 PHP 8.4 and runs their PHPUnit tests. It also validates Composer and YAML,
 builds the frontend, and audits Composer/npm dependencies.
+
+Two checks cover mistakes that stay invisible until they reach production.
+`deployPins` compares the EXT:solr commit baked into the production Solr image
+with the one composer.lock resolves, because the image serves the configsets
+the extension creates its cores from and a mismatch only shows on the deployed
+site. `siteLanguages` requests every base URL `site:list` prints, because a
+language can be enabled in `config.yaml` while its site root has no visible
+translation, which answers 404 for that whole branch without anything else
+noticing.
 
 The Playwright suite checks Records List, Powermail, Blog and Astryx at desktop
 and mobile widths. It rejects missing or 4xx/5xx stylesheets, accidental Vite
