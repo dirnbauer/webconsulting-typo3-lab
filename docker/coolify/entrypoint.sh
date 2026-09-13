@@ -41,4 +41,30 @@ chmod 0755 \
     /var/www/html/public/typo3temp/assets/images \
     /var/www/html/var
 
+# The compiled dependency-injection container and class caches live in the
+# persistent var/ volume, so a new image inherits whatever the previous one
+# compiled. When a vendor library that produced them changes, the new code
+# refuses to load them and every request dies before the error handler can even
+# render — which is exactly what a symfony/var-exporter upgrade did here. The
+# compiled code is cheap to rebuild and must never outlive the image it was
+# built from.
+rm -rf /var/www/html/var/cache/code
+mkdir -p /var/www/html/var/cache/code
+chown www-data:www-data /var/www/html/var/cache/code
+
+# New code usually expects new tables. Nothing else applies them, so without
+# this a deployment serves 500s until someone runs it by hand. extension:setup
+# only adds and changes; dropping columns stays a deliberate, separate step so
+# an upgrade wizard can read the old data first.
+if [ "${TYPO3_RUN_SETUP:-1}" = "1" ]; then
+    echo "entrypoint: applying extension setup and database migrations"
+    if su -s /bin/sh -c 'cd /var/www/html && php -d memory_limit=1536M vendor/bin/typo3 extension:setup --no-interaction' www-data; then
+        echo "entrypoint: extension setup finished"
+    else
+        # Serving with a clear log beats refusing to boot: a failed migration
+        # is visible in the logs and in the site, a boot loop hides both.
+        echo "entrypoint: WARNING extension setup failed; the database may be behind the code" >&2
+    fi
+fi
+
 exec docker-php-entrypoint "$@"

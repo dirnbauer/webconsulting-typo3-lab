@@ -36,6 +36,18 @@ read from `~/.config/coolify-token` (override with `COOLIFY_TOKEN_FILE`, or pass
 and `fileadmin` are untouched, and are moved separately by `push` and `pull`
 below.
 
+On start the container clears `var/cache/code` and runs `extension:setup`. Both
+exist because `var/` is a persistent volume: a new image otherwise inherits the
+compiled dependency-injection container from the old one, and new code arrives
+against an unmigrated database. Set `TYPO3_RUN_SETUP=0` to skip the migration
+step. A failed migration is logged and the container still serves, so the
+problem is visible in both the logs and the site rather than hidden behind a
+boot loop.
+
+Dropping columns is deliberately not automatic. Run it only after any upgrade
+wizard that reads the old data has finished — in particular AI Chat's
+`messagesToRows`, whose input is the `messages` column it would remove.
+
 Two things to check after a deploy that changes the Solr image: the cores are
 created from the configsets that image serves, so a version change usually means
 recreating and reindexing them. `Build/Scripts/check-deploy-pins.php` guards the
