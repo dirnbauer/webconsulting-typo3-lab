@@ -52,6 +52,22 @@ rm -rf /var/www/html/var/cache/code
 mkdir -p /var/www/html/var/cache/code
 chown www-data:www-data /var/www/html/var/cache/code
 
+# TYPO3's FileWriter appends forever and nothing in the container rotates it:
+# var/log grew to 239 MB, a single file holding months of repeated warnings that
+# made the log useless to read and slow to search. Roll anything oversized at
+# start, keeping one previous generation, which bounds growth without a cron
+# daemon. Nothing is serving yet, so no writer holds these open.
+for log in /var/www/html/var/log/*.log; do
+    [ -f "$log" ] || continue
+    size=$(wc -c < "$log")
+    if [ "$size" -gt "${TYPO3_LOG_MAX_BYTES:-52428800}" ]; then
+        echo "entrypoint: rotating $(basename "$log") ($((size / 1048576)) MB)"
+        mv -f "$log" "$log.1"
+        : > "$log"
+        chown www-data:www-data "$log"
+    fi
+done
+
 # New code usually expects new tables. Nothing else applies them, so without
 # this a deployment serves 500s until someone runs it by hand. extension:setup
 # only adds and changes; dropping columns stays a deliberate, separate step so

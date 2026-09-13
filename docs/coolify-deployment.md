@@ -46,6 +46,11 @@ read from `~/.config/coolify-token` (override with `COOLIFY_TOKEN_FILE`, or pass
 and `fileadmin` are untouched, and are moved separately by `push` and `pull`
 below.
 
+On start the container also rotates any log in `var/log` over 50 MB
+(`TYPO3_LOG_MAX_BYTES`), keeping one previous generation as `.log.1`. TYPO3's
+FileWriter appends forever and nothing else rotates it, so the main log had
+reached 239 MB — large enough to be slow to search and unpleasant to read.
+
 On start the container clears `var/cache/code` and runs `extension:setup`. Both
 exist because `var/` is a persistent volume: a new image otherwise inherits the
 compiled dependency-injection container from the old one, and new code arrives
