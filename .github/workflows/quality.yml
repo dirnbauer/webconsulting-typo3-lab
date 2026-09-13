@@ -80,3 +80,43 @@ jobs:
           npm run typecheck
           npm run build
 
+
+  deploy:
+    name: Deploy to typo3-lab.webconsulting.at
+    # Only after both suites pass, and only for main. Coolify builds the image
+    # itself, so a red commit that reached main must not become the live site.
+    needs: [typo3-14-quality, node-quality]
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    concurrency:
+      group: deploy-typo3-lab
+      cancel-in-progress: false
+    steps:
+      - name: Ask Coolify to redeploy
+        env:
+          COOLIFY_TOKEN: ${{ secrets.COOLIFY_TOKEN }}
+          COOLIFY_URL: ${{ vars.COOLIFY_URL || 'https://coolify.webconsulting.at' }}
+          COOLIFY_APP_UUID: ${{ vars.COOLIFY_APP_UUID || 'kj8tirxaijsk4cmzevgaphvr' }}
+        run: |
+          if [ -z "${COOLIFY_TOKEN}" ]; then
+            echo "::warning::COOLIFY_TOKEN is not set, so this commit was not deployed."
+            echo "Add it under Settings > Secrets and variables > Actions to enable deployment."
+            exit 0
+          fi
+
+          status=$(curl -sS -o response.txt -w '%{http_code}' --max-time 60 \
+            -H "Authorization: Bearer ${COOLIFY_TOKEN}" \
+            "${COOLIFY_URL}/api/v1/deploy?uuid=${COOLIFY_APP_UUID}")
+
+          if [ "${status}" = "401" ]; then
+            echo "::error::Coolify rejected the token."
+            exit 1
+          fi
+          if [ "${status}" != "200" ] && [ "${status}" != "201" ]; then
+            echo "::error::Coolify answered ${status}: $(cat response.txt)"
+            exit 1
+          fi
+
+          cat response.txt
+          echo "Deployment queued for ${GITHUB_SHA}."
