@@ -108,8 +108,16 @@ COPY --chmod=0755 docker/coolify/entrypoint.sh /usr/local/bin/typo3-entrypoint
 
 EXPOSE 80
 
-HEALTHCHECK --interval=30s --timeout=5s --start-period=30s --retries=5 \
-    CMD curl -fsS --user "${BASIC_AUTH_USER}:${BASIC_AUTH_PASSWORD}" http://127.0.0.1/healthz >/dev/null || exit 1
+# Request a real page, not the static public/healthz marker. That marker is
+# written by this Dockerfile and served straight off disk, so it answers 200
+# while PHP is fatal and TYPO3 renders nothing — during a total outage the
+# container still reported healthy and the deployment looked successful.
+#
+# The start period covers the entrypoint's migration and the first cold-cache
+# request, which together take much longer than a warm one, so a slow boot is
+# not mistaken for a broken one.
+HEALTHCHECK --interval=30s --timeout=20s --start-period=300s --retries=5 \
+    CMD curl -fsS -o /dev/null --max-time 15 --user "${BASIC_AUTH_USER}:${BASIC_AUTH_PASSWORD}" http://127.0.0.1/ || exit 1
 
 ENTRYPOINT ["/usr/local/bin/typo3-entrypoint"]
 CMD ["apache2-foreground"]
