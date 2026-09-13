@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "073252c069ebd42dda88ba4ada5a2f5f",
+    "content-hash": "94d705cecc83b844175cc9d1767cc429",
     "packages": [
         {
             "name": "apache-solr-for-typo3/solr",
@@ -12444,16 +12444,16 @@
         },
         {
             "name": "webconsulting/desiderio",
-            "version": "v4.1.1",
+            "version": "v4.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/desiderio.git",
-                "reference": "c2f67f3e34ec64df38095070b5bf8687b052af8f"
+                "reference": "934765d3e4ac7d04a0d758ae3b1e7a45593f992c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/desiderio/zipball/c2f67f3e34ec64df38095070b5bf8687b052af8f",
-                "reference": "c2f67f3e34ec64df38095070b5bf8687b052af8f",
+                "url": "https://api.github.com/repos/dirnbauer/desiderio/zipball/934765d3e4ac7d04a0d758ae3b1e7a45593f992c",
+                "reference": "934765d3e4ac7d04a0d758ae3b1e7a45593f992c",
                 "shasum": ""
             },
             "require": {
@@ -12465,7 +12465,7 @@
                 "typo3/cms-fluid": "^14.3.6",
                 "typo3/cms-form": "^14.3.6",
                 "typo3/cms-workspaces": "^14.3.6",
-                "webconsulting/visual-editor-enhancements": "^0.8 || dev-main"
+                "webconsulting/visual-editor-enhancements": "^0.8 || ^1.0 || dev-main"
             },
             "conflict": {
                 "webconsulting/shadcn2fluid-templates": "*"
@@ -12495,7 +12495,7 @@
             "extra": {
                 "typo3/cms": {
                     "extension-key": "desiderio",
-                    "version": "4.1.1",
+                    "version": "4.1.2",
                     "Package": {
                         "providesPackages": []
                     }
@@ -12546,43 +12546,44 @@
                 }
             ],
             "description": "Desiderio — shadcn/ui-inspired Fluid 5 component library, 244 Desiderio Content Blocks, and theme layer for TYPO3 14",
-            "time": "2026-09-13T00:22:48+00:00"
+            "time": "2026-09-13T01:01:43+00:00"
         },
         {
             "name": "webconsulting/docx-editor",
-            "version": "dev-main",
+            "version": "v1.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/typo3-docx.git",
-                "reference": "8abdc383ec4b1e67d8d85fbb25a05a3163dd410b"
+                "reference": "e95b735a5821abbb118cb413b353241f1c68e4fc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/typo3-docx/zipball/8abdc383ec4b1e67d8d85fbb25a05a3163dd410b",
-                "reference": "8abdc383ec4b1e67d8d85fbb25a05a3163dd410b",
+                "url": "https://api.github.com/repos/dirnbauer/typo3-docx/zipball/e95b735a5821abbb118cb413b353241f1c68e4fc",
+                "reference": "e95b735a5821abbb118cb413b353241f1c68e4fc",
                 "shasum": ""
             },
             "require": {
-                "php": "^8.2",
-                "typo3/cms-backend": "^14.3",
-                "typo3/cms-core": "^14.3",
-                "typo3/cms-filelist": "^14.3",
-                "typo3/cms-fluid": "^14.3"
+                "php": "^8.4",
+                "typo3/cms-backend": "^14.3.7",
+                "typo3/cms-core": "^14.3.7",
+                "typo3/cms-filelist": "^14.3.7",
+                "typo3/cms-fluid": "^14.3.7"
             },
             "require-dev": {
                 "friendsofphp/php-cs-fixer": "^3.95",
                 "phpstan/phpstan": "^2.1",
+                "phpstan/phpstan-phpunit": "^2.0",
                 "phpstan/phpstan-strict-rules": "^2.0",
                 "phpunit/phpunit": "^11.5 || ^12.1 || ^13.0",
                 "saschaegerer/phpstan-typo3": "^3.0",
+                "typo3/coding-standards": "^0.9",
                 "typo3/testing-framework": "^9.5"
             },
-            "default-branch": true,
             "type": "typo3-cms-extension",
             "extra": {
                 "typo3/cms": {
                     "extension-key": "docx_editor",
-                    "version": "1.2.0",
+                    "version": "1.3.0",
                     "Package": {
                         "providesPackages": []
                     }
@@ -12599,22 +12600,38 @@
                 }
             },
             "scripts": {
+                "lint": [
+                    "find Classes Configuration Tests ext_localconf.php -name '*.php' -print0 | xargs -0 -n1 -P4 php -l > /dev/null"
+                ],
+                "cgl": [
+                    "php-cs-fixer check --diff"
+                ],
+                "cgl:fix": [
+                    "php-cs-fixer fix"
+                ],
                 "phpstan": [
                     "phpstan analyse --memory-limit=1G"
                 ],
-                "test": [
-                    "@phpstan"
-                ],
                 "test:unit": [
                     "phpunit -c Build/phpunit/UnitTests.xml"
+                ],
+                "test:functional": [
+                    "phpunit -c Build/phpunit/FunctionalTests.xml"
+                ],
+                "test": [
+                    "@test:unit",
+                    "@test:functional"
                 ],
                 "build:assets": [
                     "npm run build"
                 ],
                 "ci": [
                     "composer validate --strict",
+                    "@lint",
+                    "@cgl",
                     "@phpstan",
                     "@test:unit",
+                    "@test:functional",
                     "@build:assets"
                 ]
             },
@@ -12643,7 +12660,7 @@
                 "issues": "https://github.com/dirnbauer/typo3-docx/issues",
                 "source": "https://github.com/dirnbauer/typo3-docx"
             },
-            "time": "2026-08-27T20:43:17+00:00"
+            "time": "2026-09-13T00:39:45+00:00"
         },
         {
             "name": "webconsulting/image-workbench",
@@ -13045,7 +13062,7 @@
             "dist": {
                 "type": "path",
                 "url": "packages/skillspector",
-                "reference": "9617095a5bcd60a9f1009414cf34f0acbb1a3ede"
+                "reference": "934fc5c56037e82cc68a796e97bade42037d8bc8"
             },
             "require": {
                 "netresearch/nr-llm": "^0.34",
@@ -13058,14 +13075,18 @@
             },
             "require-dev": {
                 "phpstan/phpstan": "^2.1",
-                "phpunit/phpunit": "^12.5",
-                "saschaegerer/phpstan-typo3": "^3.0.1"
+                "phpstan/phpstan-phpunit": "^2.0",
+                "phpunit/phpunit": "^12.4 || ^13.0",
+                "saschaegerer/phpstan-typo3": "^3.0.1",
+                "typo3/coding-standards": "^0.9",
+                "typo3/testing-framework": "^9.5"
             },
             "type": "typo3-cms-extension",
             "extra": {
                 "typo3/cms": {
                     "extension-key": "skillspector",
-                    "version": "0.1.0-beta",
+                    "version": "1.0.0",
+                    "web-dir": ".Build/public",
                     "Package": {
                         "providesPackages": []
                     }
@@ -13082,15 +13103,34 @@
                 }
             },
             "scripts": {
-                "analyse": [
-                    "phpstan analyse"
+                "ci": [
+                    "@ci:cgl",
+                    "@ci:phpstan",
+                    "@ci:tests:unit",
+                    "@ci:tests:functional"
                 ],
-                "test": [
-                    "phpunit"
+                "ci:cgl": [
+                    "php-cs-fixer fix --config .php-cs-fixer.dist.php --diff --verbose"
+                ],
+                "ci:phpstan": [
+                    "phpstan analyse --configuration phpstan.neon --no-progress"
+                ],
+                "ci:tests:functional": [
+                    "phpunit --configuration Build/phpunit/FunctionalTests.xml"
+                ],
+                "ci:tests:unit": [
+                    "phpunit --configuration Build/phpunit/UnitTests.xml"
                 ]
             },
             "license": [
                 "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Kurt Dirnbauer",
+                    "email": "dirnbauer@webconsulting.at",
+                    "role": "Developer"
+                }
             ],
             "description": "Advisory security, NVIDIA SkillSpector and license checks for nr_llm skills.",
             "transport-options": {
@@ -13493,41 +13533,45 @@
         },
         {
             "name": "webconsulting/visual-editor-enhancements",
-            "version": "dev-main",
+            "version": "v1.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/typo3-visual-editor-enhancements.git",
-                "reference": "df6986ceb37f46cc3a387dcbcb179c78174b8ca7"
+                "reference": "2e3b4a3269de2b111ff1e9af90903e97eb563871"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/typo3-visual-editor-enhancements/zipball/df6986ceb37f46cc3a387dcbcb179c78174b8ca7",
-                "reference": "df6986ceb37f46cc3a387dcbcb179c78174b8ca7",
+                "url": "https://api.github.com/repos/dirnbauer/typo3-visual-editor-enhancements/zipball/2e3b4a3269de2b111ff1e9af90903e97eb563871",
+                "reference": "2e3b4a3269de2b111ff1e9af90903e97eb563871",
                 "shasum": ""
             },
             "require": {
-                "friendsoftypo3/visual-editor": "^1.8",
-                "php": "^8.3",
-                "typo3/cms-backend": "^14.3",
-                "typo3/cms-core": "^14.3",
-                "typo3/cms-fluid": "^14.3",
-                "typo3/cms-frontend": "^14.3"
+                "friendsoftypo3/visual-editor": "^1.10.2",
+                "php": "^8.4",
+                "typo3/cms-backend": "^14.3.7",
+                "typo3/cms-core": "^14.3.7",
+                "typo3/cms-fluid": "^14.3.7",
+                "typo3/cms-frontend": "^14.3.7"
             },
             "require-dev": {
                 "friendsoftypo3/content-blocks": "^2.4",
-                "phpunit/phpunit": "^11.5 || ^12.5"
+                "phpstan/phpstan": "^2.1",
+                "phpstan/phpstan-phpunit": "^2.0",
+                "phpunit/phpunit": "^11.5 || ^12.5",
+                "saschaegerer/phpstan-typo3": "^3.0",
+                "typo3/coding-standards": "^0.8",
+                "typo3/testing-framework": "^9.5"
             },
-            "default-branch": true,
             "type": "typo3-cms-extension",
             "extra": {
                 "typo3/cms": {
-                    "extension-key": "visual_editor_enhancements"
+                    "extension-key": "visual_editor_enhancements",
+                    "web-dir": ".Build/Web"
                 }
             },
             "autoload": {
                 "psr-4": {
-                    "Webconsulting\\VisualEditorEnhancements\\": "Classes/",
-                    "TYPO3\\CMS\\VisualEditor\\ViewHelpers\\Render\\": "Classes/VisualEditor/ViewHelpers/Render/"
+                    "Webconsulting\\VisualEditorEnhancements\\": "Classes/"
                 }
             },
             "autoload-dev": {
@@ -13536,8 +13580,26 @@
                 }
             },
             "scripts": {
+                "cgl": [
+                    "php-cs-fixer fix --config .php-cs-fixer.dist.php"
+                ],
+                "cgl:check": [
+                    "@cgl --dry-run --diff"
+                ],
+                "lint:php": [
+                    "find Classes Configuration Tests -name '*.php' -print0 | xargs -0 -n1 -P4 php -l"
+                ],
+                "phpstan": [
+                    "phpstan analyse --memory-limit=512M"
+                ],
                 "test": [
-                    "phpunit --configuration=phpunit.xml.dist"
+                    "@test:unit"
+                ],
+                "test:functional": [
+                    "phpunit -c Build/phpunit/FunctionalTests.xml"
+                ],
+                "test:unit": [
+                    "phpunit -c Build/phpunit/UnitTests.xml"
                 ]
             },
             "license": [
@@ -13562,7 +13624,7 @@
                 "issues": "https://github.com/dirnbauer/typo3-visual-editor-enhancements/issues",
                 "source": "https://github.com/dirnbauer/typo3-visual-editor-enhancements"
             },
-            "time": "2026-07-27T09:48:11+00:00"
+            "time": "2026-09-13T00:55:19+00:00"
         },
         {
             "name": "webconsulting/webcon-easy-workspace",
@@ -16037,11 +16099,9 @@
     "stability-flags": {
         "studiomitte/friendlycaptcha": 20,
         "studiomitte/solr-numbered-pagination": 20,
-        "webconsulting/docx-editor": 20,
         "webconsulting/image-workbench": 20,
         "webconsulting/skillspector": 20,
-        "webconsulting/typo3-llms-txt": 20,
-        "webconsulting/visual-editor-enhancements": 20
+        "webconsulting/typo3-llms-txt": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,
