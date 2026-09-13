@@ -20,3 +20,7 @@ languages:
     flag: us
 rootPageId: 1400
 routes: {  }
+# The Agent Nexus site is a protocol showcase with no search page. Indexing it
+# would leave a permanent backlog in the queue (no worker task is configured for
+# this root), so Solr stays off here.
+solr_enabled_read: false
