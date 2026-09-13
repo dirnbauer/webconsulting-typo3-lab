@@ -18,17 +18,28 @@ trap cleanup EXIT
 
 usage() {
     cat <<'USAGE'
-Usage: Build/Scripts/sync-coolify.sh <status|push|pull> [--confirm]
+Usage: Build/Scripts/sync-coolify.sh <status|deploy|push|pull> [--confirm]
 
   status            Show the local DDEV and remote Coolify container state.
+  deploy            Ask Coolify to rebuild and redeploy the application from
+                    the current main branch, then wait for the new containers.
+                    Code only: it does not touch the database or fileadmin.
   push --confirm    Back up Coolify, then replace its database and fileadmin
                     with exports from this DDEV project.
   pull --confirm    Back up DDEV, then replace its database and fileadmin
                     with exports from Coolify.
 
+Coolify does not deploy when this repository is pushed: there is no webhook
+and no deploy key, so the running image stays on whichever commit was last
+deployed by hand. "deploy" is that hand step, made repeatable.
+
 Environment:
-  TYPO3_LAB_REMOTE_HOST   SSH target (default: root@49.13.173.37)
-  TYPO3_LAB_BACKUP_ROOT   Local backup directory
+  TYPO3_LAB_REMOTE_HOST     SSH target (default: root@49.13.173.37)
+  TYPO3_LAB_BACKUP_ROOT     Local backup directory
+  COOLIFY_URL               Coolify base URL (default: https://coolify.webconsulting.at)
+  COOLIFY_APP_UUID          Application UUID (default: kj8tirxaijsk4cmzevgaphvr)
+  COOLIFY_TOKEN_FILE        File holding the API token (default: ~/.config/coolify-token)
+  COOLIFY_TOKEN             The API token itself, if you prefer not to use a file
 USAGE
 }
 
@@ -182,11 +193,79 @@ pull_from_coolify() {
     echo "Local database backup: DDEV snapshot pre-coolify-pull-${timestamp}"
 }
 
+coolify_token() {
+    if [[ -n "${COOLIFY_TOKEN:-}" ]]; then
+        printf '%s' "${COOLIFY_TOKEN}"
+        return 0
+    fi
+
+    local token_file="${COOLIFY_TOKEN_FILE:-${HOME}/.config/coolify-token}"
+    if [[ ! -r "${token_file}" ]]; then
+        cat >&2 <<HINT
+No Coolify API token found.
+
+Create one at ${COOLIFY_URL:-https://coolify.webconsulting.at}/security/api-tokens
+with a permission that allows deployments, then store it readable only by you:
+
+    install -m 600 /dev/null "${token_file}"
+    printf '%s' '<token>' > "${token_file}"
+
+Or export COOLIFY_TOKEN for a single run.
+HINT
+        return 1
+    fi
+
+    # A token pasted into a file usually arrives with a trailing newline.
+    tr -d '\r\n' < "${token_file}"
+}
+
+deploy() {
+    local base_url="${COOLIFY_URL:-https://coolify.webconsulting.at}"
+    local app_uuid="${COOLIFY_APP_UUID:-kj8tirxaijsk4cmzevgaphvr}"
+    local token status body
+
+    token="$(coolify_token)" || exit 2
+
+    local before
+    before="$(remote_image_tag || true)"
+    echo "Currently deployed: ${before:-unknown}"
+
+    body="$(curl -sS -w $'\n%{http_code}' \
+        --max-time 30 \
+        -H "Authorization: Bearer ${token}" \
+        "${base_url}/api/v1/deploy?uuid=${app_uuid}")" || {
+        echo "Could not reach ${base_url}." >&2
+        exit 1
+    }
+    status="${body##*$'\n'}"
+    body="${body%$'\n'*}"
+
+    if [[ "${status}" == "401" ]]; then
+        echo "Coolify rejected the token. Create a new one and try again." >&2
+        exit 1
+    fi
+    if [[ "${status}" != "200" && "${status}" != "201" ]]; then
+        echo "Coolify answered ${status}: ${body}" >&2
+        exit 1
+    fi
+
+    echo "${body}"
+    echo "Deployment queued. Watch it at ${base_url}, or re-run 'status' in a few minutes."
+}
+
+remote_image_tag() {
+    ssh "${SSH_OPTIONS[@]}" "${REMOTE_HOST}" \
+        "docker ps --filter 'name=^web-' --format '{{.Image}}' | head -1" 2>/dev/null
+}
+
 command="${1:-}"
 
 case "${command}" in
     status)
         status
+        ;;
+    deploy)
+        deploy
         ;;
     push)
         require_confirmation "$@"
