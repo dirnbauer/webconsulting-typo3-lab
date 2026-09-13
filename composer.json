@@ -74,7 +74,7 @@
 			"options": {
 				"symlink": true,
 				"versions": {
-					"webconsulting/skillspector": "dev-main"
+					"webconsulting/skillspector": "1.0.0"
 				}
 			}
 		},
@@ -213,16 +213,16 @@
 		"webconsulting/astryx-typo3": "^2.0",
 		"webconsulting/desiderio": "^4.1.2",
 		"webconsulting/docx-editor": "^1.3",
-		"webconsulting/image-workbench": "dev-main",
-		"webconsulting/innesto": "^2.0",
+		"webconsulting/image-workbench": "^0.2",
+		"webconsulting/innesto": "^2.1",
 		"webconsulting/records-list-examples": "^1.3",
 		"webconsulting/records-list-types": "^1.1.1",
 		"webconsulting/site-package": "^14.3.5",
 		"webconsulting/skillflow": "^1.6",
-		"webconsulting/skillspector": "dev-main",
+		"webconsulting/skillspector": "^1.0",
 		"webconsulting/typo3-abilities": "^1.0",
 		"webconsulting/typo3-ai-chat": "^2.0",
-		"webconsulting/typo3-llms-txt": "dev-main",
+		"webconsulting/typo3-llms-txt": "^1.0",
 		"webconsulting/typo3-x402-paywall": "^1.2",
 		"webconsulting/visual-editor-enhancements": "^1.0",
 		"webconsulting/webcon-easy-workspace": "^1.4",
