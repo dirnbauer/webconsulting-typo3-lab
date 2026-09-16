@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9216713b02d80dced9430833ab1da349",
+    "content-hash": "2c126e580364bdb00379c2d68d68ba42",
     "packages": [
         {
             "name": "apache-solr-for-typo3/solr",
@@ -2049,6 +2049,47 @@
                 }
             ],
             "time": "2025-12-05T14:53:09+00:00"
+        },
+        {
+            "name": "hn/typo3-agent",
+            "version": "v0.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/hauptsacheNet/typo3-agent.git",
+                "reference": "91934338dcc365ec3f82d2c5187b9810521f56e7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/hauptsacheNet/typo3-agent/zipball/91934338dcc365ec3f82d2c5187b9810521f56e7",
+                "reference": "91934338dcc365ec3f82d2c5187b9810521f56e7",
+                "shasum": ""
+            },
+            "require": {
+                "hn/typo3-mcp-server": "*",
+                "php": ">=8.1.0",
+                "phpoffice/phppresentation": "^1.1",
+                "phpoffice/phpspreadsheet": "^3.10 || ^5.0",
+                "phpoffice/phpword": "^1.4",
+                "smalot/pdfparser": "^2.12",
+                "typo3/cms-backend": "^13.4|^14.3",
+                "typo3/cms-core": "^13.4|^14.3",
+                "typo3/cms-workspaces": "^13.4 || ^14.3"
+            },
+            "type": "typo3-cms-extension",
+            "extra": {
+                "typo3/cms": {
+                    "extension-key": "agent"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Hn\\Agent\\": "Classes/"
+                }
+            },
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "description": "TYPO3 extension that integrates an AI agent directly into TYPO3, using the MCP ToolRegistry for native tool execution with an OpenAI-compatible LLM API"
         },
         {
             "name": "hn/typo3-mcp-server",
@@ -4218,6 +4259,47 @@
             "time": "2026-08-18T23:46:48+00:00"
         },
         {
+            "name": "pclzip/pclzip",
+            "version": "2.8.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ivanlanin/pclzip.git",
+                "reference": "19dd1de9d3f5fc4d7d70175b4c344dee329f45fd"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ivanlanin/pclzip/zipball/19dd1de9d3f5fc4d7d70175b4c344dee329f45fd",
+                "reference": "19dd1de9d3f5fc4d7d70175b4c344dee329f45fd",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "pclzip.lib.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "LGPL-2.1"
+            ],
+            "authors": [
+                {
+                    "name": "Vincent Blavet"
+                }
+            ],
+            "description": "A PHP library that offers compression and extraction functions for Zip formatted archives",
+            "homepage": "http://www.phpconcept.net/pclzip",
+            "keywords": [
+                "php",
+                "zip"
+            ],
+            "support": {
+                "issues": "https://github.com/ivanlanin/pclzip/issues",
+                "source": "https://github.com/ivanlanin/pclzip/tree/master"
+            },
+            "time": "2014-06-05T11:42:24+00:00"
+        },
+        {
             "name": "phpdocumentor/reflection-common",
             "version": "2.2.0",
             "source": {
@@ -4394,6 +4476,62 @@
             "time": "2026-01-06T21:53:42+00:00"
         },
         {
+            "name": "phpoffice/common",
+            "version": "1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/PHPOffice/Common.git",
+                "reference": "0982b6b36d9ebf0cae8d9214d345b8e23b529feb"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/PHPOffice/Common/zipball/0982b6b36d9ebf0cae8d9214d345b8e23b529feb",
+                "reference": "0982b6b36d9ebf0cae8d9214d345b8e23b529feb",
+                "shasum": ""
+            },
+            "require": {
+                "pclzip/pclzip": "^2.8",
+                "php": ">=7.1"
+            },
+            "require-dev": {
+                "phpmd/phpmd": "2.*",
+                "phpstan/phpstan": "^0.12.88 || ^1.0.0 || ^2.0.0",
+                "phpunit/phpunit": ">=7"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "PhpOffice\\Common\\": "src/Common/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "LGPL-3.0-only"
+            ],
+            "authors": [
+                {
+                    "name": "Mark Baker"
+                },
+                {
+                    "name": "Franck Lefevre",
+                    "homepage": "http://rootslabs.net"
+                }
+            ],
+            "description": "PHPOffice Common",
+            "homepage": "http://phpoffice.github.io",
+            "keywords": [
+                "common",
+                "component",
+                "office",
+                "php"
+            ],
+            "support": {
+                "issues": "https://github.com/PHPOffice/Common/issues",
+                "source": "https://github.com/PHPOffice/Common/tree/1.1.0"
+            },
+            "time": "2026-09-05T19:14:14+00:00"
+        },
+        {
             "name": "phpoffice/math",
             "version": "0.3.0",
             "source": {
@@ -4444,6 +4582,38 @@
                 "source": "https://github.com/PHPOffice/Math/tree/0.3.0"
             },
             "time": "2025-05-29T08:31:49+00:00"
+        },
+        {
+            "name": "phpoffice/phppresentation",
+            "version": "1.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/PHPOffice/PHPPresentation.git",
+                "reference": "b9cdcd413e2d463ba3198f912f32716adc88f340"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/PHPOffice/PHPPresentation/zipball/b9cdcd413e2d463ba3198f912f32716adc88f340",
+                "reference": "b9cdcd413e2d463ba3198f912f32716adc88f340",
+                "shasum": ""
+            },
+            "require": {
+                "ext-xml": "*",
+                "ext-zip": "*",
+                "php": "^7.1|^8.0",
+                "phpoffice/common": "^1",
+                "phpoffice/phpspreadsheet": "^1.9 || ^2.0 || ^3.0 || ^4.0 || ^5.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "PhpOffice\\PhpPresentation\\": "src/PhpPresentation/"
+                }
+            },
+            "license": [
+                "LGPL-3.0-only"
+            ],
+            "description": "PHPPresentation - Read, Create and Write Presentations documents in PHP"
         },
         {
             "name": "phpoffice/phpspreadsheet",
@@ -12982,13 +13152,14 @@
             "dist": {
                 "type": "path",
                 "url": "packages/site_package",
-                "reference": "cab4518cfedd5f53db9b0fd54962bd0928f7af73"
+                "reference": "f834fe67ec34634599ed25b93cd283b2306516f0"
             },
             "require": {
                 "apache-solr-for-typo3/solr": "^14.0.1",
                 "friendsoftypo3/tt-address": "^10.0",
                 "friendsoftypo3/visual-editor": "^1.10.2",
                 "georgringer/news": "^14.0",
+                "hn/typo3-agent": "^0.0.3",
                 "netresearch/nr-llm": "^0.34",
                 "netresearch/t3-cowriter": "^3.6.7",
                 "php": "^8.4",
@@ -13300,115 +13471,6 @@
                 "typo3"
             ],
             "time": "2026-09-12T21:09:45+00:00"
-        },
-        {
-            "name": "webconsulting/typo3-ai-chat",
-            "version": "v2.0.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/dirnbauer/typo3-ai-chat.git",
-                "reference": "892e3c500f9e513c5b8ee4790624abe84a68b71a"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/typo3-ai-chat/zipball/892e3c500f9e513c5b8ee4790624abe84a68b71a",
-                "reference": "892e3c500f9e513c5b8ee4790624abe84a68b71a",
-                "shasum": ""
-            },
-            "require": {
-                "hn/typo3-mcp-server": "^0.7",
-                "netresearch/nr-llm": "^0.34",
-                "php": "^8.4",
-                "phpoffice/phpword": "^1.0",
-                "smalot/pdfparser": "^2.0",
-                "typo3/cms-backend": "^14.3.7",
-                "typo3/cms-core": "^14.3.7"
-            },
-            "require-dev": {
-                "friendsofphp/php-cs-fixer": "^3.94",
-                "phpstan/phpstan": "^2.1",
-                "phpstan/phpstan-phpunit": "^2.0",
-                "phpunit/phpunit": "^12.4 || ^13.0",
-                "saschaegerer/phpstan-typo3": "^3.0",
-                "typo3/coding-standards": "^0.9",
-                "typo3/testing-framework": "^9.5"
-            },
-            "suggest": {
-                "phpoffice/phpspreadsheet": "^3.0 — Required for XLSX attachment text extraction"
-            },
-            "type": "typo3-cms-extension",
-            "extra": {
-                "typo3/cms": {
-                    "extension-key": "webconsulting_ai_chat",
-                    "web-dir": ".Build/Web"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Webconsulting\\Typo3AiChat\\": "Classes/"
-                }
-            },
-            "autoload-dev": {
-                "psr-4": {
-                    "Webconsulting\\Typo3AiChat\\Tests\\": "Tests/"
-                }
-            },
-            "scripts": {
-                "ci": [
-                    "@ci:phpstan",
-                    "@ci:cgl",
-                    "@ci:tests"
-                ],
-                "ci:phpstan": [
-                    ".Build/bin/phpstan analyse -c phpstan.neon --no-progress --memory-limit=1G"
-                ],
-                "ci:cgl": [
-                    ".Build/bin/php-cs-fixer fix --dry-run --diff"
-                ],
-                "ci:tests": [
-                    "php -d memory_limit=1G .Build/bin/phpunit -c Build/phpunit.xml"
-                ],
-                "ci:tests:unit": [
-                    "php -d memory_limit=1G .Build/bin/phpunit -c Build/phpunit.xml --testsuite unit"
-                ],
-                "ci:tests:functional": [
-                    "php -d memory_limit=1G .Build/bin/phpunit -c Build/phpunit.xml --testsuite functional"
-                ],
-                "fix:cgl": [
-                    ".Build/bin/php-cs-fixer fix"
-                ]
-            },
-            "license": [
-                "GPL-2.0-or-later"
-            ],
-            "authors": [
-                {
-                    "name": "Webconsulting",
-                    "homepage": "https://github.com/dirnbauer",
-                    "role": "Maintainer"
-                },
-                {
-                    "name": "Netresearch DTT GmbH",
-                    "homepage": "https://www.netresearch.de/",
-                    "role": "Original nr-mcp-agent authors — with our sincere thanks"
-                }
-            ],
-            "description": "Governed AI operator chat for the TYPO3 backend: nr-llm agent runs driving in-process TYPO3 MCP tools",
-            "homepage": "https://github.com/dirnbauer/typo3-ai-chat",
-            "keywords": [
-                "AI",
-                "LLM",
-                "MCP",
-                "TYPO3",
-                "backend",
-                "chat",
-                "extension"
-            ],
-            "support": {
-                "issues": "https://github.com/dirnbauer/typo3-ai-chat/issues",
-                "source": "https://github.com/dirnbauer/typo3-ai-chat"
-            },
-            "time": "2026-09-13T04:25:19+00:00"
         },
         {
             "name": "webconsulting/typo3-llms-txt",

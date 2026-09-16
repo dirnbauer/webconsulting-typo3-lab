@@ -11,7 +11,6 @@ use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
 use TYPO3\CMS\Core\Configuration\ExtensionConfiguration;
 use TYPO3\CMS\Core\Database\ConnectionPool;
-use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 
 /**
  * Keeps the lab's nr-llm model routing and editor examples reproducible.
@@ -163,7 +162,7 @@ PROMPT;
                 'backend-assistant',
                 [
                     'name' => 'TYPO3 Backend Assistant',
-                    'description' => 'Dedicated tool-compatible GPT-5 mini configuration for Webconsulting TYPO3 AI Chat.',
+                    'description' => 'Shared tool-compatible GPT-5 mini configuration for nr-llm backend workflows.',
                     'model_uid' => $toolModelUid,
                     'system_prompt' => self::BACKEND_CONFIGURATION_PROMPT,
                     'max_tokens' => 16_384,
@@ -191,7 +190,7 @@ PROMPT;
                 'backend-assistant',
                 [
                     'name' => 'TYPO3 Backend Assistant',
-                    'description' => 'General TYPO3 backend agent prompt used by Webconsulting TYPO3 AI Chat.',
+                    'description' => 'General TYPO3 backend assistant prompt for nr-llm workflows.',
                     'category' => 'system',
                     'configuration_uid' => $backendConfigurationUid,
                     'prompt_template' => self::BACKEND_ASSISTANT_PROMPT,
@@ -204,7 +203,7 @@ PROMPT;
                 ],
             );
             $this->disableBrokenLegacyTask();
-            $this->synchronizeExtensionSettings($provider, $backendTaskUid, $io);
+            $this->synchronizeExtensionSettings($provider, $io);
 
             $io->success('AI models, Content Assistant, Cowriter examples, and image generation are configured.');
             $io->definitionList(
@@ -213,7 +212,7 @@ PROMPT;
                 ['Tool model' => 'gpt-5-mini'],
                 ['Image model' => 'gpt-image-2'],
                 ['Cowriter tasks' => (string)$taskCount],
-                ['TYPO3 AI Chat task UID' => (string)$backendTaskUid],
+                ['Backend assistant task UID' => (string)$backendTaskUid],
             );
 
             return Command::SUCCESS;
@@ -485,7 +484,7 @@ PROMPT;
     /**
      * @param array{uid: int, api_key: string} $provider
      */
-    private function synchronizeExtensionSettings(array $provider, int $backendTaskUid, SymfonyStyle $io): void
+    private function synchronizeExtensionSettings(array $provider, SymfonyStyle $io): void
     {
         $nrLlm = (array)$this->extensionConfiguration->get('nr_llm');
         $nrLlm['image'] = is_array($nrLlm['image'] ?? null) ? $nrLlm['image'] : [];
@@ -502,14 +501,5 @@ PROMPT;
             $io->warning('The OpenAI provider has no nr-vault API-key identifier; image generation remains unavailable until one is configured.');
         }
         $this->extensionConfiguration->set('nr_llm', $nrLlm);
-
-        // The AI Chat extension is optional in the lab (it is absent while the 2.0
-        // rewrite is in flight), and ExtensionConfiguration::get() throws for an
-        // extension that is not installed.
-        if (ExtensionManagementUtility::isLoaded('webconsulting_ai_chat')) {
-            $chat = (array)$this->extensionConfiguration->get('webconsulting_ai_chat');
-            $chat['llmTaskUid'] = (string)$backendTaskUid;
-            $this->extensionConfiguration->set('webconsulting_ai_chat', $chat);
-        }
     }
 }

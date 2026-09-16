@@ -8,13 +8,12 @@ reproducible through TYPO3 console commands:
 | `netresearch/nr-llm` | `0.25.0` |
 | `netresearch/nr-vault` | `0.12.1` |
 | `netresearch/t3-cowriter` | `3.5.0` |
-| `webconsulting/typo3-ai-chat` | `dev-main` |
+| `hn/typo3-agent` | `0.0.3` |
 
-The Webconsulting chat was migrated from `nr-mcp-agent` 0.7.0 after verifying
-the copied conversations, direct tool execution, attachment pipeline, inline
-toolbar drawer, and full backend module. It uses nr-llm's Agent Runtime and
-requires `nr-llm ^0.25`, so the former Composer compatibility alias and the old
-package patch are no longer necessary.
+The backend chatbot is the upstream TYPO3 Agent extension. It replaced the
+Webconsulting chat fork on 2026-09-16 and uses the MCP ToolRegistry directly.
+Its OpenAI configuration is separate from nr-llm; see [TYPO3 Agent](typo3-agent.md)
+for environment variables and the lab's compatibility integration.
 
 ## Configure models and Cowriter examples
 
@@ -149,22 +148,13 @@ frontend middleware remains necessary for TYPO3's Visual Editor `editMode=1`
 iframe: it explicitly queues the Cowriter JavaScript modules so TYPO3 emits
 their import-map entries. It does not run on normal frontend requests.
 
-### Webconsulting TYPO3 AI Chat
+### TYPO3 Agent
 
-The replacement chat is available both from the top-right tools icon and under
-**Tools → TYPO3 AI Chat**. The lab keeps these extension settings in
-`config/system/settings.php`:
-
-```php
-'webconsulting_ai_chat' => [
-    'llmTaskUid' => '15',
-],
-```
-
-Task UID 15 is the dedicated `TYPO3 Backend Assistant`. Direct messages run
-through nr-llm with the authenticated backend user's permissions and show tool
-arguments/results in the execution ledger. Image and PDF
-attachments are previewed before send and validated again by TYPO3/FAL.
+Open **Content → AI Tasks** (German: **KI-Aufgaben**) for the upstream backend
+chat. The lab uses `gpt-5-mini` with the existing OpenAI credential. Tool calls
+run through the MCP ToolRegistry with its native access checks. Agent does not
+use the nr-llm `backend-assistant` task; that record remains available to other
+nr-llm workflows. See [installation and configuration](typo3-agent.md).
 
 ## Create the two frontend manuals
 

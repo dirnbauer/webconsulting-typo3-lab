@@ -110,17 +110,14 @@ return [
                 ],
             ],
         ],
-        'webconsulting_ai_chat' => [
-            'allowedGroups' => '',
-            'autoArchiveDays' => '30',
-            'enableMcp' => '1',
-            // Set to the seeded backend-assistant task UID by
-            // sitepackage:configure-ai-examples.
-            'llmTaskUid' => '0',
-            'maxActiveConversationsPerUser' => '3',
-            'maxConversationsPerUser' => '50',
-            'maxMessageLength' => '10000',
-            'processingStrategy' => 'exec',
+        'agent' => [
+            'apiKey' => (string)getenv('TYPO3_AGENT_API_KEY'),
+            'apiUrl' => getenv('TYPO3_AGENT_API_URL') ?: 'https://api.openai.com/v1/',
+            'model' => getenv('TYPO3_AGENT_MODEL') ?: 'gpt-5-mini',
+            'maxIterations' => '20',
+            // These options use OpenRouter-specific request parameters.
+            'reasoningEffort' => 'off',
+            'webFetch' => '0',
         ],
         'news' => [
             'advancedMediaPreview' => '1',

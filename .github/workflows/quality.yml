@@ -106,6 +106,7 @@ jobs:
           fi
 
           status=$(curl -sS -o response.txt -w '%{http_code}' --max-time 60 \
+            -X POST \
             -H "Authorization: Bearer ${COOLIFY_TOKEN}" \
             "${COOLIFY_URL}/api/v1/deploy?uuid=${COOLIFY_APP_UUID}")
 
