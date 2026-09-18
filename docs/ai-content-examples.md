@@ -5,15 +5,13 @@ reproducible through TYPO3 console commands:
 
 | Package | Installed target |
 |---|---:|
-| `netresearch/nr-llm` | `0.25.0` |
-| `netresearch/nr-vault` | `0.12.1` |
-| `netresearch/t3-cowriter` | `3.5.0` |
-| `hn/typo3-agent` | `0.0.3` |
+| `netresearch/nr-llm` | `0.35.0` |
+| `netresearch/nr-vault` | `0.16.0` |
+| `netresearch/t3-cowriter` | `3.6.8` |
 
-The backend chatbot is the upstream TYPO3 Agent extension. It replaced the
-Webconsulting chat fork on 2026-09-16 and uses the MCP ToolRegistry directly.
-Its OpenAI configuration is separate from nr-llm; see [TYPO3 Agent](typo3-agent.md)
-for environment variables and the lab's compatibility integration.
+The backend chat is the shadcn/ui chat of `webconsulting/typo3-shadcn-ui`; it
+runs the installation's own MCP tools in-process through nr-llm's agent
+runtime. See [shadcn UI and backend chat](shadcn-ui.md).
 
 ## Configure models and Cowriter examples
 
@@ -147,14 +145,6 @@ and abbreviation plugin while adding all four Cowriter controls. The existing
 frontend middleware remains necessary for TYPO3's Visual Editor `editMode=1`
 iframe: it explicitly queues the Cowriter JavaScript modules so TYPO3 emits
 their import-map entries. It does not run on normal frontend requests.
-
-### TYPO3 Agent
-
-Open **Content → AI Tasks** (German: **KI-Aufgaben**) for the upstream backend
-chat. The lab uses `gpt-5-mini` with the existing OpenAI credential. Tool calls
-run through the MCP ToolRegistry with its native access checks. Agent does not
-use the nr-llm `backend-assistant` task; that record remains available to other
-nr-llm workflows. See [installation and configuration](typo3-agent.md).
 
 ## Create the two frontend manuals
 

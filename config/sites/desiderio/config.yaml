@@ -5,7 +5,6 @@ baseVariants:
     condition: 'applicationContext == "Production"'
 dependencies:
   - webconsulting/solr-defaults
-  - studiomitte/friendlycaptcha
   - webconsulting/desiderio-powermail
   - webconsulting/desiderio-content-elements
   - webconsulting/desiderio-blog

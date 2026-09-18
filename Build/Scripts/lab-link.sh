@@ -17,6 +17,13 @@ declare -A CLONES=(
   [webconsulting/typo3-llms-txt]=llms_txt
   [webconsulting/skillflow]=skillflow
   [webconsulting/visual-editor-enhancements]=visual_editor_enhancements
+  [webconsulting/desiderio]=desiderio
+  [webconsulting/innesto]=innesto
+  [webconsulting/astryx-typo3]=astryx_typo3
+  [webconsulting/records-list-types]=records_list_types
+  [webconsulting/records-list-examples]=records_list_examples
+  [webconsulting/webcon-easy-workspace]=webcon_easy_workspace
+  [webconsulting/typo3-shadcn-ui]=shadcn_ui
 )
 
 install_path() {

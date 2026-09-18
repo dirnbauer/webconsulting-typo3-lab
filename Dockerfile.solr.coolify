@@ -2,12 +2,12 @@
 
 FROM alpine:3.23 AS ext-solr
 
-# EXT:solr 14.0.1, the tag composer.lock resolves to. Keep both values in
+# EXT:solr 14.0.2, the tag composer.lock resolves to. Keep both values in
 # step with the lock: the configsets this image serves have to match the
 # extension the application runs, or core creation fails on field types the
 # other side does not know.
-ARG EXT_SOLR_REF=25fad97ffe192b1c4afc9400b98f4b4c4d3a6ea3
-ARG EXT_SOLR_SHA256=5a8fe4b375deae9945a8eba1432769c186d5422151a93e0d785397ee7fd65712
+ARG EXT_SOLR_REF=d430194b11c0581bd70e96a0483ec813b8345529
+ARG EXT_SOLR_SHA256=32855d38427e387a46fc1a84bd7d8e64e356fd138c47c747ee5d7feacb00ba85
 
 RUN apk add --no-cache ca-certificates curl tar \
     && curl -fsSL \

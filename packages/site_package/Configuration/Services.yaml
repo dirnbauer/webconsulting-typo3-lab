@@ -6,6 +6,3 @@ services:
 
   Webconsulting\SitePackage\:
     resource: '../Classes/*'
-
-  Hn\Agent\Service\ToolConverterService:
-    alias: Webconsulting\SitePackage\Service\AgentToolConverterService
