@@ -4,6 +4,29 @@ All notable changes to Webconsulting TYPO3 Lab are documented in this file.
 
 ## Unreleased
 
+### Overhaul — 2026-09-18
+
+Platform
+
+- nr-llm 0.35, nr-vault 0.16, EXT:solr 14.0.2 (Solr image pin follows the
+  lock), Cowriter 3.6.8, sg-apicore 3.1.2, Powermail 14.0.3, Visual Editor 1.10.2.
+- The last two forks are retired: FriendlyCaptcha comes from the upstream 2.3.0
+  release and Solr numbered pagination from the upstream repository's `main`.
+  Desiderio 4.1.7 imports FriendlyCaptcha's Powermail TypoScript itself because
+  upstream ships no Site Set.
+- `hn/typo3-agent` is gone again together with the site_package tool-converter
+  glue, its settings, Coolify variables and documentation. The backend chat is
+  `webconsulting/typo3-shadcn-ui`, the shadcn/ui base for backend modules with
+  the AI chat on the left, driven by this installation's own MCP tools.
+- Every maintained repository now has a GitLab mirror (`Build/Scripts/mirror-to-gitlab.sh`).
+- The empty nr-llm skill source of the archived `webconsulting-skills` is gone;
+  `dirnbauer/typo3-skills` is the only source (60 skills).
+
+Own extensions
+
+- Re-released after a thermo-nuclear code-quality review (see each CHANGELOG):
+  x402 Paywall 1.3.0, desiderio 4.1.7.
+
 ### Overhaul — 2026-09-13
 
 Platform

@@ -54,6 +54,12 @@ account (`admin` / `Demo123*`) is for this local DDEV installation only.
 Never commit `config/system/settings.php`, `.ddev/config.local.yaml`, Vault
 keys, API tokens or generated DDEV compose files.
 
+## GitLab mirror
+
+Every repository we maintain is mirrored to `gitlab.webconsulting.at` (group
+`extensions/`, push-to-create). Release work pushes `main` and tags to both
+remotes; `Build/Scripts/mirror-to-gitlab.sh` re-pushes every clone in one go.
+
 ## Design-system ownership
 
 The two frontend systems share TYPO3 infrastructure but own separate template
