@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "760a34f368599a6617c196a67ee2506f",
+    "content-hash": "7ad3a196a1043332deaba3e903bf2418",
     "packages": [
         {
             "name": "apache-solr-for-typo3/solr",
@@ -5456,19 +5456,19 @@
             "version": "dev-main",
             "source": {
                 "type": "git",
-                "url": "https://github.com/dirnbauer/solr_numbered_pagination.git",
-                "reference": "079c48647d5a963f71d9b566674a1d3bd8aba548"
+                "url": "https://github.com/studiomitte/solr_numbered_pagination.git",
+                "reference": "b6f4c7053d83bad51ee338983396db03dcb4dff1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/solr_numbered_pagination/zipball/079c48647d5a963f71d9b566674a1d3bd8aba548",
-                "reference": "079c48647d5a963f71d9b566674a1d3bd8aba548",
+                "url": "https://api.github.com/repos/studiomitte/solr_numbered_pagination/zipball/b6f4c7053d83bad51ee338983396db03dcb4dff1",
+                "reference": "b6f4c7053d83bad51ee338983396db03dcb4dff1",
                 "shasum": ""
             },
             "require": {
-                "apache-solr-for-typo3/solr": "^14.0@alpha",
-                "georgringer/numbered-pagination": "^2.2",
-                "typo3/cms-core": "^14.3"
+                "apache-solr-for-typo3/solr": "11.5.x-dev || ^11 || ^12 || ^13 || 13.0.x-dev || ^14 || 14.0.x-dev",
+                "georgringer/numbered-pagination": "^1 || ^2",
+                "typo3/cms-core": "^10 || ^11.5 || ^12.4.2 || ^13.4 || ^14"
             },
             "default-branch": true,
             "type": "typo3-cms-extension",
@@ -5482,11 +5482,22 @@
                     "StudioMitte\\SolrNumberedPagination\\": "Classes"
                 }
             },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "GPL-2.0-or-later"
             ],
+            "authors": [
+                {
+                    "name": "Georg Ringer",
+                    "role": "Developer"
+                }
+            ],
             "description": "Limit the amount of used pages in EXT:solr in the pagination",
-            "time": "2026-06-20T17:54:55+00:00"
+            "support": {
+                "issues": "https://github.com/studiomitte/solr_numbered_pagination/issues",
+                "source": "https://github.com/studiomitte/solr_numbered_pagination/tree/main"
+            },
+            "time": "2026-08-28T07:35:47+00:00"
         },
         {
             "name": "supseven/inline-page-module",
