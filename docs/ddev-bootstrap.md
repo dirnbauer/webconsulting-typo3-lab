@@ -150,5 +150,32 @@ a `<Location>` grant does not override it — verified by testing, where a
 `<Location>` *deny* took effect immediately while a `<Location>` *grant* on the
 same path stayed 403. The exemption can only live in `.htaccess`, or not exist.
 
-`public/fileadmin` is git-ignored, so the generated files do not deploy with a
-push; run the script on whichever instance serves them.
+`public/fileadmin` is git-ignored and a deployment ships code only, so neither
+the artifacts nor the *Downloads* page record travel with a push. For the live
+site there is a matching command that builds the snapshot from the **live**
+database and fileadmin, on the server:
+
+```bash
+Build/Scripts/sync-coolify.sh publish-snapshot --confirm
+```
+
+It reads production and writes only inside `public/fileadmin/_downloads`, so it
+adds the downloads without touching existing content — unlike `push`, which
+replaces the production database wholesale. The sanitiser matches table names
+using the same pattern as the local script, because both source
+`Build/Scripts/lib/public-snapshot.sh`; the rule that decides what is safe to
+publish is defined once, in that file.
+
+Sanitisation is checked against the *local* database, whose demo content is
+known to be synthetic. Before announcing the links, confirm the published dump
+from the live site carries exactly one `INSERT` — the demo administrator — and
+satisfy yourself that the remaining live content is meant to be public:
+
+```bash
+curl -u lab:PASSWORD -fsSL \
+  https://typo3-lab.webconsulting.at/fileadmin/_downloads/db-public.tar.gz \
+  | tar -xzO db-public.sql | grep -c "INSERT INTO .be_users."
+```
+
+The *Downloads* page itself is a database record and exists only in DDEV; the
+live site needs it created there, or brought over by a deliberate data move.

@@ -8,6 +8,10 @@ BACKUP_ROOT="${TYPO3_LAB_BACKUP_ROOT:-${PWD}/.tarballs/coolify-sync}"
 SSH_OPTIONS=(-o BatchMode=yes -o ConnectTimeout=15)
 SYNC_WORK_DIR=""
 
+# What counts as sensitive, and what the published files are called, is shared
+# with make-public-snapshot.sh so the local and remote snapshots cannot drift.
+. "$(dirname "$0")/lib/public-snapshot.sh"
+
 cleanup() {
     if [[ -n "${SYNC_WORK_DIR}" && -d "${SYNC_WORK_DIR}" ]]; then
         rm -rf -- "${SYNC_WORK_DIR}"
@@ -18,12 +22,17 @@ trap cleanup EXIT
 
 usage() {
     cat <<'USAGE'
-Usage: Build/Scripts/sync-coolify.sh <status|deploy|push|pull> [--confirm]
+Usage: Build/Scripts/sync-coolify.sh <status|deploy|publish-snapshot|push|pull> [--confirm]
 
   status            Show the local DDEV and remote Coolify container state.
   deploy            Ask Coolify to rebuild and redeploy the application from
                     the current main branch, then wait for the new containers.
                     Code only: it does not touch the database or fileadmin.
+  publish-snapshot --confirm
+                    Build the sanitised download snapshot from the LIVE
+                    database and fileadmin and place it in the site's
+                    fileadmin/_downloads. Reads production and writes only
+                    inside that directory; it changes no existing content.
   push --confirm    Back up Coolify, then replace its database and fileadmin
                     with exports from this DDEV project.
   pull --confirm    Back up DDEV, then replace its database and fileadmin
@@ -269,6 +278,49 @@ remote_image_tag() {
         "docker ps --filter 'name=^web-' --format '{{.Image}}' | head -1" 2>/dev/null
 }
 
+publish_snapshot() {
+    local timestamp stage database_container web_container revision
+
+    timestamp="$(date -u +%Y%m%dT%H%M%SZ)"
+    stage="/var/tmp/typo3-lab-snapshot-${timestamp}"
+    database_container="$(remote_container database)"
+    web_container="$(remote_container web)"
+    revision="$(remote_image_tag || echo unknown)"
+    revision="${revision:0:7}"
+
+    SYNC_WORK_DIR="$(mktemp -d)"
+    snapshot_readme "the live site" "${revision}" \
+        "$(date -u '+%Y-%m-%d %H:%M:%S UTC')" > "${SYNC_WORK_DIR}/${SNAPSHOT_README}"
+    cp "$(dirname "$0")/install.sh" "${SYNC_WORK_DIR}/${SNAPSHOT_INSTALLER}"
+    cp "$(dirname "$0")/lib/remote-publish.sh" "${SYNC_WORK_DIR}/remote-publish.sh"
+
+    ssh "${SSH_OPTIONS[@]}" "${REMOTE_HOST}" "install -d -m 0700 '${stage}'"
+    scp "${SSH_OPTIONS[@]}" \
+        "${SYNC_WORK_DIR}/remote-publish.sh" \
+        "${SYNC_WORK_DIR}/${SNAPSHOT_INSTALLER}" \
+        "${SYNC_WORK_DIR}/${SNAPSHOT_README}" \
+        "${REMOTE_HOST}:${stage}/"
+
+    # Arguments rather than an inlined command: the remote script does the work
+    # with ordinary local quoting instead of four levels of shell escaping.
+    ssh "${SSH_OPTIONS[@]}" "${REMOTE_HOST}" \
+        "sh '${stage}/remote-publish.sh' \
+            '${database_container}' '${web_container}' '${stage}' \
+            '${revision}' '${timestamp}' \
+            '${SNAPSHOT_SENSITIVE_PATTERN}' \
+            '${SNAPSHOT_DEMO_USER}' '${SNAPSHOT_DEMO_PASSWORD}' \
+            '${SNAPSHOT_DB_ARCHIVE}' '${SNAPSHOT_DB_MEMBER}' \
+            '${SNAPSHOT_FILES_ARCHIVE}' '${SNAPSHOT_INSTALLER}' \
+            '${SNAPSHOT_README}' '${SNAPSHOT_DIR_NAME}'"
+
+    ssh "${SSH_OPTIONS[@]}" "${REMOTE_HOST}" "rm -rf '${stage}'"
+    echo
+    echo "Verify before announcing the links - exactly one INSERT is expected,"
+    echo "the demo administrator:"
+    echo "  curl -u lab:PASSWORD -fsSL https://typo3-lab.webconsulting.at/fileadmin/${SNAPSHOT_DIR_NAME}/${SNAPSHOT_DB_ARCHIVE} \\"
+    echo "    | tar -xzO ${SNAPSHOT_DB_MEMBER} | grep -c 'INSERT INTO .be_users.'"
+}
+
 command="${1:-}"
 
 case "${command}" in
@@ -277,6 +329,10 @@ case "${command}" in
         ;;
     deploy)
         deploy
+        ;;
+    publish-snapshot)
+        require_confirmation "$@"
+        publish_snapshot
         ;;
     push)
         require_confirmation "$@"

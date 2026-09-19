@@ -14,6 +14,9 @@
 # import into a broken install, because extension:setup expects them.
 set -euo pipefail
 cd "$(dirname "$0")/../.."
+# What counts as sensitive, and what the published files are called, is shared
+# with sync-coolify.sh publish-snapshot so the two cannot drift apart.
+. Build/Scripts/lib/public-snapshot.sh
 
 # public/fileadmin is a bind mount, not part of the Mutagen sync, so serving
 # 350 MB from here costs the file watcher nothing - which it would not be if
@@ -24,15 +27,15 @@ cd "$(dirname "$0")/../.."
 # `ddev import-db` reads natively) and the installer as .txt. That rule is
 # worth keeping intact - it travels with the repository, while the basic auth
 # that would otherwise have to justify an exemption does not.
-out="public/fileadmin/_downloads"
+out="public/fileadmin/$SNAPSHOT_DIR_NAME"
 case "${1:-}" in
   --out) out="${2:?directory required}" ;;
   "") ;;
   *) sed -n '2,4p' "$0"; exit 2 ;;
 esac
 
-DEMO_USER="admin"
-DEMO_PASSWORD="Demo123*"
+DEMO_USER="$SNAPSHOT_DEMO_USER"
+DEMO_PASSWORD="$SNAPSHOT_DEMO_PASSWORD"
 
 command -v ddev >/dev/null || { echo "ddev is not on PATH" >&2; exit 1; }
 ddev describe >/dev/null 2>&1 || { echo "the DDEV project is not running - 'ddev start' first" >&2; exit 1; }
@@ -40,7 +43,7 @@ ddev describe >/dev/null 2>&1 || { echo "the DDEV project is not running - 'ddev
 # Any table whose NAME matches one of these is emptied. Matching on the name
 # rather than a fixed list means a credential table added by a future
 # extension is stripped by default instead of silently shipping.
-patterns='vault|secret|token|credential|oauth|identity|payment_log|_provider$|^fe_users$|^be_users$|^be_sessions$|^fe_sessions$|^sys_log$|^sys_history$'
+patterns="$SNAPSHOT_SENSITIVE_PATTERN"
 
 # A plain string, not an array: macOS still ships bash 3.2, where `mapfile`
 # does not exist. Table names cannot contain whitespace, so splitting is safe.
@@ -49,7 +52,7 @@ sensitive=${sensitive% }
 [ -n "$sensitive" ] || { echo "no tables matched the sanitiser - refusing to publish" >&2; exit 1; }
 
 mkdir -p "$out"
-sql="$out/db-public.sql"  # gzipped into db-public.tar.gz below
+sql="$out/$SNAPSHOT_DB_MEMBER"  # gzipped into db-public.tar.gz below
 revision="$(git rev-parse --short HEAD 2>/dev/null || echo unknown)"
 
 echo "stripping $(echo "$sensitive" | wc -w | tr -d ' ') credential-bearing tables:"
@@ -79,38 +82,25 @@ INSERT INTO \`be_users\` (\`uid\`, \`pid\`, \`tstamp\`, \`crdate\`, \`username\`
 VALUES (1, 0, UNIX_TIMESTAMP(), UNIX_TIMESTAMP(), '$DEMO_USER', '$hash', 1, 0, 0);
 EOF
 
-tar -czf "$out/db-public.tar.gz" -C "$out" "$(basename "$sql")"
+tar -czf "$out/$SNAPSHOT_DB_ARCHIVE" -C "$out" "$SNAPSHOT_DB_MEMBER"
 rm -f "$sql"
 
 # The installer is a tracked source file; public/fileadmin is ignored, so the
 # copy that gets served has to be published here rather than edited in place.
 # It is published as .txt so the stock .htaccess serves it; run it with
 # `bash install.txt`.
-cp Build/Scripts/install.sh "$out/install.txt"
-chmod 0644 "$out/install.txt"
+cp Build/Scripts/install.sh "$out/$SNAPSHOT_INSTALLER"
+chmod 0644 "$out/$SNAPSHOT_INSTALLER"
 echo "archiving fileadmin"
 # --exclude the download directory itself: it lives inside the tree being
 # archived, so without this each run would pack the previous run's 350 MB
 # archive into the new one.
-tar -czf "$out/fileadmin-public.tar.gz" --exclude='./_downloads' -C public/fileadmin .
+tar -czf "$out/$SNAPSHOT_FILES_ARCHIVE" --exclude="./$SNAPSHOT_DIR_NAME" -C public/fileadmin .
 
-cat > "$out/snapshot-readme.txt" <<EOF
-Public snapshot of the Webconsulting TYPO3 Lab
-Exported $(date -u '+%Y-%m-%d %H:%M:%S UTC') from git revision $revision
-
-  db-public.tar.gz         database, sanitised (import with ddev import-db)
-  fileadmin-public.tar.gz  matching Fileadmin contents
-  install.txt              scripted setup: bash install.txt
-
-Sign in with $DEMO_USER / $DEMO_PASSWORD and change it.
-
-Sanitised means: Vault secrets, API and MCP access tokens, OAuth rows, WorkOS
-identities, the LLM provider credential, all backend and frontend accounts and
-the log/history tables keep their structure but ship with no rows. Import both
-together - the database references Fileadmin files by uid.
-EOF
+snapshot_readme "this DDEV project" "$revision" "$(date -u '+%Y-%m-%d %H:%M:%S UTC')" \
+  > "$out/$SNAPSHOT_README"
 
 printf '\ndone, revision %s:\n' "$revision"
-for f in "$out/db-public.tar.gz" "$out/fileadmin-public.tar.gz" "$out/install.txt"; do
+for f in "$out/$SNAPSHOT_DB_ARCHIVE" "$out/$SNAPSHOT_FILES_ARCHIVE" "$out/$SNAPSHOT_INSTALLER"; do
   printf '  %-40s %s\n' "$f" "$(du -h "$f" | cut -f1)"
 done
