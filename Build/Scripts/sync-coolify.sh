@@ -285,18 +285,25 @@ publish_snapshot() {
     stage="/var/tmp/typo3-lab-snapshot-${timestamp}"
     database_container="$(remote_container database)"
     web_container="$(remote_container web)"
-    revision="$(remote_image_tag || echo unknown)"
+    # remote_image_tag returns "<compose-project>_web:<sha>". Slicing the front
+    # of that yields the project id, not the commit - the first published
+    # snapshot was stamped "kj8tirx", which is the Coolify project.
+    revision="$(remote_image_tag || true)"
+    revision="${revision##*:}"
     revision="${revision:0:7}"
+    [ -n "${revision}" ] || revision="unknown"
 
     SYNC_WORK_DIR="$(mktemp -d)"
     snapshot_readme "the live site" "${revision}" \
         "$(date -u '+%Y-%m-%d %H:%M:%S UTC')" > "${SYNC_WORK_DIR}/${SNAPSHOT_README}"
     cp "$(dirname "$0")/install.sh" "${SYNC_WORK_DIR}/${SNAPSHOT_INSTALLER}"
     cp "$(dirname "$0")/lib/remote-publish.sh" "${SYNC_WORK_DIR}/remote-publish.sh"
+    cp "$(dirname "$0")/lib/make-zip.php" "${SYNC_WORK_DIR}/make-zip.php"
 
     ssh "${SSH_OPTIONS[@]}" "${REMOTE_HOST}" "install -d -m 0700 '${stage}'"
     scp "${SSH_OPTIONS[@]}" \
         "${SYNC_WORK_DIR}/remote-publish.sh" \
+        "${SYNC_WORK_DIR}/make-zip.php" \
         "${SYNC_WORK_DIR}/${SNAPSHOT_INSTALLER}" \
         "${SYNC_WORK_DIR}/${SNAPSHOT_README}" \
         "${REMOTE_HOST}:${stage}/"
@@ -317,8 +324,8 @@ publish_snapshot() {
     echo
     echo "Verify before announcing the links - exactly one INSERT is expected,"
     echo "the demo administrator:"
-    echo "  curl -u lab:PASSWORD -fsSL https://typo3-lab.webconsulting.at/fileadmin/${SNAPSHOT_DIR_NAME}/${SNAPSHOT_DB_ARCHIVE} \\"
-    echo "    | tar -xzO ${SNAPSHOT_DB_MEMBER} | grep -c 'INSERT INTO .be_users.'"
+    echo "  curl -u lab:PASSWORD -fsSLO https://typo3-lab.webconsulting.at/fileadmin/${SNAPSHOT_DIR_NAME}/${SNAPSHOT_DB_ARCHIVE}"
+    echo "  unzip -p ${SNAPSHOT_DB_ARCHIVE} ${SNAPSHOT_DB_MEMBER} | grep -c 'INSERT INTO .be_users.'"
 }
 
 command="${1:-}"

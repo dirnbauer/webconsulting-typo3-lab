@@ -82,7 +82,7 @@ INSERT INTO \`be_users\` (\`uid\`, \`pid\`, \`tstamp\`, \`crdate\`, \`username\`
 VALUES (1, 0, UNIX_TIMESTAMP(), UNIX_TIMESTAMP(), '$DEMO_USER', '$hash', 1, 0, 0);
 EOF
 
-tar -czf "$out/$SNAPSHOT_DB_ARCHIVE" -C "$out" "$SNAPSHOT_DB_MEMBER"
+ddev exec php Build/Scripts/lib/make-zip.php "$out/$SNAPSHOT_DB_ARCHIVE" "$sql" >/dev/null
 rm -f "$sql"
 
 # The installer is a tracked source file; public/fileadmin is ignored, so the
@@ -95,7 +95,8 @@ echo "archiving fileadmin"
 # --exclude the download directory itself: it lives inside the tree being
 # archived, so without this each run would pack the previous run's 350 MB
 # archive into the new one.
-tar -czf "$out/$SNAPSHOT_FILES_ARCHIVE" --exclude="./$SNAPSHOT_DIR_NAME" -C public/fileadmin .
+ddev exec php Build/Scripts/lib/make-zip.php "$out/$SNAPSHOT_FILES_ARCHIVE" \
+  --dir public/fileadmin --exclude "$SNAPSHOT_DIR_NAME"
 
 snapshot_readme "this DDEV project" "$revision" "$(date -u '+%Y-%m-%d %H:%M:%S UTC')" \
   > "$out/$SNAPSHOT_README"

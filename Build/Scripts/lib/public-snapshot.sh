@@ -17,14 +17,21 @@ SNAPSHOT_SENSITIVE_PATTERN='vault|secret|token|credential|oauth|identity|payment
 SNAPSHOT_DEMO_USER="admin"
 SNAPSHOT_DEMO_PASSWORD="Demo123*"
 
-# Published filenames. These clear TYPO3's shipped public/.htaccess, which
-# denies .sh and .sql* from the document root: the dump ships as a .tar.gz
-# (read natively by `ddev import-db`) and the installer as .txt. Renaming
-# around that rule keeps it intact for every deployment of this repository,
+# Published filenames, picked to survive two separate Apache rules.
+#
+# TYPO3's shipped public/.htaccess denies .sh and .sql* from the document root,
+# so the dump cannot ship as .sql.gz and the installer cannot be .sh. Renaming
+# around that keeps the rule intact for every deployment of this repository,
 # including ones without the basic auth that guards this lab.
-SNAPSHOT_DB_ARCHIVE="db-public.tar.gz"
+#
+# Zip rather than tar.gz because Apache serves any .gz with
+# "Content-Encoding: gzip", which HTTP clients transparently decode: a browser
+# saved a file named db-public.tar.gz that was really a plain tar, and
+# `ddev import-db` rejects that. .zip carries no Content-Encoding, arrives
+# byte-for-byte, and both import-db and import-files read it.
+SNAPSHOT_DB_ARCHIVE="db-public.zip"
 SNAPSHOT_DB_MEMBER="db-public.sql"
-SNAPSHOT_FILES_ARCHIVE="fileadmin-public.tar.gz"
+SNAPSHOT_FILES_ARCHIVE="fileadmin-public.zip"
 SNAPSHOT_INSTALLER="install.txt"
 SNAPSHOT_README="snapshot-readme.txt"
 SNAPSHOT_DIR_NAME="_downloads"
@@ -35,8 +42,8 @@ snapshot_readme() {
 Public snapshot of the Webconsulting TYPO3 Lab
 Exported $3 from $1, git revision $2
 
-  ${SNAPSHOT_DB_ARCHIVE}         database, sanitised (ddev import-db reads it directly)
-  ${SNAPSHOT_FILES_ARCHIVE}  matching Fileadmin contents
+  ${SNAPSHOT_DB_ARCHIVE}             database, sanitised (ddev import-db reads it directly)
+  ${SNAPSHOT_FILES_ARCHIVE}      matching Fileadmin contents
   ${SNAPSHOT_INSTALLER}              scripted setup: bash ${SNAPSHOT_INSTALLER}
 
 Sign in with ${SNAPSHOT_DEMO_USER} / ${SNAPSHOT_DEMO_PASSWORD} and change it.

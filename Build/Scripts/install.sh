@@ -55,9 +55,9 @@ fetch() {
     -o "$1" "$2"
 }
 
-fetch db-public.tar.gz "$BASE/db-public.tar.gz"
+fetch db-public.zip "$BASE/db-public.zip"
 mkdir -p .tarballs
-fetch .tarballs/fileadmin-public.tar.gz "$BASE/fileadmin-public.tar.gz"
+fetch .tarballs/fileadmin-public.zip "$BASE/fileadmin-public.zip"
 
 echo "==> starting DDEV"
 ddev start
@@ -65,8 +65,8 @@ ddev composer install
 ddev npm ci
 
 echo "==> importing"
-ddev import-db --file=db-public.tar.gz
-ddev import-files --source=.tarballs/fileadmin-public.tar.gz
+ddev import-db --file=db-public.zip
+ddev import-files --source=.tarballs/fileadmin-public.zip
 
 ddev typo3 extension:setup
 ddev vite build

@@ -60,15 +60,23 @@ INSERT INTO \`be_users\` (\`uid\`, \`pid\`, \`tstamp\`, \`crdate\`, \`username\`
 VALUES (1, 0, UNIX_TIMESTAMP(), UNIX_TIMESTAMP(), '${DEMO_USER}', '${HASH}', 1, 0, 0);
 EOF
 
-tar -czf "${STAGE}/${DB_ARCHIVE}" -C "$STAGE" "$DB_MEMBER"
+# Zip inside the web container: the production image is php:8.4-apache, which
+# ships the PHP zip extension and unzip but no zip binary.
+docker cp "${STAGE}/make-zip.php" "${WEB}:/tmp/make-zip.php"
+docker cp "${STAGE}/${DB_MEMBER}" "${WEB}:/tmp/${DB_MEMBER}"
+docker exec "$WEB" php /tmp/make-zip.php "/tmp/${DB_ARCHIVE}" "/tmp/${DB_MEMBER}" >/dev/null
+docker cp "${WEB}:/tmp/${DB_ARCHIVE}" "${STAGE}/${DB_ARCHIVE}"
+docker exec "$WEB" rm -f "/tmp/${DB_MEMBER}" "/tmp/${DB_ARCHIVE}"
 rm -f "${STAGE}/${DB_MEMBER}"
 
 echo "archiving fileadmin"
 docker exec "$WEB" sh -c "mkdir -p '${DEST}'"
 # --exclude the download directory: it lives inside the tree being archived,
 # so without this each run packs the previous run's archive into the new one.
-docker exec "$WEB" tar -czf - --exclude="./${DIR_NAME}" -C /var/www/html/public/fileadmin . \
-  > "${STAGE}/${FILES_ARCHIVE}"
+docker exec "$WEB" php /tmp/make-zip.php "/tmp/${FILES_ARCHIVE}" \
+  --dir /var/www/html/public/fileadmin --exclude "${DIR_NAME}" >/dev/null
+docker cp "${WEB}:/tmp/${FILES_ARCHIVE}" "${STAGE}/${FILES_ARCHIVE}"
+docker exec "$WEB" rm -f "/tmp/${FILES_ARCHIVE}" /tmp/make-zip.php
 
 for f in "$DB_ARCHIVE" "$FILES_ARCHIVE" "$INSTALLER" "$README"; do
     docker cp "${STAGE}/${f}" "${WEB}:${DEST}/${f}"

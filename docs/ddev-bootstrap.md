@@ -110,18 +110,29 @@ What may be handed out is a different artifact, built by
 Build/Scripts/make-public-snapshot.sh
 ```
 
-It writes `db-public.tar.gz`, `fileadmin-public.tar.gz`, `snapshot-readme.txt`
+It writes `db-public.zip`, `fileadmin-public.zip`, `snapshot-readme.txt`
 and a copy of `Build/Scripts/install.sh` (published as `install.txt`) into
 `public/fileadmin/_downloads/`, which the *Downloads* page (`/downloads/`)
 links to. `public/fileadmin` is a bind mount rather than part of the Mutagen
 sync, so serving 350 MB from there costs the file watcher nothing.
 
-Those extensions are deliberate. TYPO3's shipped `public/.htaccess` denies
-`.sh` and `.sql*` from the document root, and that file travels with the
-repository while the basic auth that would justify an exemption does not — so
-the artifacts are named to clear the stock rule instead of weakening it. `ddev
-import-db` reads the tar archive natively, and the installer runs with `bash
-install.txt`.
+Those extensions are deliberate, and they dodge two separate Apache rules.
+
+TYPO3's shipped `public/.htaccess` denies `.sh` and `.sql*` from the document
+root, and that file travels with the repository while the basic auth that would
+justify an exemption does not — so the artifacts are named to clear the stock
+rule instead of weakening it. The installer runs with `bash install.txt`.
+
+Zip rather than `.tar.gz` because Apache's stock `AddEncoding x-gzip .gz .tgz`
+makes it serve any `.gz` with `Content-Encoding: gzip`. HTTP clients then
+transparently decode it, so a browser saves a file called `db-public.tar.gz`
+that is really a plain tar and `ddev import-db` rejects it — the first
+published snapshot had exactly that defect. A `.zip` carries no
+`Content-Encoding`, arrives byte-for-byte, and both `import-db` and
+`import-files` read it. The archives are built with PHP's `ZipArchive`
+(`Build/Scripts/lib/make-zip.php`) rather than the `zip` command, because the
+production image is `php:8.4-apache` and ships `unzip` and the PHP zip
+extension but no `zip` binary.
 
 Every table whose name matches `vault|secret|token|credential|oauth|identity|
 payment_log|_provider$`, both user tables and the log and history tables, keeps
@@ -172,9 +183,9 @@ from the live site carries exactly one `INSERT` — the demo administrator — a
 satisfy yourself that the remaining live content is meant to be public:
 
 ```bash
-curl -u lab:PASSWORD -fsSL \
-  https://typo3-lab.webconsulting.at/fileadmin/_downloads/db-public.tar.gz \
-  | tar -xzO db-public.sql | grep -c "INSERT INTO .be_users."
+curl -u lab:PASSWORD -fsSLO \
+  https://typo3-lab.webconsulting.at/fileadmin/_downloads/db-public.zip
+unzip -p db-public.zip db-public.sql | grep -c "INSERT INTO .be_users."
 ```
 
 The *Downloads* page itself is a database record and exists only in DDEV; the
