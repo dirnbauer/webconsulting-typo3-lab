@@ -355,8 +355,9 @@ publish_downloads_page() {
     scp "${SSH_OPTIONS[@]}" "${definition}" "${applier}" "${REMOTE_HOST}:${stage}/"
 
     # Into the container rather than run over ssh: the applier expects the
-    # TYPO3 root as its working directory, and mcp:write-table only reads
-    # parameter files from below that root.
+    # TYPO3 root as its working directory, and runs the site package's
+    # sitepackage:apply-downloads-page command - which only exists in images
+    # built from a commit that contains it, so deploy before running this.
     ssh "${SSH_OPTIONS[@]}" "${REMOTE_HOST}" \
         "docker cp '${stage}/downloads-page.json' '${web_container}:/var/www/html/var/transient-downloads-page.json' \
          && docker cp '${stage}/apply-downloads-page.sh' '${web_container}:/var/www/html/var/apply-downloads-page.sh' \
