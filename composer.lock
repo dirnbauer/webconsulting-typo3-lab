@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a0c5f03fa7df8745bb0d66ca5ffefc81",
+    "content-hash": "60803a74b732ea5ec0128442abc1b9a3",
     "packages": [
         {
             "name": "apache-solr-for-typo3/solr",
@@ -2055,16 +2055,16 @@
         },
         {
             "name": "hn/typo3-mcp-server",
-            "version": "v0.7.2",
+            "version": "v0.8.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/typo3-mcp-server.git",
-                "reference": "7b8bf4ef75b99af8f457588a2ded9149413842d0"
+                "reference": "24abb059887ce8fc2dbcd2a5666acacab143cbc7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/typo3-mcp-server/zipball/7b8bf4ef75b99af8f457588a2ded9149413842d0",
-                "reference": "7b8bf4ef75b99af8f457588a2ded9149413842d0",
+                "url": "https://api.github.com/repos/dirnbauer/typo3-mcp-server/zipball/24abb059887ce8fc2dbcd2a5666acacab143cbc7",
+                "reference": "24abb059887ce8fc2dbcd2a5666acacab143cbc7",
                 "shasum": ""
             },
             "require": {
@@ -2086,7 +2086,7 @@
                 "phpat/phpat": "^0.12.3",
                 "phpstan/phpstan": "^2.1.33",
                 "phpstan/phpstan-deprecation-rules": "^2.0",
-                "phpstan/phpstan-strict-rules": "^2.0",
+                "phpstan/phpstan-phpunit": "^2.0",
                 "rector/rector": "2.6.3",
                 "saschaegerer/phpstan-typo3": "^3.0",
                 "ssch/typo3-rector": "^3.0",
@@ -2179,7 +2179,7 @@
             ],
             "description": "TYPO3 extension that provides a Model Context Protocol (MCP) server for interacting with TYPO3 pages and records",
             "homepage": "https://github.com/dirnbauer/typo3-mcp-server",
-            "time": "2026-09-13T08:50:48+00:00"
+            "time": "2026-09-18T20:24:29+00:00"
         },
         {
             "name": "in2code/powermail",
@@ -4410,6 +4410,58 @@
             "time": "2026-01-06T21:53:42+00:00"
         },
         {
+            "name": "phpoffice/math",
+            "version": "0.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/PHPOffice/Math.git",
+                "reference": "fc31c8f57a7a81f962cbf389fd89f4d9d06fc99a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/PHPOffice/Math/zipball/fc31c8f57a7a81f962cbf389fd89f4d9d06fc99a",
+                "reference": "fc31c8f57a7a81f962cbf389fd89f4d9d06fc99a",
+                "shasum": ""
+            },
+            "require": {
+                "ext-dom": "*",
+                "ext-xml": "*",
+                "php": "^7.1|^8.0"
+            },
+            "require-dev": {
+                "phpstan/phpstan": "^0.12.88 || ^1.0.0",
+                "phpunit/phpunit": "^7.0 || ^9.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "PhpOffice\\Math\\": "src/Math/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Progi1984",
+                    "homepage": "https://lefevre.dev"
+                }
+            ],
+            "description": "Math - Manipulate Math Formula",
+            "homepage": "https://phpoffice.github.io/Math/",
+            "keywords": [
+                "MathML",
+                "officemathml",
+                "php"
+            ],
+            "support": {
+                "issues": "https://github.com/PHPOffice/Math/issues",
+                "source": "https://github.com/PHPOffice/Math/tree/0.3.0"
+            },
+            "time": "2025-05-29T08:31:49+00:00"
+        },
+        {
             "name": "phpoffice/phpspreadsheet",
             "version": "5.10.0",
             "source": {
@@ -4519,6 +4571,114 @@
                 "source": "https://github.com/PHPOffice/PhpSpreadsheet/tree/5.10.0"
             },
             "time": "2026-09-17T03:54:50+00:00"
+        },
+        {
+            "name": "phpoffice/phpword",
+            "version": "1.4.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/PHPOffice/PHPWord.git",
+                "reference": "6d75328229bc93790b37e93741adf70646cea958"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/PHPOffice/PHPWord/zipball/6d75328229bc93790b37e93741adf70646cea958",
+                "reference": "6d75328229bc93790b37e93741adf70646cea958",
+                "shasum": ""
+            },
+            "require": {
+                "ext-dom": "*",
+                "ext-gd": "*",
+                "ext-json": "*",
+                "ext-xml": "*",
+                "ext-zip": "*",
+                "php": "^7.1|^8.0",
+                "phpoffice/math": "^0.3"
+            },
+            "require-dev": {
+                "dompdf/dompdf": "^2.0 || ^3.0",
+                "ext-libxml": "*",
+                "friendsofphp/php-cs-fixer": "^3.3",
+                "mpdf/mpdf": "^7.0 || ^8.0",
+                "phpmd/phpmd": "^2.13",
+                "phpstan/phpstan": "^0.12.88 || ^1.0.0",
+                "phpstan/phpstan-phpunit": "^1.0 || ^2.0",
+                "phpunit/phpunit": ">=7.0",
+                "symfony/process": "^4.4 || ^5.0",
+                "tecnickcom/tcpdf": "^6.5"
+            },
+            "suggest": {
+                "dompdf/dompdf": "Allows writing PDF",
+                "ext-xmlwriter": "Allows writing OOXML and ODF",
+                "ext-xsl": "Allows applying XSL style sheet to headers, to main document part, and to footers of an OOXML template"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "PhpOffice\\PhpWord\\": "src/PhpWord"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "LGPL-3.0-only"
+            ],
+            "authors": [
+                {
+                    "name": "Mark Baker"
+                },
+                {
+                    "name": "Gabriel Bull",
+                    "email": "me@gabrielbull.com",
+                    "homepage": "http://gabrielbull.com/"
+                },
+                {
+                    "name": "Franck Lefevre",
+                    "homepage": "https://rootslabs.net/blog/"
+                },
+                {
+                    "name": "Ivan Lanin",
+                    "homepage": "http://ivan.lanin.org"
+                },
+                {
+                    "name": "Roman Syroeshko",
+                    "homepage": "http://ru.linkedin.com/pub/roman-syroeshko/34/a53/994/"
+                },
+                {
+                    "name": "Antoine de Troostembergh"
+                }
+            ],
+            "description": "PHPWord - A pure PHP library for reading and writing word processing documents (OOXML, ODF, RTF, HTML, PDF)",
+            "homepage": "https://phpoffice.github.io/PHPWord/",
+            "keywords": [
+                "ISO IEC 29500",
+                "OOXML",
+                "Office Open XML",
+                "OpenDocument",
+                "OpenXML",
+                "PhpOffice",
+                "PhpWord",
+                "Rich Text Format",
+                "WordprocessingML",
+                "doc",
+                "docx",
+                "html",
+                "odf",
+                "odt",
+                "office",
+                "pdf",
+                "php",
+                "reader",
+                "rtf",
+                "template",
+                "template processor",
+                "word",
+                "writer"
+            ],
+            "support": {
+                "issues": "https://github.com/PHPOffice/PHPWord/issues",
+                "source": "https://github.com/PHPOffice/PHPWord/tree/1.4.0"
+            },
+            "time": "2025-06-05T10:32:36+00:00"
         },
         {
             "name": "phpstan/phpdoc-parser",
@@ -5318,6 +5478,57 @@
                 "typo3-extension"
             ],
             "time": "2026-09-16T13:57:27+00:00"
+        },
+        {
+            "name": "smalot/pdfparser",
+            "version": "v2.12.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/smalot/pdfparser.git",
+                "reference": "2cfa0d92bd557875c9f52a75fde0e8392302a354"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/smalot/pdfparser/zipball/2cfa0d92bd557875c9f52a75fde0e8392302a354",
+                "reference": "2cfa0d92bd557875c9f52a75fde0e8392302a354",
+                "shasum": ""
+            },
+            "require": {
+                "ext-iconv": "*",
+                "ext-zlib": "*",
+                "php": ">=7.1",
+                "symfony/polyfill-mbstring": "^1.18"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Smalot\\PdfParser\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "LGPL-3.0"
+            ],
+            "authors": [
+                {
+                    "name": "Sebastien MALOT",
+                    "email": "sebastien@malot.fr"
+                }
+            ],
+            "description": "Pdf parser library. Can read and extract information from pdf file.",
+            "homepage": "https://www.pdfparser.org",
+            "keywords": [
+                "extract",
+                "parse",
+                "parser",
+                "pdf",
+                "text"
+            ],
+            "support": {
+                "issues": "https://github.com/smalot/pdfparser/issues",
+                "source": "https://github.com/smalot/pdfparser/tree/v2.12.5"
+            },
+            "time": "2026-04-17T11:37:58+00:00"
         },
         {
             "name": "solarium/solarium",
@@ -12011,16 +12222,16 @@
         },
         {
             "name": "webconsulting/agentation",
-            "version": "v1.2.0",
+            "version": "v1.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/typo3-agentation.git",
-                "reference": "3e8eb5af29023c136c82114d8b7763fe2c825342"
+                "reference": "f318866630172a638074459a04a9c281e49b8e03"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/typo3-agentation/zipball/3e8eb5af29023c136c82114d8b7763fe2c825342",
-                "reference": "3e8eb5af29023c136c82114d8b7763fe2c825342",
+                "url": "https://api.github.com/repos/dirnbauer/typo3-agentation/zipball/f318866630172a638074459a04a9c281e49b8e03",
+                "reference": "f318866630172a638074459a04a9c281e49b8e03",
                 "shasum": ""
             },
             "require": {
@@ -12041,7 +12252,7 @@
                 "phpstan/phpstan-deprecation-rules": "^2.0",
                 "phpstan/phpstan-phpunit": "^2.0",
                 "phpstan/phpstan-strict-rules": "^2.0",
-                "phpunit/phpunit": "^11.5",
+                "phpunit/phpunit": "^12.4 || ^13.0",
                 "saschaegerer/phpstan-typo3": "^3.1",
                 "typo3/coding-standards": "^0.9",
                 "typo3/testing-framework": "^9.5"
@@ -12050,10 +12261,8 @@
             "extra": {
                 "typo3/cms": {
                     "extension-key": "agentation",
-                    "version": "1.2.0",
-                    "Package": {
-                        "providesPackages": []
-                    }
+                    "version": "1.3.0",
+                    "web-dir": ".Build/public"
                 }
             },
             "autoload": {
@@ -12073,8 +12282,11 @@
                 "cgl:fix": [
                     "php-cs-fixer fix"
                 ],
+                "ci": [
+                    "@test"
+                ],
                 "lint": [
-                    "parallel-lint Build Classes Configuration Tests ext_localconf.php .php-cs-fixer.dist.php"
+                    "parallel-lint Build/phpunit Classes Configuration Tests ext_localconf.php .php-cs-fixer.dist.php"
                 ],
                 "phpstan": [
                     "phpstan analyse --memory-limit=1G"
@@ -12120,7 +12332,7 @@
                 "issues": "https://github.com/dirnbauer/typo3-agentation/issues",
                 "source": "https://github.com/dirnbauer/typo3-agentation"
             },
-            "time": "2026-09-12T16:17:42+00:00"
+            "time": "2026-09-18T16:12:25+00:00"
         },
         {
             "name": "webconsulting/astryx-typo3",
@@ -12321,16 +12533,16 @@
         },
         {
             "name": "webconsulting/docx-editor",
-            "version": "v1.3.0",
+            "version": "v1.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/typo3-docx.git",
-                "reference": "e95b735a5821abbb118cb413b353241f1c68e4fc"
+                "reference": "211a466c7eb721b2dcc2d531b6bb7840d1420ca9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/typo3-docx/zipball/e95b735a5821abbb118cb413b353241f1c68e4fc",
-                "reference": "e95b735a5821abbb118cb413b353241f1c68e4fc",
+                "url": "https://api.github.com/repos/dirnbauer/typo3-docx/zipball/211a466c7eb721b2dcc2d531b6bb7840d1420ca9",
+                "reference": "211a466c7eb721b2dcc2d531b6bb7840d1420ca9",
                 "shasum": ""
             },
             "require": {
@@ -12344,8 +12556,7 @@
                 "friendsofphp/php-cs-fixer": "^3.95",
                 "phpstan/phpstan": "^2.1",
                 "phpstan/phpstan-phpunit": "^2.0",
-                "phpstan/phpstan-strict-rules": "^2.0",
-                "phpunit/phpunit": "^11.5 || ^12.1 || ^13.0",
+                "phpunit/phpunit": "^12.4 || ^13.0",
                 "saschaegerer/phpstan-typo3": "^3.0",
                 "typo3/coding-standards": "^0.9",
                 "typo3/testing-framework": "^9.5"
@@ -12354,10 +12565,7 @@
             "extra": {
                 "typo3/cms": {
                     "extension-key": "docx_editor",
-                    "version": "1.3.0",
-                    "Package": {
-                        "providesPackages": []
-                    }
+                    "version": "1.4.0"
                 }
             },
             "autoload": {
@@ -12372,7 +12580,7 @@
             },
             "scripts": {
                 "lint": [
-                    "find Classes Configuration Tests ext_localconf.php -name '*.php' -print0 | xargs -0 -n1 -P4 php -l > /dev/null"
+                    "find Classes Configuration Tests -name '*.php' -print0 | xargs -0 -n1 -P4 php -l > /dev/null"
                 ],
                 "cgl": [
                     "php-cs-fixer check --diff"
@@ -12393,17 +12601,18 @@
                     "@test:unit",
                     "@test:functional"
                 ],
-                "build:assets": [
-                    "npm run build"
-                ],
                 "ci": [
                     "composer validate --strict",
                     "@lint",
                     "@cgl",
                     "@phpstan",
-                    "@test:unit",
-                    "@test:functional",
-                    "@build:assets"
+                    "@test"
+                ],
+                "assets": [
+                    "npm ci",
+                    "npm run test:build",
+                    "npm run build",
+                    "git diff --exit-code -- Resources/Public/Vite"
                 ]
             },
             "license": [
@@ -12417,7 +12626,7 @@
                     "role": "Developer"
                 }
             ],
-            "description": "DOCX Editor - WYSIWYG .docx editing in the TYPO3 v14 Media module with eigenpal/docx-editor",
+            "description": "DOCX Editor - WYSIWYG .docx editing from the TYPO3 v14 file list with eigenpal/docx-editor",
             "homepage": "https://github.com/dirnbauer/typo3-docx",
             "keywords": [
                 "collaboration",
@@ -12431,7 +12640,7 @@
                 "issues": "https://github.com/dirnbauer/typo3-docx/issues",
                 "source": "https://github.com/dirnbauer/typo3-docx"
             },
-            "time": "2026-09-13T00:39:45+00:00"
+            "time": "2026-09-18T16:07:04+00:00"
         },
         {
             "name": "webconsulting/image-workbench",
@@ -12524,16 +12733,16 @@
         },
         {
             "name": "webconsulting/innesto",
-            "version": "v2.1.0",
+            "version": "v2.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/innesto",
-                "reference": "2c4dd303b51bad190fbb0c9034b19f0d363add43"
+                "reference": "d25b2002de0479d01ff87f3884f32c3fc03c3175"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/innesto/zipball/2c4dd303b51bad190fbb0c9034b19f0d363add43",
-                "reference": "2c4dd303b51bad190fbb0c9034b19f0d363add43",
+                "url": "https://api.github.com/repos/dirnbauer/innesto/zipball/d25b2002de0479d01ff87f3884f32c3fc03c3175",
+                "reference": "d25b2002de0479d01ff87f3884f32c3fc03c3175",
                 "shasum": ""
             },
             "require": {
@@ -12541,7 +12750,7 @@
                 "php": "^8.4",
                 "typo3/cms-core": "^14.3.7",
                 "typo3/cms-fluid-styled-content": "^14.3.7",
-                "webconsulting/desiderio": "^4.1.1"
+                "webconsulting/desiderio": "^4.1"
             },
             "require-dev": {
                 "phpstan/phpstan": "^2.1",
@@ -12557,7 +12766,7 @@
                 "typo3/cms": {
                     "web-dir": ".Build/public",
                     "extension-key": "innesto",
-                    "version": "2.1.0",
+                    "version": "2.2.0",
                     "Package": {
                         "providesPackages": []
                     }
@@ -12574,9 +12783,6 @@
                 }
             },
             "scripts": {
-                "audit:content-elements": [
-                    "@php scripts/audit-content-elements.php"
-                ],
                 "ci": [
                     "@ci:cgl",
                     "@ci:phpstan",
@@ -12605,7 +12811,7 @@
                 }
             ],
             "description": "Innesto — grafts shadcn/ui registry components onto TYPO3 as Desiderio-styled Content Blocks",
-            "time": "2026-09-13T01:22:21+00:00"
+            "time": "2026-09-19T04:25:56+00:00"
         },
         {
             "name": "webconsulting/records-list-examples",
@@ -12895,11 +13101,11 @@
         },
         {
             "name": "webconsulting/skillspector",
-            "version": "1.0.0",
+            "version": "1.1.0",
             "dist": {
                 "type": "path",
                 "url": "packages/skillspector",
-                "reference": "ec18a934d10cc5fe81aebec713d8c447879aefd6"
+                "reference": "2c12c48c2b310a966bc9652f609d0cbeff4173ff"
             },
             "require": {
                 "netresearch/nr-llm": "^0.34 || ^0.35",
@@ -12976,16 +13182,16 @@
         },
         {
             "name": "webconsulting/typo3-abilities",
-            "version": "v1.0.0",
+            "version": "v1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/typo3-abilities.git",
-                "reference": "5160da9b8e3207855b7929a44b4a11459e3265e5"
+                "reference": "4cdc8436659eddb7a29cfaf9f9a92c585f196d23"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/typo3-abilities/zipball/5160da9b8e3207855b7929a44b4a11459e3265e5",
-                "reference": "5160da9b8e3207855b7929a44b4a11459e3265e5",
+                "url": "https://api.github.com/repos/dirnbauer/typo3-abilities/zipball/4cdc8436659eddb7a29cfaf9f9a92c585f196d23",
+                "reference": "4cdc8436659eddb7a29cfaf9f9a92c585f196d23",
                 "shasum": ""
             },
             "require": {
@@ -12996,30 +13202,31 @@
                 "symfony/yaml": "^7.0",
                 "typo3/cms-backend": "^14.3",
                 "typo3/cms-core": "^14.3",
-                "typo3/cms-fluid": "^14.3"
+                "typo3/cms-fluid": "^14.3",
+                "typo3/cms-frontend": "^14.3"
             },
             "require-dev": {
                 "phpstan/phpstan": "^2.0",
                 "phpstan/phpstan-phpunit": "^2.0",
                 "phpunit/phpunit": "^12.4 || ^13.0",
                 "saschaegerer/phpstan-typo3": "^3.0",
+                "typo3/cms-reactions": "^14.3",
                 "typo3/cms-workspaces": "^14.3",
                 "typo3/coding-standards": "^0.9",
                 "typo3/testing-framework": "^9.5"
             },
             "suggest": {
                 "hn/typo3-mcp-server": "MCP projection bridge: exposes McpProjection descriptors as MCP tools",
-                "sgalinski/sg-apicore": "OpenAPI augmenter for the REST projection",
+                "typo3/cms-reactions": "Webhook surface: the \"Run ability\" reaction type",
+                "typo3/cms-scheduler": "Run abilities.run on a schedule with the \"Execute console command\" task",
+                "typo3/cms-workspaces": "Needed by the workspace/publish demo ability",
                 "webconsulting/skillflow": "Skills contract: skills declare the abilities they need"
             },
             "type": "typo3-cms-extension",
             "extra": {
                 "typo3/cms": {
                     "extension-key": "abilities",
-                    "version": "1.0.0",
-                    "Package": {
-                        "providesPackages": []
-                    }
+                    "web-dir": ".Build/public"
                 }
             },
             "autoload": {
@@ -13034,18 +13241,29 @@
                 }
             },
             "scripts": {
+                "cgl": [
+                    "php-cs-fixer fix --dry-run --diff --no-interaction"
+                ],
+                "cgl:fix": [
+                    "php-cs-fixer fix --no-interaction"
+                ],
+                "ci": [
+                    "@cgl",
+                    "@phpstan",
+                    "@test"
+                ],
                 "phpstan": [
-                    "php -d memory_limit=1G vendor/bin/phpstan analyse"
+                    "php -d memory_limit=1G .Build/bin/phpstan analyse --no-progress"
                 ],
                 "test": [
                     "@test:unit",
                     "@test:functional"
                 ],
                 "test:functional": [
-                    "php -d memory_limit=1G vendor/bin/phpunit -c Build/phpunit/FunctionalTests.xml"
+                    "php -d memory_limit=1G .Build/bin/phpunit -c Build/phpunit/FunctionalTests.xml"
                 ],
                 "test:unit": [
-                    "vendor/bin/phpunit -c Build/phpunit/UnitTests.xml"
+                    ".Build/bin/phpunit -c Build/phpunit/UnitTests.xml"
                 ]
             },
             "license": [
@@ -13058,7 +13276,7 @@
                     "role": "Developer"
                 }
             ],
-            "description": "Abilities registry for TYPO3 — one typed, permissioned registry of what the installation can do; MCP tools, CLI commands, REST routes and the backend module become projections of it.",
+            "description": "Abilities registry for TYPO3 — one typed, permissioned registry of what the installation can do; CLI, REST, MCP, webhooks, Fluid, the backend module and agent skills are projections of it.",
             "keywords": [
                 "abilities",
                 "agents",
@@ -13068,20 +13286,20 @@
                 "rest",
                 "typo3"
             ],
-            "time": "2026-09-12T21:09:45+00:00"
+            "time": "2026-09-18T20:24:27+00:00"
         },
         {
             "name": "webconsulting/typo3-llms-txt",
-            "version": "v1.0.0",
+            "version": "v1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/typo3-llms-txt.git",
-                "reference": "5d58a479e14f9d650b7a3bc0fdc04dba59c5d4f7"
+                "reference": "6aff9dfdebec3a1b3d70e61be2c3d5980ffb5d64"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/typo3-llms-txt/zipball/5d58a479e14f9d650b7a3bc0fdc04dba59c5d4f7",
-                "reference": "5d58a479e14f9d650b7a3bc0fdc04dba59c5d4f7",
+                "url": "https://api.github.com/repos/dirnbauer/typo3-llms-txt/zipball/6aff9dfdebec3a1b3d70e61be2c3d5980ffb5d64",
+                "reference": "6aff9dfdebec3a1b3d70e61be2c3d5980ffb5d64",
                 "shasum": ""
             },
             "require": {
@@ -13098,7 +13316,7 @@
                 "saschaegerer/phpstan-typo3": "^3.0",
                 "typo3/coding-standards": "^0.9",
                 "typo3/testing-framework": "^9.5",
-                "webconsulting/typo3-abilities": "^1.0"
+                "webconsulting/typo3-abilities": "^1.0 || ^1.1"
             },
             "suggest": {
                 "hn/typo3-mcp-server": "agents.md advertises the MCP endpoint and its ability_* tools when installed",
@@ -13108,7 +13326,7 @@
             "extra": {
                 "typo3/cms": {
                     "extension-key": "llms_txt",
-                    "version": "1.0.0",
+                    "version": "1.1.0",
                     "web-dir": ".Build/public",
                     "Package": {
                         "providesPackages": []
@@ -13164,20 +13382,127 @@
                 "llms.txt",
                 "typo3"
             ],
-            "time": "2026-09-13T01:07:07+00:00"
+            "time": "2026-09-19T04:17:58+00:00"
         },
         {
-            "name": "webconsulting/typo3-x402-paywall",
-            "version": "v1.2.0",
+            "name": "webconsulting/typo3-shadcn-ui",
+            "version": "v1.0.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/dirnbauer/typo3-x402-paywall.git",
-                "reference": "ab7132bb9c789386be9c5f6fc9d4404d77f46e92"
+                "url": "https://github.com/dirnbauer/typo3-shadcn-ui.git",
+                "reference": "61b2c08be783eaaa8357822082f1b8538ddb78f4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/typo3-x402-paywall/zipball/ab7132bb9c789386be9c5f6fc9d4404d77f46e92",
-                "reference": "ab7132bb9c789386be9c5f6fc9d4404d77f46e92",
+                "url": "https://api.github.com/repos/dirnbauer/typo3-shadcn-ui/zipball/61b2c08be783eaaa8357822082f1b8538ddb78f4",
+                "reference": "61b2c08be783eaaa8357822082f1b8538ddb78f4",
+                "shasum": ""
+            },
+            "require": {
+                "hn/typo3-mcp-server": "^0.8",
+                "netresearch/nr-llm": "^0.35",
+                "php": "^8.4",
+                "phpoffice/phpword": "^1.0",
+                "smalot/pdfparser": "^2.0",
+                "typo3/cms-backend": "^14.3",
+                "typo3/cms-core": "^14.3"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^3.94",
+                "phpoffice/phpspreadsheet": "^3.0 || ^4.0 || ^5.0",
+                "phpstan/phpstan": "^2.1",
+                "phpstan/phpstan-phpunit": "^2.0",
+                "phpunit/phpunit": "^12.4 || ^13.0",
+                "saschaegerer/phpstan-typo3": "^3.0",
+                "typo3/coding-standards": "^0.9",
+                "typo3/testing-framework": "^9.5"
+            },
+            "suggest": {
+                "phpoffice/phpspreadsheet": "Lets editors attach XLSX spreadsheets to a chat message"
+            },
+            "type": "typo3-cms-extension",
+            "extra": {
+                "typo3/cms": {
+                    "extension-key": "shadcn_ui",
+                    "web-dir": ".Build/Web"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Webconsulting\\ShadcnUi\\": "Classes/"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "Webconsulting\\ShadcnUi\\Tests\\": "Tests/"
+                }
+            },
+            "scripts": {
+                "ci": [
+                    "@ci:phpstan",
+                    "@ci:cgl",
+                    "@ci:tests"
+                ],
+                "ci:phpstan": [
+                    ".Build/bin/phpstan analyse -c phpstan.neon --no-progress --memory-limit=1G"
+                ],
+                "ci:cgl": [
+                    ".Build/bin/php-cs-fixer fix --dry-run --diff"
+                ],
+                "ci:tests": [
+                    "php -d memory_limit=1G .Build/bin/phpunit -c Build/phpunit/UnitTests.xml && php -d memory_limit=1G .Build/bin/phpunit -c Build/phpunit/FunctionalTests.xml"
+                ],
+                "ci:tests:unit": [
+                    "php -d memory_limit=1G .Build/bin/phpunit -c Build/phpunit/UnitTests.xml"
+                ],
+                "ci:tests:functional": [
+                    "php -d memory_limit=1G .Build/bin/phpunit -c Build/phpunit/FunctionalTests.xml"
+                ],
+                "fix:cgl": [
+                    ".Build/bin/php-cs-fixer fix"
+                ]
+            },
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Webconsulting",
+                    "homepage": "https://github.com/dirnbauer",
+                    "role": "Maintainer"
+                }
+            ],
+            "description": "shadcn/ui runtime for TYPO3 backend modules (React 19, Tailwind v4, Shadow DOM) with the AI chat that talks to your installation through in-process MCP tools",
+            "homepage": "https://github.com/dirnbauer/typo3-shadcn-ui",
+            "keywords": [
+                "AI",
+                "LLM",
+                "MCP",
+                "TYPO3",
+                "backend",
+                "chat",
+                "extension",
+                "react",
+                "shadcn"
+            ],
+            "support": {
+                "issues": "https://github.com/dirnbauer/typo3-shadcn-ui/issues",
+                "source": "https://github.com/dirnbauer/typo3-shadcn-ui"
+            },
+            "time": "2026-09-19T04:44:34+00:00"
+        },
+        {
+            "name": "webconsulting/typo3-x402-paywall",
+            "version": "v1.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dirnbauer/typo3-x402-paywall.git",
+                "reference": "a0a932f48d1651f354fc193de0e12b7bdbad9576"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dirnbauer/typo3-x402-paywall/zipball/a0a932f48d1651f354fc193de0e12b7bdbad9576",
+                "reference": "a0a932f48d1651f354fc193de0e12b7bdbad9576",
                 "shasum": ""
             },
             "require": {
@@ -13278,7 +13603,7 @@
                 "source": "https://github.com/dirnbauer/typo3-x402-paywall",
                 "docs": "https://github.com/dirnbauer/typo3-x402-paywall/tree/main/Documentation"
             },
-            "time": "2026-09-12T16:17:29+00:00"
+            "time": "2026-09-18T16:06:31+00:00"
         },
         {
             "name": "webconsulting/visual-editor-enhancements",
@@ -13486,16 +13811,16 @@
         },
         {
             "name": "webconsulting/workos-auth",
-            "version": "v2.1.0",
+            "version": "v2.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/workos.git",
-                "reference": "a271e88f595859b845854e78c482d4e560e399a7"
+                "reference": "6df77ce39addcb48d48c3f39e335874421600aed"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/workos/zipball/a271e88f595859b845854e78c482d4e560e399a7",
-                "reference": "a271e88f595859b845854e78c482d4e560e399a7",
+                "url": "https://api.github.com/repos/dirnbauer/workos/zipball/6df77ce39addcb48d48c3f39e335874421600aed",
+                "reference": "6df77ce39addcb48d48c3f39e335874421600aed",
                 "shasum": ""
             },
             "require": {
@@ -13505,7 +13830,7 @@
                 "typo3/cms-extbase": "^14.3.7",
                 "typo3/cms-fluid": "^14.3.7",
                 "typo3/cms-frontend": "^14.3.7",
-                "workos/workos-php": "^9.3"
+                "workos/workos-php": "^9.4"
             },
             "conflict": {
                 "paragonie/sodium_compat": "<1.24.1 || >=2.0 <2.5.1"
@@ -13518,21 +13843,19 @@
                 "phpstan/phpstan-deprecation-rules": "^2.0",
                 "phpstan/phpstan-phpunit": "^2.0",
                 "phpstan/phpstan-strict-rules": "^2.0",
-                "phpunit/phpunit": "^11.5",
+                "phpunit/phpunit": "^12.4 || ^13.0",
                 "saschaegerer/phpstan-typo3": "^3.0",
-                "symfony/stopwatch": "^7.4",
                 "typo3/cms-workspaces": "^14.3.7",
                 "typo3/coding-standards": "^0.8",
-                "typo3/testing-framework": "^9.2"
+                "typo3/testing-framework": "^9.5"
             },
             "type": "typo3-cms-extension",
             "extra": {
                 "typo3/cms": {
+                    "app-dir": ".Build",
                     "extension-key": "workos_auth",
-                    "version": "2.1.0",
-                    "Package": {
-                        "providesPackages": []
-                    }
+                    "version": "2.2.0",
+                    "web-dir": ".Build/public"
                 }
             },
             "autoload": {
@@ -13546,17 +13869,13 @@
                 }
             },
             "scripts": {
-                "audit": [
-                    "@composer audit --abandoned=ignore"
-                ],
                 "ci": [
-                    "@validate",
+                    "@composer validate --strict",
                     "@lint",
                     "@cs:check",
                     "@phpstan",
                     "@test:unit",
-                    "@test:functional",
-                    "@test:architecture"
+                    "@test:functional"
                 ],
                 "cs:check": [
                     "php-cs-fixer fix --config=.php-cs-fixer.dist.php --dry-run --diff --using-cache=no"
@@ -13568,10 +13887,7 @@
                     "Build/Scripts/runTests.sh -s lint"
                 ],
                 "phpstan": [
-                    "phpstan analyse --memory-limit=1G"
-                ],
-                "test:architecture": [
-                    "Build/Scripts/runTests.sh -s architecture"
+                    "phpstan analyse --memory-limit=1G --no-progress"
                 ],
                 "test:functional": [
                     "phpunit -c Build/phpunit/FunctionalTests.xml"
@@ -13581,9 +13897,6 @@
                 ],
                 "test:unit": [
                     "phpunit -c Build/phpunit/UnitTests.xml"
-                ],
-                "validate": [
-                    "@composer validate --strict"
                 ]
             },
             "license": [
@@ -13597,10 +13910,11 @@
                     "role": "Developer"
                 }
             ],
-            "description": "TYPO3 v14 extension for WorkOS-powered frontend and backend login (AuthKit, SSO, MFA, Admin Portal).",
+            "description": "TYPO3 v14 extension for WorkOS-powered frontend and backend login (AuthKit, SSO, MFA, Admin Portal) and a WorkOS-protected TYPO3 MCP server.",
             "homepage": "https://github.com/dirnbauer/workos",
             "keywords": [
                 "authentication",
+                "mcp",
                 "mfa",
                 "oidc",
                 "sso",
@@ -13612,7 +13926,7 @@
                 "issues": "https://github.com/dirnbauer/workos/issues",
                 "source": "https://github.com/dirnbauer/workos"
             },
-            "time": "2026-09-12T16:06:04+00:00"
+            "time": "2026-09-18T20:23:32+00:00"
         },
         {
             "name": "webmozart/assert",
