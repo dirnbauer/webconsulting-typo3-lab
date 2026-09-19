@@ -25,5 +25,15 @@ DEF="$1"; ROOT="$2"
 
 [ -f "$DEF" ] || { echo "no such definition: $DEF" >&2; exit 1; }
 
+# t3:// references carry uids - t3://file?uid=1111 is one row in one database.
+# The first definition was exported from DDEV after the RTE had rewritten its
+# plain links into references to DDEV's sys_file rows; on the live site those
+# uids do not exist, so three of the four download links rendered as nothing.
+# Plain paths are resolved by whichever database saves them.
+if grep -q 't3://' "$DEF"; then
+    echo "the definition contains t3:// references; their uids are specific to the database they came from - use plain paths" >&2
+    exit 1
+fi
+
 vendor/bin/typo3 sitepackage:apply-downloads-page "$DEF" "$ROOT"
 vendor/bin/typo3 cache:flush >/dev/null 2>&1 || true
