@@ -6,6 +6,7 @@ baseVariants:
 dependencies:
   - webconsulting/solr-defaults
   - webconsulting/desiderio-powermail
+  - in2code/powermail-cond
   - webconsulting/desiderio-content-elements
   - webconsulting/desiderio-blog
   - webconsulting/desiderio-preset-corporate
@@ -90,6 +91,7 @@ routeEnhancers:
       sitemap.xml: 1533906435
       robots.txt: 201
       suggest.json: 7384
+      condition.json: 3132
 solr_enabled_read: true
 solr_host_read: typo3-solr
 solr_path_read: /

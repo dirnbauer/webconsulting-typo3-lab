@@ -5,34 +5,29 @@ set -u
 LOG="${MIRROR_LOG:-/tmp/mirror-to-gitlab.log}"
 : > "$LOG"
 REPOS=(
+  # Standalone repos checked out under ~/projects
   ~/projects/astryx-typo3 ~/projects/desiderio ~/projects/innesto ~/projects/skillflow
   ~/projects/agentation ~/projects/typo3-ai-chat ~/projects/typo3-camino-vercel ~/projects/typo3-docx
   ~/projects/typo3-image-workbench ~/projects/typo3-mcp-server ~/projects/typo3-records-list-examples
   ~/projects/typo3-records-list-types ~/projects/typo3-skills ~/projects/typo3-webcon-easy-workspace
   ~/projects/typo3-x402-paywall ~/projects/workos ~/projects/powermail ~/projects/pw_teaser
   ~/projects/webconsulting-typo3-lab
-  # Private and archived repositories are mirrored from bare clones instead:
-  #   for r in frontend_editing frontend_editing_autodiscover jobs typo3-capability-manifest \
-  #            typo3-deepfake-detection typo3-rust-datahandler typo3-tiptap webconsulting-skills; do
-  #     git clone --mirror git@github.com:dirnbauer/$r.git /tmp/$r.git
-  #     git -C /tmp/$r.git push --mirror git@gitlab.webconsulting.at:extensions/$r.git
-  #   done
-  ~/projects/webconsulting-typo3-lab
-  # Private and archived repositories are mirrored from bare clones instead:
-  #   for r in frontend_editing frontend_editing_autodiscover jobs typo3-capability-manifest \
-  #            typo3-deepfake-detection typo3-rust-datahandler typo3-tiptap webconsulting-skills; do
-  #     git clone --mirror git@github.com:dirnbauer/$r.git /tmp/$r.git
-  #     git -C /tmp/$r.git push --mirror git@gitlab.webconsulting.at:extensions/$r.git
-  #   done/packages/abilities ~/projects/webconsulting-typo3-lab/packages/agent_nexus
-  ~/projects/webconsulting-typo3-lab
-  # Private and archived repositories are mirrored from bare clones instead:
-  #   for r in frontend_editing frontend_editing_autodiscover jobs typo3-capability-manifest \
-  #            typo3-deepfake-detection typo3-rust-datahandler typo3-tiptap webconsulting-skills; do
-  #     git clone --mirror git@github.com:dirnbauer/$r.git /tmp/$r.git
-  #     git -C /tmp/$r.git push --mirror git@gitlab.webconsulting.at:extensions/$r.git
-  #   done/packages/llms_txt ~/projects/webconsulting-typo3-lab/packages/visual_editor_enhancements
+  # Extension clones that live only inside the lab's packages/ directory
+  ~/projects/webconsulting-typo3-lab/packages/abilities
+  ~/projects/webconsulting-typo3-lab/packages/agent_nexus
+  ~/projects/webconsulting-typo3-lab/packages/llms_txt
+  ~/projects/webconsulting-typo3-lab/packages/powermail_cond
+  ~/projects/webconsulting-typo3-lab/packages/webcon_jev
   ~/projects/webconsulting-typo3-lab/packages/shadcn_ui
+  ~/projects/webconsulting-typo3-lab/packages/visual_editor_enhancements
 )
+
+# Private and archived repositories are mirrored from bare clones instead:
+#   for r in frontend_editing frontend_editing_autodiscover jobs typo3-capability-manifest \
+#            typo3-deepfake-detection typo3-rust-datahandler typo3-tiptap webconsulting-skills; do
+#     git clone --mirror git@github.com:dirnbauer/$r.git /tmp/$r.git
+#     git -C /tmp/$r.git push --mirror git@gitlab.webconsulting.at:extensions/$r.git
+#   done
 for d in "${REPOS[@]}"; do
   d="${d/#\~/$HOME}"
   [ -d "$d/.git" ] || { echo "SKIP $d (no git)" | tee -a "$LOG"; continue; }
