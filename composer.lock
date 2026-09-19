@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "cca1eda1bd44fc1e2fac34e86188955d",
+    "content-hash": "4cb9f8250e99efa898acc13401bfbf3b",
     "packages": [
         {
             "name": "apache-solr-for-typo3/solr",
@@ -2342,7 +2342,7 @@
             "dist": {
                 "type": "path",
                 "url": "packages/powermail_cond",
-                "reference": "140eb9a4edae6c758204f8021b1ba1f6b87d34bf"
+                "reference": "34aa902a1f473aec1280f91c26d2358a51eaf4f7"
             },
             "require": {
                 "ext-json": "*",
