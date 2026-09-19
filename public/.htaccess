@@ -277,14 +277,23 @@ AddDefaultCharset utf-8
 
 
 ### Begin: StaticFileCache (encoding of the stored files) ###
-<FilesMatch "\.gz$">
+# Anchored to StaticFileCache's own filenames. The rewrite further down builds
+# typo3temp/assets/tx_staticfilecache/<proto>_<host>_<port><uri>/index and
+# appends the encoding, so the stored files are always index.gz and index.br.
+#
+# Matching every .gz in the document root told Apache they were gzip-encoded.
+# Clients transparently decode that, so a published db-public.tar.gz arrived as
+# a plain tar under a .tar.gz name and `ddev import-db` rejected it. Nothing
+# else here is a Content-Encoding; those are files that happen to be
+# compressed, and the distinction is what this anchor preserves.
+<FilesMatch "^index\.gz$">
 	SetEnv no-gzip 1
 	SetEnv no-brotli 1
 	<IfModule mod_headers.c>
 		Header set Content-Encoding gzip
 	</IfModule>
 </FilesMatch>
-<FilesMatch "\.br$">
+<FilesMatch "^index\.br$">
 	SetEnv no-gzip 1
 	SetEnv no-brotli 1
 	<IfModule mod_headers.c>
