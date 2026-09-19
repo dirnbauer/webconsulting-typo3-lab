@@ -13961,16 +13961,16 @@
         },
         {
             "name": "webconsulting/webcon-jev",
-            "version": "v0.1.10",
+            "version": "v0.1.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/typo3-webcon-jev.git",
-                "reference": "c615a0c3dea01c28f89c32c2b7498a27f7139154"
+                "reference": "4de18c45bd0d0b02c408582da687d1b432a0f1aa"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/typo3-webcon-jev/zipball/c615a0c3dea01c28f89c32c2b7498a27f7139154",
-                "reference": "c615a0c3dea01c28f89c32c2b7498a27f7139154",
+                "url": "https://api.github.com/repos/dirnbauer/typo3-webcon-jev/zipball/4de18c45bd0d0b02c408582da687d1b432a0f1aa",
+                "reference": "4de18c45bd0d0b02c408582da687d1b432a0f1aa",
                 "shasum": ""
             },
             "require": {
@@ -13985,6 +13985,18 @@
                 "typo3/cms-extbase": "^14.3",
                 "typo3/cms-frontend": "^14.3"
             },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^3.94",
+                "in2code/powermail": "^14.0",
+                "in2code/powermail_cond": "dev-typo3-v14",
+                "phpstan/phpstan": "^2.1",
+                "phpstan/phpstan-phpunit": "^2.0",
+                "phpunit/phpunit": "^12.4 || ^13.0",
+                "saschaegerer/phpstan-typo3": "^3.0",
+                "typo3/coding-standards": "^0.9",
+                "typo3/testing-framework": "^9.5",
+                "webconsulting/typo3-shadcn-ui": "^1.0"
+            },
             "suggest": {
                 "in2code/powermail": "Adds the Jev finisher that routes a submission to a receiver",
                 "in2code/powermail_cond": "Adds Jev rule operators to powermail conditions",
@@ -13993,13 +14005,44 @@
             "type": "typo3-cms-extension",
             "extra": {
                 "typo3/cms": {
-                    "extension-key": "webcon_jev"
+                    "extension-key": "webcon_jev",
+                    "web-dir": ".Build/Web"
                 }
             },
             "autoload": {
                 "psr-4": {
                     "Webconsulting\\WebconJev\\": "Classes/"
                 }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "Webconsulting\\WebconJev\\Tests\\": "Tests/"
+                }
+            },
+            "scripts": {
+                "ci": [
+                    "@ci:phpstan",
+                    "@ci:cgl",
+                    "@ci:tests"
+                ],
+                "ci:phpstan": [
+                    ".Build/bin/phpstan analyse -c phpstan.neon --no-progress --memory-limit=1G"
+                ],
+                "ci:cgl": [
+                    ".Build/bin/php-cs-fixer fix --dry-run --diff"
+                ],
+                "ci:tests": [
+                    "php -d memory_limit=1G .Build/bin/phpunit -c Build/phpunit/UnitTests.xml && php -d memory_limit=1G .Build/bin/phpunit -c Build/phpunit/FunctionalTests.xml"
+                ],
+                "ci:tests:unit": [
+                    "php -d memory_limit=1G .Build/bin/phpunit -c Build/phpunit/UnitTests.xml"
+                ],
+                "ci:tests:functional": [
+                    "php -d memory_limit=1G .Build/bin/phpunit -c Build/phpunit/FunctionalTests.xml"
+                ],
+                "fix:cgl": [
+                    ".Build/bin/php-cs-fixer fix"
+                ]
             },
             "license": [
                 "GPL-2.0-or-later"
@@ -14026,7 +14069,7 @@
                 "issues": "https://github.com/dirnbauer/typo3-webcon-jev/issues",
                 "source": "https://github.com/dirnbauer/typo3-webcon-jev"
             },
-            "time": "2026-09-19T14:45:49+00:00"
+            "time": "2026-09-19T16:09:12+00:00"
         },
         {
             "name": "webconsulting/workos-auth",
