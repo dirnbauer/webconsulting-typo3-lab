@@ -45,12 +45,15 @@ Three states, and only one of them is a deployment:
 
 | `deploy` job | Meaning |
 | --- | --- |
-| skipped | No `COOLIFY_TOKEN`. Nothing was deployed. |
+| skipped | No `COOLIFY_TOKEN`, or the `COOLIFY_CI_DEPLOY` repository variable is not `true` (the current state — see below). Nothing was deployed. |
 | failed, 403 "not allowed to access the API" | Coolify's **API IP allowlist** rejected the runner. Nothing was deployed. |
 | failed, other 403 | The token lacks the **deploy** permission. Nothing was deployed. |
 | success | Coolify accepted the request. |
 
-**As of 2026-09-19 every CI deploy ends in the allowlist 403.** Coolify's API
+**CI deploys are switched off** by the `COOLIFY_CI_DEPLOY` repository variable
+until the allowlist question below is settled; turn them on with
+`gh variable set COOLIFY_CI_DEPLOY --body true`. The reason: as of 2026-09-19
+every CI deploy ends in the allowlist 403. Coolify's API
 only answers one allowlisted address (Settings > Configuration > Allowed IPs on
 coolify.webconsulting.at), and GitHub-hosted runners come from Azure ranges that
 are never on it. The `COOLIFY_TOKEN` secret is set and valid — the identical

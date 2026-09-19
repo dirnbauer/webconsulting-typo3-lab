@@ -97,7 +97,29 @@ jobs:
         id: check
         env:
           COOLIFY_TOKEN: ${{ secrets.COOLIFY_TOKEN }}
+          # Off until CI can actually reach Coolify: its API is IP-allowlisted
+          # and GitHub's runners are not on the list, so every attempt ends in
+          # a 403. A deploy job that is red on every push teaches people to
+          # ignore red, and buries real failures. Switch on with
+          #   gh variable set COOLIFY_CI_DEPLOY --body true
+          # once the allowlist question in docs/coolify-deployment.md is settled.
+          COOLIFY_CI_DEPLOY: ${{ vars.COOLIFY_CI_DEPLOY }}
         run: |
+          if [ -n "${COOLIFY_TOKEN}" ] && [ "${COOLIFY_CI_DEPLOY}" != "true" ]; then
+            echo 'configured=false' >> "${GITHUB_OUTPUT}"
+            echo "::warning::This commit was NOT deployed: CI deploys are switched off (repository variable COOLIFY_CI_DEPLOY is not 'true') because Coolify's API allowlist rejects GitHub's runners. Deploy by hand with Build/Scripts/sync-coolify.sh deploy."
+            {
+              echo '### Not deployed'
+              echo
+              echo 'CI deploys are switched off: Coolify only answers its allowlisted IP, and GitHub runners are not on it.'
+              echo 'Deploy from the allowlisted machine:'
+              echo
+              echo '```bash'
+              echo 'Build/Scripts/sync-coolify.sh deploy'
+              echo '```'
+            } >> "${GITHUB_STEP_SUMMARY}"
+            exit 0
+          fi
           if [ -z "${COOLIFY_TOKEN}" ]; then
             echo 'configured=false' >> "${GITHUB_OUTPUT}"
             echo "::warning::COOLIFY_TOKEN is not set: this commit was NOT deployed, and the deploy job is skipped rather than green. Deploy by hand with Build/Scripts/sync-coolify.sh deploy, or add the secret under Settings > Secrets and variables > Actions."
