@@ -11,20 +11,32 @@
 set -euo pipefail
 cd "$(dirname "$0")/../.."
 
-declare -A CLONES=(
-  [webconsulting/typo3-abilities]=abilities
-  [webconsulting/agent-nexus]=agent_nexus
-  [webconsulting/typo3-llms-txt]=llms_txt
-  [webconsulting/skillflow]=skillflow
-  [webconsulting/visual-editor-enhancements]=visual_editor_enhancements
-  [webconsulting/desiderio]=desiderio
-  [webconsulting/innesto]=innesto
-  [webconsulting/astryx-typo3]=astryx_typo3
-  [webconsulting/records-list-types]=records_list_types
-  [webconsulting/records-list-examples]=records_list_examples
-  [webconsulting/webcon-easy-workspace]=webcon_easy_workspace
-  [webconsulting/typo3-shadcn-ui]=shadcn_ui
-)
+# Composer name and the packages/ directory holding its clone, one pair per
+# line. An associative array would read better, but macOS still ships bash 3.2,
+# where `declare -A` is a syntax error - and `set -u` then turned that into
+# "webconsulting: unbound variable", so --status never ran on the host.
+CLONES='
+webconsulting/typo3-abilities abilities
+webconsulting/agent-nexus agent_nexus
+webconsulting/typo3-llms-txt llms_txt
+webconsulting/skillflow skillflow
+webconsulting/visual-editor-enhancements visual_editor_enhancements
+webconsulting/desiderio desiderio
+webconsulting/innesto innesto
+webconsulting/astryx-typo3 astryx_typo3
+webconsulting/records-list-types records_list_types
+webconsulting/records-list-examples records_list_examples
+webconsulting/webcon-easy-workspace webcon_easy_workspace
+webconsulting/typo3-shadcn-ui shadcn_ui
+'
+
+clone_names() {
+  printf '%s\n' "$CLONES" | awk 'NF { print $1 }'
+}
+
+clone_for() {
+  printf '%s\n' "$CLONES" | awk -v want="$1" '$1 == want { print $2; exit }'
+}
 
 install_path() {
   php -r '
@@ -38,14 +50,18 @@ install_path() {
 
 status() {
   local linked=0
-  for name in "${!CLONES[@]}"; do
+  for name in $(clone_names); do
     path=$(install_path "$name" 2>/dev/null || true)
     if [ -n "$path" ] && [ -L "$path" ]; then
       printf 'linked   %-44s -> %s\n' "$name" "$(readlink "$path")"; linked=1
     fi
   done
-  [ "$linked" -eq 0 ] && echo "no development clones linked"
-  return $linked
+  # Not `[ ... ] && echo`: under `set -e` that list fails as a whole when
+  # something is linked, and the function exits before it can return.
+  if [ "$linked" -eq 0 ]; then
+    echo "no development clones linked"
+  fi
+  return "$linked"
 }
 
 case "${1:-}" in
@@ -65,7 +81,7 @@ case "${1:-}" in
     ;;
   "") sed -n '2,9p' "$0"; exit 2 ;;
   *)
-    name="$1"; clone="${CLONES[$name]:-}"
+    name="$1"; clone=$(clone_for "$name")
     [ -n "$clone" ] || { echo "unknown package $name (add it to CLONES)"; exit 2; }
     [ -f "packages/$clone/composer.json" ] || { echo "packages/$clone is not a checkout"; exit 2; }
     php -r 'exit(json_decode(file_get_contents($argv[1]), true)["name"] === $argv[2] ? 0 : 1);' "packages/$clone/composer.json" "$name" \
