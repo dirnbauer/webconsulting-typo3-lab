@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c5024ff3dcdbb444d60d419f10d8a388",
+    "content-hash": "01906ced4b73b5a839c98eb7b60a59b9",
     "packages": [
         {
             "name": "apache-solr-for-typo3/solr",
@@ -12904,20 +12904,20 @@
         },
         {
             "name": "webconsulting/records-list-types",
-            "version": "v1.1.1",
+            "version": "v1.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/typo3-records-list-types.git",
-                "reference": "aae7918bf5398b69dede0a139bf25997951048c0"
+                "reference": "34f246236fb73795e2eb9ea266ec580a3dcc3c89"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/typo3-records-list-types/zipball/aae7918bf5398b69dede0a139bf25997951048c0",
-                "reference": "aae7918bf5398b69dede0a139bf25997951048c0",
+                "url": "https://api.github.com/repos/dirnbauer/typo3-records-list-types/zipball/34f246236fb73795e2eb9ea266ec580a3dcc3c89",
+                "reference": "34f246236fb73795e2eb9ea266ec580a3dcc3c89",
                 "shasum": ""
             },
             "require": {
-                "php": "^8.3",
+                "php": "^8.4",
                 "typo3/cms-backend": "^14.3.7",
                 "typo3/cms-core": "^14.3.7",
                 "typo3/cms-fluid": "^14.3.7"
@@ -12926,8 +12926,9 @@
                 "friendsofphp/php-cs-fixer": "^3.95.2",
                 "phpat/phpat": "^0.12.2",
                 "phpstan/phpstan": "^2.1.55",
+                "phpstan/phpstan-phpunit": "^2.0",
                 "phpstan/phpstan-strict-rules": "^2.0.11",
-                "phpunit/phpunit": "^11.2.5 || ^12.1.2 || ^13.0.2",
+                "phpunit/phpunit": "^12.4 || ^13.0",
                 "saschaegerer/phpstan-typo3": "^3.0",
                 "ssch/typo3-rector": "^3.0",
                 "typo3/coding-standards": "^0.9",
@@ -12937,10 +12938,7 @@
             "extra": {
                 "typo3/cms": {
                     "extension-key": "records_list_types",
-                    "version": "1.1.1",
-                    "Package": {
-                        "providesPackages": []
-                    },
+                    "version": "1.2.0",
                     "web-dir": "public"
                 }
             },
@@ -12954,6 +12952,29 @@
                     "Webconsulting\\RecordsListTypes\\Tests\\": "Tests/"
                 }
             },
+            "scripts": {
+                "ci": [
+                    "Build/Scripts/runTests.sh -s ci"
+                ],
+                "ci:cgl": [
+                    "Build/Scripts/runTests.sh -s cgl"
+                ],
+                "ci:cgl:fix": [
+                    "php-cs-fixer fix --config=.php-cs-fixer.dist.php"
+                ],
+                "ci:functional": [
+                    "Build/Scripts/runTests.sh -s functional"
+                ],
+                "ci:lint": [
+                    "Build/Scripts/runTests.sh -s lint"
+                ],
+                "ci:phpstan": [
+                    "Build/Scripts/runTests.sh -s phpstan"
+                ],
+                "ci:unit": [
+                    "Build/Scripts/runTests.sh -s unit"
+                ]
+            },
             "license": [
                 "GPL-2.0-or-later"
             ],
@@ -12964,13 +12985,13 @@
                     "role": "Developer"
                 }
             ],
-            "description": "Records List Types: Grid, Compact, Teaser, custom views, and configurable record filters for the TYPO3 v14 backend Records module.",
+            "description": "Grid, compact, teaser and custom Fluid views plus configurable record filters for the TYPO3 v14 Records module.",
             "homepage": "https://github.com/dirnbauer/typo3-records-list-types",
             "support": {
                 "issues": "https://github.com/dirnbauer/typo3-records-list-types/issues",
                 "source": "https://github.com/dirnbauer/typo3-records-list-types"
             },
-            "time": "2026-09-12T21:24:02+00:00"
+            "time": "2026-09-19T05:38:34+00:00"
         },
         {
             "name": "webconsulting/site-package",
