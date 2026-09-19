@@ -17,11 +17,20 @@ and reinstall the affected dependency instead.
 
 ## Forked dependencies
 
-None. `studiomitte/friendlycaptcha` comes from the upstream 2.3.0 release (TYPO3 14 support;
-desiderio 4.1.7 imports its Powermail TypoScript itself because upstream ships no Site Set) and
-`studiomitte/solr-numbered-pagination` from the upstream repository's `main` branch, which
-supports TYPO3 14 and EXT:solr 14 but has no tagged release yet. Our copies of both forks were
-deleted after mirroring; we do not contribute changes upstream.
+`studiomitte/friendlycaptcha` and `studiomitte/solr-numbered-pagination` are installed from
+our own forks (`github.com/dirnbauer/*`), not from upstream.
+
+FriendlyCaptcha: upstream 2.3.0 declares TYPO3 14.3 support, but its Powermail validator calls
+`$mail->getForm()->getPages()` without resolving Extbase lazy proxies and reads the plugin
+FlexForm without a null guard, while Powermail 14 annotates `Mail::$form`, `Form::$pages` and
+`Page::$fields` as `@Lazy` and hands out the proxy unresolved. The fork carries both fixes.
+
+Solr numbered pagination: upstream has no tagged release supporting TYPO3 14 — the newest tag,
+1.0.4, caps at TYPO3 13.4 and EXT:solr 13. Support exists only on upstream `main`, and consuming
+a moving branch would leave the lab unpinned, so the fork carries it with a guard for the
+pagination type EXT:solr 14 hands to the event.
+
+We do not contribute these changes upstream.
 
 ## Workflow
 

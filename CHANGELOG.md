@@ -10,10 +10,12 @@ Platform
 
 - nr-llm 0.35, nr-vault 0.16, EXT:solr 14.0.2 (Solr image pin follows the
   lock), Cowriter 3.6.8, sg-apicore 3.1.2, Powermail 14.0.3, Visual Editor 1.10.2.
-- The last two forks are retired: FriendlyCaptcha comes from the upstream 2.3.0
-  release and Solr numbered pagination from the upstream repository's `main`.
-  Desiderio 4.1.7 imports FriendlyCaptcha's Powermail TypoScript itself because
-  upstream ships no Site Set.
+- The FriendlyCaptcha and Solr-pagination forks stay: upstream pagination has no
+  TYPO3 14 release at all, and upstream FriendlyCaptcha 2.3.0 declares 14.3 but
+  its Powermail validator does not resolve the Extbase lazy proxies Powermail 14
+  hands it. Both were briefly switched to upstream and switched back after the
+  check. Desiderio 4.1.7 now imports FriendlyCaptcha's Powermail TypoScript
+  itself, which works with the fork and with upstream alike.
 - `hn/typo3-agent` is gone again together with the site_package tool-converter
   glue, its settings, Coolify variables and documentation. The backend chat is
   `webconsulting/typo3-shadcn-ui`, the shadcn/ui base for backend modules with

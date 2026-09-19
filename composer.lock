@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7ad3a196a1043332deaba3e903bf2418",
+    "content-hash": "a0c5f03fa7df8745bb0d66ca5ffefc81",
     "packages": [
         {
             "name": "apache-solr-for-typo3/solr",
@@ -5397,41 +5397,50 @@
         },
         {
             "name": "studiomitte/friendlycaptcha",
-            "version": "2.3.0",
+            "version": "v14.x-dev",
             "source": {
                 "type": "git",
-                "url": "https://github.com/studiomitte/friendlycaptcha-typo3.git",
-                "reference": "7fb974b9e4f620542804ddbf6fc3478bed7e11c6"
+                "url": "https://github.com/dirnbauer/friendlycaptcha-typo3.git",
+                "reference": "b2333c347fffa743273d5ef7ec6848952613c415"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/studiomitte/friendlycaptcha-typo3/zipball/7fb974b9e4f620542804ddbf6fc3478bed7e11c6",
-                "reference": "7fb974b9e4f620542804ddbf6fc3478bed7e11c6",
+                "url": "https://api.github.com/repos/dirnbauer/friendlycaptcha-typo3/zipball/b2333c347fffa743273d5ef7ec6848952613c415",
+                "reference": "b2333c347fffa743273d5ef7ec6848952613c415",
                 "shasum": ""
             },
             "require": {
-                "typo3/cms-core": "^12.4.5 || ^13.4 || ^14.3"
+                "php": ">=8.3 <8.6",
+                "typo3/cms-core": "^14.3",
+                "typo3/cms-extbase": "^14.3",
+                "typo3/cms-fluid": "^14.3"
             },
             "require-dev": {
+                "apache-solr-for-typo3/solr": "^14.0@beta",
                 "friendsofphp/php-cs-fixer": "^3.93",
-                "in2code/powermail": "^12 || ^13 || ^14",
-                "phpunit/phpunit": "^10 || ^11 || ^12",
-                "typo3/cms-composer-installers": "^3.1.3 || 4.0.0-RC1 || ^5.0",
-                "typo3/cms-form": "^12.4.5 || ^13.4 || ^14.3",
-                "typo3/coding-standards": "^0.5.3",
-                "typo3/testing-framework": "^8.2 || ^9.0",
+                "phpstan/phpstan": "^2.1.50",
+                "phpstan/phpstan-phpunit": "^2.0.16",
+                "phpunit/phpunit": "^12.1",
+                "saschaegerer/phpstan-typo3": "^3.0.1",
+                "typo3/cms-composer-installers": "^5.0",
+                "typo3/cms-form": "^14.3",
+                "typo3/coding-standards": "^0.8.0",
+                "typo3/testing-framework": "^9.5",
                 "webmozart/assert": "^1.11.0"
             },
             "suggest": {
-                "in2code/powermail": "Support for EXT:powermail",
+                "in2code/powermail": "Support for EXT:powermail when a TYPO3 14 compatible release is available",
                 "typo3/cms-form": "Support for EXT:form"
             },
             "type": "typo3-cms-extension",
             "extra": {
                 "typo3/cms": {
-                    "app-dir": ".Build",
+                    "extension-key": "friendlycaptcha_official",
                     "web-dir": ".Build/Web",
-                    "extension-key": "friendlycaptcha_official"
+                    "version": "14-dev",
+                    "Package": {
+                        "providesPackages": []
+                    }
                 }
             },
             "autoload": {
@@ -5439,36 +5448,48 @@
                     "StudioMitte\\FriendlyCaptcha\\": "Classes"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
+            "autoload-dev": {
+                "psr-4": {
+                    "In2code\\Powermail\\": "Tests/Stubs/Powermail/Classes",
+                    "StudioMitte\\FriendlyCaptcha\\Tests\\": "Tests"
+                }
+            },
+            "scripts": {
+                "cs": [
+                    "php ./.Build/bin/php-cs-fixer fix  --dry-run -v --config ./Build/php-cs-fixer/php-cs-fixer.php ./"
+                ],
+                "csfix": [
+                    "php ./.Build/bin/php-cs-fixer fix  -v --config ./Build/php-cs-fixer/php-cs-fixer.php ./"
+                ],
+                "phpstan": [
+                    "php ./.Build/bin/phpstan analyse --configuration phpstan.neon --memory-limit 1G"
+                ]
+            },
             "license": [
                 "GPL-2.0-or-later"
             ],
-            "description": "FriendlyCaptcha Plugin for EXT:powermail and EXT:form",
+            "description": "Friendly Captcha - TYPO3 integration for EXT:form and EXT:powermail",
             "homepage": "https://www.studiomitte.com",
-            "support": {
-                "issues": "https://github.com/studiomitte/friendlycaptcha-typo3/issues",
-                "source": "https://github.com/studiomitte/friendlycaptcha-typo3/tree/2.3.0"
-            },
-            "time": "2026-06-22T13:41:03+00:00"
+            "time": "2026-06-20T17:54:55+00:00"
         },
         {
             "name": "studiomitte/solr-numbered-pagination",
             "version": "dev-main",
             "source": {
                 "type": "git",
-                "url": "https://github.com/studiomitte/solr_numbered_pagination.git",
-                "reference": "b6f4c7053d83bad51ee338983396db03dcb4dff1"
+                "url": "https://github.com/dirnbauer/solr_numbered_pagination.git",
+                "reference": "079c48647d5a963f71d9b566674a1d3bd8aba548"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/studiomitte/solr_numbered_pagination/zipball/b6f4c7053d83bad51ee338983396db03dcb4dff1",
-                "reference": "b6f4c7053d83bad51ee338983396db03dcb4dff1",
+                "url": "https://api.github.com/repos/dirnbauer/solr_numbered_pagination/zipball/079c48647d5a963f71d9b566674a1d3bd8aba548",
+                "reference": "079c48647d5a963f71d9b566674a1d3bd8aba548",
                 "shasum": ""
             },
             "require": {
-                "apache-solr-for-typo3/solr": "11.5.x-dev || ^11 || ^12 || ^13 || 13.0.x-dev || ^14 || 14.0.x-dev",
-                "georgringer/numbered-pagination": "^1 || ^2",
-                "typo3/cms-core": "^10 || ^11.5 || ^12.4.2 || ^13.4 || ^14"
+                "apache-solr-for-typo3/solr": "^14.0@alpha",
+                "georgringer/numbered-pagination": "^2.2",
+                "typo3/cms-core": "^14.3"
             },
             "default-branch": true,
             "type": "typo3-cms-extension",
@@ -5482,22 +5503,11 @@
                     "StudioMitte\\SolrNumberedPagination\\": "Classes"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "GPL-2.0-or-later"
             ],
-            "authors": [
-                {
-                    "name": "Georg Ringer",
-                    "role": "Developer"
-                }
-            ],
             "description": "Limit the amount of used pages in EXT:solr in the pagination",
-            "support": {
-                "issues": "https://github.com/studiomitte/solr_numbered_pagination/issues",
-                "source": "https://github.com/studiomitte/solr_numbered_pagination/tree/main"
-            },
-            "time": "2026-08-28T07:35:47+00:00"
+            "time": "2026-06-20T17:54:55+00:00"
         },
         {
             "name": "supseven/inline-page-module",
@@ -12889,7 +12899,7 @@
             "dist": {
                 "type": "path",
                 "url": "packages/skillspector",
-                "reference": "75a33703ad5f767c23b0b79b3400b84c26277112"
+                "reference": "ec18a934d10cc5fe81aebec713d8c447879aefd6"
             },
             "require": {
                 "netresearch/nr-llm": "^0.34 || ^0.35",
@@ -12897,8 +12907,7 @@
                 "symfony/process": "^7.0",
                 "symfony/yaml": "^7.0",
                 "typo3/cms-backend": "^14.3.7",
-                "typo3/cms-core": "^14.3.7",
-                "typo3/cms-scheduler": "^14.3.7"
+                "typo3/cms-core": "^14.3.7"
             },
             "require-dev": {
                 "phpstan/phpstan": "^2.1",
@@ -12908,15 +12917,15 @@
                 "typo3/coding-standards": "^0.9",
                 "typo3/testing-framework": "^9.5"
             },
+            "suggest": {
+                "typo3/cms-scheduler": "To run skillspector:check as a scheduled task"
+            },
             "type": "typo3-cms-extension",
             "extra": {
                 "typo3/cms": {
                     "extension-key": "skillspector",
-                    "version": "1.0.0",
-                    "web-dir": ".Build/public",
-                    "Package": {
-                        "providesPackages": []
-                    }
+                    "version": "1.1.0",
+                    "web-dir": ".Build/public"
                 }
             },
             "autoload": {
@@ -15837,6 +15846,7 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
+        "studiomitte/friendlycaptcha": 20,
         "studiomitte/solr-numbered-pagination": 20
     },
     "prefer-stable": true,

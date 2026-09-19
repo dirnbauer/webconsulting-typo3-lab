@@ -138,9 +138,19 @@
 			"url": "https://github.com/dirnbauer/typo3-docx.git"
 		},
 		{
-			"name": "solr-numbered-pagination-upstream",
+			"name": "typo3-shadcn-ui",
 			"type": "vcs",
-			"url": "https://github.com/studiomitte/solr_numbered_pagination.git"
+			"url": "https://github.com/dirnbauer/typo3-shadcn-ui.git"
+		},
+		{
+			"name": "friendlycaptcha",
+			"type": "vcs",
+			"url": "https://github.com/dirnbauer/friendlycaptcha-typo3.git"
+		},
+		{
+			"name": "solr-numbered-pagination",
+			"type": "vcs",
+			"url": "https://github.com/dirnbauer/solr_numbered_pagination.git"
 		}
 	],
 	"require": {
@@ -161,7 +171,7 @@
 		"php": "^8.4",
 		"praetorius/vite-asset-collector": "^1.18.1",
 		"sgalinski/sg-apicore": "^3.1.2",
-		"studiomitte/friendlycaptcha": "^2.3",
+		"studiomitte/friendlycaptcha": "^14.0@dev",
 		"studiomitte/solr-numbered-pagination": "dev-main",
 		"supseven/inline-page-module": "^4.0.2",
 		"t3g/blog": "^14.0.1",
