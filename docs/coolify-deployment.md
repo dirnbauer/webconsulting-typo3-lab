@@ -162,7 +162,7 @@ Three bounds now prevent a repeat:
 
 - `docker/coolify/apache-mpm.conf` limits prefork to
   `APACHE_MAX_REQUEST_WORKERS` (default 3) and recycles each worker after
-  `APACHE_MAX_CONNECTIONS_PER_CHILD` (default 40) connections. Both can be
+  `APACHE_MAX_CONNECTIONS_PER_CHILD` (default 500) connections. Both can be
   overridden in Coolify's environment without a rebuild of the configuration.
 - `mem_limit: 2560m` with an equal `memswap_limit` on the `web` service. A
   runaway now ends with the kernel killing one worker inside the container,
