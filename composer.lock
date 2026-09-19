@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4cb9f8250e99efa898acc13401bfbf3b",
+    "content-hash": "e242c1bb7df686ee7faa5cacb0185dcc",
     "packages": [
         {
             "name": "apache-solr-for-typo3/solr",
@@ -2338,11 +2338,17 @@
         },
         {
             "name": "in2code/powermail_cond",
-            "version": "14.0.0",
+            "version": "dev-typo3-v14",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dirnbauer/powermail_cond.git",
+                "reference": "fe22b31731cfec83ca2855bc7331d335bb2b9211"
+            },
             "dist": {
-                "type": "path",
-                "url": "packages/powermail_cond",
-                "reference": "34aa902a1f473aec1280f91c26d2358a51eaf4f7"
+                "type": "zip",
+                "url": "https://api.github.com/repos/dirnbauer/powermail_cond/zipball/fe22b31731cfec83ca2855bc7331d335bb2b9211",
+                "reference": "fe22b31731cfec83ca2855bc7331d335bb2b9211",
+                "shasum": ""
             },
             "require": {
                 "ext-json": "*",
@@ -2365,6 +2371,7 @@
                 "phpstan/phpstan": "^2.2",
                 "saschaegerer/phpstan-typo3": "^3.1"
             },
+            "default-branch": true,
             "type": "typo3-cms-extension",
             "extra": {
                 "typo3/cms": {
@@ -2428,10 +2435,7 @@
                 "issues": "https://github.com/dirnbauer/powermail_cond/issues",
                 "source": "https://github.com/dirnbauer/powermail_cond"
             },
-            "transport-options": {
-                "symlink": true,
-                "relative": true
-            }
+            "time": "2026-09-19T07:35:15+00:00"
         },
         {
             "name": "league/commonmark",
@@ -13957,11 +13961,17 @@
         },
         {
             "name": "webconsulting/webcon-jev",
-            "version": "0.1.0",
+            "version": "v0.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dirnbauer/typo3-webcon-jev.git",
+                "reference": "97192f8ab239ad8a1c77cba51cbac5fe97800739"
+            },
             "dist": {
-                "type": "path",
-                "url": "packages/webcon_jev",
-                "reference": "197a74a88100eb4e6b1210e39a85454cfff1bc4c"
+                "type": "zip",
+                "url": "https://api.github.com/repos/dirnbauer/typo3-webcon-jev/zipball/97192f8ab239ad8a1c77cba51cbac5fe97800739",
+                "reference": "97192f8ab239ad8a1c77cba51cbac5fe97800739",
+                "shasum": ""
             },
             "require": {
                 "ext-json": "*",
@@ -14002,7 +14012,7 @@
                 }
             ],
             "description": "Typed decisions from TypeSafe AI's Jev model inside TYPO3: a decision editor and playground in the backend, a powermail_cond operator, and a powermail finisher that routes a submission to the right receiver",
-            "homepage": "https://github.com/dirnbauer/typo3-jev",
+            "homepage": "https://github.com/dirnbauer/typo3-webcon-jev",
             "keywords": [
                 "AI",
                 "TYPO3",
@@ -14013,13 +14023,10 @@
                 "typesafe"
             ],
             "support": {
-                "issues": "https://github.com/dirnbauer/typo3-jev/issues",
-                "source": "https://github.com/dirnbauer/typo3-jev"
+                "issues": "https://github.com/dirnbauer/typo3-webcon-jev/issues",
+                "source": "https://github.com/dirnbauer/typo3-webcon-jev"
             },
-            "transport-options": {
-                "symlink": true,
-                "relative": true
-            }
+            "time": "2026-09-19T07:41:01+00:00"
         },
         {
             "name": "webconsulting/workos-auth",
@@ -16372,6 +16379,7 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
+        "in2code/powermail_cond": 20,
         "studiomitte/friendlycaptcha": 20,
         "studiomitte/solr-numbered-pagination": 20
     },
