@@ -52,10 +52,15 @@ case "${1:-}" in
   --status) status ;;
   --restore)
     name="${2:?composer name required}"
-    path=$(install_path "$name")
-    [ -L "$path" ] && rm "$path"
-    composer reinstall "$name" --no-interaction
+    # Composer removes the link itself. Deleting it first makes `composer
+    # reinstall` report the package as not installed and abort, which is how a
+    # restore used to fail from inside the web container.
+    if ! composer reinstall "$name" --no-interaction; then
+      echo "reinstall failed for $name — run 'composer install' to restore every missing vendor directory" >&2
+      exit 1
+    fi
     composer dump-autoload --no-interaction
+    vendor/bin/typo3 cache:flush >/dev/null 2>&1 || true
     echo "restored $name from dist"
     ;;
   "") sed -n '2,9p' "$0"; exit 2 ;;
