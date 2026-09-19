@@ -29,6 +29,9 @@ scripts/*
 /backup-*/
 /.tarballs/*
 !/.tarballs/README.md
+# Rotated passwords, wherever a script or a stray working directory puts them.
+be-password-*.txt
+/Build/.tarballs/
 /.abilities-demo-token
 /backup-abilities-reseed/
 

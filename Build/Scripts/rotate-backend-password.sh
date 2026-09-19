@@ -21,7 +21,10 @@
 # old value live, and the old value stays in that page's revision history
 # either way.
 set -euo pipefail
-cd "$(dirname "$0")/.."
+# Two levels up: this lives in Build/Scripts. One level up lands in Build/,
+# where the default .tarballs/ is NOT covered by .gitignore - the first live
+# rotation wrote the new admin password there, one `git add -A` from GitHub.
+cd "$(dirname "$0")/../.."
 
 TARGET="local"
 BE_USER="admin"
