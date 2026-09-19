@@ -27,17 +27,27 @@ deploying the repository does not copy ignored local TYPO3 settings.
 ## Deploy
 
 Coolify has no webhook and no deploy key on this repository, so it never
-notices a push by itself. Until that was automated the running containers
-stayed on whichever commit was last deployed by hand, however green CI was, and
-nothing reported the gap — the live site once sat 37 commits behind `main`.
-`status` prints the deployed commit as the image tag, which is how to check.
+notices a push by itself. The running containers stay on whichever commit was
+last deployed by hand, however green CI was, and nothing reports the gap — the
+live site once sat 37 commits behind `main`. `status` prints the deployed
+commit as the image tag, which is how to check.
 
-Pushes to `main` now deploy on their own once `COOLIFY_TOKEN` exists under
-Settings > Secrets and variables > Actions. The `deploy` job in the Quality
-workflow runs only after both test suites pass, so a red commit that reached
-`main` never becomes the live site, and without the secret it warns and skips
-rather than failing the run. `COOLIFY_URL` and `COOLIFY_APP_UUID` can be set as
-repository variables if either ever changes.
+**Pushes to `main` do not deploy today.** The `deploy` job in the Quality
+workflow can do it, but only once a `COOLIFY_TOKEN` secret exists under
+Settings > Secrets and variables > Actions — and no such secret is configured,
+so every deployment so far has been the manual command below.
+
+Until that secret exists, the `deploy-gate` job finds no token and the `deploy`
+job is **skipped**, which is what you should see in the checks list. It used to
+exit 0 with a warning instead, which rendered as a green
+"Deploy to typo3-lab.webconsulting.at ✓" on a commit that was never deployed —
+a tick indistinguishable from a real deployment, on the one job whose whole
+purpose is to tell you the live site moved. Do not read a green run as a
+deployment; read the `deploy` job, and confirm with `status`.
+
+Once the secret is added, the job runs only after both test suites pass, so a
+red commit that reached `main` never becomes the live site. `COOLIFY_URL` and
+`COOLIFY_APP_UUID` can be set as repository variables if either ever changes.
 
 The command below is the manual equivalent, for deploying without a push:
 

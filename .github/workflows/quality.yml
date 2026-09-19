@@ -72,12 +72,52 @@ jobs:
 
 
 
+  # Whether a deploy is even possible. This exists so the deploy job below can
+  # be *skipped* rather than reporting a green tick it has not earned: a job
+  # that exits 0 without deploying is indistinguishable, in the checks list and
+  # in the commit status, from one that deployed — and this repository went
+  # months with an unset token, every push showing "Deploy to
+  # typo3-lab.webconsulting.at ✓" while the live site stayed on whatever commit
+  # was last released by hand. Secrets cannot be read from a job-level `if`,
+  # hence the extra job.
+  deploy-gate:
+    name: Deployment configured?
+    needs: [typo3-14-quality, node-quality]
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    outputs:
+      configured: ${{ steps.check.outputs.configured }}
+    steps:
+      - name: Look for the Coolify token
+        id: check
+        env:
+          COOLIFY_TOKEN: ${{ secrets.COOLIFY_TOKEN }}
+        run: |
+          if [ -z "${COOLIFY_TOKEN}" ]; then
+            echo 'configured=false' >> "${GITHUB_OUTPUT}"
+            echo "::warning::COOLIFY_TOKEN is not set: this commit was NOT deployed, and the deploy job is skipped rather than green. Deploy by hand with Build/Scripts/sync-coolify.sh deploy, or add the secret under Settings > Secrets and variables > Actions."
+            {
+              echo '### Not deployed'
+              echo
+              echo 'No `COOLIFY_TOKEN` secret, so nothing was asked to redeploy and the deploy job below is skipped.'
+              echo 'The live site stays on whichever commit was last deployed by hand:'
+              echo
+              echo '```bash'
+              echo 'Build/Scripts/sync-coolify.sh deploy'
+              echo '```'
+            } >> "${GITHUB_STEP_SUMMARY}"
+          else
+            echo 'configured=true' >> "${GITHUB_OUTPUT}"
+          fi
+
   deploy:
     name: Deploy to typo3-lab.webconsulting.at
     # Only after both suites pass, and only for main. Coolify builds the image
     # itself, so a red commit that reached main must not become the live site.
-    needs: [typo3-14-quality, node-quality]
-    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    # Skipped outright when no token is configured — see deploy-gate.
+    needs: [deploy-gate]
+    if: needs.deploy-gate.outputs.configured == 'true'
     runs-on: ubuntu-latest
     timeout-minutes: 10
     concurrency:
@@ -91,9 +131,8 @@ jobs:
           COOLIFY_APP_UUID: ${{ vars.COOLIFY_APP_UUID || 'kj8tirxaijsk4cmzevgaphvr' }}
         run: |
           if [ -z "${COOLIFY_TOKEN}" ]; then
-            echo "::warning::COOLIFY_TOKEN is not set, so this commit was not deployed."
-            echo "Add it under Settings > Secrets and variables > Actions to enable deployment."
-            exit 0
+            echo "::error::COOLIFY_TOKEN vanished between the gate and this job."
+            exit 1
           fi
 
           status=$(curl -sS -o response.txt -w '%{http_code}' --max-time 60 \
