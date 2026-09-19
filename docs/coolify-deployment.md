@@ -32,22 +32,29 @@ last deployed by hand, however green CI was, and nothing reports the gap — the
 live site once sat 37 commits behind `main`. `status` prints the deployed
 commit as the image tag, which is how to check.
 
-**Pushes to `main` do not deploy today.** The `deploy` job in the Quality
-workflow can do it, but only once a `COOLIFY_TOKEN` secret exists under
-Settings > Secrets and variables > Actions — and no such secret is configured,
-so every deployment so far has been the manual command below.
+Pushes to `main` deploy through the Quality workflow's `deploy` job, after
+both test suites pass, so a red commit that reached `main` never becomes the
+live site. It needs a `COOLIFY_TOKEN` repository secret under
+Settings > Secrets and variables > Actions. `workflow_dispatch` on `main`
+deploys too, so the current commit can be redeployed from the Actions UI
+without an empty commit and without a laptop holding the token file.
+`COOLIFY_URL` and `COOLIFY_APP_UUID` can be set as repository variables if
+either ever changes.
 
-Until that secret exists, the `deploy-gate` job finds no token and the `deploy`
-job is **skipped**, which is what you should see in the checks list. It used to
-exit 0 with a warning instead, which rendered as a green
-"Deploy to typo3-lab.webconsulting.at ✓" on a commit that was never deployed —
-a tick indistinguishable from a real deployment, on the one job whose whole
-purpose is to tell you the live site moved. Do not read a green run as a
-deployment; read the `deploy` job, and confirm with `status`.
+Three states, and only one of them is a deployment:
 
-Once the secret is added, the job runs only after both test suites pass, so a
-red commit that reached `main` never becomes the live site. `COOLIFY_URL` and
-`COOLIFY_APP_UUID` can be set as repository variables if either ever changes.
+| `deploy` job | Meaning |
+| --- | --- |
+| skipped | No `COOLIFY_TOKEN`. Nothing was deployed. |
+| failed, 403 | The token authenticates but lacks the **deploy** permission (see below). Nothing was deployed. |
+| success | Coolify accepted the request. |
+
+Read that job, never the run's overall tick. Until 2026-09-19 the job *exited 0*
+when the secret was missing, which rendered as a green
+"Deploy to typo3-lab.webconsulting.at ✓" on commits that never reached the
+server — indistinguishable from a real deployment, on the one job whose whole
+purpose is to say the live site moved. Confirm with `status` either way: it
+prints the deployed commit as the image tag.
 
 The command below is the manual equivalent, for deploying without a push:
 

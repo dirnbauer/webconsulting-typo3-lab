@@ -83,7 +83,11 @@ jobs:
   deploy-gate:
     name: Deployment configured?
     needs: [typo3-14-quality, node-quality]
-    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    # workflow_dispatch too, so main can be redeployed from the Actions UI
+    # without an empty commit and without a laptop holding the token file.
+    if: >-
+      github.ref == 'refs/heads/main'
+      && (github.event_name == 'push' || github.event_name == 'workflow_dispatch')
     runs-on: ubuntu-latest
     timeout-minutes: 5
     outputs:
@@ -141,7 +145,15 @@ jobs:
             "${COOLIFY_URL}/api/v1/deploy?uuid=${COOLIFY_APP_UUID}")
 
           if [ "${status}" = "401" ]; then
-            echo "::error::Coolify rejected the token."
+            echo "::error::Coolify rejected the token: it is wrong, expired or revoked."
+            exit 1
+          fi
+          # 403 is the trap: Coolify's API permissions are granular, so a token
+          # created without "deploy" authenticates perfectly and then refuses
+          # this one call. The body even says {"success":true}. Name the cause,
+          # because "not allowed to access the API" reads like the token is bad.
+          if [ "${status}" = "403" ]; then
+            echo "::error::Coolify authenticated the token but refused the deploy call, which means it lacks the 'deploy' permission. Create a new token with it at ${COOLIFY_URL}/security/api-tokens and replace the COOLIFY_TOKEN secret. Response: $(cat response.txt)"
             exit 1
           fi
           if [ "${status}" != "200" ] && [ "${status}" != "201" ]; then
