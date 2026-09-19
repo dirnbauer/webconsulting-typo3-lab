@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Set up the Webconsulting TYPO3 Lab from the published snapshot.
 #
-#   ./install.sh [target-directory]        # default: webconsulting-typo3-lab
+#   bash install.txt [target-directory]    # default: webconsulting-typo3-lab
 #
 # Clones the repository, fetches the sanitised database and Fileadmin pair,
 # and runs the documented DDEV bootstrap. Needs Docker or OrbStack, DDEV
@@ -55,7 +55,7 @@ fetch() {
     -o "$1" "$2"
 }
 
-fetch db-public.sql.gz "$BASE/db-public.sql.gz"
+fetch db-public.tar.gz "$BASE/db-public.tar.gz"
 mkdir -p .tarballs
 fetch .tarballs/fileadmin-public.tar.gz "$BASE/fileadmin-public.tar.gz"
 
@@ -65,7 +65,7 @@ ddev composer install
 ddev npm ci
 
 echo "==> importing"
-ddev import-db --file=db-public.sql.gz
+ddev import-db --file=db-public.tar.gz
 ddev import-files --source=.tarballs/fileadmin-public.tar.gz
 
 ddev typo3 extension:setup

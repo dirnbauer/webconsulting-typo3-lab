@@ -18,6 +18,12 @@ cd "$(dirname "$0")/../.."
 # public/fileadmin is a bind mount, not part of the Mutagen sync, so serving
 # 350 MB from here costs the file watcher nothing - which it would not be if
 # these sat anywhere else under public/.
+#
+# Filenames are chosen to clear TYPO3's shipped public/.htaccess, which denies
+# .sh and .sql* from the document root: the dump ships as a .tar.gz (which
+# `ddev import-db` reads natively) and the installer as .txt. That rule is
+# worth keeping intact - it travels with the repository, while the basic auth
+# that would otherwise have to justify an exemption does not.
 out="public/fileadmin/_downloads"
 case "${1:-}" in
   --out) out="${2:?directory required}" ;;
@@ -43,7 +49,7 @@ sensitive=${sensitive% }
 [ -n "$sensitive" ] || { echo "no tables matched the sanitiser - refusing to publish" >&2; exit 1; }
 
 mkdir -p "$out"
-sql="$out/db-public.sql"
+sql="$out/db-public.sql"  # gzipped into db-public.tar.gz below
 revision="$(git rev-parse --short HEAD 2>/dev/null || echo unknown)"
 
 echo "stripping $(echo "$sensitive" | wc -w | tr -d ' ') credential-bearing tables:"
@@ -73,24 +79,28 @@ INSERT INTO \`be_users\` (\`uid\`, \`pid\`, \`tstamp\`, \`crdate\`, \`username\`
 VALUES (1, 0, UNIX_TIMESTAMP(), UNIX_TIMESTAMP(), '$DEMO_USER', '$hash', 1, 0, 0);
 EOF
 
-gzip -9 -f "$sql"
+tar -czf "$out/db-public.tar.gz" -C "$out" "$(basename "$sql")"
+rm -f "$sql"
 
 # The installer is a tracked source file; public/fileadmin is ignored, so the
 # copy that gets served has to be published here rather than edited in place.
-cp Build/Scripts/install.sh "$out/install.sh"
-chmod 0644 "$out/install.sh"
+# It is published as .txt so the stock .htaccess serves it; run it with
+# `bash install.txt`.
+cp Build/Scripts/install.sh "$out/install.txt"
+chmod 0644 "$out/install.txt"
 echo "archiving fileadmin"
 # --exclude the download directory itself: it lives inside the tree being
 # archived, so without this each run would pack the previous run's 350 MB
 # archive into the new one.
 tar -czf "$out/fileadmin-public.tar.gz" --exclude='./_downloads' -C public/fileadmin .
 
-cat > "$out/README.txt" <<EOF
+cat > "$out/snapshot-readme.txt" <<EOF
 Public snapshot of the Webconsulting TYPO3 Lab
 Exported $(date -u '+%Y-%m-%d %H:%M:%S UTC') from git revision $revision
 
-  db-public.sql.gz         database, sanitised
+  db-public.tar.gz         database, sanitised (import with ddev import-db)
   fileadmin-public.tar.gz  matching Fileadmin contents
+  install.txt              scripted setup: bash install.txt
 
 Sign in with $DEMO_USER / $DEMO_PASSWORD and change it.
 
@@ -101,6 +111,6 @@ together - the database references Fileadmin files by uid.
 EOF
 
 printf '\ndone, revision %s:\n' "$revision"
-for f in "$out/db-public.sql.gz" "$out/fileadmin-public.tar.gz"; do
+for f in "$out/db-public.tar.gz" "$out/fileadmin-public.tar.gz" "$out/install.txt"; do
   printf '  %-40s %s\n' "$f" "$(du -h "$f" | cut -f1)"
 done

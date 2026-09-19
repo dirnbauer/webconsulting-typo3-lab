@@ -110,11 +110,18 @@ What may be handed out is a different artifact, built by
 Build/Scripts/make-public-snapshot.sh
 ```
 
-It writes `db-public.sql.gz`, `fileadmin-public.tar.gz`, `README.txt` and a
-copy of `Build/Scripts/install.sh` into `public/fileadmin/_downloads/`, which
-the *Downloads* page (`/downloads/`) links to. `public/fileadmin` is a bind
-mount rather than part of the Mutagen sync, so serving 350 MB from there costs
-the file watcher nothing.
+It writes `db-public.tar.gz`, `fileadmin-public.tar.gz`, `snapshot-readme.txt`
+and a copy of `Build/Scripts/install.sh` (published as `install.txt`) into
+`public/fileadmin/_downloads/`, which the *Downloads* page (`/downloads/`)
+links to. `public/fileadmin` is a bind mount rather than part of the Mutagen
+sync, so serving 350 MB from there costs the file watcher nothing.
+
+Those extensions are deliberate. TYPO3's shipped `public/.htaccess` denies
+`.sh` and `.sql*` from the document root, and that file travels with the
+repository while the basic auth that would justify an exemption does not — so
+the artifacts are named to clear the stock rule instead of weakening it. `ddev
+import-db` reads the tar archive natively, and the installer runs with `bash
+install.txt`.
 
 Every table whose name matches `vault|secret|token|credential|oauth|identity|
 payment_log|_provider$`, both user tables and the log and history tables, keeps
@@ -124,16 +131,24 @@ a future extension is stripped by default instead of silently shipping. Verify
 before publishing:
 
 ```bash
-gzcat public/fileadmin/_downloads/db-public.sql.gz | grep -c "INSERT INTO \`be_users\`"
+tar -xzOf public/fileadmin/_downloads/db-public.tar.gz db-public.sql \
+  | grep -c "INSERT INTO \`be_users\`"
 ```
 
 One INSERT is expected: the demo administrator.
 
 The deployed lab is behind HTTP basic auth (`<Location />` in
 `docker/coolify/apache-vhost.conf`), so these downloads are reachable only with
-those credentials, and `install.sh` prompts for them. `public/.htaccess`
-exempts `/fileadmin/_downloads/` from TYPO3's rule denying `.sh` and `.sql*` —
-that exemption removes a deny, it grants nothing, so basic auth still applies.
+those credentials, and the installer prompts for them. `public/.htaccess` is
+untouched: an earlier version of this carried an exemption for the download
+path, which worked but only stayed safe as long as that `<Location />` block
+existed, and it is the `.htaccess` that ships with a clone, not the vhost.
+
+Worth knowing if that ever gets revisited: a grant in the vhost cannot lift a
+deny written in `.htaccess`. Authorization from `.htaccess` is merged last, and
+a `<Location>` grant does not override it — verified by testing, where a
+`<Location>` *deny* took effect immediately while a `<Location>` *grant* on the
+same path stayed 403. The exemption can only live in `.htaccess`, or not exist.
 
 `public/fileadmin` is git-ignored, so the generated files do not deploy with a
 push; run the script on whichever instance serves them.
