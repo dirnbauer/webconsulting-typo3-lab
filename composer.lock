@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "be389acc35efab451b5075318c5bac45",
+    "content-hash": "cca1eda1bd44fc1e2fac34e86188955d",
     "packages": [
         {
             "name": "apache-solr-for-typo3/solr",
@@ -12433,16 +12433,16 @@
         },
         {
             "name": "webconsulting/astryx-typo3",
-            "version": "v2.1.0",
+            "version": "v2.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/astryx-typo3.git",
-                "reference": "2669ee4712f707a880e7476865309680d0f7988e"
+                "reference": "32fee24065ed08719b92b38d4daf183b87f44f49"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/astryx-typo3/zipball/2669ee4712f707a880e7476865309680d0f7988e",
-                "reference": "2669ee4712f707a880e7476865309680d0f7988e",
+                "url": "https://api.github.com/repos/dirnbauer/astryx-typo3/zipball/32fee24065ed08719b92b38d4daf183b87f44f49",
+                "reference": "32fee24065ed08719b92b38d4daf183b87f44f49",
                 "shasum": ""
             },
             "require": {
@@ -12519,7 +12519,7 @@
                 }
             ],
             "description": "Astryx for TYPO3 — the Astryx design system, server-rendered for TYPO3 14: 250 Content Blocks, 189 Fluid components, 25 runtime-switchable themes, no JavaScript framework",
-            "time": "2026-09-19T06:35:09+00:00"
+            "time": "2026-09-19T07:07:04+00:00"
         },
         {
             "name": "webconsulting/desiderio",
@@ -13954,6 +13954,72 @@
                 "source": "https://github.com/dirnbauer/typo3-webcon-easy-workspace"
             },
             "time": "2026-09-19T06:05:03+00:00"
+        },
+        {
+            "name": "webconsulting/webcon-jev",
+            "version": "0.1.0",
+            "dist": {
+                "type": "path",
+                "url": "packages/webcon_jev",
+                "reference": "197a74a88100eb4e6b1210e39a85454cfff1bc4c"
+            },
+            "require": {
+                "ext-json": "*",
+                "netresearch/nr-vault": "^0.16",
+                "php": "^8.4",
+                "psr/http-client": "^1.0",
+                "psr/http-message": "^2.0",
+                "psr/log": "^3.0",
+                "typo3/cms-backend": "^14.3",
+                "typo3/cms-core": "^14.3",
+                "typo3/cms-extbase": "^14.3",
+                "typo3/cms-frontend": "^14.3"
+            },
+            "suggest": {
+                "in2code/powermail": "Adds the Jev finisher that routes a submission to a receiver",
+                "in2code/powermail_cond": "Adds Jev rule operators to powermail conditions",
+                "webconsulting/typo3-shadcn-ui": "Provides the backend module's shadcn/ui runtime"
+            },
+            "type": "typo3-cms-extension",
+            "extra": {
+                "typo3/cms": {
+                    "extension-key": "webcon_jev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Webconsulting\\WebconJev\\": "Classes/"
+                }
+            },
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Webconsulting",
+                    "homepage": "https://github.com/dirnbauer",
+                    "role": "Maintainer"
+                }
+            ],
+            "description": "Typed decisions from TypeSafe AI's Jev model inside TYPO3: a decision editor and playground in the backend, a powermail_cond operator, and a powermail finisher that routes a submission to the right receiver",
+            "homepage": "https://github.com/dirnbauer/typo3-jev",
+            "keywords": [
+                "AI",
+                "TYPO3",
+                "decision",
+                "extension",
+                "jev",
+                "powermail",
+                "typesafe"
+            ],
+            "support": {
+                "issues": "https://github.com/dirnbauer/typo3-jev/issues",
+                "source": "https://github.com/dirnbauer/typo3-jev"
+            },
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
         },
         {
             "name": "webconsulting/workos-auth",

@@ -4,71 +4,68 @@ All notable changes to Webconsulting TYPO3 Lab are documented in this file.
 
 ## Unreleased
 
-### Overhaul — 2026-09-18
+### Overhaul — 2026-09-19
 
 Platform
 
-- nr-llm 0.35, nr-vault 0.16, EXT:solr 14.0.2 (Solr image pin follows the
-  lock), Cowriter 3.6.8, sg-apicore 3.1.2, Powermail 14.0.3, Visual Editor 1.10.2.
-- The FriendlyCaptcha and Solr-pagination forks stay: upstream pagination has no
-  TYPO3 14 release at all, and upstream FriendlyCaptcha 2.3.0 declares 14.3 but
-  its Powermail validator does not resolve the Extbase lazy proxies Powermail 14
-  hands it. Both were briefly switched to upstream and switched back after the
-  check. Desiderio 4.1.7 now imports FriendlyCaptcha's Powermail TypoScript
-  itself, which works with the fork and with upstream alike.
-- `hn/typo3-agent` is gone again together with the site_package tool-converter
-  glue, its settings, Coolify variables and documentation. The backend chat is
-  `webconsulting/typo3-shadcn-ui`, the shadcn/ui base for backend modules with
-  the AI chat on the left, driven by this installation's own MCP tools.
-- Every maintained repository now has a GitLab mirror (`Build/Scripts/mirror-to-gitlab.sh`).
-- The empty nr-llm skill source of the archived `webconsulting-skills` is gone;
-  `dirnbauer/typo3-skills` is the only source (60 skills).
+- nr-llm 0.35, nr-vault 0.16, EXT:solr 14.0.2 against Apache Solr 10.0.0
+  (the production Solr image follows the lock), Cowriter 3.6.8,
+  sg-apicore 3.1.2, Powermail 14.0.3, Visual Editor 1.10.2, PHPUnit 13.3.4.
+- `hn/typo3-agent` is gone together with the site_package tool-converter glue,
+  its settings, its Coolify variables and its documentation. The backend chat
+  is `webconsulting/typo3-shadcn-ui`, which is also the shadcn/ui base other
+  backend modules build on: the chat rail sits left, the module's own React
+  app right, and the model reaches this installation's MCP tools in-process
+  through nr-llm's agent runtime, with every write stopping for approval.
+  `typo3-ai-chat` is archived.
+- The FriendlyCaptcha and Solr-pagination forks stay. Upstream pagination has
+  no TYPO3 14 release at all, and upstream FriendlyCaptcha 2.3.0 declares 14.3
+  but its Powermail validator never resolves the Extbase lazy proxies
+  Powermail 14 hands it. Both were switched to upstream, measured and switched
+  back the same day.
+- The Page module worked again only after a patch: `inline-page-module` 4.0.2
+  is the newest release and predates the core patch level that appended a
+  sixteenth constructor argument to `PageLayoutController`.
+- Every repository we maintain now has a GitLab mirror; the German core
+  language pack is installed; skills come from `dirnbauer/typo3-skills` alone
+  and are indexed into Solr on the six sites that carry the skillflow set.
 
-Own extensions
+Own extensions, all reviewed against the thermo-nuclear standard, PHPStan
+level 8 with no baseline, tests and one CI workflow each
 
-- Re-released after a thermo-nuclear code-quality review (see each CHANGELOG):
-  x402 Paywall 1.3.0, desiderio 4.1.7.
-
-### Overhaul — 2026-09-13
-
-Platform
-
-- TYPO3 14.3.7 on PHP 8.4, EXT:solr 14.0.1 against Apache Solr 10.0.0, nr-llm
-  0.34, Powermail 14.0.3 and Visual Editor 1.10.2. `typo3/cms-setup` is gone,
-  merged into cms-backend in 14.3.
-- The blog, FriendlyCaptcha, sg-apicore and Solr pagination forks were retired
-  in favour of upstream releases, except the two studiomitte packages, which
-  stay on our forks because upstream has no TYPO3 14 tag.
-- The Flue sidecar is gone: service, volumes, bridge package, CI step, settings
-  and documentation. `typo3-opentag-bridge`, `api-capability-bridge`,
-  `typo3-workspace-overlay-patch`, `ext-solr` and `t3x-nr-mcp-agent` were
-  deleted after mirroring.
-- Skills now come from `dirnbauer/typo3-skills` as an nr-llm repo source: 60
-  skills replacing the 137 of the archived `webconsulting-skills`, indexed into
-  Solr on the six sites that carry the skillflow set.
-
-Own extensions
-
-- Released against this lab: typo3-abilities 1.0, typo3-mcp-server 0.7.1,
-  AI Chat 2.0.1 (rewritten on shadcn/ui with tools executed in-process),
-  Agent Nexus 3.0 with its own site branch, Desiderio 4.1.3, Astryx 2.0,
-  Easy Workspace 1.4, Records List Types 1.1.1, Visual Editor Enhancements 1.0,
-  Skillflow 1.6.1, WorkOS 2.1, Agentation 1.2, x402 Paywall 1.2, llms.txt 1.0,
-  Image Workbench 0.2, Innesto 2.1, Skillspector 1.0 and pw_teaser 8.0.
-- PHPStan level 8 is the baseline everywhere, with one CI workflow, a README
-  under 120 lines and an RST manual per extension. No videos are committed.
-
-Fixed along the way
-
-- Desiderio's site set now depends on fluid-styled-content, which assigns
-  `lib.contentElement` and was discarding earlier root paths.
-- Two section-header comments broken by Desiderio's 4.1.0 CSS split made
-  browsers drop the base `.badge` and `.section` rules and aborted this
-  repository's Vite build.
-- `Dockerfile.solr.coolify` built from EXT:solr 14.0.0-RC1 while the lock ran
-  14.0.1, so a rebuild would have served release-candidate configsets.
-- The blog site's English and Chinese root pages were hidden, so both declared
-  languages answered 404.
+- **typo3-shadcn-ui 1.0.1** — new. The shadcn/ui runtime, the AI chat in three
+  places and a components module that proves the contract by being built as an
+  external app. Its review found admin-only third-party MCP tools being offered
+  to every backend user.
+- **typo3-abilities 1.2.0** — the registry became the catalogue of everything
+  this installation can do: 342 entries across 202 console commands, 64 skills,
+  57 MCP tools, 13 abilities and 6 REST endpoints, each with its input schema,
+  its annotations and how to call it from every surface. Reaction and Fluid
+  surfaces joined CLI, REST, MCP, the module and the JavaScript client. The
+  vocabulary now follows the WordPress Abilities API: *ability* for a unit of
+  functionality, *capability* only for the MCP manifest's permission gating.
+- **desiderio 4.2.0** — outline buttons and badges had rendered a transparent
+  border everywhere, because the shadcn base class beat the variant in every
+  Fluid render; 112px of nothing above the fold on mobile is gone; the atomic
+  design allowlist shrank from 16 entries to 8.
+- **astryx-typo3 2.1.1** — upstream refresh to v0.6.2, 91 `a:` components grew
+  to 189, and 30 content elements stopped rendering a second `h1` because the
+  heading contract only ever implemented half of itself.
+- **agent-nexus 3.1.0** — a real protocol hub, reading order fixed on every
+  protocol page, and six backend modules that had been invisible to anyone
+  working in a draft workspace.
+- **records-list-types 1.2.0** — labels that rendered raw references because
+  two referenced core label ids do not exist; TYPO3 v14 system columns
+  localised; a real empty state with a way out.
+- **webcon-easy-workspace 1.5.0** — the change counter follows a save made
+  inside a module iframe within seconds instead of waiting out a 45-second
+  poll.
+- Also released: records-list-examples 1.4.0 (its partials had been shadowing
+  the parent extension's own views), visual-editor-enhancements 1.1.0,
+  innesto 2.2.0, llms-txt 1.1.1, skillspector 1.1.0, mcp-server 0.8.0,
+  agentation 1.3.0, docx-editor 1.4.0, workos-auth 2.2.0, x402-paywall 1.3.0,
+  skillflow 1.6.2, image-workbench 0.2.1, and outside the lab pw_teaser 8.1.0
+  and typo3-camino-vercel.
 
 ### Maintenance — 2026-09-06
 

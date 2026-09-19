@@ -162,6 +162,17 @@
 					"in2code/powermail_cond": "14.0.0"
 				}
 			}
+		},
+		{
+			"name": "webcon-jev",
+			"type": "path",
+			"url": "packages/webcon_jev",
+			"options": {
+				"symlink": true,
+				"versions": {
+					"webconsulting/webcon-jev": "0.1.0"
+				}
+			}
 		}
 	],
 	"require": {
@@ -222,7 +233,7 @@
 		"wapplersystems/multisite-belogin": "^14.1.2",
 		"webconsulting/agent-nexus": "^3.1",
 		"webconsulting/agentation": "^1.3",
-		"webconsulting/astryx-typo3": "^2.1",
+		"webconsulting/astryx-typo3": "^2.1.1",
 		"webconsulting/desiderio": "^4.2",
 		"webconsulting/docx-editor": "^1.4",
 		"webconsulting/image-workbench": "^0.2.1",
@@ -238,6 +249,7 @@
 		"webconsulting/typo3-x402-paywall": "^1.3",
 		"webconsulting/visual-editor-enhancements": "^1.1",
 		"webconsulting/webcon-easy-workspace": "^1.5",
+		"webconsulting/webcon-jev": "^0.1",
 		"webconsulting/workos-auth": "^2.2"
 	},
 	"require-dev": {
