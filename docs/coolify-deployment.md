@@ -198,3 +198,25 @@ ssh root@49.13.173.37 'uptime; free -m; ps -C apache2 -o rss= | awk "{s+=\$1} EN
 
 `apache2ctl graceful` inside the web container reaps bloated workers without a
 restart.
+
+The `database` service carries `mem_limit: 768m` for the same reason, against
+about 210 MB of real use. The measured high-water mark of the `web` cgroup is
+2370 MB — 93 % of its limit — and it was reached in the two minutes after a
+deploy, while three cold workers each compiled the TCA. Steady state is around
+500 MB. The margin is in normal operation, not in a rebuild: a worker killed
+inside the container right after a deploy is the limit working, not a fault.
+
+Every deploy also leaves about 3 GB of images on the host until Coolify's
+nightly cleanup (00:00 UTC, forced) removes them. Ten deploys on 2026-09-19 took
+the disk from 68 % to 91 %. Check `df -h /` along with `free -m` before a run
+of deploys.
+
+## Response headers
+
+`docker/coolify/apache-security.conf` sets HSTS, `X-Content-Type-Options`,
+`X-Frame-Options: SAMEORIGIN`, `Referrer-Policy` and `Permissions-Policy` on
+every response and reduces the banner to `Server: Apache`. They are set in
+Apache's `always` table because nearly everything the internet sees of the lab
+is the basic-auth 401, which `Header set` — and therefore `public/.htaccess` —
+never touches. There is no Content-Security-Policy here on purpose: TYPO3 owns
+that per site, and a second one from Apache could only ever tighten it blindly.

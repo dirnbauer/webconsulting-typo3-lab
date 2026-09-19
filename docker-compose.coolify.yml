@@ -77,6 +77,13 @@ services:
       timeout: 5s
       retries: 12
       start_period: 30s
+    # The last unbounded container of this stack. MariaDB runs at ~210 MB here
+    # (128 MB buffer pool, three Apache workers' worth of connections), so
+    # this is a ceiling it should never meet, not a squeeze: it exists so that
+    # a runaway query hits this cgroup instead of Redmine. Raise it before
+    # raising innodb_buffer_pool_size, never after.
+    mem_limit: 768m
+    memswap_limit: 768m
     labels:
       - at.webconsulting.stack=typo3-lab
     restart: unless-stopped
