@@ -44,6 +44,32 @@ sync:
         - "/apps/news-native-studio/dist"
         - "/apps/news-native-studio/.next"
         - "/apps/news-native-studio/out"
+        # packages/ holds live development clones of our own extensions
+        # (github.com/dirnbauer/*). Composer installs every one of them from its
+        # GitHub repository into vendor/, so the container never reads a single
+        # file from these clones - only site_package and skillspector are linked
+        # in, and lab-link.sh links the rest by symlink when needed, which
+        # resolves through paths that stay synced.
+        #
+        # What the clones carry is their own standalone dev installs: nested
+        # vendor/ and .Build/ trees, node_modules, Playwright browsers,
+        # typo3temp, screenshot reports and functional-test instances. That is
+        # 7.2 GB across 328k files, against 8.6k files of actual extension
+        # source - so 97% of what Mutagen scans, hashes and watches here exists
+        # only to be ignored, and the daemon was burning ~2.7 host cores to do
+        # it. Several of these clones are DDEV projects in their own right and
+        # build their dependencies in their own containers.
+        #
+        # Re-create anything excluded here with `composer install` inside the
+        # clone; nothing in this list is a source file.
+        - "/packages/*/node_modules"
+        - "/packages/*/vendor"
+        - "/packages/*/.Build"
+        - "/packages/*/var"
+        - "/packages/*/public"
+        - "/packages/*/.git"
+        - "/packages/*/Build/Reports"
+        - "/packages/*/Build/Functional"
         # vcs like .git can be ignored for safety, but then some
         # composer operations may fail if they use dev versions/git.
         # vcs: true
