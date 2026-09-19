@@ -95,6 +95,16 @@ return [
             'rateLimitTokenWindow' => '300',
             'refreshTokenLifetime' => '2592000',
         ],
+        'nr_vault' => [
+            // The backend user webcon-jev:vault:setup-provisioner created on
+            // the server. It is not an administrator and cannot sign in; it
+            // exists so a secret can be written under an attributed actor
+            // while allowCliAccess stays off. This lives here rather than
+            // being written into settings.php on the server, because the
+            // image regenerates that file from this template on every deploy
+            // and config/ is not a persistent volume.
+            'provisioningBeUserUid' => '12',
+        ],
         'nr_llm' => [
             'image' => [
                 'dalle' => [
