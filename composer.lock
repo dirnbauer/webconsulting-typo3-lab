@@ -13851,16 +13851,16 @@
         },
         {
             "name": "webconsulting/webcon-easy-workspace",
-            "version": "v1.6.0",
+            "version": "v1.6.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/typo3-webcon-easy-workspace.git",
-                "reference": "ba56cc0a3327d3e440e3dcaea37929ec650b6ee6"
+                "reference": "8c2572cd9ff4cd9a08a5dd1d2d8faf4c170e48ff"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/typo3-webcon-easy-workspace/zipball/ba56cc0a3327d3e440e3dcaea37929ec650b6ee6",
-                "reference": "ba56cc0a3327d3e440e3dcaea37929ec650b6ee6",
+                "url": "https://api.github.com/repos/dirnbauer/typo3-webcon-easy-workspace/zipball/8c2572cd9ff4cd9a08a5dd1d2d8faf4c170e48ff",
+                "reference": "8c2572cd9ff4cd9a08a5dd1d2d8faf4c170e48ff",
                 "shasum": ""
             },
             "require": {
@@ -13887,7 +13887,7 @@
             "extra": {
                 "typo3/cms": {
                     "extension-key": "webcon_easy_workspace",
-                    "version": "1.6.0",
+                    "version": "1.6.1",
                     "Package": {
                         "providesPackages": []
                     }
@@ -13957,7 +13957,7 @@
                 "issues": "https://github.com/dirnbauer/typo3-webcon-easy-workspace/issues",
                 "source": "https://github.com/dirnbauer/typo3-webcon-easy-workspace"
             },
-            "time": "2026-09-19T13:03:45+00:00"
+            "time": "2026-09-19T13:08:40+00:00"
         },
         {
             "name": "webconsulting/webcon-jev",
