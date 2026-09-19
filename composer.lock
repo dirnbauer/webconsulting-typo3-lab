@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "01906ced4b73b5a839c98eb7b60a59b9",
+    "content-hash": "a208493e8e22adefd16cc246e9f637ea",
     "packages": [
         {
             "name": "apache-solr-for-typo3/solr",
@@ -12106,16 +12106,16 @@
         },
         {
             "name": "webconsulting/agent-nexus",
-            "version": "v3.0.0",
+            "version": "v3.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/typo3-agent-nexus.git",
-                "reference": "81881251676aec6859a085048232302c5dd74b20"
+                "reference": "dd8675e0a77c59392d60b2b551628ed77c12b6d2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/typo3-agent-nexus/zipball/81881251676aec6859a085048232302c5dd74b20",
-                "reference": "81881251676aec6859a085048232302c5dd74b20",
+                "url": "https://api.github.com/repos/dirnbauer/typo3-agent-nexus/zipball/dd8675e0a77c59392d60b2b551628ed77c12b6d2",
+                "reference": "dd8675e0a77c59392d60b2b551628ed77c12b6d2",
                 "shasum": ""
             },
             "require": {
@@ -12133,7 +12133,7 @@
                 "phpstan/extension-installer": "^1.4",
                 "phpstan/phpstan": "^2.2",
                 "phpstan/phpstan-phpunit": "^2.0",
-                "phpunit/phpunit": "^11.5",
+                "phpunit/phpunit": "^12.4 || ^13.0",
                 "saschaegerer/phpstan-typo3": "^3.1",
                 "typo3/coding-standards": "^0.8",
                 "typo3/testing-framework": "^9.5"
@@ -12148,7 +12148,7 @@
                 "typo3/cms": {
                     "extension-key": "agent_nexus",
                     "web-dir": ".Build/Web",
-                    "version": "3.0.0",
+                    "version": "3.1.0",
                     "Package": {
                         "providesPackages": []
                     }
@@ -12218,7 +12218,7 @@
                 "issues": "https://github.com/dirnbauer/typo3-agent-nexus/issues",
                 "source": "https://github.com/dirnbauer/typo3-agent-nexus"
             },
-            "time": "2026-09-12T23:21:44+00:00"
+            "time": "2026-09-19T05:41:43+00:00"
         },
         {
             "name": "webconsulting/agentation",

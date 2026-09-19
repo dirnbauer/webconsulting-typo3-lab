@@ -6,6 +6,7 @@ baseVariants:
 dependencies:
   # The plain agent-nexus set only wraps the plugins; Desiderio supplies
   # page = PAGE and the shadcn/ui page layouts.
+  - webconsulting/agent-nexus
   - webconsulting/agent-nexus-desiderio
   - webconsulting/desiderio-shadcnui-templates
 errorHandling: {  }
