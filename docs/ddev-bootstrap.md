@@ -97,3 +97,43 @@ After a restore, check `ddev typo3 site:list`, `ddev solrctl list`, and the
 quality suite. Demo seed commands are opt-in maintenance tools documented in
 the [site-package README](../packages/site_package/README.md); an ordinary
 restore does not require reseeding or purging records.
+
+## Published snapshot
+
+`dump.sql.gz` and `.tarballs/fileadmin.tar.gz` stay private, and
+`Build/Scripts/make-bootstrap-pair.sh` exports that pair in one run.
+
+What may be handed out is a different artifact, built by
+`Build/Scripts/make-public-snapshot.sh`:
+
+```bash
+Build/Scripts/make-public-snapshot.sh
+```
+
+It writes `db-public.sql.gz`, `fileadmin-public.tar.gz`, `README.txt` and a
+copy of `Build/Scripts/install.sh` into `public/fileadmin/_downloads/`, which
+the *Downloads* page (`/downloads/`) links to. `public/fileadmin` is a bind
+mount rather than part of the Mutagen sync, so serving 350 MB from there costs
+the file watcher nothing.
+
+Every table whose name matches `vault|secret|token|credential|oauth|identity|
+payment_log|_provider$`, both user tables and the log and history tables, keeps
+its structure and ships with no rows; a single `admin` / `Demo123*` account is
+inserted in their place. Matching on the name means a credential table added by
+a future extension is stripped by default instead of silently shipping. Verify
+before publishing:
+
+```bash
+gzcat public/fileadmin/_downloads/db-public.sql.gz | grep -c "INSERT INTO \`be_users\`"
+```
+
+One INSERT is expected: the demo administrator.
+
+The deployed lab is behind HTTP basic auth (`<Location />` in
+`docker/coolify/apache-vhost.conf`), so these downloads are reachable only with
+those credentials, and `install.sh` prompts for them. `public/.htaccess`
+exempts `/fileadmin/_downloads/` from TYPO3's rule denying `.sh` and `.sql*` —
+that exemption removes a deny, it grants nothing, so basic auth still applies.
+
+`public/fileadmin` is git-ignored, so the generated files do not deploy with a
+push; run the script on whichever instance serves them.
