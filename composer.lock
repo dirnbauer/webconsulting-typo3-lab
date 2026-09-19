@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d6956f00f4b134fa4717a821aafeec80",
+    "content-hash": "be389acc35efab451b5075318c5bac45",
     "packages": [
         {
             "name": "apache-solr-for-typo3/solr",
@@ -2335,6 +2335,103 @@
                 "typo3"
             ],
             "time": "2026-09-12T13:50:43+00:00"
+        },
+        {
+            "name": "in2code/powermail_cond",
+            "version": "14.0.0",
+            "dist": {
+                "type": "path",
+                "url": "packages/powermail_cond",
+                "reference": "140eb9a4edae6c758204f8021b1ba1f6b87d34bf"
+            },
+            "require": {
+                "ext-json": "*",
+                "ext-pdo": "*",
+                "in2code/powermail": "^14.0",
+                "php": "^8.4",
+                "psr/event-dispatcher": "^1.0",
+                "typo3/cms-backend": "^14.3",
+                "typo3/cms-core": "^14.3",
+                "typo3/cms-extbase": "^14.3",
+                "typo3/cms-fluid": "^14.3",
+                "typo3/cms-frontend": "^14.3"
+            },
+            "replace": {
+                "typo3-ter/powermail-cond": "self.version"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^3.65",
+                "helmich/typo3-typoscript-lint": "^3.2",
+                "phpstan/phpstan": "^2.2",
+                "saschaegerer/phpstan-typo3": "^3.1"
+            },
+            "type": "typo3-cms-extension",
+            "extra": {
+                "typo3/cms": {
+                    "extension-key": "powermail_cond",
+                    "web-dir": ".Build/public"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "In2code\\PowermailCond\\": "Classes/"
+                }
+            },
+            "scripts": {
+                "test:php:cs": [
+                    "php-cs-fixer fix --dry-run --config=.project/tests/.php-cs-fixer.php --diff"
+                ],
+                "test:php:csfix": [
+                    "php-cs-fixer fix --config=.project/tests/.php-cs-fixer.php --diff"
+                ],
+                "test:php:lint": [
+                    "find *.php Classes Configuration -name '*.php' -print0 | xargs -0 -n 1 -P 4 php -l"
+                ],
+                "test:php:stan": [
+                    "phpstan analyse"
+                ],
+                "test:ts:lint": [
+                    "typoscript-lint -c .project/tests/typoscript-lint.yml --fail-on-warnings"
+                ]
+            },
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Alex Kellner",
+                    "email": "alexander.kellner@in2code.de",
+                    "homepage": "https://www.in2code.de",
+                    "role": "Product owner"
+                },
+                {
+                    "name": "Oliver Eglseder",
+                    "email": "oliver.eglseder@in2code.de",
+                    "homepage": "https://www.in2code.de",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Webconsulting",
+                    "homepage": "https://github.com/dirnbauer",
+                    "role": "Maintainer of the TYPO3 v14 fork"
+                }
+            ],
+            "description": "Add conditions (via AJAX) to powermail forms for fields and pages",
+            "homepage": "https://github.com/dirnbauer/powermail_cond",
+            "keywords": [
+                "form",
+                "mailform",
+                "spamprevention",
+                "typo3"
+            ],
+            "support": {
+                "issues": "https://github.com/dirnbauer/powermail_cond/issues",
+                "source": "https://github.com/dirnbauer/powermail_cond"
+            },
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
         },
         {
             "name": "league/commonmark",
@@ -12336,16 +12433,16 @@
         },
         {
             "name": "webconsulting/astryx-typo3",
-            "version": "v2.0.0",
+            "version": "v2.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/astryx-typo3.git",
-                "reference": "22f2cd6b2a2927ffe08580cbda76e9a5b2c8c799"
+                "reference": "2669ee4712f707a880e7476865309680d0f7988e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/astryx-typo3/zipball/22f2cd6b2a2927ffe08580cbda76e9a5b2c8c799",
-                "reference": "22f2cd6b2a2927ffe08580cbda76e9a5b2c8c799",
+                "url": "https://api.github.com/repos/dirnbauer/astryx-typo3/zipball/2669ee4712f707a880e7476865309680d0f7988e",
+                "reference": "2669ee4712f707a880e7476865309680d0f7988e",
                 "shasum": ""
             },
             "require": {
@@ -12360,7 +12457,7 @@
                 "friendsofphp/php-cs-fixer": "^3.75",
                 "phpstan/phpstan": "^2",
                 "phpstan/phpstan-phpunit": "^2",
-                "phpunit/phpunit": "^11.5",
+                "phpunit/phpunit": "^12.4 || ^13.0",
                 "saschaegerer/phpstan-typo3": "^3.1",
                 "symfony/yaml": "^7.3 || ^8.0",
                 "typo3/coding-standards": "^0.8 || ^0.9",
@@ -12421,8 +12518,8 @@
                     "name": "webconsulting studio"
                 }
             ],
-            "description": "Astryx for TYPO3 — the Astryx design system, server-rendered for TYPO3 14: 250 Content Blocks, 89 Fluid components, 25 runtime-switchable themes, no JavaScript framework",
-            "time": "2026-09-13T00:08:06+00:00"
+            "description": "Astryx for TYPO3 — the Astryx design system, server-rendered for TYPO3 14: 250 Content Blocks, 189 Fluid components, 25 runtime-switchable themes, no JavaScript framework",
+            "time": "2026-09-19T06:35:09+00:00"
         },
         {
             "name": "webconsulting/desiderio",
