@@ -7,6 +7,10 @@ services:
       BASIC_AUTH_PASSWORD: ${SERVICE_PASSWORD_BASIC}
       BASIC_AUTH_USER: ${BASIC_AUTH_USER:-lab}
       TYPO3_CONTEXT: Production
+      # Jev API token. webcon-jev:token:import reads it from the environment
+      # and stores it in the vault; without the passthrough a value set in
+      # Coolify never reaches the container.
+      TYPESAFE_API_KEY: ${TYPESAFE_API_KEY:-}
       TYPO3_DB_DATABASE: typo3
       TYPO3_DB_HOST: database
       TYPO3_DB_PASSWORD: ${SERVICE_PASSWORD_DB}
