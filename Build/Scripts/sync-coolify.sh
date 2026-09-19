@@ -266,8 +266,14 @@ deploy() {
         # permissions are granular (read, read:sensitive, write,
         # write:sensitive, deploy, root) and default to the read ones, so a
         # token made for this ends up unable to do it.
-        echo "Coolify accepted the token but refused the action: ${body}" >&2
-        echo "Create the token with the \"deploy\" permission at ${base_url}/security/api-tokens." >&2
+        echo "Coolify refused the call: ${body}" >&2
+        if [[ "${body}" == *"not allowed to access the API"* ]]; then
+            # Coolify's IP allowlist, not the token: this machine's address is
+            # not on Settings > Configuration > Allowed IPs.
+            echo "This machine's IP is not on Coolify's API allowlist; the token is not the problem." >&2
+        else
+            echo "Create the token with the \"deploy\" permission at ${base_url}/security/api-tokens." >&2
+        fi
         exit 1
     fi
     if [[ "${status}" != "200" && "${status}" != "201" ]]; then

@@ -46,8 +46,21 @@ Three states, and only one of them is a deployment:
 | `deploy` job | Meaning |
 | --- | --- |
 | skipped | No `COOLIFY_TOKEN`. Nothing was deployed. |
-| failed, 403 | The token authenticates but lacks the **deploy** permission (see below). Nothing was deployed. |
+| failed, 403 "not allowed to access the API" | Coolify's **API IP allowlist** rejected the runner. Nothing was deployed. |
+| failed, other 403 | The token lacks the **deploy** permission. Nothing was deployed. |
 | success | Coolify accepted the request. |
+
+**As of 2026-09-19 every CI deploy ends in the allowlist 403.** Coolify's API
+only answers one allowlisted address (Settings > Configuration > Allowed IPs on
+coolify.webconsulting.at), and GitHub-hosted runners come from Azure ranges that
+are never on it. The `COOLIFY_TOKEN` secret is set and valid — the identical
+call with the identical token answers 200 from the allowlisted machine. Until
+the allowlist question is decided, deploy with `sync-coolify.sh deploy` from
+that machine. Ways to make CI deploys work, each a security decision rather
+than a code change: widen the allowlist (GitHub publishes its runner ranges,
+thousands of CIDRs that change); run the deploy from a self-hosted runner on an
+allowlisted network; or have CI reach the server over SSH with a key restricted
+to this one call and allowlist the server itself.
 
 Read that job, never the run's overall tick. Until 2026-09-19 the job *exited 0*
 when the secret was missing, which rendered as a green

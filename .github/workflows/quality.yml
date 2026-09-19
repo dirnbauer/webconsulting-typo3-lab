@@ -148,12 +148,18 @@ jobs:
             echo "::error::Coolify rejected the token: it is wrong, expired or revoked."
             exit 1
           fi
-          # 403 is the trap: Coolify's API permissions are granular, so a token
-          # created without "deploy" authenticates perfectly and then refuses
-          # this one call. The body even says {"success":true}. Name the cause,
-          # because "not allowed to access the API" reads like the token is bad.
+          # 403 {"message":"You are not allowed to access the API."} is Coolify's
+          # IP allowlist (Settings > Configuration > Allowed IPs), not the token:
+          # the same token and call answer 200 from the one allowlisted address.
+          # GitHub-hosted runners come from Azure ranges that are never on that
+          # list. Print the rejected address so nobody re-derives this.
           if [ "${status}" = "403" ]; then
-            echo "::error::Coolify authenticated the token but refused the deploy call, which means it lacks the 'deploy' permission. Create a new token with it at ${COOLIFY_URL}/security/api-tokens and replace the COOLIFY_TOKEN secret. Response: $(cat response.txt)"
+            runner_ip=$(curl -sS --max-time 10 https://api.ipify.org || echo unknown)
+            if grep -q 'not allowed to access the API' response.txt; then
+              echo "::error::Coolify's API IP allowlist rejected this runner (${runner_ip}). The token is not the problem. Deploy by hand from an allowlisted machine with Build/Scripts/sync-coolify.sh deploy — see docs/coolify-deployment.md for the options."
+            else
+              echo "::error::Coolify refused the deploy call from ${runner_ip}. If the token lacks the 'deploy' permission, recreate it at ${COOLIFY_URL}/security/api-tokens. Response: $(cat response.txt)"
+            fi
             exit 1
           fi
           if [ "${status}" != "200" ] && [ "${status}" != "201" ]; then
