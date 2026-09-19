@@ -59,16 +59,50 @@ Run the seeder first, copy its two numeric values into the local environment,
 and restart DDEV after changing environment variables. Never commit these
 values.
 
-In the WorkOS dashboard, configure the local frontend callback as an allowed
-redirect URI:
+## Redirect URIs
+
+WorkOS rejects any authorization request whose `redirect_uri` is not
+registered, so all four callbacks below must exist in the dashboard. The
+extension builds each one as request origin + site base path + the configured
+callback path, and the backend callback additionally carries the `/typo3`
+entry point. Only the `desiderio` site loads the WorkOS Site Set, and its base
+is the site root, so no site-path segment appears.
 
 ```text
 https://webconsulting-typo3-lab.ddev.site/workos-auth/frontend/callback
+https://webconsulting-typo3-lab.ddev.site/typo3/workos-auth/backend/callback
+https://typo3-lab.webconsulting.at/workos-auth/frontend/callback
+https://typo3-lab.webconsulting.at/typo3/workos-auth/backend/callback
 ```
 
-WorkOS requires redirect URIs to be registered on the application and its
-authorization request selects the matching URI. See the WorkOS
-[application configuration](https://workos.com/docs/authkit/applications) and
+Register them under *Applications* -> the application whose client ID matches
+`clientId` -> *Redirects*. The list belongs to the application, not to the
+environment, so a wrong application there produces "This is not a valid
+redirect URI" even when every URL is spelled correctly. Mark
+`https://typo3-lab.webconsulting.at/workos-auth/frontend/callback` as the
+default redirect URI; WorkOS-sent invitation and verification emails carry no
+`redirect_uri` of their own and land on the default.
+
+`WorkOS` -> `Setup Assistant` (`/typo3/module/workos/setup`) prints the live
+list with a copy button, but only for the environment it runs in: the
+production pair comes from the `baseVariants` in
+`config/sites/desiderio/config.yaml` and resolves only in Production context.
+
+Sign-out needs no entry. The frontend logout destroys the TYPO3 session
+locally and never calls the WorkOS logout endpoint.
+
+Verify what TYPO3 actually sends without signing in anywhere:
+
+```bash
+curl -sSk -D - -o /dev/null \
+  https://webconsulting-typo3-lab.ddev.site/workos-auth/frontend/login \
+  | grep -i '^location'
+```
+
+The `Location` header is the WorkOS authorization URL; its `redirect_uri`
+parameter must match a registered entry character for character. See the
+WorkOS [application configuration](https://workos.com/docs/authkit/applications),
+[redirect URIs](https://workos.com/docs/sso/redirect-uris) and
 [authorization URL reference](https://workos.com/docs/reference/authkit/authentication/get-authorization-url).
 
 ## Rendering architecture
