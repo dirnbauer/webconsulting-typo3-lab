@@ -142,7 +142,7 @@ DDEV database snapshot and a fileadmin archive below
 The push operation also transfers the existing TYPO3 encryption key so
 encrypted values in the imported database remain readable.
 
-## Memory: why Apache is capped at five workers
+## Memory: why Apache is capped at three workers
 
 The host has 7.7 GB and is shared with Redmine, Coolify and other services. A
 TYPO3 worker here is unusually large: `memory_limit` has to be 2G because
@@ -155,18 +155,34 @@ kernel OOM-killed Apache children and Solr's JVM in a loop (Solr restarted 13
 times) until the host rebooted. Because nothing capped the container, the OOM
 was global: it took every other service on the host down with the lab.
 
-Two bounds now prevent a repeat:
+Three bounds now prevent a repeat:
 
 - `docker/coolify/apache-mpm.conf` limits prefork to
-  `APACHE_MAX_REQUEST_WORKERS` (default 5) and recycles each worker after
+  `APACHE_MAX_REQUEST_WORKERS` (default 3) and recycles each worker after
   `APACHE_MAX_CONNECTIONS_PER_CHILD` (default 40) connections. Both can be
   overridden in Coolify's environment without a rebuild of the configuration.
-- `mem_limit: 4g` with an equal `memswap_limit` on the `web` service. A runaway
-  now ends with the kernel killing one worker inside the container, which
-  Apache respawns, instead of swap-thrashing the whole host.
+- `mem_limit: 2560m` with an equal `memswap_limit` on the `web` service. A
+  runaway now ends with the kernel killing one worker inside the container,
+  which Apache respawns, instead of swap-thrashing the whole host.
+- `mem_limit: 1536m` on `typo3-solr`. Solr took 32 of that day's OOM kills and
+  caused none of them: with no ceiling it was merely the largest process on the
+  host when Apache ran away. Its heap is fixed at 1g and the JVM sits at about
+  1.25 GB resident, so the limit is headroom rather than a squeeze — but raise
+  it together with `SOLR_HEAP`, never the heap alone.
 
-Workers × ~700 MB must stay under `mem_limit` with room for one CLI run
-(scheduler, `extension:setup`); raise them together or not at all. Each deploy
+The first version of these bounds was five workers and 4g. That contained the
+lab without protecting the host: 4g plus Solr plus MariaDB is about 5.5 GB of a
+7.7 GB machine whose other stacks hold limits summing to 11.6 GB, so the lab
+could still squeeze Redmine before reaching its own ceiling. Three workers and
+2560m leave the rest of the host real room. Idle, the whole lab needs about
+1.2 GB and everything else on the host about 2 GB.
+
+Workers × ~700 MB must stay under `mem_limit`. The entrypoint's
+`extension:setup` runs before Apache starts, so it never stacks on the workers —
+but a CLI run that compiles the TCA (~1.2 GB) while all three workers are
+resident does not fit in 2560m, and the kernel will kill the largest process in
+the container. Run such commands when traffic is low, or `apache2ctl graceful`
+first. Raise workers and limit together or not at all. Each deploy
 also builds the image on this same host, so many deploys in a row cost memory
 twice — batch changes rather than deploying every commit.
 

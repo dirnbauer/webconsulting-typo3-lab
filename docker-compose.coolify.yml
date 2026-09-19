@@ -35,11 +35,22 @@ services:
     # global: on 2026-09-19 the kernel killed Solr, swap-thrashed Redmine and
     # Coolify, and the whole host rebooted. With one, the kernel kills a worker
     # inside this cgroup and Apache respawns it. Equal memswap_limit means no
-    # swap for this container: fail fast instead of thrashing the host. Sized
-    # for APACHE_MAX_REQUEST_WORKERS x ~700 MB plus one CLI run; raise both
-    # together.
-    mem_limit: 4g
-    memswap_limit: 4g
+    # swap for this container: fail fast instead of thrashing the host.
+    #
+    # Sized for APACHE_MAX_REQUEST_WORKERS (3) x ~700 MB resident = 2.1 GB, with
+    # the remainder for the entrypoint's extension:setup, which runs BEFORE
+    # Apache starts and so never stacks on top of the workers. It was 4g for 5
+    # workers; that bounded the lab but not the host - 4g here plus Solr plus
+    # MariaDB was ~5.5 GB of a 7.7 GB machine whose other stacks hold limits of
+    # their own, so the lab could still squeeze Redmine before reaching its own
+    # ceiling. Raise the two together, and only with the host's total in view.
+    #
+    # The cost of the tighter number: a CLI run that compiles the TCA (~1.2 GB)
+    # while all three workers are resident does not fit, and the kernel will
+    # kill the largest process in this cgroup. Run such commands when traffic
+    # is low, or `apache2ctl graceful` first.
+    mem_limit: 2560m
+    memswap_limit: 2560m
     labels:
       - at.webconsulting.stack=typo3-lab
     restart: unless-stopped
@@ -79,6 +90,15 @@ services:
       TYPO3_SOLR_ENABLED_CORES: english german hungarian chinese
     volumes:
       - typo3_solr:/var/solr/data
+    # Solr was the most-killed process in the 2026-09-19 outage - 32 OOM kills -
+    # and none of them were its fault: with no limit of its own it was simply
+    # the largest thing on the host when Apache ran away. The heap is fixed at
+    # 1g and the JVM sat at ~1.25 GB resident (metaspace, threads, direct
+    # buffers) in every one of those kills, so 1536m is that plus headroom, not
+    # a squeeze. Raise it together with SOLR_HEAP, never the heap alone: a heap
+    # at or above the limit gets the JVM killed by the cgroup in a restart loop.
+    mem_limit: 1536m
+    memswap_limit: 1536m
     labels:
       - at.webconsulting.stack=typo3-lab
     restart: unless-stopped
