@@ -104,6 +104,12 @@ RUN composer install \
         var
 
 COPY docker/coolify/apache-vhost.conf /etc/apache2/sites-available/000-default.conf
+# Worker and recycling bounds; see the file for the outage that made them
+# necessary. Override either value in Coolify's environment to retune.
+ENV APACHE_MAX_REQUEST_WORKERS=5 \
+    APACHE_MAX_CONNECTIONS_PER_CHILD=40
+COPY docker/coolify/apache-mpm.conf /etc/apache2/conf-available/zz-typo3-mpm.conf
+RUN a2enconf zz-typo3-mpm
 COPY docker/coolify/php.ini /usr/local/etc/php/conf.d/zz-typo3-production.ini
 COPY --chmod=0755 docker/coolify/entrypoint.sh /usr/local/bin/typo3-entrypoint
 

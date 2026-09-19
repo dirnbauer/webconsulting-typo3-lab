@@ -31,6 +31,15 @@ services:
       - typo3_fileadmin:/var/www/html/public/fileadmin
       - typo3_runtime:/var/www/html/var
       - typo3_secrets:/run/typo3-secrets
+    # Contain a memory runaway to this container. Without a limit the OOM is
+    # global: on 2026-09-19 the kernel killed Solr, swap-thrashed Redmine and
+    # Coolify, and the whole host rebooted. With one, the kernel kills a worker
+    # inside this cgroup and Apache respawns it. Equal memswap_limit means no
+    # swap for this container: fail fast instead of thrashing the host. Sized
+    # for APACHE_MAX_REQUEST_WORKERS x ~700 MB plus one CLI run; raise both
+    # together.
+    mem_limit: 4g
+    memswap_limit: 4g
     labels:
       - at.webconsulting.stack=typo3-lab
     restart: unless-stopped

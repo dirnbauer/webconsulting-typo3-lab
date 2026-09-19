@@ -141,3 +141,41 @@ DDEV database snapshot and a fileadmin archive below
 
 The push operation also transfers the existing TYPO3 encryption key so
 encrypted values in the imported database remain readable.
+
+## Memory: why Apache is capped at five workers
+
+The host has 7.7 GB and is shared with Redmine, Coolify and other services. A
+TYPO3 worker here is unusually large: `memory_limit` has to be 2G because
+compiling the ~250 MB TCA schema exceeds 768 MB, and under mod_php a worker that
+has rendered one request keeps 500–700 MB resident (1.2 GB while compiling).
+
+On 2026-09-19 Apache was still on prefork's defaults — up to 150 workers, never
+recycled. Seventeen workers held 3.1 GB, swap filled, load reached 188, and the
+kernel OOM-killed Apache children and Solr's JVM in a loop (Solr restarted 13
+times) until the host rebooted. Because nothing capped the container, the OOM
+was global: it took every other service on the host down with the lab.
+
+Two bounds now prevent a repeat:
+
+- `docker/coolify/apache-mpm.conf` limits prefork to
+  `APACHE_MAX_REQUEST_WORKERS` (default 5) and recycles each worker after
+  `APACHE_MAX_CONNECTIONS_PER_CHILD` (default 40) connections. Both can be
+  overridden in Coolify's environment without a rebuild of the configuration.
+- `mem_limit: 4g` with an equal `memswap_limit` on the `web` service. A runaway
+  now ends with the kernel killing one worker inside the container, which
+  Apache respawns, instead of swap-thrashing the whole host.
+
+Workers × ~700 MB must stay under `mem_limit` with room for one CLI run
+(scheduler, `extension:setup`); raise them together or not at all. Each deploy
+also builds the image on this same host, so many deploys in a row cost memory
+twice — batch changes rather than deploying every commit.
+
+If the site turns slow and `status` shows the containers healthy, check the
+host before deploying again:
+
+```bash
+ssh root@49.13.173.37 'uptime; free -m; ps -C apache2 -o rss= | awk "{s+=\$1} END {print s/1024 \" MB in apache2\"}"'
+```
+
+`apache2ctl graceful` inside the web container reaps bloated workers without a
+restart.
