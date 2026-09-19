@@ -32,6 +32,18 @@ pagination type EXT:solr 14 hands to the event.
 
 We do not contribute these changes upstream.
 
+## Patched dependencies
+
+`supseven/inline-page-module` 4.0.2 is the newest release and predates TYPO3
+14.3.7, which appended a sixteenth constructor argument to
+`PageLayoutController`. The extension's subclass still calls the parent with
+fifteen, so the Page module answered every request with an `ArgumentCountError`.
+The patch passes the argument through. Remove it once a release supports
+14.3.7.
+
+`typo3/cms-core` keeps the workspace move-pointer guard: 14.3.7 still reads the
+live record without checking that the query returned one.
+
 ## Workflow
 
 ```bash

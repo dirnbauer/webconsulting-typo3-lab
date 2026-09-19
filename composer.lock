@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c06949d0f4568d5bc79099473dfe406d",
+    "content-hash": "d6956f00f4b134fa4717a821aafeec80",
     "packages": [
         {
             "name": "apache-solr-for-typo3/solr",
@@ -13750,16 +13750,16 @@
         },
         {
             "name": "webconsulting/webcon-easy-workspace",
-            "version": "v1.4.0",
+            "version": "v1.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/typo3-webcon-easy-workspace.git",
-                "reference": "aa9d16d80b91a3a74c0efab5ba656e8f7b2cd3bc"
+                "reference": "8457a5f51cd81d1c5cf1bf4a3ca806bee4ebf5f3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/typo3-webcon-easy-workspace/zipball/aa9d16d80b91a3a74c0efab5ba656e8f7b2cd3bc",
-                "reference": "aa9d16d80b91a3a74c0efab5ba656e8f7b2cd3bc",
+                "url": "https://api.github.com/repos/dirnbauer/typo3-webcon-easy-workspace/zipball/8457a5f51cd81d1c5cf1bf4a3ca806bee4ebf5f3",
+                "reference": "8457a5f51cd81d1c5cf1bf4a3ca806bee4ebf5f3",
                 "shasum": ""
             },
             "require": {
@@ -13773,6 +13773,7 @@
             "require-dev": {
                 "phpstan/extension-installer": "^1.4",
                 "phpstan/phpstan": "^2.1",
+                "phpstan/phpstan-phpunit": "^2.0",
                 "saschaegerer/phpstan-typo3": "^3.0.1",
                 "typo3/coding-standards": "^0.9.0",
                 "typo3/testing-framework": "^9.5"
@@ -13785,7 +13786,7 @@
             "extra": {
                 "typo3/cms": {
                     "extension-key": "webcon_easy_workspace",
-                    "version": "1.4.0",
+                    "version": "1.5.0",
                     "Package": {
                         "providesPackages": []
                     }
@@ -13813,7 +13814,7 @@
                     "php-cs-fixer fix --config=.php-cs-fixer.dist.php"
                 ],
                 "phpstan": [
-                    "phpstan analyse --configuration=Build/phpstan/phpstan.neon --memory-limit=1G"
+                    "phpstan analyse --memory-limit=1G"
                 ],
                 "test:unit": [
                     "phpunit -c Build/phpunit/UnitTests.xml"
@@ -13855,7 +13856,7 @@
                 "issues": "https://github.com/dirnbauer/typo3-webcon-easy-workspace/issues",
                 "source": "https://github.com/dirnbauer/typo3-webcon-easy-workspace"
             },
-            "time": "2026-09-12T15:51:18+00:00"
+            "time": "2026-09-19T06:05:03+00:00"
         },
         {
             "name": "webconsulting/workos-auth",
