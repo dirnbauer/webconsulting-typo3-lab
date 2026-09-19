@@ -22,7 +22,7 @@ trap cleanup EXIT
 
 usage() {
     cat <<'USAGE'
-Usage: Build/Scripts/sync-coolify.sh <status|deploy|publish-snapshot|push|pull> [--confirm]
+Usage: Build/Scripts/sync-coolify.sh <status|deploy|publish-snapshot|publish-downloads-page|push|pull> [--confirm]
 
   status            Show the local DDEV and remote Coolify container state.
   deploy            Ask Coolify to rebuild and redeploy the application from
@@ -33,6 +33,12 @@ Usage: Build/Scripts/sync-coolify.sh <status|deploy|publish-snapshot|push|pull> 
                     database and fileadmin and place it in the site's
                     fileadmin/_downloads. Reads production and writes only
                     inside that directory; it changes no existing content.
+  publish-downloads-page --confirm
+                    Create or update the /downloads/ page on the live site from
+                    Build/Scripts/lib/downloads-page.json. The page is a
+                    database record, so neither deploy nor publish-snapshot
+                    carries it over. Matched by slug, so re-running updates
+                    rather than duplicating.
   push --confirm    Back up Coolify, then replace its database and fileadmin
                     with exports from this DDEV project.
   pull --confirm    Back up DDEV, then replace its database and fileadmin
@@ -328,6 +334,34 @@ publish_snapshot() {
     echo "  unzip -p ${SNAPSHOT_DB_ARCHIVE} ${SNAPSHOT_DB_MEMBER} | grep -c 'INSERT INTO .be_users.'"
 }
 
+publish_downloads_page() {
+    local stage web_container root_page
+    local definition="$(dirname "$0")/lib/downloads-page.json"
+    local applier="$(dirname "$0")/lib/apply-downloads-page.sh"
+
+    root_page="${DOWNLOADS_ROOT_PAGE:-505}"
+    [ -f "${definition}" ] || { echo "missing ${definition}" >&2; exit 1; }
+
+    stage="/var/tmp/typo3-lab-page-$(date -u +%Y%m%dT%H%M%SZ)"
+    web_container="$(remote_container web)"
+
+    ssh "${SSH_OPTIONS[@]}" "${REMOTE_HOST}" "install -d -m 0700 '${stage}'"
+    scp "${SSH_OPTIONS[@]}" "${definition}" "${applier}" "${REMOTE_HOST}:${stage}/"
+
+    # Into the container rather than run over ssh: the applier expects the
+    # TYPO3 root as its working directory, and mcp:write-table only reads
+    # parameter files from below that root.
+    ssh "${SSH_OPTIONS[@]}" "${REMOTE_HOST}" \
+        "docker cp '${stage}/downloads-page.json' '${web_container}:/var/www/html/var/transient-downloads-page.json' \
+         && docker cp '${stage}/apply-downloads-page.sh' '${web_container}:/var/www/html/var/apply-downloads-page.sh' \
+         && docker exec -u www-data -w /var/www/html '${web_container}' sh var/apply-downloads-page.sh var/transient-downloads-page.json ${root_page} \
+         ; rc=\$?; docker exec '${web_container}' rm -f /var/www/html/var/transient-downloads-page.json /var/www/html/var/apply-downloads-page.sh; exit \$rc"
+
+    ssh "${SSH_OPTIONS[@]}" "${REMOTE_HOST}" "rm -rf '${stage}'"
+    echo
+    echo "The page links to files published by 'publish-snapshot'; run that too if you have not."
+}
+
 command="${1:-}"
 
 case "${command}" in
@@ -340,6 +374,10 @@ case "${command}" in
     publish-snapshot)
         require_confirmation "$@"
         publish_snapshot
+        ;;
+    publish-downloads-page)
+        require_confirmation "$@"
+        publish_downloads_page
         ;;
     push)
         require_confirmation "$@"

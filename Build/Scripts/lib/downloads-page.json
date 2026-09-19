@@ -1,0 +1,17 @@
+{
+  "page": {
+    "title": "Downloads",
+    "nav_title": "Downloads",
+    "slug": "/downloads",
+    "doktype": 1,
+    "hidden": 0,
+    "description": "Download the sanitised Webconsulting TYPO3 Lab snapshot: database, Fileadmin archive and the install script."
+  },
+  "content": {
+    "CType": "text",
+    "header": "Download this lab",
+    "colPos": 0,
+    "hidden": 0,
+    "bodytext": "<p>A complete, self-contained copy of this lab: the database, the matching Fileadmin archive, and a script that wires both into a running DDEV site for you.</p>\n<h3>Downloads</h3>\n<ul> <li><a href=\"t3://file?uid=1108\">install.txt</a> &mdash; scripted setup, run with <code>bash install.txt</code> (3 KB)</li> <li><a href=\"t3://file?uid=1111\">db-public.zip</a> &mdash; database, sanitised (10 MB)</li> <li><a href=\"t3://file?uid=1112\">fileadmin-public.zip</a> &mdash; matching Fileadmin contents (352 MB)</li> <li><a href=\"t3://file?uid=1110\">snapshot-readme.txt</a> &mdash; what is in the snapshot</li> </ul>\n<h3>Quick start</h3>\n<p>Requires Docker or OrbStack, DDEV 1.25.3 or newer, and Git. The downloads need the same credentials you used to reach this page.</p>\n<pre><code>curl -fLO https://typo3-lab.webconsulting.at/fileadmin/_downloads/install.txt\nbash install.txt</code></pre>\n<p>It clones the repository, fetches both archives, and runs the documented bootstrap. Sign in at <code>/typo3/</code> with <strong>admin / Demo123*</strong> and change that password.</p>\n<p>The <code>.txt</code> and <code>.zip</code> extensions are deliberate. TYPO3 denies <code>.sh</code> and <code>.sql</code> files from the document root, and that rule is worth leaving intact. Zip rather than <code>.tar.gz</code> because Apache serves any <code>.gz</code> with <code>Content-Encoding: gzip</code>, which browsers silently decode &mdash; you would save a file named <code>.tar.gz</code> that is really a plain tar, and the import would reject it.</p>\n<h3>What &ldquo;sanitised&rdquo; means</h3>\n<p>The published database is not the one this site runs on. Twenty credential-bearing tables keep their structure but ship with no rows: Vault secrets, API and MCP access tokens, OAuth records, WorkOS identities, the LLM provider credential, every backend and frontend account, and the log and history tables. A single demo administrator is added in their place.</p>\n<p>Integrations that need credentials therefore start switched off. Supply your own through the Vault backend module.</p>\n<p>Import the database and the Fileadmin archive together &mdash; the database references files by uid, so a mismatched pair renders with broken images.</p>"
+  }
+}
