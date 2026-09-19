@@ -27,19 +27,15 @@ sync:
         - "/vendor/webconsulting/docx-editor/node_modules"
         # The desktop apps are separate projects that happen to live in this
         # repository: nothing in composer.json or config/ refers to them, and
-        # the TYPO3 container never runs them. Their build output is 1.65 GB of
-        # the 1.8 GB under apps/ — a 349 MB Electron framework, a 193 MB .dmg,
-        # a 187 MB .zip, a 116 MB native module — and pushing that through the
-        # sync is what makes it time out mid-flush and drop files, which has
-        # cost a vendor/autoload.php more than once.
+        # the TYPO3 container never runs them. Pushing their build output
+        # through the sync is what made it time out mid-flush and drop files,
+        # which cost a vendor/autoload.php more than once. news-api-studio,
+        # which was most of it, has since been removed from the repository;
+        # these rules stay for news-native-studio and anything added later.
         - "/apps/*/node_modules"
         - "/apps/*/dist"
         - "/apps/*/.next"
         - "/apps/*/out"
-        - "/apps/news-api-studio/node_modules"
-        - "/apps/news-api-studio/dist"
-        - "/apps/news-api-studio/.next"
-        - "/apps/news-api-studio/out"
         - "/apps/news-native-studio/node_modules"
         - "/apps/news-native-studio/dist"
         - "/apps/news-native-studio/.next"
