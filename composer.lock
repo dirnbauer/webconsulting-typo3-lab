@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "cf84aa27290a75d183490bb4c652cbd1",
+    "content-hash": "0734b5ffdc96e1badf20564d6235afe4",
     "packages": [
         {
             "name": "apache-solr-for-typo3/solr",
@@ -13152,16 +13152,16 @@
         },
         {
             "name": "webconsulting/skillflow",
-            "version": "v1.6.2",
+            "version": "v1.6.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/skillflow.git",
-                "reference": "07490391fdd4a946cb3cf46a0dc2bd61eb540953"
+                "reference": "7c35ee552c54a6c04d29c6743cc5b6a9de40af39"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/skillflow/zipball/07490391fdd4a946cb3cf46a0dc2bd61eb540953",
-                "reference": "07490391fdd4a946cb3cf46a0dc2bd61eb540953",
+                "url": "https://api.github.com/repos/dirnbauer/skillflow/zipball/7c35ee552c54a6c04d29c6743cc5b6a9de40af39",
+                "reference": "7c35ee552c54a6c04d29c6743cc5b6a9de40af39",
                 "shasum": ""
             },
             "require": {
@@ -13239,7 +13239,7 @@
                 "issues": "https://github.com/dirnbauer/skillflow/issues",
                 "source": "https://github.com/dirnbauer/skillflow"
             },
-            "time": "2026-09-18T15:40:53+00:00"
+            "time": "2026-09-20T19:36:46+00:00"
         },
         {
             "name": "webconsulting/skillspector",
