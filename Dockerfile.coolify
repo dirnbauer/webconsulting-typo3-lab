@@ -113,7 +113,7 @@ COPY docker/coolify/apache-vhost.conf /etc/apache2/sites-available/000-default.c
 # replaces an exited child in its once-a-second maintenance pass. 500 keeps the
 # recycling cadence the bound was meant to have; the cgroup limit, not this
 # number, is what protects the host.
-ENV APACHE_MAX_REQUEST_WORKERS=3 \
+ENV APACHE_MAX_REQUEST_WORKERS=6 \
     APACHE_MAX_CONNECTIONS_PER_CHILD=500
 COPY docker/coolify/apache-mpm.conf /etc/apache2/conf-available/zz-typo3-mpm.conf
 RUN a2enconf zz-typo3-mpm

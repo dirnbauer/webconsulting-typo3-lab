@@ -14,6 +14,9 @@ services:
       TYPO3_FLUSH_PAGE_CACHE: ${TYPO3_FLUSH_PAGE_CACHE:-1}
       TYPO3_CHAT_CLEANUP: ${TYPO3_CHAT_CLEANUP:-1}
       TYPO3_LOG_MAX_BYTES: ${TYPO3_LOG_MAX_BYTES:-52428800}
+      # Workers x ~700 MB must stay under mem_limit below; see apache-mpm.conf.
+      APACHE_MAX_REQUEST_WORKERS: ${APACHE_MAX_REQUEST_WORKERS:-6}
+      APACHE_MAX_CONNECTIONS_PER_CHILD: ${APACHE_MAX_CONNECTIONS_PER_CHILD:-500}
       # Jev API token. webcon-jev:token:import reads it from the environment
       # and stores it in the vault; without the passthrough a value set in
       # Coolify never reaches the container.
@@ -44,20 +47,14 @@ services:
     # inside this cgroup and Apache respawns it. Equal memswap_limit means no
     # swap for this container: fail fast instead of thrashing the host.
     #
-    # Sized for APACHE_MAX_REQUEST_WORKERS (3) x ~700 MB resident = 2.1 GB, with
-    # the remainder for the entrypoint's extension:setup, which runs BEFORE
-    # Apache starts and so never stacks on top of the workers. It was 4g for 5
-    # workers; that bounded the lab but not the host - 4g here plus Solr plus
-    # MariaDB was ~5.5 GB of a 7.7 GB machine whose other stacks hold limits of
-    # their own, so the lab could still squeeze Redmine before reaching its own
-    # ceiling. Raise the two together, and only with the host's total in view.
-    #
-    # The cost of the tighter number: a CLI run that compiles the TCA (~1.2 GB)
-    # while all three workers are resident does not fit, and the kernel will
-    # kill the largest process in this cgroup. Run such commands when traffic
-    # is low, or `apache2ctl graceful` first.
-    mem_limit: 2560m
-    memswap_limit: 2560m
+    # Sized for APACHE_MAX_REQUEST_WORKERS (6) x ~700 MB resident = 4.2 GB, plus
+    # 1.2 GB for one CLI run that compiles the TCA, so a scheduler or
+    # extension:setup run fits while every worker is resident. On the 7.7 GB
+    # host this was 3 workers under 2560m, where such a run did not fit; the
+    # host has 15.6 GB since 2026-09-20. Raise the two together, and only with
+    # the host's total in view: the other stacks hold limits of their own.
+    mem_limit: 5632m
+    memswap_limit: 5632m
     labels:
       - at.webconsulting.stack=typo3-lab
     restart: unless-stopped
@@ -71,6 +68,9 @@ services:
       # The Content Blocks lab intentionally has a very wide tt_content table.
       # Match the DDEV setting so a complete dump can be restored.
       - --innodb-strict-mode=OFF
+      # The database is ~320 MB of data and index. At the 128 MB default it
+      # could not stay in memory; at 384 MB it does, with room to grow.
+      - --innodb-buffer-pool-size=384M
     environment:
       MARIADB_DATABASE: typo3
       MARIADB_PASSWORD: ${SERVICE_PASSWORD_DB}
@@ -84,13 +84,12 @@ services:
       timeout: 5s
       retries: 12
       start_period: 30s
-    # The last unbounded container of this stack. MariaDB runs at ~210 MB here
-    # (128 MB buffer pool, three Apache workers' worth of connections), so
-    # this is a ceiling it should never meet, not a squeeze: it exists so that
-    # a runaway query hits this cgroup instead of Redmine. Raise it before
-    # raising innodb_buffer_pool_size, never after.
-    mem_limit: 768m
-    memswap_limit: 768m
+    # A ceiling it should never meet, not a squeeze: 384 MB buffer pool plus
+    # per-connection memory for six Apache workers sits near 650 MB. It exists
+    # so that a runaway query hits this cgroup instead of Redmine. Raise it
+    # before raising innodb_buffer_pool_size, never after.
+    mem_limit: 1024m
+    memswap_limit: 1024m
     labels:
       - at.webconsulting.stack=typo3-lab
     restart: unless-stopped

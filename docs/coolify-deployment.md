@@ -154,9 +154,10 @@ DDEV database snapshot and a fileadmin archive below
 The push operation also transfers the existing TYPO3 encryption key so
 encrypted values in the imported database remain readable.
 
-## Memory: why Apache is capped at three workers
+## Memory: why Apache is capped at six workers
 
-The host has 7.7 GB and is shared with Redmine, Coolify and other services. A
+The host has 15.6 GB since 2026-09-20 (7.7 GB before, which is what the incident
+below happened on) and is shared with Redmine, Coolify and other services. A
 TYPO3 worker here is unusually large: `memory_limit` has to be 2G because
 compiling the ~250 MB TCA schema exceeds 768 MB, and under mod_php a worker that
 has rendered one request keeps 500–700 MB resident (1.2 GB while compiling).
@@ -170,10 +171,11 @@ was global: it took every other service on the host down with the lab.
 Three bounds now prevent a repeat:
 
 - `docker/coolify/apache-mpm.conf` limits prefork to
-  `APACHE_MAX_REQUEST_WORKERS` (default 3) and recycles each worker after
+  `APACHE_MAX_REQUEST_WORKERS` (default 6) and recycles each worker after
   `APACHE_MAX_CONNECTIONS_PER_CHILD` (default 500) connections. Both can be
-  overridden in Coolify's environment without a rebuild of the configuration.
-- `mem_limit: 2560m` with an equal `memswap_limit` on the `web` service. A
+  overridden in Coolify's environment, because `docker-compose.coolify.yml`
+  declares them; until 2026-09-20 it did not, and the override never arrived.
+- `mem_limit: 5632m` with an equal `memswap_limit` on the `web` service. A
   runaway now ends with the kernel killing one worker inside the container,
   which Apache respawns, instead of swap-thrashing the whole host.
 - `mem_limit: 1536m` on `typo3-solr`. Solr took 32 of that day's OOM kills and
@@ -186,15 +188,16 @@ The first version of these bounds was five workers and 4g. That contained the
 lab without protecting the host: 4g plus Solr plus MariaDB is about 5.5 GB of a
 7.7 GB machine whose other stacks hold limits summing to 11.6 GB, so the lab
 could still squeeze Redmine before reaching its own ceiling. Three workers and
-2560m leave the rest of the host real room. Idle, the whole lab needs about
-1.2 GB and everything else on the host about 2 GB.
+2560m left the rest of that host real room, at a price: a CLI run that compiles
+the TCA (~1.2 GB) did not fit beside three resident workers.
 
-Workers × ~700 MB must stay under `mem_limit`. The entrypoint's
-`extension:setup` runs before Apache starts, so it never stacks on the workers —
-but a CLI run that compiles the TCA (~1.2 GB) while all three workers are
-resident does not fit in 2560m, and the kernel will kill the largest process in
-the container. Run such commands when traffic is low, or `apache2ctl graceful`
-first. Raise workers and limit together or not at all. Each deploy
+With 15.6 GB the bounds are six workers and 5632m: 6 x ~700 MB is 4.2 GB, plus
+1.2 GB so that one such CLI run fits while every worker is resident. Idle, the
+whole lab needs about 1.2 GB and everything else on the host about 2 GB.
+
+Workers x ~700 MB plus one CLI run must stay under `mem_limit`. The entrypoint's
+`extension:setup` runs before Apache starts, so it never stacks on the workers.
+Raise workers and limit together or not at all. Each deploy
 also builds the image on this same host, so many deploys in a row cost memory
 twice — batch changes rather than deploying every commit.
 
@@ -208,9 +211,10 @@ ssh root@49.13.173.37 'uptime; free -m; ps -C apache2 -o rss= | awk "{s+=\$1} EN
 `apache2ctl graceful` inside the web container reaps bloated workers without a
 restart.
 
-The `database` service carries `mem_limit: 768m` for the same reason, against
-about 210 MB of real use. The measured high-water mark of the `web` cgroup is
-2370 MB — 93 % of its limit — and it was reached in the two minutes after a
+The `database` service carries `mem_limit: 1024m` for the same reason. Its buffer
+pool is 384 MB, because the database is about 320 MB of data and index and at
+the 128 MB default it could not stay in memory. The measured high-water mark of the `web` cgroup is
+2370 MB — measured under the earlier 2560m limit, 93 % of it — and it was reached in the two minutes after a
 deploy, while three cold workers each compiled the TCA. Steady state is around
 500 MB. The margin is in normal operation, not in a rebuild: a worker killed
 inside the container right after a deploy is the limit working, not a fault.
