@@ -1,0 +1,498 @@
+{
+  "pages": {
+    "948": {
+      "description": "TYPO3 Camp Munich 2026 is a community barcamp run by the Munich TYPO3 User Group: 11–13 September 2026 at the Puchheim Cultural Centre. The session plan is made on site."
+    },
+    "950": {
+      "description": "2026 年慕尼黑 TYPO3 Camp 是慕尼黑 TYPO3 用户组举办的社区 Barcamp：2026 年 9 月 11–13 日，地点为普赫海姆文化中心。议程在现场共同确定。"
+    },
+    "951": {
+      "description": "A TYPO3 Camp München 2026 a Müncheni TYPO3 User Group közösségi barcampje: 2026. szeptember 11–13., Puchheimi Kulturális Központ. A sessionterv a helyszínen áll össze."
+    },
+    "952": {
+      "description": "Register a ticket for TYPO3 Camp Munich 2026: standard or supporter ticket, with Friday's integration workshop as an option."
+    },
+    "953": {
+      "description": "报名 2026 年慕尼黑 TYPO3 Camp 门票：标准票或支持者票，可选加订周五的集成工作坊。"
+    },
+    "954": {
+      "description": "Jegyigénylés a TYPO3 Camp München 2026-ra: standard vagy támogatói jegy, opcionálisan a pénteki integrációs workshoppal."
+    }
+  },
+  "elements": [
+    {
+      "source": 26233,
+      "childTable": null,
+      "lang": {
+        "1": {
+          "fields": {
+            "header": "You write the programme yourselves.",
+            "subheadline": "TYPO3 Camp Munich 2026 is a barcamp run by the Munich TYPO3 User Group. There is no bought-in speaker line-up: whoever turns up brings a topic. On Saturday morning the session board goes up on the wall — until then nobody knows what will run.",
+            "badge_text": "11–13 September 2026 · Puchheim near Munich",
+            "reassurance_text": "Organised by volunteers. Not a commercial conference.",
+            "primary_button_text": "Register for a ticket",
+            "secondary_button_text": "",
+            "secondary_button_link": ""
+          },
+          "files": {
+            "hero_image": [
+              {
+                "title": "Session board on camp morning",
+                "alternative": "Illustrative image: five participants stand in front of a pinboard full of colourful notes, voting on the session plan."
+              }
+            ]
+          }
+        },
+        "2": {
+          "fields": {
+            "header": "议程由你们自己写。",
+            "subheadline": "2026 年慕尼黑 TYPO3 Camp 是慕尼黑 TYPO3 用户组（MTUG）办的 Barcamp。这里没有请来的讲者名单：来的人各自带一个话题。周六上午，当天的议程才贴上墙——在那之前谁也不知道会开什么。",
+            "badge_text": "2026 年 9 月 11–13 日 · 慕尼黑近郊普赫海姆",
+            "reassurance_text": "由志愿者义务筹办，不是商业大会。",
+            "primary_button_text": "报名门票",
+            "secondary_button_text": "",
+            "secondary_button_link": ""
+          },
+          "files": {
+            "hero_image": [
+              {
+                "title": "开营当天的议程墙",
+                "alternative": "示意图：五位参与者站在贴满彩色便签的展示板前，一起票选当天的议程。"
+              }
+            ]
+          }
+        },
+        "3": {
+          "fields": {
+            "header": "A programot ti írjátok.",
+            "subheadline": "A TYPO3 Camp München 2026 a Müncheni TYPO3 User Group barcampje. Nincs megvásárolt előadói névsor: aki eljön, témát hoz magával. A sessiontábla szombat reggel kerül a falra – addig senki nem tudja, mi lesz.",
+            "badge_text": "2026. szeptember 11–13. · Puchheim, München mellett",
+            "reassurance_text": "Önkéntesek szervezik. Nem kereskedelmi konferencia.",
+            "primary_button_text": "Jegyet igénylek",
+            "secondary_button_text": "",
+            "secondary_button_link": ""
+          },
+          "files": {
+            "hero_image": [
+              {
+                "title": "Sessiontábla a camp reggelén",
+                "alternative": "Illusztráció: öt résztvevő áll a színes cetlikkel teli tábla előtt, és közösen szavazza meg a sessiontervet."
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "source": 26234,
+      "childTable": "stats_stats",
+      "lang": {
+        "1": {
+          "fields": {
+            "header": "Key facts at a glance",
+            "eyebrow": "Date & venue",
+            "subheadline": "Everything you need to plan the trip."
+          },
+          "children": [
+            { "fields": { "value": "3 days", "label": "Dates", "description": "<p>11–13 September 2026: warm-up on Friday evening, camp on Saturday and Sunday.</p>" } },
+            { "fields": { "value": "PUC Puchheim", "label": "Venue", "description": "<p>Puchheim Cultural Centre, just west of Munich.</p>" } },
+            { "fields": { "value": "Open space", "label": "Format", "description": "<p>Sessions are proposed and voted on in the morning.</p>" } },
+            { "fields": { "value": "MTUG", "label": "Organiser", "description": "<p>Munich TYPO3 User Group, run by volunteers.</p>" } }
+          ]
+        },
+        "2": {
+          "fields": {
+            "header": "关键信息一览",
+            "eyebrow": "时间与地点",
+            "subheadline": "筹划行程需要知道的都在这里。"
+          },
+          "children": [
+            { "fields": { "value": "3 天", "label": "日期", "description": "<p>2026 年 9 月 11–13 日：周五晚暖场，周六、周日正式开营。</p>" } },
+            { "fields": { "value": "PUC 普赫海姆", "label": "地点", "description": "<p>普赫海姆文化中心，位于慕尼黑以西。</p>" } },
+            { "fields": { "value": "Open Space", "label": "形式", "description": "<p>议题当天上午现场提出并投票决定。</p>" } },
+            { "fields": { "value": "MTUG", "label": "主办方", "description": "<p>慕尼黑 TYPO3 用户组，由志愿者义务筹办。</p>" } }
+          ]
+        },
+        "3": {
+          "fields": {
+            "header": "Fontos adatok egy pillantásra",
+            "eyebrow": "Időpont és helyszín",
+            "subheadline": "Minden, ami a tervezéshez kell."
+          },
+          "children": [
+            { "fields": { "value": "3 nap", "label": "Időpont", "description": "<p>2026. szeptember 11–13.: pénteken este warm-up, szombaton és vasárnap camp.</p>" } },
+            { "fields": { "value": "PUC Puchheim", "label": "Helyszín", "description": "<p>Puchheimi Kulturális Központ, Münchentől nyugatra.</p>" } },
+            { "fields": { "value": "Open Space", "label": "Formátum", "description": "<p>A sessionöket reggel javasolják és szavazzák meg.</p>" } },
+            { "fields": { "value": "MTUG", "label": "Szervező", "description": "<p>Müncheni TYPO3 User Group, önkéntes szervezésben.</p>" } }
+          ]
+        }
+      }
+    },
+    {
+      "source": 26235,
+      "childTable": "features_feature_items",
+      "lang": {
+        "1": {
+          "fields": {
+            "header": "What to expect",
+            "subheadline": "Three days among people who build, run and look after TYPO3 every day."
+          },
+          "children": [
+            { "fields": { "title": "Open space instead of a speaker list", "description": "<p>The agenda takes shape on Saturday morning: topic on the wall, one sentence to pitch it, then everyone votes. What nobody is interested in does not happen.</p>" } },
+            { "fields": { "title": "TYPO3 v14 in practice", "description": "<p>Site Sets, Content Blocks, Fluid 5, workspaces: sessions about the parts of the move to the current LTS that really cost you time.</p>" } },
+            { "fields": { "title": "Every role at the same table", "description": "<p>Agencies, freelancers, integrators, developers, editors and core contributors. A barcamp has no stage and no audience.</p>" } },
+            { "fields": { "title": "Food and drink included", "description": "<p>Coffee, lunch and drinks on both camp days, plus the Friday evening warm-up, are covered by the ticket.</p>" } },
+            { "fields": { "title": "Social event on Saturday", "description": "<p>The evening carries on together: eat, talk, keep the discussion going. For many people that is the real reason to come.</p>" } },
+            { "fields": { "title": "Supporter ticket", "description": "<p>If you want to contribute more, book a supporter ticket: the same package, and we name you as a supporter on site and in the camp channels.</p>" } }
+          ]
+        },
+        "2": {
+          "fields": {
+            "header": "你会遇到什么",
+            "subheadline": "三天时间，和每天与 TYPO3 打交道的人待在一起。"
+          },
+          "children": [
+            { "fields": { "title": "Open Space，而不是排好的讲者名单", "description": "<p>议程在周六上午成形：把话题贴到墙上，用一句话讲清楚，然后大家投票。没人感兴趣的，就不会开。</p>" } },
+            { "fields": { "title": "TYPO3 v14 的实战", "description": "<p>Site Sets、Content Blocks、Fluid 5、工作区：聊的都是迁移到当前 LTS 时真正费工夫的地方。</p>" } },
+            { "fields": { "title": "所有角色坐在同一张桌子旁", "description": "<p>代理公司、自由职业者、集成人员、开发者、编辑和核心贡献者。Barcamp 没有讲台，也没有听众。</p>" } },
+            { "fields": { "title": "餐饮包含在内", "description": "<p>两天会期的咖啡、午餐和饮料，以及周五晚的暖场活动，都已包含在门票里。</p>" } },
+            { "fields": { "title": "周六晚的社交活动", "description": "<p>晚上大家继续在一起：吃饭、聊天、把白天没说完的接着说。对很多人来说，这才是来的理由。</p>" } },
+            { "fields": { "title": "支持者门票", "description": "<p>想多出一份力，可以选支持者门票：权益相同，我们会在现场和 Camp 的各个频道里向你致谢。</p>" } }
+          ]
+        },
+        "3": {
+          "fields": {
+            "header": "Mi vár rátok",
+            "subheadline": "Három nap olyanok között, akik nap mint nap TYPO3-at építenek, üzemeltetnek és tartanak karban."
+          },
+          "children": [
+            { "fields": { "title": "Open Space előadói névsor helyett", "description": "<p>A program szombat reggel áll össze: téma a falra, egy mondatban elmondod, aztán szavazunk. Ami senkit nem érdekel, az nem indul el.</p>" } },
+            { "fields": { "title": "TYPO3 v14 a gyakorlatban", "description": "<p>Site Sets, Content Blocks, Fluid 5, workspace-ek: sessionök arról, ami az aktuális LTS-re váltásnál tényleg munkát ad.</p>" } },
+            { "fields": { "title": "Minden szerep egy asztalnál", "description": "<p>Ügynökségek, freelancerek, integrátorok, fejlesztők, szerkesztők és core contributorok. A barcampon nincs színpad és nincs közönség.</p>" } },
+            { "fields": { "title": "Az ellátás benne van", "description": "<p>Kávé, ebéd és üdítő mindkét camp-napon, és a pénteki warm-up is a jegy ára része.</p>" } },
+            { "fields": { "title": "Szombati social event", "description": "<p>Este együtt megy tovább: enni, beszélgetni, továbbvitatkozni. Sokaknak épp ez az igazi ok, amiért eljönnek.</p>" } },
+            { "fields": { "title": "Támogatói jegy", "description": "<p>Aki többel szeretne hozzájárulni, támogatói jegyet vesz: ugyanaz a szolgáltatás, és a helyszínen meg a camp csatornáin támogatóként említünk meg.</p>" } }
+          ]
+        }
+      }
+    },
+    {
+      "source": 73371,
+      "childTable": null,
+      "lang": {
+        "1": {
+          "fields": {
+            "header": "One building, short distances",
+            "eyebrow": "On site",
+            "description": "<p>The camp takes place at the <strong>Puchheim Cultural Centre (PUC)</strong>, west of Munich. A large foyer, several halls and seminar rooms: enough space for sessions to run in parallel – and in the break everyone still meets in the same place. That is the difference between a barcamp and a conference with six tracks in six buildings.</p>\n<p>Puchheim is on suburban rail line S4 from Munich Hauptbahnhof. Directions, parking information and start times go out with the registration confirmation.</p>"
+          },
+          "files": {
+            "image": [
+              {
+                "title": "Cultural centre on a late summer afternoon",
+                "alternative": "Illustrative image: a low cultural centre with a large glass front; people with backpacks cross the forecourt towards the entrance."
+              }
+            ]
+          }
+        },
+        "2": {
+          "fields": {
+            "header": "一栋楼，路都很短",
+            "eyebrow": "场地",
+            "description": "<p>Camp 在慕尼黑以西的<strong>普赫海姆文化中心（PUC）</strong>举办。宽敞的门厅、多个礼堂和研讨室：足够几场 Session 同时进行——而一到休息，大家又都回到同一个地方。这就是 Barcamp 与分散在六栋楼里、并行六条议程线的大会之间的区别。</p>\n<p>普赫海姆位于慕尼黑中央车站出发的 S4 市郊铁路沿线。路线说明、停车信息和各项开始时间会随报名确认邮件一并发出。</p>"
+          },
+          "files": {
+            "image": [
+              {
+                "title": "晚夏午后的文化中心",
+                "alternative": "示意图：一座带大面玻璃幕墙的低矮文化中心，背着背包的人们正穿过前广场走向入口。"
+              }
+            ]
+          }
+        },
+        "3": {
+          "fields": {
+            "header": "Egy épület, rövid távolságok",
+            "eyebrow": "A helyszínen",
+            "description": "<p>A camp a <strong>Puchheimi Kulturális Központban (PUC)</strong> zajlik, Münchentől nyugatra. Nagy előtér, több nagyterem és szemináriumi terem: elég hely ahhoz, hogy a sessionök párhuzamosan fussanak – a szünetben mégis mindenki ugyanoda kerül. Ez a különbség egy barcamp és egy olyan konferencia között, ahol hat szekció fut hat épületben.</p>\n<p>Puchheim a müncheni főpályaudvarról induló S4-es elővárosi vonalon fekszik. Az útvonalleírást, a parkolási tudnivalókat és a kezdési időpontokat a regisztráció visszaigazolásával küldjük.</p>"
+          },
+          "files": {
+            "image": [
+              {
+                "title": "Kulturális központ késő nyári délutánon",
+                "alternative": "Illusztráció: alacsony, nagy üvegfrontos kulturális központ, előtte hátizsákos emberek sétálnak a bejárat felé."
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "source": 73372,
+      "childTable": "gallery_items",
+      "lang": {
+        "1": {
+          "fields": {
+            "header": "What a camp weekend looks like",
+            "subheadline": "The 2026 camp has not taken place yet: every picture on this page is an AI-generated illustration and shows what you can expect."
+          },
+          "children": [
+            {
+              "fields": { "title": "Sessions", "description": "Twelve people, one flipchart, one topic. Most sessions are discussions, not talks." },
+              "files": { "image": [ { "title": "Session in a seminar room", "alternative": "Illustrative image: about twelve people sit in a semicircle with laptops while a woman sketches a diagram on a flipchart." } ] }
+            },
+            {
+              "fields": { "title": "Hallway conversations", "description": "At a barcamp the hallway track is not a by-product, it is half the event." },
+              "files": { "image": [ { "title": "Break in the foyer", "alternative": "Illustrative image: three people stand talking in a bright corridor, holding coffee cups and laptops." } ] }
+            },
+            {
+              "fields": { "title": "Social event", "description": "Saturday evening carries on together – outdoors, if the weather plays along." },
+              "files": { "image": [ { "title": "Social event on Saturday evening", "alternative": "Illustrative image: an evening table under string lights, with many people in conversation." } ] }
+            }
+          ]
+        },
+        "2": {
+          "fields": {
+            "header": "Camp 的一个周末是什么样",
+            "subheadline": "2026 年的 Camp 尚未举办：本页所有图片都是 AI 生成的示意图，用来说明你可以期待什么。"
+          },
+          "children": [
+            {
+              "fields": { "title": "Sessions", "description": "十来个人、一块白板、一个话题。多数 Session 是讨论，而不是演讲。" },
+              "files": { "image": [ { "title": "研讨室里的 Session", "alternative": "示意图：约十二人带着笔记本电脑围成半圆而坐，一位女士在白板上画示意图。" } ] }
+            },
+            {
+              "fields": { "title": "走廊里的聊天", "description": "在 Barcamp 上，走廊话题不是副产品，而是活动的一半。" },
+              "files": { "image": [ { "title": "门厅里的休息时间", "alternative": "示意图：三个人手拿咖啡杯和笔记本电脑，站在明亮的走廊里交谈。" } ] }
+            },
+            {
+              "fields": { "title": "社交活动", "description": "周六晚上大家接着一起——天气好的话就在户外。" },
+              "files": { "image": [ { "title": "周六晚上的社交活动", "alternative": "示意图：夜晚的长桌聚会，头顶挂着串灯，许多人在交谈。" } ] }
+            }
+          ]
+        },
+        "3": {
+          "fields": {
+            "header": "Így telik egy camp-hétvége",
+            "subheadline": "A 2026-os camp még nem volt: az oldalon minden kép MI-vel generált illusztráció, és azt mutatja, mire számíthattok."
+          },
+          "children": [
+            {
+              "fields": { "title": "Sessionök", "description": "Tizenkét ember, egy flipchart, egy téma. A legtöbb session beszélgetés, nem előadás." },
+              "files": { "image": [ { "title": "Session a szemináriumi teremben", "alternative": "Illusztráció: tucatnyi ember ül félkörben laptoppal, egy nő ábrát rajzol a flipchartra." } ] }
+            },
+            {
+              "fields": { "title": "Folyosói beszélgetések", "description": "Barcampon a folyosói sáv nem melléktermék, hanem a rendezvény fele." },
+              "files": { "image": [ { "title": "Szünet az előtérben", "alternative": "Illusztráció: három ember kávéspohárral és laptoppal beszélget egy világos folyosón." } ] }
+            },
+            {
+              "fields": { "title": "Social event", "description": "Szombat este együtt megy tovább – ha az idő engedi, a szabadban." },
+              "files": { "image": [ { "title": "Social event szombat este", "alternative": "Illusztráció: esti asztaltársaság fényfüzérek alatt, sokan beszélgetnek." } ] }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "source": 26236,
+      "childTable": "how_to_steps_items",
+      "lang": {
+        "1": {
+          "fields": {
+            "header": "Registered in four steps",
+            "description": "<p>Registration is done with a short form. You do not need an account for it.</p>"
+          },
+          "children": [
+            { "fields": { "title": "Choose a ticket type", "content": "<p>There is the <strong>standard ticket</strong> with warm-up, both camp days, catering and the social event, and the <strong>supporter ticket</strong> with the same package for everyone who wants to support the camp on top of that. The <strong>integration workshop on Friday</strong> can be booked as an option.</p>" } },
+            { "fields": { "title": "Fill in the form", "content": "<p>On the <a href=\"t3://page?uid=934\">ticket registration</a> page you enter your name, email address and ticket type. Dietary notes and accessibility requests can be sent along right away.</p>" } },
+            { "fields": { "title": "Wait for the confirmation", "content": "<p>You will get a confirmation by email. Friday's workshop has a limited number of places, allocated in the order registrations arrive.</p>" } },
+            { "fields": { "title": "Come along", "content": "<p>The warm-up starts on the evening of Friday, <strong>11 September 2026</strong>. The camp runs on <strong>Saturday and Sunday</strong> at the PUC. Bring a laptop – and a topic you want to talk about.</p>" } }
+          ]
+        },
+        "2": {
+          "fields": {
+            "header": "四步完成报名",
+            "description": "<p>报名只需填一个简短的表单，不用注册账号。</p>"
+          },
+          "children": [
+            { "fields": { "title": "选择门票类型", "content": "<p><strong>标准票</strong>包含暖场活动、两天会期、餐饮和社交活动；<strong>支持者票</strong>权益相同，适合愿意额外支持 Camp 的人。<strong>周五的集成工作坊</strong>可另行加订。</p>" } },
+            { "fields": { "title": "填写表单", "content": "<p>在<a href=\"t3://page?uid=934\">门票报名</a>页面填写姓名、邮箱和门票类型。饮食需求和无障碍方面的需要也可以一并写上。</p>" } },
+            { "fields": { "title": "等待确认", "content": "<p>你会收到一封确认邮件。周五工作坊名额有限，按报名先后顺序分配。</p>" } },
+            { "fields": { "title": "如期前来", "content": "<p>暖场活动从 <strong>2026 年 9 月 11 日</strong>（周五）傍晚开始，Camp 在<strong>周六和周日</strong>于 PUC 进行。请带上笔记本电脑——以及一个你想聊的话题。</p>" } }
+          ]
+        },
+        "3": {
+          "fields": {
+            "header": "Négy lépésben kész a jelentkezés",
+            "description": "<p>A regisztráció egy rövid űrlapon keresztül megy. Fiókra nincs szükség hozzá.</p>"
+          },
+          "children": [
+            { "fields": { "title": "Válassz jegytípust", "content": "<p>Van <strong>standard jegy</strong>, amiben benne van a warm-up, mindkét camp-nap, az ellátás és a social event, és van <strong>támogatói jegy</strong> ugyanezzel a szolgáltatással azoknak, akik ezen felül is támogatnák a campot. Külön megváltható a <strong>pénteki integrációs workshop</strong>.</p>" } },
+            { "fields": { "title": "Töltsd ki az űrlapot", "content": "<p>A <a href=\"t3://page?uid=934\">jegyregisztráció</a> oldalon megadod a neved, az e-mail-címed és a jegytípust. Az étrendi tudnivalókat és az akadálymentességi kéréseket rögtön elküldheted vele.</p>" } },
+            { "fields": { "title": "Várd meg a visszaigazolást", "content": "<p>E-mailben kapsz visszaigazolást. A pénteki workshopon korlátozott a helyek száma, a jelentkezések sorrendjében osztjuk ki őket.</p>" } },
+            { "fields": { "title": "Gyere el", "content": "<p>A warm-up <strong>2026. szeptember 11-én</strong>, pénteken este kezdődik. A camp <strong>szombaton és vasárnap</strong> zajlik a PUC-ban. Hozz laptopot – és egy témát, amiről beszélni akarsz.</p>" } }
+          ]
+        }
+      }
+    },
+    {
+      "source": 26237,
+      "childTable": "desiderio_qa_item",
+      "lang": {
+        "1": {
+          "fields": {
+            "header": "Frequently asked questions",
+            "subheadline": "Tickets, schedule, getting there – and what a barcamp actually is."
+          },
+          "children": [
+            { "fields": { "question": "What is included in the ticket?", "answer": "<p>The warm-up on Friday evening, both camp days at the PUC, catering on Saturday and Sunday and the social event on Saturday evening. Friday's workshop is booked separately on top.</p>" } },
+            { "fields": { "question": "I have never been to a barcamp. How does it work?", "answer": "<p>On Saturday morning everyone who wants to offer a session introduces the topic in one sentence. Then we vote, and the proposals with the most interest go on the schedule on the wall. You do not have to prepare anything and you do not have to offer anything: listening and joining the discussion is perfectly fine.</p>" } },
+            { "fields": { "question": "Do I need prior knowledge?", "answer": "<p>TYPO3 basics help. Beyond that the camp is open to every role: integration, development, editorial, project management, design.</p>" } },
+            { "fields": { "question": "What language are the sessions in?", "answer": "<p>Mostly German. Sessions in English are expressly welcome and are marked as such on the session board, so everyone knows what they are walking into.</p>" } },
+            { "fields": { "question": "How do I get to Puchheim?", "answer": "<p>By suburban rail line S4 from Munich Hauptbahnhof towards Geltendorf, or by car via the A96. Detailed directions and parking information go out with the registration confirmation.</p>" } },
+            { "fields": { "question": "Is there a workshop on Friday?", "answer": "<p>Yes, bookable as an option: an integration workshop on TYPO3 v14. The number of places is limited. Bring a local TYPO3 14 installation set up with Composer, then you can work along.</p>" } },
+            { "fields": { "question": "Is there a code of conduct?", "answer": "<p>Yes. The <strong>TYPO3 Code of Conduct</strong> applies at the camp: treat each other with respect, no harassment, no discrimination. If you feel uncomfortable, talk to the organising team on site or write to the address given in the <a href=\"t3://page?uid=935\">imprint</a>. Breaches lead to exclusion from the camp.</p>" } }
+          ]
+        },
+        "2": {
+          "fields": {
+            "header": "常见问题",
+            "subheadline": "门票、流程、交通——以及 Barcamp 到底是什么。"
+          },
+          "children": [
+            { "fields": { "question": "门票包含哪些内容？", "answer": "<p>周五晚的暖场活动、在 PUC 的两天会期、周六和周日的餐饮，以及周六晚的社交活动。周五的工作坊需要另行加订。</p>" } },
+            { "fields": { "question": "我没参加过 Barcamp，流程是怎样的？", "answer": "<p>周六上午，每位想开 Session 的人用一句话介绍自己的话题，然后大家投票，得到最多关注的提议会被排进墙上的日程表。你不需要提前准备，也不必非要开一场——只来听、参与讨论完全可以。</p>" } },
+            { "fields": { "question": "需要什么基础吗？", "answer": "<p>有 TYPO3 基础会更好。除此之外，Camp 对所有角色开放：集成、开发、内容编辑、项目管理、设计。</p>" } },
+            { "fields": { "question": "Session 用什么语言？", "answer": "<p>多数是德语。英语 Session 非常欢迎，并会在日程表上专门标注，这样大家都清楚自己要参加的是哪一种。</p>" } },
+            { "fields": { "question": "怎么去普赫海姆？", "answer": "<p>从慕尼黑中央车站乘 S4 市郊铁路往 Geltendorf 方向，或自驾走 A96 高速。详细路线和停车说明会随报名确认邮件发出。</p>" } },
+            { "fields": { "question": "周五有工作坊吗？", "answer": "<p>有，可选加订：一场关于 TYPO3 v14 的集成工作坊，名额有限。请带上用 Composer 搭好的本地 TYPO3 14 环境，这样可以直接动手。</p>" } },
+            { "fields": { "question": "有行为准则吗？", "answer": "<p>有。Camp 适用 <strong>TYPO3 行为准则（Code of Conduct）</strong>：彼此尊重，不骚扰，不歧视。如果你感到不适，可以在现场联系组织团队，或写信到<a href=\"t3://page?uid=935\">法律声明</a>中列出的地址。违反者将被请离 Camp。</p>" } }
+          ]
+        },
+        "3": {
+          "fields": {
+            "header": "Gyakori kérdések",
+            "subheadline": "Jegy, menetrend, odautazás – és hogy egyáltalán mi az a barcamp."
+          },
+          "children": [
+            { "fields": { "question": "Mit tartalmaz a jegy?", "answer": "<p>A pénteki warm-upot, mindkét camp-napot a PUC-ban, a szombati és vasárnapi ellátást, valamint a szombat esti social eventet. A pénteki workshop külön váltható meg.</p>" } },
+            { "fields": { "question": "Még sosem voltam barcampon. Hogyan zajlik?", "answer": "<p>Szombat reggel mindenki, aki sessiont tartana, egy mondatban bemutatja a témáját. Utána szavazunk, és a legtöbb érdeklődést kapó javaslatok kerülnek fel a falon lévő menetrendre. Nem kell előre készülnöd, és nem kell sessiont tartanod: hallgatni és hozzászólni teljesen rendben van.</p>" } },
+            { "fields": { "question": "Kell hozzá előismeret?", "answer": "<p>A TYPO3-alapok segítenek. Ezen túl a camp minden szerepkör előtt nyitva áll: integráció, fejlesztés, szerkesztőség, projektvezetés, design.</p>" } },
+            { "fields": { "question": "Milyen nyelven mennek a sessionök?", "answer": "<p>Többnyire németül. Az angol nyelvű sessionök kifejezetten jöhetnek, és a sessiontáblán jelöljük is őket, hogy mindenki tudja, mire számítson.</p>" } },
+            { "fields": { "question": "Hogyan jutok el Puchheimbe?", "answer": "<p>Az S4-es elővárosi vonallal a müncheni főpályaudvarról Geltendorf felé, autóval az A96-oson. A pontos útvonalleírást és a parkolási tudnivalókat a regisztráció visszaigazolásával küldjük.</p>" } },
+            { "fields": { "question": "Van pénteki workshop?", "answer": "<p>Igen, opcionálisan megváltható: egy TYPO3 v14 integrációs workshop. A létszám korlátozott. Hozz magaddal Composerrel telepített helyi TYPO3 14-et, így végig tudsz dolgozni.</p>" } },
+            { "fields": { "question": "Van magatartási kódex?", "answer": "<p>Igen. A campre a <strong>TYPO3 Code of Conduct</strong> érvényes: tiszteletteljes hangnem, zaklatás és diszkrimináció nélkül. Aki rosszul érzi magát, forduljon a helyszínen a szervezőkhöz, vagy írjon az <a href=\"t3://page?uid=935\">impresszumban</a> megadott címre. A szabálysértés a campről való kizárást vonja maga után.</p>" } }
+          ]
+        }
+      }
+    },
+    {
+      "source": 26238,
+      "childTable": null,
+      "lang": {
+        "1": {
+          "fields": {
+            "header": "Come along.",
+            "subheadline": "Registration is open. One ticket, three days, and a programme you make yourselves.",
+            "primary_button_text": "Register for a ticket"
+          },
+          "files": {
+            "cta_image": [
+              {
+                "title": "Welcome desk on camp morning",
+                "alternative": "Illustrative image: two helpers at the welcome desk hand a blank name badge to an arriving guest."
+              }
+            ]
+          }
+        },
+        "2": {
+          "fields": {
+            "header": "来吧。",
+            "subheadline": "报名已开放。一张票，三天时间，一个由你们自己做出来的议程。",
+            "primary_button_text": "报名门票"
+          },
+          "files": {
+            "cta_image": [
+              {
+                "title": "开营当天的接待台",
+                "alternative": "示意图：接待台前的两位志愿者，正把一张空白姓名牌递给刚到的来宾。"
+              }
+            ]
+          }
+        },
+        "3": {
+          "fields": {
+            "header": "Gyertek el.",
+            "subheadline": "A regisztráció nyitva. Egy jegy, három nap, és egy program, amit ti csináltok.",
+            "primary_button_text": "Jegyet igénylek"
+          },
+          "files": {
+            "cta_image": [
+              {
+                "title": "Regisztrációs pult a camp reggelén",
+                "alternative": "Illusztráció: két segítő a regisztrációs pultnál üres névkitűzőt nyújt át egy érkező vendégnek."
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "source": 73374,
+      "childTable": "feature_checklist_items",
+      "lang": {
+        "1": {
+          "fields": { "header": "What you are booking here", "eyebrow": "Tickets" },
+          "children": [
+            { "fields": { "title": "Standard ticket", "description_text": "Warm-up on Friday evening, both camp days, catering and the social event." } },
+            { "fields": { "title": "Supporter ticket", "description_text": "The same package – and we name you as a supporter on site and in the camp channels." } },
+            { "fields": { "title": "Integration workshop on Friday", "description_text": "Bookable as an option, limited places, allocated in the order registrations arrive." } },
+            { "fields": { "title": "Dietary notes and accessibility", "description_text": "Put your requirements straight into the form and we will plan for them." } }
+          ]
+        },
+        "2": {
+          "fields": { "header": "你在这里预订的是什么", "eyebrow": "门票" },
+          "children": [
+            { "fields": { "title": "标准票", "description_text": "周五晚的暖场活动、两天会期、餐饮和社交活动。" } },
+            { "fields": { "title": "支持者票", "description_text": "权益完全相同——并会在现场和 Camp 的各个频道里向你致谢。" } },
+            { "fields": { "title": "周五的集成工作坊", "description_text": "可选加订，名额有限，按报名先后顺序分配。" } },
+            { "fields": { "title": "饮食需求与无障碍", "description_text": "请直接写进表单，我们会提前安排。" } }
+          ]
+        },
+        "3": {
+          "fields": { "header": "Mit foglalsz itt le", "eyebrow": "Jegyek" },
+          "children": [
+            { "fields": { "title": "Standard jegy", "description_text": "Pénteki warm-up, mindkét camp-nap, ellátás és social event." } },
+            { "fields": { "title": "Támogatói jegy", "description_text": "Ugyanaz a szolgáltatás – és a helyszínen meg a camp csatornáin támogatóként említünk meg." } },
+            { "fields": { "title": "Pénteki integrációs workshop", "description_text": "Külön megváltható, korlátozott létszám, a jelentkezések sorrendjében." } },
+            { "fields": { "title": "Étrendi tudnivalók és akadálymentesség", "description_text": "Írd bele rögtön az űrlapba, és számolunk vele." } }
+          ]
+        }
+      }
+    },
+    {
+      "source": 26241,
+      "childTable": null,
+      "lang": {
+        "1": {
+          "fields": {
+            "header": "Registration received",
+            "bodytext": "<p>Thank you! Your registration for TYPO3 Camp Munich 2026 has reached us. A confirmation with all the details about getting there and the schedule will go to the address you gave us shortly.</p>\n<p>No email? Check the spam folder first, and otherwise get in touch using the contact address given in the <a href=\"t3://page?uid=935\">imprint</a>.</p>\n<p>See you in Puchheim in September.</p>"
+          }
+        },
+        "2": {
+          "fields": {
+            "header": "报名已收到",
+            "bodytext": "<p>谢谢！你报名 2026 年慕尼黑 TYPO3 Camp 的信息我们已经收到。包含交通和流程全部细节的确认邮件，稍后会发送到你填写的邮箱。</p>\n<p>没收到邮件？请先查看垃圾邮件文件夹；如果仍然没有，请通过<a href=\"t3://page?uid=935\">法律声明</a>中列出的联系方式与我们联系。</p>\n<p>九月，普赫海姆见。</p>"
+          }
+        },
+        "3": {
+          "fields": {
+            "header": "Regisztráció fogadva",
+            "bodytext": "<p>Köszönjük! A TYPO3 Camp München 2026-ra küldött jelentkezésed megérkezett. A visszaigazolást az odautazás és a menetrend minden részletével hamarosan elküldjük a megadott e-mail-címre.</p>\n<p>Nem jött meg az e-mail? Nézd meg először a spam mappát, egyébként pedig keress minket az <a href=\"t3://page?uid=935\">impresszumban</a> megadott elérhetőségen.</p>\n<p>Szeptemberben találkozunk Puchheimben!</p>"
+          }
+        }
+      }
+    }
+  ]
+}
