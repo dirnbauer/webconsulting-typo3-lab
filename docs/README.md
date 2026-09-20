@@ -12,6 +12,7 @@ extension-specific behaviour remains in each extension repository.
 | [mcp-clients.md](mcp-clients.md) | Codex, Claude Code and Cursor stdio setup and troubleshooting. |
 | [workos-frontend-plugins.md](workos-frontend-plugins.md) | WorkOS page tree, Desiderio overrides and verification. |
 | [ai-content-examples.md](ai-content-examples.md) | LLM routing, Content Assistant, Cowriter and image examples. |
+| [shadcn-ui.md](shadcn-ui.md) | Backend AI chat, its approval flow, configuration and building modules on the shadcn/ui base. |
 | [mcp-spec-2026-07-28-adoption.md](mcp-spec-2026-07-28-adoption.md) | MCP 2026-07-28 adoption record. |
 | [typo3-agentic-strategy-2026.md](typo3-agentic-strategy-2026.md) | Agentic TYPO3 strategy. |
 | [wordpress-abilities-vs-capability-manifests.md](wordpress-abilities-vs-capability-manifests.md) | Ability and capability model comparison. |

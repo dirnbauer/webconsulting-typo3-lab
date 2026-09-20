@@ -95,4 +95,15 @@ if [ "${TYPO3_FLUSH_PAGE_CACHE:-1}" = "1" ]; then
         || echo "entrypoint: WARNING page cache flush failed; pages may render from the previous release" >&2
 fi
 
+# A chat turn runs inside the request that started it, so a request that dies
+# leaves its conversation claimed and nothing but this command releases it.
+# There is no cron daemon in this container, so a scheduler task would never
+# fire; at start nothing can be mid-turn, which makes this the one moment the
+# release is certainly safe. The same run applies the retention windows.
+if [ "${TYPO3_CHAT_CLEANUP:-1}" = "1" ]; then
+    echo "entrypoint: releasing stuck chat conversations and applying retention"
+    su -s /bin/sh -c 'cd /var/www/html && php -d memory_limit=1536M vendor/bin/typo3 shadcn-ui:chat:cleanup --archive-after=30 --delete-after=90 --no-interaction' www-data \
+        || echo "entrypoint: WARNING chat cleanup failed; stuck conversations stay claimed until the next start" >&2
+fi
+
 exec docker-php-entrypoint "$@"

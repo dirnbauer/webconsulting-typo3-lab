@@ -108,6 +108,15 @@ step. A failed migration is logged and the container still serves, so the
 problem is visible in both the logs and the site rather than hidden behind a
 boot loop.
 
+On start the container also runs `shadcn-ui:chat:cleanup`
+(`TYPO3_CHAT_CLEANUP=0` to skip). A chat turn runs inside the request that
+started it, so a request that dies leaves its conversation claimed; there is no
+cron daemon here to run a scheduler task, and at start nothing can be mid-turn.
+
+Every switch named in this section is declared in `docker-compose.coolify.yml`.
+That matters: Coolify injects only what the compose file declares, so a variable
+set in its interface without a matching line there never reaches the container.
+
 Dropping columns is deliberately not automatic. Run it only after any upgrade
 wizard that reads the old data has finished — in particular AI Chat's
 `messagesToRows`, whose input is the `messages` column it would remove.

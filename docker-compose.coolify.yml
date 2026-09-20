@@ -7,6 +7,13 @@ services:
       BASIC_AUTH_PASSWORD: ${SERVICE_PASSWORD_BASIC}
       BASIC_AUTH_USER: ${BASIC_AUTH_USER:-lab}
       TYPO3_CONTEXT: Production
+      # Entrypoint switches. Coolify injects only what this file declares, so
+      # without these lines the documented overrides never reached the
+      # container and the defaults could not be changed at all.
+      TYPO3_RUN_SETUP: ${TYPO3_RUN_SETUP:-1}
+      TYPO3_FLUSH_PAGE_CACHE: ${TYPO3_FLUSH_PAGE_CACHE:-1}
+      TYPO3_CHAT_CLEANUP: ${TYPO3_CHAT_CLEANUP:-1}
+      TYPO3_LOG_MAX_BYTES: ${TYPO3_LOG_MAX_BYTES:-52428800}
       # Jev API token. webcon-jev:token:import reads it from the environment
       # and stores it in the vault; without the passthrough a value set in
       # Coolify never reaches the container.

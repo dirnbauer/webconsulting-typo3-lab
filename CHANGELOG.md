@@ -67,6 +67,51 @@ level 8 with no baseline, tests and one CI workflow each
   skillflow 1.6.2, image-workbench 0.2.1, and outside the lab pw_teaser 8.1.0
   and typo3-camino-vercel.
 
+### After the overhaul — 2026-09-19 to 2026-09-20
+
+New in the lab
+
+- **Jev decisions in forms.** `webconsulting/webcon-jev` (0.1.11) routes and
+  gates Powermail submissions on typed answers from the Jev API, with
+  `in2code/powermail_cond` from our TYPO3 14 fork driving the conditions. The
+  first runs against the live service found three faults the fallback path
+  could never show, among them a confidence threshold that withheld a note
+  from exactly the applicants it was written for. The desiderio site carries
+  the powermail-cond set and its `condition.json` route type.
+- **Downloads page.** A sanitised database and Fileadmin snapshot is published
+  behind the lab's basic auth, as zip archives with an installer.
+- easy workspace 1.6.1: the toolbar badge counts the current page or article,
+  and `/has-changes` answers truthfully; on v14 it had answered `false` for
+  every context, because its guard asked TCA for columns v14 no longer lists.
+- `apps/news-api-studio` is gone, together with its CI step and documentation.
+
+Deployment
+
+- Both new packages resolve from their repositories. They had entered as path
+  repositories under `packages/`, which is untracked, so a fresh clone, CI and
+  the Coolify build could none of them have resolved either one.
+- An unscoped StaticFileCache rule in `public/.htaccess` stamped
+  `Content-Encoding: gzip` on every `.gz` in the document root, so clients
+  silently decompressed downloads into files their names no longer described.
+  It is anchored to the two filenames StaticFileCache writes.
+- Coolify injects only what the compose file declares. `TYPESAFE_API_KEY` and
+  the entrypoint's own switches (`TYPO3_RUN_SETUP`, `TYPO3_FLUSH_PAGE_CACHE`,
+  `TYPO3_LOG_MAX_BYTES`) were documented but never reached the container; all
+  are declared now.
+- nr-vault's provisioning user is set in `settings.php.example`, because the
+  image regenerates `settings.php` from it on every deploy and `config/` is
+  not a persistent volume. The Jev token installs through that user while CLI
+  vault access stays off.
+- The container releases stuck chat conversations and applies retention on
+  every start; there is no cron daemon to run a scheduler task.
+- The lab is sized for the host it shares with Coolify: bounded Apache, MariaDB
+  and Solr memory, keep-alive off, security headers on every response.
+- The CI deploy job no longer reports a deployment that never happened.
+  Coolify's IP allowlist refuses GitHub's runners, so deployments stay manual
+  through `Build/Scripts/sync-coolify.sh deploy`.
+- `docs/shadcn-ui.md` documents the backend chat; two documents had linked to
+  it before it existed.
+
 ### Maintenance — 2026-09-06
 
 - Set TYPO3 14.3.6 as the minimum core version; the lab was already running
