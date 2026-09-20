@@ -72,12 +72,17 @@ server — indistinguishable from a real deployment, on the one job whose whole
 purpose is to say the live site moved. Confirm with `status` either way: it
 prints the deployed commit as the image tag.
 
-Deployments are manual, and deliberately so. Coolify's IP allowlist refuses
-GitHub's runners, whose address ranges are too wide and too volatile to allow,
-and each deploy builds the image on the host it serves from, so deploying every
-push is not wanted either. One command does the whole job: it refuses unless
-the Quality run for `origin/main` is green (`--force` skips that), asks Coolify
-to build, waits for Coolify's verdict and then for the site to answer:
+A push to `main` deploys itself: the `deploy` job in the Quality workflow runs
+only after both suites pass, so a red commit never becomes the live site. It
+needs the `COOLIFY_TOKEN` secret, the repository variable
+`COOLIFY_CI_DEPLOY=true`, and Coolify's API allowlist admitting GitHub's
+runners; until 2026-09-20 the allowlist refused them and every deployment was
+manual. `workflow_dispatch` redeploys `main` from the Actions UI without a
+commit.
+
+The command below is the manual equivalent. It refuses unless the Quality run
+for `origin/main` is green (`--force` skips that), asks Coolify to build, then
+waits for Coolify's verdict and for the site to answer:
 
 ```bash
 Build/Scripts/sync-coolify.sh deploy

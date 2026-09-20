@@ -244,9 +244,8 @@ deploy() {
     token="$(coolify_token)" || exit 2
 
     # Coolify builds whatever origin/main is, so that is the commit to judge.
-    # The CI deploy job used to be this gate; Coolify's IP allowlist refuses
-    # GitHub's runners, so every deployment comes through here instead, and on
-    # 2026-09-19 a commit with a red run went live because nothing checked.
+    # CI's deploy job has this gate built in; a manual deployment had none, and
+    # on 2026-09-19 a commit with a red run went live because nothing checked.
     if [[ "${1:-}" != "--force" ]]; then
         require_green_ci
     fi
@@ -302,12 +301,19 @@ deploy() {
 
     # A queued deployment is not a deployed site: on 2026-09-20 one failed
     # because the host rebooted mid-build, and the old image kept serving.
+    local target_sha
+    target_sha="$(git ls-remote origin refs/heads/main | cut -f1)"
     echo "Waiting for Coolify to finish ${deployment_uuid} ..."
     local state="" waited=0
     while (( waited < 1800 )); do
         state="$(curl -sS --max-time 30 -H "Authorization: Bearer ${token}" \
             "${base_url}/api/v1/deployments/${deployment_uuid}" \
             | sed -n 's/.*"status":"\([^"]*\)".*/\1/p' | head -1)" || state=""
+        # "Deployment already queued for this commit" comes with an id Coolify
+        # then answers 404 for. The running image is the ground truth either way.
+        if [[ -z "${state}" && "$(remote_image_tag || true)" == *"${target_sha}"* ]]; then
+            state="finished"
+        fi
         case "${state}" in
             finished) break ;;
             failed|cancelled-by-user|cancelled)

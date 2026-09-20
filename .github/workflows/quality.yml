@@ -97,12 +97,12 @@ jobs:
         id: check
         env:
           COOLIFY_TOKEN: ${{ secrets.COOLIFY_TOKEN }}
-          # Off until CI can actually reach Coolify: its API is IP-allowlisted
-          # and GitHub's runners are not on the list, so every attempt ends in
-          # a 403. A deploy job that is red on every push teaches people to
-          # ignore red, and buries real failures. Switch on with
-          #   gh variable set COOLIFY_CI_DEPLOY --body true
-          # once the allowlist question in docs/coolify-deployment.md is settled.
+          # The switch for CI deploys. Coolify's API is IP-allowlisted; while
+          # it refused GitHub's runners every attempt ended in a 403, and a
+          # deploy job that is red on every push teaches people to ignore red.
+          # The allowlist admits the runners since 2026-09-20 and this variable
+          # is 'true'. Turn deploys off again with
+          #   gh variable set COOLIFY_CI_DEPLOY --body false
           COOLIFY_CI_DEPLOY: ${{ vars.COOLIFY_CI_DEPLOY }}
         run: |
           if [ -n "${COOLIFY_TOKEN}" ] && [ "${COOLIFY_CI_DEPLOY}" != "true" ]; then
