@@ -22,12 +22,14 @@ trap cleanup EXIT
 
 usage() {
     cat <<'USAGE'
-Usage: Build/Scripts/sync-coolify.sh <status|deploy|publish-snapshot|publish-downloads-page|push|pull> [--confirm]
+Usage: Build/Scripts/sync-coolify.sh <status|deploy|publish-snapshot|publish-downloads-page|push|pull> [--confirm|--force]
 
   status            Show the local DDEV and remote Coolify container state.
   deploy            Ask Coolify to rebuild and redeploy the application from
                     the current main branch, then wait for the new containers.
                     Code only: it does not touch the database or fileadmin.
+                    Refuses unless the Quality run for origin/main is green;
+                    'deploy --force' skips that check.
   publish-snapshot --confirm
                     Build the sanitised download snapshot from the LIVE
                     database and fileadmin and place it in the site's
@@ -241,6 +243,14 @@ deploy() {
 
     token="$(coolify_token)" || exit 2
 
+    # Coolify builds whatever origin/main is, so that is the commit to judge.
+    # The CI deploy job used to be this gate; Coolify's IP allowlist refuses
+    # GitHub's runners, so every deployment comes through here instead, and on
+    # 2026-09-19 a commit with a red run went live because nothing checked.
+    if [[ "${1:-}" != "--force" ]]; then
+        require_green_ci
+    fi
+
     local before
     before="$(remote_image_tag || true)"
     echo "Currently deployed: ${before:-unknown}"
@@ -282,7 +292,73 @@ deploy() {
     fi
 
     echo "${body}"
-    echo "Deployment queued. Watch it at ${base_url}, or re-run 'status' in a few minutes."
+
+    local deployment_uuid
+    deployment_uuid="$(printf '%s' "${body}" | sed -n 's/.*"deployment_uuid":"\([^"]*\)".*/\1/p')"
+    if [[ -z "${deployment_uuid}" ]]; then
+        echo "Deployment queued. Watch it at ${base_url}, or re-run 'status' in a few minutes."
+        return 0
+    fi
+
+    # A queued deployment is not a deployed site: on 2026-09-20 one failed
+    # because the host rebooted mid-build, and the old image kept serving.
+    echo "Waiting for Coolify to finish ${deployment_uuid} ..."
+    local state="" waited=0
+    while (( waited < 1800 )); do
+        state="$(curl -sS --max-time 30 -H "Authorization: Bearer ${token}" \
+            "${base_url}/api/v1/deployments/${deployment_uuid}" \
+            | sed -n 's/.*"status":"\([^"]*\)".*/\1/p' | head -1)" || state=""
+        case "${state}" in
+            finished) break ;;
+            failed|cancelled-by-user|cancelled)
+                echo "Coolify reports the deployment as ${state}; the previous image keeps serving." >&2
+                exit 1
+                ;;
+        esac
+        sleep 20
+        waited=$(( waited + 20 ))
+    done
+    if [[ "${state}" != "finished" ]]; then
+        echo "Gave up after ${waited}s with the deployment still '${state:-unknown}'." >&2
+        exit 1
+    fi
+
+    # 401 is the healthy answer: the lab sits behind basic auth. The entrypoint
+    # runs migrations before Apache starts, so the edge answers 503 for a while.
+    local edge="" tries=0
+    while (( tries < 30 )); do
+        edge="$(curl -s -o /dev/null -w '%{http_code}' --max-time 20 "https://typo3-lab.webconsulting.at/" || true)"
+        [[ "${edge}" == "401" || "${edge}" == "200" ]] && break
+        sleep 20
+        tries=$(( tries + 1 ))
+    done
+    echo "Deployed: $(remote_image_tag || echo unknown) — edge answers ${edge}."
+    [[ "${edge}" == "401" || "${edge}" == "200" ]] || exit 1
+}
+
+require_green_ci() {
+    if ! command -v gh >/dev/null 2>&1; then
+        echo "gh is not installed, so the Quality run cannot be checked. Use 'deploy --force' to deploy anyway." >&2
+        exit 1
+    fi
+    local repo="${GITHUB_REPOSITORY:-dirnbauer/webconsulting-typo3-lab}" sha verdict
+    sha="$(git ls-remote origin refs/heads/main | cut -f1)"
+    verdict="$(gh run list -R "${repo}" --workflow Quality --branch main --limit 20 \
+        --json headSha,status,conclusion \
+        --jq "[.[] | select(.headSha == \"${sha}\")][0] | \"\(.status) \(.conclusion)\"" 2>/dev/null || true)"
+    case "${verdict}" in
+        "completed success")
+            echo "Quality is green for ${sha:0:7}."
+            ;;
+        ""|"null null")
+            echo "No Quality run found for ${sha:0:7} on origin/main. Push first, or use 'deploy --force'." >&2
+            exit 1
+            ;;
+        *)
+            echo "Quality for ${sha:0:7} is '${verdict}', not green. Wait for it, fix it, or use 'deploy --force'." >&2
+            exit 1
+            ;;
+    esac
 }
 
 remote_image_tag() {
@@ -376,7 +452,7 @@ case "${command}" in
         status
         ;;
     deploy)
-        deploy
+        deploy "${2:-}"
         ;;
     publish-snapshot)
         require_confirmation "$@"

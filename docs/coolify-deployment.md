@@ -72,7 +72,12 @@ server — indistinguishable from a real deployment, on the one job whose whole
 purpose is to say the live site moved. Confirm with `status` either way: it
 prints the deployed commit as the image tag.
 
-The command below is the manual equivalent, for deploying without a push:
+Deployments are manual, and deliberately so. Coolify's IP allowlist refuses
+GitHub's runners, whose address ranges are too wide and too volatile to allow,
+and each deploy builds the image on the host it serves from, so deploying every
+push is not wanted either. One command does the whole job: it refuses unless
+the Quality run for `origin/main` is green (`--force` skips that), asks Coolify
+to build, waits for Coolify's verdict and then for the site to answer:
 
 ```bash
 Build/Scripts/sync-coolify.sh deploy
