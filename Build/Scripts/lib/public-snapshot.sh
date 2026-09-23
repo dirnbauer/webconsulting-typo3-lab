@@ -16,22 +16,27 @@
 # audit logs, notes, and the demo shop's orders and leads. Caches and the
 # orphaned indexed_search tables go too: they hold rendered copies of pages,
 # including pages deleted since, and they rebuild themselves.
-SNAPSHOT_SENSITIVE_PATTERN='vault|secret|token|credential|oauth|identity|payment_log|_provider$|^fe_users$|^be_users$|^be_sessions$|^fe_sessions$|^sys_log$|^sys_history$|^sys_note$|^tx_powermail_domain_model_(mail|answer)$|^tx_blog_domain_model_comment$|^tx_[a-z0-9_]+_(conversation|message|run|audit|audit_log)$|^tx_webconmcpchatbridge_|^tx_agentnexus_(ucp_order|ucp_order_log|a2ui_inquiry|a2a_request|agui_lead)$|^cache_|^index_(config|debug|fulltext|grlist|phash|rel|section|stat_word|words)$'
+SNAPSHOT_SENSITIVE_PATTERN='vault|secret|token|credential|oauth|identity|payment_log|_provider$|^fe_users$|^be_users$|^be_sessions$|^fe_sessions$|^sys_log$|^sys_history$|^sys_note$|^tx_powermail_domain_model_(mail|answer)$|^tx_blog_domain_model_comment$|^tx_[a-z0-9_]+_(conversation|message|run|audit|audit_log)$|^tx_webconmcpchatbridge_|^tx_agentnexus_(ucp_order|ucp_order_log|a2ui_inquiry|a2a_request|agui_lead)$|^cache_|^sys_file_processedfile$|^tx_docx_editor_revision$|^index_(config|debug|fulltext|grlist|phash|rel|section|stat_word|words)$'
 
 # Fileadmin paths the published files archive never contains: uploads made
-# through the AI chat, and personal documents (invoices, tax reports, a CV)
-# that were uploaded while testing. A plain name is a top-level folder; the
+# through the AI chat, personal documents (invoices, tax reports, a CV) that
+# were uploaded while testing, the press and stock photos left over from the
+# replaced ORF posts, and _processed_, which TYPO3 rebuilds on demand (its
+# thumbnails would carry all of the above). A plain name is a top-level folder; the
 # rest are make-zip.php patterns over the relative path. Space-separated, and
 # expanded with globbing switched off by both callers.
-SNAPSHOT_PRIVATE_PATHS='ai-chat *Lebenslauf* *gas_20*.pdf *rechnung* *Steuerbericht* *invoice*'
+SNAPSHOT_PRIVATE_PATHS='ai-chat _processed_ *Lebenslauf* *gas_20*.pdf *rechnung* *Steuerbericht* *invoice* *getty* mcp/workspaces/ws-1/orf-news mcp/workspaces/ws-1/images/orf-* mcp/workspaces/ws-1/*_ticker_* mcp/workspaces/ws-1/*_opener_* mcp/workspaces/ws-1/*_body_*'
 
-# One table whose live rows are filtered further. Page 15 holds the "Bad Shop
-# Watch" candidates another project collected in tt_address: scraped shop
-# imprints with names, addresses and e-mail addresses. They are not demo
-# content and never go into the published dump. No quotes in the condition:
-# it passes through ssh, sh -c and ddev exec.
-SNAPSHOT_ROW_FILTER_TABLE='tt_address'
-SNAPSHOT_ROW_FILTER_WHERE='deleted=0 AND pid<>15'
+# Tables whose rows are filtered, as table|condition pairs separated by ';'.
+# - tt_address: page 15 holds the "Bad Shop Watch" candidates another
+#   project collected (scraped shop imprints with names and e-mail
+#   addresses); they are not demo content.
+# - sys_file, sys_file_metadata: the index rows of the private documents and
+#   of the unreferenced press photos left from the replaced ORF posts, whose
+#   files the archive leaves out too (their names alone say too much).
+# No quotes in a condition (it passes through ssh, sh -c and ddev exec), so
+# every string is a hex literal: 0x25676574747925 = '%getty%'.
+SNAPSHOT_ROW_FILTERS='tt_address|deleted=0 AND pid<>15;sys_file|NOT (LOWER(identifier) LIKE 0x256c6562656e736c61756625 OR LOWER(identifier) LIKE 0x2f61692d636861742f25 OR LOWER(identifier) LIKE 0x257374657565726265726963687425 OR LOWER(identifier) LIKE 0x25726563686e756e6725 OR LOWER(identifier) LIKE 0x25696e766f69636525 OR LOWER(identifier) LIKE 0x256761735c5f323025 OR LOWER(identifier) LIKE 0x2f6d63702f776f726b7370616365732f77732d312f6f72662d6e6577732f25 OR LOWER(identifier) LIKE 0x2f6d63702f776f726b7370616365732f77732d312f696d616765732f6f72662d25 OR LOWER(identifier) LIKE 0x2f6d63702f776f726b7370616365732f77732d312f255c5f7469636b65725c5f25 OR LOWER(identifier) LIKE 0x2f6d63702f776f726b7370616365732f77732d312f255c5f6f70656e65725c5f25 OR LOWER(identifier) LIKE 0x2f6d63702f776f726b7370616365732f77732d312f255c5f626f64795c5f25 OR LOWER(identifier) LIKE 0x25676574747925);sys_file_metadata|file NOT IN (SELECT uid FROM sys_file WHERE LOWER(identifier) LIKE 0x256c6562656e736c61756625 OR LOWER(identifier) LIKE 0x2f61692d636861742f25 OR LOWER(identifier) LIKE 0x257374657565726265726963687425 OR LOWER(identifier) LIKE 0x25726563686e756e6725 OR LOWER(identifier) LIKE 0x25696e766f69636525 OR LOWER(identifier) LIKE 0x256761735c5f323025 OR LOWER(identifier) LIKE 0x2f6d63702f776f726b7370616365732f77732d312f6f72662d6e6577732f25 OR LOWER(identifier) LIKE 0x2f6d63702f776f726b7370616365732f77732d312f696d616765732f6f72662d25 OR LOWER(identifier) LIKE 0x2f6d63702f776f726b7370616365732f77732d312f255c5f7469636b65725c5f25 OR LOWER(identifier) LIKE 0x2f6d63702f776f726b7370616365732f77732d312f255c5f6f70656e65725c5f25 OR LOWER(identifier) LIKE 0x2f6d63702f776f726b7370616365732f77732d312f255c5f626f64795c5f25 OR LOWER(identifier) LIKE 0x25676574747925)'
 
 # The one account the published database keeps. The password is in the
 # documentation already; it is a demo login, not a secret.

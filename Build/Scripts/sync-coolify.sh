@@ -414,7 +414,7 @@ publish_snapshot() {
             '${SNAPSHOT_FILES_ARCHIVE}' '${SNAPSHOT_INSTALLER}' \
             '${SNAPSHOT_README}' '${SNAPSHOT_DIR_NAME}' \
             '${SNAPSHOT_PRIVATE_PATHS}' \
-            '${SNAPSHOT_ROW_FILTER_TABLE}' '${SNAPSHOT_ROW_FILTER_WHERE}'"
+            '${SNAPSHOT_ROW_FILTERS}'"
 
     ssh "${SSH_OPTIONS[@]}" "${REMOTE_HOST}" "rm -rf '${stage}'"
     echo

@@ -13,7 +13,7 @@ DB="$1"; WEB="$2"; STAGE="$3"; REV="$4"; TS="$5"
 PATTERN="$6"; DEMO_USER="$7"; DEMO_PASSWORD="$8"; DB_ARCHIVE="$9"
 shift 9
 DB_MEMBER="$1"; FILES_ARCHIVE="$2"; INSTALLER="$3"; README="$4"; DIR_NAME="$5"
-PRIVATE_PATHS="${6:-}"; ROW_FILTER_TABLE="${7:-}"; ROW_FILTER_WHERE="${8:-}"
+PRIVATE_PATHS="${6:-}"; ROW_FILTERS="${7:-}"
 
 DEST="/var/www/html/public/fileadmin/${DIR_NAME}"
 
@@ -36,11 +36,15 @@ SOFT=$(echo "SELECT DISTINCT table_name FROM information_schema.columns WHERE ta
   | docker exec -i "$DB" sh -c 'MYSQL_PWD="$MARIADB_PASSWORD" exec mariadb -u"$MARIADB_USER" -N -B "$MARIADB_DATABASE"' \
   | grep -Eiv "$PATTERN" | sort | tr '\n' ' ')
 SOFT=${SOFT% }
-# The row-filtered table leaves the soft-delete batch and is dumped on its own.
+# Row-filtered tables leave both batches and are dumped on their own.
 FILTERED=""
-if [ -n "$ROW_FILTER_TABLE" ]; then
-  case " $SOFT " in *" $ROW_FILTER_TABLE "*) FILTERED="$ROW_FILTER_TABLE"; SOFT=$(echo " $SOFT " | sed "s/ $FILTERED / /; s/^ //; s/ $//") ;; esac
-fi
+IFS=';'
+for filter in $ROW_FILTERS; do
+  table=${filter%%|*}
+  FILTERED="$FILTERED $table"
+  SOFT=$(echo " $SOFT " | sed "s/ $table / /; s/^ //; s/ $//")
+done
+unset IFS
 
 IGNORE=""
 for t in $SENSITIVE $SOFT $FILTERED; do IGNORE="$IGNORE --ignore-table=${DBNAME}.${t}"; done
@@ -58,11 +62,16 @@ docker exec "$DB" sh -c \
 docker exec "$DB" sh -c \
   "MYSQL_PWD=\"\$MARIADB_PASSWORD\" $DUMP -u\"\$MARIADB_USER\" --no-tablespaces --skip-comments --where='deleted=0' \"\$MARIADB_DATABASE\" $SOFT" \
   >> "${STAGE}/${DB_MEMBER}"
-if [ -n "$FILTERED" ]; then
+# Each row-filtered table with its own condition; a condition may read
+# another table, hence no table locks.
+IFS=';'
+for filter in $ROW_FILTERS; do
+  table=${filter%%|*}
   docker exec "$DB" sh -c \
-    "MYSQL_PWD=\"\$MARIADB_PASSWORD\" $DUMP -u\"\$MARIADB_USER\" --no-tablespaces --skip-comments --where='${ROW_FILTER_WHERE}' \"\$MARIADB_DATABASE\" $FILTERED" \
+    "MYSQL_PWD=\"\$MARIADB_PASSWORD\" $DUMP -u\"\$MARIADB_USER\" --no-tablespaces --skip-comments --single-transaction --skip-lock-tables --where='${filter#*|}' \"\$MARIADB_DATABASE\" $table" \
     >> "${STAGE}/${DB_MEMBER}"
-fi
+done
+unset IFS
 docker exec "$DB" sh -c \
   "MYSQL_PWD=\"\$MARIADB_PASSWORD\" $DUMP -u\"\$MARIADB_USER\" --no-tablespaces --skip-comments --no-data \"\$MARIADB_DATABASE\" $SENSITIVE" \
   >> "${STAGE}/${DB_MEMBER}"
