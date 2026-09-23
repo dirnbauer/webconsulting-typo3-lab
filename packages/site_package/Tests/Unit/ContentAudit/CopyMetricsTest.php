@@ -32,6 +32,13 @@ final class CopyMetricsTest extends TestCase
         self::assertCount(1, CopyMetrics::sentences('Das Camp fand vom 11. bis 13. September in Puchheim statt.'));
     }
 
+    public function testNumbersWithSeparatorsAreOneWord(): void
+    {
+        self::assertSame(['21,6', 'QoQ'], CopyMetrics::words('+21,6 % QoQ'));
+        self::assertSame(['Ab', '1.490', 'im', 'Jahr'], CopyMetrics::words('Ab 1.490 € im Jahr'));
+        self::assertSame(['It', 'costs', '1,490', 'a', 'year'], CopyMetrics::words('It costs €1,490 a year.'));
+    }
+
     public function testLinesWithoutPunctuationCountAsSentences(): void
     {
         self::assertCount(3, CopyMetrics::sentences("First item\nSecond item\nThird item"));

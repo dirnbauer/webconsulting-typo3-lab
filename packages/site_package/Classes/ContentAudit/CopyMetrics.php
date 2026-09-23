@@ -40,11 +40,12 @@ final class CopyMetrics
      */
     public static function words(string $text): array
     {
-        preg_match_all('/[\p{L}\p{N}][\p{L}\p{N}\'’\-]*/u', $text, $matches);
+        // A number with a decimal or thousands separator ("21,6", "1.490") is one word.
+        preg_match_all('/\p{N}+(?:[.,]\p{N}+)+|[\p{L}\p{N}][\p{L}\p{N}\'’\-]*/u', $text, $matches);
 
         return array_values(array_filter(
             $matches[0],
-            static fn (string $word): bool => preg_match('/\p{L}/u', $word) === 1 || preg_match('/^\p{N}+$/u', $word) === 1
+            static fn (string $word): bool => preg_match('/\p{L}/u', $word) === 1 || preg_match('/^\p{N}+(?:[.,]\p{N}+)*$/u', $word) === 1
         ));
     }
 
