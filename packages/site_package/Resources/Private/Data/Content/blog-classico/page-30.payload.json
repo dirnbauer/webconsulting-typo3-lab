@@ -21,15 +21,16 @@
                 "twitter_description": "A gentle seasonal post about sheep, green fields, and reflective Easter afternoons."
             },
             "set": {
-                "title": "A Quiet Easter Afternoon with Young Lambs",
-                "subtitle": "Slow seasonal moments that stay with people",
-                "abstract": "The calm side of Easter told through spring pasture scenes.",
-                "description": "A gentle seasonal post about sheep, green fields, and reflective Easter afternoons.",
-                "seo_title": "A Quiet Easter Afternoon with Young Lambs",
-                "og_title": "A Quiet Easter Afternoon with Young Lambs",
-                "og_description": "A gentle seasonal post about sheep, green fields, and reflective Easter afternoons.",
-                "twitter_title": "A Quiet Easter Afternoon with Young Lambs",
-                "twitter_description": "A gentle seasonal post about sheep, green fields, and reflective Easter afternoons."
+                "title": "Ein stiller Osternachmittag bei jungen Lämmern",
+                "subtitle": "Langsame Momente im Frühling, die in Erinnerung bleiben",
+                "abstract": "Die ruhige Seite von Ostern, erzählt mit Bildern von der Frühlingsweide.",
+                "description": "Ein ruhiger Beitrag über junge Lämmer, grüne Wiesen und stille Osternachmittage – und warum langsame Momente zu Ostern dazugehören.",
+                "seo_title": "Ein stiller Osternachmittag bei jungen Lämmern",
+                "og_title": "Ein stiller Osternachmittag bei jungen Lämmern",
+                "og_description": "Ein ruhiger Beitrag über junge Lämmer, grüne Wiesen und stille Osternachmittage – und warum langsame Momente zu Ostern dazugehören.",
+                "twitter_title": "Ein stiller Osternachmittag bei jungen Lämmern",
+                "twitter_description": "Ein ruhiger Beitrag über junge Lämmer, grüne Wiesen und stille Osternachmittage – und warum langsame Momente zu Ostern dazugehören.",
+                "slug": "/ein-stiller-osternachmittag-bei-jungen-laemmern"
             },
             "_context": {
                 "page": 30,
@@ -58,8 +59,8 @@
                 "bodytext": "<p>Much of Easter stays memorable because of its quieter moments: a field, a walk, a meal, a pause in conversation. Lamb imagery supports that kind of storytelling especially well.</p>"
             },
             "set": {
-                "header": "The quiet side of Easter matters",
-                "bodytext": "<p>Much of Easter stays memorable because of its quieter moments: a field, a walk, a meal, a pause in conversation. Lamb imagery supports that kind of storytelling especially well.</p>"
+                "header": "Die stille Seite von Ostern zählt",
+                "bodytext": "<p>Vieles an Ostern bleibt wegen der ruhigen Momente in Erinnerung: eine Wiese, ein Spaziergang, ein Essen, eine Pause im Gespräch. Bilder von Lämmern erzählen davon besonders gut.</p>"
             },
             "_context": {
                 "page": 30,
@@ -79,7 +80,7 @@
                 "alternative": ""
             },
             "set": {
-                "alternative": "Three young lambs grazing in a green field"
+                "alternative": "Drei junge Lämmer grasen auf einer grünen Wiese."
             },
             "_context": {
                 "page": 30,
@@ -99,7 +100,7 @@
                 "alternative": ""
             },
             "set": {
-                "alternative": "Two lambs standing together in a grassy field"
+                "alternative": "Zwei Lämmer stehen nebeneinander auf einer Wiese."
             },
             "_context": {
                 "page": 30,
@@ -115,12 +116,9 @@
         {
             "table": "tt_content",
             "uid": 112,
+            "action": "delete",
             "expect": {
                 "CType": "desiderio_callout",
-                "header": "heading",
-                "content": "<p>this is contnet</p>"
-            },
-            "set": {
                 "header": "heading",
                 "content": "<p>this is contnet</p>"
             },
@@ -144,8 +142,8 @@
                 "bodytext": "<ul><li>There is time to notice small things again.</li><li>Spring can feel peaceful, not only bright and busy.</li><li>Seasonal content can be gentle without becoming flat.</li><li>Rural imagery helps Easter feel grounded and spacious.</li></ul>"
             },
             "set": {
-                "header": "What this kind of image suggests",
-                "bodytext": "<ul><li>There is time to notice small things again.</li><li>Spring can feel peaceful, not only bright and busy.</li><li>Seasonal content can be gentle without becoming flat.</li><li>Rural imagery helps Easter feel grounded and spacious.</li></ul>"
+                "header": "Was solche Bilder vermitteln",
+                "bodytext": "<ul><li>Es gibt wieder Zeit, kleine Dinge zu bemerken.</li><li>Der Frühling kann friedlich sein, nicht nur hell und geschäftig.</li><li>Ruhige Beiträge zur Jahreszeit müssen nicht langweilig wirken.</li><li>Bilder vom Land lassen Ostern bodenständig und weit wirken.</li></ul>"
             },
             "_context": {
                 "page": 30,
@@ -165,7 +163,7 @@
                 "alternative": ""
             },
             "set": {
-                "alternative": "Three young lambs grazing in a green field"
+                "alternative": "Drei junge Lämmer grasen auf einer grünen Wiese."
             },
             "_context": {
                 "page": 30,
@@ -185,7 +183,7 @@
                 "alternative": ""
             },
             "set": {
-                "alternative": "Young lamb standing in a grassy field near water"
+                "alternative": "Ein junges Lamm steht auf einer Wiese nahe am Wasser."
             },
             "_context": {
                 "page": 30,
@@ -207,8 +205,8 @@
                 "bodytext": "<p>Young lambs in a field do not ask for urgency. They slow the eye down and give a page a more spacious rhythm. For Easter content, that matters. Not every post has to be built around action. Some are stronger when they present a quiet spring scene and let the viewer stay there for a while.</p>"
             },
             "set": {
-                "header": "Slow scenes invite longer attention",
-                "bodytext": "<p>Young lambs in a field do not ask for urgency. They slow the eye down and give a page a more spacious rhythm. For Easter content, that matters. Not every post has to be built around action. Some are stronger when they present a quiet spring scene and let the viewer stay there for a while.</p>"
+                "header": "Langsame Szenen halten den Blick",
+                "bodytext": "<p>Junge Lämmer auf einer Wiese verlangen keine Eile. Sie beruhigen den Blick und geben einer Seite mehr Raum. Für Osterbeiträge ist das wichtig. Nicht jeder Beitrag braucht Aktion. Manche wirken stärker, wenn sie eine ruhige Frühlingsszene zeigen. Dann bleibt Ihr Blick dort eine Weile.</p>"
             },
             "_context": {
                 "page": 30,
@@ -228,7 +226,7 @@
                 "alternative": ""
             },
             "set": {
-                "alternative": "Three young lambs grazing in a green field"
+                "alternative": "Drei junge Lämmer grasen auf einer grünen Wiese."
             },
             "_context": {
                 "page": 30,

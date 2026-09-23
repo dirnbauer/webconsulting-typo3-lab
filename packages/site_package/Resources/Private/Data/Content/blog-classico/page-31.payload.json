@@ -21,15 +21,16 @@
                 "twitter_description": "A post about connection, family, and staying close even when spring weather turns wet."
             },
             "set": {
-                "title": "Holding Hands Through Spring Showers",
-                "subtitle": "Connection, care, and Easter in uncertain weather",
-                "abstract": "A more human Easter story built around care and connection.",
-                "description": "A post about connection, family, and staying close even when spring weather turns wet.",
-                "seo_title": "Holding Hands Through Spring Showers",
-                "og_title": "Holding Hands Through Spring Showers",
-                "og_description": "A post about connection, family, and staying close even when spring weather turns wet.",
-                "twitter_title": "Holding Hands Through Spring Showers",
-                "twitter_description": "A post about connection, family, and staying close even when spring weather turns wet."
+                "title": "Hand in Hand durch den Frühlingsregen",
+                "subtitle": "Nähe, Fürsorge und Ostern bei wechselhaftem Wetter",
+                "abstract": "Eine menschliche Ostergeschichte über Fürsorge und Nähe.",
+                "description": "Ein Beitrag über Nähe, Familie und Zusammenhalt zu Ostern – auch dann, wenn das Wetter im Frühling nass und wechselhaft wird.",
+                "seo_title": "Hand in Hand durch den Frühlingsregen",
+                "og_title": "Hand in Hand durch den Frühlingsregen",
+                "og_description": "Ein Beitrag über Nähe, Familie und Zusammenhalt zu Ostern – auch dann, wenn das Wetter im Frühling nass und wechselhaft wird.",
+                "twitter_title": "Hand in Hand durch den Frühlingsregen",
+                "twitter_description": "Ein Beitrag über Nähe, Familie und Zusammenhalt zu Ostern – auch dann, wenn das Wetter im Frühling nass und wechselhaft wird.",
+                "slug": "/hand-in-hand-durch-den-fruehlingsregen"
             },
             "_context": {
                 "page": 31,
@@ -58,8 +59,8 @@
                 "bodytext": "<p>A rainy Easter does not weaken connection. Often it sharpens it. Holding hands, sharing shelter, or walking through spring showers can make the day feel more human and more memorable than perfect conditions ever would. changed</p>"
             },
             "set": {
-                "header": "Weather can deepen the moment",
-                "bodytext": "<p>A rainy Easter does not weaken connection. Often it sharpens it. Holding hands, sharing shelter, or walking through spring showers can make the day feel more human and more memorable than perfect conditions ever would. changed</p>"
+                "header": "Wetter kann den Moment vertiefen",
+                "bodytext": "<p>Ein verregnetes Osterfest schwächt die Nähe nicht. Oft stärkt es sie sogar. Hände halten, gemeinsam Schutz suchen, durch den Frühlingsregen gehen: Das macht den Tag menschlicher. Oft bleibt er so länger in Erinnerung als bei perfektem Wetter.</p>"
             },
             "_context": {
                 "page": 31,
@@ -79,7 +80,7 @@
                 "alternative": ""
             },
             "set": {
-                "alternative": "Adult holding a small child's hand outdoors"
+                "alternative": "Ein Erwachsener hält draußen die Hand eines kleinen Kindes."
             },
             "_context": {
                 "page": 31,
@@ -99,7 +100,7 @@
                 "alternative": ""
             },
             "set": {
-                "alternative": "Adult holding a small child's hand outdoors"
+                "alternative": "Ein Erwachsener hält draußen die Hand eines kleinen Kindes."
             },
             "_context": {
                 "page": 31,
@@ -121,8 +122,8 @@
                 "bodytext": "<ul><li>Write about shared rituals instead of only decoration.</li><li>Let weather become part of the story rather than a problem.</li><li>Use images that suggest movement, care, or reassurance.</li><li>Keep the tone personal and steady.</li></ul>"
             },
             "set": {
-                "header": "Ways to build that feeling into a post",
-                "bodytext": "<ul><li>Write about shared rituals instead of only decoration.</li><li>Let weather become part of the story rather than a problem.</li><li>Use images that suggest movement, care, or reassurance.</li><li>Keep the tone personal and steady.</li></ul>"
+                "header": "So erzählen Sie von diesem Gefühl",
+                "bodytext": "<ul><li>Über gemeinsame Rituale schreiben, nicht nur über Deko.</li><li>Das Wetter als Teil der Geschichte sehen statt als Problem.</li><li>Bilder wählen, die Bewegung, Fürsorge oder Halt zeigen.</li><li>Den Ton persönlich und ruhig halten.</li></ul>"
             },
             "_context": {
                 "page": 31,
@@ -142,7 +143,7 @@
                 "alternative": ""
             },
             "set": {
-                "alternative": "Adult holding a small child's hand outdoors"
+                "alternative": "Ein Erwachsener hält draußen die Hand eines kleinen Kindes."
             },
             "_context": {
                 "page": 31,
@@ -158,11 +159,9 @@
         {
             "table": "sys_file_reference",
             "uid": 63,
+            "action": "delete",
             "expect": {
                 "alternative": ""
-            },
-            "set": {
-                "alternative": "Child in yellow raincoat holding an adult's hand"
             },
             "_context": {
                 "page": 31,
@@ -184,8 +183,8 @@
                 "bodytext": "<p>Not every seasonal article needs to be bright and busy. This example keeps the tone calm so typography, spacing, and badge treatment can be reviewed with realistic editorial copy.</p>"
             },
             "set": {
-                "header": "A quieter seasonal story",
-                "bodytext": "<p>Not every seasonal article needs to be bright and busy. This example keeps the tone calm so typography, spacing, and badge treatment can be reviewed with realistic editorial copy.</p>"
+                "header": "Eine ruhige Geschichte zur Jahreszeit",
+                "bodytext": "<p>Nicht jeder Beitrag im Frühling muss hell und lebhaft sein. Dieser Beitrag bleibt bewusst ruhig. Er erzählt von kleinen Gesten statt von großen Festen.</p>"
             },
             "_context": {
                 "page": 31,
@@ -207,8 +206,8 @@
                 "bodytext": "<p>Behind the eggs, decorations, and spring meals, Easter often comes down to one simple thing: people staying close to one another. An image of an adult holding a child's hand says that directly. It turns the season away from objects and back toward care, guidance, and ordinary moments that feel more important in changing weather.</p>"
             },
             "set": {
-                "header": "Connection is often the real Easter story",
-                "bodytext": "<p>Behind the eggs, decorations, and spring meals, Easter often comes down to one simple thing: people staying close to one another. An image of an adult holding a child's hand says that directly. It turns the season away from objects and back toward care, guidance, and ordinary moments that feel more important in changing weather.</p>"
+                "header": "Nähe ist oft die eigentliche Ostergeschichte",
+                "bodytext": "<p>Hinter Eiern, Deko und Frühlingsessen steht oft etwas Einfaches: Menschen bleiben einander nah. Ein Erwachsener, der die Hand eines Kindes hält, zeigt das direkt. Das Bild lenkt den Blick weg von Dingen und hin zu Fürsorge und Halt. Bei wechselhaftem Wetter werden gerade alltägliche Momente wichtiger.</p>"
             },
             "_context": {
                 "page": 31,
@@ -228,7 +227,7 @@
                 "alternative": ""
             },
             "set": {
-                "alternative": "Adult holding a small child's hand outdoors"
+                "alternative": "Ein Erwachsener hält draußen die Hand eines kleinen Kindes."
             },
             "_context": {
                 "page": 31,
@@ -248,7 +247,7 @@
                 "alternative": ""
             },
             "set": {
-                "alternative": "Adult holding a small child's hand outdoors"
+                "alternative": "Ein Erwachsener hält draußen die Hand eines kleinen Kindes."
             },
             "_context": {
                 "page": 31,
@@ -264,12 +263,9 @@
         {
             "table": "tt_content",
             "uid": 15657,
+            "action": "delete",
             "expect": {
                 "CType": "text",
-                "header": "Editorial notes",
-                "bodytext": "<p>The abstract is short enough for a card or list teaser, while the description gives search engines and social previews a clearer sentence.</p>"
-            },
-            "set": {
                 "header": "Editorial notes",
                 "bodytext": "<p>The abstract is short enough for a card or list teaser, while the description gives search engines and social previews a clearer sentence.</p>"
             },

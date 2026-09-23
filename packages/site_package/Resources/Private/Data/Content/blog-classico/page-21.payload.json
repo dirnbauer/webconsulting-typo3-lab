@@ -21,15 +21,16 @@
                 "twitter_description": "Use this post to check the detail page, metadata badges, comments, body copy, lists, and links."
             },
             "set": {
-                "title": "First blog post",
-                "subtitle": "Complete metadata for the shadcn Blog template",
-                "abstract": "A compact demo entry showing author, category, tag, date, and comments in one list item.",
-                "description": "Use this post to check the detail page, metadata badges, comments, body copy, lists, and links.",
-                "seo_title": "First blog post",
-                "og_title": "First blog post",
-                "og_description": "Use this post to check the detail page, metadata badges, comments, body copy, lists, and links.",
-                "twitter_title": "First blog post",
-                "twitter_description": "Use this post to check the detail page, metadata badges, comments, body copy, lists, and links."
+                "title": "Willkommen im Blog classico",
+                "subtitle": "Frühling, Ostern und Alltag in kurzen Beiträgen",
+                "abstract": "Worum es in diesem Blog geht und was jeder Beitrag zeigt.",
+                "description": "Der erste Beitrag im Blog classico: welche Themen Sie hier finden und welche Angaben jeder Beitrag hat, von der Kategorie bis zum Kommentar.",
+                "seo_title": "Willkommen im Blog classico",
+                "og_title": "Willkommen im Blog classico",
+                "og_description": "Der erste Beitrag im Blog classico: welche Themen Sie hier finden und welche Angaben jeder Beitrag hat, von der Kategorie bis zum Kommentar.",
+                "twitter_title": "Willkommen im Blog classico",
+                "twitter_description": "Der erste Beitrag im Blog classico: welche Themen Sie hier finden und welche Angaben jeder Beitrag hat, von der Kategorie bis zum Kommentar.",
+                "slug": "/willkommen-im-blog-classico"
             },
             "_context": {
                 "page": 21,
@@ -58,8 +59,8 @@
                 "bodytext": "<p>Sed vitae finibus sapdddien, ac sagittis nisi. Nam at quam sed ipsum convallis rhoncus. Sed eget erat fringilla, ultrices lorem in, luctus nuncddd. Sed aliquam congue odio, non fermentum metus consectetur in. Donec aliquet erat est, id eleifend nunc viverra sed. Vivamus tempus rutrum justo tempor dapibus. Integer scelerisque, est at lacinia tristique, est mauris bibendum tortor, sed malesuada mi augue nec orci. In dictum vitae purus eu facilisis. Morbi porta efficitur turpis. Curabitur vel erat magna. Vivamus finibus sapien sed ante euismod semper. Integer cursus lectus at ligula porttitor, blandit gravida urna suscipit. Vestibulum dictum eros pulvinar, vehicula lorem id, viverra neque. Phadddsellus maximus nisl a magna convallis imperdiet. In a quam dolor. Vestibulum auctor dolor lectus, vel faucibus odio efficitur in.</p>"
             },
             "set": {
-                "header": "first element changed.",
-                "bodytext": "<p>Sed vitae finibus sapdddien, ac sagittis nisi. Nam at quam sed ipsum convallis rhoncus. Sed eget erat fringilla, ultrices lorem in, luctus nuncddd. Sed aliquam congue odio, non fermentum metus consectetur in. Donec aliquet erat est, id eleifend nunc viverra sed. Vivamus tempus rutrum justo tempor dapibus. Integer scelerisque, est at lacinia tristique, est mauris bibendum tortor, sed malesuada mi augue nec orci. In dictum vitae purus eu facilisis. Morbi porta efficitur turpis. Curabitur vel erat magna. Vivamus finibus sapien sed ante euismod semper. Integer cursus lectus at ligula porttitor, blandit gravida urna suscipit. Vestibulum dictum eros pulvinar, vehicula lorem id, viverra neque. Phadddsellus maximus nisl a magna convallis imperdiet. In a quam dolor. Vestibulum auctor dolor lectus, vel faucibus odio efficitur in.</p>"
+                "header": "Worum es in diesem Blog geht",
+                "bodytext": "<p>Dieser Blog erzählt vom Frühling, von Ostern und vom Alltag dazwischen. Die Beiträge sind kurz und ruhig geschrieben. Sie zeigen Ideen für den Tisch, für den Garten und für freie Tage.</p>"
             },
             "_context": {
                 "page": 21,
@@ -81,8 +82,8 @@
                 "bodytext": "<p>This seeded post is intentionally complete. It has authors, categories, tags, a readable teaser, a comment, and body content so the Blog list and detail templates can be checked in one place.</p>"
             },
             "set": {
-                "header": "Template coverage",
-                "bodytext": "<p>This seeded post is intentionally complete. It has authors, categories, tags, a readable teaser, a comment, and body content so the Blog list and detail templates can be checked in one place.</p>"
+                "header": "Was jeder Beitrag zeigt",
+                "bodytext": "<p>Jeder Beitrag nennt Autor, Datum, Kategorie und Schlagwörter. In der Übersicht steht zu jedem Beitrag ein kurzer Text zum Einstieg. Unter dem Text können Sie einen Kommentar schreiben.</p>"
             },
             "_context": {
                 "page": 21,
@@ -104,8 +105,8 @@
                 "bodytext": "<ul><li>Lorem ipsum dolor sit amedddt, consectetur adipiscing elit.</li><li>Integer et eros at nulla rhoncus elementum id ac tordddtor.</li><li>Fusce ultrices ipsum vitae nisl vulputate aliquam.</li><li>In tempus augue sed diam tempus iaculis.</li><li>In interdum velit sed purus molestie hendrerit in ac justo.</li></ul>"
             },
             "set": {
-                "header": "Second Content Block",
-                "bodytext": "<ul><li>Lorem ipsum dolor sit amedddt, consectetur adipiscing elit.</li><li>Integer et eros at nulla rhoncus elementum id ac tordddtor.</li><li>Fusce ultrices ipsum vitae nisl vulputate aliquam.</li><li>In tempus augue sed diam tempus iaculis.</li><li>In interdum velit sed purus molestie hendrerit in ac justo.</li></ul>"
+                "header": "Unsere Themen im Frühling",
+                "bodytext": "<ul><li>Ostertisch und Deko mit wenigen Farben.</li><li>Eier, Nester und Körbe im Garten.</li><li>Hasen, Lämmer und andere Bilder des Frühlings.</li><li>Spaziergänge bei Sonne und bei Regen.</li><li>Kleine Rituale für freie Tage.</li></ul>"
             },
             "_context": {
                 "page": 21,
@@ -127,8 +128,8 @@
                 "bodytext": "<ul><li>Category and tag badges appear once near the title.</li><li>Dates, authors, and comments stay in one flat metadata row.</li><li>The same tokenized badge treatment is used across list and detail views.</li></ul>"
             },
             "set": {
-                "header": "What to verify",
-                "bodytext": "<ul><li>Category and tag badges appear once near the title.</li><li>Dates, authors, and comments stay in one flat metadata row.</li><li>The same tokenized badge treatment is used across list and detail views.</li></ul>"
+                "header": "So finden Sie sich zurecht",
+                "bodytext": "<ul><li>Kategorie und Schlagwörter stehen direkt beim Titel.</li><li>Datum, Autor und Kommentare stehen in einer Zeile.</li><li>Schlagwörter sehen in der Liste und im Beitrag gleich aus.</li></ul>"
             },
             "_context": {
                 "page": 21,
@@ -150,8 +151,8 @@
                 "bodytext": "Phasellus at ornare arcu, vel lobortis magna. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Sed hendrerit tortor nisi, at iaculis eros dignissim ac. Praesent bibendum nibh vitae dictum tempus. Etiam elit nibh, tristique non velit a, malesuada feugiat nisi. Fusce at lacinia dolor. Curabitur sit amet leo massa. Curabitur tellus dui, fermentum luctus augue placerat, blandit blandit ante."
             },
             "set": {
-                "header": "Third Content Block",
-                "bodytext": "Phasellus at ornare arcu, vel lobortis magna. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Sed hendrerit tortor nisi, at iaculis eros dignissim ac. Praesent bibendum nibh vitae dictum tempus. Etiam elit nibh, tristique non velit a, malesuada feugiat nisi. Fusce at lacinia dolor. Curabitur sit amet leo massa. Curabitur tellus dui, fermentum luctus augue placerat, blandit blandit ante."
+                "header": "Die Technik hinter dem Blog",
+                "bodytext": "Der Blog läuft mit TYPO3 v14 und der Erweiterung Blog. Die Übersicht zeigt alle Beiträge, die neuesten zuerst. Über Kategorien und Schlagwörter finden Sie Beiträge zum selben Thema."
             },
             "_context": {
                 "page": 21,
@@ -172,7 +173,7 @@
                 "header": "Easter egg"
             },
             "set": {
-                "header": "Easter egg"
+                "header": "Ein bemaltes Osterei"
             },
             "_context": {
                 "page": 21,
@@ -191,7 +192,7 @@
                 "alternative": "Hand-painted Easter egg with a smiling face resting on a metal wire rack. Copyright: Eric Heininger, via Unsplash (Unsplash License)."
             },
             "set": {
-                "alternative": "Hand-painted Easter egg with a smiling face resting on a metal wire rack. Copyright: Eric Heininger, via Unsplash (Unsplash License)."
+                "alternative": "Ein handbemaltes Osterei mit lachendem Gesicht liegt auf einem Drahtgitter."
             },
             "_context": {
                 "page": 21,

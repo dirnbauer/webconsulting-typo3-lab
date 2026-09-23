@@ -21,15 +21,16 @@
                 "twitter_description": "A post exploring lambs, meadows, and the symbolism of renewal at Easter."
             },
             "set": {
-                "title": "Lambs, Meadows, and the Meaning of Easter",
-                "subtitle": "Spring renewal seen through quiet rural images",
-                "abstract": "Why lamb imagery continues to feel meaningful in Easter storytelling.",
-                "description": "A post exploring lambs, meadows, and the symbolism of renewal at Easter.",
-                "seo_title": "Lambs, Meadows, and the Meaning of Easter",
-                "og_title": "Lambs, Meadows, and the Meaning of Easter",
-                "og_description": "A post exploring lambs, meadows, and the symbolism of renewal at Easter.",
-                "twitter_title": "Lambs, Meadows, and the Meaning of Easter",
-                "twitter_description": "A post exploring lambs, meadows, and the symbolism of renewal at Easter."
+                "title": "Lämmer, Wiesen und die Bedeutung von Ostern",
+                "subtitle": "Neubeginn im Frühling in stillen Bildern vom Land",
+                "abstract": "Warum Bilder von Lämmern zu Ostern bis heute bedeutsam sind.",
+                "description": "Ein Beitrag über Lämmer, Frühlingswiesen und das Osterlamm als Zeichen für Neubeginn – und warum diese Bilder bis heute zu Ostern passen.",
+                "seo_title": "Lämmer, Wiesen und die Bedeutung von Ostern",
+                "og_title": "Lämmer, Wiesen und die Bedeutung von Ostern",
+                "og_description": "Ein Beitrag über Lämmer, Frühlingswiesen und das Osterlamm als Zeichen für Neubeginn – und warum diese Bilder bis heute zu Ostern passen.",
+                "twitter_title": "Lämmer, Wiesen und die Bedeutung von Ostern",
+                "twitter_description": "Ein Beitrag über Lämmer, Frühlingswiesen und das Osterlamm als Zeichen für Neubeginn – und warum diese Bilder bis heute zu Ostern passen.",
+                "slug": "/laemmer-wiesen-und-die-bedeutung-von-ostern"
             },
             "_context": {
                 "page": 29,
@@ -58,8 +59,8 @@
                 "bodytext": "<p>People respond to lamb imagery because it points toward something beginning again. That idea sits at the center of many Easter traditions, which makes the visual feel immediately appropriate and lasting.</p>"
             },
             "set": {
-                "header": "Renewal is thedd thread and this is the change.",
-                "bodytext": "<p>People respond to lamb imagery because it points toward something beginning again. That idea sits at the center of many Easter traditions, which makes the visual feel immediately appropriate and lasting.</p>"
+                "header": "Im Mittelpunkt steht der Neubeginn",
+                "bodytext": "<p>Bilder von Lämmern berühren, weil sie auf einen Neuanfang verweisen. Diese Idee steht im Zentrum vieler Osterbräuche. Deshalb wirkt das Motiv sofort passend und bleibt lange gültig.</p>"
             },
             "_context": {
                 "page": 29,
@@ -79,7 +80,7 @@
                 "alternative": ""
             },
             "set": {
-                "alternative": "Mother sheep and lamb in a grassy field"
+                "alternative": "Ein Mutterschaf steht mit seinem Lamm auf einer Wiese."
             },
             "_context": {
                 "page": 29,
@@ -99,7 +100,7 @@
                 "alternative": ""
             },
             "set": {
-                "alternative": "Two sheep standing in a green field"
+                "alternative": "Zwei Schafe stehen auf einer grünen Wiese."
             },
             "_context": {
                 "page": 29,
@@ -121,8 +122,8 @@
                 "bodytext": "<ul><li>Renewal after winter and darker months.</li><li>Family closeness and protective care.</li><li>Simple rural scenes and natural color palettes.</li><li>Reflection, patience, and slower movement.</li></ul>"
             },
             "set": {
-                "header": "Themes that pair well with lamb imagery",
-                "bodytext": "<ul><li>Renewal after winter and darker months.</li><li>Family closeness and protective care.</li><li>Simple rural scenes and natural color palettes.</li><li>Reflection, patience, and slower movement.</li></ul>"
+                "header": "Themen, die zu Bildern von Lämmern passen",
+                "bodytext": "<ul><li>Neubeginn nach dem Winter und den dunklen Monaten.</li><li>Nähe in der Familie und schützende Fürsorge.</li><li>Einfache Szenen vom Land in natürlichen Farben.</li><li>Besinnung, Geduld und ein langsameres Tempo.</li></ul>"
             },
             "_context": {
                 "page": 29,
@@ -142,7 +143,7 @@
                 "alternative": ""
             },
             "set": {
-                "alternative": "Mother sheep and lamb in a grassy field"
+                "alternative": "Ein Mutterschaf steht mit seinem Lamm auf einer Wiese."
             },
             "_context": {
                 "page": 29,
@@ -158,11 +159,9 @@
         {
             "table": "sys_file_reference",
             "uid": 57,
+            "action": "delete",
             "expect": {
                 "alternative": ""
-            },
-            "set": {
-                "alternative": "Flock of sheep grazing in a spring meadow"
             },
             "_context": {
                 "page": 29,
@@ -184,8 +183,8 @@
                 "bodytext": "<p>Lambs bring together several Easter themes at once: spring, tenderness, renewal, and quiet attention. Even without explicit symbolism, images of sheep and open meadows suggest a gentler pace and a season beginning again. That is why they continue to appear in Easter storytelling across both religious and cultural settings.</p>"
             },
             "set": {
-                "header": "Why lamb imagery feels timeless",
-                "bodytext": "<p>Lambs bring together several Easter themes at once: spring, tenderness, renewal, and quiet attention. Even without explicit symbolism, images of sheep and open meadows suggest a gentler pace and a season beginning again. That is why they continue to appear in Easter storytelling across both religious and cultural settings.</p>"
+                "header": "Warum Lämmer als Motiv zeitlos sind",
+                "bodytext": "<p>Lämmer vereinen mehrere Osterthemen: Frühling, Zärtlichkeit, Neubeginn und stille Aufmerksamkeit. Auch ohne direkte Symbolik stehen Schafe und offene Wiesen für ein ruhigeres Tempo. Sie zeigen eine Jahreszeit, die neu beginnt. Deshalb erscheinen sie in religiösen wie in weltlichen Ostergeschichten.</p>"
             },
             "_context": {
                 "page": 29,
@@ -205,7 +204,7 @@
                 "alternative": ""
             },
             "set": {
-                "alternative": "Mother sheep and lamb in a grassy field"
+                "alternative": "Ein Mutterschaf steht mit seinem Lamm auf einer Wiese."
             },
             "_context": {
                 "page": 29,
@@ -216,6 +215,18 @@
                     "alternative": "alt"
                 },
                 "file": "/mcp/workspaces/ws-1/images/sheep-lamb-veronica-white-6823d4a1a94c92dd.jpg"
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 1289,
+            "expect": {
+                "CType": "workosauth_login"
+            },
+            "action": "hide",
+            "_context": {
+                "page": 29,
+                "note": "A login form left in a post about lambs by a test in April 2026."
             }
         }
     ]

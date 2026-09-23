@@ -10,15 +10,15 @@
             "table": "pages",
             "uid": 22,
             "expect": {
-                "title": "Easter Weather: A Calm Start to the Day",
-                "subtitle": "Watching spring settle in before the celebrations begin",
-                "abstract": "How a calm Easter morning sets the tone for the rest of the day.",
-                "description": "A short reflection on Easter weather, fresh air, and the slower rhythm of a spring morning.",
-                "seo_title": "Easter Weather: A Calm Start to the Day",
-                "og_title": "Easter Weather: A Calm Start to the Day",
-                "og_description": "A short reflection on Easter weather, fresh air, and the slower rhythm of a spring morning.",
-                "twitter_title": "Easter Weather: A Calm Start to the Day",
-                "twitter_description": "A short reflection on Easter weather, fresh air, and the slower rhythm of a spring morning."
+                "title": "Osterwetter: ein ruhiger Start in den Tag",
+                "subtitle": "Wie der Frühling vor dem Fest ankommt",
+                "abstract": "Warum ein ruhiger Ostermorgen den ganzen Tag prägt.",
+                "description": "Ein kurzer Beitrag über Osterwetter, frische Luft und einen langsamen Frühlingsmorgen – und warum er den ganzen Feiertag prägt.",
+                "seo_title": "Osterwetter: ein ruhiger Start in den Tag",
+                "og_title": "Osterwetter: ein ruhiger Start in den Tag",
+                "og_description": "Ein kurzer Beitrag über Osterwetter, frische Luft und einen langsamen Frühlingsmorgen – und warum er den ganzen Feiertag prägt.",
+                "twitter_title": "Osterwetter: ein ruhiger Start in den Tag",
+                "twitter_description": "Ein kurzer Beitrag über Osterwetter, frische Luft und einen langsamen Frühlingsmorgen – und warum er den ganzen Feiertag prägt."
             },
             "set": {
                 "title": "Osterwetter: ein ruhiger Start in den Tag",
@@ -29,7 +29,8 @@
                 "og_title": "Osterwetter: ein ruhiger Start in den Tag",
                 "og_description": "Ein kurzer Beitrag über Osterwetter, frische Luft und einen langsamen Frühlingsmorgen – und warum er den ganzen Feiertag prägt.",
                 "twitter_title": "Osterwetter: ein ruhiger Start in den Tag",
-                "twitter_description": "Ein kurzer Beitrag über Osterwetter, frische Luft und einen langsamen Frühlingsmorgen – und warum er den ganzen Feiertag prägt."
+                "twitter_description": "Ein kurzer Beitrag über Osterwetter, frische Luft und einen langsamen Frühlingsmorgen – und warum er den ganzen Feiertag prägt.",
+                "slug": "/osterwetter-ein-ruhiger-start-in-den-tag"
             },
             "_context": {
                 "page": 22,
@@ -54,8 +55,8 @@
             "uid": 60,
             "expect": {
                 "CType": "textmedia",
-                "header": "A calmer celebration",
-                "bodytext": "<p>Good Easter weather is not only sunshine. A quiet, slightly cool morning can create the exact kind of atmosphere that makes the whole day feel grounded. When the pace starts gently, people notice more and rush less.</p>"
+                "header": "Ruhiger feiern",
+                "bodytext": "<p>Gutes Osterwetter bedeutet nicht nur Sonne. Auch ein stiller, kühler Morgen schafft eine Stimmung, die den Tag erdet. Wer ruhig beginnt, nimmt mehr wahr und hetzt weniger.</p>"
             },
             "set": {
                 "header": "Ruhiger feiern",
@@ -76,7 +77,7 @@
             "table": "sys_file_reference",
             "uid": 10,
             "expect": {
-                "alternative": ""
+                "alternative": "Ein Erwachsener und ein Kind gehen im Regen spazieren."
             },
             "set": {
                 "alternative": "Ein Erwachsener und ein Kind gehen im Regen spazieren."
@@ -96,7 +97,7 @@
             "table": "sys_file_reference",
             "uid": 46,
             "expect": {
-                "alternative": ""
+                "alternative": "Eine Familie geht gemeinsam im Regen spazieren."
             },
             "set": {
                 "alternative": "Eine Familie geht gemeinsam im Regen spazieren."
@@ -117,8 +118,8 @@
             "uid": 59,
             "expect": {
                 "CType": "textmedia",
-                "header": "What this mood encourages",
-                "bodytext": "<ul><li>Start with an early walk before the busier part of the day.</li><li>Use softer spring colors instead of loud decoration.</li><li>Plan a smaller egg hunt if the ground is still damp.</li><li>Keep blankets, tea, or umbrellas close by.</li></ul>"
+                "header": "Was diese Stimmung nahelegt",
+                "bodytext": "<ul><li>Früh spazieren gehen, bevor der Tag hektisch wird.</li><li>Sanfte Frühlingsfarben statt lauter Dekoration wählen.</li><li>Die Eiersuche kleiner planen, wenn der Boden noch feucht ist.</li><li>Decken, Tee oder Schirme griffbereit haben.</li></ul>"
             },
             "set": {
                 "header": "Was diese Stimmung nahelegt",
@@ -139,7 +140,7 @@
             "table": "sys_file_reference",
             "uid": 11,
             "expect": {
-                "alternative": ""
+                "alternative": "Ein Erwachsener und ein Kind gehen im Regen spazieren."
             },
             "set": {
                 "alternative": "Ein Erwachsener und ein Kind gehen im Regen spazieren."
@@ -159,7 +160,7 @@
             "table": "sys_file_reference",
             "uid": 45,
             "expect": {
-                "alternative": ""
+                "alternative": "Eine Familie mit Kindern spielt im Regen auf einer Terrasse."
             },
             "set": {
                 "alternative": "Eine Familie mit Kindern spielt im Regen auf einer Terrasse."
@@ -180,8 +181,8 @@
             "uid": 58,
             "expect": {
                 "CType": "textmedia",
-                "header": "A soft forecast for Easter morning",
-                "bodytext": "<p>Easter often feels better when the day begins a little slower. Cool air, light clouds, and a calm patch of morning weather can make the first walk outside feel more deliberate. That mood changes how people gather, how tables are set, and how even simple traditions like hiding eggs or sharing coffee begin to feel more memorable.</p>"
+                "header": "Ein sanfter Start in den Ostermorgen",
+                "bodytext": "<p>Ostern fühlt sich oft besser an, wenn der Tag langsam beginnt. Kühle Luft und leichte Wolken machen den ersten Spaziergang bewusster. Diese Stimmung prägt, wie wir den Tisch decken, Eier verstecken und Kaffee trinken.</p>"
             },
             "set": {
                 "header": "Ein sanfter Start in den Ostermorgen",
@@ -202,7 +203,7 @@
             "table": "sys_file_reference",
             "uid": 8,
             "expect": {
-                "alternative": ""
+                "alternative": "Ein Erwachsener und ein Kind gehen im Regen spazieren."
             },
             "set": {
                 "alternative": "Ein Erwachsener und ein Kind gehen im Regen spazieren."
@@ -222,7 +223,7 @@
             "table": "sys_file_reference",
             "uid": 65,
             "expect": {
-                "alternative": ""
+                "alternative": "Ein Erwachsener und ein Kind gehen im Regen spazieren."
             },
             "set": {
                 "alternative": "Ein Erwachsener und ein Kind gehen im Regen spazieren."
