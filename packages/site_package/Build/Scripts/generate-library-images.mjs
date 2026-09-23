@@ -14,8 +14,9 @@
  *
  * Usage:
  *   node generate-library-images.mjs [--only <slug|role>] [--dry-run] [--force]
- *     --manifest <path>   default: ../desiderio/Build/Data/library-image-prompts.json
- *     --out <path>        default: ../desiderio/Resources/Public/Styleguide/Library
+ *     --manifest <path>   default: packages/desiderio/Build/Data/library-image-prompts.json
+ *     --out <path>        default: packages/desiderio/Resources/Public/Styleguide/Library
+ *   Relative paths resolve against the current directory.
  */
 
 import { execFileSync } from 'node:child_process';
@@ -26,7 +27,6 @@ import { fileURLToPath } from 'node:url';
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 const LAB_ROOT = resolve(HERE, '../../../..');
-const HOME = process.env.HOME ?? '';
 
 const argv = process.argv.slice(2);
 const flag = (name, fallback = null) => {
@@ -35,8 +35,8 @@ const flag = (name, fallback = null) => {
 };
 const has = (name) => argv.includes(`--${name}`);
 
-const MANIFEST = resolve(flag('manifest', join(HOME, 'projects/desiderio/Build/Data/library-image-prompts.json')));
-const OUT_DIR = resolve(flag('out', join(HOME, 'projects/desiderio/Resources/Public/Styleguide/Library')));
+const MANIFEST = resolve(flag('manifest', join(LAB_ROOT, 'packages/desiderio/Build/Data/library-image-prompts.json')));
+const OUT_DIR = resolve(flag('out', join(LAB_ROOT, 'packages/desiderio/Resources/Public/Styleguide/Library')));
 const ONLY = flag('only');
 const DRY_RUN = has('dry-run');
 const FORCE = has('force');
