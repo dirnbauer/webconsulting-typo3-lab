@@ -1,0 +1,154 @@
+# Content canon for every site in the lab.
+#
+# One file that says what is true, how long things may be, which words are
+# out, and how each site addresses its readers. The style guide explains the
+# rules (docs/content/style-guide.md); this file is what the checks read:
+#   - sitepackage:content:audit  (live database, per site)
+#   - packages/site_package/Build/Scripts/lint-copy.php  (seed files before seeding)
+#
+# Facts carry the command or file that proves them. Change a fact only after
+# re-running its source, never because existing copy says otherwise.
+
+version: 1
+
+# Limits a string must meet. "hard" fails the check, "soft" is reported.
+limits:
+  hard:
+    page_title: { chars: 50 }
+    headline: { chars: 60, words: 8 }
+    eyebrow: { chars: 24, words: 3 }
+    button: { chars: 24, chars_de: 28, words: 3, words_de: 4 }
+    sentence: { words: 25 }
+  soft:
+    headline: { chars: 45 }
+    lead: { sentences: 2, words: 30 }
+    card: { words: 25 }
+    faq_answer: { words: 60 }
+    body: { words: 120 }
+    meta: { min_chars: 110, max_chars: 155 }
+    alt: { chars: 125 }
+  page:
+    avg_sentence_words: { en: 15, de: 13 }
+    lix: { en: 40, de: 45 }
+
+# Verified facts. Copy states these numbers or none at all.
+facts:
+  desiderio:
+    elements: { value: 244, source: 'ls packages/desiderio/ContentBlocks/ContentElements | wc -l' }
+    element_groups: { value: 10, detail: 'hero 21, navigation 23, content 24, features 25, pricing 25, social proof 25, team 24, data 29, conversion 25, footer 23', source: 'packages/desiderio/Resources/Private/Data/styleguide-content-groups.json' }
+    components: { value: 62, detail: '17 atoms, 37 molecules, 4 layouts, 4 organisms', source: 'find packages/desiderio/Resources/Private/Components/{Atom,Molecule,Layout,Organism} -name "*.html"' }
+    presets: { value: 15, detail: '5 shadcn create presets + 10 house presets', source: 'desiderio.shadcn.preset enum in Configuration/Sets/Desiderio/settings.definitions.yaml (without custom)' }
+    icon_libraries: { value: 5, detail: 'Lucide, Tabler, HugeIcons, Phosphor, Remix', source: 'desiderio.shadcn.iconLibrary enum' }
+    pricing: { detail: 'Community €0 forever (GPL-2.0) · Pro €49/month or €490/year · Agency €149/month or €1,490/year', source: 'StyleguideShowcasePages::homeContent() pricing block' }
+    services: { detail: 'installation €890 · brand adaptation from €1,990 · custom element from €390 · editor workshop €690 · LTS upgrade from €2,400 · code DESIDERIO20 = 20% off the first year', source: 'StyleguideShowcasePages / ShowcaseAudiencePages' }
+  astryx:
+    elements: { value: 250, source: 'ls packages/astryx_typo3/ContentBlocks/ContentElements | wc -l' }
+    themes: { value: 25, detail: '7 upstream Astryx themes + 18 webconsulting themes', source: 'packages/astryx_typo3/Build/Data/theme-registry.json (family)' }
+    contrast_pairs: { value: 1600, detail: '25 themes × 2 colour schemes, 0 failures against WCAG 2.2 AA', source: 'node packages/astryx_typo3/Build/Scripts/audit-contrast.mjs' }
+    pricing: { detail: 'same scheme as Desiderio: Community €0 · Pro €49/month · Agency €149/month · installation €890', source: 'AstryxSiteDefinitions::homeContent()' }
+  camp:
+    dates: { detail: '11–13 September 2026', source: 'tt_content 26233 badge_text' }
+    city: { detail: 'München', source: 'site config websiteTitle' }
+
+# Numbers and phrases that used to be in the copy and are wrong.
+forbidden:
+  - { pattern: '\b(53|49)\s+(typed\s+|Fluid\s+)?components\b', message: 'Desiderio has 62 components (17 atoms, 37 molecules, 4 layouts, 4 organisms)' }
+  - { pattern: '\b17\s*\+\s*28\s*\+\s*4\b', message: 'component split is 17 + 37 + 4 + 4' }
+  - { pattern: '\b(255|288|300)(th)?\s+(content\s+)?elements?\b', message: 'Desiderio has 244 content elements' }
+  - { pattern: '\b(fourteen|14)\s+(theme\s+)?(presets|palettes)\b', message: 'Desiderio has 15 presets' }
+  - { pattern: '\b(seven|7)\s+(Astryx\s+)?themes\b', message: 'Astryx ships 25 themes (7 upstream + 18 ours); say "7 upstream themes" if that is meant', sites: [astryx] }
+  - { pattern: '\b(406|1,?500|1,?200)\s+(colou?r\s+)?pairs\b', message: 'the contrast audit checks 1,600 colour pairs' }
+
+# Words that make copy vague or loud. Hard: always rewrite. Soft: think twice.
+banned:
+  hard: ['world-class', 'revolutionary', 'revolutionise', 'game-changer', 'game-changing', 'cutting-edge', 'best-in-class', 'unleash', 'supercharge', 'next-level', 'state-of-the-art', 'unparalleled', 'stunning', 'blazing', 'magical', 'effortless', 'effortlessly']
+  soft: ['seamless', 'seamlessly', 'powerful', 'robust', 'simply', 'easily', 'leverage', 'empower', 'unlock', 'elevate', 'journey', 'delightful']
+
+# Leftovers from testing. Matched against headings and short fields.
+leftovers:
+  - '^\s*(test\d*|test new|dd|asdf|xxx|todo)\s*\.?\s*$'
+  - '\blorem ipsum\b'
+  - '\bEW GUI REVERT TEST\b'
+  - '^\s*changed\s*:'
+  - '\bheadeddr\b'
+  - '\bSchipdddper\b'
+
+# British English. Keys are the US forms the checks reject.
+spelling_uk:
+  color: colour
+  colors: colours
+  colored: coloured
+  colorful: colourful
+  favorite: favourite
+  favorites: favourites
+  behavior: behaviour
+  behaviors: behaviours
+  center: centre
+  centered: centred
+  optimize: optimise
+  optimized: optimised
+  optimizing: optimising
+  optimization: optimisation
+  organize: organise
+  organized: organised
+  organization: organisation
+  organizations: organisations
+  customize: customise
+  customized: customised
+  customization: customisation
+  prioritize: prioritise
+  recognize: recognise
+  realize: realise
+  summarize: summarise
+  standardize: standardise
+  standardized: standardised
+  visualize: visualise
+  authorize: authorise
+  authorization: authorisation
+  analyze: analyse
+  analyzed: analysed
+  catalog: catalogue
+  catalogs: catalogues
+  gray: grey
+  labeled: labelled
+  labeling: labelling
+  canceled: cancelled
+  traveling: travelling
+  modeling: modelling
+  defense: defence
+  fulfill: fulfil
+  enroll: enrol
+  license: licence
+
+# How each site speaks to its readers. Language codes are the site's
+# default language; `address` is checked for German only.
+sites:
+  desiderio: { root: 505, language: en }
+  corporate-starter: { root: 740, language: en }
+  astryx: { root: 1290, language: en }
+  agent-nexus: { root: 1400, language: en }
+  camp: { root: 933, language: de, address: ihr }
+  blog-classico: { root: 15, language: de, address: sie }
+  v14-blog: { root: 69, language: en }
+  typo3-blog: { root: 390, language: en }
+  camino: { root: 99, language: en }
+
+# German forms of address that each setting rejects.
+address:
+  sie: '\b(du|dich|dein|deine|deinen|deinem|deiner|deines|euch|euer|eure|euren|eurem|eurer)\b'
+  ihr: '\b(du|dich|dein|deine|deinen|deinem|deiner|deines)\b'
+
+# One word for one thing. Keys are rejected, values are what to write.
+glossary:
+  en:
+    'e-mail': email
+    'web site': website
+    'back-end': backend
+    'front-end': frontend
+    'TYPO3 CMS 14': 'TYPO3 v14'
+    'TYPO3 14': 'TYPO3 v14'
+    'content block element': 'content element'
+  de:
+    'Backend-Bereich': 'Backend'
+    'eMail': 'E-Mail'
+    'Content-Element': 'Inhaltselement'
