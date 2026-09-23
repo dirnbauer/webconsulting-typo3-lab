@@ -13,7 +13,8 @@
                 "title": "Tag"
             },
             "set": {
-                "title": "Tag"
+                "title": "Tags",
+                "description": "All tags used on the TYPO3 blog. Choose a tag to see the posts on that topic, with the newest post shown at the top of the list."
             },
             "_context": {
                 "page": 393,
@@ -21,7 +22,8 @@
                 "element": 393,
                 "type": "pages",
                 "roles": {
-                    "title": "page_title"
+                    "title": "page_title",
+                    "description": "meta"
                 }
             }
         }

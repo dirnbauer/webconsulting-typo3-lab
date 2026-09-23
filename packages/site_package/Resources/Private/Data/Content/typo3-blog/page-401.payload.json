@@ -7,6 +7,116 @@
     "generated": "2026-09-23T10:12:13+02:00",
     "records": [
         {
+            "table": "sys_file_reference",
+            "uid": 1164,
+            "expect": {
+                "alternative": "Geplante 700 m lange Fußgänger- und Fahrradbrücke beim Gewerbepark Stadlau in Wien-Donaustadt"
+            },
+            "action": "delete",
+            "_context": {
+                "page": 401,
+                "pageTitle": "Wien wie immer test",
+                "element": 2008,
+                "type": "textmedia",
+                "roles": {
+                    "alternative": "alt"
+                },
+                "file": "/mcp/workspaces/ws-1/orf-news/wien-bruecke-stadlau-ca690df64a4690bb.jpg"
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 7578,
+            "expect": {
+                "CType": "text",
+                "bodytext": "Akt III Stille. Dann ein leises Lachen, fast fremd. PERSON: Wien, nur du allein… und ich irgendwo dazwischen. (Licht aus.)"
+            },
+            "action": "delete",
+            "_context": {
+                "page": 401,
+                "pageTitle": "Wien wie immer test",
+                "element": 7578,
+                "type": "text",
+                "roles": {
+                    "bodytext": "body"
+                }
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 7577,
+            "expect": {
+                "CType": "text",
+                "bodytext": "Akt II Die Lichter draußen flackern. Schritte verhallen. PERSON: Alle gehen irgendwohin. Nur ich bleib stehen. Vielleicht bin ich schon angekommen… oder einfach vergessen worden."
+            },
+            "action": "delete",
+            "_context": {
+                "page": 401,
+                "pageTitle": "Wien wie immer test",
+                "element": 7577,
+                "type": "text",
+                "roles": {
+                    "bodytext": "body"
+                }
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 7576,
+            "expect": {
+                "CType": "text",
+                "bodytext": "Akt I Ein leeres Kaffeehaus. Ein einzelner Stuhl. PERSON sitzt, rührt in einer längst kalten Melange. PERSON: Wien… du klingst nach Stimmen, aber sprichst nie mit mir. (Kurze Pause. Ein Löffel fällt.)"
+            },
+            "action": "delete",
+            "_context": {
+                "page": 401,
+                "pageTitle": "Wien wie immer test",
+                "element": 7576,
+                "type": "text",
+                "roles": {
+                    "bodytext": "body"
+                }
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 7575,
+            "expect": {
+                "CType": "header",
+                "header": "Wien nur du allein – ein Einsamkeitsdrama in drei Akten"
+            },
+            "action": "delete",
+            "_context": {
+                "page": 401,
+                "pageTitle": "Wien wie immer test",
+                "element": 7575,
+                "type": "header",
+                "roles": {
+                    "header": "headline"
+                }
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 2016,
+            "expect": {
+                "CType": "text",
+                "header": "Quelle",
+                "bodytext": "<p>red, wien.ORF.at — <a href=\"https://wien.orf.at/stories/3350524/\">wien.orf.at/stories/3350524</a></p>"
+            },
+            "action": "delete",
+            "_context": {
+                "page": 401,
+                "pageTitle": "Wien wie immer test",
+                "element": 2016,
+                "type": "text",
+                "roles": {
+                    "header": "headline",
+                    "bodytext": "body"
+                }
+            }
+        },
+        {
             "table": "pages",
             "uid": 401,
             "expect": {
@@ -22,16 +132,17 @@
                 "twitter_description": "Wien spart: Die geplante Geh- und Radbrücke beim Gewerbepark Stadlau wird gestrichen."
             },
             "set": {
-                "title": "Wien wie immer test",
-                "nav_title": "Wien: Brückenbau gestrichen",
-                "subtitle": "Blog template coverage entry",
-                "abstract": "Die geplante 700 m lange Fußgänger- und Fahrradbrücke beim Gewerbepark Stadlau in der Donaustadt wird aus Spargründen vorerst nicht gebaut. Das Projekt sollte eine 5 km lange Radachse durch den 22. Bezirk schaffen.",
-                "description": "Wien spart: Die geplante Geh- und Radbrücke beim Gewerbepark Stadlau wird gestrichen.",
-                "seo_title": "Wien wie immer test",
-                "og_title": "Wien wie immer test",
-                "og_description": "Wien spart: Die geplante Geh- und Radbrücke beim Gewerbepark Stadlau wird gestrichen.",
-                "twitter_title": "Wien wie immer test",
-                "twitter_description": "Wien spart: Die geplante Geh- und Radbrücke beim Gewerbepark Stadlau wird gestrichen."
+                "title": "Workspaces: prepare changes before they go live",
+                "nav_title": "Using workspaces",
+                "subtitle": "Draft, review and publish without touching the live site",
+                "abstract": "In a workspace, you change pages and content as a draft, share a preview and publish the changes when they're ready.",
+                "description": "TYPO3 workspaces let editors prepare changes as drafts, send them for review and publish them together. The live site stays the same until then.",
+                "seo_title": "Workspaces: prepare changes before they go live",
+                "og_title": "Workspaces: prepare changes before they go live",
+                "og_description": "TYPO3 workspaces let editors prepare changes as drafts, send them for review and publish them together. The live site stays the same until then.",
+                "twitter_title": "Workspaces: prepare changes before they go live",
+                "twitter_description": "TYPO3 workspaces let editors prepare changes as drafts, send them for review and publish them together. The live site stays the same until then.",
+                "slug": "/workspaces-prepare-changes-before-they-go-live"
             },
             "_context": {
                 "page": 401,
@@ -54,73 +165,13 @@
         },
         {
             "table": "tt_content",
-            "uid": 7578,
-            "expect": {
-                "CType": "text",
-                "bodytext": "Akt III Stille. Dann ein leises Lachen, fast fremd. PERSON: Wien, nur du allein… und ich irgendwo dazwischen. (Licht aus.)"
-            },
-            "set": {
-                "bodytext": "Akt III Stille. Dann ein leises Lachen, fast fremd. PERSON: Wien, nur du allein… und ich irgendwo dazwischen. (Licht aus.)"
-            },
-            "_context": {
-                "page": 401,
-                "pageTitle": "Wien wie immer test",
-                "element": 7578,
-                "type": "text",
-                "roles": {
-                    "bodytext": "body"
-                }
-            }
-        },
-        {
-            "table": "tt_content",
-            "uid": 7577,
-            "expect": {
-                "CType": "text",
-                "bodytext": "Akt II Die Lichter draußen flackern. Schritte verhallen. PERSON: Alle gehen irgendwohin. Nur ich bleib stehen. Vielleicht bin ich schon angekommen… oder einfach vergessen worden."
-            },
-            "set": {
-                "bodytext": "Akt II Die Lichter draußen flackern. Schritte verhallen. PERSON: Alle gehen irgendwohin. Nur ich bleib stehen. Vielleicht bin ich schon angekommen… oder einfach vergessen worden."
-            },
-            "_context": {
-                "page": 401,
-                "pageTitle": "Wien wie immer test",
-                "element": 7577,
-                "type": "text",
-                "roles": {
-                    "bodytext": "body"
-                }
-            }
-        },
-        {
-            "table": "tt_content",
-            "uid": 7576,
-            "expect": {
-                "CType": "text",
-                "bodytext": "Akt I Ein leeres Kaffeehaus. Ein einzelner Stuhl. PERSON sitzt, rührt in einer längst kalten Melange. PERSON: Wien… du klingst nach Stimmen, aber sprichst nie mit mir. (Kurze Pause. Ein Löffel fällt.)"
-            },
-            "set": {
-                "bodytext": "Akt I Ein leeres Kaffeehaus. Ein einzelner Stuhl. PERSON sitzt, rührt in einer längst kalten Melange. PERSON: Wien… du klingst nach Stimmen, aber sprichst nie mit mir. (Kurze Pause. Ein Löffel fällt.)"
-            },
-            "_context": {
-                "page": 401,
-                "pageTitle": "Wien wie immer test",
-                "element": 7576,
-                "type": "text",
-                "roles": {
-                    "bodytext": "body"
-                }
-            }
-        },
-        {
-            "table": "tt_content",
             "uid": 2011,
             "expect": {
                 "CType": "text",
                 "bodytext": "<p>Im September 2024 hatte die Stadtregierung die Brücke für Fußgänger und den Radverkehr medienwirksam angekündigt. Auch Probebohrungen wurden bereits durchgeführt. Doch nun wird vorerst nicht gebaut: „Aus budgetären Gründen wird es aktuell keinen Baustart für die Brücke über den Gewerbepark Stadlau geben“, heißt es von der zuständigen MA 29 auf „Wien heute“-Anfrage.</p>\r\n<p>Und weiter: „Da es sich grundsätzlich um <strong>eine</strong> wichtige lokale Fußwegeverbindung und Teil einer bezirksübergreifenden Radverkehrsachse handelt, wird eine Weiterführung des Projekts angestrebt, sobald die Rahmenbedingungen dies zulassen.“</p>"
             },
             "set": {
-                "bodytext": "<p>Im September 2024 hatte die Stadtregierung die Brücke für Fußgänger und den Radverkehr medienwirksam angekündigt. Auch Probebohrungen wurden bereits durchgeführt. Doch nun wird vorerst nicht gebaut: „Aus budgetären Gründen wird es aktuell keinen Baustart für die Brücke über den Gewerbepark Stadlau geben“, heißt es von der zuständigen MA 29 auf „Wien heute“-Anfrage.</p>\r\n<p>Und weiter: „Da es sich grundsätzlich um <strong>eine</strong> wichtige lokale Fußwegeverbindung und Teil einer bezirksübergreifenden Radverkehrsachse handelt, wird eine Weiterführung des Projekts angestrebt, sobald die Rahmenbedingungen dies zulassen.“</p>"
+                "bodytext": "<p>A <strong>workspace</strong> is a separate draft version of your site. Changes you make there don't appear on the live site. Visitors keep seeing the published pages until you publish your changes. This helps with a relaunch, a campaign or any change that needs approval first.</p>"
             },
             "_context": {
                 "page": 401,
@@ -134,33 +185,13 @@
         },
         {
             "table": "tt_content",
-            "uid": 7575,
-            "expect": {
-                "CType": "header",
-                "header": "Wien nur du allein – ein Einsamkeitsdrama in drei Akten"
-            },
-            "set": {
-                "header": "Wien nur du allein – ein Einsamkeitsdrama in drei Akten"
-            },
-            "_context": {
-                "page": 401,
-                "pageTitle": "Wien wie immer test",
-                "element": 7575,
-                "type": "header",
-                "roles": {
-                    "header": "headline"
-                }
-            }
-        },
-        {
-            "table": "tt_content",
             "uid": 2008,
             "expect": {
                 "CType": "textmedia",
                 "bodytext": "<p>Sie wurde als „historisches Projekt“ angekündigt, nun fällt sie dem Sparstift zum Opfer: eine <strong>700 Meter lange Rad- und Fußgängerbrücke</strong> beim Gewerbepark Stadlau. Viele Umwege sollten so überflüssig werden, der Baustart war für Sommer vorgesehen. Doch es fehlt das Geld.</p>"
             },
             "set": {
-                "bodytext": "<p>Sie wurde als „historisches Projekt“ angekündigt, nun fällt sie dem Sparstift zum Opfer: eine <strong>700 Meter lange Rad- und Fußgängerbrücke</strong> beim Gewerbepark Stadlau. Viele Umwege sollten so überflüssig werden, der Baustart war für Sommer vorgesehen. Doch es fehlt das Geld.</p>"
+                "bodytext": "<p>To start, switch to a workspace that your administrator has set up. Then edit pages and content as usual. The <strong>Publish</strong> module, called Workspaces before TYPO3 v14, lists every change and the editor who made it last.</p>"
             },
             "_context": {
                 "page": 401,
@@ -173,26 +204,6 @@
             }
         },
         {
-            "table": "sys_file_reference",
-            "uid": 1164,
-            "expect": {
-                "alternative": "Geplante 700 m lange Fußgänger- und Fahrradbrücke beim Gewerbepark Stadlau in Wien-Donaustadt"
-            },
-            "set": {
-                "alternative": "Geplante 700 m lange Fußgänger- und Fahrradbrücke beim Gewerbepark Stadlau in Wien-Donaustadt"
-            },
-            "_context": {
-                "page": 401,
-                "pageTitle": "Wien wie immer test",
-                "element": 2008,
-                "type": "textmedia",
-                "roles": {
-                    "alternative": "alt"
-                },
-                "file": "/mcp/workspaces/ws-1/orf-news/wien-bruecke-stadlau-ca690df64a4690bb.jpg"
-            }
-        },
-        {
             "table": "tt_content",
             "uid": 2012,
             "expect": {
@@ -201,8 +212,8 @@
                 "bodytext": "<p>Rund 28 Millionen Euro waren für die Brücke veranschlagt. Sie sollte der Lückenschluss auf der Radachse zwischen dem Kagraner Platz und der Seestadt werden. Konkret sollte sie das Quartier Marlen-Haushofer-Weg mit dem Gewerbepark Stadlau und der Süßenbrunner Straße verbinden.</p>\r\n<p>Derzeit trennen die ÖBB-Trasse und die Wiener Nordrand Schnellstraße (S2) die Stadtteile, eine Brücke gibt es nur für die Straßenbahn. Für die Anrainerinnen und Anrainer bedeutet das lange Umwege. Das kritisiert auch Roland Romano von der Interessengemeinschaft Radlobby.</p>\r\n<p>So wären beispielsweise der Kagraner Platz und die Oberfeldgasse eigentlich relativ nahe beieinander: „Da liegen rund 1,3 Kilometer dazwischen. Der Umweg ist dann aber doppelt so lang. Wenn man in die Mitte möchte zum Gewerbepark Stadlau, ist der Weg manchmal zweimal oder dreimal so lang.“ Zudem seien diese Umwege mit dem Rad teilweise nicht sicher.</p>"
             },
             "set": {
-                "header": "S2 und ÖBB-Trasse trenne ddd n Stadtteile",
-                "bodytext": "<p>Rund 28 Millionen Euro waren für die Brücke veranschlagt. Sie sollte der Lückenschluss auf der Radachse zwischen dem Kagraner Platz und der Seestadt werden. Konkret sollte sie das Quartier Marlen-Haushofer-Weg mit dem Gewerbepark Stadlau und der Süßenbrunner Straße verbinden.</p>\r\n<p>Derzeit trennen die ÖBB-Trasse und die Wiener Nordrand Schnellstraße (S2) die Stadtteile, eine Brücke gibt es nur für die Straßenbahn. Für die Anrainerinnen und Anrainer bedeutet das lange Umwege. Das kritisiert auch Roland Romano von der Interessengemeinschaft Radlobby.</p>\r\n<p>So wären beispielsweise der Kagraner Platz und die Oberfeldgasse eigentlich relativ nahe beieinander: „Da liegen rund 1,3 Kilometer dazwischen. Der Umweg ist dann aber doppelt so lang. Wenn man in die Mitte möchte zum Gewerbepark Stadlau, ist der Weg manchmal zweimal oder dreimal so lang.“ Zudem seien diese Umwege mit dem Rad teilweise nicht sicher.</p>"
+                "header": "Review in stages",
+                "bodytext": "<p>Each change moves through stages. By default these are Editing and Ready to publish, and administrators can add their own stages in between. When you send a change to the next stage, TYPO3 can notify the people responsible for it.</p>"
             },
             "_context": {
                 "page": 401,
@@ -224,36 +235,13 @@
                 "bodytext": "<p>Dass die Rad- und Fußgängerbrücke nicht schon gemeinsam mit der Straßenbahnbrücke errichtet wurde, sieht die MA 29 als Versäumnis der damaligen Verkehrsstadträtin Maria Vassilakou (Grüne). Die Grünen widersprechen, die Planungen hätten schon weit vor Vassilakous Amtszeit begonnen.</p>\r\n<p>„Die Planung der Verlängerung der Straßenbahnlinie 26 vom Kagraner Platz bis zur Hausfeldstraße begann 2006/07“, betonte Heidi Sequenz, Mobilitätssprecherin der Wiener Grünen. „Leider hatten der Rad- und Fußverkehr damals noch eine sehr geringe Priorität und wurden beim Bau der Straßenbahnbrücke nicht mitgedacht.“ Für die Anrainerinnen und Anrainer sei die Absage des Projekts jedenfalls „eine Katastrophe“, so Sequenz.</p>"
             },
             "set": {
-                "header": "Für Anrainer „eine Katastrophe“",
-                "bodytext": "<p>Dass die Rad- und Fußgängerbrücke nicht schon gemeinsam mit der Straßenbahnbrücke errichtet wurde, sieht die MA 29 als Versäumnis der damaligen Verkehrsstadträtin Maria Vassilakou (Grüne). Die Grünen widersprechen, die Planungen hätten schon weit vor Vassilakous Amtszeit begonnen.</p>\r\n<p>„Die Planung der Verlängerung der Straßenbahnlinie 26 vom Kagraner Platz bis zur Hausfeldstraße begann 2006/07“, betonte Heidi Sequenz, Mobilitätssprecherin der Wiener Grünen. „Leider hatten der Rad- und Fußverkehr damals noch eine sehr geringe Priorität und wurden beim Bau der Straßenbahnbrücke nicht mitgedacht.“ Für die Anrainerinnen und Anrainer sei die Absage des Projekts jedenfalls „eine Katastrophe“, so Sequenz.</p>"
+                "header": "Share a preview, then publish",
+                "bodytext": "<p>Reviewers don't need a backend account. The Publish module creates preview links and QR codes that open the draft without a login. When everything is approved, you publish the changes together or one by one. A workspace can also publish at a set time, using a scheduler task.</p>"
             },
             "_context": {
                 "page": 401,
                 "pageTitle": "Wien wie immer test",
                 "element": 2013,
-                "type": "text",
-                "roles": {
-                    "header": "headline",
-                    "bodytext": "body"
-                }
-            }
-        },
-        {
-            "table": "tt_content",
-            "uid": 2016,
-            "expect": {
-                "CType": "text",
-                "header": "Quelle",
-                "bodytext": "<p>red, wien.ORF.at — <a href=\"https://wien.orf.at/stories/3350524/\">wien.orf.at/stories/3350524</a></p>"
-            },
-            "set": {
-                "header": "Quelle",
-                "bodytext": "<p>red, wien.ORF.at — <a href=\"https://wien.orf.at/stories/3350524/\">wien.orf.at/stories/3350524</a></p>"
-            },
-            "_context": {
-                "page": 401,
-                "pageTitle": "Wien wie immer test",
-                "element": 2016,
                 "type": "text",
                 "roles": {
                     "header": "headline",

@@ -13,7 +13,8 @@
                 "title": "Author"
             },
             "set": {
-                "title": "Author"
+                "title": "Authors",
+                "description": "The people who write for the TYPO3 v14 blog. Choose an author to see every post they have written, with the newest post first."
             },
             "_context": {
                 "page": 73,
@@ -21,7 +22,8 @@
                 "element": 73,
                 "type": "pages",
                 "roles": {
-                    "title": "page_title"
+                    "title": "page_title",
+                    "description": "meta"
                 }
             }
         }

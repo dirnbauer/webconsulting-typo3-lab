@@ -13,7 +13,8 @@
                 "title": "THE TYPO3 Blog"
             },
             "set": {
-                "title": "THE TYPO3 Blog"
+                "title": "The TYPO3 blog",
+                "description": "Short, practical posts about TYPO3: what is new for editors, site sets, Content Blocks, workspaces and community events."
             },
             "_context": {
                 "page": 390,
@@ -21,7 +22,8 @@
                 "element": 390,
                 "type": "pages",
                 "roles": {
-                    "title": "page_title"
+                    "title": "page_title",
+                    "description": "meta"
                 }
             }
         },
@@ -33,7 +35,7 @@
                 "header": "search"
             },
             "set": {
-                "header": "search"
+                "header": "Search the blog"
             },
             "_context": {
                 "page": 390,

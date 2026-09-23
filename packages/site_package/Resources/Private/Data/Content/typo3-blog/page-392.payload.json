@@ -13,7 +13,8 @@
                 "title": "Category"
             },
             "set": {
-                "title": "Category"
+                "title": "Categories",
+                "description": "All categories of the TYPO3 blog, from Editors and Developers to Community. Choose a category to see every post filed under it."
             },
             "_context": {
                 "page": 392,
@@ -21,7 +22,8 @@
                 "element": 392,
                 "type": "pages",
                 "roles": {
-                    "title": "page_title"
+                    "title": "page_title",
+                    "description": "meta"
                 }
             }
         }

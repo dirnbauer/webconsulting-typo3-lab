@@ -13,7 +13,8 @@
                 "title": "Category"
             },
             "set": {
-                "title": "Category"
+                "title": "Categories",
+                "description": "All categories of the TYPO3 v14 blog. Choose a category to see every post filed under it, with its teaser, author and date."
             },
             "_context": {
                 "page": 71,
@@ -21,7 +22,8 @@
                 "element": 71,
                 "type": "pages",
                 "roles": {
-                    "title": "page_title"
+                    "title": "page_title",
+                    "description": "meta"
                 }
             }
         }

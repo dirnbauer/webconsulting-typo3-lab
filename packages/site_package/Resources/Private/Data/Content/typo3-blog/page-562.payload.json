@@ -7,23 +7,22 @@
     "generated": "2026-09-23T10:12:15+02:00",
     "records": [
         {
-            "table": "pages",
-            "uid": 562,
+            "table": "sys_file_reference",
+            "uid": 3753,
             "expect": {
-                "title": "Defektes Ladekabel löste Brand in Thaya aus"
+                "alternative": "Feuer und Rauch bei Brand in Thaya, Feuerwehren im Einsatz"
             },
-            "set": {
-                "title": "Defektes Ladekabel löste Brand in Thaya aus"
-            },
+            "action": "delete",
             "_context": {
                 "page": 562,
                 "pageTitle": "Defektes Ladekabel löste Brand in Thaya aus",
-                "element": 562,
-                "type": "pages",
+                "element": 7610,
+                "type": "textmedia",
                 "roles": {
-                    "title": "page_title"
+                    "alternative": "alt"
                 },
-                "pageHidden": true
+                "pageHidden": true,
+                "file": "/mcp/workspaces/ws-1/3018252_master_1167605_whatsapp_image_2026-04-28_at_07.24.51-37c92703129ff2e9.jpeg"
             }
         },
         {
@@ -33,9 +32,7 @@
                 "CType": "textmedia",
                 "bodytext": "<p>Ein Defekt an einem Ladekabel soll einen Brand am Dienstag in einer Reihenhausanlage in Thaya (Bezirk Waidhofen a.d. Thaya) verursacht haben. Das teilte die Polizei nach Abschluss der Ermittlungen auf Anfrage mit.</p>\r\n<p>Eine Bewohnerin hatte laut Feuerwehr einen hellen Lichtschein entdeckt und alarmiert. Die drei betroffenen Familien brachten sich in Sicherheit; betroffen waren auch Kinder und ein Säugling; Unterbringung erfolgte in Ersatzquartieren.</p>\r\n<p>Zwölf Feuerwehren mit rund 125 Einsatzkräften waren im Einsatz. Ein Reihenhaus wurde zerstört, zwei weitere beschädigt; keine Verletzten. Wegen einer Rauchwolke Richtung nahe Volksschule wurde der Unterricht aus Sicherheitsgründen gestrichen.</p>\r\n<p><em>Quelle: noe.ORF.at, Chronik — Online 30. April 2026.</em></p>"
             },
-            "set": {
-                "bodytext": "<p>Ein Defekt an einem Ladekabel soll einen Brand am Dienstag in einer Reihenhausanlage in Thaya (Bezirk Waidhofen a.d. Thaya) verursacht haben. Das teilte die Polizei nach Abschluss der Ermittlungen auf Anfrage mit.</p>\r\n<p>Eine Bewohnerin hatte laut Feuerwehr einen hellen Lichtschein entdeckt und alarmiert. Die drei betroffenen Familien brachten sich in Sicherheit; betroffen waren auch Kinder und ein Säugling; Unterbringung erfolgte in Ersatzquartieren.</p>\r\n<p>Zwölf Feuerwehren mit rund 125 Einsatzkräften waren im Einsatz. Ein Reihenhaus wurde zerstört, zwei weitere beschädigt; keine Verletzten. Wegen einer Rauchwolke Richtung nahe Volksschule wurde der Unterricht aus Sicherheitsgründen gestrichen.</p>\r\n<p><em>Quelle: noe.ORF.at, Chronik — Online 30. April 2026.</em></p>"
-            },
+            "action": "delete",
             "_context": {
                 "page": 562,
                 "pageTitle": "Defektes Ladekabel löste Brand in Thaya aus",
@@ -48,24 +45,21 @@
             }
         },
         {
-            "table": "sys_file_reference",
-            "uid": 3753,
+            "table": "pages",
+            "uid": 562,
             "expect": {
-                "alternative": "Feuer und Rauch bei Brand in Thaya, Feuerwehren im Einsatz"
+                "title": "Defektes Ladekabel löste Brand in Thaya aus"
             },
-            "set": {
-                "alternative": "Feuer und Rauch bei Brand in Thaya, Feuerwehren im Einsatz"
-            },
+            "action": "delete",
             "_context": {
                 "page": 562,
                 "pageTitle": "Defektes Ladekabel löste Brand in Thaya aus",
-                "element": 7610,
-                "type": "textmedia",
+                "element": 562,
+                "type": "pages",
                 "roles": {
-                    "alternative": "alt"
+                    "title": "page_title"
                 },
-                "pageHidden": true,
-                "file": "/mcp/workspaces/ws-1/3018252_master_1167605_whatsapp_image_2026-04-28_at_07.24.51-37c92703129ff2e9.jpeg"
+                "pageHidden": true
             }
         }
     ]

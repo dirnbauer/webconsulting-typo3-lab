@@ -13,7 +13,8 @@
                 "title": "version 14 Blog"
             },
             "set": {
-                "title": "version 14 Blog"
+                "title": "TYPO3 v14 blog",
+                "description": "A demo blog running on TYPO3 v14 with the Blog extension. Find short posts by category, tag, author or month in the archive."
             },
             "_context": {
                 "page": 69,
@@ -21,7 +22,8 @@
                 "element": 69,
                 "type": "pages",
                 "roles": {
-                    "title": "page_title"
+                    "title": "page_title",
+                    "description": "meta"
                 }
             }
         }

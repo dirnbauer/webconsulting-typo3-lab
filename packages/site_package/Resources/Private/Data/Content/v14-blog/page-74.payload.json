@@ -13,7 +13,8 @@
                 "title": "Archive"
             },
             "set": {
-                "title": "Archive"
+                "title": "Archive",
+                "description": "Every post on the TYPO3 v14 blog, sorted by year and month. Use the archive to find older posts that are no longer on the start page."
             },
             "_context": {
                 "page": 74,
@@ -21,7 +22,8 @@
                 "element": 74,
                 "type": "pages",
                 "roles": {
-                    "title": "page_title"
+                    "title": "page_title",
+                    "description": "meta"
                 }
             }
         }

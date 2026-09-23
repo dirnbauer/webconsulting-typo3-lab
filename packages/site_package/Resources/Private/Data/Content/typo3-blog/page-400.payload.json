@@ -7,6 +7,44 @@
     "generated": "2026-09-23T10:12:12+02:00",
     "records": [
         {
+            "table": "sys_file_reference",
+            "uid": 1163,
+            "expect": {
+                "alternative": "Ein Tanker auf der Straße von Hormus"
+            },
+            "action": "delete",
+            "_context": {
+                "page": 400,
+                "pageTitle": "Waffenruhe läuft aus: USA und Iran drohen einander",
+                "element": 2007,
+                "type": "textmedia",
+                "roles": {
+                    "alternative": "alt"
+                },
+                "file": "/mcp/workspaces/ws-1/orf-news/iran-usa-drohungen-950cd0bd7929c245.jpg"
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 2015,
+            "expect": {
+                "CType": "text",
+                "header": "Quelle",
+                "bodytext": "<p>red, ORF.at/Agenturen — <a href=\"https://orf.at/stories/3427472/\">orf.at/stories/3427472</a></p>"
+            },
+            "action": "delete",
+            "_context": {
+                "page": 400,
+                "pageTitle": "Waffenruhe läuft aus: USA und Iran drohen einander",
+                "element": 2015,
+                "type": "text",
+                "roles": {
+                    "header": "headline",
+                    "bodytext": "body"
+                }
+            }
+        },
+        {
             "table": "pages",
             "uid": 400,
             "expect": {
@@ -22,16 +60,17 @@
                 "twitter_description": "Vor dem Auslaufen der Waffenruhe drohen USA und Iran einander. Die Lage rund um die Straße von Hormus spitzt sich zu."
             },
             "set": {
-                "title": "Waffenruhe läuft aus: USA und Iran drohen einander",
-                "nav_title": "USA und Iran: Waffenruhe läuft aus",
-                "subtitle": "Blog template coverage entry",
-                "abstract": "Mit dem nahenden Ende der Waffenruhe wachsen die Spannungen: USA und Iran drohen einander mit harten Konsequenzen. Im Fokus steht erneut die Straße von Hormus und die globale Ölversorgung.",
-                "description": "Vor dem Auslaufen der Waffenruhe drohen USA und Iran einander. Die Lage rund um die Straße von Hormus spitzt sich zu.",
-                "seo_title": "Waffenruhe läuft aus: USA und Iran drohen einander",
-                "og_title": "Waffenruhe läuft aus: USA und Iran drohen einander",
-                "og_description": "Vor dem Auslaufen der Waffenruhe drohen USA und Iran einander. Die Lage rund um die Straße von Hormus spitzt sich zu.",
-                "twitter_title": "Waffenruhe läuft aus: USA und Iran drohen einander",
-                "twitter_description": "Vor dem Auslaufen der Waffenruhe drohen USA und Iran einander. Die Lage rund um die Straße von Hormus spitzt sich zu."
+                "title": "Site sets: reusable configuration for sites",
+                "nav_title": "Site sets explained",
+                "subtitle": "Settings, TypoScript and TSconfig in one package",
+                "abstract": "Site sets bundle settings, TypoScript and page TSconfig, and you add them to a site in its configuration.",
+                "description": "Site sets bundle settings, TypoScript and page TSconfig into packages you add to a TYPO3 site. Here is how they work in TYPO3 v13 and TYPO3 v14.",
+                "seo_title": "Site sets: reusable configuration for sites",
+                "og_title": "Site sets: reusable configuration for sites",
+                "og_description": "Site sets bundle settings, TypoScript and page TSconfig into packages you add to a TYPO3 site. Here is how they work in TYPO3 v13 and TYPO3 v14.",
+                "twitter_title": "Site sets: reusable configuration for sites",
+                "twitter_description": "Site sets bundle settings, TypoScript and page TSconfig into packages you add to a TYPO3 site. Here is how they work in TYPO3 v13 and TYPO3 v14.",
+                "slug": "/site-sets-reusable-configuration-for-sites"
             },
             "_context": {
                 "page": 400,
@@ -60,7 +99,7 @@
                 "bodytext": "<p>Kurz vor dem Auslaufen der <strong>Waffenruhe</strong> zwischen dem Iran und den USA ist eine Fortsetzung der Verhandlungen weiter ungewiss. Beide Parteien zeigten sich zuletzt unnachgiebig. Der iranische Parlamentspräsident Mohammed-Bagher Ghalibaf, der die iranische Delegation in der vorigen Runde angeführt hatte, teilte auf X mit, er akzeptiere keine Verhandlungen unter dem Eindruck von Drohungen. Der Iran habe nach der Feuerpause neue militärische Mittel in der Hinterhand. Auch von US-Präsident Donald Trump kamen neue Drohungen.</p>"
             },
             "set": {
-                "bodytext": "<p>Kurz vor dem Auslaufen der <strong>Waffenruhe</strong> zwischen dem Iran und den USA ist eine Fortsetzung der Verhandlungen weiter ungewiss. Beide Parteien zeigten sich zuletzt unnachgiebig. Der iranische Parlamentspräsident Mohammed-Bagher Ghalibaf, der die iranische Delegation in der vorigen Runde angeführt hatte, teilte auf X mit, er akzeptiere keine Verhandlungen unter dem Eindruck von Drohungen. Der Iran habe nach der Feuerpause neue militärische Mittel in der Hinterhand. Auch von US-Präsident Donald Trump kamen neue Drohungen.</p>"
+                "bodytext": "<p><strong>Site sets</strong> arrived in TYPO3 v13 and are part of TYPO3 v14 as well. A set bundles settings, TypoScript and page TSconfig. You add a set to a site by listing it under dependencies in the site configuration, or by choosing it in the backend. Sets can depend on other sets, and TYPO3 loads them in the right order.</p>"
             },
             "_context": {
                 "page": 400,
@@ -70,26 +109,6 @@
                 "roles": {
                     "bodytext": "body"
                 }
-            }
-        },
-        {
-            "table": "sys_file_reference",
-            "uid": 1163,
-            "expect": {
-                "alternative": "Ein Tanker auf der Straße von Hormus"
-            },
-            "set": {
-                "alternative": "Ein Tanker auf der Straße von Hormus"
-            },
-            "_context": {
-                "page": 400,
-                "pageTitle": "Waffenruhe läuft aus: USA und Iran drohen einander",
-                "element": 2007,
-                "type": "textmedia",
-                "roles": {
-                    "alternative": "alt"
-                },
-                "file": "/mcp/workspaces/ws-1/orf-news/iran-usa-drohungen-950cd0bd7929c245.jpg"
             }
         },
         {
@@ -100,7 +119,7 @@
                 "bodytext": "<p>Medienberichten zufolge steht die US-Delegation um US-Vizepräsident JD Vance vor einer Abreise nach Pakistan. Die Sprecherin des Weißen Hauses, Karoline Leavitt, gab sich dem Sender Fox News gegenüber zuversichtlich, dass die USA ein „wirklich gutes Abkommen“ abschließen würden. Die USA stünden kurz vor einer Einigung mit dem Iran, sagte Leavitt weiter.</p>\r\n<p>US-Präsident Donald Trump sagte, eine Verlängerung der Waffenruhe sei „höchst unwahrscheinlich“. Er drohte dem Iran erneut mit schweren Angriffen, falls die Feuerpause ohne neue Einigung ausläuft. Die vereinbarte Waffenruhe zwischen den USA und dem Iran läuft Trump zufolge Mittwochabend US-Ostküstenzeit aus.</p>"
             },
             "set": {
-                "bodytext": "<p>Medienberichten zufolge steht die US-Delegation um US-Vizepräsident JD Vance vor einer Abreise nach Pakistan. Die Sprecherin des Weißen Hauses, Karoline Leavitt, gab sich dem Sender Fox News gegenüber zuversichtlich, dass die USA ein „wirklich gutes Abkommen“ abschließen würden. Die USA stünden kurz vor einer Einigung mit dem Iran, sagte Leavitt weiter.</p>\r\n<p>US-Präsident Donald Trump sagte, eine Verlängerung der Waffenruhe sei „höchst unwahrscheinlich“. Er drohte dem Iran erneut mit schweren Angriffen, falls die Feuerpause ohne neue Einigung ausläuft. Die vereinbarte Waffenruhe zwischen den USA und dem Iran läuft Trump zufolge Mittwochabend US-Ostküstenzeit aus.</p>"
+                "bodytext": "<p>An extension keeps its sets in the folder Configuration/Sets. Each set has a config.yaml with a name and its dependencies. A file called settings.definitions.yaml describes each setting with a label, a type and a default value. Administrators can change these settings in the backend. TYPO3 saves only the values that differ from the defaults.</p>\r\n<p>In TYPO3 v14, a set can also bring its own route enhancers in a file called route-enhancers.yaml.</p>"
             },
             "_context": {
                 "page": 400,
@@ -108,29 +127,6 @@
                 "element": 2010,
                 "type": "text",
                 "roles": {
-                    "bodytext": "body"
-                }
-            }
-        },
-        {
-            "table": "tt_content",
-            "uid": 2015,
-            "expect": {
-                "CType": "text",
-                "header": "Quelle",
-                "bodytext": "<p>red, ORF.at/Agenturen — <a href=\"https://orf.at/stories/3427472/\">orf.at/stories/3427472</a></p>"
-            },
-            "set": {
-                "header": "Quelle",
-                "bodytext": "<p>red, ORF.at/Agenturen — <a href=\"https://orf.at/stories/3427472/\">orf.at/stories/3427472</a></p>"
-            },
-            "_context": {
-                "page": 400,
-                "pageTitle": "Waffenruhe läuft aus: USA und Iran drohen einander",
-                "element": 2015,
-                "type": "text",
-                "roles": {
-                    "header": "headline",
                     "bodytext": "body"
                 }
             }

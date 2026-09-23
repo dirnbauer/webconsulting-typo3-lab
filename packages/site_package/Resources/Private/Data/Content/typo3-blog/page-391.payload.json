@@ -24,6 +24,146 @@
                     "title": "page_title"
                 }
             }
+        },
+        {
+            "table": "sys_category",
+            "uid": 18,
+            "expect": {
+                "title": "Politik"
+            },
+            "set": {
+                "title": "Developers",
+                "slug": "developers"
+            },
+            "_context": {
+                "page": 391,
+                "pageTitle": "Data",
+                "element": 18,
+                "type": "sys_category",
+                "roles": {
+                    "title": "headline"
+                }
+            }
+        },
+        {
+            "table": "sys_category",
+            "uid": 19,
+            "expect": {
+                "title": "International"
+            },
+            "set": {
+                "title": "Guides",
+                "slug": "guides"
+            },
+            "_context": {
+                "page": 391,
+                "pageTitle": "Data",
+                "element": 19,
+                "type": "sys_category",
+                "roles": {
+                    "title": "headline"
+                }
+            }
+        },
+        {
+            "table": "sys_category",
+            "uid": 20,
+            "expect": {
+                "title": "Österreich"
+            },
+            "set": {
+                "title": "Editors",
+                "slug": "editors"
+            },
+            "_context": {
+                "page": 391,
+                "pageTitle": "Data",
+                "element": 20,
+                "type": "sys_category",
+                "roles": {
+                    "title": "headline"
+                }
+            }
+        },
+        {
+            "table": "sys_category",
+            "uid": 21,
+            "expect": {
+                "title": "Wien"
+            },
+            "set": {
+                "title": "Workflows",
+                "slug": "workflows"
+            },
+            "_context": {
+                "page": 391,
+                "pageTitle": "Data",
+                "element": 21,
+                "type": "sys_category",
+                "roles": {
+                    "title": "headline"
+                }
+            }
+        },
+        {
+            "table": "sys_category",
+            "uid": 22,
+            "expect": {
+                "title": "Verkehr"
+            },
+            "set": {
+                "title": "Publishing",
+                "slug": "publishing"
+            },
+            "_context": {
+                "page": 391,
+                "pageTitle": "Data",
+                "element": 22,
+                "type": "sys_category",
+                "roles": {
+                    "title": "headline"
+                }
+            }
+        },
+        {
+            "table": "sys_category",
+            "uid": 23,
+            "expect": {
+                "title": "Kultur"
+            },
+            "set": {
+                "title": "Community",
+                "slug": "community"
+            },
+            "_context": {
+                "page": 391,
+                "pageTitle": "Data",
+                "element": 23,
+                "type": "sys_category",
+                "roles": {
+                    "title": "headline"
+                }
+            }
+        },
+        {
+            "table": "sys_category",
+            "uid": 24,
+            "expect": {
+                "title": "EU"
+            },
+            "set": {
+                "title": "Extensions",
+                "slug": "extensions"
+            },
+            "_context": {
+                "page": 391,
+                "pageTitle": "Data",
+                "element": 24,
+                "type": "sys_category",
+                "roles": {
+                    "title": "headline"
+                }
+            }
         }
     ]
 }
