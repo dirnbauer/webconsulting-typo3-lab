@@ -1,0 +1,76 @@
+{
+    "version": 1,
+    "site": "blog-classico",
+    "root": 15,
+    "language": 0,
+    "languageCode": "de",
+    "generated": "2026-09-23T10:11:26+02:00",
+    "records": [
+        {
+            "table": "pages",
+            "uid": 551,
+            "expect": {
+                "title": "Poem",
+                "subtitle": "Blog template coverage entry",
+                "abstract": "Complete sample metadata for the Desiderio Blog list template.",
+                "description": "Seeded fallback metadata for \"Poem\" so the shadcn Blog list and detail templates can show a complete article preview.",
+                "seo_title": "Poem",
+                "og_title": "Poem",
+                "og_description": "Seeded fallback metadata for \"Poem\" so the shadcn Blog list and detail templates can show a complete article preview.",
+                "twitter_title": "Poem",
+                "twitter_description": "Seeded fallback metadata for \"Poem\" so the shadcn Blog list and detail templates can show a complete article preview."
+            },
+            "set": {
+                "title": "Poem",
+                "subtitle": "Blog template coverage entry",
+                "abstract": "Complete sample metadata for the Desiderio Blog list template.",
+                "description": "Seeded fallback metadata for \"Poem\" so the shadcn Blog list and detail templates can show a complete article preview.",
+                "seo_title": "Poem",
+                "og_title": "Poem",
+                "og_description": "Seeded fallback metadata for \"Poem\" so the shadcn Blog list and detail templates can show a complete article preview.",
+                "twitter_title": "Poem",
+                "twitter_description": "Seeded fallback metadata for \"Poem\" so the shadcn Blog list and detail templates can show a complete article preview."
+            },
+            "_context": {
+                "page": 551,
+                "pageTitle": "Poem",
+                "element": 551,
+                "type": "pages",
+                "roles": {
+                    "title": "page_title",
+                    "subtitle": "lead",
+                    "abstract": "lead",
+                    "description": "meta",
+                    "seo_title": "page_title",
+                    "og_title": "page_title",
+                    "og_description": "meta",
+                    "twitter_title": "page_title",
+                    "twitter_description": "meta"
+                }
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 7561,
+            "expect": {
+                "CType": "text",
+                "header": "The day slips quietly",
+                "bodytext": "<p>The day slips quietly out of its coat<br />and hangs gold light on the edge of evening.<br />Somewhere, a window hums with laughter,<br />somewhere else, a kettle forgets to sing.</p>\r\n<p>I walk between moments that almost matter—<br />a breeze, a glance, a name I nearly recall—<br />and wonder how the smallest seconds<br />are the ones that hold us all.</p>\r\n<p>Night doesn’t fall; it gathers,<br />soft as a thought you didn’t mean to keep.<br />And in its dark, the world remembers<br />every promise it made in sleep.</p>"
+            },
+            "set": {
+                "header": "The day slips quietly",
+                "bodytext": "<p>The day slips quietly out of its coat<br />and hangs gold light on the edge of evening.<br />Somewhere, a window hums with laughter,<br />somewhere else, a kettle forgets to sing.</p>\r\n<p>I walk between moments that almost matter—<br />a breeze, a glance, a name I nearly recall—<br />and wonder how the smallest seconds<br />are the ones that hold us all.</p>\r\n<p>Night doesn’t fall; it gathers,<br />soft as a thought you didn’t mean to keep.<br />And in its dark, the world remembers<br />every promise it made in sleep.</p>"
+            },
+            "_context": {
+                "page": 551,
+                "pageTitle": "Poem",
+                "element": 7561,
+                "type": "text",
+                "roles": {
+                    "header": "headline",
+                    "bodytext": "body"
+                }
+            }
+        }
+    ]
+}

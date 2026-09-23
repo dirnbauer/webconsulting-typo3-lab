@@ -1,0 +1,231 @@
+{
+    "version": 1,
+    "site": "camp",
+    "root": 933,
+    "language": 0,
+    "languageCode": "de",
+    "generated": "2026-09-23T10:12:32+02:00",
+    "records": [
+        {
+            "table": "pages",
+            "uid": 936,
+            "expect": {
+                "title": "Datenschutz"
+            },
+            "set": {
+                "title": "Datenschutz"
+            },
+            "_context": {
+                "page": 936,
+                "pageTitle": "Datenschutz",
+                "element": 936,
+                "type": "pages",
+                "roles": {
+                    "title": "page_title"
+                }
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 35346,
+            "expect": {
+                "CType": "desiderio_privacynotice",
+                "header": "Datenschutzerklärung",
+                "intro": "<p>Der Schutz Ihrer personenbezogenen Daten ist uns wichtig. Diese Datenschutzerklärung informiert Sie darüber, welche Daten beim Besuch dieser Website und bei der Anmeldung zum TYPO3 Camp München 2026 verarbeitet werden, zu welchem Zweck und auf welcher Rechtsgrundlage. Begriffe wie „personenbezogene Daten“ oder „Verarbeitung“ verwenden wir im Sinne der Datenschutz-Grundverordnung (DSGVO).</p>",
+                "last_updated": "14. Juni 2026"
+            },
+            "set": {
+                "header": "Datenschutzerklärung",
+                "intro": "<p>Der Schutz Ihrer personenbezogenen Daten ist uns wichtig. Diese Datenschutzerklärung informiert Sie darüber, welche Daten beim Besuch dieser Website und bei der Anmeldung zum TYPO3 Camp München 2026 verarbeitet werden, zu welchem Zweck und auf welcher Rechtsgrundlage. Begriffe wie „personenbezogene Daten“ oder „Verarbeitung“ verwenden wir im Sinne der Datenschutz-Grundverordnung (DSGVO).</p>",
+                "last_updated": "14. Juni 2026"
+            },
+            "_context": {
+                "page": 936,
+                "pageTitle": "Datenschutz",
+                "element": 35346,
+                "type": "desiderio_privacynotice",
+                "roles": {
+                    "header": "headline",
+                    "intro": "lead",
+                    "last_updated": "other"
+                }
+            }
+        },
+        {
+            "table": "desiderio_title_content",
+            "uid": 17,
+            "expect": {
+                "title": "Verantwortliche Stelle",
+                "content": "<p>Verantwortlich für die Datenverarbeitung auf dieser Website im Sinne der DSGVO ist:</p>\r\n<p>Münchner TYPO3 User Group e.V. (MTUG)<br />[Straße und Hausnummer], [PLZ] München, Deutschland<br />E-Mail: <a href=\"mailto:datenschutz@typo3camp-muenchen.example\">datenschutz@typo3camp-muenchen.example</a></p>\r\n<p>Bei Fragen zum Datenschutz oder zur Ausübung Ihrer Rechte erreichen Sie uns jederzeit unter der genannten E-Mail-Adresse.</p>"
+            },
+            "set": {
+                "title": "Verantwortliche Stelle",
+                "content": "<p>Verantwortlich für die Datenverarbeitung auf dieser Website im Sinne der DSGVO ist:</p>\r\n<p>Münchner TYPO3 User Group e.V. (MTUG)<br />[Straße und Hausnummer], [PLZ] München, Deutschland<br />E-Mail: <a href=\"mailto:datenschutz@typo3camp-muenchen.example\">datenschutz@typo3camp-muenchen.example</a></p>\r\n<p>Bei Fragen zum Datenschutz oder zur Ausübung Ihrer Rechte erreichen Sie uns jederzeit unter der genannten E-Mail-Adresse.</p>"
+            },
+            "_context": {
+                "page": 936,
+                "pageTitle": "Datenschutz",
+                "element": 35346,
+                "type": "desiderio_privacynotice",
+                "roles": {
+                    "title": "headline",
+                    "content": "card"
+                }
+            }
+        },
+        {
+            "table": "desiderio_title_content",
+            "uid": 18,
+            "expect": {
+                "title": "Ihre Rechte als betroffene Person",
+                "content": "<p>Sie haben jederzeit das Recht auf Auskunft (Art. 15 DSGVO), Berichtigung (Art. 16), Löschung (Art. 17), Einschränkung der Verarbeitung (Art. 18), Datenübertragbarkeit (Art. 20) sowie Widerspruch gegen die Verarbeitung (Art. 21). Beruht eine Verarbeitung auf Ihrer Einwilligung, können Sie diese jederzeit mit Wirkung für die Zukunft widerrufen.</p>\r\n<p>Außerdem steht Ihnen ein Beschwerderecht bei einer Datenschutz-Aufsichtsbehörde zu. Für uns zuständig ist das Bayerische Landesamt für Datenschutzaufsicht (BayLDA), Promenade 18, 91522 Ansbach.</p>"
+            },
+            "set": {
+                "title": "Ihre Rechte als betroffene Person",
+                "content": "<p>Sie haben jederzeit das Recht auf Auskunft (Art. 15 DSGVO), Berichtigung (Art. 16), Löschung (Art. 17), Einschränkung der Verarbeitung (Art. 18), Datenübertragbarkeit (Art. 20) sowie Widerspruch gegen die Verarbeitung (Art. 21). Beruht eine Verarbeitung auf Ihrer Einwilligung, können Sie diese jederzeit mit Wirkung für die Zukunft widerrufen.</p>\r\n<p>Außerdem steht Ihnen ein Beschwerderecht bei einer Datenschutz-Aufsichtsbehörde zu. Für uns zuständig ist das Bayerische Landesamt für Datenschutzaufsicht (BayLDA), Promenade 18, 91522 Ansbach.</p>"
+            },
+            "_context": {
+                "page": 936,
+                "pageTitle": "Datenschutz",
+                "element": 35346,
+                "type": "desiderio_privacynotice",
+                "roles": {
+                    "title": "headline",
+                    "content": "card"
+                }
+            }
+        },
+        {
+            "table": "desiderio_title_content",
+            "uid": 19,
+            "expect": {
+                "title": "Hosting und Server-Logfiles",
+                "content": "<p>Diese Website wird bei einem Dienstleister (Hoster) innerhalb der Europäischen Union betrieben. Beim Aufruf der Seiten erhebt und speichert der Server automatisch Informationen in sogenannten Server-Logfiles, die Ihr Browser übermittelt: Browsertyp und -version, verwendetes Betriebssystem, Referrer-URL, Hostname des zugreifenden Rechners, Uhrzeit der Serveranfrage sowie die IP-Adresse.</p>\r\n<p>Diese Daten werden nicht mit anderen Datenquellen zusammengeführt. Die Verarbeitung erfolgt auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO zur Gewährleistung eines sicheren und stabilen Betriebs. Die Logfiles werden nach kurzer Zeit gelöscht.</p>"
+            },
+            "set": {
+                "title": "Hosting und Server-Logfiles",
+                "content": "<p>Diese Website wird bei einem Dienstleister (Hoster) innerhalb der Europäischen Union betrieben. Beim Aufruf der Seiten erhebt und speichert der Server automatisch Informationen in sogenannten Server-Logfiles, die Ihr Browser übermittelt: Browsertyp und -version, verwendetes Betriebssystem, Referrer-URL, Hostname des zugreifenden Rechners, Uhrzeit der Serveranfrage sowie die IP-Adresse.</p>\r\n<p>Diese Daten werden nicht mit anderen Datenquellen zusammengeführt. Die Verarbeitung erfolgt auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO zur Gewährleistung eines sicheren und stabilen Betriebs. Die Logfiles werden nach kurzer Zeit gelöscht.</p>"
+            },
+            "_context": {
+                "page": 936,
+                "pageTitle": "Datenschutz",
+                "element": 35346,
+                "type": "desiderio_privacynotice",
+                "roles": {
+                    "title": "headline",
+                    "content": "card"
+                }
+            }
+        },
+        {
+            "table": "desiderio_title_content",
+            "uid": 20,
+            "expect": {
+                "title": "Cookies und Einwilligung",
+                "content": "<p>Unsere Website verwendet technisch notwendige Cookies, die für den Betrieb erforderlich sind, etwa zur Speicherung Ihrer Datenschutz-Einstellungen. Rechtsgrundlage ist § 25 Abs. 2 TDDDG in Verbindung mit Art. 6 Abs. 1 lit. f DSGVO.</p>\r\n<p>Optionale Cookies oder Dienste, die nicht zwingend erforderlich sind, werden erst nach Ihrer ausdrücklichen Einwilligung über unser Consent-Banner gesetzt (§ 25 Abs. 1 TDDDG, Art. 6 Abs. 1 lit. a DSGVO). Ihre Auswahl können Sie jederzeit über das Banner ändern oder widerrufen.</p>"
+            },
+            "set": {
+                "title": "Cookies und Einwilligung",
+                "content": "<p>Unsere Website verwendet technisch notwendige Cookies, die für den Betrieb erforderlich sind, etwa zur Speicherung Ihrer Datenschutz-Einstellungen. Rechtsgrundlage ist § 25 Abs. 2 TDDDG in Verbindung mit Art. 6 Abs. 1 lit. f DSGVO.</p>\r\n<p>Optionale Cookies oder Dienste, die nicht zwingend erforderlich sind, werden erst nach Ihrer ausdrücklichen Einwilligung über unser Consent-Banner gesetzt (§ 25 Abs. 1 TDDDG, Art. 6 Abs. 1 lit. a DSGVO). Ihre Auswahl können Sie jederzeit über das Banner ändern oder widerrufen.</p>"
+            },
+            "_context": {
+                "page": 936,
+                "pageTitle": "Datenschutz",
+                "element": 35346,
+                "type": "desiderio_privacynotice",
+                "roles": {
+                    "title": "headline",
+                    "content": "card"
+                }
+            }
+        },
+        {
+            "table": "desiderio_title_content",
+            "uid": 21,
+            "expect": {
+                "title": "Ticket-Anmeldung",
+                "content": "<p>Wenn Sie sich über das Anmeldeformular für ein Ticket zum TYPO3 Camp München 2026 registrieren, verarbeiten wir die von Ihnen angegebenen Daten (z. B. Name, E-Mail-Adresse und weitere Pflichtangaben des Formulars), um Ihre Anmeldung zu bearbeiten und mit Ihnen zur Veranstaltung zu kommunizieren.</p>\r\n<p>Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO (Durchführung vorvertraglicher bzw. vertraglicher Maßnahmen) sowie unser berechtigtes Interesse an der Organisation der Veranstaltung (Art. 6 Abs. 1 lit. f DSGVO). Die Daten werden gelöscht, sobald sie für diese Zwecke nicht mehr erforderlich sind und keine gesetzlichen Aufbewahrungspflichten entgegenstehen.</p>"
+            },
+            "set": {
+                "title": "Ticket-Anmeldung",
+                "content": "<p>Wenn Sie sich über das Anmeldeformular für ein Ticket zum TYPO3 Camp München 2026 registrieren, verarbeiten wir die von Ihnen angegebenen Daten (z. B. Name, E-Mail-Adresse und weitere Pflichtangaben des Formulars), um Ihre Anmeldung zu bearbeiten und mit Ihnen zur Veranstaltung zu kommunizieren.</p>\r\n<p>Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO (Durchführung vorvertraglicher bzw. vertraglicher Maßnahmen) sowie unser berechtigtes Interesse an der Organisation der Veranstaltung (Art. 6 Abs. 1 lit. f DSGVO). Die Daten werden gelöscht, sobald sie für diese Zwecke nicht mehr erforderlich sind und keine gesetzlichen Aufbewahrungspflichten entgegenstehen.</p>"
+            },
+            "_context": {
+                "page": 936,
+                "pageTitle": "Datenschutz",
+                "element": 35346,
+                "type": "desiderio_privacynotice",
+                "roles": {
+                    "title": "headline",
+                    "content": "card"
+                }
+            }
+        },
+        {
+            "table": "desiderio_title_content",
+            "uid": 22,
+            "expect": {
+                "title": "Spam-Schutz mit Friendly Captcha",
+                "content": "<p>Zum Schutz unserer Formulare vor automatisierten Eingaben (Spam) setzen wir „Friendly Captcha“ ein. Der Dienst prüft im Hintergrund, ob eine Eingabe von einem Menschen stammt, und kommt dabei ohne das Auswerten personenbezogener Nutzerprofile und ohne klassische Tracking-Cookies aus. Verarbeitet werden technische Informationen wie eine kryptografische Rechenaufgabe und die IP-Adresse.</p>\r\n<p>Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO; unser berechtigtes Interesse liegt in der Abwehr von Missbrauch und Spam. Die Verarbeitung erfolgt datensparsam und vorrangig über Server innerhalb der EU.</p>"
+            },
+            "set": {
+                "title": "Spam-Schutz mit Friendly Captcha",
+                "content": "<p>Zum Schutz unserer Formulare vor automatisierten Eingaben (Spam) setzen wir „Friendly Captcha“ ein. Der Dienst prüft im Hintergrund, ob eine Eingabe von einem Menschen stammt, und kommt dabei ohne das Auswerten personenbezogener Nutzerprofile und ohne klassische Tracking-Cookies aus. Verarbeitet werden technische Informationen wie eine kryptografische Rechenaufgabe und die IP-Adresse.</p>\r\n<p>Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO; unser berechtigtes Interesse liegt in der Abwehr von Missbrauch und Spam. Die Verarbeitung erfolgt datensparsam und vorrangig über Server innerhalb der EU.</p>"
+            },
+            "_context": {
+                "page": 936,
+                "pageTitle": "Datenschutz",
+                "element": 35346,
+                "type": "desiderio_privacynotice",
+                "roles": {
+                    "title": "headline",
+                    "content": "card"
+                }
+            }
+        },
+        {
+            "table": "desiderio_title_content",
+            "uid": 23,
+            "expect": {
+                "title": "Suchfunktion",
+                "content": "<p>Für die Suche auf dieser Website verwenden wir Apache Solr, das auf unserer eigenen Infrastruktur betrieben wird. Ihre Suchanfragen werden ausschließlich zur Bereitstellung der Suchergebnisse verarbeitet und nicht an Dritte übermittelt. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO.</p>"
+            },
+            "set": {
+                "title": "Suchfunktion",
+                "content": "<p>Für die Suche auf dieser Website verwenden wir Apache Solr, das auf unserer eigenen Infrastruktur betrieben wird. Ihre Suchanfragen werden ausschließlich zur Bereitstellung der Suchergebnisse verarbeitet und nicht an Dritte übermittelt. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO.</p>"
+            },
+            "_context": {
+                "page": 936,
+                "pageTitle": "Datenschutz",
+                "element": 35346,
+                "type": "desiderio_privacynotice",
+                "roles": {
+                    "title": "headline",
+                    "content": "card"
+                }
+            }
+        },
+        {
+            "table": "desiderio_title_content",
+            "uid": 24,
+            "expect": {
+                "title": "SSL-/TLS-Verschlüsselung",
+                "content": "<p>Diese Website nutzt aus Sicherheitsgründen und zum Schutz der Übertragung vertraulicher Inhalte eine SSL-/TLS-Verschlüsselung. Eine verschlüsselte Verbindung erkennen Sie an „https://“ in der Adresszeile Ihres Browsers. Bei aktiver Verschlüsselung können die Daten, die Sie an uns übermitteln, nicht von Dritten mitgelesen werden.</p>"
+            },
+            "set": {
+                "title": "SSL-/TLS-Verschlüsselung",
+                "content": "<p>Diese Website nutzt aus Sicherheitsgründen und zum Schutz der Übertragung vertraulicher Inhalte eine SSL-/TLS-Verschlüsselung. Eine verschlüsselte Verbindung erkennen Sie an „https://“ in der Adresszeile Ihres Browsers. Bei aktiver Verschlüsselung können die Daten, die Sie an uns übermitteln, nicht von Dritten mitgelesen werden.</p>"
+            },
+            "_context": {
+                "page": 936,
+                "pageTitle": "Datenschutz",
+                "element": 35346,
+                "type": "desiderio_privacynotice",
+                "roles": {
+                    "title": "headline",
+                    "content": "card"
+                }
+            }
+        }
+    ]
+}

@@ -1,0 +1,388 @@
+{
+    "version": 1,
+    "site": "camino",
+    "root": 99,
+    "language": 0,
+    "languageCode": "en",
+    "generated": "2026-09-23T10:12:27+02:00",
+    "records": [
+        {
+            "table": "pages",
+            "uid": 105,
+            "expect": {
+                "title": "Camino Route Comparison"
+            },
+            "set": {
+                "title": "Camino Route Comparison"
+            },
+            "_context": {
+                "page": 105,
+                "pageTitle": "Camino Route Comparison",
+                "element": 105,
+                "type": "pages",
+                "roles": {
+                    "title": "page_title"
+                }
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 1365,
+            "expect": {
+                "CType": "text",
+                "bodytext": "<p>Choosing the right Camino route depends on your fitness level, the time you have available, and what you are hoping to get out of the experience. Whether you are drawn to dramatic coastlines, mountain solitude, or the bustle of a well-travelled trail, there is a route that fits. Here is a comparison of the main routes to help you find the one that suits you best.</p>"
+            },
+            "set": {
+                "bodytext": "<p>Choosing the right Camino route depends on your fitness level, the time you have available, and what you are hoping to get out of the experience. Whether you are drawn to dramatic coastlines, mountain solitude, or the bustle of a well-travelled trail, there is a route that fits. Here is a comparison of the main routes to help you find the one that suits you best.</p>"
+            },
+            "_context": {
+                "page": 105,
+                "pageTitle": "Camino Route Comparison",
+                "element": 1365,
+                "type": "text",
+                "roles": {
+                    "bodytext": "body"
+                }
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 1364,
+            "expect": {
+                "CType": "textpic",
+                "header": "Camino Francés – The French Way",
+                "bodytext": "<ul><li>Distance: 240 km from Porto or 620 km from Lisbon (approx. 14–42 days)&nbsp;</li><li>Difficulty: Moderate test</li><li>Best for: Those seeking a quieter route, coastal scenery, or a shorter journey</li></ul>\r\n<p>The Camino Francés passes through some of the most iconic towns along any Camino route, including Pamplona, Burgos, and León. The landscape shifts from the lush green hills of the Pyrenees through vineyards and rolling countryside all the way to Galicia. With a lively atmosphere and a constant stream of fellow pilgrims, it is a route where community and connection come naturally.</p>\r\n<p>As the most popular and best-supported route, the Camino Francés is an ideal choice for first-time pilgrims. Paths are well marked, accommodation is plentiful, and there is always someone to walk alongside.</p>"
+            },
+            "set": {
+                "header": "Camino Francés – The French Way",
+                "bodytext": "<ul><li>Distance: 240 km from Porto or 620 km from Lisbon (approx. 14–42 days)&nbsp;</li><li>Difficulty: Moderate test</li><li>Best for: Those seeking a quieter route, coastal scenery, or a shorter journey</li></ul>\r\n<p>The Camino Francés passes through some of the most iconic towns along any Camino route, including Pamplona, Burgos, and León. The landscape shifts from the lush green hills of the Pyrenees through vineyards and rolling countryside all the way to Galicia. With a lively atmosphere and a constant stream of fellow pilgrims, it is a route where community and connection come naturally.</p>\r\n<p>As the most popular and best-supported route, the Camino Francés is an ideal choice for first-time pilgrims. Paths are well marked, accommodation is plentiful, and there is always someone to walk alongside.</p>"
+            },
+            "_context": {
+                "page": 105,
+                "pageTitle": "Camino Route Comparison",
+                "element": 1364,
+                "type": "textpic",
+                "roles": {
+                    "header": "headline",
+                    "bodytext": "body"
+                }
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 761,
+            "expect": {
+                "alternative": ""
+            },
+            "set": {
+                "alternative": ""
+            },
+            "_context": {
+                "page": 105,
+                "pageTitle": "Camino Route Comparison",
+                "element": 1364,
+                "type": "textpic",
+                "roles": {
+                    "alternative": "alt"
+                },
+                "file": "/camino/camino-frances.webp"
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 1363,
+            "expect": {
+                "CType": "textpic",
+                "header": "Camino Portugués – The Portuguese Way test",
+                "bodytext": "<ul><li data-list-item-id=\"e3bd290e14521a07a8186e4d38d5ff2cf\">Distance: 240 km from Porto or 620 km from Lisbon (approx. 14–42 days)&nbsp;</li><li data-list-item-id=\"ee8b2be420786bfb38b1192315a1ecd4e\">Difficulty: Moderate&nbsp;</li><li data-list-item-id=\"e53b26d6545840d67b839676e852b2560\">Best for: Those seeking a quieter route, coastal scenery, or a shorter journey</li></ul>\n<p>The Camino Português winds through charming towns and villages, offering a mix of peaceful countryside and stunning coastal scenery. It is notably less crowded than the Camino Francés, giving walkers more space to set their own pace and soak in the surroundings.</p>\n<p>Starting from Porto makes it an accessible option for those with less time, while beginning in Lisbon adds weeks of rich Portuguese landscapes and culture to the journey. Either way, it is a beautiful and rewarding route with a gentler, more relaxed atmosphere all the way to Santiago.</p>"
+            },
+            "set": {
+                "header": "Camino Portugués – The Portuguese Way test",
+                "bodytext": "<ul><li data-list-item-id=\"e3bd290e14521a07a8186e4d38d5ff2cf\">Distance: 240 km from Porto or 620 km from Lisbon (approx. 14–42 days)&nbsp;</li><li data-list-item-id=\"ee8b2be420786bfb38b1192315a1ecd4e\">Difficulty: Moderate&nbsp;</li><li data-list-item-id=\"e53b26d6545840d67b839676e852b2560\">Best for: Those seeking a quieter route, coastal scenery, or a shorter journey</li></ul>\n<p>The Camino Português winds through charming towns and villages, offering a mix of peaceful countryside and stunning coastal scenery. It is notably less crowded than the Camino Francés, giving walkers more space to set their own pace and soak in the surroundings.</p>\n<p>Starting from Porto makes it an accessible option for those with less time, while beginning in Lisbon adds weeks of rich Portuguese landscapes and culture to the journey. Either way, it is a beautiful and rewarding route with a gentler, more relaxed atmosphere all the way to Santiago.</p>"
+            },
+            "_context": {
+                "page": 105,
+                "pageTitle": "Camino Route Comparison",
+                "element": 1363,
+                "type": "textpic",
+                "roles": {
+                    "header": "headline",
+                    "bodytext": "body"
+                }
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 760,
+            "expect": {
+                "alternative": ""
+            },
+            "set": {
+                "alternative": ""
+            },
+            "_context": {
+                "page": 105,
+                "pageTitle": "Camino Route Comparison",
+                "element": 1363,
+                "type": "textpic",
+                "roles": {
+                    "alternative": "alt"
+                },
+                "file": "/camino/camino-portugues.webp"
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 1362,
+            "expect": {
+                "CType": "text",
+                "header": "Camino dd del Norte – The Northern Way",
+                "bodytext": "<ul><li data-list-item-id=\"eb81577a658bbaaf3cbbdea9fab1eb8e9\">Distance: 825 km (approx. 34 days)&nbsp;</li><li data-list-item-id=\"eac840a357cab461f47f7b67d0bf5efaa\">Difficulty: Challenging&nbsp;</li><li data-list-item-id=\"e146334c28aac54323aa0c8689469dc74\">Best for: Experienced walkers seeking a rugged, coastal route with fewer crowds</li></ul>\n<p>The Camino del Norte follows the northern coast of Spain along the Bay of Biscay, offering some of the most dramatic scenery of any Camino route. Steep climbs and descents through the Basque Country make it a physically demanding walk, but the reward is a quieter, more remote experience far from the busier trails further south.</p>\n<p>For experienced hikers looking for a greater challenge and a deeper sense of solitude, the Camino del Norte delivers spectacular coastal landscapes, fresh sea air, and a raw, unspoiled character that is hard to find elsewhere.</p>"
+            },
+            "set": {
+                "header": "Camino dd del Norte – The Northern Way",
+                "bodytext": "<ul><li data-list-item-id=\"eb81577a658bbaaf3cbbdea9fab1eb8e9\">Distance: 825 km (approx. 34 days)&nbsp;</li><li data-list-item-id=\"eac840a357cab461f47f7b67d0bf5efaa\">Difficulty: Challenging&nbsp;</li><li data-list-item-id=\"e146334c28aac54323aa0c8689469dc74\">Best for: Experienced walkers seeking a rugged, coastal route with fewer crowds</li></ul>\n<p>The Camino del Norte follows the northern coast of Spain along the Bay of Biscay, offering some of the most dramatic scenery of any Camino route. Steep climbs and descents through the Basque Country make it a physically demanding walk, but the reward is a quieter, more remote experience far from the busier trails further south.</p>\n<p>For experienced hikers looking for a greater challenge and a deeper sense of solitude, the Camino del Norte delivers spectacular coastal landscapes, fresh sea air, and a raw, unspoiled character that is hard to find elsewhere.</p>"
+            },
+            "_context": {
+                "page": 105,
+                "pageTitle": "Camino Route Comparison",
+                "element": 1362,
+                "type": "text",
+                "roles": {
+                    "header": "headline",
+                    "bodytext": "body"
+                }
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 1361,
+            "expect": {
+                "CType": "text",
+                "header": "Camino Primitivo – The Original Way",
+                "bodytext": "<ul><li>Distance: 320 km (approx. 12–14 days)&nbsp;</li><li>Difficulty: Challenging&nbsp;</li><li>Best for: Adventurous pilgrims seeking solitude and a historic experience</li></ul>\r\n<p>The Camino Primitivo holds a special place in the history of the pilgrimage — it is the oldest of all the Camino routes, first walked by King Alfonso II in the 9th century. Beginning in Oviedo, it winds through the mountains and remote villages of Asturias and Galicia, offering a more isolated and contemplative experience with far fewer pilgrims along the way.</p>\r\n<p>The terrain is rugged and the climbs are demanding, but the stunning mountain scenery and sense of walking in the footsteps of the earliest pilgrims make it one of the most rewarding routes for those ready for the challenge. good. dd</p>"
+            },
+            "set": {
+                "header": "Camino Primitivo – The Original Way",
+                "bodytext": "<ul><li>Distance: 320 km (approx. 12–14 days)&nbsp;</li><li>Difficulty: Challenging&nbsp;</li><li>Best for: Adventurous pilgrims seeking solitude and a historic experience</li></ul>\r\n<p>The Camino Primitivo holds a special place in the history of the pilgrimage — it is the oldest of all the Camino routes, first walked by King Alfonso II in the 9th century. Beginning in Oviedo, it winds through the mountains and remote villages of Asturias and Galicia, offering a more isolated and contemplative experience with far fewer pilgrims along the way.</p>\r\n<p>The terrain is rugged and the climbs are demanding, but the stunning mountain scenery and sense of walking in the footsteps of the earliest pilgrims make it one of the most rewarding routes for those ready for the challenge. good. dd</p>"
+            },
+            "_context": {
+                "page": 105,
+                "pageTitle": "Camino Route Comparison",
+                "element": 1361,
+                "type": "text",
+                "roles": {
+                    "header": "headline",
+                    "bodytext": "body"
+                }
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 1360,
+            "expect": {
+                "CType": "text",
+                "header": "Camino Inglés – The English Way",
+                "bodytext": "<ul><li data-list-item-id=\"e5c0ffc19bf05372033315bb33cb7b4e4\">Distance: 115 km (approx. 5–7 days)&nbsp;</li><li data-list-item-id=\"e61da94bfef3a661d0d4fde9d72eecc03\">Difficulty: Easy to Moderate&nbsp;</li><li data-list-item-id=\"e7c9c2dbeab4936aa4d7e4d1e2239ce16\">Best for: Those with limited time or looking for a shorter, quieter Camino</li></ul>\n<p>The Camino Inglés starts from either A Coruña or Ferrol and offers a more compact route to Santiago without sacrificing the spirit of the pilgrimage. The path passes through small fishing villages and along beautiful coastal stretches, with a peaceful and introspective atmosphere that sets it apart from the busier routes.</p>\n<p>For those who cannot commit to a longer journey but still want a genuine Camino experience, the Inglés is an ideal choice — unhurried, scenic, and quietly rewarding.</p>"
+            },
+            "set": {
+                "header": "Camino Inglés – The English Way",
+                "bodytext": "<ul><li data-list-item-id=\"e5c0ffc19bf05372033315bb33cb7b4e4\">Distance: 115 km (approx. 5–7 days)&nbsp;</li><li data-list-item-id=\"e61da94bfef3a661d0d4fde9d72eecc03\">Difficulty: Easy to Moderate&nbsp;</li><li data-list-item-id=\"e7c9c2dbeab4936aa4d7e4d1e2239ce16\">Best for: Those with limited time or looking for a shorter, quieter Camino</li></ul>\n<p>The Camino Inglés starts from either A Coruña or Ferrol and offers a more compact route to Santiago without sacrificing the spirit of the pilgrimage. The path passes through small fishing villages and along beautiful coastal stretches, with a peaceful and introspective atmosphere that sets it apart from the busier routes.</p>\n<p>For those who cannot commit to a longer journey but still want a genuine Camino experience, the Inglés is an ideal choice — unhurried, scenic, and quietly rewarding.</p>"
+            },
+            "_context": {
+                "page": 105,
+                "pageTitle": "Camino Route Comparison",
+                "element": 1360,
+                "type": "text",
+                "roles": {
+                    "header": "headline",
+                    "bodytext": "body"
+                }
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 1359,
+            "expect": {
+                "CType": "text",
+                "header": "Camino de Finisterre – The Way to the End of the World dd",
+                "bodytext": "<ul><li data-list-item-id=\"e6e92c6a56010a050515893fcaefde71e\">Distance: 90 km (approx. 4 days)&nbsp;</li><li data-list-item-id=\"e36427da8959003d95bee4be5f38ecc02\">Difficulty: Moderate&nbsp;</li><li data-list-item-id=\"e18ebe20575240c5671424350f877f5a4\">Best for: Pilgrims who want to continue their journey beyond Santiago de Compostela</li></ul>\n<p>The Camino de Finisterre is a natural extension of the pilgrimage for those who are not ready to stop walking. From Santiago, the route heads west through stunning coastal landscapes all the way to Cape Finisterre on the Atlantic Ocean — a place once believed by medieval pilgrims to be the very edge of the known world.</p>\n<p>Reaching the cape is a deeply moving moment. Many pilgrims mark the occasion by watching the sunset over the ocean, a fitting and unforgettable end to an extraordinary journey.</p>"
+            },
+            "set": {
+                "header": "Camino de Finisterre – The Way to the End of the World dd",
+                "bodytext": "<ul><li data-list-item-id=\"e6e92c6a56010a050515893fcaefde71e\">Distance: 90 km (approx. 4 days)&nbsp;</li><li data-list-item-id=\"e36427da8959003d95bee4be5f38ecc02\">Difficulty: Moderate&nbsp;</li><li data-list-item-id=\"e18ebe20575240c5671424350f877f5a4\">Best for: Pilgrims who want to continue their journey beyond Santiago de Compostela</li></ul>\n<p>The Camino de Finisterre is a natural extension of the pilgrimage for those who are not ready to stop walking. From Santiago, the route heads west through stunning coastal landscapes all the way to Cape Finisterre on the Atlantic Ocean — a place once believed by medieval pilgrims to be the very edge of the known world.</p>\n<p>Reaching the cape is a deeply moving moment. Many pilgrims mark the occasion by watching the sunset over the ocean, a fitting and unforgettable end to an extraordinary journey.</p>"
+            },
+            "_context": {
+                "page": 105,
+                "pageTitle": "Camino Route Comparison",
+                "element": 1359,
+                "type": "text",
+                "roles": {
+                    "header": "headline",
+                    "bodytext": "body"
+                }
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 1367,
+            "expect": {
+                "CType": "camino_textteaser",
+                "header": "Pack Light, Walk Far",
+                "subheader": "Everything you need fits in one bag",
+                "bodytext": "<p>The Camino teaches you quickly that less is more. A well-chosen pack makes the difference between a joyful walk and a painful one. Discover our curated guide to Camino essentials and start your journey the right way.</p>"
+            },
+            "set": {
+                "header": "Pack Light, Walk Far",
+                "subheader": "Everything you need fits in one bag",
+                "bodytext": "<p>The Camino teaches you quickly that less is more. A well-chosen pack makes the difference between a joyful walk and a painful one. Discover our curated guide to Camino essentials and start your journey the right way.</p>"
+            },
+            "_context": {
+                "page": 105,
+                "pageTitle": "Camino Route Comparison",
+                "element": 1367,
+                "type": "camino_textteaser",
+                "roles": {
+                    "header": "headline",
+                    "subheader": "lead",
+                    "bodytext": "body"
+                }
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 1368,
+            "expect": {
+                "CType": "camino_author",
+                "header": "Elena Vásquez",
+                "subheader": "Senior Camino Guide",
+                "bodytext": "The Camino does not care how fast you walk or how far you have come. It only asks that you keep going."
+            },
+            "set": {
+                "header": "Elena Vásquez",
+                "subheader": "Senior Camino Guide",
+                "bodytext": "The Camino does not care how fast you walk or how far you have come. It only asks that you keep going."
+            },
+            "_context": {
+                "page": 105,
+                "pageTitle": "Camino Route Comparison",
+                "element": 1368,
+                "type": "camino_author",
+                "roles": {
+                    "header": "headline",
+                    "subheader": "lead",
+                    "bodytext": "body"
+                }
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 763,
+            "expect": {
+                "alternative": ""
+            },
+            "set": {
+                "alternative": ""
+            },
+            "_context": {
+                "page": 105,
+                "pageTitle": "Camino Route Comparison",
+                "element": 1368,
+                "type": "camino_author",
+                "roles": {
+                    "alternative": "alt"
+                },
+                "file": "/camino/andrew-milko-LspK43UdFo4-unsplash.webp"
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 1366,
+            "expect": {
+                "CType": "camino_textmedia_teaser",
+                "header": "Where Every Path Leads Somewhere New test",
+                "subheader": "Nature & Landscape",
+                "bodytext": "<p>Rolling green hills, ancient forest tracks, and winding paths stretching endlessly ahead — the Camino de Santiago is as much about the landscape as the destination. Lace up your boots and let the trail do the rest. and changed.</p>"
+            },
+            "set": {
+                "header": "Where Every Path Leads Somewhere New test",
+                "subheader": "Nature & Landscape",
+                "bodytext": "<p>Rolling green hills, ancient forest tracks, and winding paths stretching endlessly ahead — the Camino de Santiago is as much about the landscape as the destination. Lace up your boots and let the trail do the rest. and changed.</p>"
+            },
+            "_context": {
+                "page": 105,
+                "pageTitle": "Camino Route Comparison",
+                "element": 1366,
+                "type": "camino_textmedia_teaser",
+                "roles": {
+                    "header": "headline",
+                    "subheader": "lead",
+                    "bodytext": "body"
+                }
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 762,
+            "expect": {
+                "alternative": ""
+            },
+            "set": {
+                "alternative": ""
+            },
+            "_context": {
+                "page": 105,
+                "pageTitle": "Camino Route Comparison",
+                "element": 1366,
+                "type": "camino_textmedia_teaser",
+                "roles": {
+                    "alternative": "alt"
+                },
+                "file": "/camino/fef4453b2185eb0e31f704b6224c66087807f19d.webp"
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 1358,
+            "expect": {
+                "CType": "camino_hero_small",
+                "header": "Camino Route Comparison",
+                "subheader": "Which Camino is Right for You?"
+            },
+            "set": {
+                "header": "Camino Route Comparison",
+                "subheader": "Which Camino is Right for You?"
+            },
+            "_context": {
+                "page": 105,
+                "pageTitle": "Camino Route Comparison",
+                "element": 1358,
+                "type": "camino_hero_small",
+                "roles": {
+                    "header": "headline",
+                    "subheader": "lead"
+                }
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 764,
+            "expect": {
+                "alternative": ""
+            },
+            "set": {
+                "alternative": ""
+            },
+            "_context": {
+                "page": 105,
+                "pageTitle": "Camino Route Comparison",
+                "element": 1358,
+                "type": "camino_hero_small",
+                "roles": {
+                    "alternative": "alt"
+                },
+                "file": "/camino/damien-dufour-2mMrxyI13QU-unsplash.webp"
+            }
+        }
+    ]
+}

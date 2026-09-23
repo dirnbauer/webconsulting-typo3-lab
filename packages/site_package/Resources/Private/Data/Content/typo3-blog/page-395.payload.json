@@ -1,0 +1,29 @@
+{
+    "version": 1,
+    "site": "typo3-blog",
+    "root": 390,
+    "language": 0,
+    "languageCode": "en",
+    "generated": "2026-09-23T10:12:06+02:00",
+    "records": [
+        {
+            "table": "pages",
+            "uid": 395,
+            "expect": {
+                "title": "Archive"
+            },
+            "set": {
+                "title": "Archive"
+            },
+            "_context": {
+                "page": 395,
+                "pageTitle": "Archive",
+                "element": 395,
+                "type": "pages",
+                "roles": {
+                    "title": "page_title"
+                }
+            }
+        }
+    ]
+}

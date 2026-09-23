@@ -1,0 +1,139 @@
+{
+    "version": 1,
+    "site": "typo3-blog",
+    "root": 390,
+    "language": 0,
+    "languageCode": "en",
+    "generated": "2026-09-23T10:12:11+02:00",
+    "records": [
+        {
+            "table": "pages",
+            "uid": 399,
+            "expect": {
+                "title": "Queen wäre 100: Vermächtnis mit Schatten",
+                "nav_title": "Queen Elizabeth II. wäre 100",
+                "subtitle": "Blog template coverage entry",
+                "abstract": "Queen Elizabeth II. hätte am Dienstag ihren 100. Geburtstag gefeiert. Sieben Jahrzehnte lang vertrat sie das britische Königreich – ihr Bild als volksnahe Herrscherin bekam zuletzt jedoch deutliche Risse.",
+                "description": "100 Jahre Queen Elizabeth II.: Rückblick auf sieben Jahrzehnte Regentschaft, ihr Vermächtnis und die Skandale rund um Prinz Andrew.",
+                "seo_title": "Queen wäre 100: Vermächtnis mit Schatten",
+                "og_title": "Queen wäre 100: Vermächtnis mit Schatten",
+                "og_description": "100 Jahre Queen Elizabeth II.: Rückblick auf sieben Jahrzehnte Regentschaft, ihr Vermächtnis und die Skandale rund um Prinz Andrew.",
+                "twitter_title": "Queen wäre 100: Vermächtnis mit Schatten",
+                "twitter_description": "100 Jahre Queen Elizabeth II.: Rückblick auf sieben Jahrzehnte Regentschaft, ihr Vermächtnis und die Skandale rund um Prinz Andrew."
+            },
+            "set": {
+                "title": "Queen wäre 100: Vermächtnis mit Schatten",
+                "nav_title": "Queen Elizabeth II. wäre 100",
+                "subtitle": "Blog template coverage entry",
+                "abstract": "Queen Elizabeth II. hätte am Dienstag ihren 100. Geburtstag gefeiert. Sieben Jahrzehnte lang vertrat sie das britische Königreich – ihr Bild als volksnahe Herrscherin bekam zuletzt jedoch deutliche Risse.",
+                "description": "100 Jahre Queen Elizabeth II.: Rückblick auf sieben Jahrzehnte Regentschaft, ihr Vermächtnis und die Skandale rund um Prinz Andrew.",
+                "seo_title": "Queen wäre 100: Vermächtnis mit Schatten",
+                "og_title": "Queen wäre 100: Vermächtnis mit Schatten",
+                "og_description": "100 Jahre Queen Elizabeth II.: Rückblick auf sieben Jahrzehnte Regentschaft, ihr Vermächtnis und die Skandale rund um Prinz Andrew.",
+                "twitter_title": "Queen wäre 100: Vermächtnis mit Schatten",
+                "twitter_description": "100 Jahre Queen Elizabeth II.: Rückblick auf sieben Jahrzehnte Regentschaft, ihr Vermächtnis und die Skandale rund um Prinz Andrew."
+            },
+            "_context": {
+                "page": 399,
+                "pageTitle": "Queen wäre 100: Vermächtnis mit Schatten",
+                "element": 399,
+                "type": "pages",
+                "roles": {
+                    "title": "page_title",
+                    "nav_title": "page_title",
+                    "subtitle": "lead",
+                    "abstract": "lead",
+                    "description": "meta",
+                    "seo_title": "page_title",
+                    "og_title": "page_title",
+                    "og_description": "meta",
+                    "twitter_title": "page_title",
+                    "twitter_description": "meta"
+                }
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 2006,
+            "expect": {
+                "CType": "textmedia",
+                "bodytext": "<p>Queen <strong>Elizabeth II.</strong> hätte am Dienstag ihren <strong>100. Geburtstag</strong> gefeiert. Sieben Jahrzehnte lang vertrat sie das britische Königreich, ihr Bild als volksnahe und gewissenhafte Herrscherin bekam in den letzten Jahren allerdings Risse. Unter anderem wurde ihr Umgang mit der Verwicklung ihres Sohns Andrew in den Missbrauchsskandal um Jeffrey Epstein als zu zögerlich kritisiert.</p>"
+            },
+            "set": {
+                "bodytext": "<p>Queen <strong>Elizabeth II.</strong> hätte am Dienstag ihren <strong>100. Geburtstag</strong> gefeiert. Sieben Jahrzehnte lang vertrat sie das britische Königreich, ihr Bild als volksnahe und gewissenhafte Herrscherin bekam in den letzten Jahren allerdings Risse. Unter anderem wurde ihr Umgang mit der Verwicklung ihres Sohns Andrew in den Missbrauchsskandal um Jeffrey Epstein als zu zögerlich kritisiert.</p>"
+            },
+            "_context": {
+                "page": 399,
+                "pageTitle": "Queen wäre 100: Vermächtnis mit Schatten",
+                "element": 2006,
+                "type": "textmedia",
+                "roles": {
+                    "bodytext": "body"
+                }
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 1162,
+            "expect": {
+                "alternative": "Queen Elizabeth II."
+            },
+            "set": {
+                "alternative": "Queen Elizabeth II."
+            },
+            "_context": {
+                "page": 399,
+                "pageTitle": "Queen wäre 100: Vermächtnis mit Schatten",
+                "element": 2006,
+                "type": "textmedia",
+                "roles": {
+                    "alternative": "alt"
+                },
+                "file": "/mcp/workspaces/ws-1/orf-news/queen-100-7f64b2909776f05a.jpg"
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 2009,
+            "expect": {
+                "CType": "text",
+                "bodytext": "<p>Mit einer Reihe von Veranstaltungen wird in London diese Woche der verstorbenen Königin anlässlich des Geburtstags gedacht. Ihr ältester Sohn König Charles III. erinnerte in einer Rede an die Nation bereits an die verstorbene Monarchin.</p>\r\n<p>Am Montag stattete das Königspaar der King’s Gallery im Buckingham-Palast einen Besuch ab, die die verstorbene Queen seit 10. April mit einer großen Modeausstellung ehrt. Elizabeth II. war bekannt für ihre auffälligen Outfits, für Aufregung sorgte etwa ein blauer Hut mit gelben Blumen, den sie 2017 bei der Vorstellung des Regierungsprogramms im britischen Parlament trug.</p>"
+            },
+            "set": {
+                "bodytext": "<p>Mit einer Reihe von Veranstaltungen wird in London diese Woche der verstorbenen Königin anlässlich des Geburtstags gedacht. Ihr ältester Sohn König Charles III. erinnerte in einer Rede an die Nation bereits an die verstorbene Monarchin.</p>\r\n<p>Am Montag stattete das Königspaar der King’s Gallery im Buckingham-Palast einen Besuch ab, die die verstorbene Queen seit 10. April mit einer großen Modeausstellung ehrt. Elizabeth II. war bekannt für ihre auffälligen Outfits, für Aufregung sorgte etwa ein blauer Hut mit gelben Blumen, den sie 2017 bei der Vorstellung des Regierungsprogramms im britischen Parlament trug.</p>"
+            },
+            "_context": {
+                "page": 399,
+                "pageTitle": "Queen wäre 100: Vermächtnis mit Schatten",
+                "element": 2009,
+                "type": "text",
+                "roles": {
+                    "bodytext": "body"
+                }
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 2014,
+            "expect": {
+                "CType": "text",
+                "header": "Quelle",
+                "bodytext": "<p>red, ORF.at/Agenturen — <a href=\"https://orf.at/stories/3427207/\">orf.at/stories/3427207</a></p>"
+            },
+            "set": {
+                "header": "Quelle",
+                "bodytext": "<p>red, ORF.at/Agenturen — <a href=\"https://orf.at/stories/3427207/\">orf.at/stories/3427207</a></p>"
+            },
+            "_context": {
+                "page": 399,
+                "pageTitle": "Queen wäre 100: Vermächtnis mit Schatten",
+                "element": 2014,
+                "type": "text",
+                "roles": {
+                    "header": "headline",
+                    "bodytext": "body"
+                }
+            }
+        }
+    ]
+}

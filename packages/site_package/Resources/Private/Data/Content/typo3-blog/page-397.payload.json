@@ -1,0 +1,234 @@
+{
+    "version": 1,
+    "site": "typo3-blog",
+    "root": 390,
+    "language": 0,
+    "languageCode": "en",
+    "generated": "2026-09-23T10:12:08+02:00",
+    "records": [
+        {
+            "table": "pages",
+            "uid": 397,
+            "expect": {
+                "title": "StVO-Novelle: Appell zu allgemeiner Helmpflicht",
+                "nav_title": "StVO-Novelle: Helmpflicht",
+                "subtitle": "Blog template coverage entry",
+                "abstract": "Im Zuge der StVO-Novelle wird der Ruf nach einer allgemeinen Helmpflicht für E-Scooter- und Fahrrad-Lenker:innen lauter. Die AUVA und Verkehrsexpert:innen verweisen auf steigende Unfallzahlen.",
+                "description": "StVO-Novelle: Verkehrsexpert:innen und AUVA appellieren an die Politik, eine allgemeine Helmpflicht einzuführen.",
+                "seo_title": "StVO-Novelle: Appell zu allgemeiner Helmpflicht",
+                "og_title": "StVO-Novelle: Appell zu allgemeiner Helmpflicht",
+                "og_description": "StVO-Novelle: Verkehrsexpert:innen und AUVA appellieren an die Politik, eine allgemeine Helmpflicht einzuführen.",
+                "twitter_title": "StVO-Novelle: Appell zu allgemeiner Helmpflicht",
+                "twitter_description": "StVO-Novelle: Verkehrsexpert:innen und AUVA appellieren an die Politik, eine allgemeine Helmpflicht einzuführen."
+            },
+            "set": {
+                "title": "StVO-Novelle: Appell zu allgemeiner Helmpflicht",
+                "nav_title": "StVO-Novelle: Helmpflicht",
+                "subtitle": "Blog template coverage entry",
+                "abstract": "Im Zuge der StVO-Novelle wird der Ruf nach einer allgemeinen Helmpflicht für E-Scooter- und Fahrrad-Lenker:innen lauter. Die AUVA und Verkehrsexpert:innen verweisen auf steigende Unfallzahlen.",
+                "description": "StVO-Novelle: Verkehrsexpert:innen und AUVA appellieren an die Politik, eine allgemeine Helmpflicht einzuführen.",
+                "seo_title": "StVO-Novelle: Appell zu allgemeiner Helmpflicht",
+                "og_title": "StVO-Novelle: Appell zu allgemeiner Helmpflicht",
+                "og_description": "StVO-Novelle: Verkehrsexpert:innen und AUVA appellieren an die Politik, eine allgemeine Helmpflicht einzuführen.",
+                "twitter_title": "StVO-Novelle: Appell zu allgemeiner Helmpflicht",
+                "twitter_description": "StVO-Novelle: Verkehrsexpert:innen und AUVA appellieren an die Politik, eine allgemeine Helmpflicht einzuführen."
+            },
+            "_context": {
+                "page": 397,
+                "pageTitle": "StVO-Novelle: Appell zu allgemeiner Helmpflicht",
+                "element": 397,
+                "type": "pages",
+                "roles": {
+                    "title": "page_title",
+                    "nav_title": "page_title",
+                    "subtitle": "lead",
+                    "abstract": "lead",
+                    "description": "meta",
+                    "seo_title": "page_title",
+                    "og_title": "page_title",
+                    "og_description": "meta",
+                    "twitter_title": "page_title",
+                    "twitter_description": "meta"
+                }
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 1991,
+            "expect": {
+                "CType": "textmedia",
+                "subheader": "UNTER",
+                "bodytext": "<p>Mit 1. Mai tritt die <strong>StVO-Novelle</strong> mit Neuerungen für E-Scooter und E-Bikes in Kraft: Junge Lenkerinnen und Lenker müssen künftig einen Helm tragen. Das Kuratorium für Verkehrssicherheit (KFV) erinnerte am Dienstag an die Änderungen und kritisierte die fehlende Helmpflicht für Erwachsene. Die überwiegende Mehrzahl der Verletzten sei nämlich älter.</p>"
+            },
+            "set": {
+                "subheader": "UNTER",
+                "bodytext": "<p>Mit 1. Mai tritt die <strong>StVO-Novelle</strong> mit Neuerungen für E-Scooter und E-Bikes in Kraft: Junge Lenkerinnen und Lenker müssen künftig einen Helm tragen. Das Kuratorium für Verkehrssicherheit (KFV) erinnerte am Dienstag an die Änderungen und kritisierte die fehlende Helmpflicht für Erwachsene. Die überwiegende Mehrzahl der Verletzten sei nämlich älter.</p>"
+            },
+            "_context": {
+                "page": 397,
+                "pageTitle": "StVO-Novelle: Appell zu allgemeiner Helmpflicht",
+                "element": 1991,
+                "type": "textmedia",
+                "roles": {
+                    "subheader": "lead",
+                    "bodytext": "body"
+                }
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 1160,
+            "expect": {
+                "alternative": "Ein E-Scooter-Fahrer mit Helm"
+            },
+            "set": {
+                "alternative": "Ein E-Scooter-Fahrer mit Helm"
+            },
+            "_context": {
+                "page": 397,
+                "pageTitle": "StVO-Novelle: Appell zu allgemeiner Helmpflicht",
+                "element": 1991,
+                "type": "textmedia",
+                "roles": {
+                    "alternative": "alt"
+                },
+                "file": "/mcp/workspaces/ws-1/orf-news/stvo-helmpflicht-d1f2c45f807dd3e1.jpg"
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 1992,
+            "expect": {
+                "CType": "text",
+                "bodytext": "<p>Die 36. StVO-Novelle sieht eine Helmpflicht bei der Nutzung von E-Bikes bis zum Alter von 14, bei E-Scootern von 16 Jahren vor. Bei Fahrrädern bleibt die Grenze bei zwölf Jahren. Der KFV sprach sich bei einer Pressekonferenz am Dienstag dafür aus, dass unabhängig vom Alter auf jeden Fall ein Helm getragen werden sollte.</p>\r\n<p>97 Prozent der verletzten E-Bike-Fahrer und -Fahrerinnen seien älter als 14, bei E-Scootern 82 Prozent der Verletzten 16 Jahre oder älter, sagte KFV-Direktor Christian Schimanofsky. „Würden alle in Österreich beim Fahren mit E-Scootern und E-Bikes einen Helm tragen, könnten 1.000 schwere Kopfverletzungen pro Jahr verhindert werden“, sagte er.</p>\r\n<p>Der KFV verwies auf eine Umfrage, laut der sich auch die Mehrheit der Erwachsenen eine altersunabhängige Helmpflicht wünscht. In der Umfrage sprachen sich im Februar rund 74 Prozent der E-Bike-Fahrenden für die allgemeine Helmpflicht aus, ebenso 52 Prozent der E-Scooter-Fahrenden.</p>"
+            },
+            "set": {
+                "bodytext": "<p>Die 36. StVO-Novelle sieht eine Helmpflicht bei der Nutzung von E-Bikes bis zum Alter von 14, bei E-Scootern von 16 Jahren vor. Bei Fahrrädern bleibt die Grenze bei zwölf Jahren. Der KFV sprach sich bei einer Pressekonferenz am Dienstag dafür aus, dass unabhängig vom Alter auf jeden Fall ein Helm getragen werden sollte.</p>\r\n<p>97 Prozent der verletzten E-Bike-Fahrer und -Fahrerinnen seien älter als 14, bei E-Scootern 82 Prozent der Verletzten 16 Jahre oder älter, sagte KFV-Direktor Christian Schimanofsky. „Würden alle in Österreich beim Fahren mit E-Scootern und E-Bikes einen Helm tragen, könnten 1.000 schwere Kopfverletzungen pro Jahr verhindert werden“, sagte er.</p>\r\n<p>Der KFV verwies auf eine Umfrage, laut der sich auch die Mehrheit der Erwachsenen eine altersunabhängige Helmpflicht wünscht. In der Umfrage sprachen sich im Februar rund 74 Prozent der E-Bike-Fahrenden für die allgemeine Helmpflicht aus, ebenso 52 Prozent der E-Scooter-Fahrenden.</p>"
+            },
+            "_context": {
+                "page": 397,
+                "pageTitle": "StVO-Novelle: Appell zu allgemeiner Helmpflicht",
+                "element": 1992,
+                "type": "text",
+                "roles": {
+                    "bodytext": "body"
+                }
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 1993,
+            "expect": {
+                "CType": "text",
+                "header": "Schädel-Hirn-Verletzungen für Ältere gefährlich",
+                "bodytext": "<p>Der Forderung nach einer allgemeinen Helmpflicht schloss sich auch die Vorsitzende der Österreichischen Gesellschaft für Anästhesiologie, Reanimation und Intensivmedizin (ÖGARI), Rebana Scherzer, an. Laut der Notärztin und Intensivmedizinerin zählen Schädel-Hirn-Verletzungen zu den häufigsten Todesursachen nach Unfällen. Außerdem könne es trotz modernster notfall- und intensivmedizinischer Versorgung zu schweren Langzeitfolgen kommen.</p>\r\n<p>Besonders ältere Personen seien gefährdet, da Gehirnblutungen mit zunehmendem Alter schwerer ausfallen können, gerade bei der Nutzung von Blutverdünnern. Wer für sich keinen Helm trage, solle es zumindest für die Familie tun.</p>"
+            },
+            "set": {
+                "header": "Schädel-Hirn-Verletzungen für Ältere gefährlich",
+                "bodytext": "<p>Der Forderung nach einer allgemeinen Helmpflicht schloss sich auch die Vorsitzende der Österreichischen Gesellschaft für Anästhesiologie, Reanimation und Intensivmedizin (ÖGARI), Rebana Scherzer, an. Laut der Notärztin und Intensivmedizinerin zählen Schädel-Hirn-Verletzungen zu den häufigsten Todesursachen nach Unfällen. Außerdem könne es trotz modernster notfall- und intensivmedizinischer Versorgung zu schweren Langzeitfolgen kommen.</p>\r\n<p>Besonders ältere Personen seien gefährdet, da Gehirnblutungen mit zunehmendem Alter schwerer ausfallen können, gerade bei der Nutzung von Blutverdünnern. Wer für sich keinen Helm trage, solle es zumindest für die Familie tun.</p>"
+            },
+            "_context": {
+                "page": 397,
+                "pageTitle": "StVO-Novelle: Appell zu allgemeiner Helmpflicht",
+                "element": 1993,
+                "type": "text",
+                "roles": {
+                    "header": "headline",
+                    "bodytext": "body"
+                }
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 1994,
+            "expect": {
+                "CType": "text",
+                "header": "Unfälle auf Arbeitsweg nehmen zu",
+                "bodytext": "<p>Die steigende Nutzung von E-Scootern und E-Bikes etwa für den Arbeitsweg zeige sich auch in der AUVA-Wegunfallstatistik, sagte deren stellvertretender Generaldirektor Roland Pichler. 2024 entfiel laut AUVA jeder zehnte Arbeitswegunfall von Erwerbstätigen im Straßenverkehr auf einen Unfall mit einem E-Bike, E-Scooter oder Segway. Pichler appellierte ebenfalls an alle Erwachsenen, zum eigenen Schutz einen Helm zu tragen.</p>\r\n<p>2025 gab es laut KFV bei Unfällen mit E-Scootern 10.200 verletzte Personen, die im Krankenhaus behandelt werden mussten. Bei E-Bikes waren es 13.900 Verletzte. Sechs E-Scooter-Fahrende kamen ums Leben, 31 Menschen starben bei Unfällen mit E-Bikes.</p>"
+            },
+            "set": {
+                "header": "Unfälle auf Arbeitsweg nehmen zu",
+                "bodytext": "<p>Die steigende Nutzung von E-Scootern und E-Bikes etwa für den Arbeitsweg zeige sich auch in der AUVA-Wegunfallstatistik, sagte deren stellvertretender Generaldirektor Roland Pichler. 2024 entfiel laut AUVA jeder zehnte Arbeitswegunfall von Erwerbstätigen im Straßenverkehr auf einen Unfall mit einem E-Bike, E-Scooter oder Segway. Pichler appellierte ebenfalls an alle Erwachsenen, zum eigenen Schutz einen Helm zu tragen.</p>\r\n<p>2025 gab es laut KFV bei Unfällen mit E-Scootern 10.200 verletzte Personen, die im Krankenhaus behandelt werden mussten. Bei E-Bikes waren es 13.900 Verletzte. Sechs E-Scooter-Fahrende kamen ums Leben, 31 Menschen starben bei Unfällen mit E-Bikes.</p>"
+            },
+            "_context": {
+                "page": 397,
+                "pageTitle": "StVO-Novelle: Appell zu allgemeiner Helmpflicht",
+                "element": 1994,
+                "type": "text",
+                "roles": {
+                    "header": "headline",
+                    "bodytext": "body"
+                }
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 1995,
+            "expect": {
+                "CType": "text",
+                "header": "Kampagne für höhere Helmtragequote",
+                "bodytext": "<p>Der KFV verwies auf die nach Fahrtypen unterschiedlichen Helmtragequoten. Bei Motorrädern, für die seit 1984 eine Helmtragepflicht besteht, liegt die Quote derzeit bei fast 100 Prozent. Bei E-Bikes tragen 67 Prozent einen Helm, bei E-Scootern nur zehn Prozent. Bei Fahrradfahrerinnen und -fahrern tragen 36 Prozent einen Helm, beim E-Moped sind es 46 Prozent.</p>\r\n<p>Um die Helmtragequote zu steigern, starteten KFV und AUVA eine eigene Kampagne. Auf Wiens Straßen treten dazu etwa Pantomimen in Gestalt von Kaiser Franz Joseph, Sisi und Pallas Athene auf. „Kluge Köpfe tragen Helm – egal wie alt sie sind“, so das Motto.</p>"
+            },
+            "set": {
+                "header": "Kampagne für höhere Helmtragequote",
+                "bodytext": "<p>Der KFV verwies auf die nach Fahrtypen unterschiedlichen Helmtragequoten. Bei Motorrädern, für die seit 1984 eine Helmtragepflicht besteht, liegt die Quote derzeit bei fast 100 Prozent. Bei E-Bikes tragen 67 Prozent einen Helm, bei E-Scootern nur zehn Prozent. Bei Fahrradfahrerinnen und -fahrern tragen 36 Prozent einen Helm, beim E-Moped sind es 46 Prozent.</p>\r\n<p>Um die Helmtragequote zu steigern, starteten KFV und AUVA eine eigene Kampagne. Auf Wiens Straßen treten dazu etwa Pantomimen in Gestalt von Kaiser Franz Joseph, Sisi und Pallas Athene auf. „Kluge Köpfe tragen Helm – egal wie alt sie sind“, so das Motto.</p>"
+            },
+            "_context": {
+                "page": 397,
+                "pageTitle": "StVO-Novelle: Appell zu allgemeiner Helmpflicht",
+                "element": 1995,
+                "type": "text",
+                "roles": {
+                    "header": "headline",
+                    "bodytext": "body"
+                }
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 1996,
+            "expect": {
+                "CType": "text",
+                "header": "E-Mopeds verschwinden von Radwegen",
+                "bodytext": "<p>Die Novelle bringt noch zahlreiche weitere Neuerungen, darunter die Pflicht, E-Scooter mit Blinker und Klingel auszustatten. Die Promillegrenze bei E-Scootern und E-Mopeds sinkt auf 0,5 Promille, bei E-Bikes und Fahrrädern gelten weiterhin 0,8 Promille.</p>\r\n<p>E-Mopeds werden ab 1. Oktober vom Radweg verbannt, ab dann gelten die gleichen Regeln wie bei leistungsstärkeren Mopeds: Sie müssen ein Kennzeichen haben, Fahrer bzw. Fahrerin einen entsprechenden Führerschein haben und einen Helm tragen. Die Altersgrenze steigt auf 15. Außerdem sind künftig automatisierte Zufahrtskontrollen rechtlich verankert, um die Verkehrsberuhigung in Städten effizienter zu gestalten.</p>"
+            },
+            "set": {
+                "header": "E-Mopeds verschwinden von Radwegen",
+                "bodytext": "<p>Die Novelle bringt noch zahlreiche weitere Neuerungen, darunter die Pflicht, E-Scooter mit Blinker und Klingel auszustatten. Die Promillegrenze bei E-Scootern und E-Mopeds sinkt auf 0,5 Promille, bei E-Bikes und Fahrrädern gelten weiterhin 0,8 Promille.</p>\r\n<p>E-Mopeds werden ab 1. Oktober vom Radweg verbannt, ab dann gelten die gleichen Regeln wie bei leistungsstärkeren Mopeds: Sie müssen ein Kennzeichen haben, Fahrer bzw. Fahrerin einen entsprechenden Führerschein haben und einen Helm tragen. Die Altersgrenze steigt auf 15. Außerdem sind künftig automatisierte Zufahrtskontrollen rechtlich verankert, um die Verkehrsberuhigung in Städten effizienter zu gestalten.</p>"
+            },
+            "_context": {
+                "page": 397,
+                "pageTitle": "StVO-Novelle: Appell zu allgemeiner Helmpflicht",
+                "element": 1996,
+                "type": "text",
+                "roles": {
+                    "header": "headline",
+                    "bodytext": "body"
+                }
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 1997,
+            "expect": {
+                "CType": "text",
+                "header": "Quelle",
+                "bodytext": "<p>red, ORF.at/Agenturen — <a href=\"https://orf.at/stories/3427505/\">orf.at/stories/3427505</a></p>"
+            },
+            "set": {
+                "header": "Quelle",
+                "bodytext": "<p>red, ORF.at/Agenturen — <a href=\"https://orf.at/stories/3427505/\">orf.at/stories/3427505</a></p>"
+            },
+            "_context": {
+                "page": 397,
+                "pageTitle": "StVO-Novelle: Appell zu allgemeiner Helmpflicht",
+                "element": 1997,
+                "type": "text",
+                "roles": {
+                    "header": "headline",
+                    "bodytext": "body"
+                }
+            }
+        }
+    ]
+}

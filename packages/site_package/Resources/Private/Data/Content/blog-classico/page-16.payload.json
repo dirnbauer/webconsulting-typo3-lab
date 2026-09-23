@@ -1,0 +1,51 @@
+{
+    "version": 1,
+    "site": "blog-classico",
+    "root": 15,
+    "language": 0,
+    "languageCode": "de",
+    "generated": "2026-09-23T10:10:46+02:00",
+    "records": [
+        {
+            "table": "pages",
+            "uid": 16,
+            "expect": {
+                "title": "Data"
+            },
+            "set": {
+                "title": "Data"
+            },
+            "_context": {
+                "page": 16,
+                "pageTitle": "Data",
+                "element": 16,
+                "type": "pages",
+                "roles": {
+                    "title": "page_title"
+                }
+            }
+        },
+        {
+            "table": "tx_news_domain_model_news",
+            "uid": 607,
+            "expect": {
+                "title": "This is testing typo3 camp",
+                "teaser": "test teaser"
+            },
+            "set": {
+                "title": "This is testing typo3 camp",
+                "teaser": "test teaser"
+            },
+            "_context": {
+                "page": 16,
+                "pageTitle": "Data",
+                "element": 607,
+                "type": "tx_news_domain_model_news",
+                "roles": {
+                    "title": "headline",
+                    "teaser": "lead"
+                }
+            }
+        }
+    ]
+}

@@ -1,0 +1,49 @@
+{
+    "version": 1,
+    "site": "typo3-blog",
+    "root": 390,
+    "language": 0,
+    "languageCode": "en",
+    "generated": "2026-09-23T10:12:01+02:00",
+    "records": [
+        {
+            "table": "pages",
+            "uid": 390,
+            "expect": {
+                "title": "THE TYPO3 Blog"
+            },
+            "set": {
+                "title": "THE TYPO3 Blog"
+            },
+            "_context": {
+                "page": 390,
+                "pageTitle": "THE TYPO3 Blog",
+                "element": 390,
+                "type": "pages",
+                "roles": {
+                    "title": "page_title"
+                }
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 7618,
+            "expect": {
+                "CType": "solr_pi_results",
+                "header": "search"
+            },
+            "set": {
+                "header": "search"
+            },
+            "_context": {
+                "page": 390,
+                "pageTitle": "THE TYPO3 Blog",
+                "element": 7618,
+                "type": "solr_pi_results",
+                "roles": {
+                    "header": "headline"
+                }
+            }
+        }
+    ]
+}

@@ -1,0 +1,208 @@
+{
+    "version": 1,
+    "site": "blog-classico",
+    "root": 15,
+    "language": 0,
+    "languageCode": "de",
+    "generated": "2026-09-23T10:10:58+02:00",
+    "records": [
+        {
+            "table": "pages",
+            "uid": 21,
+            "expect": {
+                "title": "First blog post",
+                "subtitle": "Complete metadata for the shadcn Blog template",
+                "abstract": "A compact demo entry showing author, category, tag, date, and comments in one list item.",
+                "description": "Use this post to check the detail page, metadata badges, comments, body copy, lists, and links.",
+                "seo_title": "First blog post",
+                "og_title": "First blog post",
+                "og_description": "Use this post to check the detail page, metadata badges, comments, body copy, lists, and links.",
+                "twitter_title": "First blog post",
+                "twitter_description": "Use this post to check the detail page, metadata badges, comments, body copy, lists, and links."
+            },
+            "set": {
+                "title": "First blog post",
+                "subtitle": "Complete metadata for the shadcn Blog template",
+                "abstract": "A compact demo entry showing author, category, tag, date, and comments in one list item.",
+                "description": "Use this post to check the detail page, metadata badges, comments, body copy, lists, and links.",
+                "seo_title": "First blog post",
+                "og_title": "First blog post",
+                "og_description": "Use this post to check the detail page, metadata badges, comments, body copy, lists, and links.",
+                "twitter_title": "First blog post",
+                "twitter_description": "Use this post to check the detail page, metadata badges, comments, body copy, lists, and links."
+            },
+            "_context": {
+                "page": 21,
+                "pageTitle": "First blog post",
+                "element": 21,
+                "type": "pages",
+                "roles": {
+                    "title": "page_title",
+                    "subtitle": "lead",
+                    "abstract": "lead",
+                    "description": "meta",
+                    "seo_title": "page_title",
+                    "og_title": "page_title",
+                    "og_description": "meta",
+                    "twitter_title": "page_title",
+                    "twitter_description": "meta"
+                }
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 43,
+            "expect": {
+                "CType": "text",
+                "header": "first element changed.",
+                "bodytext": "<p>Sed vitae finibus sapdddien, ac sagittis nisi. Nam at quam sed ipsum convallis rhoncus. Sed eget erat fringilla, ultrices lorem in, luctus nuncddd. Sed aliquam congue odio, non fermentum metus consectetur in. Donec aliquet erat est, id eleifend nunc viverra sed. Vivamus tempus rutrum justo tempor dapibus. Integer scelerisque, est at lacinia tristique, est mauris bibendum tortor, sed malesuada mi augue nec orci. In dictum vitae purus eu facilisis. Morbi porta efficitur turpis. Curabitur vel erat magna. Vivamus finibus sapien sed ante euismod semper. Integer cursus lectus at ligula porttitor, blandit gravida urna suscipit. Vestibulum dictum eros pulvinar, vehicula lorem id, viverra neque. Phadddsellus maximus nisl a magna convallis imperdiet. In a quam dolor. Vestibulum auctor dolor lectus, vel faucibus odio efficitur in.</p>"
+            },
+            "set": {
+                "header": "first element changed.",
+                "bodytext": "<p>Sed vitae finibus sapdddien, ac sagittis nisi. Nam at quam sed ipsum convallis rhoncus. Sed eget erat fringilla, ultrices lorem in, luctus nuncddd. Sed aliquam congue odio, non fermentum metus consectetur in. Donec aliquet erat est, id eleifend nunc viverra sed. Vivamus tempus rutrum justo tempor dapibus. Integer scelerisque, est at lacinia tristique, est mauris bibendum tortor, sed malesuada mi augue nec orci. In dictum vitae purus eu facilisis. Morbi porta efficitur turpis. Curabitur vel erat magna. Vivamus finibus sapien sed ante euismod semper. Integer cursus lectus at ligula porttitor, blandit gravida urna suscipit. Vestibulum dictum eros pulvinar, vehicula lorem id, viverra neque. Phadddsellus maximus nisl a magna convallis imperdiet. In a quam dolor. Vestibulum auctor dolor lectus, vel faucibus odio efficitur in.</p>"
+            },
+            "_context": {
+                "page": 21,
+                "pageTitle": "First blog post",
+                "element": 43,
+                "type": "text",
+                "roles": {
+                    "header": "headline",
+                    "bodytext": "body"
+                }
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 15652,
+            "expect": {
+                "CType": "text",
+                "header": "Template coverage",
+                "bodytext": "<p>This seeded post is intentionally complete. It has authors, categories, tags, a readable teaser, a comment, and body content so the Blog list and detail templates can be checked in one place.</p>"
+            },
+            "set": {
+                "header": "Template coverage",
+                "bodytext": "<p>This seeded post is intentionally complete. It has authors, categories, tags, a readable teaser, a comment, and body content so the Blog list and detail templates can be checked in one place.</p>"
+            },
+            "_context": {
+                "page": 21,
+                "pageTitle": "First blog post",
+                "element": 15652,
+                "type": "text",
+                "roles": {
+                    "header": "headline",
+                    "bodytext": "body"
+                }
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 42,
+            "expect": {
+                "CType": "text",
+                "header": "Second Content Block",
+                "bodytext": "<ul><li>Lorem ipsum dolor sit amedddt, consectetur adipiscing elit.</li><li>Integer et eros at nulla rhoncus elementum id ac tordddtor.</li><li>Fusce ultrices ipsum vitae nisl vulputate aliquam.</li><li>In tempus augue sed diam tempus iaculis.</li><li>In interdum velit sed purus molestie hendrerit in ac justo.</li></ul>"
+            },
+            "set": {
+                "header": "Second Content Block",
+                "bodytext": "<ul><li>Lorem ipsum dolor sit amedddt, consectetur adipiscing elit.</li><li>Integer et eros at nulla rhoncus elementum id ac tordddtor.</li><li>Fusce ultrices ipsum vitae nisl vulputate aliquam.</li><li>In tempus augue sed diam tempus iaculis.</li><li>In interdum velit sed purus molestie hendrerit in ac justo.</li></ul>"
+            },
+            "_context": {
+                "page": 21,
+                "pageTitle": "First blog post",
+                "element": 42,
+                "type": "text",
+                "roles": {
+                    "header": "headline",
+                    "bodytext": "body"
+                }
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 15653,
+            "expect": {
+                "CType": "text",
+                "header": "What to verify",
+                "bodytext": "<ul><li>Category and tag badges appear once near the title.</li><li>Dates, authors, and comments stay in one flat metadata row.</li><li>The same tokenized badge treatment is used across list and detail views.</li></ul>"
+            },
+            "set": {
+                "header": "What to verify",
+                "bodytext": "<ul><li>Category and tag badges appear once near the title.</li><li>Dates, authors, and comments stay in one flat metadata row.</li><li>The same tokenized badge treatment is used across list and detail views.</li></ul>"
+            },
+            "_context": {
+                "page": 21,
+                "pageTitle": "First blog post",
+                "element": 15653,
+                "type": "text",
+                "roles": {
+                    "header": "headline",
+                    "bodytext": "body"
+                }
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 41,
+            "expect": {
+                "CType": "text",
+                "header": "Third Content Block",
+                "bodytext": "Phasellus at ornare arcu, vel lobortis magna. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Sed hendrerit tortor nisi, at iaculis eros dignissim ac. Praesent bibendum nibh vitae dictum tempus. Etiam elit nibh, tristique non velit a, malesuada feugiat nisi. Fusce at lacinia dolor. Curabitur sit amet leo massa. Curabitur tellus dui, fermentum luctus augue placerat, blandit blandit ante."
+            },
+            "set": {
+                "header": "Third Content Block",
+                "bodytext": "Phasellus at ornare arcu, vel lobortis magna. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Sed hendrerit tortor nisi, at iaculis eros dignissim ac. Praesent bibendum nibh vitae dictum tempus. Etiam elit nibh, tristique non velit a, malesuada feugiat nisi. Fusce at lacinia dolor. Curabitur sit amet leo massa. Curabitur tellus dui, fermentum luctus augue placerat, blandit blandit ante."
+            },
+            "_context": {
+                "page": 21,
+                "pageTitle": "First blog post",
+                "element": 41,
+                "type": "text",
+                "roles": {
+                    "header": "headline",
+                    "bodytext": "body"
+                }
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 1274,
+            "expect": {
+                "CType": "image",
+                "header": "Easter egg"
+            },
+            "set": {
+                "header": "Easter egg"
+            },
+            "_context": {
+                "page": 21,
+                "pageTitle": "First blog post",
+                "element": 1274,
+                "type": "image",
+                "roles": {
+                    "header": "headline"
+                }
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 729,
+            "expect": {
+                "alternative": "Hand-painted Easter egg with a smiling face resting on a metal wire rack. Copyright: Eric Heininger, via Unsplash (Unsplash License)."
+            },
+            "set": {
+                "alternative": "Hand-painted Easter egg with a smiling face resting on a metal wire rack. Copyright: Eric Heininger, via Unsplash (Unsplash License)."
+            },
+            "_context": {
+                "page": 21,
+                "pageTitle": "First blog post",
+                "element": 1274,
+                "type": "image",
+                "roles": {
+                    "alternative": "alt"
+                },
+                "file": "/mcp/workspaces/ws-1/images/easter-egg-unsplash-c0604bae7fd185a2.jpg"
+            }
+        }
+    ]
+}

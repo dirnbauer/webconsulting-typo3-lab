@@ -1,0 +1,52 @@
+{
+    "version": 1,
+    "site": "blog-classico",
+    "root": 15,
+    "language": 0,
+    "languageCode": "de",
+    "generated": "2026-09-23T10:10:53+02:00",
+    "records": [
+        {
+            "table": "pages",
+            "uid": 42,
+            "expect": {
+                "title": "News Detail",
+                "description": "Detail page for Easter egg news articles."
+            },
+            "set": {
+                "title": "News Detail",
+                "description": "Detail page for Easter egg news articles."
+            },
+            "_context": {
+                "page": 42,
+                "pageTitle": "News Detail",
+                "element": 42,
+                "type": "pages",
+                "roles": {
+                    "title": "page_title",
+                    "description": "meta"
+                }
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 89,
+            "expect": {
+                "CType": "news_newsdetail",
+                "header": "News Detail"
+            },
+            "set": {
+                "header": "News Detail"
+            },
+            "_context": {
+                "page": 42,
+                "pageTitle": "News Detail",
+                "element": 89,
+                "type": "news_newsdetail",
+                "roles": {
+                    "header": "headline"
+                }
+            }
+        }
+    ]
+}

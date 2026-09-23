@@ -1,0 +1,29 @@
+{
+    "version": 1,
+    "site": "blog-classico",
+    "root": 15,
+    "language": 0,
+    "languageCode": "de",
+    "generated": "2026-09-23T10:10:47+02:00",
+    "records": [
+        {
+            "table": "pages",
+            "uid": 17,
+            "expect": {
+                "title": "Category"
+            },
+            "set": {
+                "title": "Category"
+            },
+            "_context": {
+                "page": 17,
+                "pageTitle": "Category",
+                "element": 17,
+                "type": "pages",
+                "roles": {
+                    "title": "page_title"
+                }
+            }
+        }
+    ]
+}

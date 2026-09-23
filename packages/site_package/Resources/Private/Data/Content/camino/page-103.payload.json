@@ -1,0 +1,357 @@
+{
+    "version": 1,
+    "site": "camino",
+    "root": 99,
+    "language": 0,
+    "languageCode": "en",
+    "generated": "2026-09-23T10:12:24+02:00",
+    "records": [
+        {
+            "table": "pages",
+            "uid": 103,
+            "expect": {
+                "title": "FAQs"
+            },
+            "set": {
+                "title": "FAQs"
+            },
+            "_context": {
+                "page": 103,
+                "pageTitle": "FAQs",
+                "element": 103,
+                "type": "pages",
+                "roles": {
+                    "title": "page_title"
+                }
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 1387,
+            "expect": {
+                "CType": "text",
+                "header": "What is the Camino de Compostela?",
+                "bodytext": "<p>The Camino de Compostela, or Way of St. James, is a network of ancient pilgrimage routes leading to Santiago de Compostela in Spain. It has been a major spiritual and cultural route for over a thousand years, drawing pilgrims from all corners of the world.</p>"
+            },
+            "set": {
+                "header": "What is the Camino de Compostela?",
+                "bodytext": "<p>The Camino de Compostela, or Way of St. James, is a network of ancient pilgrimage routes leading to Santiago de Compostela in Spain. It has been a major spiritual and cultural route for over a thousand years, drawing pilgrims from all corners of the world.</p>"
+            },
+            "_context": {
+                "page": 103,
+                "pageTitle": "FAQs",
+                "element": 1387,
+                "type": "text",
+                "roles": {
+                    "header": "headline",
+                    "bodytext": "body"
+                }
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 1386,
+            "expect": {
+                "CType": "text",
+                "header": "How long does it take test to walk the Camino?",
+                "bodytext": "<p>The time it takes depends on the route and your walking pace. The Camino Francés, the most popular route, takes around <strong>30 to 35 days</strong> from Saint-Jean-Pied-de-Port to Santiago. Those walking shorter sections can complete their journey in one to two weeks.</p>"
+            },
+            "set": {
+                "header": "How long does it take test to walk the Camino?",
+                "bodytext": "<p>The time it takes depends on the route and your walking pace. The Camino Francés, the most popular route, takes around <strong>30 to 35 days</strong> from Saint-Jean-Pied-de-Port to Santiago. Those walking shorter sections can complete their journey in one to two weeks.</p>"
+            },
+            "_context": {
+                "page": 103,
+                "pageTitle": "FAQs",
+                "element": 1386,
+                "type": "text",
+                "roles": {
+                    "header": "headline",
+                    "bodytext": "body"
+                }
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 1385,
+            "expect": {
+                "CType": "text",
+                "header": "Do I need to be religious to walk the Camino?",
+                "bodytext": "<p>Not at all. While the Camino has deep spiritual roots, it is open to everyone. People of all faiths — and none — walk it for a wide range of reasons, from personal growth and adventure to connection and reflection.</p>"
+            },
+            "set": {
+                "header": "Do I need to be religious to walk the Camino?",
+                "bodytext": "<p>Not at all. While the Camino has deep spiritual roots, it is open to everyone. People of all faiths — and none — walk it for a wide range of reasons, from personal growth and adventure to connection and reflection.</p>"
+            },
+            "_context": {
+                "page": 103,
+                "pageTitle": "FAQs",
+                "element": 1385,
+                "type": "text",
+                "roles": {
+                    "header": "headline",
+                    "bodytext": "body"
+                }
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 1384,
+            "expect": {
+                "CType": "text",
+                "header": "Is the Camino suitable for beginners?",
+                "bodytext": "<p>Yes. The Camino is accessible to walkers of all levels. You do not need to be an experienced hiker — just have the right gear, a reasonable level of fitness, and the determination to keep going. Most routes involve daily walks of between 15 and 30 km on well-maintained paths.</p>"
+            },
+            "set": {
+                "header": "Is the Camino suitable for beginners?",
+                "bodytext": "<p>Yes. The Camino is accessible to walkers of all levels. You do not need to be an experienced hiker — just have the right gear, a reasonable level of fitness, and the determination to keep going. Most routes involve daily walks of between 15 and 30 km on well-maintained paths.</p>"
+            },
+            "_context": {
+                "page": 103,
+                "pageTitle": "FAQs",
+                "element": 1384,
+                "type": "text",
+                "roles": {
+                    "header": "headline",
+                    "bodytext": "body"
+                }
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 1383,
+            "expect": {
+                "CType": "text",
+                "header": "What are the accommodations like?",
+                "bodytext": "<p>Most pilgrims stay in <strong>albergues</strong> — simple, affordable pilgrim hostels located along the route. Guesthouses and hotels are also available for those who prefer more comfort, and some pilgrims choose to camp along the way.</p>"
+            },
+            "set": {
+                "header": "What are the accommodations like?",
+                "bodytext": "<p>Most pilgrims stay in <strong>albergues</strong> — simple, affordable pilgrim hostels located along the route. Guesthouses and hotels are also available for those who prefer more comfort, and some pilgrims choose to camp along the way.</p>"
+            },
+            "_context": {
+                "page": 103,
+                "pageTitle": "FAQs",
+                "element": 1383,
+                "type": "text",
+                "roles": {
+                    "header": "headline",
+                    "bodytext": "body"
+                }
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 1382,
+            "expect": {
+                "CType": "text",
+                "header": "How do I navigate the Camino?",
+                "bodytext": "<p>The routes are well marked with <strong>yellow arrows</strong> and <strong>scallop shell symbols</strong>, making it difficult to lose your way. Guidebooks, apps, and printed maps are also widely available to help you plan and navigate each stage.</p>"
+            },
+            "set": {
+                "header": "How do I navigate the Camino?",
+                "bodytext": "<p>The routes are well marked with <strong>yellow arrows</strong> and <strong>scallop shell symbols</strong>, making it difficult to lose your way. Guidebooks, apps, and printed maps are also widely available to help you plan and navigate each stage.</p>"
+            },
+            "_context": {
+                "page": 103,
+                "pageTitle": "FAQs",
+                "element": 1382,
+                "type": "text",
+                "roles": {
+                    "header": "headline",
+                    "bodytext": "body"
+                }
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 1381,
+            "expect": {
+                "CType": "text",
+                "header": "Do I need to book accommodations in advance?",
+                "bodytext": "<p>During quieter seasons, advance booking is generally not necessary. However, if you are walking in summer or on a popular route such as the Camino Francés, booking ahead is recommended to secure your spot.</p>"
+            },
+            "set": {
+                "header": "Do I need to book accommodations in advance?",
+                "bodytext": "<p>During quieter seasons, advance booking is generally not necessary. However, if you are walking in summer or on a popular route such as the Camino Francés, booking ahead is recommended to secure your spot.</p>"
+            },
+            "_context": {
+                "page": 103,
+                "pageTitle": "FAQs",
+                "element": 1381,
+                "type": "text",
+                "roles": {
+                    "header": "headline",
+                    "bodytext": "body"
+                }
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 1380,
+            "expect": {
+                "CType": "text",
+                "header": "What should I do if I cannot finish the Camino?",
+                "bodytext": "<p>Completing the entire route is not a requirement. Many pilgrims walk only a section of the Camino, and even a few days on the trail can be a meaningful and rewarding experience. There is no right or wrong way to walk it.</p>"
+            },
+            "set": {
+                "header": "What should I do if I cannot finish the Camino?",
+                "bodytext": "<p>Completing the entire route is not a requirement. Many pilgrims walk only a section of the Camino, and even a few days on the trail can be a meaningful and rewarding experience. There is no right or wrong way to walk it.</p>"
+            },
+            "_context": {
+                "page": 103,
+                "pageTitle": "FAQs",
+                "element": 1380,
+                "type": "text",
+                "roles": {
+                    "header": "headline",
+                    "bodytext": "body"
+                }
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 1379,
+            "expect": {
+                "CType": "text",
+                "header": "What is the Pilgrim's Credential and how do I get one?",
+                "bodytext": "<p>The <strong>Pilgrim's Credential</strong>, or <strong>Credencial del Peregrino</strong>, is a document you collect stamps in as you progress along the route. It is required for staying in albergues and serves as proof of your journey when collecting your <strong>Compostela Certificate</strong> upon arrival in Santiago.</p>"
+            },
+            "set": {
+                "header": "What is the Pilgrim's Credential and how do I get one?",
+                "bodytext": "<p>The <strong>Pilgrim's Credential</strong>, or <strong>Credencial del Peregrino</strong>, is a document you collect stamps in as you progress along the route. It is required for staying in albergues and serves as proof of your journey when collecting your <strong>Compostela Certificate</strong> upon arrival in Santiago.</p>"
+            },
+            "_context": {
+                "page": 103,
+                "pageTitle": "FAQs",
+                "element": 1379,
+                "type": "text",
+                "roles": {
+                    "header": "headline",
+                    "bodytext": "body"
+                }
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 1390,
+            "expect": {
+                "CType": "camino_textteaser",
+                "header": "Your First Step Starts Here",
+                "subheader": "Plan your Camino",
+                "bodytext": "<p>Not sure where to begin? Our route guides, packing tips, and practical advice have everything you need to plan your first Camino with confidence.</p>"
+            },
+            "set": {
+                "header": "Your First Step Starts Here",
+                "subheader": "Plan your Camino",
+                "bodytext": "<p>Not sure where to begin? Our route guides, packing tips, and practical advice have everything you need to plan your first Camino with confidence.</p>"
+            },
+            "_context": {
+                "page": 103,
+                "pageTitle": "FAQs",
+                "element": 1390,
+                "type": "camino_textteaser",
+                "roles": {
+                    "header": "headline",
+                    "subheader": "lead",
+                    "bodytext": "body"
+                }
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 1389,
+            "expect": {
+                "CType": "camino_textteaser",
+                "header": "Walk at Your Own Pace",
+                "subheader": "No experience required",
+                "bodytext": "<p>The Camino welcomes everyone — seasoned hikers and first-time walkers alike. Find the route that matches your fitness, your time, and your spirit.</p>"
+            },
+            "set": {
+                "header": "Walk at Your Own Pace",
+                "subheader": "No experience required",
+                "bodytext": "<p>The Camino welcomes everyone — seasoned hikers and first-time walkers alike. Find the route that matches your fitness, your time, and your spirit.</p>"
+            },
+            "_context": {
+                "page": 103,
+                "pageTitle": "FAQs",
+                "element": 1389,
+                "type": "camino_textteaser",
+                "roles": {
+                    "header": "headline",
+                    "subheader": "lead",
+                    "bodytext": "body"
+                }
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 1388,
+            "expect": {
+                "CType": "camino_textteaser",
+                "header": "Buen Camino Starts With Good Gear",
+                "subheader": "What to pack and what to leave behind",
+                "bodytext": "<p>The right boots, the right pack, and a little preparation can make all the difference. Discover our essential packing guide before you hit the trail.</p>"
+            },
+            "set": {
+                "header": "Buen Camino Starts With Good Gear",
+                "subheader": "What to pack and what to leave behind",
+                "bodytext": "<p>The right boots, the right pack, and a little preparation can make all the difference. Discover our essential packing guide before you hit the trail.</p>"
+            },
+            "_context": {
+                "page": 103,
+                "pageTitle": "FAQs",
+                "element": 1388,
+                "type": "camino_textteaser",
+                "roles": {
+                    "header": "headline",
+                    "subheader": "lead",
+                    "bodytext": "body"
+                }
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 1378,
+            "expect": {
+                "CType": "camino_hero_small",
+                "header": "FAQs",
+                "subheader": "Everything test You Need dd to Know how About the Camino de Compostela"
+            },
+            "set": {
+                "header": "FAQs",
+                "subheader": "Everything test You Need dd to Know how About the Camino de Compostela"
+            },
+            "_context": {
+                "page": 103,
+                "pageTitle": "FAQs",
+                "element": 1378,
+                "type": "camino_hero_small",
+                "roles": {
+                    "header": "headline",
+                    "subheader": "lead"
+                }
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 768,
+            "expect": {
+                "alternative": ""
+            },
+            "set": {
+                "alternative": ""
+            },
+            "_context": {
+                "page": 103,
+                "pageTitle": "FAQs",
+                "element": 1378,
+                "type": "camino_hero_small",
+                "roles": {
+                    "alternative": "alt"
+                },
+                "file": "/camino/bernard-wortelboer-l5zWzwYnt_s-unsplash.webp"
+            }
+        }
+    ]
+}

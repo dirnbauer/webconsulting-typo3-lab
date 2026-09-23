@@ -1,0 +1,93 @@
+{
+    "version": 1,
+    "site": "typo3-blog",
+    "root": 390,
+    "language": 0,
+    "languageCode": "en",
+    "generated": "2026-09-23T10:12:16+02:00",
+    "records": [
+        {
+            "table": "pages",
+            "uid": 563,
+            "expect": {
+                "title": "Pilotprojekt: „Jobcoach“ für Langzeitarbeitslose"
+            },
+            "set": {
+                "title": "Pilotprojekt: „Jobcoach“ für Langzeitarbeitslose"
+            },
+            "_context": {
+                "page": 563,
+                "pageTitle": "Pilotprojekt: „Jobcoach“ für Langzeitarbeitslose",
+                "element": 563,
+                "type": "pages",
+                "roles": {
+                    "title": "page_title"
+                },
+                "pageHidden": true
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 7611,
+            "expect": {
+                "CType": "textmedia",
+                "bodytext": "<p>Das Arbeitsmarktservice Niederösterreich startet ein Pilotprogramm für Langzeitarbeitslose im Waldviertel. Jobsuchende mit gesundheitlichen Einschränkungen sollen mit Jobcoach-Begleitung zurück auf den Arbeitsmarkt finden.</p>\r\n<p>Demografischer Druck und Fachkräftemangel prägen die Region; die Vermittlung älterer oder gesundheitlich eingeschränkter Personen gilt als besonders anspruchsvoll.</p>\r\n<p>Ab Sommer sollen Coaches von der Potentialanalyse bis zur beruflichen Integration begleiten. Ziel sind Frühzeit-Prävention von Langzeitarbeitslosigkeit und nachhaltige Jobs.</p>\r\n<h2>Jugendbildungszentrum Gmünd</h2>\r\n<p>Das AMS setzt zusätzlich auf das Jugendbildungszentrum in Gmünd (Deutschkurse, Schulabschlüsse, handwerkliche Probestellen). Als Beispiel nennt der Artikel den 20-jährigen Danylo Isaiev, der über das Zentrum eine Lehrstelle als Installations- und Gebäudetechniker in Schrems fand.</p>\r\n<p>Seit 2019 konnte die Langzeitarbeitslosigkeit in der Region laut AMS um rund 60 Prozent gesunken werden.</p>\r\n<p><em>Quelle: noe.ORF.at, Arbeitsmarkt — Online 30. April 2026.</em></p>"
+            },
+            "set": {
+                "bodytext": "<p>Das Arbeitsmarktservice Niederösterreich startet ein Pilotprogramm für Langzeitarbeitslose im Waldviertel. Jobsuchende mit gesundheitlichen Einschränkungen sollen mit Jobcoach-Begleitung zurück auf den Arbeitsmarkt finden.</p>\r\n<p>Demografischer Druck und Fachkräftemangel prägen die Region; die Vermittlung älterer oder gesundheitlich eingeschränkter Personen gilt als besonders anspruchsvoll.</p>\r\n<p>Ab Sommer sollen Coaches von der Potentialanalyse bis zur beruflichen Integration begleiten. Ziel sind Frühzeit-Prävention von Langzeitarbeitslosigkeit und nachhaltige Jobs.</p>\r\n<h2>Jugendbildungszentrum Gmünd</h2>\r\n<p>Das AMS setzt zusätzlich auf das Jugendbildungszentrum in Gmünd (Deutschkurse, Schulabschlüsse, handwerkliche Probestellen). Als Beispiel nennt der Artikel den 20-jährigen Danylo Isaiev, der über das Zentrum eine Lehrstelle als Installations- und Gebäudetechniker in Schrems fand.</p>\r\n<p>Seit 2019 konnte die Langzeitarbeitslosigkeit in der Region laut AMS um rund 60 Prozent gesunken werden.</p>\r\n<p><em>Quelle: noe.ORF.at, Arbeitsmarkt — Online 30. April 2026.</em></p>"
+            },
+            "_context": {
+                "page": 563,
+                "pageTitle": "Pilotprojekt: „Jobcoach“ für Langzeitarbeitslose",
+                "element": 7611,
+                "type": "textmedia",
+                "roles": {
+                    "bodytext": "body"
+                },
+                "pageHidden": true
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 3754,
+            "expect": {
+                "alternative": "AMS-Thema Waldviertel: Jobcoach und Arbeitsmarkt"
+            },
+            "set": {
+                "alternative": "AMS-Thema Waldviertel: Jobcoach und Arbeitsmarkt"
+            },
+            "_context": {
+                "page": 563,
+                "pageTitle": "Pilotprojekt: „Jobcoach“ für Langzeitarbeitslose",
+                "element": 7611,
+                "type": "textmedia",
+                "roles": {
+                    "alternative": "alt"
+                },
+                "pageHidden": true,
+                "file": "/mcp/workspaces/ws-1/3020524_master_1168530_a0fd1d91-33a7-465e-8777-d8188e668824-ee05107db987163f.jpg"
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 3756,
+            "expect": {
+                "alternative": "Danylo Isaiev: Jugendbildungszentrum Gmünd und Lehrstelle Schrems"
+            },
+            "set": {
+                "alternative": "Danylo Isaiev: Jugendbildungszentrum Gmünd und Lehrstelle Schrems"
+            },
+            "_context": {
+                "page": 563,
+                "pageTitle": "Pilotprojekt: „Jobcoach“ für Langzeitarbeitslose",
+                "element": 7611,
+                "type": "textmedia",
+                "roles": {
+                    "alternative": "alt"
+                },
+                "pageHidden": true,
+                "file": "/mcp/workspaces/ws-1/3020528_bigpicture_1168532_fcd37211-f1cf-4f91-866f-07b5606fd-a6e83ff54c7f1dcf.jpg"
+            }
+        }
+    ]
+}

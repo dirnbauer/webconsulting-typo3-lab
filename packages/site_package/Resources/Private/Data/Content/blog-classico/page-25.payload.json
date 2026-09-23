@@ -1,0 +1,262 @@
+{
+    "version": 1,
+    "site": "blog-classico",
+    "root": 15,
+    "language": 0,
+    "languageCode": "de",
+    "generated": "2026-09-23T10:11:01+02:00",
+    "records": [
+        {
+            "table": "pages",
+            "uid": 25,
+            "expect": {
+                "title": "Easter Nests, Baskets, and Eggs Outdoors",
+                "subtitle": "Textures, color, and spring scenes that feel inviting",
+                "abstract": "Outdoor Easter scenes that make seasonal content feel warmer.",
+                "description": "A post about outdoor Easter styling, nests, baskets, and naturally placed eggs.",
+                "seo_title": "Easter Nests, Baskets, and Eggs Outdoors",
+                "og_title": "Easter Nests, Baskets, and Eggs Outdoors",
+                "og_description": "A post about outdoor Easter styling, nests, baskets, and naturally placed eggs.",
+                "twitter_title": "Easter Nests, Baskets, and Eggs Outdoors",
+                "twitter_description": "A post about outdoor Easter styling, nests, baskets, and naturally placed eggs."
+            },
+            "set": {
+                "title": "Easter Nests, Baskets, and Eggs Outdoors",
+                "subtitle": "Textures, color, and spring scenes that feel inviting",
+                "abstract": "Outdoor Easter scenes that make seasonal content feel warmer.",
+                "description": "A post about outdoor Easter styling, nests, baskets, and naturally placed eggs.",
+                "seo_title": "Easter Nests, Baskets, and Eggs Outdoors",
+                "og_title": "Easter Nests, Baskets, and Eggs Outdoors",
+                "og_description": "A post about outdoor Easter styling, nests, baskets, and naturally placed eggs.",
+                "twitter_title": "Easter Nests, Baskets, and Eggs Outdoors",
+                "twitter_description": "A post about outdoor Easter styling, nests, baskets, and naturally placed eggs."
+            },
+            "_context": {
+                "page": 25,
+                "pageTitle": "Easter Nests, Baskets, and Eggs Outdoors",
+                "element": 25,
+                "type": "pages",
+                "roles": {
+                    "title": "page_title",
+                    "subtitle": "lead",
+                    "abstract": "lead",
+                    "description": "meta",
+                    "seo_title": "page_title",
+                    "og_title": "page_title",
+                    "og_description": "meta",
+                    "twitter_title": "page_title",
+                    "twitter_description": "meta"
+                }
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 69,
+            "expect": {
+                "CType": "textmedia",
+                "header": "Natural scenes create connection",
+                "bodytext": "<p>People tend to trust seasonal imagery more when it feels gathered from life instead of assembled for display. Outdoor Easter scenes work because they connect tradition to place, weather, and touchable materials.</p>"
+            },
+            "set": {
+                "header": "Natural scenes create connection",
+                "bodytext": "<p>People tend to trust seasonal imagery more when it feels gathered from life instead of assembled for display. Outdoor Easter scenes work because they connect tradition to place, weather, and touchable materials.</p>"
+            },
+            "_context": {
+                "page": 25,
+                "pageTitle": "Easter Nests, Baskets, and Eggs Outdoors",
+                "element": 69,
+                "type": "textmedia",
+                "roles": {
+                    "header": "headline",
+                    "bodytext": "body"
+                }
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 27,
+            "expect": {
+                "alternative": ""
+            },
+            "set": {
+                "alternative": "Easter eggs resting in green grass"
+            },
+            "_context": {
+                "page": 25,
+                "pageTitle": "Easter Nests, Baskets, and Eggs Outdoors",
+                "element": 69,
+                "type": "textmedia",
+                "roles": {
+                    "alternative": "alt"
+                },
+                "file": "/mcp/workspaces/ws-1/images/easter-eggs-grass-olena-somak-cfc38eb8b1399488.jpg"
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 51,
+            "expect": {
+                "alternative": ""
+            },
+            "set": {
+                "alternative": "Basket of colored Easter eggs on a table"
+            },
+            "_context": {
+                "page": 25,
+                "pageTitle": "Easter Nests, Baskets, and Eggs Outdoors",
+                "element": 69,
+                "type": "textmedia",
+                "roles": {
+                    "alternative": "alt"
+                },
+                "file": "/mcp/workspaces/ws-1/images/basket-colored-eggs-bermix-5f9e4d7e2b4940e0.jpg"
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 68,
+            "expect": {
+                "CType": "textmedia",
+                "header": "Outdoor styling ideas",
+                "bodytext": "<ul><li>Use woven baskets, twine, or linen for an easier spring texture.</li><li>Let eggs sit unevenly rather than in a strict grid.</li><li>Add blossoms or branches only where they support the main objects.</li><li>Keep a little soil, wood, or grass visible in the frame.</li></ul>"
+            },
+            "set": {
+                "header": "Outdoor styling ideas",
+                "bodytext": "<ul><li>Use woven baskets, twine, or linen for an easier spring texture.</li><li>Let eggs sit unevenly rather than in a strict grid.</li><li>Add blossoms or branches only where they support the main objects.</li><li>Keep a little soil, wood, or grass visible in the frame.</li></ul>"
+            },
+            "_context": {
+                "page": 25,
+                "pageTitle": "Easter Nests, Baskets, and Eggs Outdoors",
+                "element": 68,
+                "type": "textmedia",
+                "roles": {
+                    "header": "headline",
+                    "bodytext": "body"
+                }
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 17,
+            "expect": {
+                "alternative": ""
+            },
+            "set": {
+                "alternative": "Easter eggs resting in green grass"
+            },
+            "_context": {
+                "page": 25,
+                "pageTitle": "Easter Nests, Baskets, and Eggs Outdoors",
+                "element": 68,
+                "type": "textmedia",
+                "roles": {
+                    "alternative": "alt"
+                },
+                "file": "/mcp/workspaces/ws-1/images/easter-eggs-grass-olena-somak-cfc38eb8b1399488.jpg"
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 26,
+            "expect": {
+                "alternative": ""
+            },
+            "set": {
+                "alternative": "Easter eggs resting in green grass"
+            },
+            "_context": {
+                "page": 25,
+                "pageTitle": "Easter Nests, Baskets, and Eggs Outdoors",
+                "element": 68,
+                "type": "textmedia",
+                "roles": {
+                    "alternative": "alt"
+                },
+                "file": "/mcp/workspaces/ws-1/images/easter-eggs-grass-olena-somak-cfc38eb8b1399488.jpg"
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 50,
+            "expect": {
+                "alternative": ""
+            },
+            "set": {
+                "alternative": "Blue basket filled with colorful Easter eggs"
+            },
+            "_context": {
+                "page": 25,
+                "pageTitle": "Easter Nests, Baskets, and Eggs Outdoors",
+                "element": 68,
+                "type": "textmedia",
+                "roles": {
+                    "alternative": "alt"
+                },
+                "file": "/mcp/workspaces/ws-1/images/blue-basket-easter-eggs-aj-4b839ba124cc2dc6.jpg"
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 67,
+            "expect": {
+                "CType": "textmedia",
+                "header": "Texture makes Easter feel real",
+                "bodytext": "<p>Nests, baskets, grass, and slightly imperfect outdoor arrangements add something that polished studio styling cannot. They remind people that Easter belongs to spring, to changing weather, and to materials that feel gathered rather than manufactured. That is often what makes a seasonal post feel warm and believable.</p>"
+            },
+            "set": {
+                "header": "Texture makes Easter feel real",
+                "bodytext": "<p>Nests, baskets, grass, and slightly imperfect outdoor arrangements add something that polished studio styling cannot. They remind people that Easter belongs to spring, to changing weather, and to materials that feel gathered rather than manufactured. That is often what makes a seasonal post feel warm and believable.</p>"
+            },
+            "_context": {
+                "page": 25,
+                "pageTitle": "Easter Nests, Baskets, and Eggs Outdoors",
+                "element": 67,
+                "type": "textmedia",
+                "roles": {
+                    "header": "headline",
+                    "bodytext": "body"
+                }
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 18,
+            "expect": {
+                "alternative": ""
+            },
+            "set": {
+                "alternative": "Easter eggs resting in green grass"
+            },
+            "_context": {
+                "page": 25,
+                "pageTitle": "Easter Nests, Baskets, and Eggs Outdoors",
+                "element": 67,
+                "type": "textmedia",
+                "roles": {
+                    "alternative": "alt"
+                },
+                "file": "/mcp/workspaces/ws-1/images/easter-eggs-grass-olena-somak-cfc38eb8b1399488.jpg"
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 25,
+            "expect": {
+                "alternative": ""
+            },
+            "set": {
+                "alternative": "Easter eggs resting in green grass"
+            },
+            "_context": {
+                "page": 25,
+                "pageTitle": "Easter Nests, Baskets, and Eggs Outdoors",
+                "element": 67,
+                "type": "textmedia",
+                "roles": {
+                    "alternative": "alt"
+                },
+                "file": "/mcp/workspaces/ws-1/images/easter-eggs-grass-olena-somak-cfc38eb8b1399488.jpg"
+            }
+        }
+    ]
+}

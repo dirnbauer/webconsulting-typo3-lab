@@ -1,0 +1,119 @@
+{
+    "version": 1,
+    "site": "blog-classico",
+    "root": 15,
+    "language": 0,
+    "languageCode": "de",
+    "generated": "2026-09-23T10:11:20+02:00",
+    "records": [
+        {
+            "table": "pages",
+            "uid": 94,
+            "expect": {
+                "title": "Bericht: Investoren zweifeln an Bewertung von OpenAI",
+                "subtitle": "Blog template coverage entry",
+                "abstract": "Einige Investorinnen und Investoren von OpenAI halten den ChatGPT-Entwickler einem Zeitungsbericht zufolge für überbewertet. Die jüngsten Strategieschwenks gefährdeten die Führungsrolle des auf künstliche Intelligenz (KI) spezialisierten US-Softwareunternehmens gegenüber Konkurrenten wie Anthropic u",
+                "description": "Einige Investorinnen und Investoren von OpenAI halten den ChatGPT-Entwickler einem Zeitungsbericht zufolge für überbewertet. Die jüngsten Strategieschwenks gefährdeten die Führungsrolle des auf künstliche Intelligenz (KI) spezialisierten US-Softwareunternehmens gegenüber Konkurrenten wie Anthropic u",
+                "seo_title": "Bericht: Investoren zweifeln an Bewertung von OpenAI",
+                "og_title": "Bericht: Investoren zweifeln an Bewertung von OpenAI",
+                "og_description": "Einige Investorinnen und Investoren von OpenAI halten den ChatGPT-Entwickler einem Zeitungsbericht zufolge für überbewertet. Die jüngsten Strategieschwenks gefährdeten die Führungsrolle des auf künstliche Intelligenz (KI) spezialisierten US-Softwareunternehmens gegenüber Konkurrenten wie Anthropic u",
+                "twitter_title": "Bericht: Investoren zweifeln an Bewertung von OpenAI",
+                "twitter_description": "Einige Investorinnen und Investoren von OpenAI halten den ChatGPT-Entwickler einem Zeitungsbericht zufolge für überbewertet. Die jüngsten Strategieschwenks gefährdeten die Führungsrolle des auf künstliche Intelligenz (KI) spezialisierten US-Softwareunternehmens gegenüber Konkurrenten wie Anthropic u"
+            },
+            "set": {
+                "title": "Bericht: Investoren zweifeln an Bewertung von OpenAI",
+                "subtitle": "Blog template coverage entry",
+                "abstract": "Einige Investorinnen und Investoren von OpenAI halten den ChatGPT-Entwickler einem Zeitungsbericht zufolge für überbewertet. Die jüngsten Strategieschwenks gefährdeten die Führungsrolle des auf künstliche Intelligenz (KI) spezialisierten US-Softwareunternehmens gegenüber Konkurrenten wie Anthropic u",
+                "description": "Einige Investorinnen und Investoren von OpenAI halten den ChatGPT-Entwickler einem Zeitungsbericht zufolge für überbewertet. Die jüngsten Strategieschwenks gefährdeten die Führungsrolle des auf künstliche Intelligenz (KI) spezialisierten US-Softwareunternehmens gegenüber Konkurrenten wie Anthropic u",
+                "seo_title": "Bericht: Investoren zweifeln an Bewertung von OpenAI",
+                "og_title": "Bericht: Investoren zweifeln an Bewertung von OpenAI",
+                "og_description": "Einige Investorinnen und Investoren von OpenAI halten den ChatGPT-Entwickler einem Zeitungsbericht zufolge für überbewertet. Die jüngsten Strategieschwenks gefährdeten die Führungsrolle des auf künstliche Intelligenz (KI) spezialisierten US-Softwareunternehmens gegenüber Konkurrenten wie Anthropic u",
+                "twitter_title": "Bericht: Investoren zweifeln an Bewertung von OpenAI",
+                "twitter_description": "Einige Investorinnen und Investoren von OpenAI halten den ChatGPT-Entwickler einem Zeitungsbericht zufolge für überbewertet. Die jüngsten Strategieschwenks gefährdeten die Führungsrolle des auf künstliche Intelligenz (KI) spezialisierten US-Softwareunternehmens gegenüber Konkurrenten wie Anthropic u"
+            },
+            "_context": {
+                "page": 94,
+                "pageTitle": "Bericht: Investoren zweifeln an Bewertung von OpenAI",
+                "element": 94,
+                "type": "pages",
+                "roles": {
+                    "title": "page_title",
+                    "subtitle": "lead",
+                    "abstract": "lead",
+                    "description": "meta",
+                    "seo_title": "page_title",
+                    "og_title": "page_title",
+                    "og_description": "meta",
+                    "twitter_title": "page_title",
+                    "twitter_description": "meta"
+                }
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 1333,
+            "expect": {
+                "CType": "text",
+                "header": "Starker Mitbewerb durch „Claude“ von Anthropic",
+                "bodytext": "<p>Anthropic hatte in den vergangenen Monaten mit Zusatzmodulen für die KI „Claude“ für Furore gesorgt. Diese sind auf eng umrissene Aufgaben spezialisiert und schüren Befürchtungen, dass klassische Firmensoftware von Anbietern wie SAP überflüssig werden könnte. Ein „Claude“-Modul kann den Angaben zufolge einen in der Programmiersprache „Cobol“ geschriebenen Code, der auf zahlreichen IBM-Großrechnern läuft, modernisieren.</p>"
+            },
+            "set": {
+                "header": "Starker Mitbewerb durch „Claude“ von Anthropic",
+                "bodytext": "<p>Anthropic hatte in den vergangenen Monaten mit Zusatzmodulen für die KI „Claude“ für Furore gesorgt. Diese sind auf eng umrissene Aufgaben spezialisiert und schüren Befürchtungen, dass klassische Firmensoftware von Anbietern wie SAP überflüssig werden könnte. Ein „Claude“-Modul kann den Angaben zufolge einen in der Programmiersprache „Cobol“ geschriebenen Code, der auf zahlreichen IBM-Großrechnern läuft, modernisieren.</p>"
+            },
+            "_context": {
+                "page": 94,
+                "pageTitle": "Bericht: Investoren zweifeln an Bewertung von OpenAI",
+                "element": 1333,
+                "type": "text",
+                "roles": {
+                    "header": "headline",
+                    "bodytext": "body"
+                }
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 1332,
+            "expect": {
+                "CType": "text",
+                "bodytext": "<p>Einige Investorinnen und Investoren von OpenAI halten den ChatGPT-Entwickler einem Zeitungsbericht zufolge für überbewertet. Die jüngsten Strategieschwenks gefährdeten die Führungsrolle des auf künstliche Intelligenz (KI) spezialisierten US-Softwareunternehmens gegenüber Konkurrenten wie Anthropic und Google, schrieb die „Financial Times“ heute. Daher sei fraglich, ob die aktuelle Bewertung von OpenAI in Höhe von 852 Mrd. Dollar (729,2 Mrd. Euro) gerechtfertigt sei.</p>\r\n<p>„Das Unternehmen hat sich verzettelt“, zitierte die Zeitung einen frühen OpenAI-Investor. „Wenn man ChatGPT mit einer Milliarde Nutzern und Wachstumsraten von 50 bis 100 Prozent hat, warum diskutiert man über Firmensoftware und Programmierfunktionen?“</p>"
+            },
+            "set": {
+                "bodytext": "<p>Einige Investorinnen und Investoren von OpenAI halten den ChatGPT-Entwickler einem Zeitungsbericht zufolge für überbewertet. Die jüngsten Strategieschwenks gefährdeten die Führungsrolle des auf künstliche Intelligenz (KI) spezialisierten US-Softwareunternehmens gegenüber Konkurrenten wie Anthropic und Google, schrieb die „Financial Times“ heute. Daher sei fraglich, ob die aktuelle Bewertung von OpenAI in Höhe von 852 Mrd. Dollar (729,2 Mrd. Euro) gerechtfertigt sei.</p>\r\n<p>„Das Unternehmen hat sich verzettelt“, zitierte die Zeitung einen frühen OpenAI-Investor. „Wenn man ChatGPT mit einer Milliarde Nutzern und Wachstumsraten von 50 bis 100 Prozent hat, warum diskutiert man über Firmensoftware und Programmierfunktionen?“</p>"
+            },
+            "_context": {
+                "page": 94,
+                "pageTitle": "Bericht: Investoren zweifeln an Bewertung von OpenAI",
+                "element": 1332,
+                "type": "text",
+                "roles": {
+                    "bodytext": "body"
+                }
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 1334,
+            "expect": {
+                "CType": "text",
+                "header": "Börsengang erwartet",
+                "bodytext": "<p>OpenAI teilte auf Anfrage mit, die jüngste 122 Mrd. Dollar schwere Finanzierungsrunde sei überzeichnet gewesen. „Sie wurde in Rekordzeit abgeschlossen und von einer breiten Gruppe führender globaler Investoren getragen, was das starke Vertrauen sowohl in unsere Ausrichtung als auch in die aktuelle Geschäftsdynamik und den langfristigen Unternehmenswert widerspiegelt.“ OpenAI gilt als heißer Börsenkandidat, Medienberichten zufolge könnte das Unternehmen Ende des Jahres den Sprung auf den Aktienmarkt wagen.</p>"
+            },
+            "set": {
+                "header": "Börsengang erwartet",
+                "bodytext": "<p>OpenAI teilte auf Anfrage mit, die jüngste 122 Mrd. Dollar schwere Finanzierungsrunde sei überzeichnet gewesen. „Sie wurde in Rekordzeit abgeschlossen und von einer breiten Gruppe führender globaler Investoren getragen, was das starke Vertrauen sowohl in unsere Ausrichtung als auch in die aktuelle Geschäftsdynamik und den langfristigen Unternehmenswert widerspiegelt.“ OpenAI gilt als heißer Börsenkandidat, Medienberichten zufolge könnte das Unternehmen Ende des Jahres den Sprung auf den Aktienmarkt wagen.</p>"
+            },
+            "_context": {
+                "page": 94,
+                "pageTitle": "Bericht: Investoren zweifeln an Bewertung von OpenAI",
+                "element": 1334,
+                "type": "text",
+                "roles": {
+                    "header": "headline",
+                    "bodytext": "body"
+                }
+            }
+        }
+    ]
+}

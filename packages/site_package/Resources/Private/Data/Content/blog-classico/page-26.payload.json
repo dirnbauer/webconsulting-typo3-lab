@@ -1,0 +1,207 @@
+{
+    "version": 1,
+    "site": "blog-classico",
+    "root": 15,
+    "language": 0,
+    "languageCode": "de",
+    "generated": "2026-09-23T10:11:03+02:00",
+    "records": [
+        {
+            "table": "pages",
+            "uid": 26,
+            "expect": {
+                "title": "changed : Why the Easter Rabbit Still Feels Magical",
+                "subtitle": "A familiar symbol that keeps returning every spring",
+                "abstract": "The Easter rabbit as a symbol of play, surprise, and tradition.",
+                "description": "A reflection on the Easter rabbit and why the symbol still connects across generations."
+            },
+            "set": {
+                "title": "changed : Why the Easter Rabbit Still Feels Magical",
+                "subtitle": "A familiar symbol that keeps returning every spring",
+                "abstract": "The Easter rabbit as a symbol of play, surprise, and tradition.",
+                "description": "A reflection on the Easter rabbit and why the symbol still connects across generations."
+            },
+            "_context": {
+                "page": 26,
+                "pageTitle": "changed : Why the Easter Rabbit Still Feels Magical",
+                "element": 26,
+                "type": "pages",
+                "roles": {
+                    "title": "page_title",
+                    "subtitle": "lead",
+                    "abstract": "lead",
+                    "description": "meta"
+                }
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 72,
+            "expect": {
+                "CType": "textmedia",
+                "header": "Tradition stays alive through repetition and so on.",
+                "bodytext": "<p>Part of Easter charm comes from recognizing the same shapes and rituals again. The rabbit lasts because it keeps its meaning even as decoration styles, family routines, and formats around it continue to change.</p>"
+            },
+            "set": {
+                "header": "Tradition stays alive through repetition and so on.",
+                "bodytext": "<p>Part of Easter charm comes from recognizing the same shapes and rituals again. The rabbit lasts because it keeps its meaning even as decoration styles, family routines, and formats around it continue to change.</p>"
+            },
+            "_context": {
+                "page": 26,
+                "pageTitle": "changed : Why the Easter Rabbit Still Feels Magical",
+                "element": 72,
+                "type": "textmedia",
+                "roles": {
+                    "header": "headline",
+                    "bodytext": "body"
+                }
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 30,
+            "expect": {
+                "alternative": ""
+            },
+            "set": {
+                "alternative": "Chocolate Easter bunny on a light background"
+            },
+            "_context": {
+                "page": 26,
+                "pageTitle": "changed : Why the Easter Rabbit Still Feels Magical",
+                "element": 72,
+                "type": "textmedia",
+                "roles": {
+                    "alternative": "alt"
+                },
+                "file": "/mcp/workspaces/ws-1/images/easter-bunny-glen-carrie-67ff238e7273b69d.jpg"
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 54,
+            "expect": {
+                "alternative": ""
+            },
+            "set": {
+                "alternative": "Easter display with bunny decorations and spring flowers"
+            },
+            "_context": {
+                "page": 26,
+                "pageTitle": "changed : Why the Easter Rabbit Still Feels Magical",
+                "element": 72,
+                "type": "textmedia",
+                "roles": {
+                    "alternative": "alt"
+                },
+                "file": "/mcp/workspaces/ws-1/images/easter-display-tanya-barrow-a88fbe7abc93e5ab.jpg"
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 71,
+            "expect": {
+                "CType": "textmedia",
+                "header": "Why the rabbit still works",
+                "bodytext": "<ul><li>It adds personality without becoming complicated.</li><li>It works in food, decor, toys, and storytelling alike.</li><li>It gives children a symbol to anticipate.</li><li>It keeps returning every year without feeling outdated.</li></ul>"
+            },
+            "set": {
+                "header": "Why the rabbit still works",
+                "bodytext": "<ul><li>It adds personality without becoming complicated.</li><li>It works in food, decor, toys, and storytelling alike.</li><li>It gives children a symbol to anticipate.</li><li>It keeps returning every year without feeling outdated.</li></ul>"
+            },
+            "_context": {
+                "page": 26,
+                "pageTitle": "changed : Why the Easter Rabbit Still Feels Magical",
+                "element": 71,
+                "type": "textmedia",
+                "roles": {
+                    "header": "headline",
+                    "bodytext": "body"
+                }
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 29,
+            "expect": {
+                "alternative": ""
+            },
+            "set": {
+                "alternative": "Chocolate Easter bunny on a light background"
+            },
+            "_context": {
+                "page": 26,
+                "pageTitle": "changed : Why the Easter Rabbit Still Feels Magical",
+                "element": 71,
+                "type": "textmedia",
+                "roles": {
+                    "alternative": "alt"
+                },
+                "file": "/mcp/workspaces/ws-1/images/easter-bunny-glen-carrie-67ff238e7273b69d.jpg"
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 53,
+            "expect": {
+                "alternative": ""
+            },
+            "set": {
+                "alternative": "Children wearing bunny ears outdoors for Easter"
+            },
+            "_context": {
+                "page": 26,
+                "pageTitle": "changed : Why the Easter Rabbit Still Feels Magical",
+                "element": 71,
+                "type": "textmedia",
+                "roles": {
+                    "alternative": "alt"
+                },
+                "file": "/mcp/workspaces/ws-1/images/children-bunny-ears-ahmet-kurt-bdcfcf5bcf203a32.jpg"
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 70,
+            "expect": {
+                "CType": "textmedia",
+                "header": "A symbol children understand immediately",
+                "bodytext": "<p>The Easter rabbit still works because it brings together surprise, play, and spring in one simple figure. It does not need much explanation. Across generations, the rabbit signals that the day will contain something small, festive, and slightly magical, even when the rest of the celebration stays modest.</p>"
+            },
+            "set": {
+                "header": "A symbol children understand immediately",
+                "bodytext": "<p>The Easter rabbit still works because it brings together surprise, play, and spring in one simple figure. It does not need much explanation. Across generations, the rabbit signals that the day will contain something small, festive, and slightly magical, even when the rest of the celebration stays modest.</p>"
+            },
+            "_context": {
+                "page": 26,
+                "pageTitle": "changed : Why the Easter Rabbit Still Feels Magical",
+                "element": 70,
+                "type": "textmedia",
+                "roles": {
+                    "header": "headline",
+                    "bodytext": "body"
+                }
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 28,
+            "expect": {
+                "alternative": ""
+            },
+            "set": {
+                "alternative": "Chocolate Easter bunny on a light background"
+            },
+            "_context": {
+                "page": 26,
+                "pageTitle": "changed : Why the Easter Rabbit Still Feels Magical",
+                "element": 70,
+                "type": "textmedia",
+                "roles": {
+                    "alternative": "alt"
+                },
+                "file": "/mcp/workspaces/ws-1/images/easter-bunny-glen-carrie-67ff238e7273b69d.jpg"
+            }
+        }
+    ]
+}

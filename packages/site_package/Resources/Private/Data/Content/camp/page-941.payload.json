@@ -1,0 +1,52 @@
+{
+    "version": 1,
+    "site": "camp",
+    "root": 933,
+    "language": 0,
+    "languageCode": "de",
+    "generated": "2026-09-23T10:12:37+02:00",
+    "records": [
+        {
+            "table": "pages",
+            "uid": 941,
+            "expect": {
+                "title": "Anmeldung erhalten"
+            },
+            "set": {
+                "title": "Anmeldung erhalten"
+            },
+            "_context": {
+                "page": 941,
+                "pageTitle": "Anmeldung erhalten",
+                "element": 941,
+                "type": "pages",
+                "roles": {
+                    "title": "page_title"
+                }
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 26241,
+            "expect": {
+                "CType": "text",
+                "header": "Anmeldung erhalten",
+                "bodytext": "<p>Danke! Eure Anmeldung zum TYPO3 Camp München 2026 ist bei uns angekommen. Eine Bestätigung mit allen Details zu Anreise und Ablauf geht in Kürze per E-Mail an die angegebene Adresse.</p>\r\n<p>Keine E-Mail bekommen? Schaut zuerst im Spam-Ordner nach und meldet euch sonst über die im <a href=\"t3://page?uid=935\">Impressum</a> genannte Kontaktadresse.</p>\r\n<p>Bis September in Puchheim.</p>"
+            },
+            "set": {
+                "header": "Anmeldung erhalten",
+                "bodytext": "<p>Danke! Eure Anmeldung zum TYPO3 Camp München 2026 ist bei uns angekommen. Eine Bestätigung mit allen Details zu Anreise und Ablauf geht in Kürze per E-Mail an die angegebene Adresse.</p>\r\n<p>Keine E-Mail bekommen? Schaut zuerst im Spam-Ordner nach und meldet euch sonst über die im <a href=\"t3://page?uid=935\">Impressum</a> genannte Kontaktadresse.</p>\r\n<p>Bis September in Puchheim.</p>"
+            },
+            "_context": {
+                "page": 941,
+                "pageTitle": "Anmeldung erhalten",
+                "element": 26241,
+                "type": "text",
+                "roles": {
+                    "header": "headline",
+                    "bodytext": "body"
+                }
+            }
+        }
+    ]
+}

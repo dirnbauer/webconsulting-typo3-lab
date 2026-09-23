@@ -1,0 +1,142 @@
+{
+    "version": 1,
+    "site": "blog-classico",
+    "root": 15,
+    "language": 0,
+    "languageCode": "de",
+    "generated": "2026-09-23T10:11:17+02:00",
+    "records": [
+        {
+            "table": "pages",
+            "uid": 92,
+            "expect": {
+                "title": "Jon Klassen erhält den Astrid-Lindgren-Gedächtnispreis",
+                "subtitle": "Blog template coverage entry",
+                "abstract": "Der kanadische Autor, Illustrator und Animationskünstler Jon Klassen erhält den Astrid-Lindgren-Gedächtnispreis 2026. Die weltweit höchste Auszeichnung für Kinder- und Jugendliteratur ist mit fünf Millionen schwedischen Kronen (rund 460.000 Euro) dotiert. Sie wurde 2002 von der schwedischen Regierun",
+                "description": "Der kanadische Autor, Illustrator und Animationskünstler Jon Klassen erhält den Astrid-Lindgren-Gedächtnispreis 2026. Die weltweit höchste Auszeichnung für Kinder- und Jugendliteratur ist mit fünf Millionen schwedischen Kronen (rund 460.000 Euro) dotiert. Sie wurde 2002 von der schwedischen Regierun",
+                "seo_title": "Jon Klassen erhält den Astrid-Lindgren-Gedächtnispreis",
+                "og_title": "Jon Klassen erhält den Astrid-Lindgren-Gedächtnispreis",
+                "og_description": "Der kanadische Autor, Illustrator und Animationskünstler Jon Klassen erhält den Astrid-Lindgren-Gedächtnispreis 2026. Die weltweit höchste Auszeichnung für Kinder- und Jugendliteratur ist mit fünf Millionen schwedischen Kronen (rund 460.000 Euro) dotiert. Sie wurde 2002 von der schwedischen Regierun",
+                "twitter_title": "Jon Klassen erhält den Astrid-Lindgren-Gedächtnispreis",
+                "twitter_description": "Der kanadische Autor, Illustrator und Animationskünstler Jon Klassen erhält den Astrid-Lindgren-Gedächtnispreis 2026. Die weltweit höchste Auszeichnung für Kinder- und Jugendliteratur ist mit fünf Millionen schwedischen Kronen (rund 460.000 Euro) dotiert. Sie wurde 2002 von der schwedischen Regierun"
+            },
+            "set": {
+                "title": "Jon Klassen erhält den Astrid-Lindgren-Gedächtnispreis",
+                "subtitle": "Blog template coverage entry",
+                "abstract": "Der kanadische Autor, Illustrator und Animationskünstler Jon Klassen erhält den Astrid-Lindgren-Gedächtnispreis 2026. Die weltweit höchste Auszeichnung für Kinder- und Jugendliteratur ist mit fünf Millionen schwedischen Kronen (rund 460.000 Euro) dotiert. Sie wurde 2002 von der schwedischen Regierun",
+                "description": "Der kanadische Autor, Illustrator und Animationskünstler Jon Klassen erhält den Astrid-Lindgren-Gedächtnispreis 2026. Die weltweit höchste Auszeichnung für Kinder- und Jugendliteratur ist mit fünf Millionen schwedischen Kronen (rund 460.000 Euro) dotiert. Sie wurde 2002 von der schwedischen Regierun",
+                "seo_title": "Jon Klassen erhält den Astrid-Lindgren-Gedächtnispreis",
+                "og_title": "Jon Klassen erhält den Astrid-Lindgren-Gedächtnispreis",
+                "og_description": "Der kanadische Autor, Illustrator und Animationskünstler Jon Klassen erhält den Astrid-Lindgren-Gedächtnispreis 2026. Die weltweit höchste Auszeichnung für Kinder- und Jugendliteratur ist mit fünf Millionen schwedischen Kronen (rund 460.000 Euro) dotiert. Sie wurde 2002 von der schwedischen Regierun",
+                "twitter_title": "Jon Klassen erhält den Astrid-Lindgren-Gedächtnispreis",
+                "twitter_description": "Der kanadische Autor, Illustrator und Animationskünstler Jon Klassen erhält den Astrid-Lindgren-Gedächtnispreis 2026. Die weltweit höchste Auszeichnung für Kinder- und Jugendliteratur ist mit fünf Millionen schwedischen Kronen (rund 460.000 Euro) dotiert. Sie wurde 2002 von der schwedischen Regierun"
+            },
+            "_context": {
+                "page": 92,
+                "pageTitle": "Jon Klassen erhält den Astrid-Lindgren-Gedächtnispreis",
+                "element": 92,
+                "type": "pages",
+                "roles": {
+                    "title": "page_title",
+                    "subtitle": "lead",
+                    "abstract": "lead",
+                    "description": "meta",
+                    "seo_title": "page_title",
+                    "og_title": "page_title",
+                    "og_description": "meta",
+                    "twitter_title": "page_title",
+                    "twitter_description": "meta"
+                }
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 1351,
+            "expect": {
+                "CType": "textmedia",
+                "header": "Header 1",
+                "bodytext": "<p><small>© IMAGO/TT/Pontus Lundahl</small></p>\r\n<p><small>Quelle: ORF.at</small></p>"
+            },
+            "set": {
+                "header": "Header 1",
+                "bodytext": "<p><small>© IMAGO/TT/Pontus Lundahl</small></p>\r\n<p><small>Quelle: ORF.at</small></p>"
+            },
+            "_context": {
+                "page": 92,
+                "pageTitle": "Jon Klassen erhält den Astrid-Lindgren-Gedächtnispreis",
+                "element": 1351,
+                "type": "textmedia",
+                "roles": {
+                    "header": "headline",
+                    "bodytext": "body"
+                }
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 753,
+            "expect": {
+                "alternative": "Bücher des kanadischen Autors Jon Klassen"
+            },
+            "set": {
+                "alternative": "Bücher des kanadischen Autors Jon Klassen"
+            },
+            "_context": {
+                "page": 92,
+                "pageTitle": "Jon Klassen erhält den Astrid-Lindgren-Gedächtnispreis",
+                "element": 1351,
+                "type": "textmedia",
+                "roles": {
+                    "alternative": "alt"
+                },
+                "file": "/mcp/workspaces/ws-1/3003209_body_1161508_ticker_jon_klassen_im-4eafeff4eddc9b9a.jpg"
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 1352,
+            "expect": {
+                "CType": "text",
+                "header": "Durchbruch mit „Das ist nicht mein Hut“",
+                "bodytext": "<p>Jon Klassen wurde 1981 in Winnipeg, Kanada, geboren und lebt heute in Los Angeles. Mit dem Bilderbuch „I Want My Hat Back“ (deutsch: „Wo ist mein Hut“) gelang ihm 2011 der Durchbruch. Es folgte u. a. „This Is Not My Hat“ (deutsch: „Das ist nicht mein Hut“).</p>\r\n<p>„Durch sein subtiles und eindrucksvolles Erzählen in Text und Bild eröffnet Jon Klassen neue Perspektiven auf unseren Platz im Universum“, lobte die Jury. „Was passiert, wenn ein Stein vom Himmel fällt, Hüte verschwinden oder ein Schädel beginnt, ein Eigenleben zu führen? Mit Präzision, Emotion und witzigem Humor werden die Herausforderungen des Lebens durch Unsicherheit und Hoffnung dargestellt, stets durch das Zusammenspiel von Farbe und Form. Jon Klassens brillante Geschichten zeichnen sich durch schlichte Eleganz und interpretative Tiefen aus, wobei der Leser zum Mitschöpfer wird.“</p>\r\n<p>2003 ging der Preis an die Österreicherin <i>Christine</i> Nöstlinger. Letzter deutscher Preisträger war 2017 Wolf Erlbruch (1948–2022).ddd</p>"
+            },
+            "set": {
+                "header": "Durchbruch mit „Das ist nicht mein Hut“",
+                "bodytext": "<p>Jon Klassen wurde 1981 in Winnipeg, Kanada, geboren und lebt heute in Los Angeles. Mit dem Bilderbuch „I Want My Hat Back“ (deutsch: „Wo ist mein Hut“) gelang ihm 2011 der Durchbruch. Es folgte u. a. „This Is Not My Hat“ (deutsch: „Das ist nicht mein Hut“).</p>\r\n<p>„Durch sein subtiles und eindrucksvolles Erzählen in Text und Bild eröffnet Jon Klassen neue Perspektiven auf unseren Platz im Universum“, lobte die Jury. „Was passiert, wenn ein Stein vom Himmel fällt, Hüte verschwinden oder ein Schädel beginnt, ein Eigenleben zu führen? Mit Präzision, Emotion und witzigem Humor werden die Herausforderungen des Lebens durch Unsicherheit und Hoffnung dargestellt, stets durch das Zusammenspiel von Farbe und Form. Jon Klassens brillante Geschichten zeichnen sich durch schlichte Eleganz und interpretative Tiefen aus, wobei der Leser zum Mitschöpfer wird.“</p>\r\n<p>2003 ging der Preis an die Österreicherin <i>Christine</i> Nöstlinger. Letzter deutscher Preisträger war 2017 Wolf Erlbruch (1948–2022).ddd</p>"
+            },
+            "_context": {
+                "page": 92,
+                "pageTitle": "Jon Klassen erhält den Astrid-Lindgren-Gedächtnispreis",
+                "element": 1352,
+                "type": "text",
+                "roles": {
+                    "header": "headline",
+                    "bodytext": "body"
+                }
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 1350,
+            "expect": {
+                "CType": "text",
+                "header": "header 2",
+                "bodytext": "<p>Der kanadische Autor, Illustrator und Animationskünstler Jon Klassen erhält den Astrid-Lindgren-Gedächtnispreis 2026. Die weltweit höchste Auszeichnung für Kinder- und Jugendliteratur ist mit fünf Millionen schwedischen Kronen (rund 460.000 Euro) dotiert. Sie wurde 2002 von der schwedischen Regierung ins Leben gerufen und wird heuer am 25. Mai in Stockholm überreicht.</p>"
+            },
+            "set": {
+                "header": "header 2",
+                "bodytext": "<p>Der kanadische Autor, Illustrator und Animationskünstler Jon Klassen erhält den Astrid-Lindgren-Gedächtnispreis 2026. Die weltweit höchste Auszeichnung für Kinder- und Jugendliteratur ist mit fünf Millionen schwedischen Kronen (rund 460.000 Euro) dotiert. Sie wurde 2002 von der schwedischen Regierung ins Leben gerufen und wird heuer am 25. Mai in Stockholm überreicht.</p>"
+            },
+            "_context": {
+                "page": 92,
+                "pageTitle": "Jon Klassen erhält den Astrid-Lindgren-Gedächtnispreis",
+                "element": 1350,
+                "type": "text",
+                "roles": {
+                    "header": "headline",
+                    "bodytext": "body"
+                }
+            }
+        }
+    ]
+}

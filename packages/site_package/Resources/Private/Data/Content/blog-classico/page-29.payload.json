@@ -1,0 +1,222 @@
+{
+    "version": 1,
+    "site": "blog-classico",
+    "root": 15,
+    "language": 0,
+    "languageCode": "de",
+    "generated": "2026-09-23T10:11:07+02:00",
+    "records": [
+        {
+            "table": "pages",
+            "uid": 29,
+            "expect": {
+                "title": "Lambs, Meadows, and the Meaning of Easter",
+                "subtitle": "Spring renewal seen through quiet rural images",
+                "abstract": "Why lamb imagery continues to feel meaningful in Easter storytelling.",
+                "description": "A post exploring lambs, meadows, and the symbolism of renewal at Easter.",
+                "seo_title": "Lambs, Meadows, and the Meaning of Easter",
+                "og_title": "Lambs, Meadows, and the Meaning of Easter",
+                "og_description": "A post exploring lambs, meadows, and the symbolism of renewal at Easter.",
+                "twitter_title": "Lambs, Meadows, and the Meaning of Easter",
+                "twitter_description": "A post exploring lambs, meadows, and the symbolism of renewal at Easter."
+            },
+            "set": {
+                "title": "Lambs, Meadows, and the Meaning of Easter",
+                "subtitle": "Spring renewal seen through quiet rural images",
+                "abstract": "Why lamb imagery continues to feel meaningful in Easter storytelling.",
+                "description": "A post exploring lambs, meadows, and the symbolism of renewal at Easter.",
+                "seo_title": "Lambs, Meadows, and the Meaning of Easter",
+                "og_title": "Lambs, Meadows, and the Meaning of Easter",
+                "og_description": "A post exploring lambs, meadows, and the symbolism of renewal at Easter.",
+                "twitter_title": "Lambs, Meadows, and the Meaning of Easter",
+                "twitter_description": "A post exploring lambs, meadows, and the symbolism of renewal at Easter."
+            },
+            "_context": {
+                "page": 29,
+                "pageTitle": "Lambs, Meadows, and the Meaning of Easter",
+                "element": 29,
+                "type": "pages",
+                "roles": {
+                    "title": "page_title",
+                    "subtitle": "lead",
+                    "abstract": "lead",
+                    "description": "meta",
+                    "seo_title": "page_title",
+                    "og_title": "page_title",
+                    "og_description": "meta",
+                    "twitter_title": "page_title",
+                    "twitter_description": "meta"
+                }
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 81,
+            "expect": {
+                "CType": "textmedia",
+                "header": "Renewal is thedd thread and this is the change.",
+                "bodytext": "<p>People respond to lamb imagery because it points toward something beginning again. That idea sits at the center of many Easter traditions, which makes the visual feel immediately appropriate and lasting.</p>"
+            },
+            "set": {
+                "header": "Renewal is thedd thread and this is the change.",
+                "bodytext": "<p>People respond to lamb imagery because it points toward something beginning again. That idea sits at the center of many Easter traditions, which makes the visual feel immediately appropriate and lasting.</p>"
+            },
+            "_context": {
+                "page": 29,
+                "pageTitle": "Lambs, Meadows, and the Meaning of Easter",
+                "element": 81,
+                "type": "textmedia",
+                "roles": {
+                    "header": "headline",
+                    "bodytext": "body"
+                }
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 39,
+            "expect": {
+                "alternative": ""
+            },
+            "set": {
+                "alternative": "Mother sheep and lamb in a grassy field"
+            },
+            "_context": {
+                "page": 29,
+                "pageTitle": "Lambs, Meadows, and the Meaning of Easter",
+                "element": 81,
+                "type": "textmedia",
+                "roles": {
+                    "alternative": "alt"
+                },
+                "file": "/mcp/workspaces/ws-1/images/sheep-lamb-veronica-white-6823d4a1a94c92dd.jpg"
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 60,
+            "expect": {
+                "alternative": ""
+            },
+            "set": {
+                "alternative": "Two sheep standing in a green field"
+            },
+            "_context": {
+                "page": 29,
+                "pageTitle": "Lambs, Meadows, and the Meaning of Easter",
+                "element": 81,
+                "type": "textmedia",
+                "roles": {
+                    "alternative": "alt"
+                },
+                "file": "/mcp/workspaces/ws-1/images/sheep-green-field-jim-0526a89625c739b6.jpg"
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 80,
+            "expect": {
+                "CType": "textmedia",
+                "header": "Themes that pair well with lamb imagery",
+                "bodytext": "<ul><li>Renewal after winter and darker months.</li><li>Family closeness and protective care.</li><li>Simple rural scenes and natural color palettes.</li><li>Reflection, patience, and slower movement.</li></ul>"
+            },
+            "set": {
+                "header": "Themes that pair well with lamb imagery",
+                "bodytext": "<ul><li>Renewal after winter and darker months.</li><li>Family closeness and protective care.</li><li>Simple rural scenes and natural color palettes.</li><li>Reflection, patience, and slower movement.</li></ul>"
+            },
+            "_context": {
+                "page": 29,
+                "pageTitle": "Lambs, Meadows, and the Meaning of Easter",
+                "element": 80,
+                "type": "textmedia",
+                "roles": {
+                    "header": "headline",
+                    "bodytext": "body"
+                }
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 38,
+            "expect": {
+                "alternative": ""
+            },
+            "set": {
+                "alternative": "Mother sheep and lamb in a grassy field"
+            },
+            "_context": {
+                "page": 29,
+                "pageTitle": "Lambs, Meadows, and the Meaning of Easter",
+                "element": 80,
+                "type": "textmedia",
+                "roles": {
+                    "alternative": "alt"
+                },
+                "file": "/mcp/workspaces/ws-1/images/sheep-lamb-veronica-white-6823d4a1a94c92dd.jpg"
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 57,
+            "expect": {
+                "alternative": ""
+            },
+            "set": {
+                "alternative": "Flock of sheep grazing in a spring meadow"
+            },
+            "_context": {
+                "page": 29,
+                "pageTitle": "Lambs, Meadows, and the Meaning of Easter",
+                "element": 80,
+                "type": "textmedia",
+                "roles": {
+                    "alternative": "alt"
+                },
+                "file": "/mcp/workspaces/ws-1/images/sheep-pasture-getty-9dcb1ddf9d177208.jpg"
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 79,
+            "expect": {
+                "CType": "textmedia",
+                "header": "Why lamb imagery feels timeless",
+                "bodytext": "<p>Lambs bring together several Easter themes at once: spring, tenderness, renewal, and quiet attention. Even without explicit symbolism, images of sheep and open meadows suggest a gentler pace and a season beginning again. That is why they continue to appear in Easter storytelling across both religious and cultural settings.</p>"
+            },
+            "set": {
+                "header": "Why lamb imagery feels timeless",
+                "bodytext": "<p>Lambs bring together several Easter themes at once: spring, tenderness, renewal, and quiet attention. Even without explicit symbolism, images of sheep and open meadows suggest a gentler pace and a season beginning again. That is why they continue to appear in Easter storytelling across both religious and cultural settings.</p>"
+            },
+            "_context": {
+                "page": 29,
+                "pageTitle": "Lambs, Meadows, and the Meaning of Easter",
+                "element": 79,
+                "type": "textmedia",
+                "roles": {
+                    "header": "headline",
+                    "bodytext": "body"
+                }
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 37,
+            "expect": {
+                "alternative": ""
+            },
+            "set": {
+                "alternative": "Mother sheep and lamb in a grassy field"
+            },
+            "_context": {
+                "page": 29,
+                "pageTitle": "Lambs, Meadows, and the Meaning of Easter",
+                "element": 79,
+                "type": "textmedia",
+                "roles": {
+                    "alternative": "alt"
+                },
+                "file": "/mcp/workspaces/ws-1/images/sheep-lamb-veronica-white-6823d4a1a94c92dd.jpg"
+            }
+        }
+    ]
+}

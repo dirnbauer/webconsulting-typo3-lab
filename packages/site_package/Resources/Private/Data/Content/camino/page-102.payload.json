@@ -1,0 +1,92 @@
+{
+    "version": 1,
+    "site": "camino",
+    "root": 99,
+    "language": 0,
+    "languageCode": "en",
+    "generated": "2026-09-23T10:12:23+02:00",
+    "records": [
+        {
+            "table": "pages",
+            "uid": 102,
+            "expect": {
+                "title": "Imprint"
+            },
+            "set": {
+                "title": "Imprint"
+            },
+            "_context": {
+                "page": 102,
+                "pageTitle": "Imprint",
+                "element": 102,
+                "type": "pages",
+                "roles": {
+                    "title": "page_title"
+                }
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 10607,
+            "expect": {
+                "CType": "desiderio_codeblock",
+                "header": "headeddr test",
+                "filename": "filename etst.html test changed changed"
+            },
+            "set": {
+                "header": "headeddr test",
+                "filename": "filename etst.html test changed changed"
+            },
+            "_context": {
+                "page": 102,
+                "pageTitle": "Imprint",
+                "element": 10607,
+                "type": "desiderio_codeblock",
+                "roles": {
+                    "header": "headline",
+                    "filename": "other"
+                }
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 1392,
+            "expect": {
+                "CType": "text",
+                "bodytext": "<p><strong>Company Information test hier.</strong><br />[Company Name]<br />[Street Address]<br />[ZIP Code, City]<br />[Country]</p>\r\n<p><strong>Represented by</strong>:&nbsp; ddd<br />[Name], [Position]</p>\r\n<p><strong>Contact</strong>:&nbsp;<br />Phone: [+00 000 000000]<br />Email: [email@example.com]<br />Website: [www.example.com]</p>\r\n<p><strong>Commercial Register</strong>: [Register Court] [Registration Number]<br /><strong>VAT Identification Number</strong>: [VAT ID]</p>\r\n<p><strong>Responsible for content</strong>:<br />[Name]<br />[Street Address]<br />[ZIP Code, City]</p>\r\n<p><strong>Disclaimer</strong>:<br />This is dummy content for demonstration purposes only. Please replace all placeholder fields marked with [brackets] with your actual company information before publishing. The disclaimer text below should also be reviewed and adapted to your legal requirements.</p>\r\n<p>The contents of this website have been created with the utmost care. However, we cannot guarantee the accuracy, completeness, or timeliness of the information provided. External links have been checked at the time of linking; we accept no responsibility for their content.</p>"
+            },
+            "set": {
+                "bodytext": "<p><strong>Company Information test hier.</strong><br />[Company Name]<br />[Street Address]<br />[ZIP Code, City]<br />[Country]</p>\r\n<p><strong>Represented by</strong>:&nbsp; ddd<br />[Name], [Position]</p>\r\n<p><strong>Contact</strong>:&nbsp;<br />Phone: [+00 000 000000]<br />Email: [email@example.com]<br />Website: [www.example.com]</p>\r\n<p><strong>Commercial Register</strong>: [Register Court] [Registration Number]<br /><strong>VAT Identification Number</strong>: [VAT ID]</p>\r\n<p><strong>Responsible for content</strong>:<br />[Name]<br />[Street Address]<br />[ZIP Code, City]</p>\r\n<p><strong>Disclaimer</strong>:<br />This is dummy content for demonstration purposes only. Please replace all placeholder fields marked with [brackets] with your actual company information before publishing. The disclaimer text below should also be reviewed and adapted to your legal requirements.</p>\r\n<p>The contents of this website have been created with the utmost care. However, we cannot guarantee the accuracy, completeness, or timeliness of the information provided. External links have been checked at the time of linking; we accept no responsibility for their content.</p>"
+            },
+            "_context": {
+                "page": 102,
+                "pageTitle": "Imprint",
+                "element": 1392,
+                "type": "text",
+                "roles": {
+                    "bodytext": "body"
+                }
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 1391,
+            "expect": {
+                "CType": "camino_hero_text_only",
+                "header": "Imprint"
+            },
+            "set": {
+                "header": "Imprint"
+            },
+            "_context": {
+                "page": 102,
+                "pageTitle": "Imprint",
+                "element": 1391,
+                "type": "camino_hero_text_only",
+                "roles": {
+                    "header": "headline"
+                }
+            }
+        }
+    ]
+}

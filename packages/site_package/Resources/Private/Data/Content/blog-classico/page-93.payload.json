@@ -1,0 +1,119 @@
+{
+    "version": 1,
+    "site": "blog-classico",
+    "root": 15,
+    "language": 0,
+    "languageCode": "de",
+    "generated": "2026-09-23T10:11:18+02:00",
+    "records": [
+        {
+            "table": "pages",
+            "uid": 93,
+            "expect": {
+                "title": "Amazon vor Übernahme von Satellitenbetreiber Globalstar",
+                "subtitle": "Blog template coverage entry",
+                "abstract": "Der Onlinehändler und Internetkonzern Amazon treibt den Aufbau eines eigenen Satellitengeschäfts voran und übernimmt dazu den Satellitenbetreiber Globalstar. Wie Amazon heute mitteilte, sollen die bisherigen Globalstar-Aktionäre entweder 90 US-Dollar pro Aktie erhalten oder Amazon-Anteile im entspre",
+                "description": "Der Onlinehändler und Internetkonzern Amazon treibt den Aufbau eines eigenen Satellitengeschäfts voran und übernimmt dazu den Satellitenbetreiber Globalstar. Wie Amazon heute mitteilte, sollen die bisherigen Globalstar-Aktionäre entweder 90 US-Dollar pro Aktie erhalten oder Amazon-Anteile im entspre",
+                "seo_title": "Amazon vor Übernahme von Satellitenbetreiber Globalstar",
+                "og_title": "Amazon vor Übernahme von Satellitenbetreiber Globalstar",
+                "og_description": "Der Onlinehändler und Internetkonzern Amazon treibt den Aufbau eines eigenen Satellitengeschäfts voran und übernimmt dazu den Satellitenbetreiber Globalstar. Wie Amazon heute mitteilte, sollen die bisherigen Globalstar-Aktionäre entweder 90 US-Dollar pro Aktie erhalten oder Amazon-Anteile im entspre",
+                "twitter_title": "Amazon vor Übernahme von Satellitenbetreiber Globalstar",
+                "twitter_description": "Der Onlinehändler und Internetkonzern Amazon treibt den Aufbau eines eigenen Satellitengeschäfts voran und übernimmt dazu den Satellitenbetreiber Globalstar. Wie Amazon heute mitteilte, sollen die bisherigen Globalstar-Aktionäre entweder 90 US-Dollar pro Aktie erhalten oder Amazon-Anteile im entspre"
+            },
+            "set": {
+                "title": "Amazon vor Übernahme von Satellitenbetreiber Globalstar",
+                "subtitle": "Blog template coverage entry",
+                "abstract": "Der Onlinehändler und Internetkonzern Amazon treibt den Aufbau eines eigenen Satellitengeschäfts voran und übernimmt dazu den Satellitenbetreiber Globalstar. Wie Amazon heute mitteilte, sollen die bisherigen Globalstar-Aktionäre entweder 90 US-Dollar pro Aktie erhalten oder Amazon-Anteile im entspre",
+                "description": "Der Onlinehändler und Internetkonzern Amazon treibt den Aufbau eines eigenen Satellitengeschäfts voran und übernimmt dazu den Satellitenbetreiber Globalstar. Wie Amazon heute mitteilte, sollen die bisherigen Globalstar-Aktionäre entweder 90 US-Dollar pro Aktie erhalten oder Amazon-Anteile im entspre",
+                "seo_title": "Amazon vor Übernahme von Satellitenbetreiber Globalstar",
+                "og_title": "Amazon vor Übernahme von Satellitenbetreiber Globalstar",
+                "og_description": "Der Onlinehändler und Internetkonzern Amazon treibt den Aufbau eines eigenen Satellitengeschäfts voran und übernimmt dazu den Satellitenbetreiber Globalstar. Wie Amazon heute mitteilte, sollen die bisherigen Globalstar-Aktionäre entweder 90 US-Dollar pro Aktie erhalten oder Amazon-Anteile im entspre",
+                "twitter_title": "Amazon vor Übernahme von Satellitenbetreiber Globalstar",
+                "twitter_description": "Der Onlinehändler und Internetkonzern Amazon treibt den Aufbau eines eigenen Satellitengeschäfts voran und übernimmt dazu den Satellitenbetreiber Globalstar. Wie Amazon heute mitteilte, sollen die bisherigen Globalstar-Aktionäre entweder 90 US-Dollar pro Aktie erhalten oder Amazon-Anteile im entspre"
+            },
+            "_context": {
+                "page": 93,
+                "pageTitle": "Amazon vor Übernahme von Satellitenbetreiber Globalstar",
+                "element": 93,
+                "type": "pages",
+                "roles": {
+                    "title": "page_title",
+                    "subtitle": "lead",
+                    "abstract": "lead",
+                    "description": "meta",
+                    "seo_title": "page_title",
+                    "og_title": "page_title",
+                    "og_description": "meta",
+                    "twitter_title": "page_title",
+                    "twitter_description": "meta"
+                }
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 1331,
+            "expect": {
+                "CType": "text",
+                "header": "Zusammenarbeit mit Apple",
+                "bodytext": "<p>Gleichzeitig mit der Übernahme verkündete der Konzern eine Vereinbarung mit dem iPhone-Hersteller Apple. So sollen künftig über Amazon Leo auch Satellitendienste für bestimmte unterstützte Modelle des iPhone und der Apple-Watch bereitgestellt werden.</p>"
+            },
+            "set": {
+                "header": "Zusammenarbeit mit Apple",
+                "bodytext": "<p>Gleichzeitig mit der Übernahme verkündete der Konzern eine Vereinbarung mit dem iPhone-Hersteller Apple. So sollen künftig über Amazon Leo auch Satellitendienste für bestimmte unterstützte Modelle des iPhone und der Apple-Watch bereitgestellt werden.</p>"
+            },
+            "_context": {
+                "page": 93,
+                "pageTitle": "Amazon vor Übernahme von Satellitenbetreiber Globalstar",
+                "element": 1331,
+                "type": "text",
+                "roles": {
+                    "header": "headline",
+                    "bodytext": "body"
+                }
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 1330,
+            "expect": {
+                "CType": "text",
+                "header": "Eigenes Satellitennetz im niedrigen Orbit",
+                "bodytext": "<p>Die Transaktion sei bereits mehrheitlich von den Aktionären genehmigt worden, teilte Amazon mit. Sie soll vorbehaltlich behördlicher Genehmigungen im kommenden Jahr abgeschlossen werden, hieß es vom Unternehmen weiter. Amazon baut derzeit unter dem Namen Amazon Leo ein eigenes Netz aus mehr als 7.700 Satelliten im niedrigen Orbit auf. Das durch Globalstar ergänzte neue Amazon-Leo-D2D-System solle Mobilfunknetzbetreibern helfen, Sprach-, Text- und Datendienste für Kunden über die Reichweite terrestrischer Mobilfunknetze hinaus zu erweitern.</p>"
+            },
+            "set": {
+                "header": "Eigenes Satellitennetz im niedrigen Orbit",
+                "bodytext": "<p>Die Transaktion sei bereits mehrheitlich von den Aktionären genehmigt worden, teilte Amazon mit. Sie soll vorbehaltlich behördlicher Genehmigungen im kommenden Jahr abgeschlossen werden, hieß es vom Unternehmen weiter. Amazon baut derzeit unter dem Namen Amazon Leo ein eigenes Netz aus mehr als 7.700 Satelliten im niedrigen Orbit auf. Das durch Globalstar ergänzte neue Amazon-Leo-D2D-System solle Mobilfunknetzbetreibern helfen, Sprach-, Text- und Datendienste für Kunden über die Reichweite terrestrischer Mobilfunknetze hinaus zu erweitern.</p>"
+            },
+            "_context": {
+                "page": 93,
+                "pageTitle": "Amazon vor Übernahme von Satellitenbetreiber Globalstar",
+                "element": 1330,
+                "type": "text",
+                "roles": {
+                    "header": "headline",
+                    "bodytext": "body"
+                }
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 1329,
+            "expect": {
+                "CType": "text",
+                "bodytext": "<p>Der Onlinehändler und Internetkonzern Amazon treibt den Aufbau eines eigenen Satellitengeschäfts voran und übernimmt dazu den Satellitenbetreiber Globalstar. Wie Amazon heute mitteilte, sollen die bisherigen Globalstar-Aktionäre entweder 90 US-Dollar pro Aktie erhalten oder Amazon-Anteile im entsprechenden Gegenwert. Falls Globalstar bestimmte technische Meilensteine nicht erreicht, könnte der Preis aber noch sinken.</p>"
+            },
+            "set": {
+                "bodytext": "<p>Der Onlinehändler und Internetkonzern Amazon treibt den Aufbau eines eigenen Satellitengeschäfts voran und übernimmt dazu den Satellitenbetreiber Globalstar. Wie Amazon heute mitteilte, sollen die bisherigen Globalstar-Aktionäre entweder 90 US-Dollar pro Aktie erhalten oder Amazon-Anteile im entsprechenden Gegenwert. Falls Globalstar bestimmte technische Meilensteine nicht erreicht, könnte der Preis aber noch sinken.</p>"
+            },
+            "_context": {
+                "page": 93,
+                "pageTitle": "Amazon vor Übernahme von Satellitenbetreiber Globalstar",
+                "element": 1329,
+                "type": "text",
+                "roles": {
+                    "bodytext": "body"
+                }
+            }
+        }
+    ]
+}

@@ -1,0 +1,202 @@
+{
+    "version": 1,
+    "site": "blog-classico",
+    "root": 15,
+    "language": 0,
+    "languageCode": "de",
+    "generated": "2026-09-23T10:11:22+02:00",
+    "records": [
+        {
+            "table": "pages",
+            "uid": 97,
+            "expect": {
+                "title": "American Music Awards: Swift führt Nominierungen an",
+                "subtitle": "Blog template coverage entry",
+                "abstract": "Taylor Swift führt erneut die Nominierungen für die American Music Awards (AMA) an – heuer mit acht Aussichten auf einen Preis, darunter in den Kategorien „Künstlerin des Jahres“, „Song des Jahres“ für „The Fate of Ophelia“ und „Album des Jahres“ für „The Life of a Showgirl“. Das teilten die Organis",
+                "description": "Taylor Swift führt erneut die Nominierungen für die American Music Awards (AMA) an – heuer mit acht Aussichten auf einen Preis, darunter in den Kategorien „Künstlerin des Jahres“, „Song des Jahres“ für „The Fate of Ophelia“ und „Album des Jahres“ für „The Life of a Showgirl“. Das teilten die Organis",
+                "seo_title": "American Music Awards: Swift führt Nominierungen an",
+                "og_title": "American Music Awards: Swift führt Nominierungen an",
+                "og_description": "Taylor Swift führt erneut die Nominierungen für die American Music Awards (AMA) an – heuer mit acht Aussichten auf einen Preis, darunter in den Kategorien „Künstlerin des Jahres“, „Song des Jahres“ für „The Fate of Ophelia“ und „Album des Jahres“ für „The Life of a Showgirl“. Das teilten die Organis",
+                "twitter_title": "American Music Awards: Swift führt Nominierungen an",
+                "twitter_description": "Taylor Swift führt erneut die Nominierungen für die American Music Awards (AMA) an – heuer mit acht Aussichten auf einen Preis, darunter in den Kategorien „Künstlerin des Jahres“, „Song des Jahres“ für „The Fate of Ophelia“ und „Album des Jahres“ für „The Life of a Showgirl“. Das teilten die Organis"
+            },
+            "set": {
+                "title": "American Music Awards: Swift führt Nominierungen an",
+                "subtitle": "Blog template coverage entry",
+                "abstract": "Taylor Swift führt erneut die Nominierungen für die American Music Awards (AMA) an – heuer mit acht Aussichten auf einen Preis, darunter in den Kategorien „Künstlerin des Jahres“, „Song des Jahres“ für „The Fate of Ophelia“ und „Album des Jahres“ für „The Life of a Showgirl“. Das teilten die Organis",
+                "description": "Taylor Swift führt erneut die Nominierungen für die American Music Awards (AMA) an – heuer mit acht Aussichten auf einen Preis, darunter in den Kategorien „Künstlerin des Jahres“, „Song des Jahres“ für „The Fate of Ophelia“ und „Album des Jahres“ für „The Life of a Showgirl“. Das teilten die Organis",
+                "seo_title": "American Music Awards: Swift führt Nominierungen an",
+                "og_title": "American Music Awards: Swift führt Nominierungen an",
+                "og_description": "Taylor Swift führt erneut die Nominierungen für die American Music Awards (AMA) an – heuer mit acht Aussichten auf einen Preis, darunter in den Kategorien „Künstlerin des Jahres“, „Song des Jahres“ für „The Fate of Ophelia“ und „Album des Jahres“ für „The Life of a Showgirl“. Das teilten die Organis",
+                "twitter_title": "American Music Awards: Swift führt Nominierungen an",
+                "twitter_description": "Taylor Swift führt erneut die Nominierungen für die American Music Awards (AMA) an – heuer mit acht Aussichten auf einen Preis, darunter in den Kategorien „Künstlerin des Jahres“, „Song des Jahres“ für „The Fate of Ophelia“ und „Album des Jahres“ für „The Life of a Showgirl“. Das teilten die Organis"
+            },
+            "_context": {
+                "page": 97,
+                "pageTitle": "American Music Awards: Swift führt Nominierungen an",
+                "element": 97,
+                "type": "pages",
+                "roles": {
+                    "title": "page_title",
+                    "subtitle": "lead",
+                    "abstract": "lead",
+                    "description": "meta",
+                    "seo_title": "page_title",
+                    "og_title": "page_title",
+                    "og_description": "meta",
+                    "twitter_title": "page_title",
+                    "twitter_description": "meta"
+                }
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 1983,
+            "expect": {
+                "CType": "desiderio_contactsplit",
+                "header": "header",
+                "description": "<p>descripiton</p>"
+            },
+            "set": {
+                "header": "header",
+                "description": "<p>descripiton</p>"
+            },
+            "_context": {
+                "page": 97,
+                "pageTitle": "American Music Awards: Swift führt Nominierungen an",
+                "element": 1983,
+                "type": "desiderio_contactsplit",
+                "roles": {
+                    "header": "headline",
+                    "description": "card"
+                }
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 1124,
+            "expect": {
+                "alternative": ""
+            },
+            "set": {
+                "alternative": ""
+            },
+            "_context": {
+                "page": 97,
+                "pageTitle": "American Music Awards: Swift führt Nominierungen an",
+                "element": 1983,
+                "type": "desiderio_contactsplit",
+                "roles": {
+                    "alternative": "alt"
+                },
+                "file": "/camino/andrew-milko-LspK43UdFo4-unsplash.webp"
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 1354,
+            "expect": {
+                "CType": "textmedia",
+                "bodytext": "<p><small>© APA/AFP/Getty Images/Monica Schipdddper (Archivbild)</small></p>\r\n<p><small>Quelle: ORF.at</small></p>"
+            },
+            "set": {
+                "bodytext": "<p><small>© APA/AFP/Getty Images/Monica Schipdddper (Archivbild)</small></p>\r\n<p><small>Quelle: ORF.at</small></p>"
+            },
+            "_context": {
+                "page": 97,
+                "pageTitle": "American Music Awards: Swift führt Nominierungen an",
+                "element": 1354,
+                "type": "textmedia",
+                "roles": {
+                    "bodytext": "body"
+                }
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 754,
+            "expect": {
+                "alternative": "US-Popstar Taylor Swift"
+            },
+            "set": {
+                "alternative": "US-Popstar Taylor Swift"
+            },
+            "_context": {
+                "page": 97,
+                "pageTitle": "American Music Awards: Swift führt Nominierungen an",
+                "element": 1354,
+                "type": "textmedia",
+                "roles": {
+                    "alternative": "alt"
+                },
+                "file": "/mcp/workspaces/ws-1/3003234_body_1161516_ticker_taylor_swift_american_music_awar-2c4b40d046ca0d9d.jpg"
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 1355,
+            "expect": {
+                "CType": "text",
+                "header": "Carpenter als „Künstlerin des Jahres“ nominiert",
+                "bodytext": "<p>Dicht hinter Swift dürfen sich Sabrina <strong>Carpenter</strong>, Olivia Dean, Sombr und Morgan Wallen jeweils über sieben Nominierungen freuen. Carpenter ist ebenfalls als „Künstlerin des Jahres“ nominiert. Dean und Sombr erhielten ihre ersten AMA-Nominierungen, unter anderem als beste Newcomer.</p>\r\n<p>Zu den weiteren Nominierten gehören die Gesangsstimmen aus dem oscarprämierten Netflix-Animationsmusical „K-Pop Demon Hunters“. Ejae, Audrey Nuna und Rei Ami sind im Rennen in den Kategorien „Song des Jahres“, „Beste Gesangsleistung“ und „Bester Popsong“ für „Golden“. Ein Sieg in einer der Kategorien wäre der erste AMA für die Gruppe.</p>"
+            },
+            "set": {
+                "header": "Carpenter als „Künstlerin des Jahres“ nominiert",
+                "bodytext": "<p>Dicht hinter Swift dürfen sich Sabrina <strong>Carpenter</strong>, Olivia Dean, Sombr und Morgan Wallen jeweils über sieben Nominierungen freuen. Carpenter ist ebenfalls als „Künstlerin des Jahres“ nominiert. Dean und Sombr erhielten ihre ersten AMA-Nominierungen, unter anderem als beste Newcomer.</p>\r\n<p>Zu den weiteren Nominierten gehören die Gesangsstimmen aus dem oscarprämierten Netflix-Animationsmusical „K-Pop Demon Hunters“. Ejae, Audrey Nuna und Rei Ami sind im Rennen in den Kategorien „Song des Jahres“, „Beste Gesangsleistung“ und „Bester Popsong“ für „Golden“. Ein Sieg in einer der Kategorien wäre der erste AMA für die Gruppe.</p>"
+            },
+            "_context": {
+                "page": 97,
+                "pageTitle": "American Music Awards: Swift führt Nominierungen an",
+                "element": 1355,
+                "type": "text",
+                "roles": {
+                    "header": "headline",
+                    "bodytext": "body"
+                }
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 1353,
+            "expect": {
+                "CType": "text",
+                "bodytext": "<p>Taylor Swift führt erneut die Nominierungen für die American Music Awards (AMA) an – heuer mit acht Aussichten auf einen Preis, darunter in den Kategorien „Künstlerin des Jahres“, „Song des Jahres“ für „The Fate of Ophelia“ und „Album des Jahres“ für „The Life of a Showgirl“. Das teilten die Organisatoren heute mit.</p>\r\n<p>Der Popstar, der mehr AMAs gewonnen hat als jeder andere Künstler in der Geschichte der Auszeichnung, erhielt vergangenes Jahr sechs Nominierungen.</p>"
+            },
+            "set": {
+                "bodytext": "<p>Taylor Swift führt erneut die Nominierungen für die American Music Awards (AMA) an – heuer mit acht Aussichten auf einen Preis, darunter in den Kategorien „Künstlerin des Jahres“, „Song des Jahres“ für „The Fate of Ophelia“ und „Album des Jahres“ für „The Life of a Showgirl“. Das teilten die Organisatoren heute mit.</p>\r\n<p>Der Popstar, der mehr AMAs gewonnen hat als jeder andere Künstler in der Geschichte der Auszeichnung, erhielt vergangenes Jahr sechs Nominierungen.</p>"
+            },
+            "_context": {
+                "page": 97,
+                "pageTitle": "American Music Awards: Swift führt Nominierungen an",
+                "element": 1353,
+                "type": "text",
+                "roles": {
+                    "bodytext": "body"
+                }
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 1356,
+            "expect": {
+                "CType": "text",
+                "header": "Verleihung am 25. Mai in Las Vegas",
+                "bodytext": "<p>Fans stimmen über die Gewinnerinnen und Gewinner ab. Diese werden am 25. Mai in Las Vegas im Rahmen einer Livezeremonie mit der Schauspielerin und Sängerin Queen Latifah ddd.</p>\r\n<p>Die Nominierungen wurden anhand der Platzierungen in den US-Billboard-Charts, von Streaming- und Albumverkäufen, Radioeinsätzen und Social-Media-Aktivitäten ermittelt.</p>"
+            },
+            "set": {
+                "header": "Verleihung am 25. Mai in Las Vegas",
+                "bodytext": "<p>Fans stimmen über die Gewinnerinnen und Gewinner ab. Diese werden am 25. Mai in Las Vegas im Rahmen einer Livezeremonie mit der Schauspielerin und Sängerin Queen Latifah ddd.</p>\r\n<p>Die Nominierungen wurden anhand der Platzierungen in den US-Billboard-Charts, von Streaming- und Albumverkäufen, Radioeinsätzen und Social-Media-Aktivitäten ermittelt.</p>"
+            },
+            "_context": {
+                "page": 97,
+                "pageTitle": "American Music Awards: Swift führt Nominierungen an",
+                "element": 1356,
+                "type": "text",
+                "roles": {
+                    "header": "headline",
+                    "bodytext": "body"
+                }
+            }
+        }
+    ]
+}

@@ -1,0 +1,222 @@
+{
+    "version": 1,
+    "site": "blog-classico",
+    "root": 15,
+    "language": 0,
+    "languageCode": "de",
+    "generated": "2026-09-23T10:11:04+02:00",
+    "records": [
+        {
+            "table": "pages",
+            "uid": 27,
+            "expect": {
+                "title": "Soft Spring Moments with White Rabbits",
+                "subtitle": "Gentle imagery for a slower Easter mood",
+                "abstract": "Using soft rabbit imagery to shape a gentler Easter story.",
+                "description": "A quiet Easter post about softness, spring light, and the calm presence of rabbits.",
+                "seo_title": "Soft Spring Moments with White Rabbits",
+                "og_title": "Soft Spring Moments with White Rabbits",
+                "og_description": "A quiet Easter post about softness, spring light, and the calm presence of rabbits.",
+                "twitter_title": "Soft Spring Moments with White Rabbits",
+                "twitter_description": "A quiet Easter post about softness, spring light, and the calm presence of rabbits."
+            },
+            "set": {
+                "title": "Soft Spring Moments with White Rabbits",
+                "subtitle": "Gentle imagery for a slower Easter mood",
+                "abstract": "Using soft rabbit imagery to shape a gentler Easter story.",
+                "description": "A quiet Easter post about softness, spring light, and the calm presence of rabbits.",
+                "seo_title": "Soft Spring Moments with White Rabbits",
+                "og_title": "Soft Spring Moments with White Rabbits",
+                "og_description": "A quiet Easter post about softness, spring light, and the calm presence of rabbits.",
+                "twitter_title": "Soft Spring Moments with White Rabbits",
+                "twitter_description": "A quiet Easter post about softness, spring light, and the calm presence of rabbits."
+            },
+            "_context": {
+                "page": 27,
+                "pageTitle": "Soft Spring Moments with White Rabbits",
+                "element": 27,
+                "type": "pages",
+                "roles": {
+                    "title": "page_title",
+                    "subtitle": "lead",
+                    "abstract": "lead",
+                    "description": "meta",
+                    "seo_title": "page_title",
+                    "og_title": "page_title",
+                    "og_description": "meta",
+                    "twitter_title": "page_title",
+                    "twitter_description": "meta"
+                }
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 75,
+            "expect": {
+                "CType": "textmedia",
+                "header": "Calm is part ofddd the celebration",
+                "bodytext": "<p>Easter does not only belong to activity. It also belongs to softer pauses, quieter rooms, and moments of tenderness. Rabbit imagery can help tell that version of the holiday with very little effort.</p>"
+            },
+            "set": {
+                "header": "Calm is part ofddd the celebration",
+                "bodytext": "<p>Easter does not only belong to activity. It also belongs to softer pauses, quieter rooms, and moments of tenderness. Rabbit imagery can help tell that version of the holiday with very little effort.</p>"
+            },
+            "_context": {
+                "page": 27,
+                "pageTitle": "Soft Spring Moments with White Rabbits",
+                "element": 75,
+                "type": "textmedia",
+                "roles": {
+                    "header": "headline",
+                    "bodytext": "body"
+                }
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 33,
+            "expect": {
+                "alternative": ""
+            },
+            "set": {
+                "alternative": "Woman gently holding two small white rabbits"
+            },
+            "_context": {
+                "page": 27,
+                "pageTitle": "Soft Spring Moments with White Rabbits",
+                "element": 75,
+                "type": "textmedia",
+                "roles": {
+                    "alternative": "alt"
+                },
+                "file": "/mcp/workspaces/ws-1/images/white-rabbits-dmitry-rodionov-a3bc20d46744c375.jpg"
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 55,
+            "expect": {
+                "alternative": ""
+            },
+            "set": {
+                "alternative": "Young woman holding a small white rabbit"
+            },
+            "_context": {
+                "page": 27,
+                "pageTitle": "Soft Spring Moments with White Rabbits",
+                "element": 75,
+                "type": "textmedia",
+                "roles": {
+                    "alternative": "alt"
+                },
+                "file": "/mcp/workspaces/ws-1/images/white-rabbit-dmitry-rodionov-2-404562e662085754.jpg"
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 74,
+            "expect": {
+                "CType": "textmedia",
+                "header": "How to use gentle spring visuals",
+                "bodytext": "<ul><li>Keep the copy warm and direct instead of playful and loud.</li><li>Use pale neutrals and natural textures around the image.</li><li>Focus on care, stillness, and closeness.</li><li>Let one visual do the emotional work rather than many props.</li></ul>"
+            },
+            "set": {
+                "header": "How to use gentle spring visuals",
+                "bodytext": "<ul><li>Keep the copy warm and direct instead of playful and loud.</li><li>Use pale neutrals and natural textures around the image.</li><li>Focus on care, stillness, and closeness.</li><li>Let one visual do the emotional work rather than many props.</li></ul>"
+            },
+            "_context": {
+                "page": 27,
+                "pageTitle": "Soft Spring Moments with White Rabbits",
+                "element": 74,
+                "type": "textmedia",
+                "roles": {
+                    "header": "headline",
+                    "bodytext": "body"
+                }
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 32,
+            "expect": {
+                "alternative": ""
+            },
+            "set": {
+                "alternative": "Woman gently holding two small white rabbits"
+            },
+            "_context": {
+                "page": 27,
+                "pageTitle": "Soft Spring Moments with White Rabbits",
+                "element": 74,
+                "type": "textmedia",
+                "roles": {
+                    "alternative": "alt"
+                },
+                "file": "/mcp/workspaces/ws-1/images/white-rabbits-dmitry-rodionov-a3bc20d46744c375.jpg"
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 56,
+            "expect": {
+                "alternative": ""
+            },
+            "set": {
+                "alternative": "White rabbit sitting in green grass"
+            },
+            "_context": {
+                "page": 27,
+                "pageTitle": "Soft Spring Moments with White Rabbits",
+                "element": 74,
+                "type": "textmedia",
+                "roles": {
+                    "alternative": "alt"
+                },
+                "file": "/mcp/workspaces/ws-1/images/white-rabbit-grass-shahriar-b3dabbf30676ca40.jpg"
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 73,
+            "expect": {
+                "CType": "textmedia",
+                "header": "Soft imagery slows the whole page down",
+                "bodytext": "<p>Not every Easter post needs bright color or obvious festivity. A softer image, like rabbits held gently in spring light, can shift the mood toward calm, care, and quiet presence. That tone is especially useful when the aim is to make Easter feel reflective rather than purely decorative.</p>"
+            },
+            "set": {
+                "header": "Soft imagery slows the whole page down",
+                "bodytext": "<p>Not every Easter post needs bright color or obvious festivity. A softer image, like rabbits held gently in spring light, can shift the mood toward calm, care, and quiet presence. That tone is especially useful when the aim is to make Easter feel reflective rather than purely decorative.</p>"
+            },
+            "_context": {
+                "page": 27,
+                "pageTitle": "Soft Spring Moments with White Rabbits",
+                "element": 73,
+                "type": "textmedia",
+                "roles": {
+                    "header": "headline",
+                    "bodytext": "body"
+                }
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 31,
+            "expect": {
+                "alternative": ""
+            },
+            "set": {
+                "alternative": "Woman gently holding two small white rabbits"
+            },
+            "_context": {
+                "page": 27,
+                "pageTitle": "Soft Spring Moments with White Rabbits",
+                "element": 73,
+                "type": "textmedia",
+                "roles": {
+                    "alternative": "alt"
+                },
+                "file": "/mcp/workspaces/ws-1/images/white-rabbits-dmitry-rodionov-a3bc20d46744c375.jpg"
+            }
+        }
+    ]
+}

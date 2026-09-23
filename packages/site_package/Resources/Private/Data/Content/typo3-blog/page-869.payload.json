@@ -1,0 +1,99 @@
+{
+    "version": 1,
+    "site": "typo3-blog",
+    "root": 390,
+    "language": 0,
+    "languageCode": "en",
+    "generated": "2026-09-23T10:12:18+02:00",
+    "records": [
+        {
+            "table": "pages",
+            "uid": 869,
+            "expect": {
+                "title": "Minimal Egg Decorating for a Bright Table",
+                "subtitle": "Simple color, clean layouts, and easy Easter styling",
+                "abstract": "Minimal Easter decorating ideas that still feel warm and festive.",
+                "description": "An Easter post focused on clean egg styling and light seasonal decoration.",
+                "seo_title": "Minimal Egg Decorating for a Bright Table",
+                "og_title": "Minimal Egg Decorating for a Bright Table",
+                "og_description": "An Easter post focused on clean egg styling and light seasonal decoration.",
+                "twitter_title": "Minimal Egg Decorating for a Bright Table",
+                "twitter_description": "An Easter post focused on clean egg styling and light seasonal decoration."
+            },
+            "set": {
+                "title": "Minimal Egg Decorating for a Bright Table",
+                "subtitle": "Simple color, clean layouts, and easy Easter styling",
+                "abstract": "Minimal Easter decorating ideas that still feel warm and festive.",
+                "description": "An Easter post focused on clean egg styling and light seasonal decoration.",
+                "seo_title": "Minimal Egg Decorating for a Bright Table",
+                "og_title": "Minimal Egg Decorating for a Bright Table",
+                "og_description": "An Easter post focused on clean egg styling and light seasonal decoration.",
+                "twitter_title": "Minimal Egg Decorating for a Bright Table",
+                "twitter_description": "An Easter post focused on clean egg styling and light seasonal decoration."
+            },
+            "_context": {
+                "page": 869,
+                "pageTitle": "Minimal Egg Decorating for a Bright Table",
+                "element": 869,
+                "type": "pages",
+                "roles": {
+                    "title": "page_title",
+                    "subtitle": "lead",
+                    "abstract": "lead",
+                    "description": "meta",
+                    "seo_title": "page_title",
+                    "og_title": "page_title",
+                    "og_description": "meta",
+                    "twitter_title": "page_title",
+                    "twitter_description": "meta"
+                }
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 23833,
+            "expect": {
+                "CType": "text",
+                "header": "Keep the layout breathable",
+                "bodytext": "<p>Minimal decoration works well for this template because it tests long lines, short paragraphs, and compact badge groups without turning the page into a dense block.</p>"
+            },
+            "set": {
+                "header": "Keep the layout breathable",
+                "bodytext": "<p>Minimal decoration works well for this template because it tests long lines, short paragraphs, and compact badge groups without turning the page into a dense block.</p>"
+            },
+            "_context": {
+                "page": 869,
+                "pageTitle": "Minimal Egg Decorating for a Bright Table",
+                "element": 23833,
+                "type": "text",
+                "roles": {
+                    "header": "headline",
+                    "bodytext": "body"
+                }
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 23834,
+            "expect": {
+                "CType": "text",
+                "header": "Checklist",
+                "bodytext": "<ul><li>Use one main surface color.</li><li>Keep decorative detail low and readable.</li><li>Let spacing do more work than borders.</li></ul>"
+            },
+            "set": {
+                "header": "Checklist",
+                "bodytext": "<ul><li>Use one main surface color.</li><li>Keep decorative detail low and readable.</li><li>Let spacing do more work than borders.</li></ul>"
+            },
+            "_context": {
+                "page": 869,
+                "pageTitle": "Minimal Egg Decorating for a Bright Table",
+                "element": 23834,
+                "type": "text",
+                "roles": {
+                    "header": "headline",
+                    "bodytext": "body"
+                }
+            }
+        }
+    ]
+}

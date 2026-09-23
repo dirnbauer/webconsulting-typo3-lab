@@ -1,0 +1,139 @@
+{
+    "version": 1,
+    "site": "typo3-blog",
+    "root": 390,
+    "language": 0,
+    "languageCode": "en",
+    "generated": "2026-09-23T10:12:12+02:00",
+    "records": [
+        {
+            "table": "pages",
+            "uid": 400,
+            "expect": {
+                "title": "Waffenruhe läuft aus: USA und Iran drohen einander",
+                "nav_title": "USA und Iran: Waffenruhe läuft aus",
+                "subtitle": "Blog template coverage entry",
+                "abstract": "Mit dem nahenden Ende der Waffenruhe wachsen die Spannungen: USA und Iran drohen einander mit harten Konsequenzen. Im Fokus steht erneut die Straße von Hormus und die globale Ölversorgung.",
+                "description": "Vor dem Auslaufen der Waffenruhe drohen USA und Iran einander. Die Lage rund um die Straße von Hormus spitzt sich zu.",
+                "seo_title": "Waffenruhe läuft aus: USA und Iran drohen einander",
+                "og_title": "Waffenruhe läuft aus: USA und Iran drohen einander",
+                "og_description": "Vor dem Auslaufen der Waffenruhe drohen USA und Iran einander. Die Lage rund um die Straße von Hormus spitzt sich zu.",
+                "twitter_title": "Waffenruhe läuft aus: USA und Iran drohen einander",
+                "twitter_description": "Vor dem Auslaufen der Waffenruhe drohen USA und Iran einander. Die Lage rund um die Straße von Hormus spitzt sich zu."
+            },
+            "set": {
+                "title": "Waffenruhe läuft aus: USA und Iran drohen einander",
+                "nav_title": "USA und Iran: Waffenruhe läuft aus",
+                "subtitle": "Blog template coverage entry",
+                "abstract": "Mit dem nahenden Ende der Waffenruhe wachsen die Spannungen: USA und Iran drohen einander mit harten Konsequenzen. Im Fokus steht erneut die Straße von Hormus und die globale Ölversorgung.",
+                "description": "Vor dem Auslaufen der Waffenruhe drohen USA und Iran einander. Die Lage rund um die Straße von Hormus spitzt sich zu.",
+                "seo_title": "Waffenruhe läuft aus: USA und Iran drohen einander",
+                "og_title": "Waffenruhe läuft aus: USA und Iran drohen einander",
+                "og_description": "Vor dem Auslaufen der Waffenruhe drohen USA und Iran einander. Die Lage rund um die Straße von Hormus spitzt sich zu.",
+                "twitter_title": "Waffenruhe läuft aus: USA und Iran drohen einander",
+                "twitter_description": "Vor dem Auslaufen der Waffenruhe drohen USA und Iran einander. Die Lage rund um die Straße von Hormus spitzt sich zu."
+            },
+            "_context": {
+                "page": 400,
+                "pageTitle": "Waffenruhe läuft aus: USA und Iran drohen einander",
+                "element": 400,
+                "type": "pages",
+                "roles": {
+                    "title": "page_title",
+                    "nav_title": "page_title",
+                    "subtitle": "lead",
+                    "abstract": "lead",
+                    "description": "meta",
+                    "seo_title": "page_title",
+                    "og_title": "page_title",
+                    "og_description": "meta",
+                    "twitter_title": "page_title",
+                    "twitter_description": "meta"
+                }
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 2007,
+            "expect": {
+                "CType": "textmedia",
+                "bodytext": "<p>Kurz vor dem Auslaufen der <strong>Waffenruhe</strong> zwischen dem Iran und den USA ist eine Fortsetzung der Verhandlungen weiter ungewiss. Beide Parteien zeigten sich zuletzt unnachgiebig. Der iranische Parlamentspräsident Mohammed-Bagher Ghalibaf, der die iranische Delegation in der vorigen Runde angeführt hatte, teilte auf X mit, er akzeptiere keine Verhandlungen unter dem Eindruck von Drohungen. Der Iran habe nach der Feuerpause neue militärische Mittel in der Hinterhand. Auch von US-Präsident Donald Trump kamen neue Drohungen.</p>"
+            },
+            "set": {
+                "bodytext": "<p>Kurz vor dem Auslaufen der <strong>Waffenruhe</strong> zwischen dem Iran und den USA ist eine Fortsetzung der Verhandlungen weiter ungewiss. Beide Parteien zeigten sich zuletzt unnachgiebig. Der iranische Parlamentspräsident Mohammed-Bagher Ghalibaf, der die iranische Delegation in der vorigen Runde angeführt hatte, teilte auf X mit, er akzeptiere keine Verhandlungen unter dem Eindruck von Drohungen. Der Iran habe nach der Feuerpause neue militärische Mittel in der Hinterhand. Auch von US-Präsident Donald Trump kamen neue Drohungen.</p>"
+            },
+            "_context": {
+                "page": 400,
+                "pageTitle": "Waffenruhe läuft aus: USA und Iran drohen einander",
+                "element": 2007,
+                "type": "textmedia",
+                "roles": {
+                    "bodytext": "body"
+                }
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 1163,
+            "expect": {
+                "alternative": "Ein Tanker auf der Straße von Hormus"
+            },
+            "set": {
+                "alternative": "Ein Tanker auf der Straße von Hormus"
+            },
+            "_context": {
+                "page": 400,
+                "pageTitle": "Waffenruhe läuft aus: USA und Iran drohen einander",
+                "element": 2007,
+                "type": "textmedia",
+                "roles": {
+                    "alternative": "alt"
+                },
+                "file": "/mcp/workspaces/ws-1/orf-news/iran-usa-drohungen-950cd0bd7929c245.jpg"
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 2010,
+            "expect": {
+                "CType": "text",
+                "bodytext": "<p>Medienberichten zufolge steht die US-Delegation um US-Vizepräsident JD Vance vor einer Abreise nach Pakistan. Die Sprecherin des Weißen Hauses, Karoline Leavitt, gab sich dem Sender Fox News gegenüber zuversichtlich, dass die USA ein „wirklich gutes Abkommen“ abschließen würden. Die USA stünden kurz vor einer Einigung mit dem Iran, sagte Leavitt weiter.</p>\r\n<p>US-Präsident Donald Trump sagte, eine Verlängerung der Waffenruhe sei „höchst unwahrscheinlich“. Er drohte dem Iran erneut mit schweren Angriffen, falls die Feuerpause ohne neue Einigung ausläuft. Die vereinbarte Waffenruhe zwischen den USA und dem Iran läuft Trump zufolge Mittwochabend US-Ostküstenzeit aus.</p>"
+            },
+            "set": {
+                "bodytext": "<p>Medienberichten zufolge steht die US-Delegation um US-Vizepräsident JD Vance vor einer Abreise nach Pakistan. Die Sprecherin des Weißen Hauses, Karoline Leavitt, gab sich dem Sender Fox News gegenüber zuversichtlich, dass die USA ein „wirklich gutes Abkommen“ abschließen würden. Die USA stünden kurz vor einer Einigung mit dem Iran, sagte Leavitt weiter.</p>\r\n<p>US-Präsident Donald Trump sagte, eine Verlängerung der Waffenruhe sei „höchst unwahrscheinlich“. Er drohte dem Iran erneut mit schweren Angriffen, falls die Feuerpause ohne neue Einigung ausläuft. Die vereinbarte Waffenruhe zwischen den USA und dem Iran läuft Trump zufolge Mittwochabend US-Ostküstenzeit aus.</p>"
+            },
+            "_context": {
+                "page": 400,
+                "pageTitle": "Waffenruhe läuft aus: USA und Iran drohen einander",
+                "element": 2010,
+                "type": "text",
+                "roles": {
+                    "bodytext": "body"
+                }
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 2015,
+            "expect": {
+                "CType": "text",
+                "header": "Quelle",
+                "bodytext": "<p>red, ORF.at/Agenturen — <a href=\"https://orf.at/stories/3427472/\">orf.at/stories/3427472</a></p>"
+            },
+            "set": {
+                "header": "Quelle",
+                "bodytext": "<p>red, ORF.at/Agenturen — <a href=\"https://orf.at/stories/3427472/\">orf.at/stories/3427472</a></p>"
+            },
+            "_context": {
+                "page": 400,
+                "pageTitle": "Waffenruhe läuft aus: USA und Iran drohen einander",
+                "element": 2015,
+                "type": "text",
+                "roles": {
+                    "header": "headline",
+                    "bodytext": "body"
+                }
+            }
+        }
+    ]
+}

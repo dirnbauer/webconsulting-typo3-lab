@@ -1,0 +1,308 @@
+{
+    "version": 1,
+    "site": "blog-classico",
+    "root": 15,
+    "language": 0,
+    "languageCode": "de",
+    "generated": "2026-09-23T10:11:00+02:00",
+    "records": [
+        {
+            "table": "pages",
+            "uid": 24,
+            "expect": {
+                "title": "Minimal Egg Decorating for a Bright Table",
+                "subtitle": "Simple color, clean layouts, and easy Easter styling",
+                "abstract": "Minimal Easter decorating ideas that still feel warm and festive.",
+                "description": "An Easter post focused on clean egg styling and light seasonal decoration.",
+                "seo_title": "Minimal Egg Decorating for a Bright Table",
+                "og_title": "Minimal Egg Decorating for a Bright Table",
+                "og_description": "An Easter post focused on clean egg styling and light seasonal decoration.",
+                "twitter_title": "Minimal Egg Decorating for a Bright Table",
+                "twitter_description": "An Easter post focused on clean egg styling and light seasonal decoration."
+            },
+            "set": {
+                "title": "Minimal Egg Decorating for a Bright Table",
+                "subtitle": "Simple color, clean layouts, and easy Easter styling",
+                "abstract": "Minimal Easter decorating ideas that still feel warm and festive.",
+                "description": "An Easter post focused on clean egg styling and light seasonal decoration.",
+                "seo_title": "Minimal Egg Decorating for a Bright Table",
+                "og_title": "Minimal Egg Decorating for a Bright Table",
+                "og_description": "An Easter post focused on clean egg styling and light seasonal decoration.",
+                "twitter_title": "Minimal Egg Decorating for a Bright Table",
+                "twitter_description": "An Easter post focused on clean egg styling and light seasonal decoration."
+            },
+            "_context": {
+                "page": 24,
+                "pageTitle": "Minimal Egg Decorating for a Bright Table",
+                "element": 24,
+                "type": "pages",
+                "roles": {
+                    "title": "page_title",
+                    "subtitle": "lead",
+                    "abstract": "lead",
+                    "description": "meta",
+                    "seo_title": "page_title",
+                    "og_title": "page_title",
+                    "og_description": "meta",
+                    "twitter_title": "page_title",
+                    "twitter_description": "meta"
+                }
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 66,
+            "expect": {
+                "CType": "textmedia",
+                "header": "Keep the table breathable",
+                "bodytext": "<h3>Dekoracje wielkanocne, które pozwalają chwili wybrzmieć</h3>\r\n<p class=\"lead\"><i>Proste detale mogą kształtować całą atmosferę.</i></p>\r\n<hr />\r\n<p><i>Minimalistyczne aranżacje</i> działają, ponieważ tworzą przestrzeń — przestrzeń na rozmowę, wspólne posiłki i swobodny ruch. Gdy są przemyślane, dekoracje wielkanocne nie muszą dominować; mogą delikatnie <strong>oprawiać chwilę</strong>.</p>\r\n<blockquote><p><i>Mniej dekoracji, więcej obecności.</i></p></blockquote>\r\n<p>Kilka świadomych akcentów często robi większe wrażenie niż przeładowana kompozycja. Minimalistyczne aranżacje są skuteczne, bo zostawiają miejsce na rozmowę, jedzenie i swobodę. Dekoracje wielkanocne stają się bardziej przyjazne, gdy podkreślają moment, zamiast przejmować całą przestrzeń.Easter Decor That Lets the Moment Breathe</p>\r\n<p class=\"lead\"><i>Simple details can shape the entire atmosphere.</i></p>\r\n<hr />\r\n<p><i>Minimal arrangements</i> work because they create space—space for conversation, shared meals, and natural movement. When thoughtfully chosen, Easter decor doesn’t need to dominate; it can gently <strong>frame the moment</strong> instead.</p>\r\n<blockquote><p><i>Less decoration, more presence.</i></p></blockquote>\r\n<p>A few intentional touches often leave a stronger impression than an overflowing display.Minimal arrangements are effective because they leave room for conversation, food, and movement. Easter decoration becomes more inviting when it frames the moment instead of taking over the whole scene.</p>"
+            },
+            "set": {
+                "header": "Keep the table breathable",
+                "bodytext": "<h3>Dekoracje wielkanocne, które pozwalają chwili wybrzmieć</h3>\r\n<p class=\"lead\"><i>Proste detale mogą kształtować całą atmosferę.</i></p>\r\n<hr />\r\n<p><i>Minimalistyczne aranżacje</i> działają, ponieważ tworzą przestrzeń — przestrzeń na rozmowę, wspólne posiłki i swobodny ruch. Gdy są przemyślane, dekoracje wielkanocne nie muszą dominować; mogą delikatnie <strong>oprawiać chwilę</strong>.</p>\r\n<blockquote><p><i>Mniej dekoracji, więcej obecności.</i></p></blockquote>\r\n<p>Kilka świadomych akcentów często robi większe wrażenie niż przeładowana kompozycja. Minimalistyczne aranżacje są skuteczne, bo zostawiają miejsce na rozmowę, jedzenie i swobodę. Dekoracje wielkanocne stają się bardziej przyjazne, gdy podkreślają moment, zamiast przejmować całą przestrzeń.Easter Decor That Lets the Moment Breathe</p>\r\n<p class=\"lead\"><i>Simple details can shape the entire atmosphere.</i></p>\r\n<hr />\r\n<p><i>Minimal arrangements</i> work because they create space—space for conversation, shared meals, and natural movement. When thoughtfully chosen, Easter decor doesn’t need to dominate; it can gently <strong>frame the moment</strong> instead.</p>\r\n<blockquote><p><i>Less decoration, more presence.</i></p></blockquote>\r\n<p>A few intentional touches often leave a stronger impression than an overflowing display.Minimal arrangements are effective because they leave room for conversation, food, and movement. Easter decoration becomes more inviting when it frames the moment instead of taking over the whole scene.</p>"
+            },
+            "_context": {
+                "page": 24,
+                "pageTitle": "Minimal Egg Decorating for a Bright Table",
+                "element": 66,
+                "type": "textmedia",
+                "roles": {
+                    "header": "headline",
+                    "bodytext": "body"
+                }
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 16,
+            "expect": {
+                "alternative": ""
+            },
+            "set": {
+                "alternative": "Colorful Easter eggs scattered on a white surface"
+            },
+            "_context": {
+                "page": 24,
+                "pageTitle": "Minimal Egg Decorating for a Bright Table",
+                "element": 66,
+                "type": "textmedia",
+                "roles": {
+                    "alternative": "alt"
+                },
+                "file": "/mcp/workspaces/ws-1/images/easter-eggs-white-jonathan-castaneda-98770cadb8351d17.jpg"
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 24,
+            "expect": {
+                "alternative": ""
+            },
+            "set": {
+                "alternative": "Colorful Easter eggs scattered on a white surface"
+            },
+            "_context": {
+                "page": 24,
+                "pageTitle": "Minimal Egg Decorating for a Bright Table",
+                "element": 66,
+                "type": "textmedia",
+                "roles": {
+                    "alternative": "alt"
+                },
+                "file": "/mcp/workspaces/ws-1/images/easter-eggs-white-jonathan-castaneda-98770cadb8351d17.jpg"
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 52,
+            "expect": {
+                "alternative": ""
+            },
+            "set": {
+                "alternative": "Decorated eggs with flowers on a light background"
+            },
+            "_context": {
+                "page": 24,
+                "pageTitle": "Minimal Egg Decorating for a Bright Table",
+                "element": 66,
+                "type": "textmedia",
+                "roles": {
+                    "alternative": "alt"
+                },
+                "file": "/mcp/workspaces/ws-1/images/eggs-with-flowers-anita-austvika-95d8f026bd34cb53.jpg"
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 65,
+            "expect": {
+                "CType": "textmedia",
+                "header": "A minimal Easter setup",
+                "bodytext": "<ul><li>Choose one main surface color and let the eggs carry the contrast.</li><li>Keep the arrangement low so the table still feels usable.</li><li>Add only one tool or craft detail if you want a handmade note.</li><li>Use repetition instead of many different decorative objects.</li></ul>"
+            },
+            "set": {
+                "header": "A minimal Easter setup",
+                "bodytext": "<ul><li>Choose one main surface color and let the eggs carry the contrast.</li><li>Keep the arrangement low so the table still feels usable.</li><li>Add only one tool or craft detail if you want a handmade note.</li><li>Use repetition instead of many different decorative objects.</li></ul>"
+            },
+            "_context": {
+                "page": 24,
+                "pageTitle": "Minimal Egg Decorating for a Bright Table",
+                "element": 65,
+                "type": "textmedia",
+                "roles": {
+                    "header": "headline",
+                    "bodytext": "body"
+                }
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 19,
+            "expect": {
+                "alternative": ""
+            },
+            "set": {
+                "alternative": "Colorful Easter eggs scattered on a white surface"
+            },
+            "_context": {
+                "page": 24,
+                "pageTitle": "Minimal Egg Decorating for a Bright Table",
+                "element": 65,
+                "type": "textmedia",
+                "roles": {
+                    "alternative": "alt"
+                },
+                "file": "/mcp/workspaces/ws-1/images/easter-eggs-white-jonathan-castaneda-98770cadb8351d17.jpg"
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 49,
+            "expect": {
+                "alternative": ""
+            },
+            "set": {
+                "alternative": "Single Easter egg with floral pattern on a light background"
+            },
+            "_context": {
+                "page": 24,
+                "pageTitle": "Minimal Egg Decorating for a Bright Table",
+                "element": 65,
+                "type": "textmedia",
+                "roles": {
+                    "alternative": "alt"
+                },
+                "file": "/mcp/workspaces/ws-1/images/floral-easter-egg-antonio-verdin-8de1f5dd895ce354.jpg"
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 15660,
+            "expect": {
+                "CType": "text",
+                "header": "Keep the layout breathable",
+                "bodytext": "<p>Minimal decoration works well for this template because it tests long lines, short paragraphs, and compact badge groups without turning the page into a dense block.</p>"
+            },
+            "set": {
+                "header": "Keep the layout breathable",
+                "bodytext": "<p>Minimal decoration works well for this template because it tests long lines, short paragraphs, and compact badge groups without turning the page into a dense block.</p>"
+            },
+            "_context": {
+                "page": 24,
+                "pageTitle": "Minimal Egg Decorating for a Bright Table",
+                "element": 15660,
+                "type": "text",
+                "roles": {
+                    "header": "headline",
+                    "bodytext": "body"
+                }
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 64,
+            "expect": {
+                "CType": "textmedia",
+                "header": "Less color can feel more special",
+                "bodytext": "<p>Minimal Easter decoration does not feel cold when it is done with warmth. A bright surface, a handful of painted eggs, and clear spacing can make a table feel fresh and celebratory without becoming busy. This lighter style is useful when the goal is to make seasonal detail feel elegant rather than crowded.</p>"
+            },
+            "set": {
+                "header": "Less color can feel more special",
+                "bodytext": "<p>Minimal Easter decoration does not feel cold when it is done with warmth. A bright surface, a handful of painted eggs, and clear spacing can make a table feel fresh and celebratory without becoming busy. This lighter style is useful when the goal is to make seasonal detail feel elegant rather than crowded.</p>"
+            },
+            "_context": {
+                "page": 24,
+                "pageTitle": "Minimal Egg Decorating for a Bright Table",
+                "element": 64,
+                "type": "textmedia",
+                "roles": {
+                    "header": "headline",
+                    "bodytext": "body"
+                }
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 13,
+            "expect": {
+                "alternative": ""
+            },
+            "set": {
+                "alternative": "Colorful Easter eggs scattered on a white surface"
+            },
+            "_context": {
+                "page": 24,
+                "pageTitle": "Minimal Egg Decorating for a Bright Table",
+                "element": 64,
+                "type": "textmedia",
+                "roles": {
+                    "alternative": "alt"
+                },
+                "file": "/mcp/workspaces/ws-1/images/easter-eggs-white-jonathan-castaneda-98770cadb8351d17.jpg"
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 23,
+            "expect": {
+                "alternative": ""
+            },
+            "set": {
+                "alternative": "Colorful Easter eggs scattered on a white surface"
+            },
+            "_context": {
+                "page": 24,
+                "pageTitle": "Minimal Egg Decorating for a Bright Table",
+                "element": 64,
+                "type": "textmedia",
+                "roles": {
+                    "alternative": "alt"
+                },
+                "file": "/mcp/workspaces/ws-1/images/easter-eggs-white-jonathan-castaneda-98770cadb8351d17.jpg"
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 15661,
+            "expect": {
+                "CType": "text",
+                "header": "Checklist",
+                "bodytext": "<ul><li>Use one main surface color.</li><li>Keep decorative detail low and readable.</li><li>Let spacing do more work than borders.</li></ul>"
+            },
+            "set": {
+                "header": "Checklist",
+                "bodytext": "<ul><li>Use one main surface color.</li><li>Keep decorative detail low and readable.</li><li>Let spacing do more work than borders.</li></ul>"
+            },
+            "_context": {
+                "page": 24,
+                "pageTitle": "Minimal Egg Decorating for a Bright Table",
+                "element": 15661,
+                "type": "text",
+                "roles": {
+                    "header": "headline",
+                    "bodytext": "body"
+                }
+            }
+        }
+    ]
+}

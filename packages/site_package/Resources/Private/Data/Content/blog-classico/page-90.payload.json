@@ -1,0 +1,328 @@
+{
+    "version": 1,
+    "site": "blog-classico",
+    "root": 15,
+    "language": 0,
+    "languageCode": "de",
+    "generated": "2026-09-23T10:11:14+02:00",
+    "records": [
+        {
+            "table": "pages",
+            "uid": 90,
+            "expect": {
+                "title": "Weltwirtschaft: IWF senkt Prognose und warnt",
+                "subtitle": "Blog template coverage entry",
+                "abstract": "Der Internationale Währungsfonds (IWF) schraubt seine Erwartungen für das Wachstum der Weltwirtschaft – und auch der Euro-Zone – angesichts des Nahost-Krieges nach unten. Weltweit erwartet der IWF für heuer ein Wachstum von 3,1 Prozent, im Jänner waren die Ökonomen und Ökonominnen noch von einem Ans",
+                "description": "Der Internationale Währungsfonds (IWF) schraubt seine Erwartungen für das Wachstum der Weltwirtschaft – und auch der Euro-Zone – angesichts des Nahost-Krieges nach unten. Weltweit erwartet der IWF für heuer ein Wachstum von 3,1 Prozent, im Jänner waren die Ökonomen und Ökonominnen noch von einem Anstieg um 3,3 Prozent ausgegangen. „Erneut droht die Weltwirtschaft aus der Bahn zu geraten“, hieß es am Dienstag anlässlich des neuesten Ausblicks der Organisation.",
+                "seo_title": "Weltwirtschaft: IWF senkt Prognose und warnt",
+                "og_title": "Weltwirtschaft: IWF senkt Prognose und warnt",
+                "og_description": "Der Internationale Währungsfonds (IWF) schraubt seine Erwartungen für das Wachstum der Weltwirtschaft – und auch der Euro-Zone – angesichts des Nahost-Krieges nach unten. Weltweit erwartet der IWF für heuer ein Wachstum von 3,1 Prozent, im Jänner waren die Ökonomen und Ökonominnen noch von einem Anstieg um 3,3 Prozent ausgegangen. „Erneut droht die Weltwirtschaft aus der Bahn zu geraten“, hieß es am Dienstag anlässlich des neuesten Ausblicks der Organisation.",
+                "twitter_title": "Weltwirtschaft: IWF senkt Prognose und warnt",
+                "twitter_description": "Der Internationale Währungsfonds (IWF) schraubt seine Erwartungen für das Wachstum der Weltwirtschaft – und auch der Euro-Zone – angesichts des Nahost-Krieges nach unten. Weltweit erwartet der IWF für heuer ein Wachstum von 3,1 Prozent, im Jänner waren die Ökonomen und Ökonominnen noch von einem Anstieg um 3,3 Prozent ausgegangen. „Erneut droht die Weltwirtschaft aus der Bahn zu geraten“, hieß es am Dienstag anlässlich des neuesten Ausblicks der Organisation."
+            },
+            "set": {
+                "title": "Weltwirtschaft: IWF senkt Prognose und warnt",
+                "subtitle": "Blog template coverage entry",
+                "abstract": "Der Internationale Währungsfonds (IWF) schraubt seine Erwartungen für das Wachstum der Weltwirtschaft – und auch der Euro-Zone – angesichts des Nahost-Krieges nach unten. Weltweit erwartet der IWF für heuer ein Wachstum von 3,1 Prozent, im Jänner waren die Ökonomen und Ökonominnen noch von einem Ans",
+                "description": "Der Internationale Währungsfonds (IWF) schraubt seine Erwartungen für das Wachstum der Weltwirtschaft – und auch der Euro-Zone – angesichts des Nahost-Krieges nach unten. Weltweit erwartet der IWF für heuer ein Wachstum von 3,1 Prozent, im Jänner waren die Ökonomen und Ökonominnen noch von einem Anstieg um 3,3 Prozent ausgegangen. „Erneut droht die Weltwirtschaft aus der Bahn zu geraten“, hieß es am Dienstag anlässlich des neuesten Ausblicks der Organisation.",
+                "seo_title": "Weltwirtschaft: IWF senkt Prognose und warnt",
+                "og_title": "Weltwirtschaft: IWF senkt Prognose und warnt",
+                "og_description": "Der Internationale Währungsfonds (IWF) schraubt seine Erwartungen für das Wachstum der Weltwirtschaft – und auch der Euro-Zone – angesichts des Nahost-Krieges nach unten. Weltweit erwartet der IWF für heuer ein Wachstum von 3,1 Prozent, im Jänner waren die Ökonomen und Ökonominnen noch von einem Anstieg um 3,3 Prozent ausgegangen. „Erneut droht die Weltwirtschaft aus der Bahn zu geraten“, hieß es am Dienstag anlässlich des neuesten Ausblicks der Organisation.",
+                "twitter_title": "Weltwirtschaft: IWF senkt Prognose und warnt",
+                "twitter_description": "Der Internationale Währungsfonds (IWF) schraubt seine Erwartungen für das Wachstum der Weltwirtschaft – und auch der Euro-Zone – angesichts des Nahost-Krieges nach unten. Weltweit erwartet der IWF für heuer ein Wachstum von 3,1 Prozent, im Jänner waren die Ökonomen und Ökonominnen noch von einem Anstieg um 3,3 Prozent ausgegangen. „Erneut droht die Weltwirtschaft aus der Bahn zu geraten“, hieß es am Dienstag anlässlich des neuesten Ausblicks der Organisation."
+            },
+            "_context": {
+                "page": 90,
+                "pageTitle": "Weltwirtschaft: IWF senkt Prognose und warnt",
+                "element": 90,
+                "type": "pages",
+                "roles": {
+                    "title": "page_title",
+                    "subtitle": "lead",
+                    "abstract": "lead",
+                    "description": "meta",
+                    "seo_title": "page_title",
+                    "og_title": "page_title",
+                    "og_description": "meta",
+                    "twitter_title": "page_title",
+                    "twitter_description": "meta"
+                }
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 1343,
+            "expect": {
+                "CType": "textmedia",
+                "bodytext": "<p><small>© Getty Images/Pakphipat Charoenrach</small></p>\r\n<p><small>Quelle: ORF.at</small></p>"
+            },
+            "set": {
+                "bodytext": "<p><small>© Getty Images/Pakphipat Charoenrach</small></p>\r\n<p><small>Quelle: ORF.at</small></p>"
+            },
+            "_context": {
+                "page": 90,
+                "pageTitle": "Weltwirtschaft: IWF senkt Prognose und warnt",
+                "element": 1343,
+                "type": "textmedia",
+                "roles": {
+                    "bodytext": "body"
+                }
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 751,
+            "expect": {
+                "alternative": "Ein Lastwagen an einem Hafen mit lauter Schiffscontainern"
+            },
+            "set": {
+                "alternative": "Ein Lastwagen an einem Hafen mit lauter Schiffscontainern"
+            },
+            "_context": {
+                "page": 90,
+                "pageTitle": "Weltwirtschaft: IWF senkt Prognose und warnt",
+                "element": 1343,
+                "type": "textmedia",
+                "roles": {
+                    "alternative": "alt"
+                },
+                "file": "/mcp/workspaces/ws-1/3003233_opener_1161513_iwf_weltwirtschaft_prognose_gy-2cac00ba12d37f47.jpg"
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 1344,
+            "expect": {
+                "CType": "text",
+                "bodytext": "<p>Waren es vergangenes Jahr noch „höhere Handelsbarrieren und verstärkte Unsicherheit“ – wohl eine Umschreibung für die Zollpolitik von US-Präsident Donald Trump –, belasten jetzt das eingebrochene Angebot von Rohstoffen infolge der blockierten Straße von Hormus und die Unsicherheit durch den Krieg die Weltwirtschaft.</p>\r\n<p>2027 soll die globale Wertschöpfung um 3,2 Prozent zulegen. Damit würde sich die Weltwirtschaft langsamer entwickeln als in den Jahren zuvor. Bei vielen Nationen korrigierte der IWF seine Prognosen nach unten. Die Annahmen seien allerdings nur dann gültig, sofern der Krieg in Nahost in Dauer, Intensität und Umfang begrenzt bleibe und die wirtschaftlichen Störungen bis Mitte 2026 abklingen würden.</p>\r\n<p>Für die Euro-Zone rechnet der IWF für 2026 nunmehr mit einem Anstieg des Bruttoinlandsprodukts (BIP) von 1,1 Prozent, im Jänner war die Prognose noch bei 1,3 Prozent gelegen. Für das nächste Jahr erwartet die Organisation ein Konjunkturplus von 1,2 Prozent, statt bisher 1,4 Prozent.</p>"
+            },
+            "set": {
+                "bodytext": "<p>Waren es vergangenes Jahr noch „höhere Handelsbarrieren und verstärkte Unsicherheit“ – wohl eine Umschreibung für die Zollpolitik von US-Präsident Donald Trump –, belasten jetzt das eingebrochene Angebot von Rohstoffen infolge der blockierten Straße von Hormus und die Unsicherheit durch den Krieg die Weltwirtschaft.</p>\r\n<p>2027 soll die globale Wertschöpfung um 3,2 Prozent zulegen. Damit würde sich die Weltwirtschaft langsamer entwickeln als in den Jahren zuvor. Bei vielen Nationen korrigierte der IWF seine Prognosen nach unten. Die Annahmen seien allerdings nur dann gültig, sofern der Krieg in Nahost in Dauer, Intensität und Umfang begrenzt bleibe und die wirtschaftlichen Störungen bis Mitte 2026 abklingen würden.</p>\r\n<p>Für die Euro-Zone rechnet der IWF für 2026 nunmehr mit einem Anstieg des Bruttoinlandsprodukts (BIP) von 1,1 Prozent, im Jänner war die Prognose noch bei 1,3 Prozent gelegen. Für das nächste Jahr erwartet die Organisation ein Konjunkturplus von 1,2 Prozent, statt bisher 1,4 Prozent.</p>"
+            },
+            "_context": {
+                "page": 90,
+                "pageTitle": "Weltwirtschaft: IWF senkt Prognose und warnt",
+                "element": 1344,
+                "type": "text",
+                "roles": {
+                    "bodytext": "body"
+                }
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 1357,
+            "expect": {
+                "CType": "textmedia",
+                "header": "IWF-Prognosen im Diagramm",
+                "bodytext": "<p>Drei Excalidraw-Diagramme fassen die wichtigsten Werte und Prognoseaenderungen aus dem Artikel zusammen.</p>"
+            },
+            "set": {
+                "header": "IWF-Prognosen im Diagramm",
+                "bodytext": "<p>Drei Excalidraw-Diagramme fassen die wichtigsten Werte und Prognoseaenderungen aus dem Artikel zusammen.</p>"
+            },
+            "_context": {
+                "page": 90,
+                "pageTitle": "Weltwirtschaft: IWF senkt Prognose und warnt",
+                "element": 1357,
+                "type": "textmedia",
+                "roles": {
+                    "header": "headline",
+                    "bodytext": "body"
+                }
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 755,
+            "expect": {
+                "alternative": ""
+            },
+            "set": {
+                "alternative": "Diagramm zur Weltwirtschaft und Euro-Zone mit den Prognosen 2027 und den Korrekturen fuer 2026 und 2027."
+            },
+            "_context": {
+                "page": 90,
+                "pageTitle": "Weltwirtschaft: IWF senkt Prognose und warnt",
+                "element": 1357,
+                "type": "textmedia",
+                "roles": {
+                    "alternative": "alt"
+                },
+                "file": "/mcp/workspaces/ws-1/page-90/diagram-1-weltwirtschaft-eurozone-11f04b720cab5fcc.svg"
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 756,
+            "expect": {
+                "alternative": ""
+            },
+            "set": {
+                "alternative": "Diagramm zu Oesterreich mit Wachstums-, Inflations-, Leistungsbilanz- und Arbeitslosigkeitswerten fuer 2025 bis 2027."
+            },
+            "_context": {
+                "page": 90,
+                "pageTitle": "Weltwirtschaft: IWF senkt Prognose und warnt",
+                "element": 1357,
+                "type": "textmedia",
+                "roles": {
+                    "alternative": "alt"
+                },
+                "file": "/mcp/workspaces/ws-1/page-90/diagram-2-oesterreich-04736affffbc12d6.svg"
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 757,
+            "expect": {
+                "alternative": ""
+            },
+            "set": {
+                "alternative": "Kompaktes Diagramm zu Deutschland, USA und weltweiter Inflation mit den Prognosen fuer 2026 und 2027."
+            },
+            "_context": {
+                "page": 90,
+                "pageTitle": "Weltwirtschaft: IWF senkt Prognose und warnt",
+                "element": 1357,
+                "type": "textmedia",
+                "roles": {
+                    "alternative": "alt"
+                },
+                "file": "/mcp/workspaces/ws-1/page-90/diagram-3-deutschland-usa-inflation-kompakt-ac9dc44728a5c64f.svg"
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 1345,
+            "expect": {
+                "CType": "text",
+                "header": "Gesenkte Prognosen für Österreich",
+                "bodytext": "<p>Für Österreich wurden die Prognosen gegenüber der vorherigen Prognose im Vorjahr leicht gesenkt. Beim Wirtschaftswachstum wird für heuer ein Anstieg um 0,7 Prozent erwartet, die Schätzung im Vorjahr war hier von einem Anstieg um 0,8 Prozent ausgegangen. Für 2027 wird ein BIP-Plus von einem Prozent erwartet. Die Prognose für die Inflation dieses Jahres wurde von 2,3 Prozent auf 2,5 Prozent hinaufgesetzt. Nächstes Jahr soll sie bei 2,6 Prozent liegen.</p>\r\n<p>Bei der Leistungsbilanz lag Österreich 2025 bei einem Prozent Wachstum, für 2026 werden 0,4 Prozent und für 2027 ein Wert von 0,7 Prozent vorausgesagt. Bei der Arbeitslosigkeit geht die Prognose von einer stabilen Entwicklung aus: Nach 5,7 Prozent im Vorjahr wird sie heuer ebenso bei 5,7 Prozent erwartet, für 2027 liegt die Prognose bei 5,6 Prozent.</p>"
+            },
+            "set": {
+                "header": "Gesenkte Prognosen für Österreich",
+                "bodytext": "<p>Für Österreich wurden die Prognosen gegenüber der vorherigen Prognose im Vorjahr leicht gesenkt. Beim Wirtschaftswachstum wird für heuer ein Anstieg um 0,7 Prozent erwartet, die Schätzung im Vorjahr war hier von einem Anstieg um 0,8 Prozent ausgegangen. Für 2027 wird ein BIP-Plus von einem Prozent erwartet. Die Prognose für die Inflation dieses Jahres wurde von 2,3 Prozent auf 2,5 Prozent hinaufgesetzt. Nächstes Jahr soll sie bei 2,6 Prozent liegen.</p>\r\n<p>Bei der Leistungsbilanz lag Österreich 2025 bei einem Prozent Wachstum, für 2026 werden 0,4 Prozent und für 2027 ein Wert von 0,7 Prozent vorausgesagt. Bei der Arbeitslosigkeit geht die Prognose von einer stabilen Entwicklung aus: Nach 5,7 Prozent im Vorjahr wird sie heuer ebenso bei 5,7 Prozent erwartet, für 2027 liegt die Prognose bei 5,6 Prozent.</p>"
+            },
+            "_context": {
+                "page": 90,
+                "pageTitle": "Weltwirtschaft: IWF senkt Prognose und warnt",
+                "element": 1345,
+                "type": "text",
+                "roles": {
+                    "header": "headline",
+                    "bodytext": "body"
+                }
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 1346,
+            "expect": {
+                "CType": "text",
+                "header": "Ausblick für Deutschland ebenfalls eingetrübt",
+                "bodytext": "<p>Aber auch die Prognosen für die deutsche Wirtschaft wurde angesichts der Folgen des Iran-Krieges herabgesetzt. Nur ein Vierteljahr nach ihrer jüngsten Anhebung korrigierte die Organisation ihre Prognose für die Bundesrepublik wieder: 2026 dürfte die deutsche Wirtschaft nun um 0,8 Prozent wachsen – noch im Jänner hatten die Konjunkturexperten ihre Erwartungen auf 1,1 Prozent nach oben gehievt. Der Anstieg der Energiepreise dürfte auch das Wachstum der Weltwirtschaft in diesem Jahr abbremsen.</p>\r\n<p>Die hohen Energiepreise und die gestiegene Inflation dürften auch die Entwicklung 2027 dämpfen: Der IWF erwartet mittlerweile in Deutschland ein Plus von 1,2 Prozent – um 0,3 Prozentpunkte weniger als bisher.</p>\r\n<p>Auch für die USA als eine der unmittelbaren Kriegsparteien im Konflikt mit dem Iran wird der IWF etwas vorsichtiger: Die Wirtschaft in dem Land dürfte 2026 nun um 2,3 Prozent wachsen (Jänner-Erwartung: 2,4 Prozent). Kommendes Jahr rechnen die Fachleute dagegen mit einem Plus von 2,1 Prozent und mit etwas mehr als bisher (2,0 Prozent).</p>"
+            },
+            "set": {
+                "header": "Ausblick für Deutschland ebenfalls eingetrübt",
+                "bodytext": "<p>Aber auch die Prognosen für die deutsche Wirtschaft wurde angesichts der Folgen des Iran-Krieges herabgesetzt. Nur ein Vierteljahr nach ihrer jüngsten Anhebung korrigierte die Organisation ihre Prognose für die Bundesrepublik wieder: 2026 dürfte die deutsche Wirtschaft nun um 0,8 Prozent wachsen – noch im Jänner hatten die Konjunkturexperten ihre Erwartungen auf 1,1 Prozent nach oben gehievt. Der Anstieg der Energiepreise dürfte auch das Wachstum der Weltwirtschaft in diesem Jahr abbremsen.</p>\r\n<p>Die hohen Energiepreise und die gestiegene Inflation dürften auch die Entwicklung 2027 dämpfen: Der IWF erwartet mittlerweile in Deutschland ein Plus von 1,2 Prozent – um 0,3 Prozentpunkte weniger als bisher.</p>\r\n<p>Auch für die USA als eine der unmittelbaren Kriegsparteien im Konflikt mit dem Iran wird der IWF etwas vorsichtiger: Die Wirtschaft in dem Land dürfte 2026 nun um 2,3 Prozent wachsen (Jänner-Erwartung: 2,4 Prozent). Kommendes Jahr rechnen die Fachleute dagegen mit einem Plus von 2,1 Prozent und mit etwas mehr als bisher (2,0 Prozent).</p>"
+            },
+            "_context": {
+                "page": 90,
+                "pageTitle": "Weltwirtschaft: IWF senkt Prognose und warnt",
+                "element": 1346,
+                "type": "text",
+                "roles": {
+                    "header": "headline",
+                    "bodytext": "body"
+                }
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 1347,
+            "expect": {
+                "CType": "text",
+                "header": "„Keine reibungslose Rückkehr zur Vorkriegssituation“",
+                "bodytext": "<p>IWF-Chefin Kristalina Georgiewa warnte bereits: „Selbst im besten Fall wird es keine saubere und reibungslose Rückkehr zur Vorkriegssituation geben.“ Das Wachstum werde langsamer ausfallen, „selbst wenn der neue Frieden von Dauer ist“. So dürfte sich das Konjunkturwachstum mittelfristig auf dem neuen Niveau einpendeln und damit deutlich unter dem Durchschnitt von 3,7 Prozent zwischen 2000 und 2019 liegen.</p>\r\n<p>Die IWF-Chefin verwies zudem auf kurzfristige Risiken für ein Hochschnellen der Inflation infolge des Krieges. Die Erwartungen für die Teuerungsrate in den USA und in der Euro-Zone seien bereits deutlich gestiegen. „Glücklicherweise haben sich die längerfristigen Erwartungen nicht verändert,  das ist sehr gut und sehr wichtig“, sagte Georgiewa. 2026 dürfte die Gesamtinflation weltweit bei 4,4 Prozent liegen und im kommenden Jahr auf 3,7 Prozent abschmelzen. Damit würden die Werte deutlich über dem Zielwert von 2,0 Prozent liegen, den viele Zentralbanken auf dem Zettel haben.</p>\r\n<p>Zentralbanken wie die Federal Reserve und die EZB sieht Georgiewa bisher nicht in Zugzwang. „Derzeit ist es sinnvoll abzuwarten und die Lage zu beobachten“, hieß es weiter. Zentralbanken haben unter anderem im Fokus, die Inflation stabil zu halten. Steigt diese, können die Banken diese mit Zinserhöhungen bremsen, das allerdings kann die Wirtschaftsleistung abwürgen.</p>"
+            },
+            "set": {
+                "header": "„Keine reibungslose Rückkehr zur Vorkriegssituation“",
+                "bodytext": "<p>IWF-Chefin Kristalina Georgiewa warnte bereits: „Selbst im besten Fall wird es keine saubere und reibungslose Rückkehr zur Vorkriegssituation geben.“ Das Wachstum werde langsamer ausfallen, „selbst wenn der neue Frieden von Dauer ist“. So dürfte sich das Konjunkturwachstum mittelfristig auf dem neuen Niveau einpendeln und damit deutlich unter dem Durchschnitt von 3,7 Prozent zwischen 2000 und 2019 liegen.</p>\r\n<p>Die IWF-Chefin verwies zudem auf kurzfristige Risiken für ein Hochschnellen der Inflation infolge des Krieges. Die Erwartungen für die Teuerungsrate in den USA und in der Euro-Zone seien bereits deutlich gestiegen. „Glücklicherweise haben sich die längerfristigen Erwartungen nicht verändert,  das ist sehr gut und sehr wichtig“, sagte Georgiewa. 2026 dürfte die Gesamtinflation weltweit bei 4,4 Prozent liegen und im kommenden Jahr auf 3,7 Prozent abschmelzen. Damit würden die Werte deutlich über dem Zielwert von 2,0 Prozent liegen, den viele Zentralbanken auf dem Zettel haben.</p>\r\n<p>Zentralbanken wie die Federal Reserve und die EZB sieht Georgiewa bisher nicht in Zugzwang. „Derzeit ist es sinnvoll abzuwarten und die Lage zu beobachten“, hieß es weiter. Zentralbanken haben unter anderem im Fokus, die Inflation stabil zu halten. Steigt diese, können die Banken diese mit Zinserhöhungen bremsen, das allerdings kann die Wirtschaftsleistung abwürgen.</p>"
+            },
+            "_context": {
+                "page": 90,
+                "pageTitle": "Weltwirtschaft: IWF senkt Prognose und warnt",
+                "element": 1347,
+                "type": "text",
+                "roles": {
+                    "header": "headline",
+                    "bodytext": "body"
+                }
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 1348,
+            "expect": {
+                "CType": "text",
+                "header": "IWF-Chefökonom rät von Preisdeckeln ab",
+                "bodytext": "<p>„Die Weltwirtschaft steht vor einem weiteren schwierigen Test“, sagte IWF-Chefökonom Pierre-Olivier Gourinchas. „Der globale Ausblick hat sich abrupt verdüstert“, so Gourinchas. Gourinchas betonte, Regierungen sollten als Reaktion auf die höheren Spritpreise breite Maßnahmen vermeiden, auch wenn diese populär seien. Als Beispiele nannte er Preisdeckel und neue Subventionen, diese seien oft nicht zielgenau und daher teuer. Das gehe am Ende zu Lasten finanzieller Puffer und einer noch höheren Verschuldung.</p>"
+            },
+            "set": {
+                "header": "IWF-Chefökonom rät von Preisdeckeln ab",
+                "bodytext": "<p>„Die Weltwirtschaft steht vor einem weiteren schwierigen Test“, sagte IWF-Chefökonom Pierre-Olivier Gourinchas. „Der globale Ausblick hat sich abrupt verdüstert“, so Gourinchas. Gourinchas betonte, Regierungen sollten als Reaktion auf die höheren Spritpreise breite Maßnahmen vermeiden, auch wenn diese populär seien. Als Beispiele nannte er Preisdeckel und neue Subventionen, diese seien oft nicht zielgenau und daher teuer. Das gehe am Ende zu Lasten finanzieller Puffer und einer noch höheren Verschuldung.</p>"
+            },
+            "_context": {
+                "page": 90,
+                "pageTitle": "Weltwirtschaft: IWF senkt Prognose und warnt",
+                "element": 1348,
+                "type": "text",
+                "roles": {
+                    "header": "headline",
+                    "bodytext": "body"
+                }
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 1349,
+            "expect": {
+                "CType": "textmedia",
+                "bodytext": "<p><em>IWF-Chefin Kristalina Georgiewa</em></p>\r\n<p><small>© AP/Jose Luis Magana</small></p>\r\n<p><small>Quelle: ORF.at</small></p>"
+            },
+            "set": {
+                "bodytext": "<p><em>IWF-Chefin Kristalina Georgiewa</em></p>\r\n<p><small>© AP/Jose Luis Magana</small></p>\r\n<p><small>Quelle: ORF.at</small></p>"
+            },
+            "_context": {
+                "page": 90,
+                "pageTitle": "Weltwirtschaft: IWF senkt Prognose und warnt",
+                "element": 1349,
+                "type": "textmedia",
+                "roles": {
+                    "bodytext": "body"
+                }
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 752,
+            "expect": {
+                "alternative": "Die IWF Chefin Kristalina Georgieva"
+            },
+            "set": {
+                "alternative": "Die IWF Chefin Kristalina Georgieva"
+            },
+            "_context": {
+                "page": 90,
+                "pageTitle": "Weltwirtschaft: IWF senkt Prognose und warnt",
+                "element": 1349,
+                "type": "textmedia",
+                "roles": {
+                    "alternative": "alt"
+                },
+                "file": "/mcp/workspaces/ws-1/3003227_bigpicture_1161514_iwf_weltwirtschaft_prognose_body_-dcfae6207c89b079.jpg"
+            }
+        }
+    ]
+}

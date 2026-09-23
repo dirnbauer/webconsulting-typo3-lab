@@ -1,0 +1,29 @@
+{
+    "version": 1,
+    "site": "v14-blog",
+    "root": 69,
+    "language": 0,
+    "languageCode": "en",
+    "generated": "2026-09-23T10:11:52+02:00",
+    "records": [
+        {
+            "table": "pages",
+            "uid": 72,
+            "expect": {
+                "title": "Tag"
+            },
+            "set": {
+                "title": "Tag"
+            },
+            "_context": {
+                "page": 72,
+                "pageTitle": "Tag",
+                "element": 72,
+                "type": "pages",
+                "roles": {
+                    "title": "page_title"
+                }
+            }
+        }
+    ]
+}

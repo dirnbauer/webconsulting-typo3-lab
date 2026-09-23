@@ -1,0 +1,460 @@
+{
+    "version": 1,
+    "site": "blog-classico",
+    "root": 15,
+    "language": 0,
+    "languageCode": "de",
+    "generated": "2026-09-23T10:11:10+02:00",
+    "records": [
+        {
+            "table": "pages",
+            "uid": 82,
+            "expect": {
+                "title": "Warum quietschen Turnschuhe? Nature-Studie erklärt den Mechanismus",
+                "nav_title": "Turnschuhe: Warum sie quietschen",
+                "subtitle": "Reibung, Wellen in der Sohle, Tribocharging – aus ORF Science & Nature",
+                "abstract": "Quietschen in der Halle: Forscher zeigen mit Videos, wie Wellen in der Schuhsohle den Ton erzeugen – unabhängig von der Laufgeschwindigkeit. Nature & ORF Science.",
+                "description": "Warum quietschen Turnschuhe in der Sporthalle? Nature-Studie (2026) mit Hochgeschwindigkeitskameras: Wellen in der Sohle, kritische Gleitgeschwindigkeit, Tribocharging. Fakten & ORF-Quelle.",
+                "seo_title": "Warum quietschen Turnschuhe? Nature-Studie erklärt den Mechanismus",
+                "og_title": "Warum quietschen Turnschuhe? Nature-Studie erklärt den Mechanismus",
+                "og_description": "Warum quietschen Turnschuhe in der Sporthalle? Nature-Studie (2026) mit Hochgeschwindigkeitskameras: Wellen in der Sohle, kritische Gleitgeschwindigkeit, Tribocharging. Fakten & ORF-Quelle.",
+                "twitter_title": "Warum quietschen Turnschuhe? Nature-Studie erklärt den Mechanismus",
+                "twitter_description": "Warum quietschen Turnschuhe in der Sporthalle? Nature-Studie (2026) mit Hochgeschwindigkeitskameras: Wellen in der Sohle, kritische Gleitgeschwindigkeit, Tribocharging. Fakten & ORF-Quelle."
+            },
+            "set": {
+                "title": "Warum quietschen Turnschuhe? Nature-Studie erklärt den Mechanismus",
+                "nav_title": "Turnschuhe: Warum sie quietschen",
+                "subtitle": "Reibung, Wellen in der Sohle, Tribocharging – aus ORF Science & Nature",
+                "abstract": "Quietschen in der Halle: Forscher zeigen mit Videos, wie Wellen in der Schuhsohle den Ton erzeugen – unabhängig von der Laufgeschwindigkeit. Nature & ORF Science.",
+                "description": "Warum quietschen Turnschuhe in der Sporthalle? Nature-Studie (2026) mit Hochgeschwindigkeitskameras: Wellen in der Sohle, kritische Gleitgeschwindigkeit, Tribocharging. Fakten & ORF-Quelle.",
+                "seo_title": "Warum quietschen Turnschuhe? Nature-Studie erklärt den Mechanismus",
+                "og_title": "Warum quietschen Turnschuhe? Nature-Studie erklärt den Mechanismus",
+                "og_description": "Warum quietschen Turnschuhe in der Sporthalle? Nature-Studie (2026) mit Hochgeschwindigkeitskameras: Wellen in der Sohle, kritische Gleitgeschwindigkeit, Tribocharging. Fakten & ORF-Quelle.",
+                "twitter_title": "Warum quietschen Turnschuhe? Nature-Studie erklärt den Mechanismus",
+                "twitter_description": "Warum quietschen Turnschuhe in der Sporthalle? Nature-Studie (2026) mit Hochgeschwindigkeitskameras: Wellen in der Sohle, kritische Gleitgeschwindigkeit, Tribocharging. Fakten & ORF-Quelle."
+            },
+            "_context": {
+                "page": 82,
+                "pageTitle": "Warum quietschen Turnschuhe? Nature-Studie erklärt den Mechanismus",
+                "element": 82,
+                "type": "pages",
+                "roles": {
+                    "title": "page_title",
+                    "nav_title": "page_title",
+                    "subtitle": "lead",
+                    "abstract": "lead",
+                    "description": "meta",
+                    "seo_title": "page_title",
+                    "og_title": "page_title",
+                    "og_description": "meta",
+                    "twitter_title": "page_title",
+                    "twitter_description": "meta"
+                }
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 734,
+            "expect": {
+                "alternative": "Visualisierung der Kontaktzone zwischen Basketballschuh und Boden beim Gleiten, ORF Science"
+            },
+            "set": {
+                "alternative": "Visualisierung der Kontaktzone zwischen Basketballschuh und Boden beim Gleiten, ORF Science"
+            },
+            "_context": {
+                "page": 82,
+                "pageTitle": "Warum quietschen Turnschuhe? Nature-Studie erklärt den Mechanismus",
+                "element": 82,
+                "type": "",
+                "roles": {
+                    "alternative": "alt"
+                },
+                "file": "/mcp/workspaces/ws-1/images/orf-schuh-reibung-visualisierung-5ac2ce17a56a067f.jpg"
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 735,
+            "expect": {
+                "alternative": "Visualisierung der Kontaktzone zwischen Basketballschuh und Boden beim Gleiten, ORF Science"
+            },
+            "set": {
+                "alternative": "Visualisierung der Kontaktzone zwischen Basketballschuh und Boden beim Gleiten, ORF Science"
+            },
+            "_context": {
+                "page": 82,
+                "pageTitle": "Warum quietschen Turnschuhe? Nature-Studie erklärt den Mechanismus",
+                "element": 82,
+                "type": "",
+                "roles": {
+                    "alternative": "alt"
+                },
+                "file": "/mcp/workspaces/ws-1/images/orf-schuh-reibung-visualisierung-5ac2ce17a56a067f.jpg"
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 736,
+            "expect": {
+                "alternative": "Basketballschuh auf glänzendem Boden, Titelbild zur Studie über Quietschen von Schuhsohlen (ORF Science)."
+            },
+            "set": {
+                "alternative": "Basketballschuh auf glänzendem Boden, Titelbild zur Studie über Quietschen von Schuhsohlen (ORF Science)."
+            },
+            "_context": {
+                "page": 82,
+                "pageTitle": "Warum quietschen Turnschuhe? Nature-Studie erklärt den Mechanismus",
+                "element": 82,
+                "type": "",
+                "roles": {
+                    "alternative": "alt"
+                },
+                "file": "/mcp/workspaces/ws-1/images/orf-turnschuhe-opener-7f899622826bc7e6.jpeg"
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 10459,
+            "expect": {
+                "CType": "text",
+                "header": "Carpenter als „Künstlerin des Jahres“ nominiert",
+                "bodytext": "<p>Dicht hinter Swift dürfen sich Sabrina Carpenter, Olivia Dean, Sombr und Morgan Wallen jeweils über sieben Nominierungen freuen. Carpenter ist ebenfalls als „Künstlerin des Jahres“ nominiert. Dean und Sombr erhielten ihre ersten AMA-Nominierungen, unter anderem als beste Newcomer.</p>\r\n<p>Zu den weiteren Nominierten gehören die Gesangsstimmen aus dem oscarprämierten Netflix-Animationsmusical „K-Pop Demon Hunters“. Ejae, Audrey Nuna und Rei Ami sind im Rennen in den Kategorien „Song des Jahres“, „Beste Gesangsleistung“ und „Bester Popsong“ für „Golden“. Ein Sieg in einer der Kategorien wäre der erste AMA für die Gruppe.</p>"
+            },
+            "set": {
+                "header": "Carpenter als „Künstlerin des Jahres“ nominiert",
+                "bodytext": "<p>Dicht hinter Swift dürfen sich Sabrina Carpenter, Olivia Dean, Sombr und Morgan Wallen jeweils über sieben Nominierungen freuen. Carpenter ist ebenfalls als „Künstlerin des Jahres“ nominiert. Dean und Sombr erhielten ihre ersten AMA-Nominierungen, unter anderem als beste Newcomer.</p>\r\n<p>Zu den weiteren Nominierten gehören die Gesangsstimmen aus dem oscarprämierten Netflix-Animationsmusical „K-Pop Demon Hunters“. Ejae, Audrey Nuna und Rei Ami sind im Rennen in den Kategorien „Song des Jahres“, „Beste Gesangsleistung“ und „Bester Popsong“ für „Golden“. Ein Sieg in einer der Kategorien wäre der erste AMA für die Gruppe.</p>"
+            },
+            "_context": {
+                "page": 82,
+                "pageTitle": "Warum quietschen Turnschuhe? Nature-Studie erklärt den Mechanismus",
+                "element": 10459,
+                "type": "text",
+                "roles": {
+                    "header": "headline",
+                    "bodytext": "body"
+                }
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 1275,
+            "expect": {
+                "CType": "text",
+                "header": "Kurz erklärt: Warum Quietschen entsteht",
+                "bodytext": "<p><strong>In Kürze</strong></p>\r\n<ul> <li>Winzige Wellen in der Sohle erzeugen den Ton (Schwingung wie bei einer Stimmgabel).</li> <li>Die Tonhöhe hängt vor allem von der Sohle ab, nicht von der Laufgeschwindigkeit.</li> <li>Die Nature-Studie (2026) belegt den Mechanismus mit Hochgeschwindigkeitsvideos.</li> </ul>\r\n<p><strong>Kurz gesagt:</strong> Winzige Wellen rasen mit extrem hoher Geschwindigkeit über die Schuhsohle und lassen sie schwingen – ähnlich wie eine Stimmgabel. So entsteht der charakteristische Ton.</p>\r\n<p><strong>Mehr im Blog:</strong> <a href=\"/autogenerated-15/first-blog-post\">„First blog post“</a> und <a href=\"/autogenerated-15/eggs-in-the-grass-classic-easter-details\">Eggs in the Grass: Classic Easter Details</a> – weitere Beiträge aus derselben Rubrik.</p>\r\n<p>Mithilfe von Hochgeschwindigkeitskameras haben Fachleute das Rätsel um das typische Quietschen von Turnschuhen in Sporthallen gelöst. Dass Turnschuhe auf Holz oder Kunststoff quietschen, ist vielen bekannt – der genaue Mechanismus blieb lange unklar. „Was zwischen Schuh und Boden passiert, ist sehr komplex. Experimentell nachzuweisen, woher das Quietschen genau kommt, ist daher äußerst schwierig“, erklärt der niederländische Reibungsforscher <a href=\"https://arcnl.nl/people/bart-weber\" target=\"_blank\" rel=\"noopener noreferrer\">Bart Weber</a> vom Advanced Research Center for Nanolithography (ARCNL) im Gespräch mit ORF Wissen.</p>\r\n<p>In einer vor Kurzem erschienenen <a href=\"https://www.nature.com/articles/s41586-026-10132-3\" target=\"_blank\" rel=\"noopener noreferrer\">Studie</a> im Fachjournal „Nature“ konnte ein internationales Forschungsteam dieses Rätsel lösen. Mit Hochgeschwindigkeitskameras filmten die Fachleute Basketballschuhe, die über eine Glasplatte rutschen.</p>"
+            },
+            "set": {
+                "header": "Kurz erklärt: Warum Quietschen entsteht",
+                "bodytext": "<p><strong>In Kürze</strong></p>\r\n<ul> <li>Winzige Wellen in der Sohle erzeugen den Ton (Schwingung wie bei einer Stimmgabel).</li> <li>Die Tonhöhe hängt vor allem von der Sohle ab, nicht von der Laufgeschwindigkeit.</li> <li>Die Nature-Studie (2026) belegt den Mechanismus mit Hochgeschwindigkeitsvideos.</li> </ul>\r\n<p><strong>Kurz gesagt:</strong> Winzige Wellen rasen mit extrem hoher Geschwindigkeit über die Schuhsohle und lassen sie schwingen – ähnlich wie eine Stimmgabel. So entsteht der charakteristische Ton.</p>\r\n<p><strong>Mehr im Blog:</strong> <a href=\"/autogenerated-15/first-blog-post\">„First blog post“</a> und <a href=\"/autogenerated-15/eggs-in-the-grass-classic-easter-details\">Eggs in the Grass: Classic Easter Details</a> – weitere Beiträge aus derselben Rubrik.</p>\r\n<p>Mithilfe von Hochgeschwindigkeitskameras haben Fachleute das Rätsel um das typische Quietschen von Turnschuhen in Sporthallen gelöst. Dass Turnschuhe auf Holz oder Kunststoff quietschen, ist vielen bekannt – der genaue Mechanismus blieb lange unklar. „Was zwischen Schuh und Boden passiert, ist sehr komplex. Experimentell nachzuweisen, woher das Quietschen genau kommt, ist daher äußerst schwierig“, erklärt der niederländische Reibungsforscher <a href=\"https://arcnl.nl/people/bart-weber\" target=\"_blank\" rel=\"noopener noreferrer\">Bart Weber</a> vom Advanced Research Center for Nanolithography (ARCNL) im Gespräch mit ORF Wissen.</p>\r\n<p>In einer vor Kurzem erschienenen <a href=\"https://www.nature.com/articles/s41586-026-10132-3\" target=\"_blank\" rel=\"noopener noreferrer\">Studie</a> im Fachjournal „Nature“ konnte ein internationales Forschungsteam dieses Rätsel lösen. Mit Hochgeschwindigkeitskameras filmten die Fachleute Basketballschuhe, die über eine Glasplatte rutschen.</p>"
+            },
+            "_context": {
+                "page": 82,
+                "pageTitle": "Warum quietschen Turnschuhe? Nature-Studie erklärt den Mechanismus",
+                "element": 1275,
+                "type": "text",
+                "roles": {
+                    "header": "headline",
+                    "bodytext": "body"
+                }
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 1276,
+            "expect": {
+                "CType": "textmedia",
+                "header": "Schwingende Sohle: Wellen statt gleichmäßigen Gleitens",
+                "bodytext": "<p>Die Videoaufnahmen zeigen: Die Schuhe gleiten nicht gleichmäßig über den glatten Untergrund. Stattdessen verformen sich die Sohlen; es entstehen wellenartige Impulse, die sich über die Kontaktfläche ausbreiten. „Wie Wellen, die am Strand ankommen, wandern ähnliche Wellen auch durch die Schuhsohle“, so Weber. „Mit jeder Welle bewegt sich der Schuh einen winzigen Bruchteil eines Millimeters weiter. Und das passiert sehr schnell: Die Wellen rasen mit bis zu 300 Stundenkilometern über den Boden.“</p>\r\n<p>Weber selbst war an den Experimenten des Forschungsteams nicht direkt beteiligt, beschäftigt sich aber schon lange mit Reibung zwischen unterschiedlichen Objekten und verfasste einen Begleitartikel zu der Studie im Fachjournal „Nature“. Laut ihm sind es genau diese Wellen in den Schuhsohlen, die für das typische Quietschen verantwortlich sind. Die Sohle beginnt in einem bestimmten Rhythmus zu schwingen – vergleichbar mit einer Stimmgabel – und wird als hochfrequenter Ton hörbar. Jede Sohle hat aufgrund von Dicke, Masse und Steifigkeit eine bevorzugte Schwingungsfrequenz. Bei den in der Studie untersuchten Basketballschuhen lag sie bei etwa 5.000 Hertz.</p>"
+            },
+            "set": {
+                "header": "Schwingende Sohle: Wellen statt gleichmäßigen Gleitens",
+                "bodytext": "<p>Die Videoaufnahmen zeigen: Die Schuhe gleiten nicht gleichmäßig über den glatten Untergrund. Stattdessen verformen sich die Sohlen; es entstehen wellenartige Impulse, die sich über die Kontaktfläche ausbreiten. „Wie Wellen, die am Strand ankommen, wandern ähnliche Wellen auch durch die Schuhsohle“, so Weber. „Mit jeder Welle bewegt sich der Schuh einen winzigen Bruchteil eines Millimeters weiter. Und das passiert sehr schnell: Die Wellen rasen mit bis zu 300 Stundenkilometern über den Boden.“</p>\r\n<p>Weber selbst war an den Experimenten des Forschungsteams nicht direkt beteiligt, beschäftigt sich aber schon lange mit Reibung zwischen unterschiedlichen Objekten und verfasste einen Begleitartikel zu der Studie im Fachjournal „Nature“. Laut ihm sind es genau diese Wellen in den Schuhsohlen, die für das typische Quietschen verantwortlich sind. Die Sohle beginnt in einem bestimmten Rhythmus zu schwingen – vergleichbar mit einer Stimmgabel – und wird als hochfrequenter Ton hörbar. Jede Sohle hat aufgrund von Dicke, Masse und Steifigkeit eine bevorzugte Schwingungsfrequenz. Bei den in der Studie untersuchten Basketballschuhen lag sie bei etwa 5.000 Hertz.</p>"
+            },
+            "_context": {
+                "page": 82,
+                "pageTitle": "Warum quietschen Turnschuhe? Nature-Studie erklärt den Mechanismus",
+                "element": 1276,
+                "type": "textmedia",
+                "roles": {
+                    "header": "headline",
+                    "bodytext": "body"
+                }
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 730,
+            "expect": {
+                "alternative": "Basketballschuh auf glänzendem Boden, Titelbild zur Studie über Quietschen von Schuhsohlen. Quelle: ORF Science / Adobe Stock."
+            },
+            "set": {
+                "alternative": "Basketballschuh auf glänzendem Boden, Titelbild zur Studie über Quietschen von Schuhsohlen. Quelle: ORF Science / Adobe Stock."
+            },
+            "_context": {
+                "page": 82,
+                "pageTitle": "Warum quietschen Turnschuhe? Nature-Studie erklärt den Mechanismus",
+                "element": 1276,
+                "type": "textmedia",
+                "roles": {
+                    "alternative": "alt"
+                },
+                "file": "/mcp/workspaces/ws-1/images/orf-turnschuhe-opener-7f899622826bc7e6.jpeg"
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 737,
+            "expect": {
+                "alternative": "Basketballschuh auf glänzendem Hallenboden; Titelbild zur Studie über Quietschen von Schuhsohlen (ORF Science / Adobe Stock)."
+            },
+            "set": {
+                "alternative": "Basketballschuh auf glänzendem Hallenboden; Titelbild zur Studie über Quietschen von Schuhsohlen (ORF Science / Adobe Stock)."
+            },
+            "_context": {
+                "page": 82,
+                "pageTitle": "Warum quietschen Turnschuhe? Nature-Studie erklärt den Mechanismus",
+                "element": 1276,
+                "type": "textmedia",
+                "roles": {
+                    "alternative": "alt"
+                },
+                "file": "/mcp/workspaces/ws-1/images/orf-turnschuhe-opener-7f899622826bc7e6.jpeg"
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 739,
+            "expect": {
+                "alternative": ""
+            },
+            "set": {
+                "alternative": "Basketballschuh auf glänzendem Boden, Titelbild zur Studie über Quietschen von Schuhsohlen. Quelle: ORF Science / Adobe Stock."
+            },
+            "_context": {
+                "page": 82,
+                "pageTitle": "Warum quietschen Turnschuhe? Nature-Studie erklärt den Mechanismus",
+                "element": 1276,
+                "type": "textmedia",
+                "roles": {
+                    "alternative": "alt"
+                },
+                "file": "/mcp/workspaces/ws-1/images/orf-turnschuhe-opener-7f899622826bc7e6.jpeg"
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 741,
+            "expect": {
+                "alternative": "Basketballschuh auf glänzendem Hallenboden; Titelbild zur Studie über Quietschen von Schuhsohlen (ORF Science / Adobe Stock)."
+            },
+            "set": {
+                "alternative": "Basketballschuh auf glänzendem Hallenboden; Titelbild zur Studie über Quietschen von Schuhsohlen (ORF Science / Adobe Stock)."
+            },
+            "_context": {
+                "page": 82,
+                "pageTitle": "Warum quietschen Turnschuhe? Nature-Studie erklärt den Mechanismus",
+                "element": 1276,
+                "type": "textmedia",
+                "roles": {
+                    "alternative": "alt"
+                },
+                "file": "/mcp/workspaces/ws-1/images/orf-turnschuhe-opener-7f899622826bc7e6.jpeg"
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 1277,
+            "expect": {
+                "CType": "text",
+                "header": "Wann entsteht Quietschen? Geschwindigkeit und Oberfläche",
+                "bodytext": "<p>Die Tonhöhe des Quietschens hängt nicht davon ab, wie schnell der Schuh über die Oberfläche rutscht. Sie wird vor allem durch die mechanischen Eigenschaften der Sohle bestimmt.</p>\r\n<p>Die Gleitgeschwindigkeit entscheidet aber darüber, ob überhaupt ein Quietschen entsteht: Erst ab einer Mindestgeschwindigkeit – der sogenannten <strong>kritischen Gleitgeschwindigkeit</strong> – wird der Ton hörbar. Bei Turnschuhen liegt diese Schwelle typischerweise bei etwa einem Meter pro Sekunde.</p>\r\n<p>Das Forschungsteam verglich außerdem Materialien und Oberflächen: Glatte Gummioberflächen erzeugten eher unregelmäßige Impulse und damit keine klaren Hochfrequenztöne. Strukturierte Oberflächen – etwa das Profil von Sportschuhen – führten zu konsistenten Impulsfrequenzen und damit zum charakteristischen Quietschen.</p>"
+            },
+            "set": {
+                "header": "Wann entsteht Quietschen? Geschwindigkeit und Oberfläche",
+                "bodytext": "<p>Die Tonhöhe des Quietschens hängt nicht davon ab, wie schnell der Schuh über die Oberfläche rutscht. Sie wird vor allem durch die mechanischen Eigenschaften der Sohle bestimmt.</p>\r\n<p>Die Gleitgeschwindigkeit entscheidet aber darüber, ob überhaupt ein Quietschen entsteht: Erst ab einer Mindestgeschwindigkeit – der sogenannten <strong>kritischen Gleitgeschwindigkeit</strong> – wird der Ton hörbar. Bei Turnschuhen liegt diese Schwelle typischerweise bei etwa einem Meter pro Sekunde.</p>\r\n<p>Das Forschungsteam verglich außerdem Materialien und Oberflächen: Glatte Gummioberflächen erzeugten eher unregelmäßige Impulse und damit keine klaren Hochfrequenztöne. Strukturierte Oberflächen – etwa das Profil von Sportschuhen – führten zu konsistenten Impulsfrequenzen und damit zum charakteristischen Quietschen.</p>"
+            },
+            "_context": {
+                "page": 82,
+                "pageTitle": "Warum quietschen Turnschuhe? Nature-Studie erklärt den Mechanismus",
+                "element": 1277,
+                "type": "text",
+                "roles": {
+                    "header": "headline",
+                    "bodytext": "body"
+                }
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 1278,
+            "expect": {
+                "CType": "textmedia",
+                "header": "Reibung zwischen Schuh und Boden im Experiment",
+                "bodytext": "<p>Die Visualisierung zeigt die Reibung zwischen Basketballschuh und Boden beim Gleiten – die physikalische Grundlage für die später im Versuch messbaren und hörbaren Effekte.</p>\r\n<p><em>Bildmaterial aus der Studie; Darstellung der Kontaktzone beim Gleiten (ORF Science / Nature).</em></p>"
+            },
+            "set": {
+                "header": "Reibung zwischen Schuh und Boden im Experiment",
+                "bodytext": "<p>Die Visualisierung zeigt die Reibung zwischen Basketballschuh und Boden beim Gleiten – die physikalische Grundlage für die später im Versuch messbaren und hörbaren Effekte.</p>\r\n<p><em>Bildmaterial aus der Studie; Darstellung der Kontaktzone beim Gleiten (ORF Science / Nature).</em></p>"
+            },
+            "_context": {
+                "page": 82,
+                "pageTitle": "Warum quietschen Turnschuhe? Nature-Studie erklärt den Mechanismus",
+                "element": 1278,
+                "type": "textmedia",
+                "roles": {
+                    "header": "headline",
+                    "bodytext": "body"
+                }
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 731,
+            "expect": {
+                "alternative": "Visualisierung der Wellen und der Kontaktzone zwischen Basketballschuh und Boden beim Gleiten. Quelle: ORF Science."
+            },
+            "set": {
+                "alternative": "Visualisierung der Wellen und der Kontaktzone zwischen Basketballschuh und Boden beim Gleiten. Quelle: ORF Science."
+            },
+            "_context": {
+                "page": 82,
+                "pageTitle": "Warum quietschen Turnschuhe? Nature-Studie erklärt den Mechanismus",
+                "element": 1278,
+                "type": "textmedia",
+                "roles": {
+                    "alternative": "alt"
+                },
+                "file": "/mcp/workspaces/ws-1/images/orf-schuh-reibung-visualisierung-5ac2ce17a56a067f.jpg"
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 738,
+            "expect": {
+                "alternative": "Visualisierung der Wellen und der Kontaktzone zwischen Basketballschuh und Boden beim Gleiten (ORF Science)."
+            },
+            "set": {
+                "alternative": "Visualisierung der Wellen und der Kontaktzone zwischen Basketballschuh und Boden beim Gleiten (ORF Science)."
+            },
+            "_context": {
+                "page": 82,
+                "pageTitle": "Warum quietschen Turnschuhe? Nature-Studie erklärt den Mechanismus",
+                "element": 1278,
+                "type": "textmedia",
+                "roles": {
+                    "alternative": "alt"
+                },
+                "file": "/mcp/workspaces/ws-1/images/orf-schuh-reibung-visualisierung-5ac2ce17a56a067f.jpg"
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 740,
+            "expect": {
+                "alternative": ""
+            },
+            "set": {
+                "alternative": "Visualisierung der Wellen und der Kontaktzone zwischen Basketballschuh und Boden beim Gleiten. Quelle: ORF Science."
+            },
+            "_context": {
+                "page": 82,
+                "pageTitle": "Warum quietschen Turnschuhe? Nature-Studie erklärt den Mechanismus",
+                "element": 1278,
+                "type": "textmedia",
+                "roles": {
+                    "alternative": "alt"
+                },
+                "file": "/mcp/workspaces/ws-1/images/orf-schuh-reibung-visualisierung-5ac2ce17a56a067f.jpg"
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 742,
+            "expect": {
+                "alternative": "Visualisierung der Wellen und der Kontaktzone zwischen Basketballschuh und Boden beim Gleiten (ORF Science)."
+            },
+            "set": {
+                "alternative": "Visualisierung der Wellen und der Kontaktzone zwischen Basketballschuh und Boden beim Gleiten (ORF Science)."
+            },
+            "_context": {
+                "page": 82,
+                "pageTitle": "Warum quietschen Turnschuhe? Nature-Studie erklärt den Mechanismus",
+                "element": 1278,
+                "type": "textmedia",
+                "roles": {
+                    "alternative": "alt"
+                },
+                "file": "/mcp/workspaces/ws-1/images/orf-schuh-reibung-visualisierung-5ac2ce17a56a067f.jpg"
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 1279,
+            "expect": {
+                "CType": "text",
+                "header": "Mehr als Basketball: ein universelles Phänomen",
+                "bodytext": "<p>Die Forschenden zeigten, dass sie durch gezielte Veränderung von Materialeigenschaften und Oberflächenstrukturen die Frequenz bzw. Tonhöhe des Quietschens beeinflussen konnten. Laut Weber könnte das praktischen Nutzen haben: Das Prinzip der schwingenden Sohlen beschränkt sich wahrscheinlich nicht auf Basketballschuhe.</p>\r\n<p>„Fährt man mit dem Auto durch eine Garage mit sehr sauberem, glattem Boden und macht eine Kurve, hört man dasselbe Geräusch – vermutlich durch denselben Mechanismus.“ Auch das Quietschen, wenn ein Finger über einen Luftballon streicht, oder das Geräusch quietschender Fahrradbremsen dürfte auf dem gleichen Prinzip beruhen.</p>\r\n<p>„Ich hoffe wirklich, dass uns dieses Grundverständnis in Zukunft dabei hilft, das Quietschen gezielt zu verhindern, wo wir es nicht wollen – oder es zu verstärken, wo wir es brauchen“, so Weber. Wo Bremsen quietschen, stört es oft; in der Sporthalle kann akustisches Feedback hingegen helfen, sich auf dem Feld zu orientieren – dort könnte gezielte Verstärkung sogar sinnvoll sein.</p>"
+            },
+            "set": {
+                "header": "Mehr als Basketball: ein universelles Phänomen",
+                "bodytext": "<p>Die Forschenden zeigten, dass sie durch gezielte Veränderung von Materialeigenschaften und Oberflächenstrukturen die Frequenz bzw. Tonhöhe des Quietschens beeinflussen konnten. Laut Weber könnte das praktischen Nutzen haben: Das Prinzip der schwingenden Sohlen beschränkt sich wahrscheinlich nicht auf Basketballschuhe.</p>\r\n<p>„Fährt man mit dem Auto durch eine Garage mit sehr sauberem, glattem Boden und macht eine Kurve, hört man dasselbe Geräusch – vermutlich durch denselben Mechanismus.“ Auch das Quietschen, wenn ein Finger über einen Luftballon streicht, oder das Geräusch quietschender Fahrradbremsen dürfte auf dem gleichen Prinzip beruhen.</p>\r\n<p>„Ich hoffe wirklich, dass uns dieses Grundverständnis in Zukunft dabei hilft, das Quietschen gezielt zu verhindern, wo wir es nicht wollen – oder es zu verstärken, wo wir es brauchen“, so Weber. Wo Bremsen quietschen, stört es oft; in der Sporthalle kann akustisches Feedback hingegen helfen, sich auf dem Feld zu orientieren – dort könnte gezielte Verstärkung sogar sinnvoll sein.</p>"
+            },
+            "_context": {
+                "page": 82,
+                "pageTitle": "Warum quietschen Turnschuhe? Nature-Studie erklärt den Mechanismus",
+                "element": 1279,
+                "type": "text",
+                "roles": {
+                    "header": "headline",
+                    "bodytext": "body"
+                }
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 1280,
+            "expect": {
+                "CType": "text",
+                "header": "Lichtblitze und Tribocharging",
+                "bodytext": "<p>Eine weitere Beobachtung aus den Experimenten: Beim Rutschen entstanden an der Grenzfläche zwischen Schuh und Glas kurze Lichtblitze – elektrische Entladungen.</p>\r\n<p>„Wir wissen, dass dieser Effekt existiert und dass man ihn erwarten kann, wenn man isolierende Materialien gegeneinander gleiten lässt“, so Weber. „Aber wir verstehen noch nicht wirklich, wie er im Detail funktioniert oder wie man ihn vorhersagen kann.“ Die Versuche könnten helfen, den als <strong>Tribocharging</strong> bekannten Effekt besser zu verstehen.</p>\r\n<p>Dass man diese Reibungselektrizität nutzen könnte, um etwa beim Sport das Handy zu laden, ist laut Weber derzeit kaum vorstellbar – theoretisch aber möglich. „Es gibt einen ganzen Forschungsbereich, in dem Materialien und Geräte untersucht werden, die sich durch Berühren und Loslassen selbst aufladen könnten. Der langfristige Traum sind Geräte, die im Wesentlichen durch die Bewegung unseres Körpers Energie gewinnen.“</p>"
+            },
+            "set": {
+                "header": "Lichtblitze und Tribocharging",
+                "bodytext": "<p>Eine weitere Beobachtung aus den Experimenten: Beim Rutschen entstanden an der Grenzfläche zwischen Schuh und Glas kurze Lichtblitze – elektrische Entladungen.</p>\r\n<p>„Wir wissen, dass dieser Effekt existiert und dass man ihn erwarten kann, wenn man isolierende Materialien gegeneinander gleiten lässt“, so Weber. „Aber wir verstehen noch nicht wirklich, wie er im Detail funktioniert oder wie man ihn vorhersagen kann.“ Die Versuche könnten helfen, den als <strong>Tribocharging</strong> bekannten Effekt besser zu verstehen.</p>\r\n<p>Dass man diese Reibungselektrizität nutzen könnte, um etwa beim Sport das Handy zu laden, ist laut Weber derzeit kaum vorstellbar – theoretisch aber möglich. „Es gibt einen ganzen Forschungsbereich, in dem Materialien und Geräte untersucht werden, die sich durch Berühren und Loslassen selbst aufladen könnten. Der langfristige Traum sind Geräte, die im Wesentlichen durch die Bewegung unseres Körpers Energie gewinnen.“</p>"
+            },
+            "_context": {
+                "page": 82,
+                "pageTitle": "Warum quietschen Turnschuhe? Nature-Studie erklärt den Mechanismus",
+                "element": 1280,
+                "type": "text",
+                "roles": {
+                    "header": "headline",
+                    "bodytext": "body"
+                }
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 1281,
+            "expect": {
+                "CType": "text",
+                "header": "Quellen, Bildhinweise & weiterführende Links",
+                "bodytext": "<p><em>Grundlage dieses Beitrags ist der ORF-Science-Artikel vom 2. März 2026; er begleitet die Sendungen „Guten Morgen mit Ö1“ und „Wissen aktuell“.</em></p>\r\n<p><strong>Mehr zum Thema (ORF Science)</strong></p>\r\n<ul> <li><a href=\"https://kontakt.orf.at/science\" target=\"_blank\" rel=\"noopener noreferrer\">Kontakt</a></li> <li><a href=\"https://science.orf.at/stories/3228956/\" target=\"_blank\" rel=\"noopener noreferrer\">Material erinnert sich an Kontakte</a></li> <li><a href=\"https://science.orf.at/stories/3234346/\" target=\"_blank\" rel=\"noopener noreferrer\">Ultraschnelle Risse lassen Klebeband „kreischen“</a></li> <li><a href=\"https://science.orf.at/stories/3222766/\" target=\"_blank\" rel=\"noopener noreferrer\">Warum Sektkorken knallen</a></li> </ul>\r\n<p><small><strong>Bilder & Text:</strong> Bildmaterial und Textgrundlage entstammen der ORF-Science-Veröffentlichung. Nutzung hier im Rahmen dieser Demo-Site; für Weiterverwendung bitte Lizenz und <a href=\"https://science.orf.at/stories/3234372/\" target=\"_blank\" rel=\"noopener noreferrer\">Originalquelle bei ORF Science</a> beachten.</small></p>\r\n<p><small>Quelle des Artikeltexts und der Bilder: <a href=\"https://science.orf.at/stories/3234372/\" target=\"_blank\" rel=\"noopener noreferrer\">science.orf.at/stories/3234372/</a></small></p>"
+            },
+            "set": {
+                "header": "Quellen, Bildhinweise & weiterführende Links",
+                "bodytext": "<p><em>Grundlage dieses Beitrags ist der ORF-Science-Artikel vom 2. März 2026; er begleitet die Sendungen „Guten Morgen mit Ö1“ und „Wissen aktuell“.</em></p>\r\n<p><strong>Mehr zum Thema (ORF Science)</strong></p>\r\n<ul> <li><a href=\"https://kontakt.orf.at/science\" target=\"_blank\" rel=\"noopener noreferrer\">Kontakt</a></li> <li><a href=\"https://science.orf.at/stories/3228956/\" target=\"_blank\" rel=\"noopener noreferrer\">Material erinnert sich an Kontakte</a></li> <li><a href=\"https://science.orf.at/stories/3234346/\" target=\"_blank\" rel=\"noopener noreferrer\">Ultraschnelle Risse lassen Klebeband „kreischen“</a></li> <li><a href=\"https://science.orf.at/stories/3222766/\" target=\"_blank\" rel=\"noopener noreferrer\">Warum Sektkorken knallen</a></li> </ul>\r\n<p><small><strong>Bilder & Text:</strong> Bildmaterial und Textgrundlage entstammen der ORF-Science-Veröffentlichung. Nutzung hier im Rahmen dieser Demo-Site; für Weiterverwendung bitte Lizenz und <a href=\"https://science.orf.at/stories/3234372/\" target=\"_blank\" rel=\"noopener noreferrer\">Originalquelle bei ORF Science</a> beachten.</small></p>\r\n<p><small>Quelle des Artikeltexts und der Bilder: <a href=\"https://science.orf.at/stories/3234372/\" target=\"_blank\" rel=\"noopener noreferrer\">science.orf.at/stories/3234372/</a></small></p>"
+            },
+            "_context": {
+                "page": 82,
+                "pageTitle": "Warum quietschen Turnschuhe? Nature-Studie erklärt den Mechanismus",
+                "element": 1281,
+                "type": "text",
+                "roles": {
+                    "header": "headline",
+                    "bodytext": "body"
+                }
+            }
+        }
+    ]
+}

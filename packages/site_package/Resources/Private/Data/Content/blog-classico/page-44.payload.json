@@ -1,0 +1,1115 @@
+{
+    "version": 1,
+    "site": "blog-classico",
+    "root": 15,
+    "language": 0,
+    "languageCode": "de",
+    "generated": "2026-09-23T10:10:56+02:00",
+    "records": [
+        {
+            "table": "pages",
+            "uid": 44,
+            "expect": {
+                "title": "News Data"
+            },
+            "set": {
+                "title": "News Data"
+            },
+            "_context": {
+                "page": 44,
+                "pageTitle": "News Data",
+                "element": 44,
+                "type": "pages",
+                "roles": {
+                    "title": "page_title"
+                }
+            }
+        },
+        {
+            "table": "tx_news_domain_model_news",
+            "uid": 1,
+            "expect": {
+                "title": "Town Easter Egg Hunt Opens With Record Signups",
+                "teaser": "Families have filled every slot for this weekend's Easter egg hunt, with organizers adding extra search zones and pastel clue stations.",
+                "bodytext": "The annual Easter egg hunt on the town meadow has drawn its strongest early response yet. Organizers say the event will open with separate search rounds for small children, families, and older participants so everyone has enough space to enjoy the activity. Volunteers spent the week preparing colorful markers, baskets, and surprise stations that turn the hunt into a full spring outing. Local cafes and shops are also extending their opening hours to welcome visitors after the first morning round.",
+                "description": "Record signups set the tone for this year's Easter egg hunt."
+            },
+            "set": {
+                "title": "Town Easter Egg Hunt Opens With Record Signups",
+                "teaser": "Families have filled every slot for this weekend's Easter egg hunt, with organizers adding extra search zones and pastel clue stations.",
+                "bodytext": "The annual Easter egg hunt on the town meadow has drawn its strongest early response yet. Organizers say the event will open with separate search rounds for small children, families, and older participants so everyone has enough space to enjoy the activity. Volunteers spent the week preparing colorful markers, baskets, and surprise stations that turn the hunt into a full spring outing. Local cafes and shops are also extending their opening hours to welcome visitors after the first morning round.",
+                "description": "Record signups set the tone for this year's Easter egg hunt."
+            },
+            "_context": {
+                "page": 44,
+                "pageTitle": "News Data",
+                "element": 1,
+                "type": "tx_news_domain_model_news",
+                "roles": {
+                    "title": "headline",
+                    "teaser": "lead",
+                    "bodytext": "body",
+                    "description": "card"
+                }
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 70,
+            "expect": {
+                "alternative": ""
+            },
+            "set": {
+                "alternative": "Easter eggs hidden amongst grass and purple flowers"
+            },
+            "_context": {
+                "page": 44,
+                "pageTitle": "News Data",
+                "element": 1,
+                "type": "tx_news_domain_model_news",
+                "roles": {
+                    "alternative": "alt"
+                },
+                "file": "/mcp/workspaces/ws-1/news/easter-eggs-01-8f3a1ada35cb1ae3.jpg"
+            }
+        },
+        {
+            "table": "tx_news_domain_model_news",
+            "uid": 2,
+            "expect": {
+                "title": "Natural Egg Dye Workshop Adds Second Session",
+                "teaser": "A hands-on workshop focused on natural egg dyes has expanded after the first session sold out within hours.",
+                "bodytext": "Interest in natural egg coloring continues to grow as families look for simple traditions with a handmade feel. The workshop covers onion skins, turmeric, beetroot, and herbs, with instructors sharing methods that create soft tones and layered textures. Participants will leave with finished eggs, a short guide for home use, and ideas for setting a spring table with minimal waste. The added session gives more visitors a chance to try techniques that are easy to repeat over the holiday weekend.",
+                "description": "A popular natural dye class expands to meet Easter demand."
+            },
+            "set": {
+                "title": "Natural Egg Dye Workshop Adds Second Session",
+                "teaser": "A hands-on workshop focused on natural egg dyes has expanded after the first session sold out within hours.",
+                "bodytext": "Interest in natural egg coloring continues to grow as families look for simple traditions with a handmade feel. The workshop covers onion skins, turmeric, beetroot, and herbs, with instructors sharing methods that create soft tones and layered textures. Participants will leave with finished eggs, a short guide for home use, and ideas for setting a spring table with minimal waste. The added session gives more visitors a chance to try techniques that are easy to repeat over the holiday weekend.",
+                "description": "A popular natural dye class expands to meet Easter demand."
+            },
+            "_context": {
+                "page": 44,
+                "pageTitle": "News Data",
+                "element": 2,
+                "type": "tx_news_domain_model_news",
+                "roles": {
+                    "title": "headline",
+                    "teaser": "lead",
+                    "bodytext": "body",
+                    "description": "card"
+                }
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 68,
+            "expect": {
+                "alternative": ""
+            },
+            "set": {
+                "alternative": "A bunch of eggs that are in the grass"
+            },
+            "_context": {
+                "page": 44,
+                "pageTitle": "News Data",
+                "element": 2,
+                "type": "tx_news_domain_model_news",
+                "roles": {
+                    "alternative": "alt"
+                },
+                "file": "/mcp/workspaces/ws-1/news/easter-eggs-02-1fbbf68da7af8a4e.jpg"
+            }
+        },
+        {
+            "table": "tx_news_domain_model_news",
+            "uid": 3,
+            "expect": {
+                "title": "Local Designers Turn Easter Eggs Into Table Centerpieces",
+                "teaser": "Seasonal stylists are showing how simple painted eggs can anchor modern spring table settings without heavy decoration.",
+                "bodytext": "This year's decorating trend favors clean arrangements, small floral accents, and clusters of eggs in matching color stories. Designers say the goal is not to overcrowd the table but to let a few thoughtful details set the mood. Soft pink, cream, yellow, and pale green remain the most requested shades, especially when paired with ceramic bowls and linen runners. The result feels seasonal, relaxed, and easy to recreate at home for brunch or a holiday lunch.",
+                "description": "Stylists share a softer approach to Easter egg decor."
+            },
+            "set": {
+                "title": "Local Designers Turn Easter Eggs Into Table Centerpieces",
+                "teaser": "Seasonal stylists are showing how simple painted eggs can anchor modern spring table settings without heavy decoration.",
+                "bodytext": "This year's decorating trend favors clean arrangements, small floral accents, and clusters of eggs in matching color stories. Designers say the goal is not to overcrowd the table but to let a few thoughtful details set the mood. Soft pink, cream, yellow, and pale green remain the most requested shades, especially when paired with ceramic bowls and linen runners. The result feels seasonal, relaxed, and easy to recreate at home for brunch or a holiday lunch.",
+                "description": "Stylists share a softer approach to Easter egg decor."
+            },
+            "_context": {
+                "page": 44,
+                "pageTitle": "News Data",
+                "element": 3,
+                "type": "tx_news_domain_model_news",
+                "roles": {
+                    "title": "headline",
+                    "teaser": "lead",
+                    "bodytext": "body",
+                    "description": "card"
+                }
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 69,
+            "expect": {
+                "alternative": ""
+            },
+            "set": {
+                "alternative": "Colorful easter eggs scattered on a white surface"
+            },
+            "_context": {
+                "page": 44,
+                "pageTitle": "News Data",
+                "element": 3,
+                "type": "tx_news_domain_model_news",
+                "roles": {
+                    "alternative": "alt"
+                },
+                "file": "/mcp/workspaces/ws-1/news/easter-eggs-03-4a82f87cc9e2d1d8.jpg"
+            }
+        },
+        {
+            "table": "tx_news_domain_model_news",
+            "uid": 4,
+            "expect": {
+                "title": "Chocolate Speckled Eggs Lead This Season's Sweet Picks",
+                "teaser": "Shops are reporting strong demand for speckled chocolate eggs, with customers favoring small-batch treats and mixed-color boxes.",
+                "bodytext": "Independent confectioners say buyers are looking for Easter sweets that feel playful but still gift-ready. Speckled mini eggs remain the top seller because they work equally well in baskets, table settings, and dessert displays. Several stores have also started pairing chocolate eggs with handwritten notes or small flower bundles, turning a simple purchase into an easy spring gift. Merchants expect another rush as the holiday week gets closer.",
+                "description": "Speckled chocolate eggs are dominating seasonal displays."
+            },
+            "set": {
+                "title": "Chocolate Speckled Eggs Lead This Season's Sweet Picks",
+                "teaser": "Shops are reporting strong demand for speckled chocolate eggs, with customers favoring small-batch treats and mixed-color boxes.",
+                "bodytext": "Independent confectioners say buyers are looking for Easter sweets that feel playful but still gift-ready. Speckled mini eggs remain the top seller because they work equally well in baskets, table settings, and dessert displays. Several stores have also started pairing chocolate eggs with handwritten notes or small flower bundles, turning a simple purchase into an easy spring gift. Merchants expect another rush as the holiday week gets closer.",
+                "description": "Speckled chocolate eggs are dominating seasonal displays."
+            },
+            "_context": {
+                "page": 44,
+                "pageTitle": "News Data",
+                "element": 4,
+                "type": "tx_news_domain_model_news",
+                "roles": {
+                    "title": "headline",
+                    "teaser": "lead",
+                    "bodytext": "body",
+                    "description": "card"
+                }
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 67,
+            "expect": {
+                "alternative": ""
+            },
+            "set": {
+                "alternative": "A pile of colorful, speckled easter eggs"
+            },
+            "_context": {
+                "page": 44,
+                "pageTitle": "News Data",
+                "element": 4,
+                "type": "tx_news_domain_model_news",
+                "roles": {
+                    "alternative": "alt"
+                },
+                "file": "/mcp/workspaces/ws-1/news/easter-eggs-04-29165839580c154f.jpg"
+            }
+        },
+        {
+            "table": "tx_news_domain_model_news",
+            "uid": 5,
+            "expect": {
+                "title": "Pastel Egg Display Inspires Minimal Spring Window Trend",
+                "teaser": "Retail windows across the city are leaning into neat rows of pastel eggs for a lighter and more graphic Easter presentation.",
+                "bodytext": "Shop owners say customers respond well to clear color patterns and uncluttered displays. Instead of filling every corner, many windows now feature repeated egg shapes, simple paper backdrops, and just a few floral touches. The approach feels current while still keeping familiar Easter symbols in view. Designers describe the look as cheerful, readable from the street, and especially effective in small storefronts where every visual choice has to work hard.",
+                "description": "Pastel egg rows are defining this year's Easter windows."
+            },
+            "set": {
+                "title": "Pastel Egg Display Inspires Minimal Spring Window Trend",
+                "teaser": "Retail windows across the city are leaning into neat rows of pastel eggs for a lighter and more graphic Easter presentation.",
+                "bodytext": "Shop owners say customers respond well to clear color patterns and uncluttered displays. Instead of filling every corner, many windows now feature repeated egg shapes, simple paper backdrops, and just a few floral touches. The approach feels current while still keeping familiar Easter symbols in view. Designers describe the look as cheerful, readable from the street, and especially effective in small storefronts where every visual choice has to work hard.",
+                "description": "Pastel egg rows are defining this year's Easter windows."
+            },
+            "_context": {
+                "page": 44,
+                "pageTitle": "News Data",
+                "element": 5,
+                "type": "tx_news_domain_model_news",
+                "roles": {
+                    "title": "headline",
+                    "teaser": "lead",
+                    "bodytext": "body",
+                    "description": "card"
+                }
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 71,
+            "expect": {
+                "alternative": ""
+            },
+            "set": {
+                "alternative": "Easter eggs are arranged in neat, colorful rows"
+            },
+            "_context": {
+                "page": 44,
+                "pageTitle": "News Data",
+                "element": 5,
+                "type": "tx_news_domain_model_news",
+                "roles": {
+                    "alternative": "alt"
+                },
+                "file": "/mcp/workspaces/ws-1/news/easter-eggs-05-beb9819afc221945.jpg"
+            }
+        },
+        {
+            "table": "tx_news_domain_model_news",
+            "uid": 6,
+            "expect": {
+                "title": "Classic Basket Styling Returns for Easter Weekend",
+                "teaser": "Florists and home shops are seeing a comeback in traditional nest-style baskets filled with eggs, ribbon, and fresh greens.",
+                "bodytext": "<p>After several seasons of bold novelty decor, many households are returning to softer, more traditional Easter pieces. Basket arrangements with eggs, ribbon, and seasonal greens are proving especially popular because they work as gifts and centerpieces at the same time. Retailers say customers appreciate decorations that feel warm and familiar without becoming too formal. The renewed interest suggests classic Easter styling still has wide appeal when kept simple and well balanced.</p>",
+                "description": "Traditional basket arrangements are back in demand."
+            },
+            "set": {
+                "title": "Classic Basket Styling Returns for Easter Weekend",
+                "teaser": "Florists and home shops are seeing a comeback in traditional nest-style baskets filled with eggs, ribbon, and fresh greens.",
+                "bodytext": "<p>After several seasons of bold novelty decor, many households are returning to softer, more traditional Easter pieces. Basket arrangements with eggs, ribbon, and seasonal greens are proving especially popular because they work as gifts and centerpieces at the same time. Retailers say customers appreciate decorations that feel warm and familiar without becoming too formal. The renewed interest suggests classic Easter styling still has wide appeal when kept simple and well balanced.</p>",
+                "description": "Traditional basket arrangements are back in demand."
+            },
+            "_context": {
+                "page": 44,
+                "pageTitle": "News Data",
+                "element": 6,
+                "type": "tx_news_domain_model_news",
+                "roles": {
+                    "title": "headline",
+                    "teaser": "lead",
+                    "bodytext": "body",
+                    "description": "card"
+                }
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 76,
+            "expect": {
+                "alternative": ""
+            },
+            "set": {
+                "alternative": "Easter Eggs on brown nest"
+            },
+            "_context": {
+                "page": 44,
+                "pageTitle": "News Data",
+                "element": 6,
+                "type": "tx_news_domain_model_news",
+                "roles": {
+                    "alternative": "alt"
+                },
+                "file": "/mcp/workspaces/ws-1/news/easter-eggs-06-5e43922e615fb44f.jpg"
+            }
+        },
+        {
+            "table": "tx_news_domain_model_news",
+            "uid": 7,
+            "expect": {
+                "title": "Photo Series Captures Easter Eggs in Meadow Light",
+                "teaser": "A new spring photo series focuses on Easter eggs placed outdoors, using grass and morning light to create a softer seasonal mood.",
+                "bodytext": "The series has been shared widely for its mix of simple props and natural backgrounds. Instead of staged indoor scenes, the photographer uses grass, shadows, and open space to give the eggs a fresh and airy character. Viewers have responded to the calm tone and the way the images connect Easter traditions with the start of spring. Several community groups are now using similar visual ideas for their own seasonal announcements and invitations.",
+                "description": "Outdoor photography gives Easter egg imagery a calmer tone."
+            },
+            "set": {
+                "title": "Photo Series Captures Easter Eggs in Meadow Light",
+                "teaser": "A new spring photo series focuses on Easter eggs placed outdoors, using grass and morning light to create a softer seasonal mood.",
+                "bodytext": "The series has been shared widely for its mix of simple props and natural backgrounds. Instead of staged indoor scenes, the photographer uses grass, shadows, and open space to give the eggs a fresh and airy character. Viewers have responded to the calm tone and the way the images connect Easter traditions with the start of spring. Several community groups are now using similar visual ideas for their own seasonal announcements and invitations.",
+                "description": "Outdoor photography gives Easter egg imagery a calmer tone."
+            },
+            "_context": {
+                "page": 44,
+                "pageTitle": "News Data",
+                "element": 7,
+                "type": "tx_news_domain_model_news",
+                "roles": {
+                    "title": "headline",
+                    "teaser": "lead",
+                    "bodytext": "body",
+                    "description": "card"
+                }
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 75,
+            "expect": {
+                "alternative": ""
+            },
+            "set": {
+                "alternative": "A group of eggs sitting on top of a lush green field"
+            },
+            "_context": {
+                "page": 44,
+                "pageTitle": "News Data",
+                "element": 7,
+                "type": "tx_news_domain_model_news",
+                "roles": {
+                    "alternative": "alt"
+                },
+                "file": "/mcp/workspaces/ws-1/news/easter-eggs-07-61ca7bb63c0b5275.jpg"
+            }
+        },
+        {
+            "table": "tx_news_domain_model_news",
+            "uid": 8,
+            "expect": {
+                "title": "Playful Painted Faces Make Easter Crafts More Personal",
+                "teaser": "Craft studios say decorated eggs with drawn faces and simple expressions are becoming a favorite activity for children and adults alike.",
+                "bodytext": "This playful style keeps supplies to a minimum while giving each egg a distinct personality. Workshop leaders say it works well for mixed-age groups because the designs can stay simple or become more detailed depending on the time available. Parents also like that the finished eggs become conversation pieces during brunch or family visits. The trend blends humor with tradition and adds a handmade touch without requiring advanced painting skills.",
+                "description": "Face-painted eggs bring humor and personality to Easter crafts."
+            },
+            "set": {
+                "title": "Playful Painted Faces Make Easter Crafts More Personal",
+                "teaser": "Craft studios say decorated eggs with drawn faces and simple expressions are becoming a favorite activity for children and adults alike.",
+                "bodytext": "This playful style keeps supplies to a minimum while giving each egg a distinct personality. Workshop leaders say it works well for mixed-age groups because the designs can stay simple or become more detailed depending on the time available. Parents also like that the finished eggs become conversation pieces during brunch or family visits. The trend blends humor with tradition and adds a handmade touch without requiring advanced painting skills.",
+                "description": "Face-painted eggs bring humor and personality to Easter crafts."
+            },
+            "_context": {
+                "page": 44,
+                "pageTitle": "News Data",
+                "element": 8,
+                "type": "tx_news_domain_model_news",
+                "roles": {
+                    "title": "headline",
+                    "teaser": "lead",
+                    "bodytext": "body",
+                    "description": "card"
+                }
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 73,
+            "expect": {
+                "alternative": ""
+            },
+            "set": {
+                "alternative": "A group of eggs with faces drawn on them"
+            },
+            "_context": {
+                "page": 44,
+                "pageTitle": "News Data",
+                "element": 8,
+                "type": "tx_news_domain_model_news",
+                "roles": {
+                    "alternative": "alt"
+                },
+                "file": "/mcp/workspaces/ws-1/news/easter-eggs-08-83f0f5d2455d54d7.jpg"
+            }
+        },
+        {
+            "table": "tx_news_domain_model_news",
+            "uid": 9,
+            "expect": {
+                "title": "Pastel Egg Palette Shapes This Year's Brunch Decor",
+                "teaser": "Soft blue, blush, mint, and cream are defining Easter brunch tables, with eggs used as the main color anchor.",
+                "bodytext": "Decorators say pastel eggs make it easy to build a full holiday palette without buying too many new pieces. Once the eggs are chosen, napkins, flowers, and serving details can follow the same tone family for a clean and coordinated look. The result works especially well for daytime gatherings where natural light helps the colors feel fresh rather than overly themed. Hosts continue to favor setups that are festive but still calm enough for a long brunch with guests.",
+                "description": "Pastel eggs are driving Easter brunch color choices."
+            },
+            "set": {
+                "title": "Pastel Egg Palette Shapes This Year's Brunch Decor",
+                "teaser": "Soft blue, blush, mint, and cream are defining Easter brunch tables, with eggs used as the main color anchor.",
+                "bodytext": "Decorators say pastel eggs make it easy to build a full holiday palette without buying too many new pieces. Once the eggs are chosen, napkins, flowers, and serving details can follow the same tone family for a clean and coordinated look. The result works especially well for daytime gatherings where natural light helps the colors feel fresh rather than overly themed. Hosts continue to favor setups that are festive but still calm enough for a long brunch with guests.",
+                "description": "Pastel eggs are driving Easter brunch color choices."
+            },
+            "_context": {
+                "page": 44,
+                "pageTitle": "News Data",
+                "element": 9,
+                "type": "tx_news_domain_model_news",
+                "roles": {
+                    "title": "headline",
+                    "teaser": "lead",
+                    "bodytext": "body",
+                    "description": "card"
+                }
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 72,
+            "expect": {
+                "alternative": ""
+            },
+            "set": {
+                "alternative": "Easter eggs arranged on pastel background"
+            },
+            "_context": {
+                "page": 44,
+                "pageTitle": "News Data",
+                "element": 9,
+                "type": "tx_news_domain_model_news",
+                "roles": {
+                    "alternative": "alt"
+                },
+                "file": "/mcp/workspaces/ws-1/news/easter-eggs-09-c4903308e990a5d8.jpg"
+            }
+        },
+        {
+            "table": "tx_news_domain_model_news",
+            "uid": 10,
+            "expect": {
+                "title": "Circular Egg Arrangements Offer a New Centerpiece Idea",
+                "teaser": "Home stylists are recommending round egg arrangements for Easter tables because they feel balanced, modern, and easy to scale.",
+                "bodytext": "A circular arrangement uses repetition to create visual impact without much effort. Designers often place six or eight eggs around a candle, a small vase, or a serving dish to turn ordinary tableware into a seasonal focal point. The format is flexible enough for both large lunches and small family breakfasts. It also encourages reuse, since the eggs can move from the table to shelves, baskets, or window displays after the meal.",
+                "description": "Circular egg layouts bring structure to Easter tables."
+            },
+            "set": {
+                "title": "Circular Egg Arrangements Offer a New Centerpiece Idea",
+                "teaser": "Home stylists are recommending round egg arrangements for Easter tables because they feel balanced, modern, and easy to scale.",
+                "bodytext": "A circular arrangement uses repetition to create visual impact without much effort. Designers often place six or eight eggs around a candle, a small vase, or a serving dish to turn ordinary tableware into a seasonal focal point. The format is flexible enough for both large lunches and small family breakfasts. It also encourages reuse, since the eggs can move from the table to shelves, baskets, or window displays after the meal.",
+                "description": "Circular egg layouts bring structure to Easter tables."
+            },
+            "_context": {
+                "page": 44,
+                "pageTitle": "News Data",
+                "element": 10,
+                "type": "tx_news_domain_model_news",
+                "roles": {
+                    "title": "headline",
+                    "teaser": "lead",
+                    "bodytext": "body",
+                    "description": "card"
+                }
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 74,
+            "expect": {
+                "alternative": ""
+            },
+            "set": {
+                "alternative": "Six colorful easter eggs arranged in a circle"
+            },
+            "_context": {
+                "page": 44,
+                "pageTitle": "News Data",
+                "element": 10,
+                "type": "tx_news_domain_model_news",
+                "roles": {
+                    "alternative": "alt"
+                },
+                "file": "/mcp/workspaces/ws-1/news/easter-eggs-10-b8b40f96bd70edce.jpg"
+            }
+        },
+        {
+            "table": "tx_news_domain_model_news",
+            "uid": 11,
+            "expect": {
+                "title": "Community Hunt Extends Route for Younger Visitors",
+                "teaser": "Organizers have lengthened the youngest age group's route so more children can enjoy a slower Easter egg search with plenty of space.",
+                "bodytext": "Feedback from previous years showed that younger children enjoy the hunt most when the pace stays gentle and the search area feels safe. This time, volunteers have widened pathways, lowered clue boards, and created shaded rest stops along the route. Parents welcomed the changes during preview visits and said the slower format should make the morning more enjoyable for everyone. The update reflects a broader push to make local spring events easier for families to join.",
+                "description": "A family-focused update reshapes the youngest Easter egg route."
+            },
+            "set": {
+                "title": "Community Hunt Extends Route for Younger Visitors",
+                "teaser": "Organizers have lengthened the youngest age group's route so more children can enjoy a slower Easter egg search with plenty of space.",
+                "bodytext": "Feedback from previous years showed that younger children enjoy the hunt most when the pace stays gentle and the search area feels safe. This time, volunteers have widened pathways, lowered clue boards, and created shaded rest stops along the route. Parents welcomed the changes during preview visits and said the slower format should make the morning more enjoyable for everyone. The update reflects a broader push to make local spring events easier for families to join.",
+                "description": "A family-focused update reshapes the youngest Easter egg route."
+            },
+            "_context": {
+                "page": 44,
+                "pageTitle": "News Data",
+                "element": 11,
+                "type": "tx_news_domain_model_news",
+                "roles": {
+                    "title": "headline",
+                    "teaser": "lead",
+                    "bodytext": "body",
+                    "description": "card"
+                }
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 79,
+            "expect": {
+                "alternative": ""
+            },
+            "set": {
+                "alternative": "Easter eggs hidden amongst grass and purple flowers"
+            },
+            "_context": {
+                "page": 44,
+                "pageTitle": "News Data",
+                "element": 11,
+                "type": "tx_news_domain_model_news",
+                "roles": {
+                    "alternative": "alt"
+                },
+                "file": "/mcp/workspaces/ws-1/news/easter-eggs-01-8f3a1ada35cb1ae3.jpg"
+            }
+        },
+        {
+            "table": "tx_news_domain_model_news",
+            "uid": 12,
+            "expect": {
+                "title": "Schools Share Easy Egg Dye Recipes for Holiday Break changed",
+                "teaser": "Teachers are sending home short natural dye guides so families can continue Easter egg projects during the school holiday.",
+                "bodytext": "<p>The take-home guides focus on low-cost materials and short steps that children can follow with help from adults. Many schools say the idea grew from classroom interest, where simple experiments with color quickly became one of the most popular spring activities. By sharing recipes before the break, teachers hope to give families a calm indoor activity that still feels seasonal and creative. Parents have responded positively to crafts that connect school learning with holiday traditions.</p>",
+                "description": "Schools are extending Easter egg craft ideas into the holiday break."
+            },
+            "set": {
+                "title": "Schools Share Easy Egg Dye Recipes for Holiday Break changed",
+                "teaser": "Teachers are sending home short natural dye guides so families can continue Easter egg projects during the school holiday.",
+                "bodytext": "<p>The take-home guides focus on low-cost materials and short steps that children can follow with help from adults. Many schools say the idea grew from classroom interest, where simple experiments with color quickly became one of the most popular spring activities. By sharing recipes before the break, teachers hope to give families a calm indoor activity that still feels seasonal and creative. Parents have responded positively to crafts that connect school learning with holiday traditions.</p>",
+                "description": "Schools are extending Easter egg craft ideas into the holiday break."
+            },
+            "_context": {
+                "page": 44,
+                "pageTitle": "News Data",
+                "element": 12,
+                "type": "tx_news_domain_model_news",
+                "roles": {
+                    "title": "headline",
+                    "teaser": "lead",
+                    "bodytext": "body",
+                    "description": "card"
+                }
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 78,
+            "expect": {
+                "alternative": ""
+            },
+            "set": {
+                "alternative": "A bunch of eggs that are in the grass"
+            },
+            "_context": {
+                "page": 44,
+                "pageTitle": "News Data",
+                "element": 12,
+                "type": "tx_news_domain_model_news",
+                "roles": {
+                    "alternative": "alt"
+                },
+                "file": "/mcp/workspaces/ws-1/news/easter-eggs-02-1fbbf68da7af8a4e.jpg"
+            }
+        },
+        {
+            "table": "tx_news_domain_model_news",
+            "uid": 13,
+            "expect": {
+                "title": "Flat-Lay Egg Photos Become a Favorite for Spring Menus",
+                "teaser": "Restaurants and cafes are using clean egg flat-lays in seasonal menus and social posts to signal Easter specials.",
+                "bodytext": "Creative teams say egg photography works well because it is instantly recognizable and easy to adapt to different brand styles. Some choose bright flat-lays for playful brunch offers, while others lean into muted tones for more elegant holiday menus. The format also performs well online, where simple compositions remain readable even on smaller screens. For many venues, a few carefully styled eggs now carry most of the visual storytelling for Easter week.",
+                "description": "Styled egg photography is leading Easter menu visuals."
+            },
+            "set": {
+                "title": "Flat-Lay Egg Photos Become a Favorite for Spring Menus",
+                "teaser": "Restaurants and cafes are using clean egg flat-lays in seasonal menus and social posts to signal Easter specials.",
+                "bodytext": "Creative teams say egg photography works well because it is instantly recognizable and easy to adapt to different brand styles. Some choose bright flat-lays for playful brunch offers, while others lean into muted tones for more elegant holiday menus. The format also performs well online, where simple compositions remain readable even on smaller screens. For many venues, a few carefully styled eggs now carry most of the visual storytelling for Easter week.",
+                "description": "Styled egg photography is leading Easter menu visuals."
+            },
+            "_context": {
+                "page": 44,
+                "pageTitle": "News Data",
+                "element": 13,
+                "type": "tx_news_domain_model_news",
+                "roles": {
+                    "title": "headline",
+                    "teaser": "lead",
+                    "bodytext": "body",
+                    "description": "card"
+                }
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 80,
+            "expect": {
+                "alternative": ""
+            },
+            "set": {
+                "alternative": "Colorful easter eggs scattered on a white surface"
+            },
+            "_context": {
+                "page": 44,
+                "pageTitle": "News Data",
+                "element": 13,
+                "type": "tx_news_domain_model_news",
+                "roles": {
+                    "alternative": "alt"
+                },
+                "file": "/mcp/workspaces/ws-1/news/easter-eggs-03-4a82f87cc9e2d1d8.jpg"
+            }
+        },
+        {
+            "table": "tx_news_domain_model_news",
+            "uid": 14,
+            "expect": {
+                "title": "Sweet Shops Build Gift Boxes Around Mini Eggs",
+                "teaser": "Gift boxes centered on small Easter eggs are replacing larger novelty items in many spring displays.",
+                "bodytext": "Retailers say customers increasingly prefer compact seasonal gifts that feel thoughtful without being excessive. Mini eggs fit easily into curated boxes with tea, candles, biscuits, or handwritten notes, making them ideal for small holiday gestures. Because the eggs add color and a clear Easter signal, shops can keep the rest of the packaging understated. The shift points to a more practical style of seasonal gifting that still leaves room for charm.",
+                "description": "Mini eggs are becoming the anchor of small Easter gift boxes."
+            },
+            "set": {
+                "title": "Sweet Shops Build Gift Boxes Around Mini Eggs",
+                "teaser": "Gift boxes centered on small Easter eggs are replacing larger novelty items in many spring displays.",
+                "bodytext": "Retailers say customers increasingly prefer compact seasonal gifts that feel thoughtful without being excessive. Mini eggs fit easily into curated boxes with tea, candles, biscuits, or handwritten notes, making them ideal for small holiday gestures. Because the eggs add color and a clear Easter signal, shops can keep the rest of the packaging understated. The shift points to a more practical style of seasonal gifting that still leaves room for charm.",
+                "description": "Mini eggs are becoming the anchor of small Easter gift boxes."
+            },
+            "_context": {
+                "page": 44,
+                "pageTitle": "News Data",
+                "element": 14,
+                "type": "tx_news_domain_model_news",
+                "roles": {
+                    "title": "headline",
+                    "teaser": "lead",
+                    "bodytext": "body",
+                    "description": "card"
+                }
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 77,
+            "expect": {
+                "alternative": ""
+            },
+            "set": {
+                "alternative": "A pile of colorful, speckled easter eggs"
+            },
+            "_context": {
+                "page": 44,
+                "pageTitle": "News Data",
+                "element": 14,
+                "type": "tx_news_domain_model_news",
+                "roles": {
+                    "alternative": "alt"
+                },
+                "file": "/mcp/workspaces/ws-1/news/easter-eggs-04-29165839580c154f.jpg"
+            }
+        },
+        {
+            "table": "tx_news_domain_model_news",
+            "uid": 15,
+            "expect": {
+                "title": "Window Designers Favor Repetition Over Heavy Ornament",
+                "teaser": "Neat repeated egg shapes are replacing crowded seasonal props in this year's Easter storefront concepts.",
+                "bodytext": "Design studios explain that repeated forms make windows easier to read from a distance and create a stronger visual rhythm. Easter eggs are especially effective because they are instantly seasonal while still abstract enough to use in modern layouts. This cleaner direction also lowers production time, which is welcome for smaller retailers managing several campaigns at once. The result is a practical design choice that still feels fresh and festive.",
+                "description": "Repeated egg motifs are simplifying Easter retail design."
+            },
+            "set": {
+                "title": "Window Designers Favor Repetition Over Heavy Ornament",
+                "teaser": "Neat repeated egg shapes are replacing crowded seasonal props in this year's Easter storefront concepts.",
+                "bodytext": "Design studios explain that repeated forms make windows easier to read from a distance and create a stronger visual rhythm. Easter eggs are especially effective because they are instantly seasonal while still abstract enough to use in modern layouts. This cleaner direction also lowers production time, which is welcome for smaller retailers managing several campaigns at once. The result is a practical design choice that still feels fresh and festive.",
+                "description": "Repeated egg motifs are simplifying Easter retail design."
+            },
+            "_context": {
+                "page": 44,
+                "pageTitle": "News Data",
+                "element": 15,
+                "type": "tx_news_domain_model_news",
+                "roles": {
+                    "title": "headline",
+                    "teaser": "lead",
+                    "bodytext": "body",
+                    "description": "card"
+                }
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 81,
+            "expect": {
+                "alternative": ""
+            },
+            "set": {
+                "alternative": "Easter eggs are arranged in neat, colorful rows"
+            },
+            "_context": {
+                "page": 44,
+                "pageTitle": "News Data",
+                "element": 15,
+                "type": "tx_news_domain_model_news",
+                "roles": {
+                    "alternative": "alt"
+                },
+                "file": "/mcp/workspaces/ws-1/news/easter-eggs-05-beb9819afc221945.jpg"
+            }
+        },
+        {
+            "table": "tx_news_domain_model_news",
+            "uid": 16,
+            "expect": {
+                "title": "Basket Makers See Early Easter Demand From Local Markets",
+                "teaser": "Handmade basket sellers report a strong start to the season as buyers prepare for egg hunts, gifts, and spring table setups.",
+                "bodytext": "Market vendors say early Easter shoppers are looking for sturdy baskets that can work across several uses. A single basket may start the day in an egg hunt, appear later on the table, and then become a storage piece after the holiday ends. That versatility has made woven designs particularly popular this year. Sellers expect demand to remain strong right up to the final weekend, especially as weather forecasts continue to improve.",
+                "description": "Versatile baskets are selling quickly ahead of Easter."
+            },
+            "set": {
+                "title": "Basket Makers See Early Easter Demand From Local Markets",
+                "teaser": "Handmade basket sellers report a strong start to the season as buyers prepare for egg hunts, gifts, and spring table setups.",
+                "bodytext": "Market vendors say early Easter shoppers are looking for sturdy baskets that can work across several uses. A single basket may start the day in an egg hunt, appear later on the table, and then become a storage piece after the holiday ends. That versatility has made woven designs particularly popular this year. Sellers expect demand to remain strong right up to the final weekend, especially as weather forecasts continue to improve.",
+                "description": "Versatile baskets are selling quickly ahead of Easter."
+            },
+            "_context": {
+                "page": 44,
+                "pageTitle": "News Data",
+                "element": 16,
+                "type": "tx_news_domain_model_news",
+                "roles": {
+                    "title": "headline",
+                    "teaser": "lead",
+                    "bodytext": "body",
+                    "description": "card"
+                }
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 82,
+            "expect": {
+                "alternative": ""
+            },
+            "set": {
+                "alternative": "Easter Eggs on brown nest"
+            },
+            "_context": {
+                "page": 44,
+                "pageTitle": "News Data",
+                "element": 16,
+                "type": "tx_news_domain_model_news",
+                "roles": {
+                    "alternative": "alt"
+                },
+                "file": "/mcp/workspaces/ws-1/news/easter-eggs-06-5e43922e615fb44f.jpg"
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 87,
+            "expect": {
+                "alternative": ""
+            },
+            "set": {
+                "alternative": "Easter Eggs on brown nest"
+            },
+            "_context": {
+                "page": 44,
+                "pageTitle": "News Data",
+                "element": 16,
+                "type": "tx_news_domain_model_news",
+                "roles": {
+                    "alternative": "alt"
+                },
+                "file": "/mcp/workspaces/ws-1/news/easter-eggs-06-5e43922e615fb44f.jpg"
+            }
+        },
+        {
+            "table": "tx_news_domain_model_news",
+            "uid": 17,
+            "expect": {
+                "title": "Outdoor Egg Setups Bring More Texture to Easter Photos",
+                "teaser": "Photographers are moving egg shoots outdoors to capture grass, shadow, and spring texture in a more natural way.",
+                "bodytext": "Outdoor shoots give Easter images more depth without requiring elaborate props. Grass, moss, and uneven light introduce texture that makes simple eggs feel more dynamic in both editorial and social formats. The style has been especially useful for community groups promoting local hunts, workshops, and seasonal markets. A modest outdoor scene now communicates spring more effectively than a heavily staged studio setup in many cases.",
+                "description": "Natural outdoor texture is reshaping Easter egg photography."
+            },
+            "set": {
+                "title": "Outdoor Egg Setups Bring More Texture to Easter Photos",
+                "teaser": "Photographers are moving egg shoots outdoors to capture grass, shadow, and spring texture in a more natural way.",
+                "bodytext": "Outdoor shoots give Easter images more depth without requiring elaborate props. Grass, moss, and uneven light introduce texture that makes simple eggs feel more dynamic in both editorial and social formats. The style has been especially useful for community groups promoting local hunts, workshops, and seasonal markets. A modest outdoor scene now communicates spring more effectively than a heavily staged studio setup in many cases.",
+                "description": "Natural outdoor texture is reshaping Easter egg photography."
+            },
+            "_context": {
+                "page": 44,
+                "pageTitle": "News Data",
+                "element": 17,
+                "type": "tx_news_domain_model_news",
+                "roles": {
+                    "title": "headline",
+                    "teaser": "lead",
+                    "bodytext": "body",
+                    "description": "card"
+                }
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 84,
+            "expect": {
+                "alternative": ""
+            },
+            "set": {
+                "alternative": "A group of eggs sitting on top of a lush green field"
+            },
+            "_context": {
+                "page": 44,
+                "pageTitle": "News Data",
+                "element": 17,
+                "type": "tx_news_domain_model_news",
+                "roles": {
+                    "alternative": "alt"
+                },
+                "file": "/mcp/workspaces/ws-1/news/easter-eggs-07-61ca7bb63c0b5275.jpg"
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 88,
+            "expect": {
+                "alternative": ""
+            },
+            "set": {
+                "alternative": "A group of eggs sitting on top of a lush green field"
+            },
+            "_context": {
+                "page": 44,
+                "pageTitle": "News Data",
+                "element": 17,
+                "type": "tx_news_domain_model_news",
+                "roles": {
+                    "alternative": "alt"
+                },
+                "file": "/mcp/workspaces/ws-1/news/easter-eggs-07-61ca7bb63c0b5275.jpg"
+            }
+        },
+        {
+            "table": "tx_news_domain_model_news",
+            "uid": 18,
+            "expect": {
+                "title": "Children's Craft Tables Fill With Character Eggs Again",
+                "teaser": "Character-style eggs with faces, ears, and tiny props are returning as one of the easiest crowd-pleasing holiday crafts.",
+                "bodytext": "Craft organizers say the format works because it invites imagination without asking families to buy specialized tools. Marker pens, paper, and a few scraps of ribbon are often enough to turn ordinary eggs into rabbits, chicks, or funny little personalities. The finished pieces also photograph well, making them a favorite for school walls, family albums, and holiday cards. That mix of ease and charm keeps the idea popular year after year.",
+                "description": "Character eggs remain one of the easiest Easter craft wins."
+            },
+            "set": {
+                "title": "Children's Craft Tables Fill With Character Eggs Again",
+                "teaser": "Character-style eggs with faces, ears, and tiny props are returning as one of the easiest crowd-pleasing holiday crafts.",
+                "bodytext": "Craft organizers say the format works because it invites imagination without asking families to buy specialized tools. Marker pens, paper, and a few scraps of ribbon are often enough to turn ordinary eggs into rabbits, chicks, or funny little personalities. The finished pieces also photograph well, making them a favorite for school walls, family albums, and holiday cards. That mix of ease and charm keeps the idea popular year after year.",
+                "description": "Character eggs remain one of the easiest Easter craft wins."
+            },
+            "_context": {
+                "page": 44,
+                "pageTitle": "News Data",
+                "element": 18,
+                "type": "tx_news_domain_model_news",
+                "roles": {
+                    "title": "headline",
+                    "teaser": "lead",
+                    "bodytext": "body",
+                    "description": "card"
+                }
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 83,
+            "expect": {
+                "alternative": ""
+            },
+            "set": {
+                "alternative": "A group of eggs with faces drawn on them"
+            },
+            "_context": {
+                "page": 44,
+                "pageTitle": "News Data",
+                "element": 18,
+                "type": "tx_news_domain_model_news",
+                "roles": {
+                    "alternative": "alt"
+                },
+                "file": "/mcp/workspaces/ws-1/news/easter-eggs-08-83f0f5d2455d54d7.jpg"
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 89,
+            "expect": {
+                "alternative": ""
+            },
+            "set": {
+                "alternative": "A group of eggs with faces drawn on them"
+            },
+            "_context": {
+                "page": 44,
+                "pageTitle": "News Data",
+                "element": 18,
+                "type": "tx_news_domain_model_news",
+                "roles": {
+                    "alternative": "alt"
+                },
+                "file": "/mcp/workspaces/ws-1/news/easter-eggs-08-83f0f5d2455d54d7.jpg"
+            }
+        },
+        {
+            "table": "tx_news_domain_model_news",
+            "uid": 19,
+            "expect": {
+                "title": "Soft Color Stories Continue to Lead Easter Styling",
+                "teaser": "Designers say the most successful Easter setups still start with quiet pastel egg combinations rather than loud contrast.",
+                "bodytext": "When eggs are used as the starting point for a room or a table, the rest of the styling often becomes simpler. A small palette of two to four tones creates enough variation to feel seasonal without losing cohesion. This approach is now showing up in home decor, bakery packaging, event invites, and brunch settings. The egg remains the clearest symbol, but the color story is what gives the final presentation its lasting appeal.",
+                "description": "Pastel-first styling still defines Easter visual trends."
+            },
+            "set": {
+                "title": "Soft Color Stories Continue to Lead Easter Styling",
+                "teaser": "Designers say the most successful Easter setups still start with quiet pastel egg combinations rather than loud contrast.",
+                "bodytext": "When eggs are used as the starting point for a room or a table, the rest of the styling often becomes simpler. A small palette of two to four tones creates enough variation to feel seasonal without losing cohesion. This approach is now showing up in home decor, bakery packaging, event invites, and brunch settings. The egg remains the clearest symbol, but the color story is what gives the final presentation its lasting appeal.",
+                "description": "Pastel-first styling still defines Easter visual trends."
+            },
+            "_context": {
+                "page": 44,
+                "pageTitle": "News Data",
+                "element": 19,
+                "type": "tx_news_domain_model_news",
+                "roles": {
+                    "title": "headline",
+                    "teaser": "lead",
+                    "bodytext": "body",
+                    "description": "card"
+                }
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 86,
+            "expect": {
+                "alternative": ""
+            },
+            "set": {
+                "alternative": "Easter eggs arranged on pastel background"
+            },
+            "_context": {
+                "page": 44,
+                "pageTitle": "News Data",
+                "element": 19,
+                "type": "tx_news_domain_model_news",
+                "roles": {
+                    "alternative": "alt"
+                },
+                "file": "/mcp/workspaces/ws-1/news/easter-eggs-09-c4903308e990a5d8.jpg"
+            }
+        },
+        {
+            "table": "tx_news_domain_model_news",
+            "uid": 20,
+            "expect": {
+                "title": "Round Egg Layouts Prove Popular for Small Gatherings",
+                "teaser": "Compact circular egg layouts are helping hosts decorate smaller Easter tables without sacrificing a festive feel.",
+                "bodytext": "<p>Not every holiday setup has room for a large centerpiece, which is why circular layouts are gaining traction. They can sit around a single plate, vase, or cake stand and still make the table look considered and complete. Hosts also appreciate that the arrangement can be assembled quickly with items they already have at home. It is a useful reminder that a strong Easter mood often comes from placement and color more than from quantity.</p>",
+                "description": "Small Easter tables benefit from compact circular arrangements."
+            },
+            "set": {
+                "title": "Round Egg Layouts Prove Popular for Small Gatherings",
+                "teaser": "Compact circular egg layouts are helping hosts decorate smaller Easter tables without sacrificing a festive feel.",
+                "bodytext": "<p>Not every holiday setup has room for a large centerpiece, which is why circular layouts are gaining traction. They can sit around a single plate, vase, or cake stand and still make the table look considered and complete. Hosts also appreciate that the arrangement can be assembled quickly with items they already have at home. It is a useful reminder that a strong Easter mood often comes from placement and color more than from quantity.</p>",
+                "description": "Small Easter tables benefit from compact circular arrangements."
+            },
+            "_context": {
+                "page": 44,
+                "pageTitle": "News Data",
+                "element": 20,
+                "type": "tx_news_domain_model_news",
+                "roles": {
+                    "title": "headline",
+                    "teaser": "lead",
+                    "bodytext": "body",
+                    "description": "card"
+                }
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 114,
+            "expect": {
+                "CType": "tx_news_domain_model_news",
+                "header": "test2",
+                "bodytext": "<p>test</p>"
+            },
+            "set": {
+                "header": "test2",
+                "bodytext": "<p>test</p>"
+            },
+            "_context": {
+                "page": 44,
+                "pageTitle": "News Data",
+                "element": 20,
+                "type": "tx_news_domain_model_news",
+                "roles": {
+                    "header": "headline",
+                    "bodytext": "body"
+                }
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 115,
+            "expect": {
+                "CType": "tx_news_domain_model_news",
+                "header": "test new",
+                "bodytext": "<p>asf</p>"
+            },
+            "set": {
+                "header": "test new",
+                "bodytext": "<p>asf</p>"
+            },
+            "_context": {
+                "page": 44,
+                "pageTitle": "News Data",
+                "element": 20,
+                "type": "tx_news_domain_model_news",
+                "roles": {
+                    "header": "headline",
+                    "bodytext": "body"
+                }
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 85,
+            "expect": {
+                "alternative": ""
+            },
+            "set": {
+                "alternative": "Six colorful easter eggs arranged in a circle"
+            },
+            "_context": {
+                "page": 44,
+                "pageTitle": "News Data",
+                "element": 20,
+                "type": "tx_news_domain_model_news",
+                "roles": {
+                    "alternative": "alt"
+                },
+                "file": "/mcp/workspaces/ws-1/news/easter-eggs-10-b8b40f96bd70edce.jpg"
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 90,
+            "expect": {
+                "alternative": ""
+            },
+            "set": {
+                "alternative": "Six colorful easter eggs arranged in a circle"
+            },
+            "_context": {
+                "page": 44,
+                "pageTitle": "News Data",
+                "element": 20,
+                "type": "tx_news_domain_model_news",
+                "roles": {
+                    "alternative": "alt"
+                },
+                "file": "/mcp/workspaces/ws-1/news/easter-eggs-10-b8b40f96bd70edce.jpg"
+            }
+        }
+    ]
+}

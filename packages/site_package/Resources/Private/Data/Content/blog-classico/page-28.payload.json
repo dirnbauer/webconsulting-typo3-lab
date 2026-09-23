@@ -1,0 +1,222 @@
+{
+    "version": 1,
+    "site": "blog-classico",
+    "root": 15,
+    "language": 0,
+    "languageCode": "de",
+    "generated": "2026-09-23T10:11:05+02:00",
+    "records": [
+        {
+            "table": "pages",
+            "uid": 28,
+            "expect": {
+                "title": "Chocolate Bunnies and Playful Easter Decor",
+                "subtitle": "A lighter take on festive objects and color",
+                "abstract": "How playful objects make Easter content feel approachable and fun.",
+                "description": "An Easter article about decorative bunnies, sweets, and playful seasonal styling.",
+                "seo_title": "Chocolate Bunnies and Playful Easter Decor",
+                "og_title": "Chocolate Bunnies and Playful Easter Decor",
+                "og_description": "An Easter article about decorative bunnies, sweets, and playful seasonal styling.",
+                "twitter_title": "Chocolate Bunnies and Playful Easter Decor",
+                "twitter_description": "An Easter article about decorative bunnies, sweets, and playful seasonal styling."
+            },
+            "set": {
+                "title": "Chocolate Bunnies and Playful Easter Decor",
+                "subtitle": "A lighter take on festive objects and color",
+                "abstract": "How playful objects make Easter content feel approachable and fun.",
+                "description": "An Easter article about decorative bunnies, sweets, and playful seasonal styling.",
+                "seo_title": "Chocolate Bunnies and Playful Easter Decor",
+                "og_title": "Chocolate Bunnies and Playful Easter Decor",
+                "og_description": "An Easter article about decorative bunnies, sweets, and playful seasonal styling.",
+                "twitter_title": "Chocolate Bunnies and Playful Easter Decor",
+                "twitter_description": "An Easter article about decorative bunnies, sweets, and playful seasonal styling."
+            },
+            "_context": {
+                "page": 28,
+                "pageTitle": "Chocolate Bunnies and Playful Easter Decor",
+                "element": 28,
+                "type": "pages",
+                "roles": {
+                    "title": "page_title",
+                    "subtitle": "lead",
+                    "abstract": "lead",
+                    "description": "meta",
+                    "seo_title": "page_title",
+                    "og_title": "page_title",
+                    "og_description": "meta",
+                    "twitter_title": "page_title",
+                    "twitter_description": "meta"
+                }
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 78,
+            "expect": {
+                "CType": "textmedia",
+                "header": "A little humor helps",
+                "bodytext": "<p>Seasonal content often performs better when it gives people permission to smile. Decorative bunnies and sweets do that naturally. They bring lightness without making the post feel careless.</p>"
+            },
+            "set": {
+                "header": "A little humor helps",
+                "bodytext": "<p>Seasonal content often performs better when it gives people permission to smile. Decorative bunnies and sweets do that naturally. They bring lightness without making the post feel careless.</p>"
+            },
+            "_context": {
+                "page": 28,
+                "pageTitle": "Chocolate Bunnies and Playful Easter Decor",
+                "element": 78,
+                "type": "textmedia",
+                "roles": {
+                    "header": "headline",
+                    "bodytext": "body"
+                }
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 36,
+            "expect": {
+                "alternative": ""
+            },
+            "set": {
+                "alternative": "Easter bunny figure with chocolate eggs"
+            },
+            "_context": {
+                "page": 28,
+                "pageTitle": "Chocolate Bunnies and Playful Easter Decor",
+                "element": 78,
+                "type": "textmedia",
+                "roles": {
+                    "alternative": "alt"
+                },
+                "file": "/mcp/workspaces/ws-1/images/easter-bunny-eggs-snapmaker-220e2d2e5ed3d566.jpg"
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 58,
+            "expect": {
+                "alternative": ""
+            },
+            "set": {
+                "alternative": "Chocolate bunny among daisies on a blue background"
+            },
+            "_context": {
+                "page": 28,
+                "pageTitle": "Chocolate Bunnies and Playful Easter Decor",
+                "element": 78,
+                "type": "textmedia",
+                "roles": {
+                    "alternative": "alt"
+                },
+                "file": "/mcp/workspaces/ws-1/images/chocolate-bunny-daisies-joanna-0fc47c5fbd48f413.jpg"
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 77,
+            "expect": {
+                "CType": "textmedia",
+                "header": "Decor ideas built arounddd sweets and color",
+                "bodytext": "<ul><li>Use one novelty centerpiece rather than many competing objects.</li><li>Pair candy tones with a single neutral background.</li><li>Keep copy short if the image is already lively.</li><li>Mix humor with just enough polish to stay usable.</li></ul>"
+            },
+            "set": {
+                "header": "Decor ideas built arounddd sweets and color",
+                "bodytext": "<ul><li>Use one novelty centerpiece rather than many competing objects.</li><li>Pair candy tones with a single neutral background.</li><li>Keep copy short if the image is already lively.</li><li>Mix humor with just enough polish to stay usable.</li></ul>"
+            },
+            "_context": {
+                "page": 28,
+                "pageTitle": "Chocolate Bunnies and Playful Easter Decor",
+                "element": 77,
+                "type": "textmedia",
+                "roles": {
+                    "header": "headline",
+                    "bodytext": "body"
+                }
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 35,
+            "expect": {
+                "alternative": ""
+            },
+            "set": {
+                "alternative": "Easter bunny figure with chocolate eggs"
+            },
+            "_context": {
+                "page": 28,
+                "pageTitle": "Chocolate Bunnies and Playful Easter Decor",
+                "element": 77,
+                "type": "textmedia",
+                "roles": {
+                    "alternative": "alt"
+                },
+                "file": "/mcp/workspaces/ws-1/images/easter-bunny-eggs-snapmaker-220e2d2e5ed3d566.jpg"
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 59,
+            "expect": {
+                "alternative": ""
+            },
+            "set": {
+                "alternative": "Chocolate Easter bunny with colorful candies"
+            },
+            "_context": {
+                "page": 28,
+                "pageTitle": "Chocolate Bunnies and Playful Easter Decor",
+                "element": 77,
+                "type": "textmedia",
+                "roles": {
+                    "alternative": "alt"
+                },
+                "file": "/mcp/workspaces/ws-1/images/chocolate-bunny-kirsten-frank-bab89a7809a95910.jpg"
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 76,
+            "expect": {
+                "CType": "textmedia",
+                "header": "Playful objects make Easter easier to share",
+                "bodytext": "<p>Chocolate bunnies, bright sweets, and simple decorative figures make Easter instantly readable. They lower the barrier to entry for casual seasonal content because people recognize the mood immediately. A playful object can carry the whole post when the goal is to feel festive, cheerful, and easy to enjoy.</p>"
+            },
+            "set": {
+                "header": "Playful objects make Easter easier to share",
+                "bodytext": "<p>Chocolate bunnies, bright sweets, and simple decorative figures make Easter instantly readable. They lower the barrier to entry for casual seasonal content because people recognize the mood immediately. A playful object can carry the whole post when the goal is to feel festive, cheerful, and easy to enjoy.</p>"
+            },
+            "_context": {
+                "page": 28,
+                "pageTitle": "Chocolate Bunnies and Playful Easter Decor",
+                "element": 76,
+                "type": "textmedia",
+                "roles": {
+                    "header": "headline",
+                    "bodytext": "body"
+                }
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 34,
+            "expect": {
+                "alternative": ""
+            },
+            "set": {
+                "alternative": "Easter bunny figure with chocolate eggs"
+            },
+            "_context": {
+                "page": 28,
+                "pageTitle": "Chocolate Bunnies and Playful Easter Decor",
+                "element": 76,
+                "type": "textmedia",
+                "roles": {
+                    "alternative": "alt"
+                },
+                "file": "/mcp/workspaces/ws-1/images/easter-bunny-eggs-snapmaker-220e2d2e5ed3d566.jpg"
+            }
+        }
+    ]
+}

@@ -1,0 +1,254 @@
+{
+    "version": 1,
+    "site": "typo3-blog",
+    "root": 390,
+    "language": 0,
+    "languageCode": "en",
+    "generated": "2026-09-23T10:12:10+02:00",
+    "records": [
+        {
+            "table": "pages",
+            "uid": 398,
+            "expect": {
+                "title": "EuGH-Urteil: Ungarns LGBTQ-Gesetz verstößt gegen EU-Recht",
+                "nav_title": "EuGH gegen Ungarns LGBTQ-Gesetz",
+                "subtitle": "Blog template coverage entry",
+                "abstract": "Der Europäische Gerichtshof hat entschieden, dass Ungarns sogenanntes „Kinderschutzgesetz“ gegen mehrere Grundrechte und Binnenmarktregeln der EU verstößt.",
+                "description": "Der EuGH urteilt: Ungarns LGBTQ-Gesetz bricht EU-Recht. Wesentliche Bestimmungen verstoßen gegen die Grundrechtecharta und Binnenmarktvorschriften.",
+                "seo_title": "EuGH-Urteil: Ungarns LGBTQ-Gesetz verstößt gegen EU-Recht",
+                "og_title": "EuGH-Urteil: Ungarns LGBTQ-Gesetz verstößt gegen EU-Recht",
+                "og_description": "Der EuGH urteilt: Ungarns LGBTQ-Gesetz bricht EU-Recht. Wesentliche Bestimmungen verstoßen gegen die Grundrechtecharta und Binnenmarktvorschriften.",
+                "twitter_title": "EuGH-Urteil: Ungarns LGBTQ-Gesetz verstößt gegen EU-Recht",
+                "twitter_description": "Der EuGH urteilt: Ungarns LGBTQ-Gesetz bricht EU-Recht. Wesentliche Bestimmungen verstoßen gegen die Grundrechtecharta und Binnenmarktvorschriften."
+            },
+            "set": {
+                "title": "EuGH-Urteil: Ungarns LGBTQ-Gesetz verstößt gegen EU-Recht",
+                "nav_title": "EuGH gegen Ungarns LGBTQ-Gesetz",
+                "subtitle": "Blog template coverage entry",
+                "abstract": "Der Europäische Gerichtshof hat entschieden, dass Ungarns sogenanntes „Kinderschutzgesetz“ gegen mehrere Grundrechte und Binnenmarktregeln der EU verstößt.",
+                "description": "Der EuGH urteilt: Ungarns LGBTQ-Gesetz bricht EU-Recht. Wesentliche Bestimmungen verstoßen gegen die Grundrechtecharta und Binnenmarktvorschriften.",
+                "seo_title": "EuGH-Urteil: Ungarns LGBTQ-Gesetz verstößt gegen EU-Recht",
+                "og_title": "EuGH-Urteil: Ungarns LGBTQ-Gesetz verstößt gegen EU-Recht",
+                "og_description": "Der EuGH urteilt: Ungarns LGBTQ-Gesetz bricht EU-Recht. Wesentliche Bestimmungen verstoßen gegen die Grundrechtecharta und Binnenmarktvorschriften.",
+                "twitter_title": "EuGH-Urteil: Ungarns LGBTQ-Gesetz verstößt gegen EU-Recht",
+                "twitter_description": "Der EuGH urteilt: Ungarns LGBTQ-Gesetz bricht EU-Recht. Wesentliche Bestimmungen verstoßen gegen die Grundrechtecharta und Binnenmarktvorschriften."
+            },
+            "_context": {
+                "page": 398,
+                "pageTitle": "EuGH-Urteil: Ungarns LGBTQ-Gesetz verstößt gegen EU-Recht",
+                "element": 398,
+                "type": "pages",
+                "roles": {
+                    "title": "page_title",
+                    "nav_title": "page_title",
+                    "subtitle": "lead",
+                    "abstract": "lead",
+                    "description": "meta",
+                    "seo_title": "page_title",
+                    "og_title": "page_title",
+                    "og_description": "meta",
+                    "twitter_title": "page_title",
+                    "twitter_description": "meta"
+                }
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 1998,
+            "expect": {
+                "CType": "textmedia",
+                "bodytext": "<p>Der <strong>Europäische Gerichtshof</strong> (EuGH) in Luxemburg hat am Dienstag sein Urteil gegen das hochumstrittene ungarische „Kinderschutzgesetz“ gefällt, mit dem die Rechte von LGBTQ-Menschen sukzessive eingeschränkt wurden. Der EuGH kam zu dem Schluss, dass Ungarn durch die Verabschiedung eines Gesetzes, das LGBTQ-Personen stigmatisiert und marginalisiert, in mehrfacher Hinsicht gegen EU-Recht verstößt.</p>"
+            },
+            "set": {
+                "bodytext": "<p>Der <strong>Europäische Gerichtshof</strong> (EuGH) in Luxemburg hat am Dienstag sein Urteil gegen das hochumstrittene ungarische „Kinderschutzgesetz“ gefällt, mit dem die Rechte von LGBTQ-Menschen sukzessive eingeschränkt wurden. Der EuGH kam zu dem Schluss, dass Ungarn durch die Verabschiedung eines Gesetzes, das LGBTQ-Personen stigmatisiert und marginalisiert, in mehrfacher Hinsicht gegen EU-Recht verstößt.</p>"
+            },
+            "_context": {
+                "page": 398,
+                "pageTitle": "EuGH-Urteil: Ungarns LGBTQ-Gesetz verstößt gegen EU-Recht",
+                "element": 1998,
+                "type": "textmedia",
+                "roles": {
+                    "bodytext": "body"
+                }
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 1161,
+            "expect": {
+                "alternative": "Der Europäische Gerichtshof (EuGH) in Luxemburg"
+            },
+            "set": {
+                "alternative": "Der Europäische Gerichtshof (EuGH) in Luxemburg"
+            },
+            "_context": {
+                "page": 398,
+                "pageTitle": "EuGH-Urteil: Ungarns LGBTQ-Gesetz verstößt gegen EU-Recht",
+                "element": 1998,
+                "type": "textmedia",
+                "roles": {
+                    "alternative": "alt"
+                },
+                "file": "/mcp/workspaces/ws-1/orf-news/eugh-ungarn-lgbtq-b2c4a7b76923c088.jpg"
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 1999,
+            "expect": {
+                "CType": "text",
+                "bodytext": "<p>Dem EuGH zufolge missachtet das Gesetz insbesondere das in der Grundrechtecharta fixierte Verbot der Diskriminierung wegen des Geschlechts und der sexuellen Ausrichtung. Darüber hinaus liege eine Verletzung des Rechts auf Menschenwürde vor. Die fragliche ungarische Gesetzgebung stigmatisiere und marginalisiere „nicht cisgeschlechtliche, einschließlich transgeschlechtliche, und nicht heterosexuelle Personen“, stellte das höchste EU-Gericht fest.</p>\r\n<p>Schon der Titel des Gesetzes („Gesetz Nr. LXXIX von 2021 über ein strengeres Vorgehen gegen pädophile Straftäter und die Änderung bestimmter Gesetze zum Schutz von Kindern“) „bringt sie mit pädophiler Kriminalität in Verbindung, was geeignet ist, diese Stigmatisierung zu verstärken und hassgetriebenes Verhalten ihnen gegenüber zu schüren“.</p>\r\n<p>Es behandle eine Gruppe von Menschen wegen ihrer sexuellen Identität oder ihrer sexuellen Ausrichtung „als eine Gefahr für die Gesellschaft“ und stehe im Widerspruch zur Identität der EU, die sich durch Pluralismus auszeichnet. Der Gerichtshof stellte ferner fest, dass Ungarn im vorliegenden Fall das Recht auf Menschenwürde verletzt. Zudem verstoße das Gesetz gegen die Freiheit, Dienstleistungen zu erbringen, weil Mediendiensteanbieter und Dienstleister unangemessen eingeschränkt werden.</p>"
+            },
+            "set": {
+                "bodytext": "<p>Dem EuGH zufolge missachtet das Gesetz insbesondere das in der Grundrechtecharta fixierte Verbot der Diskriminierung wegen des Geschlechts und der sexuellen Ausrichtung. Darüber hinaus liege eine Verletzung des Rechts auf Menschenwürde vor. Die fragliche ungarische Gesetzgebung stigmatisiere und marginalisiere „nicht cisgeschlechtliche, einschließlich transgeschlechtliche, und nicht heterosexuelle Personen“, stellte das höchste EU-Gericht fest.</p>\r\n<p>Schon der Titel des Gesetzes („Gesetz Nr. LXXIX von 2021 über ein strengeres Vorgehen gegen pädophile Straftäter und die Änderung bestimmter Gesetze zum Schutz von Kindern“) „bringt sie mit pädophiler Kriminalität in Verbindung, was geeignet ist, diese Stigmatisierung zu verstärken und hassgetriebenes Verhalten ihnen gegenüber zu schüren“.</p>\r\n<p>Es behandle eine Gruppe von Menschen wegen ihrer sexuellen Identität oder ihrer sexuellen Ausrichtung „als eine Gefahr für die Gesellschaft“ und stehe im Widerspruch zur Identität der EU, die sich durch Pluralismus auszeichnet. Der Gerichtshof stellte ferner fest, dass Ungarn im vorliegenden Fall das Recht auf Menschenwürde verletzt. Zudem verstoße das Gesetz gegen die Freiheit, Dienstleistungen zu erbringen, weil Mediendiensteanbieter und Dienstleister unangemessen eingeschränkt werden.</p>"
+            },
+            "_context": {
+                "page": 398,
+                "pageTitle": "EuGH-Urteil: Ungarns LGBTQ-Gesetz verstößt gegen EU-Recht",
+                "element": 1999,
+                "type": "text",
+                "roles": {
+                    "bodytext": "body"
+                }
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 2000,
+            "expect": {
+                "CType": "text",
+                "header": "Verbot von LGBTQ-Darstellungen",
+                "bodytext": "<p>Das Gesetz war noch unter dem inzwischen abgewählten rechtspopulistischen Regierungschef Viktor Orban erlassen worden. Es beschränkt oder verbietet Darstellungen gleichgeschlechtlicher Partnerschaften und von Transidentität in Büchern, Fernsehen und anderen Medien. Sie müssen mit dem Hinweis „Verboten für unter 18-Jährige“ versehen werden, Filme dürfen nicht mehr zu Hauptsendezeiten ausgestrahlt werden. Darüber hinaus wurde jede Art von Werbung verboten, in der Homosexuelle oder Transsexuelle als Teil einer Normalität erscheinen.</p>\r\n<p>Das Gesetz galt als besonderes Anliegen von Orban. Seine Regierung begründete das Gesetzespaket mit dem Bestreben, das „Recht der Kinder auf ihre bei der Geburt empfangene geschlechtliche Identität“ schützen zu wollen. Kritikerinnen und Kritiker sahen darin dagegen die Bemühung, im EU-Land eine homofeindliche Zensur nach russischem Vorbild einzuführen.</p>"
+            },
+            "set": {
+                "header": "Verbot von LGBTQ-Darstellungen",
+                "bodytext": "<p>Das Gesetz war noch unter dem inzwischen abgewählten rechtspopulistischen Regierungschef Viktor Orban erlassen worden. Es beschränkt oder verbietet Darstellungen gleichgeschlechtlicher Partnerschaften und von Transidentität in Büchern, Fernsehen und anderen Medien. Sie müssen mit dem Hinweis „Verboten für unter 18-Jährige“ versehen werden, Filme dürfen nicht mehr zu Hauptsendezeiten ausgestrahlt werden. Darüber hinaus wurde jede Art von Werbung verboten, in der Homosexuelle oder Transsexuelle als Teil einer Normalität erscheinen.</p>\r\n<p>Das Gesetz galt als besonderes Anliegen von Orban. Seine Regierung begründete das Gesetzespaket mit dem Bestreben, das „Recht der Kinder auf ihre bei der Geburt empfangene geschlechtliche Identität“ schützen zu wollen. Kritikerinnen und Kritiker sahen darin dagegen die Bemühung, im EU-Land eine homofeindliche Zensur nach russischem Vorbild einzuführen.</p>"
+            },
+            "_context": {
+                "page": 398,
+                "pageTitle": "EuGH-Urteil: Ungarns LGBTQ-Gesetz verstößt gegen EU-Recht",
+                "element": 2000,
+                "type": "text",
+                "roles": {
+                    "header": "headline",
+                    "bodytext": "body"
+                }
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 2001,
+            "expect": {
+                "CType": "text",
+                "header": "Wofür LGBTQ steht",
+                "bodytext": "<p>Die Abkürzung LGBT steht für Lesben, Schwule, Bisexuelle und Transgender. Die Erweiterung auf LGBTQ soll auch queere Menschen sichtbar machen.</p>"
+            },
+            "set": {
+                "header": "Wofür LGBTQ steht",
+                "bodytext": "<p>Die Abkürzung LGBT steht für Lesben, Schwule, Bisexuelle und Transgender. Die Erweiterung auf LGBTQ soll auch queere Menschen sichtbar machen.</p>"
+            },
+            "_context": {
+                "page": 398,
+                "pageTitle": "EuGH-Urteil: Ungarns LGBTQ-Gesetz verstößt gegen EU-Recht",
+                "element": 2001,
+                "type": "text",
+                "roles": {
+                    "header": "headline",
+                    "bodytext": "body"
+                }
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 2002,
+            "expect": {
+                "CType": "text",
+                "header": "Verstoß auf mehreren Ebenen",
+                "bodytext": "<p>Kommissionspräsidentin Ursula von der Leyen hatte das Gesetz als „Schande“ bezeichnet. Die Kommission reichte Klage ein und beantragte festzustellen, dass Ungarn damit auf mehreren Ebenen gegen EU-Recht verstoßen hat: gegen das Recht in Bezug auf den Binnenmarkt für Dienstleistungen, gegen die Datenschutz-Grundverordnung (DSGVO), gegen mehrere Rechte aus der EU-Grundrechtecharta sowie gegen die „Werte, auf die die EU sich gründet“. 16 Mitgliedsländer, darunter Österreich, und das Europaparlament schlossen sich der Klage an.</p>"
+            },
+            "set": {
+                "header": "Verstoß auf mehreren Ebenen",
+                "bodytext": "<p>Kommissionspräsidentin Ursula von der Leyen hatte das Gesetz als „Schande“ bezeichnet. Die Kommission reichte Klage ein und beantragte festzustellen, dass Ungarn damit auf mehreren Ebenen gegen EU-Recht verstoßen hat: gegen das Recht in Bezug auf den Binnenmarkt für Dienstleistungen, gegen die Datenschutz-Grundverordnung (DSGVO), gegen mehrere Rechte aus der EU-Grundrechtecharta sowie gegen die „Werte, auf die die EU sich gründet“. 16 Mitgliedsländer, darunter Österreich, und das Europaparlament schlossen sich der Klage an.</p>"
+            },
+            "_context": {
+                "page": 398,
+                "pageTitle": "EuGH-Urteil: Ungarns LGBTQ-Gesetz verstößt gegen EU-Recht",
+                "element": 2002,
+                "type": "text",
+                "roles": {
+                    "header": "headline",
+                    "bodytext": "body"
+                }
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 2003,
+            "expect": {
+                "CType": "text",
+                "header": "Stetige Verschärfung",
+                "bodytext": "<p>Auch nach 2021 verschärfte Ungarn seine LGBTQ-Politik weiter: Erst vor einem Jahr segnete das Parlament eine Verfassungsänderung ab, die es der Regierung erlaubt, öffentliche Veranstaltungen der LGBTQ-Gemeinschaft wie Pride-Paraden zu verbieten. Durch das Gesetz können Organisatoren und Teilnehmende der Paraden mit Geldstrafen von bis zu 500 Euro belegt werden. Das Gesetz erlaubt auch den Einsatz von Überwachungstechnologie einschließlich Gesichtserkennung, um Teilnehmerinnen und Teilnehmer zu identifizieren.</p>\r\n<p>Trotz des Verbots nahmen im Juni Hunderttausende Demonstrantinnen und Demonstranten am Budapester Pride-Marsch teil. Nach Angaben der Organisatoren war eine Rekordzahl von bis zu 200.000 Menschen dabei. Die Regierung Orban sprach daraufhin von einer Demonstration „auf Befehl Brüssels“.</p>\r\n<p>Seit einem Jahr ist in der ungarischen Verfassung zudem verankert, dass es nur noch zwei Geschlechter gibt. Das Geburtsgeschlecht des Menschen sei eine biologische Gegebenheit, die entweder männlich oder weiblich sein könne. Es sei die Pflicht des Staates, den rechtlichen Schutz dieser natürlichen Ordnung zu garantieren, heißt es darin.</p>"
+            },
+            "set": {
+                "header": "Stetige Verschärfung",
+                "bodytext": "<p>Auch nach 2021 verschärfte Ungarn seine LGBTQ-Politik weiter: Erst vor einem Jahr segnete das Parlament eine Verfassungsänderung ab, die es der Regierung erlaubt, öffentliche Veranstaltungen der LGBTQ-Gemeinschaft wie Pride-Paraden zu verbieten. Durch das Gesetz können Organisatoren und Teilnehmende der Paraden mit Geldstrafen von bis zu 500 Euro belegt werden. Das Gesetz erlaubt auch den Einsatz von Überwachungstechnologie einschließlich Gesichtserkennung, um Teilnehmerinnen und Teilnehmer zu identifizieren.</p>\r\n<p>Trotz des Verbots nahmen im Juni Hunderttausende Demonstrantinnen und Demonstranten am Budapester Pride-Marsch teil. Nach Angaben der Organisatoren war eine Rekordzahl von bis zu 200.000 Menschen dabei. Die Regierung Orban sprach daraufhin von einer Demonstration „auf Befehl Brüssels“.</p>\r\n<p>Seit einem Jahr ist in der ungarischen Verfassung zudem verankert, dass es nur noch zwei Geschlechter gibt. Das Geburtsgeschlecht des Menschen sei eine biologische Gegebenheit, die entweder männlich oder weiblich sein könne. Es sei die Pflicht des Staates, den rechtlichen Schutz dieser natürlichen Ordnung zu garantieren, heißt es darin.</p>"
+            },
+            "_context": {
+                "page": 398,
+                "pageTitle": "EuGH-Urteil: Ungarns LGBTQ-Gesetz verstößt gegen EU-Recht",
+                "element": 2003,
+                "type": "text",
+                "roles": {
+                    "header": "headline",
+                    "bodytext": "body"
+                }
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 2004,
+            "expect": {
+                "CType": "text",
+                "header": "Magyar mit vager Haltung",
+                "bodytext": "<p>Ungarns künftiger Premier Peter Magyar hat angekündigt, nach seinem klaren Wahlsieg das Land zu reformieren und wieder zu einem starken Verbündeten der EU zu machen. Zu Rechten von LGBTQ-Menschen äußerte er sich bisher aber nur vage: „Jeder soll mit demjenigen zusammenleben und denjenigen lieben, den er möchte, solange er nicht gegen Gesetze verstößt und anderen nicht schadet.“</p>\r\n<p>Eine Verbesserung des rechtlichen Status quo, etwa eine Öffnung der Ehe für gleichgeschlechtliche Paare, scheint ihm kein Anliegen zu sein. Ungarns LGBTQ-Gemeinde reagierte folglich erleichtert über Orbans Abwahl, Euphorie blieb aber aus. Immerhin aber könnte der Umgang mit dem EuGH-Urteil zum „Kinderschutzgesetz“ ein erster Schritt auf Ungarns Weg zurück in die europäische Gemeinschaft werden.</p>"
+            },
+            "set": {
+                "header": "Magyar mit vager Haltung",
+                "bodytext": "<p>Ungarns künftiger Premier Peter Magyar hat angekündigt, nach seinem klaren Wahlsieg das Land zu reformieren und wieder zu einem starken Verbündeten der EU zu machen. Zu Rechten von LGBTQ-Menschen äußerte er sich bisher aber nur vage: „Jeder soll mit demjenigen zusammenleben und denjenigen lieben, den er möchte, solange er nicht gegen Gesetze verstößt und anderen nicht schadet.“</p>\r\n<p>Eine Verbesserung des rechtlichen Status quo, etwa eine Öffnung der Ehe für gleichgeschlechtliche Paare, scheint ihm kein Anliegen zu sein. Ungarns LGBTQ-Gemeinde reagierte folglich erleichtert über Orbans Abwahl, Euphorie blieb aber aus. Immerhin aber könnte der Umgang mit dem EuGH-Urteil zum „Kinderschutzgesetz“ ein erster Schritt auf Ungarns Weg zurück in die europäische Gemeinschaft werden.</p>"
+            },
+            "_context": {
+                "page": 398,
+                "pageTitle": "EuGH-Urteil: Ungarns LGBTQ-Gesetz verstößt gegen EU-Recht",
+                "element": 2004,
+                "type": "text",
+                "roles": {
+                    "header": "headline",
+                    "bodytext": "body"
+                }
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 2005,
+            "expect": {
+                "CType": "text",
+                "header": "Quelle",
+                "bodytext": "<p>aloh, ORF.at/Agenturen — <a href=\"https://orf.at/stories/3427484/\">orf.at/stories/3427484</a></p>"
+            },
+            "set": {
+                "header": "Quelle",
+                "bodytext": "<p>aloh, ORF.at/Agenturen — <a href=\"https://orf.at/stories/3427484/\">orf.at/stories/3427484</a></p>"
+            },
+            "_context": {
+                "page": 398,
+                "pageTitle": "EuGH-Urteil: Ungarns LGBTQ-Gesetz verstößt gegen EU-Recht",
+                "element": 2005,
+                "type": "text",
+                "roles": {
+                    "header": "headline",
+                    "bodytext": "body"
+                }
+            }
+        }
+    ]
+}

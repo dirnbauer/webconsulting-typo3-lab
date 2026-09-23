@@ -1,0 +1,29 @@
+{
+    "version": 1,
+    "site": "camp",
+    "root": 933,
+    "language": 0,
+    "languageCode": "de",
+    "generated": "2026-09-23T10:12:36+02:00",
+    "records": [
+        {
+            "table": "pages",
+            "uid": 940,
+            "expect": {
+                "title": "Powermail Daten"
+            },
+            "set": {
+                "title": "Powermail Daten"
+            },
+            "_context": {
+                "page": 940,
+                "pageTitle": "Powermail Daten",
+                "element": 940,
+                "type": "pages",
+                "roles": {
+                    "title": "page_title"
+                }
+            }
+        }
+    ]
+}

@@ -1,0 +1,716 @@
+{
+    "version": 1,
+    "site": "camino",
+    "root": 99,
+    "language": 0,
+    "languageCode": "en",
+    "generated": "2026-09-23T10:12:20+02:00",
+    "records": [
+        {
+            "table": "pages",
+            "uid": 99,
+            "expect": {
+                "title": "Camino"
+            },
+            "set": {
+                "title": "Camino"
+            },
+            "_context": {
+                "page": 99,
+                "pageTitle": "Camino",
+                "element": 99,
+                "type": "pages",
+                "roles": {
+                    "title": "page_title"
+                }
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 1403,
+            "expect": {
+                "CType": "text",
+                "header": "What Is the Camino de Compostela?",
+                "bodytext": "<p>The <strong>Camino de Compostela</strong>, also known as the <strong>Way of St. James</strong>, is one of the world's most famous pilgrimage routes. It leads to the Cathedral of Santiago de Compostela in northwestern Spain, where the remains of Saint James the Apostle are said to rest.</p>\n<p>People from all walks of life travel the Camino:</p>\n<ul><li data-list-item-id=\"e7cee5c5bef25604019f517e8b2c2543e\">Pilgrims and spiritual seekers</li><li data-list-item-id=\"ec742dc56cc6562510e5fb39fdcc61014\">Hikers and outdoor enthusiasts</li><li data-list-item-id=\"e84898458aaab86be9e7c85024d176b48\">Cultural travelers and history lovers</li></ul>\n<p>For many, it is more than just a journey — it is an experience that stays with them long after they return home.</p>"
+            },
+            "set": {
+                "header": "What Is the Camino de Compostela?",
+                "bodytext": "<p>The <strong>Camino de Compostela</strong>, also known as the <strong>Way of St. James</strong>, is one of the world's most famous pilgrimage routes. It leads to the Cathedral of Santiago de Compostela in northwestern Spain, where the remains of Saint James the Apostle are said to rest.</p>\n<p>People from all walks of life travel the Camino:</p>\n<ul><li data-list-item-id=\"e7cee5c5bef25604019f517e8b2c2543e\">Pilgrims and spiritual seekers</li><li data-list-item-id=\"ec742dc56cc6562510e5fb39fdcc61014\">Hikers and outdoor enthusiasts</li><li data-list-item-id=\"e84898458aaab86be9e7c85024d176b48\">Cultural travelers and history lovers</li></ul>\n<p>For many, it is more than just a journey — it is an experience that stays with them long after they return home.</p>"
+            },
+            "_context": {
+                "page": 99,
+                "pageTitle": "Camino",
+                "element": 1403,
+                "type": "text",
+                "roles": {
+                    "header": "headline",
+                    "bodytext": "body"
+                }
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 1402,
+            "expect": {
+                "CType": "camino_textmedia_teaser_grid",
+                "header": "The Main Camino Routes",
+                "bodytext": "<p>The Camino de Compostela is a network of ancient pilgrimage routes, each leading to the Cathedral of Santiago de Compostela. Whether crossing mountain passes, following coastal paths, or winding through rolling countryside, every route has its own character and charm — yet all share the same spirit of community, discovery, and adventure.</p>",
+                "tx_themecamino_link_label": "Compare all routes"
+            },
+            "set": {
+                "header": "The Main Camino Routes",
+                "bodytext": "<p>The Camino de Compostela is a network of ancient pilgrimage routes, each leading to the Cathedral of Santiago de Compostela. Whether crossing mountain passes, following coastal paths, or winding through rolling countryside, every route has its own character and charm — yet all share the same spirit of community, discovery, and adventure.</p>",
+                "tx_themecamino_link_label": "Compare all routes"
+            },
+            "_context": {
+                "page": 99,
+                "pageTitle": "Camino",
+                "element": 1402,
+                "type": "camino_textmedia_teaser_grid",
+                "roles": {
+                    "header": "headline",
+                    "bodytext": "body",
+                    "tx_themecamino_link_label": "button"
+                }
+            }
+        },
+        {
+            "table": "tx_themecamino_list_item",
+            "uid": 50,
+            "expect": {
+                "fieldname": "tx_themecamino_list_elements",
+                "header": "Camino Inglés & Other Routes",
+                "link_label": "More",
+                "text": "The Camino Inglés and several other lesser-known routes offer a wonderful alternative for those with limited time. Each has its own distinct character, landscapes, and history, making them a rewarding choice even for a shorter pilgrimage. No matter which route you choose, the spirit of the Camino remains the same."
+            },
+            "set": {
+                "fieldname": "tx_themecamino_list_elements",
+                "header": "Camino Inglés & Other Routes",
+                "link_label": "More",
+                "text": "The Camino Inglés and several other lesser-known routes offer a wonderful alternative for those with limited time. Each has its own distinct character, landscapes, and history, making them a rewarding choice even for a shorter pilgrimage. No matter which route you choose, the spirit of the Camino remains the same."
+            },
+            "_context": {
+                "page": 99,
+                "pageTitle": "Camino",
+                "element": 1402,
+                "type": "camino_textmedia_teaser_grid",
+                "roles": {
+                    "fieldname": "other",
+                    "header": "headline",
+                    "link_label": "button",
+                    "text": "card"
+                }
+            }
+        },
+        {
+            "table": "tx_themecamino_list_item",
+            "uid": 51,
+            "expect": {
+                "fieldname": "tx_themecamino_list_elements",
+                "header": "Camino Primitivo",
+                "link_label": "More",
+                "text": "The Camino Primitivo is the oldest of all the Camino routes, tracing the original path walked by pilgrims centuries ago. Shorter than the Camino Francés but more physically demanding, it winds through the mountains and forests of Asturias and Galicia. It is a rewarding choice for experienced walkers who prefer solitude and a deeper sense of history along the way."
+            },
+            "set": {
+                "fieldname": "tx_themecamino_list_elements",
+                "header": "Camino Primitivo",
+                "link_label": "More",
+                "text": "The Camino Primitivo is the oldest of all the Camino routes, tracing the original path walked by pilgrims centuries ago. Shorter than the Camino Francés but more physically demanding, it winds through the mountains and forests of Asturias and Galicia. It is a rewarding choice for experienced walkers who prefer solitude and a deeper sense of history along the way."
+            },
+            "_context": {
+                "page": 99,
+                "pageTitle": "Camino",
+                "element": 1402,
+                "type": "camino_textmedia_teaser_grid",
+                "roles": {
+                    "fieldname": "other",
+                    "header": "headline",
+                    "link_label": "button",
+                    "text": "card"
+                }
+            }
+        },
+        {
+            "table": "tx_themecamino_list_item",
+            "uid": 55,
+            "expect": {
+                "fieldname": "tx_themecamino_list_elements",
+                "header": "Camino del Norte",
+                "link_label": "More",
+                "text": "The Camino del Norte traces the northern coast of Spain, offering dramatic ocean views and rugged, unspoiled landscapes. It is a more demanding route than some of the other Caminos, but rewards those who walk it with stunning scenery and a quieter, more solitary experience away from the larger crowds."
+            },
+            "set": {
+                "fieldname": "tx_themecamino_list_elements",
+                "header": "Camino del Norte",
+                "link_label": "More",
+                "text": "The Camino del Norte traces the northern coast of Spain, offering dramatic ocean views and rugged, unspoiled landscapes. It is a more demanding route than some of the other Caminos, but rewards those who walk it with stunning scenery and a quieter, more solitary experience away from the larger crowds."
+            },
+            "_context": {
+                "page": 99,
+                "pageTitle": "Camino",
+                "element": 1402,
+                "type": "camino_textmedia_teaser_grid",
+                "roles": {
+                    "fieldname": "other",
+                    "header": "headline",
+                    "link_label": "button",
+                    "text": "card"
+                }
+            }
+        },
+        {
+            "table": "tx_themecamino_list_item",
+            "uid": 61,
+            "expect": {
+                "fieldname": "tx_themecamino_list_elements",
+                "header": "Camino Portugués",
+                "link_label": "More",
+                "text": "The Camino Português begins in either Lisbon or Porto and makes its way north through Portugal into Galicia. It is known for its coastal scenery, charming towns, and the warm hospitality of its people. With a gentler walking profile, it is a popular choice for those looking for a less demanding but equally rewarding journey. changed."
+            },
+            "set": {
+                "fieldname": "tx_themecamino_list_elements",
+                "header": "Camino Portugués",
+                "link_label": "More",
+                "text": "The Camino Português begins in either Lisbon or Porto and makes its way north through Portugal into Galicia. It is known for its coastal scenery, charming towns, and the warm hospitality of its people. With a gentler walking profile, it is a popular choice for those looking for a less demanding but equally rewarding journey. changed."
+            },
+            "_context": {
+                "page": 99,
+                "pageTitle": "Camino",
+                "element": 1402,
+                "type": "camino_textmedia_teaser_grid",
+                "roles": {
+                    "fieldname": "other",
+                    "header": "headline",
+                    "link_label": "button",
+                    "text": "card"
+                }
+            }
+        },
+        {
+            "table": "tx_themecamino_list_item",
+            "uid": 67,
+            "expect": {
+                "fieldname": "tx_themecamino_list_elements",
+                "header": "Camino Francés",
+                "link_label": "More",
+                "text": "The Camino Francés is the most popular route, beginning in Saint-Jean-Pied-de-Port in southern France before crossing the Pyrenees and winding through northern Spain. It passes through historic towns and vibrant villages, with well-established pilgrim services and a lively trail community all the way to Santiago."
+            },
+            "set": {
+                "fieldname": "tx_themecamino_list_elements",
+                "header": "Camino Francés",
+                "link_label": "More",
+                "text": "The Camino Francés is the most popular route, beginning in Saint-Jean-Pied-de-Port in southern France before crossing the Pyrenees and winding through northern Spain. It passes through historic towns and vibrant villages, with well-established pilgrim services and a lively trail community all the way to Santiago."
+            },
+            "_context": {
+                "page": 99,
+                "pageTitle": "Camino",
+                "element": 1402,
+                "type": "camino_textmedia_teaser_grid",
+                "roles": {
+                    "fieldname": "other",
+                    "header": "headline",
+                    "link_label": "button",
+                    "text": "card"
+                }
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 1401,
+            "expect": {
+                "CType": "text",
+                "header": "Why Walk the Camino?",
+                "bodytext": "<p><strong>A Personal Journey&nbsp;</strong><br />Many pilgrims describe the Camino as a life-changing experience. Walking day after day creates space for reflection, clarity, and personal growth — a rare opportunity to step away from the noise of everyday life.</p>\n<p><strong>History and Culture&nbsp;</strong><br />The routes are lined with Roman roads, medieval bridges, ancient churches, and UNESCO World Heritage sites, offering a rich journey through centuries of European history and tradition.</p>\n<p><strong>Community and Connection&nbsp;</strong><br />On the Camino, you are never truly alone. Friendships form naturally, languages mix freely, and shared meals around a table become memories that last long after the journey ends.</p>\n<p><strong>Nature and Simplicity&nbsp;</strong><br />From vineyards and forests to mountain passes and rugged coastlines, the Camino offers a chance to reconnect with the natural world — and with yourself.</p>"
+            },
+            "set": {
+                "header": "Why Walk the Camino?",
+                "bodytext": "<p><strong>A Personal Journey&nbsp;</strong><br />Many pilgrims describe the Camino as a life-changing experience. Walking day after day creates space for reflection, clarity, and personal growth — a rare opportunity to step away from the noise of everyday life.</p>\n<p><strong>History and Culture&nbsp;</strong><br />The routes are lined with Roman roads, medieval bridges, ancient churches, and UNESCO World Heritage sites, offering a rich journey through centuries of European history and tradition.</p>\n<p><strong>Community and Connection&nbsp;</strong><br />On the Camino, you are never truly alone. Friendships form naturally, languages mix freely, and shared meals around a table become memories that last long after the journey ends.</p>\n<p><strong>Nature and Simplicity&nbsp;</strong><br />From vineyards and forests to mountain passes and rugged coastlines, the Camino offers a chance to reconnect with the natural world — and with yourself.</p>"
+            },
+            "_context": {
+                "page": 99,
+                "pageTitle": "Camino",
+                "element": 1401,
+                "type": "text",
+                "roles": {
+                    "header": "headline",
+                    "bodytext": "body"
+                }
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 1400,
+            "expect": {
+                "CType": "text",
+                "header": "What to Expect on the Camino",
+                "bodytext": "<p>Daily walks typically range from 15 to 30 km, with well-waymarked paths guided by yellow arrows and scallop shells. Accommodation options are plentiful, from affordable albergues to guesthouses and hotels, and the food along the way is simple, hearty, and full of regional character. More than anything, the Camino invites you into a slower, more mindful pace of life.</p>\n<p>No special training is required — just preparation, curiosity, and an open heart.</p>"
+            },
+            "set": {
+                "header": "What to Expect on the Camino",
+                "bodytext": "<p>Daily walks typically range from 15 to 30 km, with well-waymarked paths guided by yellow arrows and scallop shells. Accommodation options are plentiful, from affordable albergues to guesthouses and hotels, and the food along the way is simple, hearty, and full of regional character. More than anything, the Camino invites you into a slower, more mindful pace of life.</p>\n<p>No special training is required — just preparation, curiosity, and an open heart.</p>"
+            },
+            "_context": {
+                "page": 99,
+                "pageTitle": "Camino",
+                "element": 1400,
+                "type": "text",
+                "roles": {
+                    "header": "headline",
+                    "bodytext": "body"
+                }
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 1399,
+            "expect": {
+                "CType": "text",
+                "header": "Preparing for the Camino",
+                "bodytext": "<p><strong>When to Go</strong></p>\n<p>Spring (April to June) is a favourite time to walk, with mild weather and blooming landscapes along the way. Autumn (September to October) offers cooler temperatures and fewer crowds, making it another excellent choice. Summer is popular but can be hot and busy, while winter is quiet and reflective — rewarding for those prepared for more challenging conditions.</p>\n<p><strong>What to Pack</strong></p>\n<p>Good preparation starts with comfortable walking shoes and a lightweight backpack. Bring weather-appropriate clothing and don't forget your Pilgrim Credential, used to collect stamps along the way and access pilgrim accommodation.</p>\n<p>Less is more on the Camino.</p>"
+            },
+            "set": {
+                "header": "Preparing for the Camino",
+                "bodytext": "<p><strong>When to Go</strong></p>\n<p>Spring (April to June) is a favourite time to walk, with mild weather and blooming landscapes along the way. Autumn (September to October) offers cooler temperatures and fewer crowds, making it another excellent choice. Summer is popular but can be hot and busy, while winter is quiet and reflective — rewarding for those prepared for more challenging conditions.</p>\n<p><strong>What to Pack</strong></p>\n<p>Good preparation starts with comfortable walking shoes and a lightweight backpack. Bring weather-appropriate clothing and don't forget your Pilgrim Credential, used to collect stamps along the way and access pilgrim accommodation.</p>\n<p>Less is more on the Camino.</p>"
+            },
+            "_context": {
+                "page": 99,
+                "pageTitle": "Camino",
+                "element": 1399,
+                "type": "text",
+                "roles": {
+                    "header": "headline",
+                    "bodytext": "body"
+                }
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 1398,
+            "expect": {
+                "CType": "text",
+                "header": "Santiago de Compostela",
+                "bodytext": "<p>Arriving in <strong>Santiago de Compostela</strong> is a moment many pilgrims never forget. The main square fills with walkers from all over the world, coming together to celebrate, reflect, and attend the Pilgrim's Mass at the magnificent cathedral.</p>\n<p>Here you receive your <strong>Compostela Certificate</strong>, the official recognition of your journey. But for many, reaching Santiago is not an ending — it is the beginning of something that continues long after the walk is over.</p>"
+            },
+            "set": {
+                "header": "Santiago de Compostela",
+                "bodytext": "<p>Arriving in <strong>Santiago de Compostela</strong> is a moment many pilgrims never forget. The main square fills with walkers from all over the world, coming together to celebrate, reflect, and attend the Pilgrim's Mass at the magnificent cathedral.</p>\n<p>Here you receive your <strong>Compostela Certificate</strong>, the official recognition of your journey. But for many, reaching Santiago is not an ending — it is the beginning of something that continues long after the walk is over.</p>"
+            },
+            "_context": {
+                "page": 99,
+                "pageTitle": "Camino",
+                "element": 1398,
+                "type": "text",
+                "roles": {
+                    "header": "headline",
+                    "bodytext": "body"
+                }
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 1397,
+            "expect": {
+                "CType": "text",
+                "header": "Start Your Camino",
+                "bodytext": "<p>Whether you walk for a week or a month, alone or with friends, the Camino meets you exactly where you are. There is no right or wrong way to walk it — only your way.</p>\n<p>Buen Camino.&nbsp;<br />Your journey begins with a single step.</p>"
+            },
+            "set": {
+                "header": "Start Your Camino",
+                "bodytext": "<p>Whether you walk for a week or a month, alone or with friends, the Camino meets you exactly where you are. There is no right or wrong way to walk it — only your way.</p>\n<p>Buen Camino.&nbsp;<br />Your journey begins with a single step.</p>"
+            },
+            "_context": {
+                "page": 99,
+                "pageTitle": "Camino",
+                "element": 1397,
+                "type": "text",
+                "roles": {
+                    "header": "headline",
+                    "bodytext": "body"
+                }
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 1395,
+            "expect": {
+                "CType": "camino_hero",
+                "header": "Walk the Camino  Compostela",
+                "subheader": "A journey of discovery, history, and transformation"
+            },
+            "set": {
+                "header": "Walk the Camino  Compostela",
+                "subheader": "A journey of discovery, history, and transformation"
+            },
+            "_context": {
+                "page": 99,
+                "pageTitle": "Camino",
+                "element": 1395,
+                "type": "camino_hero",
+                "roles": {
+                    "header": "headline",
+                    "subheader": "lead"
+                }
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 769,
+            "expect": {
+                "alternative": ""
+            },
+            "set": {
+                "alternative": ""
+            },
+            "_context": {
+                "page": 99,
+                "pageTitle": "Camino",
+                "element": 1395,
+                "type": "camino_hero",
+                "roles": {
+                    "alternative": "alt"
+                },
+                "file": "/camino/max-kukurudziak-mrNvSPGBDk0-unsplash.webp"
+            }
+        },
+        {
+            "table": "tx_themecamino_list_item",
+            "uid": 57,
+            "expect": {
+                "fieldname": "tx_themecamino_list_elements"
+            },
+            "set": {
+                "fieldname": "tx_themecamino_list_elements"
+            },
+            "_context": {
+                "page": 99,
+                "pageTitle": "Camino",
+                "element": 1404,
+                "type": "camino_linklist",
+                "roles": {
+                    "fieldname": "other"
+                }
+            }
+        },
+        {
+            "table": "tx_themecamino_list_item",
+            "uid": 63,
+            "expect": {
+                "fieldname": "tx_themecamino_list_elements"
+            },
+            "set": {
+                "fieldname": "tx_themecamino_list_elements"
+            },
+            "_context": {
+                "page": 99,
+                "pageTitle": "Camino",
+                "element": 1404,
+                "type": "camino_linklist",
+                "roles": {
+                    "fieldname": "other"
+                }
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 1396,
+            "expect": {
+                "CType": "camino_sociallinks",
+                "header": "Social Media Icons"
+            },
+            "set": {
+                "header": "Social Media Icons"
+            },
+            "_context": {
+                "page": 99,
+                "pageTitle": "Camino",
+                "element": 1396,
+                "type": "camino_sociallinks",
+                "roles": {
+                    "header": "headline"
+                }
+            }
+        },
+        {
+            "table": "tx_themecamino_list_item",
+            "uid": 54,
+            "expect": {
+                "fieldname": "tx_themecamino_list_elements",
+                "link_label": "YouTube"
+            },
+            "set": {
+                "fieldname": "tx_themecamino_list_elements",
+                "link_label": "YouTube"
+            },
+            "_context": {
+                "page": 99,
+                "pageTitle": "Camino",
+                "element": 1396,
+                "type": "camino_sociallinks",
+                "roles": {
+                    "fieldname": "other",
+                    "link_label": "button"
+                }
+            }
+        },
+        {
+            "table": "tx_themecamino_list_item",
+            "uid": 60,
+            "expect": {
+                "fieldname": "tx_themecamino_list_elements",
+                "link_label": "Facebook"
+            },
+            "set": {
+                "fieldname": "tx_themecamino_list_elements",
+                "link_label": "Facebook"
+            },
+            "_context": {
+                "page": 99,
+                "pageTitle": "Camino",
+                "element": 1396,
+                "type": "camino_sociallinks",
+                "roles": {
+                    "fieldname": "other",
+                    "link_label": "button"
+                }
+            }
+        },
+        {
+            "table": "tx_themecamino_list_item",
+            "uid": 66,
+            "expect": {
+                "fieldname": "tx_themecamino_list_elements",
+                "link_label": "Instagram"
+            },
+            "set": {
+                "fieldname": "tx_themecamino_list_elements",
+                "link_label": "Instagram"
+            },
+            "_context": {
+                "page": 99,
+                "pageTitle": "Camino",
+                "element": 1396,
+                "type": "camino_sociallinks",
+                "roles": {
+                    "fieldname": "other",
+                    "link_label": "button"
+                }
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 1405,
+            "expect": {
+                "CType": "camino_linklist",
+                "header": "Camino Routes"
+            },
+            "set": {
+                "header": "Camino Routes"
+            },
+            "_context": {
+                "page": 99,
+                "pageTitle": "Camino",
+                "element": 1405,
+                "type": "camino_linklist",
+                "roles": {
+                    "header": "headline"
+                }
+            }
+        },
+        {
+            "table": "tx_themecamino_list_item",
+            "uid": 53,
+            "expect": {
+                "fieldname": "tx_themecamino_list_elements",
+                "link_label": "Camino del Norte"
+            },
+            "set": {
+                "fieldname": "tx_themecamino_list_elements",
+                "link_label": "Camino del Norte"
+            },
+            "_context": {
+                "page": 99,
+                "pageTitle": "Camino",
+                "element": 1405,
+                "type": "camino_linklist",
+                "roles": {
+                    "fieldname": "other",
+                    "link_label": "button"
+                }
+            }
+        },
+        {
+            "table": "tx_themecamino_list_item",
+            "uid": 58,
+            "expect": {
+                "fieldname": "tx_themecamino_list_elements",
+                "link_label": "Camino Portugués"
+            },
+            "set": {
+                "fieldname": "tx_themecamino_list_elements",
+                "link_label": "Camino Portugués"
+            },
+            "_context": {
+                "page": 99,
+                "pageTitle": "Camino",
+                "element": 1405,
+                "type": "camino_linklist",
+                "roles": {
+                    "fieldname": "other",
+                    "link_label": "button"
+                }
+            }
+        },
+        {
+            "table": "tx_themecamino_list_item",
+            "uid": 64,
+            "expect": {
+                "fieldname": "tx_themecamino_list_elements",
+                "link_label": "Camino Francés"
+            },
+            "set": {
+                "fieldname": "tx_themecamino_list_elements",
+                "link_label": "Camino Francés"
+            },
+            "_context": {
+                "page": 99,
+                "pageTitle": "Camino",
+                "element": 1405,
+                "type": "camino_linklist",
+                "roles": {
+                    "fieldname": "other",
+                    "link_label": "button"
+                }
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 1406,
+            "expect": {
+                "CType": "camino_linklist",
+                "header": "first header."
+            },
+            "set": {
+                "header": "first header."
+            },
+            "_context": {
+                "page": 99,
+                "pageTitle": "Camino",
+                "element": 1406,
+                "type": "camino_linklist",
+                "roles": {
+                    "header": "headline"
+                }
+            }
+        },
+        {
+            "table": "tx_themecamino_list_item",
+            "uid": 52,
+            "expect": {
+                "fieldname": "tx_themecamino_list_elements",
+                "link_label": "Camino de Finisterre"
+            },
+            "set": {
+                "fieldname": "tx_themecamino_list_elements",
+                "link_label": "Camino de Finisterre"
+            },
+            "_context": {
+                "page": 99,
+                "pageTitle": "Camino",
+                "element": 1406,
+                "type": "camino_linklist",
+                "roles": {
+                    "fieldname": "other",
+                    "link_label": "button"
+                }
+            }
+        },
+        {
+            "table": "tx_themecamino_list_item",
+            "uid": 56,
+            "expect": {
+                "fieldname": "tx_themecamino_list_elements",
+                "link_label": "Camino Inglés"
+            },
+            "set": {
+                "fieldname": "tx_themecamino_list_elements",
+                "link_label": "Camino Inglés"
+            },
+            "_context": {
+                "page": 99,
+                "pageTitle": "Camino",
+                "element": 1406,
+                "type": "camino_linklist",
+                "roles": {
+                    "fieldname": "other",
+                    "link_label": "button"
+                }
+            }
+        },
+        {
+            "table": "tx_themecamino_list_item",
+            "uid": 62,
+            "expect": {
+                "fieldname": "tx_themecamino_list_elements",
+                "link_label": "Camino Primitivo"
+            },
+            "set": {
+                "fieldname": "tx_themecamino_list_elements",
+                "link_label": "Camino Primitivo"
+            },
+            "_context": {
+                "page": 99,
+                "pageTitle": "Camino",
+                "element": 1406,
+                "type": "camino_linklist",
+                "roles": {
+                    "fieldname": "other",
+                    "link_label": "button"
+                }
+            }
+        },
+        {
+            "table": "tx_themecamino_list_item",
+            "uid": 59,
+            "expect": {
+                "fieldname": "tx_themecamino_list_elements",
+                "link_label": "FAQs"
+            },
+            "set": {
+                "fieldname": "tx_themecamino_list_elements",
+                "link_label": "FAQs"
+            },
+            "_context": {
+                "page": 99,
+                "pageTitle": "Camino",
+                "element": 1407,
+                "type": "camino_linklist",
+                "roles": {
+                    "fieldname": "other",
+                    "link_label": "button"
+                }
+            }
+        },
+        {
+            "table": "tx_themecamino_list_item",
+            "uid": 65,
+            "expect": {
+                "fieldname": "tx_themecamino_list_elements",
+                "link_label": "Packing List"
+            },
+            "set": {
+                "fieldname": "tx_themecamino_list_elements",
+                "link_label": "Packing List"
+            },
+            "_context": {
+                "page": 99,
+                "pageTitle": "Camino",
+                "element": 1407,
+                "type": "camino_linklist",
+                "roles": {
+                    "fieldname": "other",
+                    "link_label": "button"
+                }
+            }
+        }
+    ]
+}

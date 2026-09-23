@@ -1,0 +1,166 @@
+{
+    "version": 1,
+    "site": "camp",
+    "root": 933,
+    "language": 0,
+    "languageCode": "de",
+    "generated": "2026-09-23T10:12:28+02:00",
+    "records": [
+        {
+            "table": "pages",
+            "uid": 934,
+            "expect": {
+                "title": "Ticket-Anmeldung",
+                "nav_title": "Tickets",
+                "description": "Ticket für das TYPO3 Camp München 2026 anmelden: Standard- oder Supporter-Ticket, optional der Integrations-Workshop am Freitag."
+            },
+            "set": {
+                "title": "Ticket-Anmeldung",
+                "nav_title": "Tickets",
+                "description": "Ticket für das TYPO3 Camp München 2026 anmelden: Standard- oder Supporter-Ticket, optional der Integrations-Workshop am Freitag."
+            },
+            "_context": {
+                "page": 934,
+                "pageTitle": "Ticket-Anmeldung",
+                "element": 934,
+                "type": "pages",
+                "roles": {
+                    "title": "page_title",
+                    "nav_title": "page_title",
+                    "description": "meta"
+                }
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 73374,
+            "expect": {
+                "CType": "desiderio_featurechecklist",
+                "header": "Was ihr hier bucht",
+                "eyebrow": "Tickets"
+            },
+            "set": {
+                "header": "Was ihr hier bucht",
+                "eyebrow": "Tickets"
+            },
+            "_context": {
+                "page": 934,
+                "pageTitle": "Ticket-Anmeldung",
+                "element": 73374,
+                "type": "desiderio_featurechecklist",
+                "roles": {
+                    "header": "headline",
+                    "eyebrow": "eyebrow"
+                }
+            }
+        },
+        {
+            "table": "feature_checklist_items",
+            "uid": 1141,
+            "expect": {
+                "title": "Standard-Ticket",
+                "description_text": "Warm-up am Freitagabend, beide Camp-Tage, Verpflegung und Social Event."
+            },
+            "set": {
+                "title": "Standard-Ticket",
+                "description_text": "Warm-up am Freitagabend, beide Camp-Tage, Verpflegung und Social Event."
+            },
+            "_context": {
+                "page": 934,
+                "pageTitle": "Ticket-Anmeldung",
+                "element": 73374,
+                "type": "desiderio_featurechecklist",
+                "roles": {
+                    "title": "headline",
+                    "description_text": "card"
+                }
+            }
+        },
+        {
+            "table": "feature_checklist_items",
+            "uid": 1142,
+            "expect": {
+                "title": "Supporter-Ticket",
+                "description_text": "Dieselben Leistungen – und ihr werdet vor Ort und in den Camp-Kanälen als Unterstützer genannt."
+            },
+            "set": {
+                "title": "Supporter-Ticket",
+                "description_text": "Dieselben Leistungen – und ihr werdet vor Ort und in den Camp-Kanälen als Unterstützer genannt."
+            },
+            "_context": {
+                "page": 934,
+                "pageTitle": "Ticket-Anmeldung",
+                "element": 73374,
+                "type": "desiderio_featurechecklist",
+                "roles": {
+                    "title": "headline",
+                    "description_text": "card"
+                }
+            }
+        },
+        {
+            "table": "feature_checklist_items",
+            "uid": 1143,
+            "expect": {
+                "title": "Integrations-Workshop am Freitag",
+                "description_text": "Optional dazu buchbar, begrenzte Plätze, vergeben in der Reihenfolge der Anmeldungen."
+            },
+            "set": {
+                "title": "Integrations-Workshop am Freitag",
+                "description_text": "Optional dazu buchbar, begrenzte Plätze, vergeben in der Reihenfolge der Anmeldungen."
+            },
+            "_context": {
+                "page": 934,
+                "pageTitle": "Ticket-Anmeldung",
+                "element": 73374,
+                "type": "desiderio_featurechecklist",
+                "roles": {
+                    "title": "headline",
+                    "description_text": "card"
+                }
+            }
+        },
+        {
+            "table": "feature_checklist_items",
+            "uid": 1144,
+            "expect": {
+                "title": "Ernährungshinweise und Barrierefreiheit",
+                "description_text": "Schreibt eure Wünsche gleich ins Formular, dann planen wir sie ein."
+            },
+            "set": {
+                "title": "Ernährungshinweise und Barrierefreiheit",
+                "description_text": "Schreibt eure Wünsche gleich ins Formular, dann planen wir sie ein."
+            },
+            "_context": {
+                "page": 934,
+                "pageTitle": "Ticket-Anmeldung",
+                "element": 73374,
+                "type": "desiderio_featurechecklist",
+                "roles": {
+                    "title": "headline",
+                    "description_text": "card"
+                }
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 26292,
+            "expect": {
+                "CType": "powermail_pi1",
+                "header": "Ticket-Anmeldung"
+            },
+            "set": {
+                "header": "Ticket-Anmeldung"
+            },
+            "_context": {
+                "page": 934,
+                "pageTitle": "Ticket-Anmeldung",
+                "element": 26292,
+                "type": "powermail_pi1",
+                "roles": {
+                    "header": "headline"
+                }
+            }
+        }
+    ]
+}

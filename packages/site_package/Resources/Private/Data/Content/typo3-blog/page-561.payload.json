@@ -1,0 +1,93 @@
+{
+    "version": 1,
+    "site": "typo3-blog",
+    "root": 390,
+    "language": 0,
+    "languageCode": "en",
+    "generated": "2026-09-23T10:12:14+02:00",
+    "records": [
+        {
+            "table": "pages",
+            "uid": 561,
+            "expect": {
+                "title": "PVA-Gutachter: Schulungen mit veralteten Unterlagen"
+            },
+            "set": {
+                "title": "PVA-Gutachter: Schulungen mit veralteten Unterlagen"
+            },
+            "_context": {
+                "page": 561,
+                "pageTitle": "PVA-Gutachter: Schulungen mit veralteten Unterlagen",
+                "element": 561,
+                "type": "pages",
+                "roles": {
+                    "title": "page_title"
+                },
+                "pageHidden": true
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 7609,
+            "expect": {
+                "CType": "textmedia",
+                "bodytext": "<p>Gutachterinnen und Gutachter entscheiden im Auftrag der Pensionsversicherung darüber, ob Menschen als arbeitsunfähig gelten und ob sie Pflegebedarf haben. Geheime Schulungsunterlagen für ärztliche Gutachter enthalten laut Recherchen von ORF, APA und dem Magazin „Dossier“ Leseempfehlungen zu ME/CFS und dem Post-Covid-Syndrom, die laut Fachleuten nicht dem aktuellen Stand der Wissenschaft entsprechen.</p>\r\n<p>Die dem ORF, der APA und „Dossier“ vorliegenden Unterlagen stammen aus einem Lehrgang zur Zertifizierung von Gutachterinnen und Gutachtern aus dem Jahr 2025 (PowerPoint, 13 Folien). Das Logo der ÖBAK (&mdash; Akademie für ärztliche und pflegerische Begutachtung) ist auf den Materialien ausgewiesen. Die ÖBAK ist ein von den Pensionsversicherungen gegründeter Verein; die Adresse der ÖBAK ist zugleich der Hauptsitz der PVA.</p>\r\n<h2>Unterlagen widersprechen früheren Aussagen</h2>\r\n<p>Die PVA hatte erklärt, sie mache keine inhaltlichen Vorgaben; die Unterlagen beschreiben dennoch konkret Krankheitsbilder, u. a. Gegenüberstellung von ME/CFS mit der als veraltet geltenden Diagnose Neurasthenie.</p>\r\n<h2>„Schockierende&quot; Leseempfehlungen — kein Evidenzkonsens</h2>\r\n<p>Fachkräfte, darunter ME/CFS-Spezialisten und das Nationale Referenzzentrum für postvirale Syndrome (MedUni Wien), kritisieren die Literaturhinweise stark. Kathryn Hoffmann (MedUni Wien) betont den somatischen Charakter von ME/CFS im Gegensatz zu einem rein psychiatrischen Bild.</p>\r\n<p>Zum Hintergrund: Schätzungen sprechen von über 70.000 Betroffenen in Österreich; eine Gutachtenauswertung hatte zuvor dokumentiert, dass in einem Drittel der Fälle Simulation unterstellt wurde und häufig psychische Hauptdiagnosen statt ME/CFS/Post-Covid vergeben wurden.</p>\r\n<p><em>Quelle: ORF Nachrichten, 30. April 2026 — begleitet die Sendung Ö1-Morgenjournal.</em></p>"
+            },
+            "set": {
+                "bodytext": "<p>Gutachterinnen und Gutachter entscheiden im Auftrag der Pensionsversicherung darüber, ob Menschen als arbeitsunfähig gelten und ob sie Pflegebedarf haben. Geheime Schulungsunterlagen für ärztliche Gutachter enthalten laut Recherchen von ORF, APA und dem Magazin „Dossier“ Leseempfehlungen zu ME/CFS und dem Post-Covid-Syndrom, die laut Fachleuten nicht dem aktuellen Stand der Wissenschaft entsprechen.</p>\r\n<p>Die dem ORF, der APA und „Dossier“ vorliegenden Unterlagen stammen aus einem Lehrgang zur Zertifizierung von Gutachterinnen und Gutachtern aus dem Jahr 2025 (PowerPoint, 13 Folien). Das Logo der ÖBAK (&mdash; Akademie für ärztliche und pflegerische Begutachtung) ist auf den Materialien ausgewiesen. Die ÖBAK ist ein von den Pensionsversicherungen gegründeter Verein; die Adresse der ÖBAK ist zugleich der Hauptsitz der PVA.</p>\r\n<h2>Unterlagen widersprechen früheren Aussagen</h2>\r\n<p>Die PVA hatte erklärt, sie mache keine inhaltlichen Vorgaben; die Unterlagen beschreiben dennoch konkret Krankheitsbilder, u. a. Gegenüberstellung von ME/CFS mit der als veraltet geltenden Diagnose Neurasthenie.</p>\r\n<h2>„Schockierende&quot; Leseempfehlungen — kein Evidenzkonsens</h2>\r\n<p>Fachkräfte, darunter ME/CFS-Spezialisten und das Nationale Referenzzentrum für postvirale Syndrome (MedUni Wien), kritisieren die Literaturhinweise stark. Kathryn Hoffmann (MedUni Wien) betont den somatischen Charakter von ME/CFS im Gegensatz zu einem rein psychiatrischen Bild.</p>\r\n<p>Zum Hintergrund: Schätzungen sprechen von über 70.000 Betroffenen in Österreich; eine Gutachtenauswertung hatte zuvor dokumentiert, dass in einem Drittel der Fälle Simulation unterstellt wurde und häufig psychische Hauptdiagnosen statt ME/CFS/Post-Covid vergeben wurden.</p>\r\n<p><em>Quelle: ORF Nachrichten, 30. April 2026 — begleitet die Sendung Ö1-Morgenjournal.</em></p>"
+            },
+            "_context": {
+                "page": 561,
+                "pageTitle": "PVA-Gutachter: Schulungen mit veralteten Unterlagen",
+                "element": 7609,
+                "type": "textmedia",
+                "roles": {
+                    "bodytext": "body"
+                },
+                "pageHidden": true
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 3752,
+            "expect": {
+                "alternative": "Symbolbild: Recherche zu Gutachterschulungen der PVA und ME/CFS-Informationen"
+            },
+            "set": {
+                "alternative": "Symbolbild: Recherche zu Gutachterschulungen der PVA und ME/CFS-Informationen"
+            },
+            "_context": {
+                "page": 561,
+                "pageTitle": "PVA-Gutachter: Schulungen mit veralteten Unterlagen",
+                "element": 7609,
+                "type": "textmedia",
+                "roles": {
+                    "alternative": "alt"
+                },
+                "pageHidden": true,
+                "file": "/mcp/workspaces/ws-1/3017732_master_1167373_pva_gutachten_schulungen_coe-07368da33071ef90.jpg"
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 3755,
+            "expect": {
+                "alternative": "Illustration zu Schulungsunterlagen und Gutachterthem ME/CFS"
+            },
+            "set": {
+                "alternative": "Illustration zu Schulungsunterlagen und Gutachterthem ME/CFS"
+            },
+            "_context": {
+                "page": 561,
+                "pageTitle": "PVA-Gutachter: Schulungen mit veralteten Unterlagen",
+                "element": 7609,
+                "type": "textmedia",
+                "roles": {
+                    "alternative": "alt"
+                },
+                "pageHidden": true,
+                "file": "/mcp/workspaces/ws-1/3018569_bigpicture_1167763_pva_gutachten_schulungen_body_o-1d85fba6e0773577.jpg"
+            }
+        }
+    ]
+}

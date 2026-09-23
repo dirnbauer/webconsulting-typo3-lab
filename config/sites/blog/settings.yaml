@@ -21,3 +21,8 @@ desiderio:
 # the corporate library (folder 1026); previews resolve via the corporate site.
 elementLibrary.storagePid: 1026
 elementLibrary.hosts: 'desiderio,innesto,core'
+
+# Slug changes are permanent (the content rewrite of 2026-09 moved posts to
+# new slugs), so the redirects TYPO3 creates for them say so.
+redirects:
+  httpStatusCode: 301

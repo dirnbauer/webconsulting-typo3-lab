@@ -1,0 +1,300 @@
+{
+    "version": 1,
+    "site": "blog-classico",
+    "root": 15,
+    "language": 0,
+    "languageCode": "de",
+    "generated": "2026-09-23T10:11:24+02:00",
+    "records": [
+        {
+            "table": "pages",
+            "uid": 106,
+            "expect": {
+                "title": "TUGA 102: TYPO3 v14 LTS Release Party in Wien",
+                "nav_title": "TUGA 102 – v14 Release Party",
+                "subtitle": "Die TYPO3 User Group Austria feiert das LTS-Release am 21. April 2026 im Gleis//Garten",
+                "abstract": "Am 21. April 2026 wird TYPO3 v14 LTS veröffentlicht – und die TYPO3 User Group Austria feiert das gemeinsam beim TUGA 102 Meetup im Gleis//Garten in Wien. Auf dem Programm: eine Präsentation von TYPO3 v14, ein Überblick über neue Features sowie Networking unter Palmen und Olivenbäumen.",
+                "description": "TUGA 102 am 21. April 2026: Die TYPO3 User Group Austria feiert das v14 LTS Release im Gleis//Garten in Wien mit Talks, Networking und österreichischen Spezialitäten.",
+                "seo_title": "TUGA 102: TYPO3 v14 LTS Release Party in Wien",
+                "og_title": "TUGA 102: TYPO3 v14 LTS Release Party in Wien",
+                "og_description": "TUGA 102 am 21. April 2026: Die TYPO3 User Group Austria feiert das v14 LTS Release im Gleis//Garten in Wien mit Talks, Networking und österreichischen Spezialitäten.",
+                "twitter_title": "TUGA 102: TYPO3 v14 LTS Release Party in Wien",
+                "twitter_description": "TUGA 102 am 21. April 2026: Die TYPO3 User Group Austria feiert das v14 LTS Release im Gleis//Garten in Wien mit Talks, Networking und österreichischen Spezialitäten."
+            },
+            "set": {
+                "title": "TUGA 102: TYPO3 v14 LTS Release Party in Wien",
+                "nav_title": "TUGA 102 – v14 Release Party",
+                "subtitle": "Die TYPO3 User Group Austria feiert das LTS-Release am 21. April 2026 im Gleis//Garten",
+                "abstract": "Am 21. April 2026 wird TYPO3 v14 LTS veröffentlicht – und die TYPO3 User Group Austria feiert das gemeinsam beim TUGA 102 Meetup im Gleis//Garten in Wien. Auf dem Programm: eine Präsentation von TYPO3 v14, ein Überblick über neue Features sowie Networking unter Palmen und Olivenbäumen.",
+                "description": "TUGA 102 am 21. April 2026: Die TYPO3 User Group Austria feiert das v14 LTS Release im Gleis//Garten in Wien mit Talks, Networking und österreichischen Spezialitäten.",
+                "seo_title": "TUGA 102: TYPO3 v14 LTS Release Party in Wien",
+                "og_title": "TUGA 102: TYPO3 v14 LTS Release Party in Wien",
+                "og_description": "TUGA 102 am 21. April 2026: Die TYPO3 User Group Austria feiert das v14 LTS Release im Gleis//Garten in Wien mit Talks, Networking und österreichischen Spezialitäten.",
+                "twitter_title": "TUGA 102: TYPO3 v14 LTS Release Party in Wien",
+                "twitter_description": "TUGA 102 am 21. April 2026: Die TYPO3 User Group Austria feiert das v14 LTS Release im Gleis//Garten in Wien mit Talks, Networking und österreichischen Spezialitäten."
+            },
+            "_context": {
+                "page": 106,
+                "pageTitle": "TUGA 102: TYPO3 v14 LTS Release Party in Wien",
+                "element": 106,
+                "type": "pages",
+                "roles": {
+                    "title": "page_title",
+                    "nav_title": "page_title",
+                    "subtitle": "lead",
+                    "abstract": "lead",
+                    "description": "meta",
+                    "seo_title": "page_title",
+                    "og_title": "page_title",
+                    "og_description": "meta",
+                    "twitter_title": "page_title",
+                    "twitter_description": "meta"
+                }
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 774,
+            "expect": {
+                "alternative": "Skyline von Wien – Schauplatz der TUGA 102 Release Party"
+            },
+            "set": {
+                "alternative": "Skyline von Wien – Schauplatz der TUGA 102 Release Party"
+            },
+            "_context": {
+                "page": 106,
+                "pageTitle": "TUGA 102: TYPO3 v14 LTS Release Party in Wien",
+                "element": 106,
+                "type": "",
+                "roles": {
+                    "alternative": "alt"
+                },
+                "file": "/mcp/workspaces/ws-1/photo-1516550893923-42d28e5677af-559491cb72103459.jpg"
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 775,
+            "expect": {
+                "alternative": "Skyline von Wien – Schauplatz der TUGA 102 Release Party"
+            },
+            "set": {
+                "alternative": "Skyline von Wien – Schauplatz der TUGA 102 Release Party"
+            },
+            "_context": {
+                "page": 106,
+                "pageTitle": "TUGA 102: TYPO3 v14 LTS Release Party in Wien",
+                "element": 106,
+                "type": "",
+                "roles": {
+                    "alternative": "alt"
+                },
+                "file": "/mcp/workspaces/ws-1/photo-1516550893923-42d28e5677af-559491cb72103459.jpg"
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 1415,
+            "expect": {
+                "CType": "text",
+                "header": "Anreise &amp; Anmeldung",
+                "bodytext": "<p><strong>Adresse:</strong> Gleis//Garten, Eichenstraße 2, 1120 Wien</p>\r\n<p><strong>Öffentlich:</strong> Station <em>Eichenstraße</em> mit Linie 62, 18, 6 oder Badner Bahn. Alternativ <em>Bahnhof Meidling</em> oder <em>Matzleinsdorfer Platz</em> + ein paar Minuten zu Fuß.</p>\r\n<p><strong>Anmeldung:</strong> kostenlos über Meetup – <a href=\"https://www.meetup.com/tuga-typo3-user-group-austria/events/314039682/\">TUGA 102 – v14 Release Party auf Meetup</a>.</p>\r\n<p>Wir freuen uns auf einen großartigen Abend mit der österreichischen TYPO3-Community – cheers auf v14 LTS! 🍻</p>"
+            },
+            "set": {
+                "header": "Anreise &amp; Anmeldung",
+                "bodytext": "<p><strong>Adresse:</strong> Gleis//Garten, Eichenstraße 2, 1120 Wien</p>\r\n<p><strong>Öffentlich:</strong> Station <em>Eichenstraße</em> mit Linie 62, 18, 6 oder Badner Bahn. Alternativ <em>Bahnhof Meidling</em> oder <em>Matzleinsdorfer Platz</em> + ein paar Minuten zu Fuß.</p>\r\n<p><strong>Anmeldung:</strong> kostenlos über Meetup – <a href=\"https://www.meetup.com/tuga-typo3-user-group-austria/events/314039682/\">TUGA 102 – v14 Release Party auf Meetup</a>.</p>\r\n<p>Wir freuen uns auf einen großartigen Abend mit der österreichischen TYPO3-Community – cheers auf v14 LTS! 🍻</p>"
+            },
+            "_context": {
+                "page": 106,
+                "pageTitle": "TUGA 102: TYPO3 v14 LTS Release Party in Wien",
+                "element": 1415,
+                "type": "text",
+                "roles": {
+                    "header": "headline",
+                    "bodytext": "body"
+                }
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 1414,
+            "expect": {
+                "CType": "textmedia",
+                "header": "Location: Gleis//Garten in Wien-Meidling",
+                "bodytext": "<p>Der <strong>Gleis//Garten</strong> in der Eichenstraße 2, 1120 Wien, ist eine der entspanntesten Open-Air-Locations der Stadt: eigene Brauerei, mehrere Food-Theken mit österreichischen Klassikern, frischem Thai, Smoked Meat und vielem mehr. Eine perfekte Bühne für eine TYPO3-Release-Party im Frühling.</p>\r\n<p>Bei Schlechtwetter steht auch überdachter Bereich zur Verfügung. Die Veranstaltung ist kostenlos, Speisen und Getränke werden direkt vor Ort an den Theken bezahlt.</p>"
+            },
+            "set": {
+                "header": "Location: Gleis//Garten in Wien-Meidling",
+                "bodytext": "<p>Der <strong>Gleis//Garten</strong> in der Eichenstraße 2, 1120 Wien, ist eine der entspanntesten Open-Air-Locations der Stadt: eigene Brauerei, mehrere Food-Theken mit österreichischen Klassikern, frischem Thai, Smoked Meat und vielem mehr. Eine perfekte Bühne für eine TYPO3-Release-Party im Frühling.</p>\r\n<p>Bei Schlechtwetter steht auch überdachter Bereich zur Verfügung. Die Veranstaltung ist kostenlos, Speisen und Getränke werden direkt vor Ort an den Theken bezahlt.</p>"
+            },
+            "_context": {
+                "page": 106,
+                "pageTitle": "TUGA 102: TYPO3 v14 LTS Release Party in Wien",
+                "element": 1414,
+                "type": "textmedia",
+                "roles": {
+                    "header": "headline",
+                    "bodytext": "body"
+                }
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 773,
+            "expect": {
+                "alternative": "Anstossen mit Bier im Garten – stimmungsvoll wie im Gleis//Garten"
+            },
+            "set": {
+                "alternative": "Anstossen mit Bier im Garten – stimmungsvoll wie im Gleis//Garten"
+            },
+            "_context": {
+                "page": 106,
+                "pageTitle": "TUGA 102: TYPO3 v14 LTS Release Party in Wien",
+                "element": 1414,
+                "type": "textmedia",
+                "roles": {
+                    "alternative": "alt"
+                },
+                "file": "/mcp/workspaces/ws-1/photo-1436076863939-06870fe779c2-d1c357db007d6d0e.jpg"
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 1413,
+            "expect": {
+                "CType": "text",
+                "header": "Agenda des Abends",
+                "bodytext": "<ul> <li><strong>ab 18:00</strong> – Ankommen, Begrüßung &amp; erstes Getränk</li> <li><strong>ca. 18:45</strong> – Präsentation: TYPO3 v14 LTS – Features &amp; Highlights</li> <li><strong>ca. 19:30</strong> – Überblick über Breaking Changes &amp; Upgrade-Pfad</li> <li><strong>ab ca. 20:00</strong> – Networking, Essen &amp; Feiern unter Palmen und Olivenbäumen</li> </ul>\r\n<p><em>Hinweis: Die Zeiten sind Richtwerte – das genaue Programm wird vor Ort flexibel gestaltet.</em></p>"
+            },
+            "set": {
+                "header": "Agenda des Abends",
+                "bodytext": "<ul> <li><strong>ab 18:00</strong> – Ankommen, Begrüßung &amp; erstes Getränk</li> <li><strong>ca. 18:45</strong> – Präsentation: TYPO3 v14 LTS – Features &amp; Highlights</li> <li><strong>ca. 19:30</strong> – Überblick über Breaking Changes &amp; Upgrade-Pfad</li> <li><strong>ab ca. 20:00</strong> – Networking, Essen &amp; Feiern unter Palmen und Olivenbäumen</li> </ul>\r\n<p><em>Hinweis: Die Zeiten sind Richtwerte – das genaue Programm wird vor Ort flexibel gestaltet.</em></p>"
+            },
+            "_context": {
+                "page": 106,
+                "pageTitle": "TUGA 102: TYPO3 v14 LTS Release Party in Wien",
+                "element": 1413,
+                "type": "text",
+                "roles": {
+                    "header": "headline",
+                    "bodytext": "body"
+                }
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 1412,
+            "expect": {
+                "CType": "textmedia",
+                "header": "Was uns beim Release-Meetup erwartet",
+                "bodytext": "<p>Im Mittelpunkt des Abends steht TYPO3 v14 LTS – die nächste Long-Term-Support-Version, die uns die kommenden Jahre durch Projekte begleitet. Erwartet euch eine kompakte <strong>Präsentation der wichtigsten Features</strong>, einen <strong>Überblick über Breaking Changes &amp; Migrationen</strong> sowie viel Raum für Fragen und Erfahrungsaustausch.</p>\r\n<p>Im Anschluss geht es ins gemütliche Networking – mit österreichischen Klassikern, Thai-Küche, Smoked Meat und Bier aus der hauseigenen Brauerei. Ein großes Dankeschön an <strong>plan2net</strong>, die Location und Erstversorgung sponsern.</p>"
+            },
+            "set": {
+                "header": "Was uns beim Release-Meetup erwartet",
+                "bodytext": "<p>Im Mittelpunkt des Abends steht TYPO3 v14 LTS – die nächste Long-Term-Support-Version, die uns die kommenden Jahre durch Projekte begleitet. Erwartet euch eine kompakte <strong>Präsentation der wichtigsten Features</strong>, einen <strong>Überblick über Breaking Changes &amp; Migrationen</strong> sowie viel Raum für Fragen und Erfahrungsaustausch.</p>\r\n<p>Im Anschluss geht es ins gemütliche Networking – mit österreichischen Klassikern, Thai-Küche, Smoked Meat und Bier aus der hauseigenen Brauerei. Ein großes Dankeschön an <strong>plan2net</strong>, die Location und Erstversorgung sponsern.</p>"
+            },
+            "_context": {
+                "page": 106,
+                "pageTitle": "TUGA 102: TYPO3 v14 LTS Release Party in Wien",
+                "element": 1412,
+                "type": "textmedia",
+                "roles": {
+                    "header": "headline",
+                    "bodytext": "body"
+                }
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 772,
+            "expect": {
+                "alternative": "Laptop mit Programmcode – symbolisch für TYPO3 v14 LTS Release"
+            },
+            "set": {
+                "alternative": "Laptop mit Programmcode – symbolisch für TYPO3 v14 LTS Release"
+            },
+            "_context": {
+                "page": 106,
+                "pageTitle": "TUGA 102: TYPO3 v14 LTS Release Party in Wien",
+                "element": 1412,
+                "type": "textmedia",
+                "roles": {
+                    "alternative": "alt"
+                },
+                "file": "/mcp/workspaces/ws-1/photo-1517694712202-14dd9538aa97-fe6f82706217d41f.jpg"
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 1411,
+            "expect": {
+                "CType": "text",
+                "header": "TUGA 102 – Gemeinsam feiern wir TYPO3 v14 LTS",
+                "subheader": "Wien, 24. April 2026 • ab 18:00 Uhr • Gleis//Garten",
+                "bodytext": "<p>Am <strong>21. April 2026</strong> ist es so weit: <strong>TYPO3 v14 LTS</strong> wird veröffentlicht – und die <strong>TYPO3 User Group Austria (TUGA)</strong> feiert das Release-Highlight des Jahres mit ihrem 102. Meetup. Eingeladen sind Entwicklerinnen und Entwickler, Integratoren, Agenturen, Studierende und alle, die TYPO3 lieben oder gerade erst entdecken.</p>\r\n<p>Hosts des Abends sind <strong>Georg Ringer</strong> und <strong>Sabina Leitner</strong>. Veranstaltungsort ist der <strong>Gleis//Garten</strong> in Wien-Meidling – mit eigener Brauerei, Food Corner und entspannter Sommer-Atmosphäre unter Palmen und Olivenbäumen.</p>"
+            },
+            "set": {
+                "header": "TUGA 102 – Gemeinsam feiern wir TYPO3 v14 LTS",
+                "subheader": "Wien, 24. April 2026 • ab 18:00 Uhr • Gleis//Garten",
+                "bodytext": "<p>Am <strong>21. April 2026</strong> ist es so weit: <strong>TYPO3 v14 LTS</strong> wird veröffentlicht – und die <strong>TYPO3 User Group Austria (TUGA)</strong> feiert das Release-Highlight des Jahres mit ihrem 102. Meetup. Eingeladen sind Entwicklerinnen und Entwickler, Integratoren, Agenturen, Studierende und alle, die TYPO3 lieben oder gerade erst entdecken.</p>\r\n<p>Hosts des Abends sind <strong>Georg Ringer</strong> und <strong>Sabina Leitner</strong>. Veranstaltungsort ist der <strong>Gleis//Garten</strong> in Wien-Meidling – mit eigener Brauerei, Food Corner und entspannter Sommer-Atmosphäre unter Palmen und Olivenbäumen.</p>"
+            },
+            "_context": {
+                "page": 106,
+                "pageTitle": "TUGA 102: TYPO3 v14 LTS Release Party in Wien",
+                "element": 1411,
+                "type": "text",
+                "roles": {
+                    "header": "headline",
+                    "subheader": "lead",
+                    "bodytext": "body"
+                }
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 7629,
+            "expect": {
+                "CType": "textmedia",
+                "header": "Danke, dass ihr dabei wart!",
+                "subheader": "TUGA 102 · TYPO3 v14 LTS · Gleis//Garten, Wien",
+                "bodytext": "<p>Was f&uuml;r ein sch&ouml;ner Abend! Ein gro&szlig;es <strong>Danke</strong> an alle, die mit uns den Release von <strong>TYPO3 v14 LTS</strong> gefeiert haben &ndash; mit Talks, Networking und der einzigartigen Atmosph&auml;re im <strong>Gleis//Garten</strong>. Danke an die Hosts <strong>Georg Ringer</strong> und <strong>Sabina Leitner</strong> sowie an <strong>plan2net</strong> f&uuml;r Location und erste Getr&auml;nke.</p>\r\n<p><em>Symbolbild: jubelndes Publikum bei einem Event &middot; Foto via <a href=\"https://unsplash.com/license\" rel=\"noopener noreferrer\">Unsplash</a> (Unsplash License).</em></p>"
+            },
+            "set": {
+                "header": "Danke, dass ihr dabei wart!",
+                "subheader": "TUGA 102 · TYPO3 v14 LTS · Gleis//Garten, Wien",
+                "bodytext": "<p>Was f&uuml;r ein sch&ouml;ner Abend! Ein gro&szlig;es <strong>Danke</strong> an alle, die mit uns den Release von <strong>TYPO3 v14 LTS</strong> gefeiert haben &ndash; mit Talks, Networking und der einzigartigen Atmosph&auml;re im <strong>Gleis//Garten</strong>. Danke an die Hosts <strong>Georg Ringer</strong> und <strong>Sabina Leitner</strong> sowie an <strong>plan2net</strong> f&uuml;r Location und erste Getr&auml;nke.</p>\r\n<p><em>Symbolbild: jubelndes Publikum bei einem Event &middot; Foto via <a href=\"https://unsplash.com/license\" rel=\"noopener noreferrer\">Unsplash</a> (Unsplash License).</em></p>"
+            },
+            "_context": {
+                "page": 106,
+                "pageTitle": "TUGA 102: TYPO3 v14 LTS Release Party in Wien",
+                "element": 7629,
+                "type": "textmedia",
+                "roles": {
+                    "header": "headline",
+                    "subheader": "lead",
+                    "bodytext": "body"
+                }
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 3758,
+            "expect": {
+                "alternative": "Jubelndes Publikum bei einem Event (Symbolbild)"
+            },
+            "set": {
+                "alternative": "Jubelndes Publikum bei einem Event (Symbolbild)"
+            },
+            "_context": {
+                "page": 106,
+                "pageTitle": "TUGA 102: TYPO3 v14 LTS Release Party in Wien",
+                "element": 7629,
+                "type": "textmedia",
+                "roles": {
+                    "alternative": "alt"
+                },
+                "file": "/user_upload/tuga102/tuga102-thanks-crowd-unsplash.jpg"
+            }
+        }
+    ]
+}

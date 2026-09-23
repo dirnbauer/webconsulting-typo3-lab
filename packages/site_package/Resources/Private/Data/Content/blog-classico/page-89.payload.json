@@ -1,0 +1,96 @@
+{
+    "version": 1,
+    "site": "blog-classico",
+    "root": 15,
+    "language": 0,
+    "languageCode": "de",
+    "generated": "2026-09-23T10:11:13+02:00",
+    "records": [
+        {
+            "table": "pages",
+            "uid": 89,
+            "expect": {
+                "title": "Keine Unterstützung im Iran: Trump kritisiert Meloni",
+                "subtitle": "Blog template coverage entry",
+                "abstract": "Angesichts fehlender Unterstützung Italiens im Iran-Krieg hat US-Präsident Donald Trump der italienischen Ministerpräsidentin Giorgia Meloni fehlenden Mut vorgeworfen. „Ich dachte, sie hätte Mut, aber ich habe mich geirrt“, sagte er in einem heute veröffentlichten Interview mit der italienischen Tag",
+                "description": "Angesichts fehlender Unterstützung Italiens im Iran-Krieg hat US-Präsident Donald Trump der italienischen Ministerpräsidentin Giorgia Meloni fehlenden Mut vorgeworfen. „Ich dachte, sie hätte Mut, aber ich habe mich geirrt“, sagte er in einem heute veröffentlichten Interview mit der italienischen Tag",
+                "seo_title": "Keine Unterstützung im Iran: Trump kritisiert Meloni",
+                "og_title": "Keine Unterstützung im Iran: Trump kritisiert Meloni",
+                "og_description": "Angesichts fehlender Unterstützung Italiens im Iran-Krieg hat US-Präsident Donald Trump der italienischen Ministerpräsidentin Giorgia Meloni fehlenden Mut vorgeworfen. „Ich dachte, sie hätte Mut, aber ich habe mich geirrt“, sagte er in einem heute veröffentlichten Interview mit der italienischen Tag",
+                "twitter_title": "Keine Unterstützung im Iran: Trump kritisiert Meloni",
+                "twitter_description": "Angesichts fehlender Unterstützung Italiens im Iran-Krieg hat US-Präsident Donald Trump der italienischen Ministerpräsidentin Giorgia Meloni fehlenden Mut vorgeworfen. „Ich dachte, sie hätte Mut, aber ich habe mich geirrt“, sagte er in einem heute veröffentlichten Interview mit der italienischen Tag"
+            },
+            "set": {
+                "title": "Keine Unterstützung im Iran: Trump kritisiert Meloni",
+                "subtitle": "Blog template coverage entry",
+                "abstract": "Angesichts fehlender Unterstützung Italiens im Iran-Krieg hat US-Präsident Donald Trump der italienischen Ministerpräsidentin Giorgia Meloni fehlenden Mut vorgeworfen. „Ich dachte, sie hätte Mut, aber ich habe mich geirrt“, sagte er in einem heute veröffentlichten Interview mit der italienischen Tag",
+                "description": "Angesichts fehlender Unterstützung Italiens im Iran-Krieg hat US-Präsident Donald Trump der italienischen Ministerpräsidentin Giorgia Meloni fehlenden Mut vorgeworfen. „Ich dachte, sie hätte Mut, aber ich habe mich geirrt“, sagte er in einem heute veröffentlichten Interview mit der italienischen Tag",
+                "seo_title": "Keine Unterstützung im Iran: Trump kritisiert Meloni",
+                "og_title": "Keine Unterstützung im Iran: Trump kritisiert Meloni",
+                "og_description": "Angesichts fehlender Unterstützung Italiens im Iran-Krieg hat US-Präsident Donald Trump der italienischen Ministerpräsidentin Giorgia Meloni fehlenden Mut vorgeworfen. „Ich dachte, sie hätte Mut, aber ich habe mich geirrt“, sagte er in einem heute veröffentlichten Interview mit der italienischen Tag",
+                "twitter_title": "Keine Unterstützung im Iran: Trump kritisiert Meloni",
+                "twitter_description": "Angesichts fehlender Unterstützung Italiens im Iran-Krieg hat US-Präsident Donald Trump der italienischen Ministerpräsidentin Giorgia Meloni fehlenden Mut vorgeworfen. „Ich dachte, sie hätte Mut, aber ich habe mich geirrt“, sagte er in einem heute veröffentlichten Interview mit der italienischen Tag"
+            },
+            "_context": {
+                "page": 89,
+                "pageTitle": "Keine Unterstützung im Iran: Trump kritisiert Meloni",
+                "element": 89,
+                "type": "pages",
+                "roles": {
+                    "title": "page_title",
+                    "subtitle": "lead",
+                    "abstract": "lead",
+                    "description": "meta",
+                    "seo_title": "page_title",
+                    "og_title": "page_title",
+                    "og_description": "meta",
+                    "twitter_title": "page_title",
+                    "twitter_description": "meta"
+                }
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 1316,
+            "expect": {
+                "CType": "text",
+                "header": "Papst warnt vor „Tyrannei der Mehrheit“",
+                "bodytext": "<p>Unterdessen warnte Papst Leo XIV. zwei Tage nach den verbalen Attacken von Trump auf ihn vor autoritären Fehlentwicklungen. Demokratien blieben dann gesund, wenn sie in moralischen Werten verwurzelt seien, erklärte der Papst in einem Schreiben. Fehle dieses Fundament, laufe die Demokratie Gefahr, zu einer Tyrannei der Mehrheit oder zu einem Deckmantel für die Vorherrschaft wirtschaftlicher und technologischer Eliten zu werden.</p>\r\n<p>Zuletzt geriet Trump in die Kritik aufgrund eines Postings, in dem er sich selbst als Jesus inszenierte. test</p>\r\n<p><a href=\"https://orf.at/stories/3426808/\" rel=\"noopener noreferrer\">Lesen Sie mehr …</a></p>"
+            },
+            "set": {
+                "header": "Papst warnt vor „Tyrannei der Mehrheit“",
+                "bodytext": "<p>Unterdessen warnte Papst Leo XIV. zwei Tage nach den verbalen Attacken von Trump auf ihn vor autoritären Fehlentwicklungen. Demokratien blieben dann gesund, wenn sie in moralischen Werten verwurzelt seien, erklärte der Papst in einem Schreiben. Fehle dieses Fundament, laufe die Demokratie Gefahr, zu einer Tyrannei der Mehrheit oder zu einem Deckmantel für die Vorherrschaft wirtschaftlicher und technologischer Eliten zu werden.</p>\r\n<p>Zuletzt geriet Trump in die Kritik aufgrund eines Postings, in dem er sich selbst als Jesus inszenierte. test</p>\r\n<p><a href=\"https://orf.at/stories/3426808/\" rel=\"noopener noreferrer\">Lesen Sie mehr …</a></p>"
+            },
+            "_context": {
+                "page": 89,
+                "pageTitle": "Keine Unterstützung im Iran: Trump kritisiert Meloni",
+                "element": 1316,
+                "type": "text",
+                "roles": {
+                    "header": "headline",
+                    "bodytext": "body"
+                }
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 1315,
+            "expect": {
+                "CType": "text",
+                "bodytext": "<p>Angesichts fehlender Unterstützung Italiens im Iran-Krieg hat US-Präsident Donald Trump der italienischen Ministerpräsidentin Giorgia Meloni fehlenden Mut vorgeworfen. „Ich dachte, sie hätte Mut, aber ich habe mich geirrt“, sagte er in einem heute veröffentlichten Interview mit der italienischen Tageszeitung „Corriere della Sera“. Er sei „schockiert über sie“ gewesen.</p>\r\n<p>Meloni galt lange Zeit als eine der europäischen Politikerinnen, die einen guten Draht zu Trump hatten. Italien wie auch andere europäische NATO-Partner weigern sich, die USA im Krieg gegen den Iran zu unterstützen.</p>\r\n<p>Trump hatte die NATO-Partner dafür scharf kritisiert, die westliche Militärallianz als „Papiertiger“ bezeichnet und gedroht, nach dem Ende des Krieges die Mitgliedschaft der USA in der NATO zu überdenken. Die NATO-Partner pochen darauf, dass der von den USA und Israel am 28. Februar begonnene Krieg keinen Bündnisfall darstelle, der ein Eintreten in den Konflikt erforderlich mache.</p>"
+            },
+            "set": {
+                "bodytext": "<p>Angesichts fehlender Unterstützung Italiens im Iran-Krieg hat US-Präsident Donald Trump der italienischen Ministerpräsidentin Giorgia Meloni fehlenden Mut vorgeworfen. „Ich dachte, sie hätte Mut, aber ich habe mich geirrt“, sagte er in einem heute veröffentlichten Interview mit der italienischen Tageszeitung „Corriere della Sera“. Er sei „schockiert über sie“ gewesen.</p>\r\n<p>Meloni galt lange Zeit als eine der europäischen Politikerinnen, die einen guten Draht zu Trump hatten. Italien wie auch andere europäische NATO-Partner weigern sich, die USA im Krieg gegen den Iran zu unterstützen.</p>\r\n<p>Trump hatte die NATO-Partner dafür scharf kritisiert, die westliche Militärallianz als „Papiertiger“ bezeichnet und gedroht, nach dem Ende des Krieges die Mitgliedschaft der USA in der NATO zu überdenken. Die NATO-Partner pochen darauf, dass der von den USA und Israel am 28. Februar begonnene Krieg keinen Bündnisfall darstelle, der ein Eintreten in den Konflikt erforderlich mache.</p>"
+            },
+            "_context": {
+                "page": 89,
+                "pageTitle": "Keine Unterstützung im Iran: Trump kritisiert Meloni",
+                "element": 1315,
+                "type": "text",
+                "roles": {
+                    "bodytext": "body"
+                }
+            }
+        }
+    ]
+}

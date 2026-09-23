@@ -1,0 +1,288 @@
+{
+    "version": 1,
+    "site": "blog-classico",
+    "root": 15,
+    "language": 0,
+    "languageCode": "de",
+    "generated": "2026-09-23T10:11:09+02:00",
+    "records": [
+        {
+            "table": "pages",
+            "uid": 31,
+            "expect": {
+                "title": "Holding Hands Through Spring Showers",
+                "subtitle": "Connection, care, and Easter in uncertain weather",
+                "abstract": "A more human Easter story built around care and connection.",
+                "description": "A post about connection, family, and staying close even when spring weather turns wet.",
+                "seo_title": "Holding Hands Through Spring Showers",
+                "og_title": "Holding Hands Through Spring Showers",
+                "og_description": "A post about connection, family, and staying close even when spring weather turns wet.",
+                "twitter_title": "Holding Hands Through Spring Showers",
+                "twitter_description": "A post about connection, family, and staying close even when spring weather turns wet."
+            },
+            "set": {
+                "title": "Holding Hands Through Spring Showers",
+                "subtitle": "Connection, care, and Easter in uncertain weather",
+                "abstract": "A more human Easter story built around care and connection.",
+                "description": "A post about connection, family, and staying close even when spring weather turns wet.",
+                "seo_title": "Holding Hands Through Spring Showers",
+                "og_title": "Holding Hands Through Spring Showers",
+                "og_description": "A post about connection, family, and staying close even when spring weather turns wet.",
+                "twitter_title": "Holding Hands Through Spring Showers",
+                "twitter_description": "A post about connection, family, and staying close even when spring weather turns wet."
+            },
+            "_context": {
+                "page": 31,
+                "pageTitle": "Holding Hands Through Spring Showers",
+                "element": 31,
+                "type": "pages",
+                "roles": {
+                    "title": "page_title",
+                    "subtitle": "lead",
+                    "abstract": "lead",
+                    "description": "meta",
+                    "seo_title": "page_title",
+                    "og_title": "page_title",
+                    "og_description": "meta",
+                    "twitter_title": "page_title",
+                    "twitter_description": "meta"
+                }
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 87,
+            "expect": {
+                "CType": "textmedia",
+                "header": "Weather can deepen the moment",
+                "bodytext": "<p>A rainy Easter does not weaken connection. Often it sharpens it. Holding hands, sharing shelter, or walking through spring showers can make the day feel more human and more memorable than perfect conditions ever would. changed</p>"
+            },
+            "set": {
+                "header": "Weather can deepen the moment",
+                "bodytext": "<p>A rainy Easter does not weaken connection. Often it sharpens it. Holding hands, sharing shelter, or walking through spring showers can make the day feel more human and more memorable than perfect conditions ever would. changed</p>"
+            },
+            "_context": {
+                "page": 31,
+                "pageTitle": "Holding Hands Through Spring Showers",
+                "element": 87,
+                "type": "textmedia",
+                "roles": {
+                    "header": "headline",
+                    "bodytext": "body"
+                }
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 44,
+            "expect": {
+                "alternative": ""
+            },
+            "set": {
+                "alternative": "Adult holding a small child's hand outdoors"
+            },
+            "_context": {
+                "page": 31,
+                "pageTitle": "Holding Hands Through Spring Showers",
+                "element": 87,
+                "type": "textmedia",
+                "roles": {
+                    "alternative": "alt"
+                },
+                "file": "/mcp/workspaces/ws-1/images/holding-hands-yunus-tug-fb9a21fe7cf0a521.jpg"
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 61,
+            "expect": {
+                "alternative": ""
+            },
+            "set": {
+                "alternative": "Adult holding a small child's hand outdoors"
+            },
+            "_context": {
+                "page": 31,
+                "pageTitle": "Holding Hands Through Spring Showers",
+                "element": 87,
+                "type": "textmedia",
+                "roles": {
+                    "alternative": "alt"
+                },
+                "file": "/mcp/workspaces/ws-1/images/holding-small-child-yunus-tug-2-b006d06382e649b4.jpg"
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 86,
+            "expect": {
+                "CType": "textmedia",
+                "header": "Ways to build that feeling into a post",
+                "bodytext": "<ul><li>Write about shared rituals instead of only decoration.</li><li>Let weather become part of the story rather than a problem.</li><li>Use images that suggest movement, care, or reassurance.</li><li>Keep the tone personal and steady.</li></ul>"
+            },
+            "set": {
+                "header": "Ways to build that feeling into a post",
+                "bodytext": "<ul><li>Write about shared rituals instead of only decoration.</li><li>Let weather become part of the story rather than a problem.</li><li>Use images that suggest movement, care, or reassurance.</li><li>Keep the tone personal and steady.</li></ul>"
+            },
+            "_context": {
+                "page": 31,
+                "pageTitle": "Holding Hands Through Spring Showers",
+                "element": 86,
+                "type": "textmedia",
+                "roles": {
+                    "header": "headline",
+                    "bodytext": "body"
+                }
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 43,
+            "expect": {
+                "alternative": ""
+            },
+            "set": {
+                "alternative": "Adult holding a small child's hand outdoors"
+            },
+            "_context": {
+                "page": 31,
+                "pageTitle": "Holding Hands Through Spring Showers",
+                "element": 86,
+                "type": "textmedia",
+                "roles": {
+                    "alternative": "alt"
+                },
+                "file": "/mcp/workspaces/ws-1/images/holding-hands-yunus-tug-fb9a21fe7cf0a521.jpg"
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 63,
+            "expect": {
+                "alternative": ""
+            },
+            "set": {
+                "alternative": "Child in yellow raincoat holding an adult's hand"
+            },
+            "_context": {
+                "page": 31,
+                "pageTitle": "Holding Hands Through Spring Showers",
+                "element": 86,
+                "type": "textmedia",
+                "roles": {
+                    "alternative": "alt"
+                },
+                "file": "/mcp/workspaces/ws-1/images/yellow-raincoat-holding-hand-getty-2cc0f2fbb0fcc6c5.jpg"
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 15656,
+            "expect": {
+                "CType": "text",
+                "header": "A quieter seasonal story",
+                "bodytext": "<p>Not every seasonal article needs to be bright and busy. This example keeps the tone calm so typography, spacing, and badge treatment can be reviewed with realistic editorial copy.</p>"
+            },
+            "set": {
+                "header": "A quieter seasonal story",
+                "bodytext": "<p>Not every seasonal article needs to be bright and busy. This example keeps the tone calm so typography, spacing, and badge treatment can be reviewed with realistic editorial copy.</p>"
+            },
+            "_context": {
+                "page": 31,
+                "pageTitle": "Holding Hands Through Spring Showers",
+                "element": 15656,
+                "type": "text",
+                "roles": {
+                    "header": "headline",
+                    "bodytext": "body"
+                }
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 85,
+            "expect": {
+                "CType": "textmedia",
+                "header": "Connection is often the real Easter story",
+                "bodytext": "<p>Behind the eggs, decorations, and spring meals, Easter often comes down to one simple thing: people staying close to one another. An image of an adult holding a child's hand says that directly. It turns the season away from objects and back toward care, guidance, and ordinary moments that feel more important in changing weather.</p>"
+            },
+            "set": {
+                "header": "Connection is often the real Easter story",
+                "bodytext": "<p>Behind the eggs, decorations, and spring meals, Easter often comes down to one simple thing: people staying close to one another. An image of an adult holding a child's hand says that directly. It turns the season away from objects and back toward care, guidance, and ordinary moments that feel more important in changing weather.</p>"
+            },
+            "_context": {
+                "page": 31,
+                "pageTitle": "Holding Hands Through Spring Showers",
+                "element": 85,
+                "type": "textmedia",
+                "roles": {
+                    "header": "headline",
+                    "bodytext": "body"
+                }
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 9,
+            "expect": {
+                "alternative": ""
+            },
+            "set": {
+                "alternative": "Adult holding a small child's hand outdoors"
+            },
+            "_context": {
+                "page": 31,
+                "pageTitle": "Holding Hands Through Spring Showers",
+                "element": 85,
+                "type": "textmedia",
+                "roles": {
+                    "alternative": "alt"
+                },
+                "file": "/mcp/workspaces/ws-1/images/holding-hands-yunus-tug-fb9a21fe7cf0a521.jpg"
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 66,
+            "expect": {
+                "alternative": ""
+            },
+            "set": {
+                "alternative": "Adult holding a small child's hand outdoors"
+            },
+            "_context": {
+                "page": 31,
+                "pageTitle": "Holding Hands Through Spring Showers",
+                "element": 85,
+                "type": "textmedia",
+                "roles": {
+                    "alternative": "alt"
+                },
+                "file": "/mcp/workspaces/ws-1/images/holding-hands-yunus-tug-fb9a21fe7cf0a521.jpg"
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 15657,
+            "expect": {
+                "CType": "text",
+                "header": "Editorial notes",
+                "bodytext": "<p>The abstract is short enough for a card or list teaser, while the description gives search engines and social previews a clearer sentence.</p>"
+            },
+            "set": {
+                "header": "Editorial notes",
+                "bodytext": "<p>The abstract is short enough for a card or list teaser, while the description gives search engines and social previews a clearer sentence.</p>"
+            },
+            "_context": {
+                "page": 31,
+                "pageTitle": "Holding Hands Through Spring Showers",
+                "element": 15657,
+                "type": "text",
+                "roles": {
+                    "header": "headline",
+                    "bodytext": "body"
+                }
+            }
+        }
+    ]
+}

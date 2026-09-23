@@ -1,0 +1,282 @@
+{
+    "version": 1,
+    "site": "blog-classico",
+    "root": 15,
+    "language": 0,
+    "languageCode": "de",
+    "generated": "2026-09-23T10:10:59+02:00",
+    "records": [
+        {
+            "table": "pages",
+            "uid": 23,
+            "expect": {
+                "title": "Eggs in the Grass: Classic Easter Details",
+                "subtitle": "Why simple outdoor details still feel memorable",
+                "abstract": "The small visual details that make Easter feel timeless.",
+                "description": "A blog post about the charm of Easter eggs hidden in grass and early spring color.",
+                "seo_title": "Eggs in the Grass: Classic Easter Details",
+                "og_title": "Eggs in the Grass: Classic Easter Details",
+                "og_description": "A blog post about the charm of Easter eggs hidden in grass and early spring color.",
+                "twitter_title": "Eggs in the Grass: Classic Easter Details",
+                "twitter_description": "A blog post about the charm of Easter eggs hidden in grass and early spring color."
+            },
+            "set": {
+                "title": "Eggs in the Grass: Classic Easter Details",
+                "subtitle": "Why simple outdoor details still feel memorable",
+                "abstract": "The small visual details that make Easter feel timeless.",
+                "description": "A blog post about the charm of Easter eggs hidden in grass and early spring color.",
+                "seo_title": "Eggs in the Grass: Classic Easter Details",
+                "og_title": "Eggs in the Grass: Classic Easter Details",
+                "og_description": "A blog post about the charm of Easter eggs hidden in grass and early spring color.",
+                "twitter_title": "Eggs in the Grass: Classic Easter Details",
+                "twitter_description": "A blog post about the charm of Easter eggs hidden in grass and early spring color."
+            },
+            "_context": {
+                "page": 23,
+                "pageTitle": "Eggs in the Grass: Classic Easter Details",
+                "element": 23,
+                "type": "pages",
+                "roles": {
+                    "title": "page_title",
+                    "subtitle": "lead",
+                    "abstract": "lead",
+                    "description": "meta",
+                    "seo_title": "page_title",
+                    "og_title": "page_title",
+                    "og_description": "meta",
+                    "twitter_title": "page_title",
+                    "twitter_description": "meta"
+                }
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 63,
+            "expect": {
+                "CType": "textmedia",
+                "header": "Spring color does the rest",
+                "bodytext": "<p>The best Easter scenes usually depend on restraint. Once the eggs are placed in a believable spring setting, the season speaks for itself. Grass, flowers, and a little space around the objects are often enough.</p>"
+            },
+            "set": {
+                "header": "Spring color does the rest",
+                "bodytext": "<p>The best Easter scenes usually depend on restraint. Once the eggs are placed in a believable spring setting, the season speaks for itself. Grass, flowers, and a little space around the objects are often enough.</p>"
+            },
+            "_context": {
+                "page": 23,
+                "pageTitle": "Eggs in the Grass: Classic Easter Details",
+                "element": 63,
+                "type": "textmedia",
+                "roles": {
+                    "header": "headline",
+                    "bodytext": "body"
+                }
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 15,
+            "expect": {
+                "alternative": ""
+            },
+            "set": {
+                "alternative": "Easter eggs hidden in grass with purple flowers"
+            },
+            "_context": {
+                "page": 23,
+                "pageTitle": "Eggs in the Grass: Classic Easter Details",
+                "element": 63,
+                "type": "textmedia",
+                "roles": {
+                    "alternative": "alt"
+                },
+                "file": "/mcp/workspaces/ws-1/images/easter-eggs-grass-jessica-fadel-b627e75a533722ec.jpg"
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 22,
+            "expect": {
+                "alternative": ""
+            },
+            "set": {
+                "alternative": "Easter eggs hidden in grass with purple flowers"
+            },
+            "_context": {
+                "page": 23,
+                "pageTitle": "Eggs in the Grass: Classic Easter Details",
+                "element": 63,
+                "type": "textmedia",
+                "roles": {
+                    "alternative": "alt"
+                },
+                "file": "/mcp/workspaces/ws-1/images/easter-eggs-grass-jessica-fadel-b627e75a533722ec.jpg"
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 48,
+            "expect": {
+                "alternative": ""
+            },
+            "set": {
+                "alternative": "Easter eggs in green grass with purple flowers"
+            },
+            "_context": {
+                "page": 23,
+                "pageTitle": "Eggs in the Grass: Classic Easter Details",
+                "element": 63,
+                "type": "textmedia",
+                "roles": {
+                    "alternative": "alt"
+                },
+                "file": "/mcp/workspaces/ws-1/images/easter-eggs-grass-purple-jessica-fadel-2850e07e9e32685b.jpg"
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 61,
+            "expect": {
+                "CType": "textmedia",
+                "header": "Why hidden egdgs still work",
+                "bodytext": "<p>Colored eggs tucked into fresh grass remain one of the clearest Easter images for a reason. The contrast between bright shells and new green growth captures the season in a single glance. It feels playful without needing explanation, and it works equally well for children, families, and simple spring editorial content.</p>"
+            },
+            "set": {
+                "header": "Why hidden egdgs still work",
+                "bodytext": "<p>Colored eggs tucked into fresh grass remain one of the clearest Easter images for a reason. The contrast between bright shells and new green growth captures the season in a single glance. It feels playful without needing explanation, and it works equally well for children, families, and simple spring editorial content.</p>"
+            },
+            "_context": {
+                "page": 23,
+                "pageTitle": "Eggs in the Grass: Classic Easter Details",
+                "element": 61,
+                "type": "textmedia",
+                "roles": {
+                    "header": "headline",
+                    "bodytext": "body"
+                }
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 14,
+            "expect": {
+                "alternative": ""
+            },
+            "set": {
+                "alternative": "Easter eggs hidden in grass with purple flowers"
+            },
+            "_context": {
+                "page": 23,
+                "pageTitle": "Eggs in the Grass: Classic Easter Details",
+                "element": 61,
+                "type": "textmedia",
+                "roles": {
+                    "alternative": "alt"
+                },
+                "file": "/mcp/workspaces/ws-1/images/easter-eggs-grass-jessica-fadel-b627e75a533722ec.jpg"
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 20,
+            "expect": {
+                "alternative": ""
+            },
+            "set": {
+                "alternative": "Easter eggs hidden in grass with purple flowers"
+            },
+            "_context": {
+                "page": 23,
+                "pageTitle": "Eggs in the Grass: Classic Easter Details",
+                "element": 61,
+                "type": "textmedia",
+                "roles": {
+                    "alternative": "alt"
+                },
+                "file": "/mcp/workspaces/ws-1/images/easter-eggs-grass-jessica-fadel-b627e75a533722ec.jpg"
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 62,
+            "expect": {
+                "CType": "textmedia",
+                "header": "Simple details to borroddw",
+                "bodytext": "<ul><li>Use only a few colors so the eggs feel intentional.</li><li>Pair eggs with grass, flowers, or moss instead of plastic props.</li><li>Leave some uneven spacing to keep the scene natural.</li><li>Favor daylight and soft shadows over heavy styling. dddd</li></ul>"
+            },
+            "set": {
+                "header": "Simple details to borroddw",
+                "bodytext": "<ul><li>Use only a few colors so the eggs feel intentional.</li><li>Pair eggs with grass, flowers, or moss instead of plastic props.</li><li>Leave some uneven spacing to keep the scene natural.</li><li>Favor daylight and soft shadows over heavy styling. dddd</li></ul>"
+            },
+            "_context": {
+                "page": 23,
+                "pageTitle": "Eggs in the Grass: Classic Easter Details",
+                "element": 62,
+                "type": "textmedia",
+                "roles": {
+                    "header": "headline",
+                    "bodytext": "body"
+                }
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 12,
+            "expect": {
+                "alternative": ""
+            },
+            "set": {
+                "alternative": "Easter eggs hidden in grass with purple flowers"
+            },
+            "_context": {
+                "page": 23,
+                "pageTitle": "Eggs in the Grass: Classic Easter Details",
+                "element": 62,
+                "type": "textmedia",
+                "roles": {
+                    "alternative": "alt"
+                },
+                "file": "/mcp/workspaces/ws-1/images/easter-eggs-grass-jessica-fadel-b627e75a533722ec.jpg"
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 21,
+            "expect": {
+                "alternative": ""
+            },
+            "set": {
+                "alternative": "Easter eggs hidden in grass with purple flowers"
+            },
+            "_context": {
+                "page": 23,
+                "pageTitle": "Eggs in the Grass: Classic Easter Details",
+                "element": 62,
+                "type": "textmedia",
+                "roles": {
+                    "alternative": "alt"
+                },
+                "file": "/mcp/workspaces/ws-1/images/easter-eggs-grass-jessica-fadel-b627e75a533722ec.jpg"
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 47,
+            "expect": {
+                "alternative": ""
+            },
+            "set": {
+                "alternative": "Easter eggs with spring flowers in a small nest"
+            },
+            "_context": {
+                "page": 23,
+                "pageTitle": "Eggs in the Grass: Classic Easter Details",
+                "element": 62,
+                "type": "textmedia",
+                "roles": {
+                    "alternative": "alt"
+                },
+                "file": "/mcp/workspaces/ws-1/images/easter-nest-heather-newsom-1e60ceec0a7aeaca.jpg"
+            }
+        }
+    ]
+}

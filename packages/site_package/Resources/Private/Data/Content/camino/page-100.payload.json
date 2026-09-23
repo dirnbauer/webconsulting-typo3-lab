@@ -1,0 +1,29 @@
+{
+    "version": 1,
+    "site": "camino",
+    "root": 99,
+    "language": 0,
+    "languageCode": "en",
+    "generated": "2026-09-23T10:12:21+02:00",
+    "records": [
+        {
+            "table": "pages",
+            "uid": 100,
+            "expect": {
+                "title": "Footer navigation"
+            },
+            "set": {
+                "title": "Footer navigation"
+            },
+            "_context": {
+                "page": 100,
+                "pageTitle": "Footer navigation",
+                "element": 100,
+                "type": "pages",
+                "roles": {
+                    "title": "page_title"
+                }
+            }
+        }
+    ]
+}
