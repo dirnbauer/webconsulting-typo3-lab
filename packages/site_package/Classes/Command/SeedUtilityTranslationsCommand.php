@@ -73,17 +73,17 @@ final class SeedUtilityTranslationsCommand extends Command
 
     private const NOTFOUND_EN = [
         'pageTitle' => 'Page not found',
-        'description' => 'The page you requested could not be found. Check the web address, or use one of the links below to continue.',
+        'description' => 'This page does not exist or has moved. Check the web address, or use the list of main pages below to find what you need.',
         'hs_eyebrow' => 'Error 404',
         'hs_header' => 'Page not found',
-        'hs_subheadline' => 'The requested page could not be found.',
-        'ch_header' => 'Back to the homepage',
-        'ch_content' => '<p>Use the page list below or return to the homepage.</p>',
-        'ch_link_text' => 'Back to the homepage',
-        'sg_header' => 'Important pages',
-        'cta_header' => 'Back to the homepage',
-        'cta_description' => 'Return to the website homepage.',
-        'cta_text' => 'Back to the homepage',
+        'hs_subheadline' => 'The link may be out of date, or the address may contain a typo.',
+        'ch_header' => 'Find the page you need',
+        'ch_content' => '<p>The list below shows the main pages of this site, grouped by topic. You can also start again on the homepage.</p>',
+        'ch_link_text' => 'Open the homepage',
+        'sg_header' => 'Main pages of this site',
+        'cta_header' => 'Start with the overview',
+        'cta_description' => 'The homepage gives an overview of this site. The main menu at the top leads to its sections.',
+        'cta_text' => 'Visit the homepage',
     ];
 
     /** sys_language_uid => translated strings */
@@ -92,54 +92,54 @@ final class SeedUtilityTranslationsCommand extends Command
             'searchHeader' => 'Suche',
             'hs_eyebrow' => 'Fehler 404',
             'hs_header' => 'Seite nicht gefunden',
-            'hs_subheadline' => 'Die angeforderte Seite wurde nicht gefunden.',
-            'ch_header' => 'Zurück zur Startseite',
-            'ch_content' => '<p>Nutzen Sie die Übersicht unten oder kehren Sie zur Startseite zurück.</p>',
-            'ch_link_text' => 'Zurück zur Startseite',
-            'sg_header' => 'Wichtige Seiten',
-            'cta_header' => 'Zur Startseite',
-            'cta_description' => 'Kehren Sie zur Startseite zurück.',
+            'hs_subheadline' => 'Der Link ist vielleicht veraltet, oder die Adresse enthält einen Tippfehler.',
+            'ch_header' => 'Die passende Seite finden',
+            'ch_content' => '<p>Die Liste unten zeigt die wichtigsten Seiten dieser Website, nach Thema geordnet. Sie können auch auf der Startseite neu beginnen.</p>',
+            'ch_link_text' => 'Startseite öffnen',
+            'sg_header' => 'Die wichtigsten Seiten',
+            'cta_header' => 'Mit dem Überblick beginnen',
+            'cta_description' => 'Die Startseite gibt einen Überblick über diese Website. Das Hauptmenü oben führt zu den einzelnen Bereichen.',
             'cta_text' => 'Zur Startseite',
-            'groups' => ['Hier starten', 'Für Ihr Team', 'Element-Kapitel', 'Recht & Projekt'],
-            'links' => ['Startseite', 'Technische Funktionen', 'GEO & KI-Suche', 'Erfolgsgeschichten',
-                'Agenturen & Integratoren', 'Inhouse-Teams', 'Freelancer & Solo-Devs',
-                'Hero & Landing-Intros', 'Features & Nutzen', 'Pläne & Preise', 'Daten & Dashboards', 'Vertrauen & Social Proof',
-                'Impressum', 'Datenschutzerklärung', 'Barrierefreiheit', 'GitHub-Repository'],
+            'groups' => ['Hier starten', 'Für Ihr Team', 'Elementgruppen', 'Recht und Projekt'],
+            'links' => ['Startseite', 'Technische Funktionen', 'GEO und KI-Suche', 'Erfolgsgeschichten',
+                'Zielgruppen', 'Agenturen und Integratoren', 'Inhouse-Teams', 'Freelancer',
+                'Hero-Bereiche und Intros', 'Funktionen und Vorteile', 'Tarife und Preise', 'Daten und Dashboards', 'Vertrauen und Referenzen',
+                'Impressum', 'Datenschutz', 'Barrierefreiheit', 'GitHub-Repository'],
         ],
         2 => [
             'searchHeader' => '搜索',
             'hs_eyebrow' => '错误 404',
             'hs_header' => '页面未找到',
-            'hs_subheadline' => '找不到您请求的页面。',
-            'ch_header' => '返回首页',
-            'ch_content' => '<p>请使用下方的页面列表，或返回首页。</p>',
-            'ch_link_text' => '返回首页',
-            'sg_header' => '重要页面',
-            'cta_header' => '返回首页',
-            'cta_description' => '返回网站首页。',
-            'cta_text' => '返回首页',
-            'groups' => ['从这里开始', '为你的团队', '元素章节', '法律与项目'],
+            'hs_subheadline' => '链接可能已过期，或网址中有拼写错误。',
+            'ch_header' => '查找您需要的页面',
+            'ch_content' => '<p>下方列表按主题列出本站的主要页面。您也可以从首页重新开始。</p>',
+            'ch_link_text' => '打开首页',
+            'sg_header' => '本站主要页面',
+            'cta_header' => '从概览开始',
+            'cta_description' => '首页概述了本站内容。顶部的主菜单可通往各个栏目。',
+            'cta_text' => '前往首页',
+            'groups' => ['从这里开始', '为您的团队', '元素分组', '法律与项目'],
             'links' => ['首页', '技术特性', 'GEO 与 AI 搜索', '成功案例',
-                '代理商与集成商', '内部团队', '自由职业者与独立开发者',
-                '主视觉与落地页开篇', '功能与优势', '套餐与定价', '数据与仪表盘', '信任与社会认同',
+                '目标群体', '代理商与集成商', '内部团队', '自由职业者',
+                '主视觉与页面开篇', '功能与优势', '套餐与定价', '数据与仪表盘', '信任与社会认同',
                 '法律声明', '隐私声明', '无障碍', 'GitHub 代码库'],
         ],
         3 => [
             'searchHeader' => 'Keresés',
             'hs_eyebrow' => '404-es hiba',
             'hs_header' => 'Az oldal nem található',
-            'hs_subheadline' => 'A kért oldal nem található.',
-            'ch_header' => 'Vissza a kezdőlapra',
-            'ch_content' => '<p>Használja az alábbi oldallistát, vagy térjen vissza a kezdőlapra.</p>',
-            'ch_link_text' => 'Vissza a kezdőlapra',
-            'sg_header' => 'Fontos oldalak',
-            'cta_header' => 'Vissza a kezdőlapra',
-            'cta_description' => 'Térjen vissza a webhely kezdőlapjára.',
-            'cta_text' => 'Vissza a kezdőlapra',
-            'groups' => ['Kezdje itt', 'A csapatának', 'Elem-fejezetek', 'Jog és projekt'],
+            'hs_subheadline' => 'Lehet, hogy a hivatkozás elavult, vagy elírás van a címben.',
+            'ch_header' => 'Keresse meg a kívánt oldalt',
+            'ch_content' => '<p>Az alábbi lista témák szerint csoportosítva mutatja a webhely fő oldalait. A kezdőlapon is újrakezdheti.</p>',
+            'ch_link_text' => 'Kezdőlap megnyitása',
+            'sg_header' => 'A webhely fő oldalai',
+            'cta_header' => 'Kezdje az áttekintéssel',
+            'cta_description' => 'A kezdőlap áttekintést ad a webhelyről. A felső főmenü a webhely egyes részeihez vezet.',
+            'cta_text' => 'Ugrás a kezdőlapra',
+            'groups' => ['Kezdje itt', 'A csapatának', 'Elemcsoportok', 'Jog és projekt'],
             'links' => ['Kezdőlap', 'Technikai jellemzők', 'GEO és AI-keresés', 'Sikertörténetek',
-                'Ügynökségek és integrátorok', 'Belső csapatok', 'Szabadúszók és egyéni fejlesztők',
-                'Hero és landing bevezetők', 'Funkciók és előnyök', 'Csomagok és árazás', 'Adatok és irányítópultok', 'Bizalom és társas bizonyíték',
+                'Célcsoportok', 'Ügynökségek és integrátorok', 'Belső csapatok', 'Szabadúszók',
+                'Hero és oldalbevezetők', 'Funkciók és előnyök', 'Csomagok és árazás', 'Adatok és irányítópultok', 'Bizalom és társas bizonyíték',
                 'Impresszum', 'Adatvédelmi tájékoztató', 'Akadálymentesség', 'GitHub-tár'],
         ],
     ];
@@ -157,65 +157,71 @@ final class SeedUtilityTranslationsCommand extends Command
     private const ACCESSIBILITY_EN = [
         'pageTitle' => 'Accessibility statement',
         'slug' => '/accessibility',
-        'description' => 'Accessibility statement and WCAG 2.2 AA audit summary for the Desiderio demo website.',
+        'description' => 'Accessibility statement for the Desiderio demo site. It sums up the WCAG 2.2 AA audit of 10 pages on 7 July 2026 and the checks still to be done by hand.',
         'statementHeader' => 'Accessibility statement and WCAG 2.2 audit',
         'lastUpdated' => '7 July 2026',
         'contactEmail' => 'accessibility@desiderio.example',
         'statementContent' => <<<'HTML'
-<p>Desiderio aims to make this demo website accessible. The benchmark for this statement is <strong>WCAG 2.2, conformance level AA</strong>. This page now includes a real technical audit of representative Desiderio pages, not only a generic template text.</p>
+<p>Desiderio aims to make this demo website accessible. The benchmark for this statement is <strong>WCAG 2.2, conformance level AA</strong>.</p>
 <h3>Audit scope</h3>
-<p>The audit was run on 7 July 2026 against the local Desiderio site at <code>https://webconsulting-typo3-lab.ddev.site/</code>. The automated part covered 10 representative pages in two viewport sizes: desktop <code>1280x900</code> and mobile <code>390x844</code>.</p>
+<p>The audit ran on 7 July 2026 against the local Desiderio site at <code>https://webconsulting-typo3-lab.ddev.site/</code>. The automated part covered 10 representative pages in two viewport sizes: desktop <code>1280x900</code> and mobile <code>390x844</code>.</p>
 <ul><li><a href="/">Home</a></li><li><a href="/accessibility/">Accessibility statement</a></li><li><a href="/technical-features/">Technical features</a></li><li><a href="/features/">The Desiderio ecosystem</a></li><li><a href="/content-types/">Content types</a></li><li><a href="/target-groups/">Target groups</a></li><li><a href="/geo-ai-search/">GEO and AI search</a></li><li><a href="/success-stories/">Success stories</a></li><li><a href="/desiderio-powermail-lab/">Powermail Lab</a></li><li><a href="/search/">Search</a></li></ul>
 <h3>Tools and test method</h3>
-<p>The technical audit used Chrome through Playwright and axe-core 4.12.1 with WCAG 2.0, 2.1 and 2.2 A/AA rule tags. Additional deterministic checks inspected page language, page title, landmarks, exactly one main heading, heading order, skip link availability, image alternative text, image dimensions, viewport zoom settings, keyboard focusability, visible focus indicators, target-size candidates, document links, embedded content, audio and video.</p>
+<p>The technical audit used Chrome through Playwright and axe-core 4.12.1, with the WCAG 2.0, 2.1 and 2.2 A/AA rule tags. Additional deterministic checks covered:</p>
+<ul><li><strong>Structure:</strong> page language, page title, landmarks, exactly one main heading, heading order and an available skip link</li><li><strong>Images:</strong> alternative text and image dimensions</li><li><strong>Operation:</strong> viewport zoom settings, keyboard focusability, visible focus indicators and target-size candidates</li><li><strong>Other content:</strong> document links, embedded content, audio and video</li></ul>
 <h3>Automated and code-inspected result</h3>
-<p>The tested sample produced <strong>0 automated axe violations</strong> after remediation. The audit also found <strong>0 unresolved small-target candidates</strong>, <strong>0 missing image alt attributes</strong>, <strong>0 missing image dimensions</strong>, <strong>0 detected document links</strong>, <strong>0 detected embeds</strong> and <strong>0 detected audio/video elements</strong> in the tested sample. All tested pages had one main <code>h1</code>, a page language, a skip link and keyboard-reachable interactive controls.</p>
-<p>The audit found focus and target-size issues in shared button, gallery, link and blog-list patterns. These were remediated with a Desiderio-scoped CSS override before this statement was updated. It also found badge contrast issues in the ecosystem page; these were remediated with stronger foreground colors.</p>
-<h3>Items marked “to be tested manually”</h3>
-<p>The following points cannot be proven completely by automation and are therefore explicitly marked <strong>to be tested manually</strong> before a formal production conformance claim is made:</p>
-<ul><li><strong>Screen reader behaviour — to be tested manually:</strong> reading order, landmark announcements, form announcements and dynamic search suggestions with the supported combinations, for example VoiceOver/Safari, NVDA/Firefox and JAWS/Chrome.</li><li><strong>Focus not obscured and real-device operation — to be tested manually:</strong> keyboard and touch use on the supported devices, including sticky header/footer situations and browser UI overlays.</li><li><strong>Zoom, reflow and forced-colors modes — to be tested manually:</strong> 200% and 400% zoom, browser text resizing, high-contrast or forced-colors modes and operating-system reduced-motion settings.</li><li><strong>Code-block contrast on the technical-features page — to be tested manually:</strong> automated computation measured passing ratios, but the code block uses a decorative background, so final visual confirmation is required.</li><li><strong>Forms and validation — to be tested manually:</strong> full Powermail submission, validation errors, CAPTCHA behaviour and confirmation messages with assistive technology.</li><li><strong>Legal statement data — to be tested manually:</strong> responsible organization, real contact address, enforcement body, publication date and jurisdiction-specific wording.</li><li><strong>Future media, PDFs, office documents and third-party embeds — to be tested manually:</strong> none were detected in the tested sample, but any added material needs its own review.</li></ul>
+<p>After remediation, the tested sample produced <strong>0 automated axe violations</strong>. It also had:</p>
+<ul><li><strong>0 unresolved small-target candidates</strong></li><li><strong>0 missing image alt attributes</strong></li><li><strong>0 missing image dimensions</strong></li><li><strong>0 detected document links</strong></li><li><strong>0 detected embeds</strong></li><li><strong>0 detected audio/video elements</strong></li></ul>
+<p>All tested pages had one main <code>h1</code>, a page language, a skip link and interactive controls that can be reached with the keyboard.</p>
+<p>The audit found focus and target-size issues in shared patterns for buttons, galleries, links and blog lists. A Desiderio-scoped CSS override fixed them before this statement was updated. The audit also found badge contrast issues on the ecosystem page. Stronger foreground colours fixed them.</p>
+<h3>Items to be tested manually</h3>
+<p>Automated tests cannot fully prove the points below. They are <strong>to be tested manually</strong> before a formal conformance claim is made for a production site.</p>
+<ul><li><strong>Screen reader behaviour:</strong> reading order, landmark announcements, form announcements and dynamic search suggestions. Test them with the supported combinations, for example VoiceOver/Safari, NVDA/Firefox and JAWS/Chrome.</li><li><strong>Focus not obscured and use on real devices:</strong> keyboard and touch use on the supported devices, including sticky headers and footers and browser UI overlays.</li><li><strong>Zoom, reflow and forced colours:</strong> 200% and 400% zoom, text resizing in the browser, high-contrast or forced-colours modes and reduced-motion settings in the operating system.</li><li><strong>Code-block contrast on the Technical features page:</strong> the automated calculation measured passing contrast ratios. The code block has a decorative background, so a final visual check is required.</li><li><strong>Forms and validation:</strong> a full Powermail submission, validation errors, CAPTCHA behaviour and confirmation messages, all with assistive technology.</li><li><strong>Legal statement data:</strong> the responsible organisation, a real contact address, the enforcement body, the publication date and wording for the jurisdiction.</li><li><strong>Future media, PDFs, office documents and third-party embeds:</strong> the tested sample had none. Any material added later needs its own review.</li></ul>
 <h3>Current conformance status</h3>
-<p>Based on the automated and code-inspected audit sample, the tested Desiderio pages have no unresolved automated WCAG 2.2 A/AA violations. A final legal conformance statement still requires the manual checks listed above.</p>
+<p>The tested Desiderio pages have no unresolved automated WCAG 2.2 A/AA violations. This result is based on the automated and code-inspected audit sample. A final legal conformance statement still requires the manual checks listed above.</p>
 <h3>Feedback and contact</h3>
-<p>If you find an accessibility barrier or need information in another format, email <a href="mailto:accessibility@desiderio.example">accessibility@desiderio.example</a>. Please include the affected page, device, browser and assistive technology if available.</p>
+<p>If you find an accessibility barrier or need information in another format, email <a href="mailto:accessibility@desiderio.example">accessibility@desiderio.example</a>. Please include the affected page, your device and browser, and the assistive technology you use, if any.</p>
 HTML,
         'highlightHeader' => 'What was tested and what remains manual',
         'highlightContent' => <<<'HTML'
-<p>The audit covered 10 representative Desiderio pages across desktop and mobile viewports with axe-core, structural DOM checks and real Tab navigation. The tested sample now has no unresolved automated violations. Manual confirmation is still required for screen readers, real-device focus visibility, zoom/reflow, forced-colors mode, full form validation and legal approval of this statement.</p>
+<p>The audit checked 10 representative Desiderio pages on desktop and mobile with axe-core, structural DOM checks and real Tab navigation. The tested sample has no unresolved automated violations. Still to be tested manually: screen readers, real-device focus visibility, zoom and reflow, forced colours mode, full form validation and legal approval of this statement.</p>
 HTML,
-        'highlightLinkText' => 'More engineering facts',
+        'highlightLinkText' => 'See technical features',
     ];
 
     private const ACCESSIBILITY_DE = [
         'pageTitle' => 'Barrierefreiheit',
         'slug' => '/barrierefreiheit',
-        'description' => 'Erklärung zur Barrierefreiheit und WCAG-2.2-AA-Prüfbericht für die Desiderio Demo-Website.',
+        'description' => 'Erklärung zur Barrierefreiheit der Desiderio-Demo-Website: WCAG-2.2-AA-Prüfung von 10 Seiten am 7. Juli 2026, Ergebnisse und offene manuelle Prüfungen.',
         'statementHeader' => 'Erklärung zur Barrierefreiheit und WCAG-2.2-Prüfung',
         'lastUpdated' => '7. Juli 2026',
         'contactEmail' => 'accessibility@desiderio.example',
         'statementContent' => <<<'HTML'
-<p>Desiderio ist bestrebt, diese Demo-Website barrierefrei zugänglich zu machen. Maßstab dieser Erklärung sind die <strong>Web Content Accessibility Guidelines (WCAG) 2.2 auf Konformitätsstufe AA</strong>. Diese Seite enthält jetzt eine echte technische Prüfung repräsentativer Desiderio-Seiten und nicht nur einen allgemeinen Vorlagentext.</p>
+<p>Desiderio möchte diese Demo-Website barrierefrei zugänglich machen. Maßstab dieser Erklärung sind die <strong>Web Content Accessibility Guidelines (WCAG) 2.2, Konformitätsstufe AA</strong>.</p>
 <h3>Prüfumfang</h3>
-<p>Die Prüfung wurde am 7. Juli 2026 gegen die lokale Desiderio-Website unter <code>https://webconsulting-typo3-lab.ddev.site/</code> durchgeführt. Der automatisierte Teil umfasste 10 repräsentative Seiten in zwei Viewports: Desktop <code>1280x900</code> und Mobil <code>390x844</code>.</p>
-<ul><li><a href="/">Startseite</a></li><li><a href="/de/barrierefreiheit/">Barrierefreiheit</a></li><li><a href="/technical-features/">Technical features</a></li><li><a href="/features/">Desiderio ecosystem</a></li><li><a href="/content-types/">Content types</a></li><li><a href="/target-groups/">Target groups</a></li><li><a href="/geo-ai-search/">GEO and AI search</a></li><li><a href="/success-stories/">Success stories</a></li><li><a href="/desiderio-powermail-lab/">Powermail Lab</a></li><li><a href="/search/">Search</a></li></ul>
+<p>Die Prüfung lief am 7. Juli 2026 auf der lokalen Desiderio-Website unter <code>https://webconsulting-typo3-lab.ddev.site/</code>. Der automatisierte Teil umfasste 10 repräsentative Seiten in zwei Viewport-Größen: Desktop <code>1280x900</code> und Mobil <code>390x844</code>.</p>
+<ul><li><a href="/">Startseite</a></li><li><a href="/de/barrierefreiheit/">Barrierefreiheit</a></li><li><a href="/technical-features/">Technical features</a></li><li><a href="/features/">Desiderio ecosystem</a></li><li><a href="/content-types/">Inhaltstypen</a></li><li><a href="/target-groups/">Zielgruppen</a></li><li><a href="/geo-ai-search/">GEO and AI search</a></li><li><a href="/success-stories/">Success stories</a></li><li><a href="/desiderio-powermail-lab/">Powermail Labor</a></li><li><a href="/search/">Suche</a></li></ul>
 <h3>Werkzeuge und Prüfmethode</h3>
-<p>Die technische Prüfung verwendete Chrome über Playwright und axe-core 4.12.1 mit WCAG-2.0-, WCAG-2.1- und WCAG-2.2-Regeln für A und AA. Zusätzlich wurden DOM-Prüfungen für Seitensprache, Seitentitel, Landmarken, genau eine Hauptüberschrift, Überschriftenreihenfolge, Skip-Link, Alternativtexte, Bildabmessungen, Zoom-Einstellungen, Tastaturfokus, sichtbare Fokusindikatoren, Zielgrößen, Dokumentlinks, eingebettete Inhalte sowie Audio und Video durchgeführt.</p>
+<p>Die technische Prüfung nutzte Chrome über Playwright und axe-core 4.12.1 mit den Regeln für WCAG 2.0, 2.1 und 2.2 der Stufen A und AA. Zusätzliche deterministische Prüfungen betrafen:</p>
+<ul><li><strong>Struktur:</strong> Seitensprache, Seitentitel, Landmarks, genau eine Hauptüberschrift, Reihenfolge der Überschriften und einen verfügbaren Skip-Link</li><li><strong>Bilder:</strong> Alternativtexte und Bildabmessungen</li><li><strong>Bedienung:</strong> Zoom-Einstellungen des Viewports, Fokussierbarkeit per Tastatur, sichtbare Fokusindikatoren und mögliche zu kleine Zielflächen</li><li><strong>Weitere Inhalte:</strong> Dokumentlinks, eingebettete Inhalte, Audio und Video</li></ul>
 <h3>Automatisiertes und codebasiertes Ergebnis</h3>
-<p>Die geprüfte Stichprobe ergab nach den Korrekturen <strong>0 automatisierte axe-Verstöße</strong>. Außerdem fand die Prüfung <strong>0 ungelöste Zielgrößen-Kandidaten</strong>, <strong>0 fehlende Bild-Alternativtexte</strong>, <strong>0 fehlende Bildabmessungen</strong>, <strong>0 erkannte Dokumentlinks</strong>, <strong>0 erkannte eingebettete Inhalte</strong> und <strong>0 erkannte Audio-/Video-Elemente</strong> in der Stichprobe. Alle geprüften Seiten hatten genau ein Haupt-<code>h1</code>, eine Seitensprache, einen Skip-Link und per Tastatur erreichbare Bedienelemente.</p>
-<p>Die Prüfung fand Fokus- und Zielgrößenprobleme in gemeinsamen Button-, Galerie-, Link- und Bloglisten-Mustern. Diese wurden vor der Aktualisierung dieser Erklärung mit einer Desiderio-spezifischen CSS-Korrektur behoben. Außerdem wurden Kontrastprobleme bei Badges auf der Ecosystem-Seite gefunden und mit stärkeren Vordergrundfarben behoben.</p>
-<h3>Punkte mit Hinweis „to be tested manually“</h3>
-<p>Die folgenden Punkte können nicht vollständig automatisiert bewiesen werden und sind daher ausdrücklich als <strong>to be tested manually</strong> markiert, bevor eine formale produktive Konformitätsaussage getroffen wird:</p>
-<ul><li><strong>Screenreader-Verhalten — to be tested manually:</strong> Lesereihenfolge, Landmark-Ansagen, Formularansagen und dynamische Suchvorschläge mit den unterstützten Kombinationen, zum Beispiel VoiceOver/Safari, NVDA/Firefox und JAWS/Chrome.</li><li><strong>Fokus nicht verdeckt und Bedienung auf echten Geräten — to be tested manually:</strong> Tastatur- und Touch-Bedienung auf unterstützten Geräten, inklusive Sticky Header/Footer und Browser-Overlays.</li><li><strong>Zoom, Reflow und Forced-Colors-Modus — to be tested manually:</strong> 200% und 400% Zoom, Textvergrößerung, High-Contrast/Forced-Colors und Betriebssystem-Einstellung für reduzierte Bewegung.</li><li><strong>Codeblock-Kontrast auf der Technical-features-Seite — to be tested manually:</strong> Die automatisierte Berechnung ergab ausreichende Kontrastwerte, der Codeblock verwendet aber einen dekorativen Hintergrund. Deshalb ist eine finale Sichtprüfung erforderlich.</li><li><strong>Formulare und Validierung — to be tested manually:</strong> vollständige Powermail-Übermittlung, Validierungsfehler, CAPTCHA-Verhalten und Bestätigungsmeldungen mit assistiver Technologie.</li><li><strong>Rechtliche Angaben — to be tested manually:</strong> verantwortliche Organisation, echte Kontaktadresse, Durchsetzungsstelle, Veröffentlichungsdatum und rechtlicher Geltungsbereich.</li><li><strong>Zukünftige Medien, PDFs, Office-Dokumente und Drittanbieter-Einbettungen — to be tested manually:</strong> In der geprüften Stichprobe wurden keine gefunden; neu hinzugefügte Inhalte benötigen eine eigene Prüfung.</li></ul>
+<p>Nach den Korrekturen ergab die geprüfte Stichprobe <strong>0 automatisierte axe-Verstöße</strong>. Außerdem enthielt die Stichprobe:</p>
+<ul><li><strong>0 ungelöste Kandidaten für zu kleine Zielflächen</strong></li><li><strong>0 fehlende Alternativtexte bei Bildern</strong></li><li><strong>0 fehlende Bildabmessungen</strong></li><li><strong>0 erkannte Dokumentlinks</strong></li><li><strong>0 erkannte eingebettete Inhalte</strong></li><li><strong>0 erkannte Audio- oder Video-Elemente</strong></li></ul>
+<p>Alle geprüften Seiten hatten genau eine Hauptüberschrift (<code>h1</code>), eine Seitensprache, einen Skip-Link und per Tastatur erreichbare Bedienelemente.</p>
+<p>Die Prüfung fand Probleme mit Fokus und Zielgröße in gemeinsam genutzten Mustern für Buttons, Galerien, Links und Blog-Listen. Eine CSS-Korrektur speziell für Desiderio hat sie behoben, bevor diese Erklärung aktualisiert wurde. Außerdem fand die Prüfung Kontrastprobleme bei Badges auf der Ecosystem-Seite. Stärkere Vordergrundfarben haben sie behoben.</p>
+<h3>Manuell zu prüfende Punkte</h3>
+<p>Die folgenden Punkte lassen sich automatisiert nicht vollständig nachweisen. Sie sind <strong>manuell zu prüfen</strong>, bevor eine formale Konformitätsaussage für eine produktive Website getroffen wird.</p>
+<ul><li><strong>Verhalten mit Screenreadern:</strong> Lesereihenfolge, Ansage von Landmarks, Ansagen in Formularen und dynamische Suchvorschläge. Zu prüfen mit den unterstützten Kombinationen, zum Beispiel VoiceOver/Safari, NVDA/Firefox und JAWS/Chrome.</li><li><strong>Nicht verdeckter Fokus und Bedienung auf echten Geräten:</strong> Bedienung per Tastatur und Touch auf den unterstützten Geräten, auch mit fixierter Kopf- und Fußzeile und eingeblendeter Browser-Oberfläche.</li><li><strong>Zoom, Reflow und erzwungene Farben:</strong> Zoom auf 200 % und 400 %, Textvergrößerung im Browser, Hochkontrast- oder Forced-Colors-Modus und die Einstellung des Betriebssystems für reduzierte Bewegung.</li><li><strong>Kontrast des Codeblocks auf der Seite „Technical features“:</strong> Die automatisierte Berechnung ergab ausreichende Kontrastwerte. Der Codeblock hat aber einen dekorativen Hintergrund. Deshalb ist eine abschließende Sichtprüfung nötig.</li><li><strong>Formulare und Validierung:</strong> vollständiges Absenden eines Powermail-Formulars, Validierungsfehler, CAPTCHA-Verhalten und Bestätigungsmeldungen, jeweils mit assistiver Technologie.</li><li><strong>Rechtliche Angaben:</strong> verantwortliche Organisation, echte Kontaktadresse, Durchsetzungsstelle, Veröffentlichungsdatum und Formulierungen für den jeweiligen Rechtsraum.</li><li><strong>Künftige Medien, PDFs, Office-Dokumente und Einbettungen von Drittanbietern:</strong> Die geprüfte Stichprobe enthielt keine. Jedes neu hinzugefügte Material braucht eine eigene Prüfung.</li></ul>
 <h3>Aktueller Konformitätsstatus</h3>
-<p>Auf Basis der automatisierten und codebasierten Stichprobe haben die geprüften Desiderio-Seiten keine ungelösten automatisierten WCAG-2.2-A/AA-Verstöße. Eine abschließende rechtliche Konformitätserklärung setzt weiterhin die oben genannten manuellen Prüfungen voraus.</p>
+<p>Die geprüften Desiderio-Seiten haben keine ungelösten, automatisiert erkannten Verstöße gegen WCAG 2.2 A/AA. Grundlage ist die automatisierte und codebasierte Prüfung der Stichprobe. Eine abschließende rechtliche Konformitätserklärung erfordert weiterhin die oben genannten manuellen Prüfungen.</p>
 <h3>Feedback und Kontakt</h3>
-<p>Wenn Ihnen eine Barriere auffällt oder Sie Informationen in einem anderen Format benötigen, schreiben Sie bitte an <a href="mailto:accessibility@desiderio.example">accessibility@desiderio.example</a>. Bitte nennen Sie die betroffene Seite, das verwendete Gerät, den Browser und gegebenenfalls die eingesetzte assistive Technologie.</p>
+<p>Wenn Sie auf eine Barriere stoßen oder Informationen in einem anderen Format benötigen, schreiben Sie an <a href="mailto:accessibility@desiderio.example">accessibility@desiderio.example</a>. Bitte nennen Sie die betroffene Seite, Ihr Gerät, Ihren Browser und gegebenenfalls Ihre assistive Technologie.</p>
 HTML,
         'highlightHeader' => 'Was geprüft wurde und was manuell bleibt',
         'highlightContent' => <<<'HTML'
-<p>Die Prüfung umfasste 10 repräsentative Desiderio-Seiten in Desktop- und Mobil-Viewports mit axe-core, strukturellen DOM-Prüfungen und echter Tab-Navigation. Die geprüfte Stichprobe hat aktuell keine ungelösten automatisierten Verstöße. Manuell zu bestätigen bleiben Screenreader, echte Geräte, Fokus-Sichtbarkeit, Zoom/Reflow, Forced-Colors-Modus, vollständige Formularvalidierung und rechtliche Freigabe dieser Erklärung.</p>
+<p>Die Prüfung umfasste 10 repräsentative Desiderio-Seiten auf Desktop und Mobilgeräten, mit axe-core, strukturellen DOM-Prüfungen und echter Tab-Navigation. Die Stichprobe hat keine ungelösten, automatisiert erkannten Verstöße. Noch manuell zu prüfen sind Screenreader, die Fokus-Sichtbarkeit auf echten Geräten, Zoom und Reflow, der Forced-Colors-Modus, die vollständige Formularvalidierung und die rechtliche Freigabe dieser Erklärung.</p>
 HTML,
-        'highlightLinkText' => 'Mehr zu den Elementen',
+        'highlightLinkText' => 'Technische Details ansehen',
     ];
 
     public function __construct(private readonly ConnectionPool $connectionPool)
@@ -332,6 +338,7 @@ HTML,
                 $qb->expr()->eq('CType', $qb->createNamedParameter($ctype)),
                 $qb->expr()->eq('sys_language_uid', 0),
                 $qb->expr()->eq('deleted', 0),
+                $qb->expr()->eq('t3ver_wsid', 0),
             )->orderBy('sorting')->setMaxResults(1)->executeQuery()->fetchOne();
         return is_numeric($uid) ? (int)$uid : null;
     }
@@ -346,6 +353,7 @@ HTML,
                 $qb->expr()->eq('foreign_table_parent_uid', $parentUid),
                 $qb->expr()->eq('sys_language_uid', 0),
                 $qb->expr()->eq('deleted', 0),
+                $qb->expr()->eq('t3ver_wsid', 0),
             )->orderBy('sorting')->executeQuery()->fetchFirstColumn();
         return array_map(static fn (mixed $v): int => is_numeric($v) ? (int)$v : 0, $rows);
     }
@@ -360,6 +368,7 @@ HTML,
                 $qb->expr()->eq($parentField, $sourceUid),
                 $qb->expr()->eq('sys_language_uid', $lang),
                 $qb->expr()->eq('deleted', 0),
+                $qb->expr()->eq('t3ver_wsid', 0),
             )->setMaxResults(1)->executeQuery()->fetchOne();
         return is_numeric($uid) ? (int)$uid : null;
     }
@@ -380,7 +389,7 @@ HTML,
             $conn = $this->connectionPool->getConnectionForTable($table);
             $in = implode(',', array_map(static fn (mixed $v): int => is_numeric($v) ? (int)$v : 0, $parents));
             $conn->executeStatement(
-                "DELETE FROM `$table` WHERE `$parentField` IN ($in) AND sys_language_uid = :l",
+                "DELETE FROM `$table` WHERE `$parentField` IN ($in) AND sys_language_uid = :l AND t3ver_wsid = 0",
                 ['l' => $lang]
             );
         };
@@ -398,7 +407,7 @@ HTML,
         }
         $in = implode(',', array_map(static fn (mixed $v): int => is_numeric($v) ? (int)$v : 0, $parents));
         $this->connectionPool->getConnectionForTable('tt_content')->executeStatement(
-            "DELETE FROM tt_content WHERE l18n_parent IN ($in) AND sys_language_uid = :l",
+            "DELETE FROM tt_content WHERE l18n_parent IN ($in) AND sys_language_uid = :l AND t3ver_wsid = 0",
             ['l' => $lang]
         );
     }
@@ -640,10 +649,13 @@ HTML,
             ->fetchAssociative();
         $beUser = GeneralUtility::makeInstance(BackendUserAuthentication::class);
         $beUser->user = $row ?: ['uid' => 1, 'admin' => 1, 'username' => '_cli_seed_', 'workspace_id' => 0];
-        $beUser->workspace = 0;
         if ($row) {
             $beUser->fetchGroupData();
         }
+        // After fetchGroupData(), which restores the workspace the admin last
+        // used in the backend: the seed must write live, never drafts.
+        // setTemporaryWorkspace() leaves the admin's own choice untouched.
+        $beUser->setTemporaryWorkspace(0);
         $GLOBALS['BE_USER'] = $beUser;
     }
 }
