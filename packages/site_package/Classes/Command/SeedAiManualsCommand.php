@@ -54,7 +54,7 @@ final class SeedAiManualsCommand extends Command
                     'title' => 'nr-llm manual — AI configuration in TYPO3',
                     'nav_title' => 'nr-llm manual',
                     'seo_title' => 'How to configure and use nr-llm in TYPO3',
-                    'description' => 'A practical guide to providers, models, configurations, testing, and safe use of nr-llm 0.25 in the TYPO3 lab.',
+                    'description' => 'How to set up providers, models and configurations in nr-llm 0.25, test them, and use AI features safely in the TYPO3 lab.',
                     'sorting' => 3584,
                 ],
             );
@@ -64,7 +64,7 @@ final class SeedAiManualsCommand extends Command
                     'title' => 'Cowriter manual — AI editing in TYPO3',
                     'nav_title' => 'Cowriter manual',
                     'seo_title' => 'How to configure and use the TYPO3 Cowriter',
-                    'description' => 'A practical guide to the t3-cowriter 3.5 setup checks, CKEditor toolbar, tasks, context scopes, and safe insertion workflow.',
+                    'description' => 'How to check the t3-cowriter 3.5 setup, use its CKEditor toolbar, tasks and context scopes, and insert AI text into TYPO3 safely.',
                     'sorting' => 3840,
                 ],
             );
@@ -93,8 +93,8 @@ final class SeedAiManualsCommand extends Command
             'desiderio_headersection',
             'nr-llm: the shared AI foundation',
             [
-                'eyebrow' => 'Administrator manual · version 0.25.0',
-                'subheadline' => 'Configure providers once, keep credentials in nr-vault, and give every TYPO3 AI feature a named, testable model configuration.',
+                'eyebrow' => 'Administrator manual',
+                'subheadline' => 'This manual covers nr-llm version 0.25.0. Set up providers once, keep API keys in nr-vault and give each TYPO3 AI feature a named configuration you can test.',
                 'desiderio_headersection_variant' => 'center',
                 'sorting' => 256,
             ],
@@ -104,13 +104,13 @@ final class SeedAiManualsCommand extends Command
             'desiderio_textmedia',
             '1. Start in Administration → LLM',
             [
-                'subheadline' => 'The dashboard is the control centre for providers, models, configurations, tasks, costs, tools, and diagnostics.',
+                'subheadline' => 'The dashboard is where you manage providers, models, configurations, tasks, costs, tools and diagnostics.',
                 'content' => <<<'HTML'
 <ol>
   <li>Open <strong>Administration → LLM</strong>.</li>
-  <li>Confirm that the OpenAI provider is active, uses the nr-vault identifier <code>openai_api_key</code>, has a 120-second API timeout, and is marked as an external/global trust zone.</li>
-  <li>Use <strong>Test connection</strong> after changing an endpoint or credential. A failed live health badge does not expose the key; inspect the provider test result and TYPO3 logs.</li>
-  <li>Review usage and cost before switching a default model.</li>
+  <li>Check the OpenAI provider. It must be active, use the nr-vault identifier <code>openai_api_key</code>, have a 120-second API timeout and be marked as an external/global trust zone.</li>
+  <li>Click <strong>Test connection</strong> after you change an endpoint or credential. A failed live health badge does not reveal the key, so check the provider test result and the TYPO3 logs.</li>
+  <li>Check usage and costs before you switch the default model.</li>
 </ol>
 <p><strong>Never paste an API key into TypoScript, Page TSconfig, JavaScript, or page content.</strong> The provider record stores only the nr-vault identifier.</p>
 HTML,
@@ -125,7 +125,7 @@ HTML,
             $pageUid,
             'nr-llm-overview.jpg',
             'nr-llm dashboard in the TYPO3 backend',
-            'The TYPO3 nr-llm dashboard showing provider, model, configuration, task, usage, and cost status.',
+            'The nr-llm dashboard in the TYPO3 backend with the status of providers, models, configurations, tasks, usage and costs.',
         );
 
         $configurationUid = $this->ensureContent(
@@ -133,16 +133,16 @@ HTML,
             'desiderio_textmedia',
             '2. Choose named configurations, not raw models',
             [
-                'subheadline' => 'A configuration combines the model, system prompt, temperature, limits, and use-case behaviour behind a stable identifier.',
+                'subheadline' => 'A configuration puts the model, system prompt, temperature, limits and use-case behaviour behind one stable identifier.',
                 'content' => <<<'HTML'
 <ul>
   <li><code>content-assistant</code> is the active default and uses <strong>GPT-5.6 Terra</strong> for quality-first editorial work.</li>
   <li><code>content-assistant-fast</code> uses <strong>GPT-5.6 Luna</strong> for cheaper deterministic transformations.</li>
   <li><code>image-generation</code> uses <strong>GPT Image 2</strong>.</li>
-  <li><code>backend-assistant</code> remains isolated for the backend agent.</li>
+  <li><code>backend-assistant</code> is kept separate for the backend agent.</li>
 </ul>
-<p>Open a row and use <strong>Test configuration</strong> before assigning it to a task. Keep exactly one active default configuration so generic <code>chat()</code> and <code>complete()</code> calls resolve predictably.</p>
-<p>The old lab-only Responses API options were removed. Current GPT-5.6 Chat Completions support function tools directly; nr-llm 0.25 uses that supported path.</p>
+<p>Open a row and click <strong>Test configuration</strong> before you assign it to a task. Keep exactly one active default configuration, so that generic <code>chat()</code> and <code>complete()</code> calls always resolve to the same one.</p>
+<p>The old lab-only Responses API options are gone. GPT-5.6 Chat Completions now support function tools directly, and nr-llm 0.25 uses that path.</p>
 HTML,
                 'shadcn_layout' => 'media-left',
                 'media_rounded' => 1,
@@ -155,7 +155,7 @@ HTML,
             $pageUid,
             'nr-llm-configurations.jpg',
             'Named nr-llm configurations in TYPO3',
-            'The TYPO3 nr-llm configuration list with Content Assistant on GPT-5.6 Terra set as the active default.',
+            'The nr-llm configuration list in TYPO3, with Content Assistant on GPT-5.6 Terra as the active default.',
         );
 
         $checklistUid = $this->ensureContent(
@@ -165,20 +165,20 @@ HTML,
             [
                 'header_layout' => 2,
                 'bodytext' => <<<'HTML'
-<h3>Before using an AI feature</h3>
+<h3>Before you use an AI feature</h3>
 <ol>
-  <li>Check that provider, model, and configuration are active.</li>
+  <li>Check that the provider, the model and the configuration are active.</li>
   <li>Run the configuration test with a harmless prompt.</li>
-  <li>Use a named configuration appropriate to the task; prefer Luna for simple transformations and Terra for quality-sensitive generation.</li>
-  <li>Treat model output as a draft. Review facts, links, accessibility, tone, and personal data before publishing.</li>
+  <li>Pick a named configuration that fits the task: Luna for simple transformations, Terra where the quality of the text matters.</li>
+  <li>Treat model output as a draft. Check facts, links, accessibility, tone and personal data before you publish.</li>
 </ol>
 <h3>If a request fails</h3>
 <ul>
-  <li><strong>No default provider/configuration:</strong> mark one active configuration as default.</li>
-  <li><strong>401/403:</strong> test the provider and verify the nr-vault secret identifier.</li>
-  <li><strong>Timeout:</strong> confirm the provider timeout is 120 seconds or higher for long generations.</li>
-  <li><strong>Tool unavailable:</strong> verify the model has the <code>tools</code> capability and review the global Tools module.</li>
-  <li><strong>Unexpected model:</strong> inspect the task's assigned configuration; a task assignment takes precedence over the default.</li>
+  <li><strong>No default provider/configuration:</strong> mark one active configuration as the default.</li>
+  <li><strong>401/403:</strong> test the provider and check the nr-vault secret identifier.</li>
+  <li><strong>Timeout:</strong> for long generations, set the provider timeout to 120 seconds or more.</li>
+  <li><strong>Tool unavailable:</strong> check that the model has the <code>tools</code> capability, then look at the global Tools module.</li>
+  <li><strong>Unexpected model:</strong> check which configuration the task uses. A configuration assigned to a task takes precedence over the default.</li>
 </ul>
 HTML,
                 'sorting' => 1024,
@@ -195,8 +195,8 @@ HTML,
             'desiderio_headersection',
             'Cowriter: AI assistance inside CKEditor',
             [
-                'eyebrow' => 'Editor manual · version 3.5.0',
-                'subheadline' => 'Improve, summarize, structure, translate, and review rich text without exposing API keys or leaving the TYPO3 editing form.',
+                'eyebrow' => 'Editor manual',
+                'subheadline' => 'This manual covers Cowriter version 3.5.0. Improve, summarise, structure, translate and review rich text without leaving the TYPO3 form or exposing API keys.',
                 'desiderio_headersection_variant' => 'center',
                 'sorting' => 256,
             ],
@@ -206,15 +206,15 @@ HTML,
             'desiderio_textmedia',
             '1. Verify the setup before editing',
             [
-                'subheadline' => 'Cowriter 3.5 includes its own diagnostic module and reports exactly which nr-llm layer still needs attention.',
+                'subheadline' => 'Cowriter 3.5 has its own status module. It shows which nr-llm layer still needs attention.',
                 'content' => <<<'HTML'
 <ol>
   <li>Open <strong>Administration → Cowriter Status</strong>.</li>
-  <li>Confirm green checks for provider, API key, model, active configuration, and default configuration.</li>
+  <li>Check that provider, API key, model, active configuration and default configuration all show green.</li>
   <li>If a check fails, use its fix link and return to this status page.</li>
 </ol>
-<p>The lab also registers a combined <strong>Desiderio + Cowriter</strong> RTE preset. Cowriter therefore appears not only in generic TYPO3 text fields but in Desiderio Content Block rich-text fields too.</p>
-<p>The Page TSconfig default remains <code>RTE.default.preset = cowriter</code> for generic fields. Desiderio fields use the enriched <code>desiderio</code> preset explicitly.</p>
+<p>The lab also registers a combined <strong>Desiderio + Cowriter</strong> RTE preset. That is why Cowriter appears in generic TYPO3 text fields and in the rich-text fields of Desiderio content elements.</p>
+<p>For generic fields, the Page TSconfig default stays <code>RTE.default.preset = cowriter</code>. Desiderio fields set the <code>desiderio</code> preset explicitly, and the lab adds the Cowriter controls to it.</p>
 HTML,
                 'shadcn_layout' => 'media-right',
                 'media_rounded' => 1,
@@ -227,7 +227,7 @@ HTML,
             $pageUid,
             'cowriter-status.jpg',
             'Cowriter setup status in TYPO3',
-            'The Cowriter Status backend module showing successful provider, model, API key, and configuration checks.',
+            'The Cowriter Status backend module with passed checks for provider, model, API key and configuration.',
         );
 
         $dialogUid = $this->ensureContent(
@@ -235,15 +235,15 @@ HTML,
             'desiderio_textmedia',
             '2. Run a task and review the result',
             [
-                'subheadline' => 'The dialog separates the chosen task, context scope, optional references, instructions, and result preview.',
+                'subheadline' => 'The dialog has separate areas for the task, the context scope, optional references, your instructions and the result preview.',
                 'content' => <<<'HTML'
 <ol>
   <li>Open any content element with a rich-text field.</li>
   <li>Select text for a focused rewrite, or leave the selection empty to work with the full editor content.</li>
   <li>Click the <strong>Cowriter</strong> sparkle button.</li>
-  <li>Choose a task and context scope. Use page or parent-page context only when the extra content is genuinely relevant.</li>
-  <li>Add optional instructions such as tone, audience, length, or required terminology.</li>
-  <li>Click <strong>Execute</strong>, inspect the result, then choose <strong>Insert</strong>. Inserting updates the editor only; save the TYPO3 record separately.</li>
+  <li>Choose a task and a context scope. Use page or parent-page context only when that extra content matters for the task.</li>
+  <li>Optionally add instructions such as tone, audience, length or required terms.</li>
+  <li>Click <strong>Execute</strong>, check the result, then choose <strong>Insert</strong>. Insert only changes the editor content, so save the TYPO3 record afterwards.</li>
 </ol>
 <p>Use <strong>Reset</strong> to refine a request without closing the editor, and <strong>Cancel</strong> to discard the result.</p>
 HTML,
@@ -258,7 +258,7 @@ HTML,
             $pageUid,
             'cowriter-dialog.jpg',
             'Cowriter task dialog in CKEditor',
-            'The Cowriter dialog showing the Improve Text task, full-content context, prompt instruction, result preview, and insert controls.',
+            'The Cowriter dialog with the Improve Text task, full-content context, an instruction, the result and the insert controls.',
         );
 
         $referenceUid = $this->ensureContent(
@@ -269,7 +269,8 @@ HTML,
                 'header_layout' => 2,
                 'bodytext' => <<<'HTML'
 <h3>Configured tasks</h3>
-<p>The lab provides Improve Text, Summarize, Extend, Fix Grammar, Translate to English/German, Format as Table, Add Structure, Convert to List, and Enhance Visual Layout. Tasks live in <strong>Administration → LLM → Tasks</strong>, use category <code>content</code>, and are assigned to either the Terra or Luna configuration.</p>
+<p>The lab provides tasks that improve, summarise or extend text and fix its grammar. Other tasks translate to English or German, format text as a table, add structure, convert text to a list or enhance the visual layout.</p>
+<p>Tasks live in <strong>Administration → LLM → Tasks</strong> and use the category <code>content</code>. Each task is assigned to either the Terra or the Luna configuration.</p>
 <h3>Toolbar shortcuts</h3>
 <ul>
   <li><strong>Cowriter:</strong> full task dialog with preview.</li>
@@ -279,10 +280,10 @@ HTML,
 </ul>
 <h3>Editorial guardrails</h3>
 <ul>
-  <li>Do not send confidential, personal, or embargoed content unless the chosen provider and policy allow it.</li>
-  <li>Use the smallest useful context scope; larger scope increases cost and can dilute the instruction.</li>
-  <li>Check headings, links, lists, tables, factual claims, language, and accessibility after insertion.</li>
-  <li>If the toolbar is absent, reload the form, confirm the active RTE preset, and check <strong>Cowriter Status</strong>.</li>
+  <li>Don't send confidential, personal or embargoed content unless the provider and your policy allow it.</li>
+  <li>Use the smallest context scope that works. A larger scope costs more and can weaken the instruction.</li>
+  <li>After inserting, check headings, links, lists, tables, facts, language and accessibility.</li>
+  <li>If the toolbar is missing, reload the form, check the active RTE preset and open <strong>Cowriter Status</strong>.</li>
   <li>If the task list is empty, create active tasks with category <code>content</code> and reload the editor.</li>
 </ul>
 HTML,

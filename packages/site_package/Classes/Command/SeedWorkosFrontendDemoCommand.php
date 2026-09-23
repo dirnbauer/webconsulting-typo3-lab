@@ -72,7 +72,7 @@ final class SeedWorkosFrontendDemoCommand extends Command
                     'nav_hide' => 0,
                     'sorting' => 256,
                     'seo_title' => 'WorkOS frontend plugins for TYPO3',
-                    'description' => 'Explore the WorkOS login, account center, and team administration plugins in the Desiderio TYPO3 lab.',
+                    'description' => 'Try the three WorkOS frontend plugins in the Desiderio TYPO3 lab: login and registration, the Account Center and team administration.',
                 ],
             );
 
@@ -87,7 +87,7 @@ final class SeedWorkosFrontendDemoCommand extends Command
                     'nav_hide' => 0,
                     'sorting' => 256,
                     'seo_title' => 'WorkOS login and registration for TYPO3',
-                    'description' => 'Sign in, register, use email codes, or choose a social identity provider through the WorkOS Login plugin.',
+                    'description' => 'The WorkOS Login plugin lets visitors sign in with a password or an email code, register, or use a social identity provider.',
                 ],
             );
 
@@ -102,7 +102,7 @@ final class SeedWorkosFrontendDemoCommand extends Command
                     'nav_hide' => 0,
                     'sorting' => 512,
                     'seo_title' => 'WorkOS account center for TYPO3',
-                    'description' => 'Manage profile data, passwords, MFA factors, active sessions, and organization memberships in TYPO3.',
+                    'description' => 'The WorkOS Account Center plugin lets users manage their profile, password, MFA factors, sessions and organisation memberships in TYPO3.',
                 ],
             );
 
@@ -117,7 +117,7 @@ final class SeedWorkosFrontendDemoCommand extends Command
                     'nav_hide' => 0,
                     'sorting' => 768,
                     'seo_title' => 'WorkOS team administration for TYPO3',
-                    'description' => 'Manage organization invitations and open signed WorkOS Admin Portal sessions from the TYPO3 frontend.',
+                    'description' => 'Manage invitations to a WorkOS organisation and open signed Admin Portal sessions from the TYPO3 frontend with the team plugin.',
                 ],
             );
 
@@ -127,19 +127,19 @@ final class SeedWorkosFrontendDemoCommand extends Command
             $this->seedPluginPage(
                 $loginPageUid,
                 'Login and registration',
-                '<p>The login surface combines email and password, passwordless six-digit email codes, self-service registration, and social identity providers. After sign-in it shows the linked WorkOS profile and a clear sign-out action.</p><p>Use this page to verify the complete unauthenticated and authenticated login journey in the active Desiderio theme.</p>',
+                '<p>The login form supports email and password, six-digit email codes without a password, self-service registration and social identity providers. After sign-in, it shows the linked WorkOS profile and a sign-out button.</p><p>Use this page to test the whole login flow, signed out and signed in, in the active Desiderio theme preset.</p>',
                 'workosauth_login',
             );
             $this->seedPluginPage(
                 $accountPageUid,
                 'Account center',
-                '<p>The account center gives signed-in users one place to maintain profile details, change their password, enroll or remove TOTP MFA, review sessions, revoke access, and inspect organization memberships.</p><p>When no WorkOS identity is linked, the plugin returns a useful sign-in or linkage state instead of an empty dashboard.</p>',
+                '<p>The Account Center gives signed-in users one place for their account. They can edit profile details, change their password, enrol or remove TOTP MFA, review sessions, revoke access and see their organisation memberships.</p><p>If no WorkOS identity is linked, the plugin shows a sign-in or account-linking screen instead of an empty dashboard.</p>',
                 'workosauth_account',
             );
             $this->seedPluginPage(
                 $teamPageUid,
                 'Team administration',
-                '<p>The team surface is for organization administrators. It supports invitation creation, resend and revoke actions, organization switching, and signed one-time Admin Portal links for SSO, Directory Sync, audit logs, domain verification, and certificate renewal.</p><p>Availability follows the signed-in user\'s WorkOS organization memberships and permissions.</p>',
+                '<p>The team plugin is for organisation administrators. They can create, resend and revoke invitations, and switch between organisations. They can also open signed one-time Admin Portal links for SSO, Directory Sync, audit logs, domain verification and certificate renewal.</p><p>What each user sees depends on their WorkOS organisation memberships and permissions.</p>',
                 'workosauth_team',
             );
 
@@ -220,7 +220,7 @@ final class SeedWorkosFrontendDemoCommand extends Command
             'WorkOS frontend plugins',
             [
                 'eyebrow' => 'Authentication lab',
-                'subheadline' => 'Three production-facing identity surfaces, rendered by TYPO3 and styled with Desiderio\'s semantic shadcn system.',
+                'subheadline' => 'Three frontend plugins for sign-in, accounts and teams. TYPO3 renders them, and the semantic shadcn tokens of Desiderio style them.',
                 'desiderio_headersection_variant' => 'center',
                 'sorting' => 256,
             ],
@@ -230,7 +230,7 @@ final class SeedWorkosFrontendDemoCommand extends Command
             'desiderio_textmedia',
             'One identity layer, three focused plugins',
             [
-                'content' => '<p>The WorkOS extension keeps authentication behaviour in one integration and exposes three focused frontend plugins:</p><ul><li><strong>Login and registration</strong> for password, Magic Auth, social sign-in, and self-service account creation.</li><li><strong>Account center</strong> for profile, password, MFA, session, and membership management.</li><li><strong>Team administration</strong> for invitations and signed WorkOS Admin Portal sessions.</li></ul><p>The lab overrides presentation only. Controllers, security checks, request tokens, WorkOS API calls, and TYPO3 user provisioning continue to come from <code>webconsulting/workos-auth</code>.</p>',
+                'content' => '<p>The WorkOS extension handles authentication in one place and offers three frontend plugins:</p><ul><li><strong>Login and registration</strong> for passwords, Magic Auth, social sign-in and self-service sign-up.</li><li><strong>Account Center</strong> for profile, password, MFA, sessions and memberships.</li><li><strong>Team administration</strong> for invitations and signed WorkOS Admin Portal sessions.</li></ul><p>The lab changes only the presentation. Controllers, security checks, request tokens, WorkOS API calls and TYPO3 user provisioning still come from <code>webconsulting/workos-auth</code>.</p>',
                 'sorting' => 512,
             ],
         );
@@ -239,7 +239,7 @@ final class SeedWorkosFrontendDemoCommand extends Command
             'menu_subpages',
             'Explore the frontend plugins',
             [
-                'subheader' => 'Open a focused page for each WorkOS frontend content element.',
+                'subheader' => 'Each WorkOS frontend plugin has its own page.',
                 'sorting' => 768,
             ],
         );

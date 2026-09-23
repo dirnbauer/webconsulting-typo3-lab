@@ -1,0 +1,52 @@
+{
+    "version": 1,
+    "site": "desiderio",
+    "root": 505,
+    "language": 0,
+    "languageCode": "en",
+    "generated": "2026-09-23T12:40:16+02:00",
+    "records": [
+        {
+            "table": "tt_content",
+            "uid": 31240,
+            "expect": {
+                "CType": "innesto_marquee",
+                "header": "Grafted live from the shadcn registry ecosystem"
+            },
+            "set": {
+                "header": "Content elements from the shadcn registry"
+            },
+            "_context": {
+                "page": 992,
+                "pageTitle": "News",
+                "element": 31240,
+                "type": "innesto_marquee",
+                "roles": {
+                    "header": "headline"
+                }
+            },
+            "action": "hide"
+        },
+        {
+            "table": "tt_content",
+            "uid": 31241,
+            "expect": {
+                "CType": "innesto_orbitingcircles",
+                "header": "The registry orbit"
+            },
+            "set": {
+                "header": "Orbiting circles from Magic UI"
+            },
+            "_context": {
+                "page": 992,
+                "pageTitle": "News",
+                "element": 31241,
+                "type": "innesto_orbitingcircles",
+                "roles": {
+                    "header": "headline"
+                }
+            },
+            "action": "hide"
+        }
+    ]
+}
