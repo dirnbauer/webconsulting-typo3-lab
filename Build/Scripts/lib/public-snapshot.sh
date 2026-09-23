@@ -25,7 +25,14 @@ SNAPSHOT_SENSITIVE_PATTERN='vault|secret|token|credential|oauth|identity|payment
 # thumbnails would carry all of the above). A plain name is a top-level folder; the
 # rest are make-zip.php patterns over the relative path. Space-separated, and
 # expanded with globbing switched off by both callers.
-SNAPSHOT_PRIVATE_PATHS='ai-chat _processed_ *Lebenslauf* *gas_20*.pdf *rechnung* *Steuerbericht* *invoice* *getty* mcp/workspaces/ws-1/orf-news mcp/workspaces/ws-1/images/orf-* mcp/workspaces/ws-1/*_ticker_* mcp/workspaces/ws-1/*_opener_* mcp/workspaces/ws-1/*_body_*'
+SNAPSHOT_PRIVATE_PATHS='ai-chat _processed_ fileadmin/_processed_ *Lebenslauf* *gas_20*.pdf *rechnung* *Steuerbericht* *invoice* *getty* mcp/workspaces/ws-1/orf-news mcp/workspaces/ws-1/images/orf-* mcp/workspaces/ws-1/*_ticker_* mcp/workspaces/ws-1/*_opener_* mcp/workspaces/ws-1/*_body_*'
+
+
+# The seeded copies of the real-brand logos desiderio 4.3.0 retired: nothing
+# references them any more, and they are not ours to hand out.
+for name in accel.svg alphabet.svg amazon.svg anthropic.svg apple.svg berkshire-hathaway.svg capterra.svg cencora.svg cohere.svg costco.svg cursor.svg cvs-health.svg databricks.svg elevenlabs.svg exxon-mobil.svg forbes.svg g2.svg google-deepmind.svg google.svg harvey.svg hubspot.svg hugging-face.svg jpmorgan-chase.svg langchain.svg mckesson.svg meta-ai.svg microsoft-ai.svg midjourney.svg mistral-ai.svg northwind-logistics.svg northwind.svg nvidia.svg openai.svg partner-anthropic.svg partner-nvidia.svg partner-openai.svg partner-spacex.svg perplexity.svg point-nine.svg runway.svg salesforce.svg scale-ai.svg sequoia.svg slack.svg stability-ai.svg techcrunch.svg the-verge.svg trustradius.svg unitedhealth-group.svg walmart.svg xai.svg y-combinator.svg zendesk.svg; do
+    SNAPSHOT_PRIVATE_PATHS="$SNAPSHOT_PRIVATE_PATHS desiderio-styleguide/$name desiderio-element-library/$name"
+done
 
 # Tables whose rows are filtered, as table|condition pairs separated by ';'.
 # - tt_address: page 15 holds the "Bad Shop Watch" candidates another

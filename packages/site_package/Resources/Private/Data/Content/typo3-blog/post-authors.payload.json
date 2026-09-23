@@ -1,0 +1,61 @@
+{
+    "version": 1,
+    "site": "typo3-blog",
+    "root": 390,
+    "language": 0,
+    "languageCode": "en",
+    "generated": "2026-09-23T20:00:00+02:00",
+    "_note": "The page author field of the replaced posts still said 'ORF.at / Agenturen' (the posts are original now; the blog shows its own author records).",
+    "records": [
+        {
+            "table": "pages",
+            "uid": 397,
+            "expect": {
+                "author": "ORF.at / Agenturen"
+            },
+            "set": {
+                "author": ""
+            }
+        },
+        {
+            "table": "pages",
+            "uid": 398,
+            "expect": {
+                "author": "ORF.at / Agenturen"
+            },
+            "set": {
+                "author": ""
+            }
+        },
+        {
+            "table": "pages",
+            "uid": 399,
+            "expect": {
+                "author": "ORF.at / Agenturen"
+            },
+            "set": {
+                "author": ""
+            }
+        },
+        {
+            "table": "pages",
+            "uid": 400,
+            "expect": {
+                "author": "ORF.at / Agenturen"
+            },
+            "set": {
+                "author": ""
+            }
+        },
+        {
+            "table": "pages",
+            "uid": 401,
+            "expect": {
+                "author": "wien.ORF.at / Agenturen"
+            },
+            "set": {
+                "author": ""
+            }
+        }
+    ]
+}
