@@ -15,9 +15,9 @@
                 "description": "Ticket für das TYPO3 Camp München 2026 anmelden: Standard- oder Supporter-Ticket, optional der Integrations-Workshop am Freitag."
             },
             "set": {
-                "title": "Ticket-Anmeldung",
+                "title": "Anmeldung geschlossen",
                 "nav_title": "Tickets",
-                "description": "Ticket für das TYPO3 Camp München 2026 anmelden: Standard- oder Supporter-Ticket, optional der Integrations-Workshop am Freitag."
+                "description": "Die Anmeldung zum TYPO3 Camp München 2026 ist geschlossen. Hier steht, was das Ticket enthielt und wo ihr den Rückblick auf das Camp findet."
             },
             "_context": {
                 "page": 934,
@@ -40,8 +40,8 @@
                 "eyebrow": "Tickets"
             },
             "set": {
-                "header": "Was ihr hier bucht",
-                "eyebrow": "Tickets"
+                "header": "Was das Ticket enthielt",
+                "eyebrow": "Tickets 2026"
             },
             "_context": {
                 "page": 934,
@@ -85,7 +85,7 @@
             },
             "set": {
                 "title": "Supporter-Ticket",
-                "description_text": "Dieselben Leistungen – und ihr werdet vor Ort und in den Camp-Kanälen als Unterstützer genannt."
+                "description_text": "Dieselben Leistungen, dazu die Nennung als Unterstützer vor Ort und in den Camp-Kanälen."
             },
             "_context": {
                 "page": 934,
@@ -107,7 +107,7 @@
             },
             "set": {
                 "title": "Integrations-Workshop am Freitag",
-                "description_text": "Optional dazu buchbar, begrenzte Plätze, vergeben in der Reihenfolge der Anmeldungen."
+                "description_text": "Optional dazu buchbar. Die Plätze waren begrenzt und wurden in der Reihenfolge der Anmeldungen vergeben."
             },
             "_context": {
                 "page": 934,
@@ -129,7 +129,7 @@
             },
             "set": {
                 "title": "Ernährungshinweise und Barrierefreiheit",
-                "description_text": "Schreibt eure Wünsche gleich ins Formular, dann planen wir sie ein."
+                "description_text": "Eure Wünsche dazu konntet ihr direkt im Anmeldeformular angeben."
             },
             "_context": {
                 "page": 934,
@@ -159,6 +159,34 @@
                 "type": "powermail_pi1",
                 "roles": {
                     "header": "headline"
+                }
+            },
+            "action": "hide"
+        },
+        {
+            "action": "create",
+            "table": "tt_content",
+            "key": "NEW_camp934_closed",
+            "pid": 934,
+            "match": {
+                "pid": 934,
+                "CType": "text",
+                "sys_language_uid": 0
+            },
+            "set": {
+                "CType": "text",
+                "colPos": 0,
+                "sys_language_uid": 0,
+                "header": "Das Camp 2026 ist vorbei",
+                "bodytext": "<p>Das TYPO3 Camp München fand vom 11. bis 13. September 2026 im Puchheimer Kulturzentrum statt. Wie das Wochenende ablief, lest ihr im <a href=\"t3://page?uid=933\">Rückblick auf der Startseite</a>.</p>\r\n<p>Ob es 2027 wieder ein Camp gibt, steht noch nicht fest. Neuigkeiten gibt es zuerst bei den Treffen der Münchner TYPO3 User Group.</p>"
+            },
+            "_context": {
+                "page": 934,
+                "pageTitle": "Anmeldung geschlossen",
+                "type": "text",
+                "roles": {
+                    "header": "headline",
+                    "bodytext": "body"
                 }
             }
         }
