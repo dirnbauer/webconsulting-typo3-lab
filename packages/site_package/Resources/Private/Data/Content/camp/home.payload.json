@@ -1,0 +1,899 @@
+{
+    "version": 1,
+    "site": "camp",
+    "root": 933,
+    "language": 0,
+    "languageCode": "de",
+    "generated": "2026-09-23T09:57:07+02:00",
+    "records": [
+        {
+            "table": "pages",
+            "uid": 933,
+            "expect": {
+                "title": "TYPO3 Camp München 2026",
+                "description": "Das TYPO3 Camp München 2026 ist ein Community-Barcamp der Münchner TYPO3 User Group: 11.–13. September 2026 im Puchheimer Kulturzentrum. Der Sessionplan entsteht vor Ort."
+            },
+            "set": {
+                "title": "TYPO3 Camp München 2026",
+                "description": "Rückblick auf das TYPO3 Camp München 2026: ein Barcamp der Münchner TYPO3 User Group, 11.–13. September 2026 im Puchheimer Kulturzentrum."
+            },
+            "_context": {
+                "page": 933,
+                "pageTitle": "TYPO3 Camp München 2026",
+                "element": 933,
+                "type": "pages",
+                "roles": {
+                    "title": "page_title",
+                    "description": "meta"
+                }
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 26233,
+            "expect": {
+                "CType": "desiderio_heroasymmetric",
+                "header": "Das Programm schreibt ihr selbst.",
+                "subheadline": "Das TYPO3 Camp München 2026 ist ein Barcamp der Münchner TYPO3 User Group. Es gibt keine eingekaufte Rednerliste: Wer kommt, bringt ein Thema mit. Am Samstagmorgen hängt der Sessionplan an der Wand – vorher weiß niemand, was läuft.",
+                "badge_text": "11.–13. September 2026 · Puchheim bei München",
+                "primary_button_text": "Ticket anmelden",
+                "reassurance_text": "Ehrenamtlich organisiert. Kein kommerzieller Kongress."
+            },
+            "set": {
+                "header": "Danke, dass ihr dabei wart.",
+                "subheadline": "Das TYPO3 Camp München 2026 fand vom 11. bis 13. September im Puchheimer Kulturzentrum statt. Wie bei jedem Barcamp habt ihr das Programm vor Ort selbst gemacht.",
+                "badge_text": "Rückblick 2026",
+                "primary_button_text": "Zum Rückblick",
+                "reassurance_text": "Ehrenamtlich organisiert von der Münchner TYPO3 User Group.",
+                "primary_button_link": "t3://page?uid=933#c73372"
+            },
+            "_context": {
+                "page": 933,
+                "pageTitle": "TYPO3 Camp München 2026",
+                "element": 26233,
+                "type": "desiderio_heroasymmetric",
+                "roles": {
+                    "header": "headline",
+                    "subheadline": "lead",
+                    "badge_text": "eyebrow",
+                    "primary_button_text": "button",
+                    "reassurance_text": "card"
+                }
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 49356,
+            "expect": {
+                "alternative": "Symbolbild: Fünf Teilnehmende stehen vor einer Pinnwand voller bunter Zettel und stimmen den Sessionplan ab."
+            },
+            "set": {
+                "alternative": "Symbolbild: Fünf Teilnehmende stehen vor einer Pinnwand voller bunter Zettel und stimmen den Sessionplan ab."
+            },
+            "_context": {
+                "page": 933,
+                "pageTitle": "TYPO3 Camp München 2026",
+                "element": 26233,
+                "type": "desiderio_heroasymmetric",
+                "roles": {
+                    "alternative": "alt"
+                },
+                "file": "/mtug-camp-2026/camp-hero-sessionboard.jpg"
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 26234,
+            "expect": {
+                "CType": "desiderio_stats",
+                "header": "Fakten auf einen Blick",
+                "eyebrow": "Termin & Ort",
+                "subheadline": "Alles, was ihr für die Planung braucht."
+            },
+            "set": {
+                "header": "Das Camp auf einen Blick",
+                "eyebrow": "Eckdaten",
+                "subheadline": "Wann, wo und wie das Camp stattfand."
+            },
+            "_context": {
+                "page": 933,
+                "pageTitle": "TYPO3 Camp München 2026",
+                "element": 26234,
+                "type": "desiderio_stats",
+                "roles": {
+                    "header": "headline",
+                    "eyebrow": "eyebrow",
+                    "subheadline": "lead"
+                }
+            }
+        },
+        {
+            "table": "stats_stats",
+            "uid": 367,
+            "expect": {
+                "value": "3 Tage",
+                "label": "Termin",
+                "description": "<p>11.–13. September 2026: Freitagabend Warm-up, Samstag und Sonntag Camp.</p>"
+            },
+            "set": {
+                "value": "3 Tage",
+                "label": "Termin",
+                "description": "<p>11.–13. September 2026: Warm-up am Freitagabend, Camp am Samstag und Sonntag.</p>"
+            },
+            "_context": {
+                "page": 933,
+                "pageTitle": "TYPO3 Camp München 2026",
+                "element": 26234,
+                "type": "desiderio_stats",
+                "roles": {
+                    "value": "other",
+                    "label": "other",
+                    "description": "card"
+                }
+            }
+        },
+        {
+            "table": "stats_stats",
+            "uid": 368,
+            "expect": {
+                "value": "PUC Puchheim",
+                "label": "Ort",
+                "description": "<p>Puchheimer Kulturzentrum, westlich von München.</p>"
+            },
+            "set": {
+                "value": "PUC Puchheim",
+                "label": "Ort",
+                "description": "<p>Puchheimer Kulturzentrum, westlich von München.</p>"
+            },
+            "_context": {
+                "page": 933,
+                "pageTitle": "TYPO3 Camp München 2026",
+                "element": 26234,
+                "type": "desiderio_stats",
+                "roles": {
+                    "value": "other",
+                    "label": "other",
+                    "description": "card"
+                }
+            }
+        },
+        {
+            "table": "stats_stats",
+            "uid": 369,
+            "expect": {
+                "value": "Open Space",
+                "label": "Format",
+                "description": "<p>Sessions werden morgens vorgeschlagen und abgestimmt.</p>"
+            },
+            "set": {
+                "value": "Open Space",
+                "label": "Format",
+                "description": "<p>Die Sessions wurden vor Ort vorgeschlagen und abgestimmt.</p>"
+            },
+            "_context": {
+                "page": 933,
+                "pageTitle": "TYPO3 Camp München 2026",
+                "element": 26234,
+                "type": "desiderio_stats",
+                "roles": {
+                    "value": "other",
+                    "label": "other",
+                    "description": "card"
+                }
+            }
+        },
+        {
+            "table": "stats_stats",
+            "uid": 370,
+            "expect": {
+                "value": "MTUG",
+                "label": "Veranstalter",
+                "description": "<p>Münchner TYPO3 User Group, ehrenamtlich organisiert.</p>"
+            },
+            "set": {
+                "value": "MTUG",
+                "label": "Veranstalter",
+                "description": "<p>Münchner TYPO3 User Group, ehrenamtlich organisiert.</p>"
+            },
+            "_context": {
+                "page": 933,
+                "pageTitle": "TYPO3 Camp München 2026",
+                "element": 26234,
+                "type": "desiderio_stats",
+                "roles": {
+                    "value": "other",
+                    "label": "other",
+                    "description": "card"
+                }
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 26235,
+            "expect": {
+                "CType": "desiderio_features",
+                "header": "Was euch erwartet",
+                "subheadline": "Drei Tage unter Leuten, die TYPO3 täglich bauen, betreiben und betreuen."
+            },
+            "set": {
+                "header": "Das gab es beim Camp",
+                "subheadline": "Drei Tage mit Menschen, die TYPO3 täglich bauen, betreiben und betreuen."
+            },
+            "_context": {
+                "page": 933,
+                "pageTitle": "TYPO3 Camp München 2026",
+                "element": 26235,
+                "type": "desiderio_features",
+                "roles": {
+                    "header": "headline",
+                    "subheadline": "lead"
+                }
+            }
+        },
+        {
+            "table": "features_feature_items",
+            "uid": 313,
+            "expect": {
+                "title": "Open Space statt Vortragsplan",
+                "description": "<p>Die Agenda entsteht am Samstagmorgen: Thema an die Wand, in einem Satz vorstellen, abstimmen. Was niemanden interessiert, findet nicht statt.</p>"
+            },
+            "set": {
+                "title": "Open Space statt Vortragsplan",
+                "description": "<p>Die Agenda entstand am Samstagmorgen: Thema vorstellen, abstimmen, loslegen.</p>"
+            },
+            "_context": {
+                "page": 933,
+                "pageTitle": "TYPO3 Camp München 2026",
+                "element": 26235,
+                "type": "desiderio_features",
+                "roles": {
+                    "title": "headline",
+                    "description": "card"
+                }
+            }
+        },
+        {
+            "table": "features_feature_items",
+            "uid": 314,
+            "expect": {
+                "title": "TYPO3 v14 in der Praxis",
+                "description": "<p>Site Sets, Content Blocks, Fluid 5, Workspaces: Sessions zu dem, was beim Umstieg auf die aktuelle LTS wirklich Arbeit macht.</p>"
+            },
+            "set": {
+                "title": "Themen aus der Praxis",
+                "description": "<p>Jede Session kam von jemandem, der da war. Darum ging es um das, was im Alltag mit TYPO3 Arbeit macht.</p>"
+            },
+            "_context": {
+                "page": 933,
+                "pageTitle": "TYPO3 Camp München 2026",
+                "element": 26235,
+                "type": "desiderio_features",
+                "roles": {
+                    "title": "headline",
+                    "description": "card"
+                }
+            }
+        },
+        {
+            "table": "features_feature_items",
+            "uid": 315,
+            "expect": {
+                "title": "Alle Rollen an einem Tisch",
+                "description": "<p>Agenturen, Freelancer, Integratorinnen, Entwickler, Redaktion und Core-Contributors. Beim Barcamp gibt es keine Bühne und kein Publikum.</p>"
+            },
+            "set": {
+                "title": "Alle Rollen an einem Tisch",
+                "description": "<p>Agenturen, Freelancer, Entwicklung, Redaktion und Core-Contributors. Beim Barcamp gibt es keine Bühne und kein Publikum.</p>"
+            },
+            "_context": {
+                "page": 933,
+                "pageTitle": "TYPO3 Camp München 2026",
+                "element": 26235,
+                "type": "desiderio_features",
+                "roles": {
+                    "title": "headline",
+                    "description": "card"
+                }
+            }
+        },
+        {
+            "table": "features_feature_items",
+            "uid": 316,
+            "expect": {
+                "title": "Verpflegung inklusive",
+                "description": "<p>Kaffee, Mittagessen und Getränke an beiden Camp-Tagen sowie das Warm-up am Freitagabend sind im Ticket enthalten.</p>"
+            },
+            "set": {
+                "title": "Verpflegung inklusive",
+                "description": "<p>Kaffee, Mittagessen und Getränke an beiden Camp-Tagen und beim Warm-up waren im Ticket enthalten.</p>"
+            },
+            "_context": {
+                "page": 933,
+                "pageTitle": "TYPO3 Camp München 2026",
+                "element": 26235,
+                "type": "desiderio_features",
+                "roles": {
+                    "title": "headline",
+                    "description": "card"
+                }
+            }
+        },
+        {
+            "table": "features_feature_items",
+            "uid": 317,
+            "expect": {
+                "title": "Social Event am Samstag",
+                "description": "<p>Abends geht es gemeinsam weiter: essen, reden, weiterdiskutieren. Für viele der eigentliche Grund herzukommen.</p>"
+            },
+            "set": {
+                "title": "Social Event am Samstag",
+                "description": "<p>Am Samstagabend ging es gemeinsam weiter: essen, reden, weiterdiskutieren.</p>"
+            },
+            "_context": {
+                "page": 933,
+                "pageTitle": "TYPO3 Camp München 2026",
+                "element": 26235,
+                "type": "desiderio_features",
+                "roles": {
+                    "title": "headline",
+                    "description": "card"
+                }
+            }
+        },
+        {
+            "table": "features_feature_items",
+            "uid": 318,
+            "expect": {
+                "title": "Supporter-Ticket",
+                "description": "<p>Wer mehr beitragen möchte, bucht ein Supporter-Ticket: gleiche Leistungen, und ihr werdet vor Ort und in den Camp-Kanälen als Unterstützer genannt.</p>"
+            },
+            "set": {
+                "title": "Supporter-Tickets",
+                "description": "<p>Mit einem Supporter-Ticket konntet ihr das Camp zusätzlich unterstützen. Danke an alle, die das getan haben.</p>"
+            },
+            "_context": {
+                "page": 933,
+                "pageTitle": "TYPO3 Camp München 2026",
+                "element": 26235,
+                "type": "desiderio_features",
+                "roles": {
+                    "title": "headline",
+                    "description": "card"
+                }
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 73371,
+            "expect": {
+                "CType": "desiderio_featureimage",
+                "header": "Ein Haus, kurze Wege",
+                "eyebrow": "Vor Ort",
+                "description": "<p>Das Camp findet im <strong>Puchheimer Kulturzentrum (PUC)</strong> statt, westlich von München. Großes Foyer, mehrere Säle und Seminarräume: genug Platz, damit Sessions parallel laufen können – und in der Pause trifft sich trotzdem alles an einem Ort. Das ist der Unterschied zwischen einem Barcamp und einer Konferenz mit sechs Tracks in sechs Gebäuden.</p>\r\n<p>Puchheim liegt an der S-Bahn-Linie S4 ab München Hauptbahnhof. Wegbeschreibung, Parkmöglichkeiten und Startzeiten schicken wir mit der Anmeldebestätigung.</p>"
+            },
+            "set": {
+                "header": "Ein Haus, kurze Wege",
+                "eyebrow": "Vor Ort",
+                "description": "<p>Das Camp fand im <strong>Puchheimer Kulturzentrum (PUC)</strong> westlich von München statt. Foyer, Säle und Seminarräume boten Platz für parallele Sessions. In den Pausen traf sich trotzdem alles an einem Ort.</p>"
+            },
+            "_context": {
+                "page": 933,
+                "pageTitle": "TYPO3 Camp München 2026",
+                "element": 73371,
+                "type": "desiderio_featureimage",
+                "roles": {
+                    "header": "headline",
+                    "eyebrow": "eyebrow",
+                    "description": "card"
+                }
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 49358,
+            "expect": {
+                "alternative": "Symbolbild: Ein flaches Kulturzentrum mit großer Glasfront, davor gehen Menschen mit Rucksäcken über den Vorplatz auf den Eingang zu."
+            },
+            "set": {
+                "alternative": "Symbolbild: Ein flaches Kulturzentrum mit großer Glasfront, davor gehen Menschen mit Rucksäcken über den Vorplatz auf den Eingang zu."
+            },
+            "_context": {
+                "page": 933,
+                "pageTitle": "TYPO3 Camp München 2026",
+                "element": 73371,
+                "type": "desiderio_featureimage",
+                "roles": {
+                    "alternative": "alt"
+                },
+                "file": "/mtug-camp-2026/camp-venue.jpg"
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 73372,
+            "expect": {
+                "CType": "desiderio_gallery",
+                "header": "So läuft ein Camp-Wochenende",
+                "subheadline": "Das Camp 2026 hat noch nicht stattgefunden: Alle Bilder auf dieser Seite sind KI-generierte Symbolbilder und zeigen, worauf ihr euch einstellen könnt."
+            },
+            "set": {
+                "header": "So läuft ein Camp-Wochenende",
+                "subheadline": "Die Bilder auf dieser Seite sind KI-generierte Symbolbilder. Sie zeigen, wie ein Barcamp-Wochenende typischerweise aussieht."
+            },
+            "_context": {
+                "page": 933,
+                "pageTitle": "TYPO3 Camp München 2026",
+                "element": 73372,
+                "type": "desiderio_gallery",
+                "roles": {
+                    "header": "headline",
+                    "subheadline": "lead"
+                }
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 49359,
+            "expect": {
+                "alternative": "Symbolbild: Rund zwölf Personen sitzen mit Laptops im Halbkreis, eine Frau skizziert an einem Flipchart ein Diagramm."
+            },
+            "set": {
+                "alternative": "Symbolbild: Rund zwölf Personen sitzen mit Laptops im Halbkreis, eine Frau skizziert an einem Flipchart ein Diagramm."
+            },
+            "_context": {
+                "page": 933,
+                "pageTitle": "TYPO3 Camp München 2026",
+                "element": 73372,
+                "type": "desiderio_gallery",
+                "roles": {
+                    "alternative": "alt"
+                },
+                "file": "/mtug-camp-2026/camp-session-room.jpg"
+            }
+        },
+        {
+            "table": "gallery_items",
+            "uid": 621,
+            "expect": {
+                "title": "Sessions",
+                "description": "Zwölf Leute, ein Flipchart, ein Thema. Die meisten Sessions sind Diskussionen, keine Vorträge."
+            },
+            "set": {
+                "title": "Sessions",
+                "description": "Zwölf Leute, ein Flipchart, ein Thema. Die meisten Sessions sind Diskussionen, keine Vorträge."
+            },
+            "_context": {
+                "page": 933,
+                "pageTitle": "TYPO3 Camp München 2026",
+                "element": 73372,
+                "type": "desiderio_gallery",
+                "roles": {
+                    "title": "headline",
+                    "description": "card"
+                }
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 49360,
+            "expect": {
+                "alternative": "Symbolbild: Drei Personen stehen mit Kaffeebechern und Laptops in einem hellen Flur und unterhalten sich."
+            },
+            "set": {
+                "alternative": "Symbolbild: Drei Personen stehen mit Kaffeebechern und Laptops in einem hellen Flur und unterhalten sich."
+            },
+            "_context": {
+                "page": 933,
+                "pageTitle": "TYPO3 Camp München 2026",
+                "element": 73372,
+                "type": "desiderio_gallery",
+                "roles": {
+                    "alternative": "alt"
+                },
+                "file": "/mtug-camp-2026/camp-hallway-track.jpg"
+            }
+        },
+        {
+            "table": "gallery_items",
+            "uid": 622,
+            "expect": {
+                "title": "Flurgespräche",
+                "description": "Der Hallway Track ist beim Barcamp kein Nebenprodukt, sondern die halbe Veranstaltung."
+            },
+            "set": {
+                "title": "Flurgespräche",
+                "description": "Der Hallway Track ist beim Barcamp kein Nebenprodukt, sondern die halbe Veranstaltung."
+            },
+            "_context": {
+                "page": 933,
+                "pageTitle": "TYPO3 Camp München 2026",
+                "element": 73372,
+                "type": "desiderio_gallery",
+                "roles": {
+                    "title": "headline",
+                    "description": "card"
+                }
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 49361,
+            "expect": {
+                "alternative": "Symbolbild: Abendliche Tischrunde unter Lichterketten, viele Menschen im Gespräch."
+            },
+            "set": {
+                "alternative": "Symbolbild: Abendliche Tischrunde unter Lichterketten, viele Menschen im Gespräch."
+            },
+            "_context": {
+                "page": 933,
+                "pageTitle": "TYPO3 Camp München 2026",
+                "element": 73372,
+                "type": "desiderio_gallery",
+                "roles": {
+                    "alternative": "alt"
+                },
+                "file": "/mtug-camp-2026/camp-social-evening.jpg"
+            }
+        },
+        {
+            "table": "gallery_items",
+            "uid": 623,
+            "expect": {
+                "title": "Social Event",
+                "description": "Samstagabend geht es gemeinsam weiter – draußen, wenn das Wetter mitspielt."
+            },
+            "set": {
+                "title": "Social Event",
+                "description": "Samstagabend geht es gemeinsam weiter – draußen, wenn das Wetter mitspielt."
+            },
+            "_context": {
+                "page": 933,
+                "pageTitle": "TYPO3 Camp München 2026",
+                "element": 73372,
+                "type": "desiderio_gallery",
+                "roles": {
+                    "title": "headline",
+                    "description": "card"
+                }
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 26236,
+            "expect": {
+                "CType": "desiderio_howtosteps",
+                "header": "In vier Schritten angemeldet",
+                "description": "<p>Die Anmeldung läuft über ein kurzes Formular. Ein Konto braucht ihr dafür nicht.</p>"
+            },
+            "set": {
+                "header": "So lief das Wochenende",
+                "description": "<p>Drei Tage mit dem Ablauf, den fast alle Barcamps teilen.</p>"
+            },
+            "_context": {
+                "page": 933,
+                "pageTitle": "TYPO3 Camp München 2026",
+                "element": 26236,
+                "type": "desiderio_howtosteps",
+                "roles": {
+                    "header": "headline",
+                    "description": "card"
+                }
+            }
+        },
+        {
+            "table": "how_to_steps_items",
+            "uid": 233,
+            "expect": {
+                "title": "Ticket-Typ wählen",
+                "content": "<p>Es gibt das <strong>Standard-Ticket</strong> mit Warm-up, beiden Camp-Tagen, Verpflegung und Social Event und das <strong>Supporter-Ticket</strong> mit denselben Leistungen für alle, die das Camp zusätzlich unterstützen möchten. Optional dazu buchbar ist der <strong>Integrations-Workshop am Freitag</strong>.</p>"
+            },
+            "set": {
+                "title": "Freitag: Warm-up",
+                "content": "<p>Am Freitagabend, dem <strong>11. September 2026</strong>, trafen sich alle zum Warm-up. Tagsüber gab es einen Integrations-Workshop zu TYPO3 v14.</p>"
+            },
+            "_context": {
+                "page": 933,
+                "pageTitle": "TYPO3 Camp München 2026",
+                "element": 26236,
+                "type": "desiderio_howtosteps",
+                "roles": {
+                    "title": "headline",
+                    "content": "card"
+                }
+            }
+        },
+        {
+            "table": "how_to_steps_items",
+            "uid": 234,
+            "expect": {
+                "title": "Formular ausfüllen",
+                "content": "<p>Auf der Seite <a href=\"t3://page?uid=934\">Ticket-Anmeldung</a> tragt ihr Name, E-Mail-Adresse und Ticket-Typ ein. Ernährungshinweise und Wünsche zur Barrierefreiheit könnt ihr gleich mitschicken.</p>"
+            },
+            "set": {
+                "title": "Samstag: Sessionplanung",
+                "content": "<p>Am Morgen stellten alle, die eine Session anbieten wollten, ihr Thema vor. Nach der Abstimmung hing der Plan an der Wand.</p>"
+            },
+            "_context": {
+                "page": 933,
+                "pageTitle": "TYPO3 Camp München 2026",
+                "element": 26236,
+                "type": "desiderio_howtosteps",
+                "roles": {
+                    "title": "headline",
+                    "content": "card"
+                }
+            }
+        },
+        {
+            "table": "how_to_steps_items",
+            "uid": 235,
+            "expect": {
+                "title": "Bestätigung abwarten",
+                "content": "<p>Ihr bekommt eine Bestätigung per E-Mail. Der Workshop am Freitag hat nur begrenzt Plätze und wird in der Reihenfolge der Anmeldungen vergeben.</p>"
+            },
+            "set": {
+                "title": "Samstagabend: Social Event",
+                "content": "<p>Nach den Sessions ging es gemeinsam weiter, mit Essen und langen Gesprächen.</p>"
+            },
+            "_context": {
+                "page": 933,
+                "pageTitle": "TYPO3 Camp München 2026",
+                "element": 26236,
+                "type": "desiderio_howtosteps",
+                "roles": {
+                    "title": "headline",
+                    "content": "card"
+                }
+            }
+        },
+        {
+            "table": "how_to_steps_items",
+            "uid": 236,
+            "expect": {
+                "title": "Vorbeikommen",
+                "content": "<p>Das Warm-up beginnt am Freitag, <strong>11. September 2026</strong>, am Abend. Das Camp läuft <strong>Samstag und Sonntag</strong> im PUC. Bringt einen Laptop mit – und ein Thema, über das ihr reden wollt.</p>"
+            },
+            "set": {
+                "title": "Sonntag: zweiter Camp-Tag",
+                "content": "<p>Noch ein Tag mit Sessions und Flurgesprächen im PUC.</p>"
+            },
+            "_context": {
+                "page": 933,
+                "pageTitle": "TYPO3 Camp München 2026",
+                "element": 26236,
+                "type": "desiderio_howtosteps",
+                "roles": {
+                    "title": "headline",
+                    "content": "card"
+                }
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 26237,
+            "expect": {
+                "CType": "desiderio_faq",
+                "header": "Häufige Fragen",
+                "subheadline": "Ticket, Ablauf, Anreise – und was ein Barcamp überhaupt ist."
+            },
+            "set": {
+                "header": "Häufige Fragen",
+                "subheadline": "Zum Camp, zum Format und zu den nächsten Treffen."
+            },
+            "_context": {
+                "page": 933,
+                "pageTitle": "TYPO3 Camp München 2026",
+                "element": 26237,
+                "type": "desiderio_faq",
+                "roles": {
+                    "header": "headline",
+                    "subheadline": "lead"
+                }
+            }
+        },
+        {
+            "table": "desiderio_qa_item",
+            "uid": 37,
+            "expect": {
+                "question": "Was ist im Ticket enthalten?",
+                "answer": "<p>Das Warm-up am Freitagabend, beide Camp-Tage im PUC, Verpflegung am Samstag und Sonntag sowie das Social Event am Samstagabend. Der Workshop am Freitag ist separat dazu buchbar.</p>"
+            },
+            "set": {
+                "question": "Was ist ein Barcamp?",
+                "answer": "<p>Ein Barcamp hat kein festes Programm. Wer eine Session anbieten will, stellt ein Thema vor, und alle stimmen ab. Zuhören und Mitdiskutieren ist genauso willkommen.</p>"
+            },
+            "_context": {
+                "page": 933,
+                "pageTitle": "TYPO3 Camp München 2026",
+                "element": 26237,
+                "type": "desiderio_faq",
+                "roles": {
+                    "question": "headline",
+                    "answer": "faq_answer"
+                }
+            }
+        },
+        {
+            "table": "desiderio_qa_item",
+            "uid": 38,
+            "expect": {
+                "question": "Ich war noch nie auf einem Barcamp. Wie läuft das ab?",
+                "answer": "<p>Am Samstagmorgen stellt jede und jeder, die oder der eine Session anbieten möchte, das Thema in einem Satz vor. Danach wird abgestimmt, und die Vorschläge mit dem größten Interesse wandern in den Zeitplan an der Wand. Ihr müsst nichts vorbereiten und nichts anbieten: zuhören und mitdiskutieren ist völlig in Ordnung.</p>"
+            },
+            "set": {
+                "question": "Wer hat das Camp organisiert?",
+                "answer": "<p>Die Münchner TYPO3 User Group (MTUG), ehrenamtlich. Das Camp war kein kommerzieller Kongress.</p>"
+            },
+            "_context": {
+                "page": 933,
+                "pageTitle": "TYPO3 Camp München 2026",
+                "element": 26237,
+                "type": "desiderio_faq",
+                "roles": {
+                    "question": "headline",
+                    "answer": "faq_answer"
+                }
+            }
+        },
+        {
+            "table": "desiderio_qa_item",
+            "uid": 39,
+            "expect": {
+                "question": "Brauche ich Vorkenntnisse?",
+                "answer": "<p>TYPO3-Grundlagen helfen. Ansonsten ist das Camp offen für alle Rollen: Integration, Entwicklung, Redaktion, Projektleitung, Design.</p>"
+            },
+            "set": {
+                "question": "In welcher Sprache liefen die Sessions?",
+                "answer": "<p>Meist auf Deutsch. Englische Sessions waren willkommen und im Sessionplan gekennzeichnet.</p>"
+            },
+            "_context": {
+                "page": 933,
+                "pageTitle": "TYPO3 Camp München 2026",
+                "element": 26237,
+                "type": "desiderio_faq",
+                "roles": {
+                    "question": "headline",
+                    "answer": "faq_answer"
+                }
+            }
+        },
+        {
+            "table": "desiderio_qa_item",
+            "uid": 40,
+            "expect": {
+                "question": "In welcher Sprache laufen die Sessions?",
+                "answer": "<p>Meist auf Deutsch. Englischsprachige Sessions sind ausdrücklich willkommen und werden am Sessionplan entsprechend gekennzeichnet, damit alle wissen, worauf sie sich einlassen.</p>"
+            },
+            "set": {
+                "question": "Galt ein Code of Conduct?",
+                "answer": "<p>Ja, der <strong>TYPO3 Code of Conduct</strong>: respektvoller Umgang, keine Belästigung, keine Diskriminierung. Hinweise nimmt das Orga-Team über die im <a href=\"t3://page?uid=935\">Impressum</a> genannte Adresse entgegen.</p>"
+            },
+            "_context": {
+                "page": 933,
+                "pageTitle": "TYPO3 Camp München 2026",
+                "element": 26237,
+                "type": "desiderio_faq",
+                "roles": {
+                    "question": "headline",
+                    "answer": "faq_answer"
+                }
+            }
+        },
+        {
+            "table": "desiderio_qa_item",
+            "uid": 41,
+            "expect": {
+                "question": "Wie komme ich nach Puchheim?",
+                "answer": "<p>Mit der S-Bahn-Linie S4 ab München Hauptbahnhof Richtung Geltendorf, mit dem Auto über die A96. Die genaue Wegbeschreibung und Hinweise zum Parken schicken wir mit der Anmeldebestätigung.</p>"
+            },
+            "set": {
+                "question": "Gibt es 2027 wieder ein Camp?",
+                "answer": "<p>Das steht noch nicht fest. Neuigkeiten gibt es zuerst bei den Treffen der Münchner TYPO3 User Group.</p>"
+            },
+            "_context": {
+                "page": 933,
+                "pageTitle": "TYPO3 Camp München 2026",
+                "element": 26237,
+                "type": "desiderio_faq",
+                "roles": {
+                    "question": "headline",
+                    "answer": "faq_answer"
+                }
+            }
+        },
+        {
+            "table": "desiderio_qa_item",
+            "uid": 228,
+            "expect": {
+                "question": "Gibt es einen Workshop am Freitag?",
+                "answer": "<p>Ja, optional dazu buchbar: ein Integrations-Workshop zu TYPO3 v14. Die Teilnehmendenzahl ist begrenzt. Bringt eine lokale TYPO3-14-Installation mit Composer mit, dann könnt ihr direkt mitarbeiten.</p>"
+            },
+            "set": {
+                "question": "Gibt es einen Workshop am Freitag?",
+                "answer": "<p>Ja, optional dazu buchbar: ein Integrations-Workshop zu TYPO3 v14. Die Teilnehmendenzahl ist begrenzt. Bringt eine lokale TYPO3-14-Installation mit Composer mit, dann könnt ihr direkt mitarbeiten.</p>"
+            },
+            "_context": {
+                "page": 933,
+                "pageTitle": "TYPO3 Camp München 2026",
+                "element": 26237,
+                "type": "desiderio_faq",
+                "roles": {
+                    "question": "headline",
+                    "answer": "faq_answer"
+                }
+            },
+            "action": "delete"
+        },
+        {
+            "table": "desiderio_qa_item",
+            "uid": 229,
+            "expect": {
+                "question": "Gibt es einen Code of Conduct?",
+                "answer": "<p>Ja. Für das Camp gilt der <strong>TYPO3 Code of Conduct</strong>: respektvoller Umgang, keine Belästigung, keine Diskriminierung. Wer sich unwohl fühlt, wendet sich an das Orga-Team vor Ort oder an die im <a href=\"t3://page?uid=935\">Impressum</a> genannte Adresse. Verstöße führen zum Ausschluss vom Camp.</p>"
+            },
+            "set": {
+                "question": "Gibt es einen Code of Conduct?",
+                "answer": "<p>Ja. Für das Camp gilt der <strong>TYPO3 Code of Conduct</strong>: respektvoller Umgang, keine Belästigung, keine Diskriminierung. Wer sich unwohl fühlt, wendet sich an das Orga-Team vor Ort oder an die im <a href=\"t3://page?uid=935\">Impressum</a> genannte Adresse. Verstöße führen zum Ausschluss vom Camp.</p>"
+            },
+            "_context": {
+                "page": 933,
+                "pageTitle": "TYPO3 Camp München 2026",
+                "element": 26237,
+                "type": "desiderio_faq",
+                "roles": {
+                    "question": "headline",
+                    "answer": "faq_answer"
+                }
+            },
+            "action": "delete"
+        },
+        {
+            "table": "tt_content",
+            "uid": 26238,
+            "expect": {
+                "CType": "desiderio_cta",
+                "header": "Kommt vorbei.",
+                "subheadline": "Die Anmeldung ist offen. Ein Ticket, drei Tage, und ein Programm, das ihr selbst macht.",
+                "primary_button_text": "Ticket anmelden"
+            },
+            "set": {
+                "header": "Bis zum nächsten Mal.",
+                "subheadline": "Danke an alle, die mitgemacht, Sessions angeboten und geholfen haben.",
+                "primary_button_text": "Kontakt aufnehmen",
+                "primary_button_link": "t3://page?uid=935"
+            },
+            "_context": {
+                "page": 933,
+                "pageTitle": "TYPO3 Camp München 2026",
+                "element": 26238,
+                "type": "desiderio_cta",
+                "roles": {
+                    "header": "headline",
+                    "subheadline": "lead",
+                    "primary_button_text": "button"
+                }
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 49357,
+            "expect": {
+                "alternative": "Symbolbild: Zwei Helfende am Empfangstisch reichen einem ankommenden Gast ein leeres Namensschild."
+            },
+            "set": {
+                "alternative": "Symbolbild: Zwei Helfende am Empfangstisch reichen einem ankommenden Gast ein leeres Namensschild."
+            },
+            "_context": {
+                "page": 933,
+                "pageTitle": "TYPO3 Camp München 2026",
+                "element": 26238,
+                "type": "desiderio_cta",
+                "roles": {
+                    "alternative": "alt"
+                },
+                "file": "/mtug-camp-2026/camp-welcome-desk.jpg"
+            }
+        }
+    ],
+    "_note": "Camp home, rewritten as a recap of the 2026 camp. Images stay AI-generated symbol images and are labelled as such."
+}

@@ -20,7 +20,17 @@ final readonly class TextItem
         public string $elementType,
         public FieldRole $role,
         public string $file = '',
+        public ?string $rawValue = null,
     ) {}
+
+    /**
+     * What the field itself holds. Differs from `value` only for alt texts,
+     * where an empty reference falls back to the file's own metadata.
+     */
+    public function storedValue(): string
+    {
+        return $this->rawValue ?? $this->value;
+    }
 
     public function plainText(): string
     {

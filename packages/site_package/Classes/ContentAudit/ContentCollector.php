@@ -180,10 +180,8 @@ final class ContentCollector
             ->fetchAllAssociative();
 
         foreach ($rows as $row) {
-            $alternative = $this->string($row['alternative'] ?? '');
-            if ($alternative === '') {
-                $alternative = $this->string($row['file_alternative'] ?? '');
-            }
+            $stored = $this->string($row['alternative'] ?? '');
+            $alternative = $stored !== '' ? $stored : $this->string($row['file_alternative'] ?? '');
             $items[] = new TextItem(
                 table: 'sys_file_reference',
                 uid: (int)$this->scalar($row['uid'] ?? 0),
@@ -194,6 +192,7 @@ final class ContentCollector
                 elementType: $elementType,
                 role: FieldRole::Alt,
                 file: $this->string($row['identifier'] ?? ''),
+                rawValue: $stored,
             );
         }
     }

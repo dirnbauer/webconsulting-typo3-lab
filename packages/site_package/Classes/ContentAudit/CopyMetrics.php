@@ -61,6 +61,8 @@ final class CopyMetrics
         // Thousands separators and German dates ("1.490 €", "11. September") are not sentence ends.
         $protected = (string)preg_replace('/(\d)\.(?=\d)/u', '$1¤', $protected);
         $protected = (string)preg_replace('/\b(\d{1,2})\.(?=\s+(Jänner|Januar|Februar|März|April|Mai|Juni|Juli|August|September|Oktober|November|Dezember)\b)/u', '$1¤', $protected);
+        // A number, a full stop and a lower-case word is an ordinal ("11. bis"), not an end.
+        $protected = (string)preg_replace('/(\d)\.(?=\s+\p{Ll})/u', '$1¤', $protected);
 
         $parts = preg_split('/(?<=[.!?…])\s+|\n+/u', $protected) ?: [];
         $sentences = [];

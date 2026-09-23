@@ -27,6 +27,11 @@ final class CopyMetricsTest extends TestCase
         );
     }
 
+    public function testGermanOrdinalRangesStayOneSentence(): void
+    {
+        self::assertCount(1, CopyMetrics::sentences('Das Camp fand vom 11. bis 13. September in Puchheim statt.'));
+    }
+
     public function testLinesWithoutPunctuationCountAsSentences(): void
     {
         self::assertCount(3, CopyMetrics::sentences("First item\nSecond item\nThird item"));
@@ -71,6 +76,7 @@ final class CopyMetricsTest extends TestCase
         yield 'page title' => ['title', 'pages', FieldRole::PageTitle];
         yield 'meta description' => ['description', 'pages', FieldRole::Meta];
         yield 'alt text' => ['alternative', 'sys_file_reference', FieldRole::Alt];
+        yield 'job title is not a headline' => ['author_title', 'tt_content', FieldRole::Other];
     }
 
     #[DataProvider('roles')]

@@ -1,0 +1,243 @@
+{
+    "version": 1,
+    "site": "blog-classico",
+    "root": 15,
+    "language": 0,
+    "languageCode": "de",
+    "generated": "2026-09-23T09:58:57+02:00",
+    "records": [
+        {
+            "table": "pages",
+            "uid": 22,
+            "expect": {
+                "title": "Easter Weather: A Calm Start to the Day",
+                "subtitle": "Watching spring settle in before the celebrations begin",
+                "abstract": "How a calm Easter morning sets the tone for the rest of the day.",
+                "description": "A short reflection on Easter weather, fresh air, and the slower rhythm of a spring morning.",
+                "seo_title": "Easter Weather: A Calm Start to the Day",
+                "og_title": "Easter Weather: A Calm Start to the Day",
+                "og_description": "A short reflection on Easter weather, fresh air, and the slower rhythm of a spring morning.",
+                "twitter_title": "Easter Weather: A Calm Start to the Day",
+                "twitter_description": "A short reflection on Easter weather, fresh air, and the slower rhythm of a spring morning."
+            },
+            "set": {
+                "title": "Osterwetter: ein ruhiger Start in den Tag",
+                "subtitle": "Wie der Frühling vor dem Fest ankommt",
+                "abstract": "Warum ein ruhiger Ostermorgen den ganzen Tag prägt.",
+                "description": "Ein kurzer Beitrag über Osterwetter, frische Luft und einen langsamen Frühlingsmorgen – und warum er den ganzen Feiertag prägt.",
+                "seo_title": "Osterwetter: ein ruhiger Start in den Tag",
+                "og_title": "Osterwetter: ein ruhiger Start in den Tag",
+                "og_description": "Ein kurzer Beitrag über Osterwetter, frische Luft und einen langsamen Frühlingsmorgen – und warum er den ganzen Feiertag prägt.",
+                "twitter_title": "Osterwetter: ein ruhiger Start in den Tag",
+                "twitter_description": "Ein kurzer Beitrag über Osterwetter, frische Luft und einen langsamen Frühlingsmorgen – und warum er den ganzen Feiertag prägt."
+            },
+            "_context": {
+                "page": 22,
+                "pageTitle": "Easter Weather: A Calm Start to the Day",
+                "element": 22,
+                "type": "pages",
+                "roles": {
+                    "title": "page_title",
+                    "subtitle": "lead",
+                    "abstract": "lead",
+                    "description": "meta",
+                    "seo_title": "page_title",
+                    "og_title": "page_title",
+                    "og_description": "meta",
+                    "twitter_title": "page_title",
+                    "twitter_description": "meta"
+                }
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 60,
+            "expect": {
+                "CType": "textmedia",
+                "header": "A calmer celebration",
+                "bodytext": "<p>Good Easter weather is not only sunshine. A quiet, slightly cool morning can create the exact kind of atmosphere that makes the whole day feel grounded. When the pace starts gently, people notice more and rush less.</p>"
+            },
+            "set": {
+                "header": "Ruhiger feiern",
+                "bodytext": "<p>Gutes Osterwetter bedeutet nicht nur Sonne. Auch ein stiller, kühler Morgen schafft eine Stimmung, die den Tag erdet. Wer ruhig beginnt, nimmt mehr wahr und hetzt weniger.</p>"
+            },
+            "_context": {
+                "page": 22,
+                "pageTitle": "Easter Weather: A Calm Start to the Day",
+                "element": 60,
+                "type": "textmedia",
+                "roles": {
+                    "header": "headline",
+                    "bodytext": "body"
+                }
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 10,
+            "expect": {
+                "alternative": ""
+            },
+            "set": {
+                "alternative": "Ein Erwachsener und ein Kind gehen im Regen spazieren."
+            },
+            "_context": {
+                "page": 22,
+                "pageTitle": "Easter Weather: A Calm Start to the Day",
+                "element": 60,
+                "type": "textmedia",
+                "roles": {
+                    "alternative": "alt"
+                },
+                "file": "/mcp/workspaces/ws-1/images/rain-child-yunus-tug-79849194f4a506ef.jpg"
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 46,
+            "expect": {
+                "alternative": ""
+            },
+            "set": {
+                "alternative": "Eine Familie geht gemeinsam im Regen spazieren."
+            },
+            "_context": {
+                "page": 22,
+                "pageTitle": "Easter Weather: A Calm Start to the Day",
+                "element": 60,
+                "type": "textmedia",
+                "roles": {
+                    "alternative": "alt"
+                },
+                "file": "/mcp/workspaces/ws-1/images/family-walk-rain-getty-d8abab98cd4b24fd.jpg"
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 59,
+            "expect": {
+                "CType": "textmedia",
+                "header": "What this mood encourages",
+                "bodytext": "<ul><li>Start with an early walk before the busier part of the day.</li><li>Use softer spring colors instead of loud decoration.</li><li>Plan a smaller egg hunt if the ground is still damp.</li><li>Keep blankets, tea, or umbrellas close by.</li></ul>"
+            },
+            "set": {
+                "header": "Was diese Stimmung nahelegt",
+                "bodytext": "<ul><li>Früh spazieren gehen, bevor der Tag hektisch wird.</li><li>Sanfte Frühlingsfarben statt lauter Dekoration wählen.</li><li>Die Eiersuche kleiner planen, wenn der Boden noch feucht ist.</li><li>Decken, Tee oder Schirme griffbereit haben.</li></ul>"
+            },
+            "_context": {
+                "page": 22,
+                "pageTitle": "Easter Weather: A Calm Start to the Day",
+                "element": 59,
+                "type": "textmedia",
+                "roles": {
+                    "header": "headline",
+                    "bodytext": "body"
+                }
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 11,
+            "expect": {
+                "alternative": ""
+            },
+            "set": {
+                "alternative": "Ein Erwachsener und ein Kind gehen im Regen spazieren."
+            },
+            "_context": {
+                "page": 22,
+                "pageTitle": "Easter Weather: A Calm Start to the Day",
+                "element": 59,
+                "type": "textmedia",
+                "roles": {
+                    "alternative": "alt"
+                },
+                "file": "/mcp/workspaces/ws-1/images/rain-child-yunus-tug-79849194f4a506ef.jpg"
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 45,
+            "expect": {
+                "alternative": ""
+            },
+            "set": {
+                "alternative": "Eine Familie mit Kindern spielt im Regen auf einer Terrasse."
+            },
+            "_context": {
+                "page": 22,
+                "pageTitle": "Easter Weather: A Calm Start to the Day",
+                "element": 59,
+                "type": "textmedia",
+                "roles": {
+                    "alternative": "alt"
+                },
+                "file": "/mcp/workspaces/ws-1/images/family-rain-patio-getty-90dfd2c8df8498ca.jpg"
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 58,
+            "expect": {
+                "CType": "textmedia",
+                "header": "A soft forecast for Easter morning",
+                "bodytext": "<p>Easter often feels better when the day begins a little slower. Cool air, light clouds, and a calm patch of morning weather can make the first walk outside feel more deliberate. That mood changes how people gather, how tables are set, and how even simple traditions like hiding eggs or sharing coffee begin to feel more memorable.</p>"
+            },
+            "set": {
+                "header": "Ein sanfter Start in den Ostermorgen",
+                "bodytext": "<p>Ostern fühlt sich oft besser an, wenn der Tag langsam beginnt. Kühle Luft und leichte Wolken machen den ersten Spaziergang bewusster. Diese Stimmung prägt, wie wir den Tisch decken, Eier verstecken und Kaffee trinken.</p>"
+            },
+            "_context": {
+                "page": 22,
+                "pageTitle": "Easter Weather: A Calm Start to the Day",
+                "element": 58,
+                "type": "textmedia",
+                "roles": {
+                    "header": "headline",
+                    "bodytext": "body"
+                }
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 8,
+            "expect": {
+                "alternative": ""
+            },
+            "set": {
+                "alternative": "Ein Erwachsener und ein Kind gehen im Regen spazieren."
+            },
+            "_context": {
+                "page": 22,
+                "pageTitle": "Easter Weather: A Calm Start to the Day",
+                "element": 58,
+                "type": "textmedia",
+                "roles": {
+                    "alternative": "alt"
+                },
+                "file": "/mcp/workspaces/ws-1/images/rain-child-yunus-tug-79849194f4a506ef.jpg"
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 65,
+            "expect": {
+                "alternative": ""
+            },
+            "set": {
+                "alternative": "Ein Erwachsener und ein Kind gehen im Regen spazieren."
+            },
+            "_context": {
+                "page": 22,
+                "pageTitle": "Easter Weather: A Calm Start to the Day",
+                "element": 58,
+                "type": "textmedia",
+                "roles": {
+                    "alternative": "alt"
+                },
+                "file": "/mcp/workspaces/ws-1/images/rain-child-yunus-tug-79849194f4a506ef.jpg"
+            }
+        }
+    ],
+    "_note": "Post 22 rewritten in German (the site default). The two Getty images (references 45, 46) are replaced in the image phase."
+}

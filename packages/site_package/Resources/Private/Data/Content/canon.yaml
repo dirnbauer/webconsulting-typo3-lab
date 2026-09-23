@@ -54,7 +54,7 @@ facts:
 forbidden:
   - { pattern: '\b(53|49)\s+(typed\s+|Fluid\s+)?components\b', message: 'Desiderio has 62 components (17 atoms, 37 molecules, 4 layouts, 4 organisms)' }
   - { pattern: '\b17\s*\+\s*28\s*\+\s*4\b', message: 'component split is 17 + 37 + 4 + 4' }
-  - { pattern: '\b(255|288|300)(th)?\s+(content\s+)?elements?\b', message: 'Desiderio has 244 content elements' }
+  - { pattern: '\b(255|288|300)(th)?\s+([a-z-]+\s+)?(content\s+)?elements?\b', message: 'Desiderio has 244 content elements' }
   - { pattern: '\b(fourteen|14)\s+(theme\s+)?(presets|palettes)\b', message: 'Desiderio has 15 presets' }
   - { pattern: '\b(seven|7)\s+(Astryx\s+)?themes\b', message: 'Astryx ships 25 themes (7 upstream + 18 ours); say "7 upstream themes" if that is meant', sites: [astryx] }
   - { pattern: '\b(406|1,?500|1,?200)\s+(colou?r\s+)?pairs\b', message: 'the contrast audit checks 1,600 colour pairs' }

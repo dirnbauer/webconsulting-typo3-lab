@@ -75,7 +75,9 @@ final class ContentExportCommand extends Command
             foreach ($this->collector->collectPage($page['uid'], $language, !$isFolder || $includeLibrary) as $item) {
                 $key = $item->table . ':' . $item->uid;
                 $records[$key] ??= $this->record($item, $page['uid'], $page['title'], $page['hidden']);
-                $records[$key]['expect'][$item->field] = $item->value;
+                // expect holds what the field stores; set starts from what the
+                // reader sees, so an alt text inherited from the file is kept.
+                $records[$key]['expect'][$item->field] = $item->storedValue();
                 $records[$key]['set'][$item->field] = $item->value;
                 $roles[$key][$item->field] = $item->role->value;
             }

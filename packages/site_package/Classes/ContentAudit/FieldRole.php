@@ -56,6 +56,10 @@ enum FieldRole: string
             && preg_match('/(text|label|title|caption)$/', $name) !== 1) {
             return self::Skip;
         }
+        // Job titles and names of people are short text, not headlines.
+        if (preg_match('/(^|_)(author|job|person|member|speaker|reviewer|customer)_(title|name|role)$|^(role|position|company|job|author)$/', $name) === 1) {
+            return self::Other;
+        }
         if (preg_match('/(^|_)(button|cta|link|action)(_\w+)?_(text|label)$|^(button|cta|link|action)_?(text|label)$/', $name) === 1) {
             return self::Button;
         }
