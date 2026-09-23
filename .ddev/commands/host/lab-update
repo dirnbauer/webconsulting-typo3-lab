@@ -1,16 +1,31 @@
 #!/usr/bin/env bash
 
-## Description: Update the TYPO3 Lab to the latest Composer package versions, publish assets, run extension setup, and flush caches.
-## Usage: lab-update [composer update arguments]
-## Example: "ddev lab-update" | "ddev lab-update webconsulting/desiderio -W"
+## Description: Update the named Composer packages, run extension setup, reseed the Desiderio showcase and flush caches.
+## Usage: lab-update <package>... [composer update arguments] | lab-update --all
+## Example: "ddev lab-update webconsulting/desiderio -W" | "ddev lab-update --all"
 
 set -euo pipefail
 
 cd "${DDEV_APPROOT}"
 
+# Name the packages to update. A bare `composer update -W` moves every
+# dependency of the lab at once, which is never what a content or theme
+# release needs; --all keeps that possible on purpose.
+if [ "$#" -eq 0 ]; then
+  echo "Name the packages to update, e.g. 'ddev lab-update webconsulting/desiderio -W', or pass --all." >&2
+  exit 2
+fi
 composer_args=("$@")
-if [ "${#composer_args[@]}" -eq 0 ]; then
+if [ "$1" = "--all" ]; then
   composer_args=(-W)
+fi
+
+if Build/Scripts/lab-link.sh --status >/dev/null 2>&1; then
+  :
+else
+  echo "Development clones are linked into vendor/ (see Build/Scripts/lab-link.sh --status)." >&2
+  echo "Restore them first: composer would replace the links with the released packages." >&2
+  exit 1
 fi
 
 echo "==> Updating Composer packages"
@@ -24,44 +39,47 @@ ddev exec vendor/bin/typo3 extension:setup --no-interaction
 
 echo "==> Refreshing Desiderio styleguide seed content"
 ddev exec vendor/bin/typo3 desiderio:styleguide:seed --no-interaction
+# The styleguide seed replaces content in every language, which takes the
+# German/Chinese/Hungarian 404, search and accessibility texts with it.
+ddev exec vendor/bin/typo3 sitepackage:seed-utility-translations --no-interaction
 
-echo "==> Retiring legacy Desiderio content-type URLs"
-# The seeded hub page (slug /content-types, holds the element catalog) stays
-# visible; only the retired legacy chapter pages BELOW it stay hidden.
-ddev mysql -e "UPDATE pages SET hidden=1 WHERE pid=1093 OR (pid=505 AND slug='/content-types' AND sys_language_uid > 0);"
-ddev mysql -e "UPDATE pages SET hidden=0 WHERE uid=1093 AND deleted=0;"
-# Legacy target-group detail pages are superseded by the seeded /for-* pages.
-ddev mysql -e "UPDATE pages SET hidden=1 WHERE uid IN (983,984,985,1094) AND deleted=0;"
-
-# Resolve redirect targets by slug so reseeded page uids never go stale.
+# Legacy URLs from when Desiderio lived below /desiderio/ keep working: each
+# points at the page that holds that content now, resolved by slug at run time
+# because a reseed gives pages new uids.
 page_uid_by_slug() {
-  ddev mysql -N -e "SELECT uid FROM pages WHERE slug='$1' AND sys_language_uid=0 AND deleted=0 AND hidden=0 ORDER BY uid LIMIT 1" | tr -d '[:space:]'
+  # </dev/null: it is called inside a `while read` loop, whose input ddev
+  # would otherwise swallow after the first line.
+  ddev mysql -N -e "SELECT uid FROM pages WHERE slug='$1' AND sys_language_uid=0 AND deleted=0 AND hidden=0 ORDER BY uid LIMIT 1" </dev/null | tr -d '[:space:]'
 }
 
+echo "==> Pointing legacy Desiderio URLs at the current pages"
 redirects=()
-declare -A slug_map=(
-  ["/desiderio/content-types/content-editorial"]="/desiderio-content"
-  ["/desiderio/content-types/leads-conversion"]="/desiderio-conversion"
-  ["/desiderio/content-types/data-dashboards"]="/desiderio-data"
-  ["/desiderio/content-types/features-benefits"]="/desiderio-features"
-  ["/desiderio/content-types/footers-utility-areas"]="/desiderio-footer"
-  ["/desiderio/content-types/hero-landing-intros"]="/desiderio-hero"
-  ["/desiderio/content-types/navigation-wayfinding"]="/desiderio-navigation"
-  ["/desiderio/content-types/plans-pricing"]="/desiderio-pricing"
-  ["/desiderio/content-types/trust-social-proof"]="/desiderio-social-proof"
-  ["/desiderio/content-types/people-team"]="/desiderio-team"
-  ["/desiderio/target-groups/for-agencies-integrators/"]="/for-agencies"
-  ["/desiderio/target-groups/for-in-house-marketing-product-teams/"]="/for-inhouse-teams"
-  ["/desiderio/target-groups/for-freelancers-solo-developers/"]="/for-freelancers"
-)
-for source_path in "${!slug_map[@]}"; do
-  uid="$(page_uid_by_slug "${slug_map[$source_path]}")"
+# Pairs of "legacy path|current slug". A plain list rather than an associative
+# array: macOS ships bash 3.2, where `declare -A` does not exist.
+slug_map='
+/desiderio/content-types/content-editorial|/content-types/content-editorial
+/desiderio/content-types/leads-conversion|/content-types/leads-conversion
+/desiderio/content-types/data-dashboards|/content-types/data-dashboards
+/desiderio/content-types/features-benefits|/content-types/features-benefits
+/desiderio/content-types/footers-utility-areas|/content-types/footers-utility-areas
+/desiderio/content-types/hero-landing-intros|/content-types/hero-landing-intros
+/desiderio/content-types/navigation-wayfinding|/content-types/navigation-wayfinding
+/desiderio/content-types/plans-pricing|/content-types/plans-pricing
+/desiderio/content-types/trust-social-proof|/content-types/trust-social-proof
+/desiderio/content-types/people-team|/content-types/people-team
+/desiderio/target-groups/for-agencies-integrators/|/target-groups/for-agencies
+/desiderio/target-groups/for-in-house-marketing-product-teams/|/target-groups/for-inhouse-teams
+/desiderio/target-groups/for-freelancers-solo-developers/|/target-groups/for-freelancers
+'
+while IFS='|' read -r source_path slug; do
+  [ -n "${source_path}" ] || continue
+  uid="$(page_uid_by_slug "${slug}")"
   if [ -n "${uid}" ]; then
     redirects+=("${source_path}|t3://page?uid=${uid}&_language=0")
+  else
+    echo "    no page at ${slug}; ${source_path} left as it is" >&2
   fi
-done
-# The bare /content-types URL is answered by the visible hub page itself.
-ddev mysql -e "DELETE FROM sys_redirect WHERE source_host='webconsulting-typo3-lab.ddev.site' AND source_path='/desiderio/content-types';"
+done <<< "${slug_map}"
 
 for redirect in "${redirects[@]}"; do
   source_path="${redirect%%|*}"
@@ -92,3 +110,4 @@ ddev exec composer show --direct --no-interaction \
   | awk '/^(webconsulting|dirnbauer|sgalinski|studiomitte|hn|in2code|georgringer|t3g|apache-solr-for-typo3)\// { print }'
 
 echo "Done. If a browser tab still shows old CSS, hard-refresh it; TYPO3 and published extension assets are updated."
+echo "Not reseeded here: the corporate starter, the element library folders, Astryx and Agent Nexus (see docs/content/seeding.md)."
