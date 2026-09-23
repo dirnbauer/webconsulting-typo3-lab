@@ -162,7 +162,8 @@ final class ContentApplyCommand extends Command
                 $key = str_starts_with($key, 'NEW') ? $key : 'NEW_' . substr(md5(serialize($record)), 0, 10);
                 $pid = $record['pid'] ?? 0;
                 $dataMap[$table][$key] = $this->validFields($table, $set, $io) + ['pid' => is_string($pid) ? $pid : (int)$this->scalar($pid)];
-                $this->planFiles($record, $table, $key, (int)$this->scalar($pid), $dataMap, $commandMap, $io, $dryRun);
+                $language = (int)$this->scalar($set['sys_language_uid'] ?? 0);
+                $this->planFiles($record, $table, $key, (int)$this->scalar($pid), $language, $dataMap, $commandMap, $io, $dryRun);
                 $this->counts['created']++;
                 $io->writeln(sprintf('  create %s %s', $table, $key));
                 return;
@@ -210,7 +211,7 @@ final class ContentApplyCommand extends Command
                 $changes[$field] = $value;
             }
         }
-        $filesChanged = $this->planFiles($record, $table, $uid, (int)$this->scalar($current['pid'] ?? 0), $dataMap, $commandMap, $io, $dryRun);
+        $filesChanged = $this->planFiles($record, $table, $uid, (int)$this->scalar($current['pid'] ?? 0), (int)$this->scalar($current['sys_language_uid'] ?? 0), $dataMap, $commandMap, $io, $dryRun);
 
         if ($changes === [] && !$filesChanged) {
             $this->counts['unchanged']++;
@@ -233,7 +234,7 @@ final class ContentApplyCommand extends Command
      * @param array<string, array<int|string, array<string, mixed>>> $dataMap
      * @param array<string, array<int, array<string, mixed>>> $commandMap
      */
-    private function planFiles(array $record, string $table, int|string $uid, int $pid, array &$dataMap, array &$commandMap, SymfonyStyle $io, bool $dryRun): bool
+    private function planFiles(array $record, string $table, int|string $uid, int $pid, int $language, array &$dataMap, array &$commandMap, SymfonyStyle $io, bool $dryRun): bool
     {
         $changed = false;
         foreach ($this->fields($record['files'] ?? null) as $field => $files) {
@@ -286,6 +287,8 @@ final class ContentApplyCommand extends Command
                     'tablenames' => $table,
                     'fieldname' => $field,
                     'pid' => $pid,
+                    // A reference on a translated record is in that record's language.
+                    'sys_language_uid' => $language,
                     'alternative' => $file['alternative'],
                     'title' => $file['title'],
                 ];
