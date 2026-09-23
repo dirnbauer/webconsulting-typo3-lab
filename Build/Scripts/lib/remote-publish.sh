@@ -13,6 +13,7 @@ DB="$1"; WEB="$2"; STAGE="$3"; REV="$4"; TS="$5"
 PATTERN="$6"; DEMO_USER="$7"; DEMO_PASSWORD="$8"; DB_ARCHIVE="$9"
 shift 9
 DB_MEMBER="$1"; FILES_ARCHIVE="$2"; INSTALLER="$3"; README="$4"; DIR_NAME="$5"
+PRIVATE_PATHS="${6:-}"
 
 DEST="/var/www/html/public/fileadmin/${DIR_NAME}"
 
@@ -28,18 +29,30 @@ SENSITIVE=${SENSITIVE% }
 echo "stripping $(echo "$SENSITIVE" | wc -w | tr -d ' ') credential-bearing tables:"
 for t in $SENSITIVE; do echo "  $t"; done
 
+# Tables with a soft-delete column ship their live rows only: a record removed
+# in the backend stays in the database for the recycler, and must not reach the
+# published dump that way.
+SOFT=$(echo "SELECT DISTINCT table_name FROM information_schema.columns WHERE table_schema=DATABASE() AND column_name='deleted';" \
+  | docker exec -i "$DB" sh -c 'MYSQL_PWD="$MARIADB_PASSWORD" exec mariadb -u"$MARIADB_USER" -N -B "$MARIADB_DATABASE"' \
+  | grep -Eiv "$PATTERN" | sort | tr '\n' ' ')
+SOFT=${SOFT% }
+
 IGNORE=""
-for t in $SENSITIVE; do IGNORE="$IGNORE --ignore-table=${DBNAME}.${t}"; done
+for t in $SENSITIVE $SOFT; do IGNORE="$IGNORE --ignore-table=${DBNAME}.${t}"; done
 
 DUMP=mariadb-dump
 docker exec "$DB" sh -c 'command -v mariadb-dump >/dev/null 2>&1' || DUMP=mysqldump
 
-# Everything except the sensitive tables, with data; then those, structure only.
-# Structure is kept deliberately: a dump missing them would import into a
-# broken install, because extension:setup expects the tables to exist.
+# Everything else with data, then the soft-delete tables without their deleted
+# rows, then the sensitive tables as structure only. Structure is kept
+# deliberately: a dump missing them would import into a broken install,
+# because extension:setup expects the tables to exist.
 docker exec "$DB" sh -c \
   "MYSQL_PWD=\"\$MARIADB_PASSWORD\" $DUMP -u\"\$MARIADB_USER\" --no-tablespaces --skip-comments \"\$MARIADB_DATABASE\" $IGNORE" \
   > "${STAGE}/${DB_MEMBER}"
+docker exec "$DB" sh -c \
+  "MYSQL_PWD=\"\$MARIADB_PASSWORD\" $DUMP -u\"\$MARIADB_USER\" --no-tablespaces --skip-comments --where='deleted=0' \"\$MARIADB_DATABASE\" $SOFT" \
+  >> "${STAGE}/${DB_MEMBER}"
 docker exec "$DB" sh -c \
   "MYSQL_PWD=\"\$MARIADB_PASSWORD\" $DUMP -u\"\$MARIADB_USER\" --no-tablespaces --skip-comments --no-data \"\$MARIADB_DATABASE\" $SENSITIVE" \
   >> "${STAGE}/${DB_MEMBER}"
@@ -73,8 +86,14 @@ echo "archiving fileadmin"
 docker exec "$WEB" sh -c "mkdir -p '${DEST}'"
 # --exclude the download directory: it lives inside the tree being archived,
 # so without this each run packs the previous run's archive into the new one.
-docker exec "$WEB" php /tmp/make-zip.php "/tmp/${FILES_ARCHIVE}" \
-  --dir /var/www/html/public/fileadmin --exclude "${DIR_NAME}" >/dev/null
+# The private paths (AI chat uploads, personal documents) are excluded as well;
+# set -f keeps their wildcards away from this host's filesystem, and each one
+# is its own argument to docker exec, so no shell sees it again.
+set -f
+set -- --dir /var/www/html/public/fileadmin --exclude "${DIR_NAME}"
+for p in $PRIVATE_PATHS; do set -- "$@" --exclude "$p"; done
+set +f
+docker exec "$WEB" php /tmp/make-zip.php "/tmp/${FILES_ARCHIVE}" "$@" >/dev/null
 docker cp "${WEB}:/tmp/${FILES_ARCHIVE}" "${STAGE}/${FILES_ARCHIVE}"
 docker exec "$WEB" rm -f "/tmp/${FILES_ARCHIVE}" /tmp/make-zip.php
 

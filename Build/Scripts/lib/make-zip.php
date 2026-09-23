@@ -6,7 +6,12 @@ declare(strict_types=1);
  *
  *   php make-zip.php <output.zip> <file>          one file, stored at its basename
  *   php make-zip.php <output.zip> --dir <dir>     the directory's CONTENTS at the archive root
- *   php make-zip.php <output.zip> --dir <dir> --exclude <name>
+ *   php make-zip.php <output.zip> --dir <dir> --exclude <name|pattern> [--exclude ...]
+ *
+ * An exclusion without a slash or wildcard names a top-level entry. Anything
+ * else is an fnmatch() pattern over the relative path, and a directory that
+ * matches takes its whole subtree with it: `ai-chat`, `mcp/workspaces/ws-1/x.pdf`
+ * and `*Lebenslauf*` all work.
  *
  * Zip rather than tar.gz because Apache serves any .gz with
  * "Content-Encoding: gzip". HTTP clients then transparently decompress it, so
@@ -66,10 +71,10 @@ if ($dir !== null) {
         if ($relative === '') {
             continue;
         }
-        // Exclusions match the first path segment, which is how the download
-        // directory keeps itself out of the fileadmin archive it lives in.
-        $first = explode(DIRECTORY_SEPARATOR, $relative)[0];
-        if (in_array($first, $exclude, true)) {
+        // A plain name matches the first path segment, which is how the
+        // download directory keeps itself out of the fileadmin archive it
+        // lives in; patterns keep private uploads out (see public-snapshot.sh).
+        if (isExcluded($relative, $exclude)) {
             continue;
         }
         if ($info->isDir()) {
@@ -100,3 +105,36 @@ if (!$zip->close()) {
 }
 
 printf("%s: %d file(s)\n", $out, $added);
+
+/**
+ * @param list<string> $exclude
+ */
+function isExcluded(string $relative, array $exclude): bool
+{
+    $first = explode(DIRECTORY_SEPARATOR, $relative)[0];
+    foreach ($exclude as $pattern) {
+        if ($pattern === '') {
+            continue;
+        }
+        if (strpbrk($pattern, '/*?[') === false) {
+            if ($first === $pattern) {
+                return true;
+            }
+            continue;
+        }
+        // Test the path and every parent directory, so a pattern naming a
+        // directory also excludes what is inside it.
+        $candidate = $relative;
+        while (true) {
+            if (fnmatch($pattern, $candidate)) {
+                return true;
+            }
+            $slash = strrpos($candidate, '/');
+            if ($slash === false) {
+                break;
+            }
+            $candidate = substr($candidate, 0, $slash);
+        }
+    }
+    return false;
+}

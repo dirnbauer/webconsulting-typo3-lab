@@ -58,11 +58,19 @@ revision="$(git rev-parse --short HEAD 2>/dev/null || echo unknown)"
 echo "stripping $(echo "$sensitive" | wc -w | tr -d ' ') credential-bearing tables:"
 for t in $sensitive; do echo "  $t"; done
 
-ignore=""
-for t in $sensitive; do ignore="$ignore --ignore-table=db.$t"; done
+# Tables with a soft-delete column ship their live rows only. A record removed
+# in the backend stays in the database for the recycler, and must not reach the
+# published dump that way.
+soft=$(ddev mysql -N -e "SELECT DISTINCT table_name FROM information_schema.columns WHERE table_schema='db' AND column_name='deleted';" 2>/dev/null | grep -Eiv "$patterns" | sort | tr '\n' ' ')
+soft=${soft% }
 
-# Everything except the sensitive tables, with data.
+ignore=""
+for t in $sensitive $soft; do ignore="$ignore --ignore-table=db.$t"; done
+
+# Everything else, with data.
 ddev exec "mysqldump -u db -pdb --no-tablespaces --skip-comments db $ignore" > "$sql" 2>/dev/null
+# The soft-delete tables, without their deleted rows.
+ddev exec "mysqldump -u db -pdb --no-tablespaces --skip-comments --where='deleted=0' db $soft" >> "$sql" 2>/dev/null
 # The sensitive tables, structure only.
 ddev exec "mysqldump -u db -pdb --no-tablespaces --skip-comments --no-data db $sensitive" >> "$sql" 2>/dev/null
 
@@ -95,8 +103,14 @@ echo "archiving fileadmin"
 # --exclude the download directory itself: it lives inside the tree being
 # archived, so without this each run would pack the previous run's 350 MB
 # archive into the new one.
-ddev exec php Build/Scripts/lib/make-zip.php "$out/$SNAPSHOT_FILES_ARCHIVE" \
-  --dir public/fileadmin --exclude "$SNAPSHOT_DIR_NAME"
+# Private uploads stay out too. set -f keeps their wildcards from being
+# expanded on the host; the single quotes keep the container's shell from
+# expanding them, since `ddev exec` runs its command string through one.
+private_excludes=""
+set -f
+for p in $SNAPSHOT_PRIVATE_PATHS; do private_excludes="$private_excludes --exclude '$p'"; done
+set +f
+ddev exec "php Build/Scripts/lib/make-zip.php '$out/$SNAPSHOT_FILES_ARCHIVE' --dir public/fileadmin --exclude '$SNAPSHOT_DIR_NAME'$private_excludes"
 
 snapshot_readme "this DDEV project" "$revision" "$(date -u '+%Y-%m-%d %H:%M:%S UTC')" \
   > "$out/$SNAPSHOT_README"
