@@ -40,6 +40,7 @@ facts:
     presets: { value: 15, detail: '5 shadcn create presets + 10 house presets', source: 'desiderio.shadcn.preset enum in Configuration/Sets/Desiderio/settings.definitions.yaml (without custom)' }
     icon_libraries: { value: 5, detail: 'Lucide, Tabler, HugeIcons, Phosphor, Remix', source: 'desiderio.shadcn.iconLibrary enum' }
     pricing: { detail: 'Community €0 forever (GPL-2.0) · Pro €49/month or €490/year · Agency €149/month or €1,490/year', source: 'StyleguideShowcasePages::homeContent() pricing block' }
+    static_analysis: { detail: 'PHPStan level 8; CI on PHP 8.4 and 8.5', source: 'packages/desiderio/phpstan.neon, .github/workflows/ci.yml' }
     services: { detail: 'installation €890 · brand adaptation from €1,990 · custom element from €390 · editor workshop €690 · LTS upgrade from €2,400 · code DESIDERIO20 = 20% off the first year', source: 'StyleguideShowcasePages / ShowcaseAudiencePages' }
   astryx:
     elements: { value: 250, source: 'ls packages/astryx_typo3/ContentBlocks/ContentElements | wc -l' }
@@ -54,6 +55,8 @@ facts:
 forbidden:
   - { pattern: '\b(53|49)\s+(typed\s+|Fluid\s+)?components\b', message: 'Desiderio has 62 components (17 atoms, 37 molecules, 4 layouts, 4 organisms)' }
   - { pattern: '\b17\s*\+\s*28\s*\+\s*4\b', message: 'component split is 17 + 37 + 4 + 4' }
+  - { pattern: '\b28\s+molecules\b', message: 'Desiderio has 37 molecules' }
+  - { pattern: '\bPHPStan\s+(at\s+)?(level\s+max|max\s+level|its\s+strictest\s+level)\b', message: 'Desiderio and Astryx run PHPStan at level 8' }
   - { pattern: '\b(255|288|300)(th)?\s+([a-z-]+\s+)?(content\s+)?elements?\b', message: 'Desiderio has 244 content elements' }
   - { pattern: '\b(fourteen|14)\s+(theme\s+)?(presets|palettes)\b', message: 'Desiderio has 15 presets' }
   - { pattern: '\b(seven|7)\s+(Astryx\s+)?themes\b', message: 'Astryx ships 25 themes (7 upstream + 18 ours); say "7 upstream themes" if that is meant', sites: [astryx] }
