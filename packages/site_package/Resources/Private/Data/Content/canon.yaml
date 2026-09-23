@@ -41,7 +41,8 @@ facts:
     icon_libraries: { value: 5, detail: 'Lucide, Tabler, HugeIcons, Phosphor, Remix', source: 'desiderio.shadcn.iconLibrary enum' }
     pricing: { detail: 'Community €0 forever (GPL-2.0) · Pro €49/month or €490/year · Agency €149/month or €1,490/year', source: 'StyleguideShowcasePages::homeContent() pricing block' }
     static_analysis: { detail: 'PHPStan level 8; CI on PHP 8.4 and 8.5', source: 'packages/desiderio/phpstan.neon, .github/workflows/ci.yml' }
-    services: { detail: 'installation €890 · brand adaptation from €1,990 · custom element from €390 · editor workshop €690 · LTS upgrade from €2,400 · code DESIDERIO20 = 20% off the first year', source: 'StyleguideShowcasePages / ShowcaseAudiencePages' }
+    services: { detail: 'installation €890 · brand adaptation from €1,990 · custom element from €390 · editor workshop €690 · LTS upgrade from €2,400 · Launch bundle €1,790 · code DESIDERIO20 = 20% off the first year', source: 'StyleguideShowcasePages / ShowcaseAudiencePages' }
+    hosting: { detail: 'Managed hosting from €99/month, Business €179/month (staging, 99.9% SLA, CDN) · Creator Care €490/month for 4 hours, €980 and €1,470 for 8 and 12 hours', source: 'ShowcaseAudiencePages' }
   astryx:
     elements: { value: 250, source: 'ls packages/astryx_typo3/ContentBlocks/ContentElements | wc -l' }
     themes: { value: 25, detail: '7 upstream Astryx themes + 18 webconsulting themes', source: 'packages/astryx_typo3/Build/Data/theme-registry.json (family)' }
