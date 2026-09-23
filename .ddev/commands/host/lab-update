@@ -42,6 +42,11 @@ ddev exec vendor/bin/typo3 desiderio:styleguide:seed --no-interaction
 # The styleguide seed replaces content in every language, which takes the
 # German/Chinese/Hungarian 404, search and accessibility texts with it.
 ddev exec vendor/bin/typo3 sitepackage:seed-utility-translations --no-interaction
+# It also replaces the content of the Powermail Lab page, including the section
+# that lists the Jev example forms 07-11. Their seeder builds that section
+# again, together with the forms, decisions and conditions it lists.
+echo "==> Refreshing the Jev Powermail examples"
+ddev exec vendor/bin/typo3 webcon-jev:examples:seed --no-interaction
 
 # Legacy URLs from when Desiderio lived below /desiderio/ keep working: each
 # points at the page that holds that content now, resolved by slug at run time
