@@ -277,8 +277,14 @@ final class ContentApplyCommand extends Command
             foreach ($wanted as $position => $file) {
                 $fileUid = $this->importFile($file['source'], $file['folder']);
                 $key = sprintf('NEW_ref_%s_%s_%d', $table, is_int($uid) ? (string)$uid : $uid, $position);
+                // DataHandler does not fill the parent side of a new file
+                // reference from the parent's field value: without these
+                // three columns the reference is stored, but belongs to nothing.
                 $dataMap['sys_file_reference'][$key] = [
                     'uid_local' => $fileUid,
+                    'uid_foreign' => $uid,
+                    'tablenames' => $table,
+                    'fieldname' => $field,
                     'pid' => $pid,
                     'alternative' => $file['alternative'],
                     'title' => $file['title'],
