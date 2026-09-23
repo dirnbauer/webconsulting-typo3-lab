@@ -37,7 +37,7 @@ Then, after a `ddev snapshot`:
 6. `ddev exec vendor/bin/typo3 astryx-typo3:site:seed --content`
 7. `ddev exec vendor/bin/typo3 agentnexus:seed-site --base=https://webconsulting-typo3-lab.ddev.site/agent-nexus/`, then `git checkout config/sites/agent-nexus/` (it rewrites the site configuration and drops its comments)
 8. `ddev exec vendor/bin/typo3 sitepackage:content:apply EXT:site_package/Resources/Private/Data/Content/<site>/<file>.payload.json` for each payload (after 5, because the blog seeder writes SEO fields)
-9. `ddev exec vendor/bin/typo3 cache:flush`, then re-index Solr for the sites that use it
+9. `ddev exec vendor/bin/typo3 cache:flush`, then `ddev exec vendor/bin/typo3 sitepackage:solr:reindex --index` (clears each Solr site's documents, queues every indexing configuration again and indexes it; on production run the same command in the web container after a database push)
 
 `ddev lab-update <package>` runs steps 1–2 and the legacy redirects after a
 Composer update. It refuses to run while development clones are linked.
@@ -67,5 +67,5 @@ ddev exec php packages/site_package/Build/Scripts/lint-copy.php --site=desiderio
 - **Payloads are uid-keyed.** `expect` guards against overwriting rows that
   changed after the export. After a reseed of seeded sites, their uids are
   new, which is why seeded content lives in seed sources and not in payloads.
-- **Solr doesn't notice seeders.** They write through SQL, so reset the index
-  queue for the site and let the workers run.
+- **Solr doesn't notice seeders.** They write through SQL, so run
+  `sitepackage:solr:reindex --index` afterwards.
