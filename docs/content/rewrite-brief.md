@@ -108,3 +108,22 @@ Astryx: `cd packages/astryx_typo3 && /opt/homebrew/opt/php@8.5/bin/php -d memory
 End with a short report: files changed, anything you could not fix, any
 claim you kept because you couldn't verify it (quote it), and any headline you
 think may collide with another element.
+
+## German pass: `library.de.json`
+
+The German file is the German version of the element's `library.json`
+(the editor sees it in German TYPO3 installations). Write it from the
+**current, rewritten** `library.json`:
+
+- Same keys, same order, same number of items, same names, numbers,
+  links and settings as the English file — a test compares the key sets.
+- Natural German, not word for word: short sentences, verb early,
+  formal **"Sie"** where the reader is addressed. Numbers and dates in
+  German format (1.490 €, 11. September 2026).
+- Limits: headline 60 characters and 8 words, eyebrow 24 characters and
+  3 words, button 28 characters and 4 words, sentences up to 25 words.
+- Never mention Desiderio, TYPO3, shadcn or "Content Block" (same rule
+  as the English file).
+
+Lint with the German site key: `--site=element-library-de` (and
+`--against=HEAD` as usual).

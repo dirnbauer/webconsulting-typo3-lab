@@ -140,6 +140,8 @@ sites:
   v14-blog: { root: 69, language: en }
   typo3-blog: { root: 390, language: en }
   camino: { root: 99, language: en }
+  # German demo content of the element library (library.de.json files).
+  element-library-de: { root: -1, language: de, address: sie }
 
 # German forms of address that each setting rejects.
 address:
