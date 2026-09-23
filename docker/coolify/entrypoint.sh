@@ -83,6 +83,30 @@ if [ "${TYPO3_RUN_SETUP:-1}" = "1" ]; then
     fi
 fi
 
+# Data migrations that must follow a package swap. extension:setup creates the
+# new tables but never copies data, and nobody runs the Upgrade module on this
+# host. A wizard that already ran is marked done and does nothing, so listing
+# it here costs one quick check per start. Keep the list to wizards that only
+# copy data; anything destructive stays a manual step.
+if [ "${TYPO3_RUN_WIZARDS:-1}" = "1" ]; then
+    for wizard in webconAiAssistantMigrateFromShadcnUi; do
+        echo "entrypoint: upgrade wizard ${wizard}"
+        su -s /bin/sh -c "cd /var/www/html && php -d memory_limit=1536M vendor/bin/typo3 upgrade:run ${wizard} --no-interaction" www-data \
+            || echo "entrypoint: WARNING upgrade wizard ${wizard} failed" >&2
+    done
+fi
+
+# Core labels come from language packs that TYPO3 downloads into var/labels;
+# nothing in the image carries them, so a fresh volume has a half-English
+# backend (only extensions ship their own German). var/ is a persistent volume,
+# so this mostly refreshes packs that are already there. A failed download
+# (no network at start) keeps whatever packs the volume already holds.
+if [ "${TYPO3_LANGUAGE_UPDATE:-1}" = "1" ]; then
+    echo "entrypoint: updating the core language packs (${TYPO3_LANGUAGE_PACKS:-de})"
+    su -s /bin/sh -c "cd /var/www/html && php -d memory_limit=1536M vendor/bin/typo3 language:update ${TYPO3_LANGUAGE_PACKS:-de} --no-interaction" www-data \
+        || echo "entrypoint: WARNING language pack update failed; core labels may stay English" >&2
+fi
+
 # Rendered pages are cached in the database, which is a persistent volume, so a
 # new image keeps serving the previous one's HTML: a template fix deploys
 # successfully and changes nothing visible. Only the "pages" group is dropped —
@@ -102,8 +126,17 @@ fi
 # release is certainly safe. The same run applies the retention windows.
 if [ "${TYPO3_CHAT_CLEANUP:-1}" = "1" ]; then
     echo "entrypoint: releasing stuck chat conversations and applying retention"
-    su -s /bin/sh -c 'cd /var/www/html && php -d memory_limit=1536M vendor/bin/typo3 shadcn-ui:chat:cleanup --archive-after=30 --delete-after=90 --no-interaction' www-data \
+    su -s /bin/sh -c 'cd /var/www/html && php -d memory_limit=1536M vendor/bin/typo3 ai-assistant:chat:cleanup --archive-after=30 --delete-after=90 --no-interaction' www-data \
         || echo "entrypoint: WARNING chat cleanup failed; stuck conversations stay claimed until the next start" >&2
+fi
+
+# Agent Nexus logs every protocol request and keeps the objects the demos create
+# (tasks, checkouts, mandates). Its scheduler task would never fire here (no
+# cron), so the retention settings are applied at start instead.
+if [ "${TYPO3_AGENTNEXUS_CLEANUP:-1}" = "1" ]; then
+    echo "entrypoint: applying the Agent Nexus retention settings"
+    su -s /bin/sh -c 'cd /var/www/html && php -d memory_limit=1536M vendor/bin/typo3 agentnexus:cleanup --no-interaction' www-data \
+        || echo "entrypoint: WARNING Agent Nexus cleanup failed; old traffic stays until the next start" >&2
 fi
 
 exec docker-php-entrypoint "$@"

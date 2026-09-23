@@ -237,6 +237,14 @@ return [
         'processor_enabled' => true,
         'processor_path' => '/usr/bin/',
     ],
+    'LANG' => [
+        // The editors work in German. Without this the backend shows only the
+        // extensions' own German labels and leaves every core label English.
+        // docker/coolify/entrypoint.sh fetches the packs into var/labels.
+        'availableLocales' => [
+            'de',
+        ],
+    ],
     'LOG' => [
         'TYPO3' => [
             'CMS' => [
