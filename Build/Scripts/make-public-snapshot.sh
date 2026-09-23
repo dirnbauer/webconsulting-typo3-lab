@@ -63,14 +63,21 @@ for t in $sensitive; do echo "  $t"; done
 # published dump that way.
 soft=$(ddev mysql -N -e "SELECT DISTINCT table_name FROM information_schema.columns WHERE table_schema='db' AND column_name='deleted';" 2>/dev/null | grep -Eiv "$patterns" | sort | tr '\n' ' ')
 soft=${soft% }
+# The row-filtered table leaves the soft-delete batch and is dumped on its own.
+filtered=""
+case " $soft " in *" $SNAPSHOT_ROW_FILTER_TABLE "*) filtered="$SNAPSHOT_ROW_FILTER_TABLE"; soft=$(echo " $soft " | sed "s/ $filtered / /; s/^ //; s/ $//") ;; esac
 
 ignore=""
-for t in $sensitive $soft; do ignore="$ignore --ignore-table=db.$t"; done
+for t in $sensitive $soft $filtered; do ignore="$ignore --ignore-table=db.$t"; done
 
 # Everything else, with data.
 ddev exec "mysqldump -u db -pdb --no-tablespaces --skip-comments db $ignore" > "$sql" 2>/dev/null
 # The soft-delete tables, without their deleted rows.
 ddev exec "mysqldump -u db -pdb --no-tablespaces --skip-comments --where='deleted=0' db $soft" >> "$sql" 2>/dev/null
+# The row-filtered table, with its own condition.
+if [ -n "$filtered" ]; then
+  ddev exec "mysqldump -u db -pdb --no-tablespaces --skip-comments --where='$SNAPSHOT_ROW_FILTER_WHERE' db $filtered" >> "$sql" 2>/dev/null
+fi
 # The sensitive tables, structure only.
 ddev exec "mysqldump -u db -pdb --no-tablespaces --skip-comments --no-data db $sensitive" >> "$sql" 2>/dev/null
 

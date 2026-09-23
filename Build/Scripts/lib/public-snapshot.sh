@@ -25,6 +25,14 @@ SNAPSHOT_SENSITIVE_PATTERN='vault|secret|token|credential|oauth|identity|payment
 # expanded with globbing switched off by both callers.
 SNAPSHOT_PRIVATE_PATHS='ai-chat *Lebenslauf* *gas_20*.pdf *rechnung* *Steuerbericht* *invoice*'
 
+# One table whose live rows are filtered further. Page 15 holds the "Bad Shop
+# Watch" candidates another project collected in tt_address: scraped shop
+# imprints with names, addresses and e-mail addresses. They are not demo
+# content and never go into the published dump. No quotes in the condition:
+# it passes through ssh, sh -c and ddev exec.
+SNAPSHOT_ROW_FILTER_TABLE='tt_address'
+SNAPSHOT_ROW_FILTER_WHERE='deleted=0 AND pid<>15'
+
 # The one account the published database keeps. The password is in the
 # documentation already; it is a demo login, not a secret.
 SNAPSHOT_DEMO_USER="admin"

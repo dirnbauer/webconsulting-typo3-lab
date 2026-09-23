@@ -413,7 +413,8 @@ publish_snapshot() {
             '${SNAPSHOT_DB_ARCHIVE}' '${SNAPSHOT_DB_MEMBER}' \
             '${SNAPSHOT_FILES_ARCHIVE}' '${SNAPSHOT_INSTALLER}' \
             '${SNAPSHOT_README}' '${SNAPSHOT_DIR_NAME}' \
-            '${SNAPSHOT_PRIVATE_PATHS}'"
+            '${SNAPSHOT_PRIVATE_PATHS}' \
+            '${SNAPSHOT_ROW_FILTER_TABLE}' '${SNAPSHOT_ROW_FILTER_WHERE}'"
 
     ssh "${SSH_OPTIONS[@]}" "${REMOTE_HOST}" "rm -rf '${stage}'"
     echo
