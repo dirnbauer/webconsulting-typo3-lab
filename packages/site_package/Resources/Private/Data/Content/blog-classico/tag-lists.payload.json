@@ -1,0 +1,31 @@
+{
+    "version": 1,
+    "site": "blog-classico",
+    "root": 15,
+    "language": 0,
+    "languageCode": "de",
+    "generated": "2026-09-23T17:00:00+02:00",
+    "_note": "The tag-list plugin inside two posts rendered a second h1 (\"Tags\") and repeated what the post meta already shows; the nine other posts had it hidden already.",
+    "records": [
+        {
+            "table": "tt_content",
+            "uid": 46,
+            "action": "hide",
+            "expect": {
+                "CType": "blog_tag",
+                "hidden": 0
+            },
+            "set": {}
+        },
+        {
+            "table": "tt_content",
+            "uid": 54,
+            "action": "hide",
+            "expect": {
+                "CType": "blog_tag",
+                "hidden": 0
+            },
+            "set": {}
+        }
+    ]
+}
