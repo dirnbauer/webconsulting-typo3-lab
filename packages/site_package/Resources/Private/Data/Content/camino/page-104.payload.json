@@ -13,7 +13,8 @@
                 "title": "Packing List"
             },
             "set": {
-                "title": "Packing List"
+                "title": "Packing list",
+                "description": "What to pack for the Camino de Compostela: backpack, shoes, clothing, toiletries and extras, and why a light pack matters on a long walk."
             },
             "_context": {
                 "page": 104,
@@ -21,7 +22,8 @@
                 "element": 104,
                 "type": "pages",
                 "roles": {
-                    "title": "page_title"
+                    "title": "page_title",
+                    "description": "meta"
                 }
             }
         },
@@ -33,7 +35,7 @@
                 "bodytext": "<p>Walking the Camino de Compostela means traveling light — every gram counts when you are covering hundreds of kilometres on foot. Here is a comprehensive packing list to help you prepare for the journey ahead, so you can focus on the walk and leave the worrying behind.</p>"
             },
             "set": {
-                "bodytext": "<p>Walking the Camino de Compostela means traveling light — every gram counts when you are covering hundreds of kilometres on foot. Here is a comprehensive packing list to help you prepare for the journey ahead, so you can focus on the walk and leave the worrying behind.</p>"
+                "bodytext": "<p>On the Camino de Compostela you carry everything for hundreds of kilometres, so every gram counts. This list shows what to pack, so you can focus on the walk.</p>"
             },
             "_context": {
                 "page": 104,
@@ -54,8 +56,8 @@
                 "bodytext": "<p>Before anything else, get these right — your feet and your back will thank you for it:</p>\n<ul><li data-list-item-id=\"ea0427b43077372393b9d74d2ecb12e9d\"><strong>Backpack (35–45L):</strong> light and comfortable with good back support and a rain cover</li><li data-list-item-id=\"ef8630e9da533c2be3fe4318cf443e4c0\"><strong>Walking shoes</strong>: well-worn hiking shoes or sturdy walking shoes, waterproof if possible</li><li data-list-item-id=\"e5bcfee4b8cce09f26e9478d3b29903c6\"><strong>Sandals</strong>: lightweight, for after the day's walk and shared showers in albergues</li><li data-list-item-id=\"e76ecc1b2981aec46f6bafa8e9306a630\"><strong>Walking socks</strong>: moisture-wicking and blister-resistant, merino wool or synthetic, several pairs</li><li data-list-item-id=\"e16e210e4038894be103a5edc1f216016\"><strong>Walking poles</strong>: optional but helpful for steep descents and taking pressure off the knees</li></ul>"
             },
             "set": {
-                "header": "Essential Items",
-                "bodytext": "<p>Before anything else, get these right — your feet and your back will thank you for it:</p>\n<ul><li data-list-item-id=\"ea0427b43077372393b9d74d2ecb12e9d\"><strong>Backpack (35–45L):</strong> light and comfortable with good back support and a rain cover</li><li data-list-item-id=\"ef8630e9da533c2be3fe4318cf443e4c0\"><strong>Walking shoes</strong>: well-worn hiking shoes or sturdy walking shoes, waterproof if possible</li><li data-list-item-id=\"e5bcfee4b8cce09f26e9478d3b29903c6\"><strong>Sandals</strong>: lightweight, for after the day's walk and shared showers in albergues</li><li data-list-item-id=\"e76ecc1b2981aec46f6bafa8e9306a630\"><strong>Walking socks</strong>: moisture-wicking and blister-resistant, merino wool or synthetic, several pairs</li><li data-list-item-id=\"e16e210e4038894be103a5edc1f216016\"><strong>Walking poles</strong>: optional but helpful for steep descents and taking pressure off the knees</li></ul>"
+                "header": "Essential items",
+                "bodytext": "<p>Get these right first. Your feet and back depend on them:</p>\n<ul><li data-list-item-id=\"ea0427b43077372393b9d74d2ecb12e9d\"><strong>Backpack (35–45L):</strong> light and comfortable, with good back support and a rain cover</li><li data-list-item-id=\"ef8630e9da533c2be3fe4318cf443e4c0\"><strong>Walking shoes</strong>: worn-in hiking shoes or sturdy walking shoes, waterproof if possible</li><li data-list-item-id=\"e5bcfee4b8cce09f26e9478d3b29903c6\"><strong>Sandals</strong>: light, for the evening and for shared showers in albergues</li><li data-list-item-id=\"e76ecc1b2981aec46f6bafa8e9306a630\"><strong>Walking socks</strong>: several pairs, merino wool or synthetic, that keep feet dry and prevent blisters</li><li data-list-item-id=\"e16e210e4038894be103a5edc1f216016\"><strong>Walking poles</strong>: optional, but they help on steep descents and take pressure off your knees</li></ul>"
             },
             "_context": {
                 "page": 104,
@@ -78,7 +80,7 @@
             },
             "set": {
                 "header": "Clothing",
-                "bodytext": "<p>Pack light and stick to quick-dry fabrics — cotton traps moisture and is best avoided on the trail:</p>\n<ul><li data-list-item-id=\"e3495eeaae4997ffdd6aff9b10184b4e8\"><strong>T-shirts or shirts</strong>: 2–3, quick-dry fabric</li><li data-list-item-id=\"e2e4c302516a61547b324e23c0f1024b6\"><strong>Lightweight pants or shorts</strong>: 2 pairs</li><li data-list-item-id=\"e6045c5b158fa479cca22d5949c489d87\"><strong>Long-sleeve shirt</strong>: 1, for sun protection or chilly evenings</li><li data-list-item-id=\"e9418477ccb4d8e368d4aae08d0f0c1a1\"><strong>Lightweight fleece or jacket</strong>: 1</li><li data-list-item-id=\"e1dc2be38200268e61a3e2bffad13ee27\"><strong>Underwear</strong>: 1–2 sets, quick-dry</li><li data-list-item-id=\"e01c8896728c1287c584822be0bb2e0c2\"><strong>Hat or cap</strong>: 1, for sun protection</li><li data-list-item-id=\"ebadc68e7d0ad77537ba7474b65b3b417\"><strong>Waterproof jacket or poncho</strong>: essential — rain is common, especially in Galicia</li><li data-list-item-id=\"e5eef70e8621b31b9989e7008c0bf3f5d\"><strong>Buff or bandana</strong>: useful for sweat, dust, or extra sun protection</li></ul>"
+                "bodytext": "<p>Pack light and choose quick-dry fabrics. Cotton holds moisture, so leave it at home:</p>\n<ul><li data-list-item-id=\"e3495eeaae4997ffdd6aff9b10184b4e8\"><strong>T-shirts or shirts</strong>: 2–3, quick-dry fabric</li><li data-list-item-id=\"e2e4c302516a61547b324e23c0f1024b6\"><strong>Light trousers or shorts</strong>: 2 pairs</li><li data-list-item-id=\"e6045c5b158fa479cca22d5949c489d87\"><strong>Long-sleeve shirt</strong>: 1, for sun protection or cool evenings</li><li data-list-item-id=\"e9418477ccb4d8e368d4aae08d0f0c1a1\"><strong>Light fleece or jacket</strong>: 1</li><li data-list-item-id=\"e1dc2be38200268e61a3e2bffad13ee27\"><strong>Underwear</strong>: 1–2 sets, quick-dry</li><li data-list-item-id=\"e01c8896728c1287c584822be0bb2e0c2\"><strong>Hat or cap</strong>: 1, for sun protection</li><li data-list-item-id=\"ebadc68e7d0ad77537ba7474b65b3b417\"><strong>Waterproof jacket or poncho</strong>: essential, as rain is common, especially in Galicia</li><li data-list-item-id=\"e5eef70e8621b31b9989e7008c0bf3f5d\"><strong>Buff or bandana</strong>: for sweat, dust or extra sun protection</li></ul>"
             },
             "_context": {
                 "page": 104,
@@ -98,7 +100,7 @@
                 "alternative": ""
             },
             "set": {
-                "alternative": ""
+                "alternative": "Two pilgrims with backpacks, scallop shells and walking poles cross a paved town square."
             },
             "_context": {
                 "page": 104,
@@ -121,7 +123,7 @@
             },
             "set": {
                 "header": "Toiletries",
-                "bodytext": "<p>Keep it minimal and travel-sized — most albergues have basic facilities, and resupplying along the way is easy:</p>\n<ul><li data-list-item-id=\"e546ea834a98ec12e20c994e5e6448687\"><strong>Toothbrush and toothpaste</strong>: travel-sized</li><li data-list-item-id=\"e50afffb16a817156e2e187604331dc48\"><strong>Soap and shampoo</strong>: travel-sized and eco-friendly where possible</li><li data-list-item-id=\"e7f3eec303d72c3cc43921cb4a8dff697\"><strong>Toilet paper</strong>: a small roll or pocket tissues for emergencies</li><li data-list-item-id=\"e444b626ad96e7bcfb4d82e69dc1920bd\"><strong>Hand sanitizer</strong>: essential for days when facilities are limited</li><li data-list-item-id=\"e694760d1f86e9d075a60277788fbb8db\"><strong>Wet wipes</strong>: handy for freshening up when a shower is not an option</li><li data-list-item-id=\"e3b197e27a695e56b7b6f56f0eaa625eb\"><strong>Towel</strong>: quick-dry and compact</li></ul>"
+                "bodytext": "<p>Keep it small and travel-sized. Most albergues have basic facilities, and you can restock along the way:</p>\n<ul><li data-list-item-id=\"e546ea834a98ec12e20c994e5e6448687\"><strong>Toothbrush and toothpaste</strong>: travel-sized</li><li data-list-item-id=\"e50afffb16a817156e2e187604331dc48\"><strong>Soap and shampoo</strong>: travel-sized, eco-friendly where possible</li><li data-list-item-id=\"e7f3eec303d72c3cc43921cb4a8dff697\"><strong>Toilet paper</strong>: a small roll or pocket tissues for emergencies</li><li data-list-item-id=\"e444b626ad96e7bcfb4d82e69dc1920bd\"><strong>Hand sanitiser</strong>: for days with few facilities</li><li data-list-item-id=\"e694760d1f86e9d075a60277788fbb8db\"><strong>Wet wipes</strong>: for freshening up when there is no shower</li><li data-list-item-id=\"e3b197e27a695e56b7b6f56f0eaa625eb\"><strong>Towel</strong>: quick-dry and compact</li></ul>"
             },
             "_context": {
                 "page": 104,
@@ -144,7 +146,7 @@
             },
             "set": {
                 "header": "Extras",
-                "bodytext": "<p>A few small additions that can make a big difference on the trail:</p>\n<ul><li data-list-item-id=\"ebf9c2c43f0cf7f0c05d3652cd0ed6fb0\"><strong>Sunscreen and lip balm</strong>: SPF 30 or higher, reapply regularly on exposed stretches</li><li data-list-item-id=\"e66fd2e7dfdf36ed675ed47cd7f5156f2\"><strong>First aid kit</strong>: plasters, blister pads, pain relievers, and antiseptic cream at a minimum</li><li data-list-item-id=\"e086f0bbf6d52516c9d55389f343cb0bc\"><strong>Water bottle or hydration system</strong>: refill points are available along most routes</li><li data-list-item-id=\"e8578c0f2337475c2943eaf8df9df9026\"><strong>Headlamp</strong>: essential for early morning starts and late arrivals into town</li></ul>"
+                "bodytext": "<p>Small items that help on the trail:</p>\n<ul><li data-list-item-id=\"ebf9c2c43f0cf7f0c05d3652cd0ed6fb0\"><strong>Sunscreen and lip balm</strong>: SPF 30 or higher; reapply often on open stretches</li><li data-list-item-id=\"e66fd2e7dfdf36ed675ed47cd7f5156f2\"><strong>First aid kit</strong>: at least plasters, blister pads, painkillers and antiseptic cream</li><li data-list-item-id=\"e086f0bbf6d52516c9d55389f343cb0bc\"><strong>Water bottle or hydration system</strong>: most routes have refill points</li><li data-list-item-id=\"e8578c0f2337475c2943eaf8df9df9026\"><strong>Headlamp</strong>: for early starts and late arrivals</li></ul>"
             },
             "_context": {
                 "page": 104,
@@ -166,8 +168,8 @@
                 "bodytext": "<p>A few practical essentials to round out your pack:</p>\n<ul><li data-list-item-id=\"eff2ca7f64d3e4c62ac51e6a471392f37\"><strong>Pilgrim's Credential</strong>: obtain this before setting off or at the first pilgrim office along the route — you will need it for stamps and albergue access</li><li data-list-item-id=\"e83b3d1cd22726e873f3698300ec0744d\"><strong>Phone and charger</strong>: useful for navigation, weather updates, and emergency contacts</li><li data-list-item-id=\"e9ffed5af0376900e1078d244c05dc80e\"><strong>Money</strong>: carry euros for daily expenses such as food and accommodation; card payments are widely accepted but cash is handy in smaller villages</li><li data-list-item-id=\"ed3851938702e8d268645d2fe9dba5a6c\"><strong>Camera</strong>: for capturing the landscapes, people, and moments along the way</li><li data-list-item-id=\"e34c75dfcca847ccf1751d024315e7ac0\"><strong>Notebook and pen</strong>: many pilgrims find value in documenting their journey as they go</li></ul>"
             },
             "set": {
-                "header": "Other Important Items",
-                "bodytext": "<p>A few practical essentials to round out your pack:</p>\n<ul><li data-list-item-id=\"eff2ca7f64d3e4c62ac51e6a471392f37\"><strong>Pilgrim's Credential</strong>: obtain this before setting off or at the first pilgrim office along the route — you will need it for stamps and albergue access</li><li data-list-item-id=\"e83b3d1cd22726e873f3698300ec0744d\"><strong>Phone and charger</strong>: useful for navigation, weather updates, and emergency contacts</li><li data-list-item-id=\"e9ffed5af0376900e1078d244c05dc80e\"><strong>Money</strong>: carry euros for daily expenses such as food and accommodation; card payments are widely accepted but cash is handy in smaller villages</li><li data-list-item-id=\"ed3851938702e8d268645d2fe9dba5a6c\"><strong>Camera</strong>: for capturing the landscapes, people, and moments along the way</li><li data-list-item-id=\"e34c75dfcca847ccf1751d024315e7ac0\"><strong>Notebook and pen</strong>: many pilgrims find value in documenting their journey as they go</li></ul>"
+                "header": "Other important items",
+                "bodytext": "<p>Practical items to complete your pack:</p>\n<ul><li data-list-item-id=\"eff2ca7f64d3e4c62ac51e6a471392f37\"><strong>Pilgrim's Credential</strong>: get it before you set off or at the first pilgrim office on the route. You need it for stamps and to stay in albergues</li><li data-list-item-id=\"e83b3d1cd22726e873f3698300ec0744d\"><strong>Phone and charger</strong>: for navigation, weather updates and emergency contacts</li><li data-list-item-id=\"e9ffed5af0376900e1078d244c05dc80e\"><strong>Money</strong>: carry euros for food and accommodation. Cards are widely accepted, but cash helps in smaller villages</li><li data-list-item-id=\"ed3851938702e8d268645d2fe9dba5a6c\"><strong>Camera</strong>: for the landscapes, people and moments along the way</li><li data-list-item-id=\"e34c75dfcca847ccf1751d024315e7ac0\"><strong>Notebook and pen</strong>: many pilgrims keep a diary of their walk</li></ul>"
             },
             "_context": {
                 "page": 104,
@@ -187,7 +189,7 @@
                 "alternative": ""
             },
             "set": {
-                "alternative": ""
+                "alternative": "Pilgrims rest in a stone archway facing the cathedral of Santiago de Compostela."
             },
             "_context": {
                 "page": 104,
@@ -209,8 +211,8 @@
                 "bodytext": "<p>Not essential, but worth considering depending on your preferences and the route you choose:</p>\n<ul><li data-list-item-id=\"eacc438e6b010624af619e33aea8d7f53\"><strong>Camera or GoPro</strong>: for capturing the stunning landscapes and memorable moments along the way</li><li data-list-item-id=\"e40d2f2a97b58000c944eb097b5ad2cfa\"><strong>Guidebook or map</strong>: helpful for planning daily stages and finding points of interest</li><li data-list-item-id=\"e72197f18bbaa28f23c1afe54a99d2fee\"><strong>Earplugs</strong>: a small but invaluable addition for sleeping in shared albergue dormitories</li><li data-list-item-id=\"e05a98d0eda19fb24b1a70b6822dc4336\"><strong>Thermal blanket</strong>: lightweight and compact, useful to have in case of unexpected weather or emergencies</li></ul>"
             },
             "set": {
-                "header": "Optional Items",
-                "bodytext": "<p>Not essential, but worth considering depending on your preferences and the route you choose:</p>\n<ul><li data-list-item-id=\"eacc438e6b010624af619e33aea8d7f53\"><strong>Camera or GoPro</strong>: for capturing the stunning landscapes and memorable moments along the way</li><li data-list-item-id=\"e40d2f2a97b58000c944eb097b5ad2cfa\"><strong>Guidebook or map</strong>: helpful for planning daily stages and finding points of interest</li><li data-list-item-id=\"e72197f18bbaa28f23c1afe54a99d2fee\"><strong>Earplugs</strong>: a small but invaluable addition for sleeping in shared albergue dormitories</li><li data-list-item-id=\"e05a98d0eda19fb24b1a70b6822dc4336\"><strong>Thermal blanket</strong>: lightweight and compact, useful to have in case of unexpected weather or emergencies</li></ul>"
+                "header": "Optional items",
+                "bodytext": "<p>Not essential, but worth thinking about, depending on your needs and your route:</p>\n<ul><li data-list-item-id=\"eacc438e6b010624af619e33aea8d7f53\"><strong>Camera or GoPro</strong>: for landscapes and moments along the way</li><li data-list-item-id=\"e40d2f2a97b58000c944eb097b5ad2cfa\"><strong>Guidebook or map</strong>: for planning daily stages and finding places of interest</li><li data-list-item-id=\"e72197f18bbaa28f23c1afe54a99d2fee\"><strong>Earplugs</strong>: small, but a big help in shared albergue dormitories</li><li data-list-item-id=\"e05a98d0eda19fb24b1a70b6822dc4336\"><strong>Thermal blanket</strong>: light and compact, for bad weather or emergencies</li></ul>"
             },
             "_context": {
                 "page": 104,
@@ -231,7 +233,7 @@
                 "bodytext": "<p>Remember: the key is to <strong>pack light</strong>. The Camino is not about material comforts — it is about the experience. Every item in your pack will be carried on your back for hundreds of kilometres, so when in doubt, leave it out. Keep it simple and let the journey speak for itself.</p>"
             },
             "set": {
-                "bodytext": "<p>Remember: the key is to <strong>pack light</strong>. The Camino is not about material comforts — it is about the experience. Every item in your pack will be carried on your back for hundreds of kilometres, so when in doubt, leave it out. Keep it simple and let the journey speak for itself.</p>"
+                "bodytext": "<p>Remember: <strong>pack light</strong>. You carry every item on your back for hundreds of kilometres. If you're not sure you need something, leave it at home.</p>"
             },
             "_context": {
                 "page": 104,
@@ -252,8 +254,8 @@
                 "subheader": "for the Camino de Compostela"
             },
             "set": {
-                "header": "Packing List",
-                "subheader": "for the Camino de Compostela"
+                "header": "Packing list",
+                "subheader": "What to take on the Camino de Compostela"
             },
             "_context": {
                 "page": 104,
@@ -273,7 +275,7 @@
                 "alternative": ""
             },
             "set": {
-                "alternative": ""
+                "alternative": "A scallop shell tied with string to a black backpack."
             },
             "_context": {
                 "page": 104,

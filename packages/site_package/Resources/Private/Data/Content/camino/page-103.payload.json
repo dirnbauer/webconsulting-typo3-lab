@@ -13,7 +13,8 @@
                 "title": "FAQs"
             },
             "set": {
-                "title": "FAQs"
+                "title": "FAQs",
+                "description": "Short answers to common Camino questions: how long it takes, where to sleep, how to find the way and how to get a Pilgrim's Credential."
             },
             "_context": {
                 "page": 103,
@@ -21,7 +22,8 @@
                 "element": 103,
                 "type": "pages",
                 "roles": {
-                    "title": "page_title"
+                    "title": "page_title",
+                    "description": "meta"
                 }
             }
         },
@@ -35,7 +37,7 @@
             },
             "set": {
                 "header": "What is the Camino de Compostela?",
-                "bodytext": "<p>The Camino de Compostela, or Way of St. James, is a network of ancient pilgrimage routes leading to Santiago de Compostela in Spain. It has been a major spiritual and cultural route for over a thousand years, drawing pilgrims from all corners of the world.</p>"
+                "bodytext": "<p>The Camino de Compostela, or Way of St James, is a network of old pilgrimage routes to Santiago de Compostela in Spain. People have walked it for over a thousand years. Today pilgrims come from all over the world.</p>"
             },
             "_context": {
                 "page": 103,
@@ -57,8 +59,8 @@
                 "bodytext": "<p>The time it takes depends on the route and your walking pace. The Camino Francés, the most popular route, takes around <strong>30 to 35 days</strong> from Saint-Jean-Pied-de-Port to Santiago. Those walking shorter sections can complete their journey in one to two weeks.</p>"
             },
             "set": {
-                "header": "How long does it take test to walk the Camino?",
-                "bodytext": "<p>The time it takes depends on the route and your walking pace. The Camino Francés, the most popular route, takes around <strong>30 to 35 days</strong> from Saint-Jean-Pied-de-Port to Santiago. Those walking shorter sections can complete their journey in one to two weeks.</p>"
+                "header": "How long does the Camino take?",
+                "bodytext": "<p>It depends on the route and your pace. The Camino Francés, the most popular route, takes <strong>30 to 35 days</strong> from Saint-Jean-Pied-de-Port to Santiago. A shorter section takes one to two weeks.</p>"
             },
             "_context": {
                 "page": 103,
@@ -80,8 +82,8 @@
                 "bodytext": "<p>Not at all. While the Camino has deep spiritual roots, it is open to everyone. People of all faiths — and none — walk it for a wide range of reasons, from personal growth and adventure to connection and reflection.</p>"
             },
             "set": {
-                "header": "Do I need to be religious to walk the Camino?",
-                "bodytext": "<p>Not at all. While the Camino has deep spiritual roots, it is open to everyone. People of all faiths — and none — walk it for a wide range of reasons, from personal growth and adventure to connection and reflection.</p>"
+                "header": "Do I need to be religious?",
+                "bodytext": "<p>No. The Camino has religious roots, but it is open to everyone. People of all faiths, and of none, walk it. Some come for reflection, others for the walking or the company.</p>"
             },
             "_context": {
                 "page": 103,
@@ -104,7 +106,7 @@
             },
             "set": {
                 "header": "Is the Camino suitable for beginners?",
-                "bodytext": "<p>Yes. The Camino is accessible to walkers of all levels. You do not need to be an experienced hiker — just have the right gear, a reasonable level of fitness, and the determination to keep going. Most routes involve daily walks of between 15 and 30 km on well-maintained paths.</p>"
+                "bodytext": "<p>Yes. You don't need hiking experience. You need good gear, reasonable fitness and the will to keep going. Most routes mean daily walks of 15 to 30 km on well-kept paths.</p>"
             },
             "_context": {
                 "page": 103,
@@ -126,8 +128,8 @@
                 "bodytext": "<p>Most pilgrims stay in <strong>albergues</strong> — simple, affordable pilgrim hostels located along the route. Guesthouses and hotels are also available for those who prefer more comfort, and some pilgrims choose to camp along the way.</p>"
             },
             "set": {
-                "header": "What are the accommodations like?",
-                "bodytext": "<p>Most pilgrims stay in <strong>albergues</strong> — simple, affordable pilgrim hostels located along the route. Guesthouses and hotels are also available for those who prefer more comfort, and some pilgrims choose to camp along the way.</p>"
+                "header": "What is the accommodation like?",
+                "bodytext": "<p>Most pilgrims sleep in <strong>albergues</strong>, simple and cheap pilgrim hostels along the route. Guesthouses and hotels offer more comfort. Some pilgrims camp.</p>"
             },
             "_context": {
                 "page": 103,
@@ -149,8 +151,8 @@
                 "bodytext": "<p>The routes are well marked with <strong>yellow arrows</strong> and <strong>scallop shell symbols</strong>, making it difficult to lose your way. Guidebooks, apps, and printed maps are also widely available to help you plan and navigate each stage.</p>"
             },
             "set": {
-                "header": "How do I navigate the Camino?",
-                "bodytext": "<p>The routes are well marked with <strong>yellow arrows</strong> and <strong>scallop shell symbols</strong>, making it difficult to lose your way. Guidebooks, apps, and printed maps are also widely available to help you plan and navigate each stage.</p>"
+                "header": "How do I find the way?",
+                "bodytext": "<p>The routes are marked with <strong>yellow arrows</strong> and <strong>scallop shell symbols</strong>, so it is hard to get lost. Guidebooks, apps and printed maps help you plan each stage.</p>"
             },
             "_context": {
                 "page": 103,
@@ -172,8 +174,8 @@
                 "bodytext": "<p>During quieter seasons, advance booking is generally not necessary. However, if you are walking in summer or on a popular route such as the Camino Francés, booking ahead is recommended to secure your spot.</p>"
             },
             "set": {
-                "header": "Do I need to book accommodations in advance?",
-                "bodytext": "<p>During quieter seasons, advance booking is generally not necessary. However, if you are walking in summer or on a popular route such as the Camino Francés, booking ahead is recommended to secure your spot.</p>"
+                "header": "Do I need to book ahead?",
+                "bodytext": "<p>Not usually in the quieter seasons. In summer, or on a busy route such as the Camino Francés, book ahead to be sure of a bed.</p>"
             },
             "_context": {
                 "page": 103,
@@ -195,8 +197,8 @@
                 "bodytext": "<p>Completing the entire route is not a requirement. Many pilgrims walk only a section of the Camino, and even a few days on the trail can be a meaningful and rewarding experience. There is no right or wrong way to walk it.</p>"
             },
             "set": {
-                "header": "What should I do if I cannot finish the Camino?",
-                "bodytext": "<p>Completing the entire route is not a requirement. Many pilgrims walk only a section of the Camino, and even a few days on the trail can be a meaningful and rewarding experience. There is no right or wrong way to walk it.</p>"
+                "header": "What if I can't finish?",
+                "bodytext": "<p>You don't have to walk the whole route. Many pilgrims walk only one section, and even a few days on the trail are worth it. There is no right or wrong way to walk it.</p>"
             },
             "_context": {
                 "page": 103,
@@ -218,8 +220,8 @@
                 "bodytext": "<p>The <strong>Pilgrim's Credential</strong>, or <strong>Credencial del Peregrino</strong>, is a document you collect stamps in as you progress along the route. It is required for staying in albergues and serves as proof of your journey when collecting your <strong>Compostela Certificate</strong> upon arrival in Santiago.</p>"
             },
             "set": {
-                "header": "What is the Pilgrim's Credential and how do I get one?",
-                "bodytext": "<p>The <strong>Pilgrim's Credential</strong>, or <strong>Credencial del Peregrino</strong>, is a document you collect stamps in as you progress along the route. It is required for staying in albergues and serves as proof of your journey when collecting your <strong>Compostela Certificate</strong> upon arrival in Santiago.</p>"
+                "header": "What is the Pilgrim's Credential?",
+                "bodytext": "<p>The <strong>Pilgrim's Credential</strong>, or <strong>Credencial del Peregrino</strong>, is a document you collect stamps in along the route. You need it to stay in albergues. In Santiago, it proves your walk when you collect your <strong>Compostela Certificate</strong>. You can get one before you set off or at the first pilgrim office on the route.</p>"
             },
             "_context": {
                 "page": 103,
@@ -242,9 +244,9 @@
                 "bodytext": "<p>Not sure where to begin? Our route guides, packing tips, and practical advice have everything you need to plan your first Camino with confidence.</p>"
             },
             "set": {
-                "header": "Your First Step Starts Here",
-                "subheader": "Plan your Camino",
-                "bodytext": "<p>Not sure where to begin? Our route guides, packing tips, and practical advice have everything you need to plan your first Camino with confidence.</p>"
+                "header": "Plan your first Camino",
+                "subheader": "Start here",
+                "bodytext": "<p>This guide covers the main routes, what to pack and the questions first-time pilgrims ask most.</p>"
             },
             "_context": {
                 "page": 103,
@@ -268,9 +270,9 @@
                 "bodytext": "<p>The Camino welcomes everyone — seasoned hikers and first-time walkers alike. Find the route that matches your fitness, your time, and your spirit.</p>"
             },
             "set": {
-                "header": "Walk at Your Own Pace",
-                "subheader": "No experience required",
-                "bodytext": "<p>The Camino welcomes everyone — seasoned hikers and first-time walkers alike. Find the route that matches your fitness, your time, and your spirit.</p>"
+                "header": "Walk at your own pace",
+                "subheader": "No experience needed",
+                "bodytext": "<p>The Camino is open to experienced hikers and first-time walkers. Choose a route that fits your fitness and the time you have.</p>"
             },
             "_context": {
                 "page": 103,
@@ -294,9 +296,9 @@
                 "bodytext": "<p>The right boots, the right pack, and a little preparation can make all the difference. Discover our essential packing guide before you hit the trail.</p>"
             },
             "set": {
-                "header": "Buen Camino Starts With Good Gear",
-                "subheader": "What to pack and what to leave behind",
-                "bodytext": "<p>The right boots, the right pack, and a little preparation can make all the difference. Discover our essential packing guide before you hit the trail.</p>"
+                "header": "Good gear makes the walk easier",
+                "subheader": "What to pack and what to leave out",
+                "bodytext": "<p>Good boots, a well-fitting pack and a little preparation matter most. Read the packing list before you set off.</p>"
             },
             "_context": {
                 "page": 103,
@@ -320,7 +322,7 @@
             },
             "set": {
                 "header": "FAQs",
-                "subheader": "Everything test You Need dd to Know how About the Camino de Compostela"
+                "subheader": "Common questions about the Camino de Compostela"
             },
             "_context": {
                 "page": 103,
@@ -340,7 +342,7 @@
                 "alternative": ""
             },
             "set": {
-                "alternative": ""
+                "alternative": "Wooden walking sticks with scallop shells and a blue Camino de Santiago bag at a shop entrance."
             },
             "_context": {
                 "page": 103,

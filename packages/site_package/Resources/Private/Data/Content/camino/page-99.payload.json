@@ -13,7 +13,8 @@
                 "title": "Camino"
             },
             "set": {
-                "title": "Camino"
+                "title": "Camino",
+                "description": "A plain guide to the Camino de Compostela: six routes compared, a packing list and answers to the questions first-time pilgrims ask."
             },
             "_context": {
                 "page": 99,
@@ -21,7 +22,8 @@
                 "element": 99,
                 "type": "pages",
                 "roles": {
-                    "title": "page_title"
+                    "title": "page_title",
+                    "description": "meta"
                 }
             }
         },
@@ -34,8 +36,8 @@
                 "bodytext": "<p>The <strong>Camino de Compostela</strong>, also known as the <strong>Way of St. James</strong>, is one of the world's most famous pilgrimage routes. It leads to the Cathedral of Santiago de Compostela in northwestern Spain, where the remains of Saint James the Apostle are said to rest.</p>\n<p>People from all walks of life travel the Camino:</p>\n<ul><li data-list-item-id=\"e7cee5c5bef25604019f517e8b2c2543e\">Pilgrims and spiritual seekers</li><li data-list-item-id=\"ec742dc56cc6562510e5fb39fdcc61014\">Hikers and outdoor enthusiasts</li><li data-list-item-id=\"e84898458aaab86be9e7c85024d176b48\">Cultural travelers and history lovers</li></ul>\n<p>For many, it is more than just a journey — it is an experience that stays with them long after they return home.</p>"
             },
             "set": {
-                "header": "What Is the Camino de Compostela?",
-                "bodytext": "<p>The <strong>Camino de Compostela</strong>, also known as the <strong>Way of St. James</strong>, is one of the world's most famous pilgrimage routes. It leads to the Cathedral of Santiago de Compostela in northwestern Spain, where the remains of Saint James the Apostle are said to rest.</p>\n<p>People from all walks of life travel the Camino:</p>\n<ul><li data-list-item-id=\"e7cee5c5bef25604019f517e8b2c2543e\">Pilgrims and spiritual seekers</li><li data-list-item-id=\"ec742dc56cc6562510e5fb39fdcc61014\">Hikers and outdoor enthusiasts</li><li data-list-item-id=\"e84898458aaab86be9e7c85024d176b48\">Cultural travelers and history lovers</li></ul>\n<p>For many, it is more than just a journey — it is an experience that stays with them long after they return home.</p>"
+                "header": "What is the Camino de Compostela?",
+                "bodytext": "<p>The <strong>Camino de Compostela</strong>, also called the <strong>Way of St James</strong>, is a network of pilgrimage routes. All of them end at the Cathedral of Santiago de Compostela in north-west Spain. Saint James the Apostle is said to be buried there.</p>\n<p>People from many backgrounds walk the Camino:</p>\n<ul><li data-list-item-id=\"e7cee5c5bef25604019f517e8b2c2543e\">Pilgrims and people looking for time to reflect</li><li data-list-item-id=\"ec742dc56cc6562510e5fb39fdcc61014\">Hikers and people who love the outdoors</li><li data-list-item-id=\"e84898458aaab86be9e7c85024d176b48\">Travellers interested in history and culture</li></ul>\n<p>Many say the walk stays with them long after they get home.</p>"
             },
             "_context": {
                 "page": 99,
@@ -58,9 +60,9 @@
                 "tx_themecamino_link_label": "Compare all routes"
             },
             "set": {
-                "header": "The Main Camino Routes",
-                "bodytext": "<p>The Camino de Compostela is a network of ancient pilgrimage routes, each leading to the Cathedral of Santiago de Compostela. Whether crossing mountain passes, following coastal paths, or winding through rolling countryside, every route has its own character and charm — yet all share the same spirit of community, discovery, and adventure.</p>",
-                "tx_themecamino_link_label": "Compare all routes"
+                "header": "The main Camino routes",
+                "bodytext": "<p>Every route ends at the Cathedral of Santiago de Compostela. Some cross mountain passes, some follow the coast and some run through open farmland.</p>",
+                "tx_themecamino_link_label": "Compare the routes"
             },
             "_context": {
                 "page": 99,
@@ -85,9 +87,9 @@
             },
             "set": {
                 "fieldname": "tx_themecamino_list_elements",
-                "header": "Camino Inglés & Other Routes",
-                "link_label": "More",
-                "text": "The Camino Inglés and several other lesser-known routes offer a wonderful alternative for those with limited time. Each has its own distinct character, landscapes, and history, making them a rewarding choice even for a shorter pilgrimage. No matter which route you choose, the spirit of the Camino remains the same."
+                "header": "Camino Inglés and other routes",
+                "link_label": "See the route",
+                "text": "The Camino Inglés and other shorter routes suit walkers with little time. Each has its own landscapes and history."
             },
             "_context": {
                 "page": 99,
@@ -114,8 +116,8 @@
             "set": {
                 "fieldname": "tx_themecamino_list_elements",
                 "header": "Camino Primitivo",
-                "link_label": "More",
-                "text": "The Camino Primitivo is the oldest of all the Camino routes, tracing the original path walked by pilgrims centuries ago. Shorter than the Camino Francés but more physically demanding, it winds through the mountains and forests of Asturias and Galicia. It is a rewarding choice for experienced walkers who prefer solitude and a deeper sense of history along the way."
+                "link_label": "See the route",
+                "text": "The oldest route. It is shorter than the Francés but harder, crossing the mountains and forests of Asturias and Galicia. Good for experienced walkers."
             },
             "_context": {
                 "page": 99,
@@ -142,8 +144,8 @@
             "set": {
                 "fieldname": "tx_themecamino_list_elements",
                 "header": "Camino del Norte",
-                "link_label": "More",
-                "text": "The Camino del Norte traces the northern coast of Spain, offering dramatic ocean views and rugged, unspoiled landscapes. It is a more demanding route than some of the other Caminos, but rewards those who walk it with stunning scenery and a quieter, more solitary experience away from the larger crowds."
+                "link_label": "See the route",
+                "text": "Follows Spain's northern coast, with ocean views and rugged landscapes. It is harder than most routes, but quieter and less crowded."
             },
             "_context": {
                 "page": 99,
@@ -170,8 +172,8 @@
             "set": {
                 "fieldname": "tx_themecamino_list_elements",
                 "header": "Camino Portugués",
-                "link_label": "More",
-                "text": "The Camino Português begins in either Lisbon or Porto and makes its way north through Portugal into Galicia. It is known for its coastal scenery, charming towns, and the warm hospitality of its people. With a gentler walking profile, it is a popular choice for those looking for a less demanding but equally rewarding journey. changed."
+                "link_label": "See the route",
+                "text": "Starts in Lisbon or Porto and heads north through Portugal into Galicia. Known for its coast, small towns and gentler walking."
             },
             "_context": {
                 "page": 99,
@@ -198,8 +200,8 @@
             "set": {
                 "fieldname": "tx_themecamino_list_elements",
                 "header": "Camino Francés",
-                "link_label": "More",
-                "text": "The Camino Francés is the most popular route, beginning in Saint-Jean-Pied-de-Port in southern France before crossing the Pyrenees and winding through northern Spain. It passes through historic towns and vibrant villages, with well-established pilgrim services and a lively trail community all the way to Santiago."
+                "link_label": "See the route",
+                "text": "The most popular route. It starts in Saint-Jean-Pied-de-Port in southern France, crosses the Pyrenees and northern Spain, and has pilgrim services all the way."
             },
             "_context": {
                 "page": 99,
@@ -223,8 +225,8 @@
                 "bodytext": "<p><strong>A Personal Journey&nbsp;</strong><br />Many pilgrims describe the Camino as a life-changing experience. Walking day after day creates space for reflection, clarity, and personal growth — a rare opportunity to step away from the noise of everyday life.</p>\n<p><strong>History and Culture&nbsp;</strong><br />The routes are lined with Roman roads, medieval bridges, ancient churches, and UNESCO World Heritage sites, offering a rich journey through centuries of European history and tradition.</p>\n<p><strong>Community and Connection&nbsp;</strong><br />On the Camino, you are never truly alone. Friendships form naturally, languages mix freely, and shared meals around a table become memories that last long after the journey ends.</p>\n<p><strong>Nature and Simplicity&nbsp;</strong><br />From vineyards and forests to mountain passes and rugged coastlines, the Camino offers a chance to reconnect with the natural world — and with yourself.</p>"
             },
             "set": {
-                "header": "Why Walk the Camino?",
-                "bodytext": "<p><strong>A Personal Journey&nbsp;</strong><br />Many pilgrims describe the Camino as a life-changing experience. Walking day after day creates space for reflection, clarity, and personal growth — a rare opportunity to step away from the noise of everyday life.</p>\n<p><strong>History and Culture&nbsp;</strong><br />The routes are lined with Roman roads, medieval bridges, ancient churches, and UNESCO World Heritage sites, offering a rich journey through centuries of European history and tradition.</p>\n<p><strong>Community and Connection&nbsp;</strong><br />On the Camino, you are never truly alone. Friendships form naturally, languages mix freely, and shared meals around a table become memories that last long after the journey ends.</p>\n<p><strong>Nature and Simplicity&nbsp;</strong><br />From vineyards and forests to mountain passes and rugged coastlines, the Camino offers a chance to reconnect with the natural world — and with yourself.</p>"
+                "header": "Why walk the Camino?",
+                "bodytext": "<p><strong>Time to reflect</strong><br />Many pilgrims say the Camino changed their lives. Walking day after day gives you time to think, away from everyday noise.</p>\n<p><strong>History and culture</strong><br />The routes pass Roman roads, medieval bridges, old churches and UNESCO World Heritage Sites. You walk through centuries of European history.</p>\n<p><strong>Community</strong><br />You are rarely alone on the Camino. Friendships form quickly, languages mix and shared meals become lasting memories.</p>\n<p><strong>Nature and simplicity</strong><br />Vineyards, forests, mountain passes and coastlines: the Camino gives you time outdoors at a slower pace.</p>"
             },
             "_context": {
                 "page": 99,
@@ -246,8 +248,8 @@
                 "bodytext": "<p>Daily walks typically range from 15 to 30 km, with well-waymarked paths guided by yellow arrows and scallop shells. Accommodation options are plentiful, from affordable albergues to guesthouses and hotels, and the food along the way is simple, hearty, and full of regional character. More than anything, the Camino invites you into a slower, more mindful pace of life.</p>\n<p>No special training is required — just preparation, curiosity, and an open heart.</p>"
             },
             "set": {
-                "header": "What to Expect on the Camino",
-                "bodytext": "<p>Daily walks typically range from 15 to 30 km, with well-waymarked paths guided by yellow arrows and scallop shells. Accommodation options are plentiful, from affordable albergues to guesthouses and hotels, and the food along the way is simple, hearty, and full of regional character. More than anything, the Camino invites you into a slower, more mindful pace of life.</p>\n<p>No special training is required — just preparation, curiosity, and an open heart.</p>"
+                "header": "What to expect on the Camino",
+                "bodytext": "<p>Most walkers cover 15 to 30 km a day. Yellow arrows and scallop shells mark the paths. You can sleep in cheap albergues, guesthouses or hotels. The food is simple, filling and regional, and life runs at a slower pace.</p>\n<p>You don't need special training. You need some preparation and curiosity.</p>"
             },
             "_context": {
                 "page": 99,
@@ -270,7 +272,7 @@
             },
             "set": {
                 "header": "Preparing for the Camino",
-                "bodytext": "<p><strong>When to Go</strong></p>\n<p>Spring (April to June) is a favourite time to walk, with mild weather and blooming landscapes along the way. Autumn (September to October) offers cooler temperatures and fewer crowds, making it another excellent choice. Summer is popular but can be hot and busy, while winter is quiet and reflective — rewarding for those prepared for more challenging conditions.</p>\n<p><strong>What to Pack</strong></p>\n<p>Good preparation starts with comfortable walking shoes and a lightweight backpack. Bring weather-appropriate clothing and don't forget your Pilgrim Credential, used to collect stamps along the way and access pilgrim accommodation.</p>\n<p>Less is more on the Camino.</p>"
+                "bodytext": "<p><strong>When to go</strong></p>\n<p>Spring (April to June) is a favourite time, with mild weather and flowers along the way. Autumn (September to October) is cooler and less crowded. Summer is busy and can be hot. Winter is quiet but harder, so come prepared.</p>\n<p><strong>What to pack</strong></p>\n<p>Start with comfortable walking shoes and a light backpack. Bring clothes for the weather and your Pilgrim's Credential. You collect stamps in it, and you need it to stay in pilgrim accommodation.</p>\n<p>Pack as little as you can.</p>"
             },
             "_context": {
                 "page": 99,
@@ -293,7 +295,7 @@
             },
             "set": {
                 "header": "Santiago de Compostela",
-                "bodytext": "<p>Arriving in <strong>Santiago de Compostela</strong> is a moment many pilgrims never forget. The main square fills with walkers from all over the world, coming together to celebrate, reflect, and attend the Pilgrim's Mass at the magnificent cathedral.</p>\n<p>Here you receive your <strong>Compostela Certificate</strong>, the official recognition of your journey. But for many, reaching Santiago is not an ending — it is the beginning of something that continues long after the walk is over.</p>"
+                "bodytext": "<p>Many pilgrims remember their arrival in <strong>Santiago de Compostela</strong> for years. Walkers from all over the world meet in the main square to celebrate, rest and attend the Pilgrim's Mass in the cathedral.</p>\n<p>Here you receive your <strong>Compostela Certificate</strong>, the official record of your pilgrimage. For many, the effect of the walk lasts long after it ends.</p>"
             },
             "_context": {
                 "page": 99,
@@ -315,8 +317,8 @@
                 "bodytext": "<p>Whether you walk for a week or a month, alone or with friends, the Camino meets you exactly where you are. There is no right or wrong way to walk it — only your way.</p>\n<p>Buen Camino.&nbsp;<br />Your journey begins with a single step.</p>"
             },
             "set": {
-                "header": "Start Your Camino",
-                "bodytext": "<p>Whether you walk for a week or a month, alone or with friends, the Camino meets you exactly where you are. There is no right or wrong way to walk it — only your way.</p>\n<p>Buen Camino.&nbsp;<br />Your journey begins with a single step.</p>"
+                "header": "Start your Camino",
+                "bodytext": "<p>Walk for a week or a month, alone or with friends. There is no right or wrong way to walk the Camino.</p>\n<p>Buen Camino.<br />Start by choosing your route.</p>"
             },
             "_context": {
                 "page": 99,
@@ -338,8 +340,8 @@
                 "subheader": "A journey of discovery, history, and transformation"
             },
             "set": {
-                "header": "Walk the Camino  Compostela",
-                "subheader": "A journey of discovery, history, and transformation"
+                "header": "Walk the Camino de Compostela",
+                "subheader": "Six routes compared, a packing list and answers to common questions."
             },
             "_context": {
                 "page": 99,
@@ -359,7 +361,7 @@
                 "alternative": ""
             },
             "set": {
-                "alternative": ""
+                "alternative": "A tile with a yellow scallop shell, an arrow and the words Camino de Santiago, set in a granite wall."
             },
             "_context": {
                 "page": 99,
@@ -418,7 +420,7 @@
                 "header": "Social Media Icons"
             },
             "set": {
-                "header": "Social Media Icons"
+                "header": "Social media links"
             },
             "_context": {
                 "page": 99,
@@ -504,7 +506,7 @@
                 "header": "Camino Routes"
             },
             "set": {
-                "header": "Camino Routes"
+                "header": "Camino routes"
             },
             "_context": {
                 "page": 99,
@@ -590,7 +592,7 @@
                 "header": "first header."
             },
             "set": {
-                "header": "first header."
+                "header": "More Camino routes"
             },
             "_context": {
                 "page": 99,
@@ -699,7 +701,7 @@
             },
             "set": {
                 "fieldname": "tx_themecamino_list_elements",
-                "link_label": "Packing List"
+                "link_label": "Packing list"
             },
             "_context": {
                 "page": 99,

@@ -13,7 +13,8 @@
                 "title": "Imprint"
             },
             "set": {
-                "title": "Imprint"
+                "title": "Imprint",
+                "description": "Imprint for Camino, a demo site built with the TYPO3 Camino theme. The site has no operator of its own, so it lists no company details."
             },
             "_context": {
                 "page": 102,
@@ -21,7 +22,8 @@
                 "element": 102,
                 "type": "pages",
                 "roles": {
-                    "title": "page_title"
+                    "title": "page_title",
+                    "description": "meta"
                 }
             }
         },
@@ -30,10 +32,6 @@
             "uid": 10607,
             "expect": {
                 "CType": "desiderio_codeblock",
-                "header": "headeddr test",
-                "filename": "filename etst.html test changed changed"
-            },
-            "set": {
                 "header": "headeddr test",
                 "filename": "filename etst.html test changed changed"
             },
@@ -46,7 +44,8 @@
                     "header": "headline",
                     "filename": "other"
                 }
-            }
+            },
+            "action": "delete"
         },
         {
             "table": "tt_content",
@@ -56,7 +55,7 @@
                 "bodytext": "<p><strong>Company Information test hier.</strong><br />[Company Name]<br />[Street Address]<br />[ZIP Code, City]<br />[Country]</p>\r\n<p><strong>Represented by</strong>:&nbsp; ddd<br />[Name], [Position]</p>\r\n<p><strong>Contact</strong>:&nbsp;<br />Phone: [+00 000 000000]<br />Email: [email@example.com]<br />Website: [www.example.com]</p>\r\n<p><strong>Commercial Register</strong>: [Register Court] [Registration Number]<br /><strong>VAT Identification Number</strong>: [VAT ID]</p>\r\n<p><strong>Responsible for content</strong>:<br />[Name]<br />[Street Address]<br />[ZIP Code, City]</p>\r\n<p><strong>Disclaimer</strong>:<br />This is dummy content for demonstration purposes only. Please replace all placeholder fields marked with [brackets] with your actual company information before publishing. The disclaimer text below should also be reviewed and adapted to your legal requirements.</p>\r\n<p>The contents of this website have been created with the utmost care. However, we cannot guarantee the accuracy, completeness, or timeliness of the information provided. External links have been checked at the time of linking; we accept no responsibility for their content.</p>"
             },
             "set": {
-                "bodytext": "<p><strong>Company Information test hier.</strong><br />[Company Name]<br />[Street Address]<br />[ZIP Code, City]<br />[Country]</p>\r\n<p><strong>Represented by</strong>:&nbsp; ddd<br />[Name], [Position]</p>\r\n<p><strong>Contact</strong>:&nbsp;<br />Phone: [+00 000 000000]<br />Email: [email@example.com]<br />Website: [www.example.com]</p>\r\n<p><strong>Commercial Register</strong>: [Register Court] [Registration Number]<br /><strong>VAT Identification Number</strong>: [VAT ID]</p>\r\n<p><strong>Responsible for content</strong>:<br />[Name]<br />[Street Address]<br />[ZIP Code, City]</p>\r\n<p><strong>Disclaimer</strong>:<br />This is dummy content for demonstration purposes only. Please replace all placeholder fields marked with [brackets] with your actual company information before publishing. The disclaimer text below should also be reviewed and adapted to your legal requirements.</p>\r\n<p>The contents of this website have been created with the utmost care. However, we cannot guarantee the accuracy, completeness, or timeliness of the information provided. External links have been checked at the time of linking; we accept no responsibility for their content.</p>"
+                "bodytext": "<p><strong>About this site</strong><br />Camino is a demo site built with the TYPO3 Camino theme. It has no operator of its own, so there is no company, address or register entry to list here.</p>\n<p><strong>Disclaimer</strong>:<br />The content of this site was written with care. It may still be inaccurate, incomplete or out of date. External links were checked when they were added. Their owners are responsible for their content.</p>"
             },
             "_context": {
                 "page": 102,
