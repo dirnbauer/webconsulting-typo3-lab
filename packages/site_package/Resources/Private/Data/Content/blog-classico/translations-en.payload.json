@@ -3407,7 +3407,6 @@
             },
             "set": {
                 "header": "News about Easter eggs",
-                "pi_flexform": "<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"yes\" ?>\n<T3FlexForms>\n  <data type=\"array\">\n    <sDEF type=\"array\">\n      <lDEF type=\"array\">\n        <settingsstartingpoint type=\"array\">\n          <vDEF type=\"integer\">44</vDEF>\n        </settingsstartingpoint>\n        <settingsorderBy type=\"array\">\n          <vDEF>datetime</vDEF>\n        </settingsorderBy>\n        <settingsorderDirection type=\"array\">\n          <vDEF>desc</vDEF>\n        </settingsorderDirection>\n        <settingsrecursive type=\"array\">\n          <vDEF type=\"integer\">0</vDEF>\n        </settingsrecursive>\n      </lDEF>\n    </sDEF>\n    <additional type=\"array\">\n      <lDEF type=\"array\">\n        <settingsdetailPid type=\"array\">\n          <vDEF type=\"integer\">42</vDEF>\n        </settingsdetailPid>\n        <settingslistPid type=\"array\">\n          <vDEF type=\"integer\">43</vDEF>\n        </settingslistPid>\n        <settingsbackPid type=\"array\">\n          <vDEF type=\"integer\">43</vDEF>\n        </settingsbackPid>\n        <settingslimit type=\"array\">\n          <vDEF type=\"integer\">20</vDEF>\n        </settingslimit>\n        <settingslist type=\"array\">\n          <vDEF type=\"array\">\n            <paginate type=\"array\">\n              <itemsPerPage type=\"integer\">10</itemsPerPage>\n            </paginate>\n          </vDEF>\n        </settingslist>\n        <settingsdisableOverrideDemand type=\"array\">\n          <vDEF type=\"integer\">1</vDEF>\n        </settingsdisableOverrideDemand>\n      </lDEF>\n    </additional>\n  </data>\n</T3FlexForms>",
                 "pages": "44",
                 "hidden": 0
             },
@@ -3592,25 +3591,6 @@
         },
         {
             "table": "sys_file_reference",
-            "uid": 1028,
-            "expect": {
-                "alternative": ""
-            },
-            "set": {
-                "alternative": "An adult and a child go for a walk in the rain."
-            },
-            "_context": {
-                "element": 1736,
-                "table": "tt_content",
-                "germanReference": 11,
-                "roles": {
-                    "alternative": "alt",
-                    "title": "headline"
-                }
-            }
-        },
-        {
-            "table": "sys_file_reference",
             "uid": 1029,
             "expect": {
                 "alternative": ""
@@ -3622,25 +3602,6 @@
                 "element": 1738,
                 "table": "tt_content",
                 "germanReference": 47,
-                "roles": {
-                    "alternative": "alt",
-                    "title": "headline"
-                }
-            }
-        },
-        {
-            "table": "sys_file_reference",
-            "uid": 1030,
-            "expect": {
-                "alternative": ""
-            },
-            "set": {
-                "alternative": "A family with children plays in the rain on a terrace."
-            },
-            "_context": {
-                "element": 1736,
-                "table": "tt_content",
-                "germanReference": 45,
                 "roles": {
                     "alternative": "alt",
                     "title": "headline"
@@ -3717,44 +3678,6 @@
                 "element": 1737,
                 "table": "tt_content",
                 "germanReference": 65,
-                "roles": {
-                    "alternative": "alt",
-                    "title": "headline"
-                }
-            }
-        },
-        {
-            "table": "sys_file_reference",
-            "uid": 1035,
-            "expect": {
-                "alternative": ""
-            },
-            "set": {
-                "alternative": "An adult and a child go for a walk in the rain."
-            },
-            "_context": {
-                "element": 1740,
-                "table": "tt_content",
-                "germanReference": 10,
-                "roles": {
-                    "alternative": "alt",
-                    "title": "headline"
-                }
-            }
-        },
-        {
-            "table": "sys_file_reference",
-            "uid": 1036,
-            "expect": {
-                "alternative": ""
-            },
-            "set": {
-                "alternative": "A family goes for a walk together in the rain."
-            },
-            "_context": {
-                "element": 1740,
-                "table": "tt_content",
-                "germanReference": 46,
                 "roles": {
                     "alternative": "alt",
                     "title": "headline"

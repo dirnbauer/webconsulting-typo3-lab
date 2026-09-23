@@ -74,46 +74,6 @@
             }
         },
         {
-            "table": "sys_file_reference",
-            "uid": 10,
-            "expect": {
-                "alternative": "Ein Erwachsener und ein Kind gehen im Regen spazieren."
-            },
-            "set": {
-                "alternative": "Ein Erwachsener und ein Kind gehen im Regen spazieren."
-            },
-            "_context": {
-                "page": 22,
-                "pageTitle": "Easter Weather: A Calm Start to the Day",
-                "element": 60,
-                "type": "textmedia",
-                "roles": {
-                    "alternative": "alt"
-                },
-                "file": "/mcp/workspaces/ws-1/images/rain-child-yunus-tug-79849194f4a506ef.jpg"
-            }
-        },
-        {
-            "table": "sys_file_reference",
-            "uid": 46,
-            "expect": {
-                "alternative": "Eine Familie geht gemeinsam im Regen spazieren."
-            },
-            "set": {
-                "alternative": "Eine Familie geht gemeinsam im Regen spazieren."
-            },
-            "_context": {
-                "page": 22,
-                "pageTitle": "Easter Weather: A Calm Start to the Day",
-                "element": 60,
-                "type": "textmedia",
-                "roles": {
-                    "alternative": "alt"
-                },
-                "file": "/mcp/workspaces/ws-1/images/family-walk-rain-getty-d8abab98cd4b24fd.jpg"
-            }
-        },
-        {
             "table": "tt_content",
             "uid": 59,
             "expect": {
@@ -134,46 +94,6 @@
                     "header": "headline",
                     "bodytext": "body"
                 }
-            }
-        },
-        {
-            "table": "sys_file_reference",
-            "uid": 11,
-            "expect": {
-                "alternative": "Ein Erwachsener und ein Kind gehen im Regen spazieren."
-            },
-            "set": {
-                "alternative": "Ein Erwachsener und ein Kind gehen im Regen spazieren."
-            },
-            "_context": {
-                "page": 22,
-                "pageTitle": "Easter Weather: A Calm Start to the Day",
-                "element": 59,
-                "type": "textmedia",
-                "roles": {
-                    "alternative": "alt"
-                },
-                "file": "/mcp/workspaces/ws-1/images/rain-child-yunus-tug-79849194f4a506ef.jpg"
-            }
-        },
-        {
-            "table": "sys_file_reference",
-            "uid": 45,
-            "expect": {
-                "alternative": "Eine Familie mit Kindern spielt im Regen auf einer Terrasse."
-            },
-            "set": {
-                "alternative": "Eine Familie mit Kindern spielt im Regen auf einer Terrasse."
-            },
-            "_context": {
-                "page": 22,
-                "pageTitle": "Easter Weather: A Calm Start to the Day",
-                "element": 59,
-                "type": "textmedia",
-                "roles": {
-                    "alternative": "alt"
-                },
-                "file": "/mcp/workspaces/ws-1/images/family-rain-patio-getty-90dfd2c8df8498ca.jpg"
             }
         },
         {
