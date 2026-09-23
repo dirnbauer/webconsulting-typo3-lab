@@ -114,7 +114,9 @@ final class ContentExportCommand extends Command
             $context['file'] = $item->file;
         }
         $expect = [];
-        if ($item->table === 'tt_content') {
+        // Only a top-level element's type is known here; a content element
+        // nested in another record (news content) reports its parent's type.
+        if ($item->table === 'tt_content' && $item->elementUid === $item->uid) {
             $expect['CType'] = $item->elementType;
         }
 
