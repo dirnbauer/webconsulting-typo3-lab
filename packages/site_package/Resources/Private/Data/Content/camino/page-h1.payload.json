@@ -1,0 +1,71 @@
+{
+    "version": 1,
+    "site": "camino",
+    "root": 99,
+    "language": 0,
+    "languageCode": "en",
+    "generated": "2026-09-23T20:30:00+02:00",
+    "_note": "The Camino theme renders a hero heading at the level of its header layout (Partials/Content/Hero: headertag = header_layout). Every page's hero had layout 0 or 2, so no page had an h1; each hero now opens its page as the h1.",
+    "records": [
+        {
+            "table": "tt_content",
+            "uid": 1395,
+            "expect": {
+                "header_layout": 2
+            },
+            "set": {
+                "header_layout": "1"
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 1393,
+            "expect": {
+                "header_layout": 0
+            },
+            "set": {
+                "header_layout": "1"
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 1391,
+            "expect": {
+                "header_layout": 0
+            },
+            "set": {
+                "header_layout": "1"
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 1378,
+            "expect": {
+                "header_layout": 0
+            },
+            "set": {
+                "header_layout": "1"
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 1369,
+            "expect": {
+                "header_layout": 0
+            },
+            "set": {
+                "header_layout": "1"
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 1358,
+            "expect": {
+                "header_layout": 0
+            },
+            "set": {
+                "header_layout": "1"
+            }
+        }
+    ]
+}
