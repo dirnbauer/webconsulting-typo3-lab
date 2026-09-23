@@ -1,0 +1,471 @@
+{
+    "version": 1,
+    "site": "blog-classico",
+    "root": 15,
+    "language": 0,
+    "languageCode": "de",
+    "generated": "2026-09-23T19:00:00+02:00",
+    "_note": "The featured images of the English and Chinese post translations carried the German alt text.",
+    "records": [
+        {
+            "table": "sys_file_reference",
+            "uid": 55298,
+            "expect": {
+                "alternative": "Ein Holztisch am Fenster mit Notizbuch, Tee und einer kleinen Vase mit Frühlingsblumen."
+            },
+            "set": {
+                "alternative": "A wooden table by a window with a notebook, tea and a small vase of spring flowers."
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 55299,
+            "expect": {
+                "alternative": "Ein Holztisch am Fenster mit Notizbuch, Tee und einer kleinen Vase mit Frühlingsblumen."
+            },
+            "set": {
+                "alternative": "窗边的木桌上放着笔记本、一杯茶和一小瓶春天的花。"
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 55300,
+            "expect": {
+                "alternative": "Morgenlicht über einem ruhigen Frühlingsgarten, auf einer Steinstufe liegen einige Ostereier."
+            },
+            "set": {
+                "alternative": "Morning light over a quiet spring garden, with a few Easter eggs on a stone step."
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 55301,
+            "expect": {
+                "alternative": "Morgenlicht über einem ruhigen Frühlingsgarten, auf einer Steinstufe liegen einige Ostereier."
+            },
+            "set": {
+                "alternative": "晨光洒在安静的春日花园里，石阶上放着几颗复活节彩蛋。"
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 55302,
+            "expect": {
+                "alternative": "Pastellfarbene Ostereier im frischen Gras."
+            },
+            "set": {
+                "alternative": "Pastel Easter eggs in fresh grass."
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 55303,
+            "expect": {
+                "alternative": "Pastellfarbene Ostereier im frischen Gras."
+            },
+            "set": {
+                "alternative": "新鲜草地上的粉彩色复活节彩蛋。"
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 55304,
+            "expect": {
+                "alternative": "Ein heller Tisch mit Leinentuch und einer Schale mit schlichten Ostereiern."
+            },
+            "set": {
+                "alternative": "A bright table with a linen cloth and a bowl of plain Easter eggs."
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 55305,
+            "expect": {
+                "alternative": "Ein heller Tisch mit Leinentuch und einer Schale mit schlichten Ostereiern."
+            },
+            "set": {
+                "alternative": "铺着亚麻桌布的明亮餐桌上放着一碗素色复活节彩蛋。"
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 55306,
+            "expect": {
+                "alternative": "Ein geflochtenes Osternest mit Eiern auf einer bemoosten Gartenbank."
+            },
+            "set": {
+                "alternative": "A woven Easter nest with eggs on a mossy garden bench."
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 55307,
+            "expect": {
+                "alternative": "Ein geflochtenes Osternest mit Eiern auf einer bemoosten Gartenbank."
+            },
+            "set": {
+                "alternative": "长满青苔的花园长椅上放着一个装着彩蛋的编织复活节巢。"
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 55308,
+            "expect": {
+                "alternative": "Ein Feldhase sitzt auf einer Frühlingswiese am Feldrand."
+            },
+            "set": {
+                "alternative": "A brown hare sits in a spring meadow at the edge of a field."
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 55309,
+            "expect": {
+                "alternative": "Ein Feldhase sitzt auf einer Frühlingswiese am Feldrand."
+            },
+            "set": {
+                "alternative": "一只野兔坐在田边的春日草地上。"
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 55310,
+            "expect": {
+                "alternative": "Zwei weiße Kaninchen ruhen im weichen Tageslicht auf Stroh."
+            },
+            "set": {
+                "alternative": "Two white rabbits rest on straw in soft daylight."
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 55311,
+            "expect": {
+                "alternative": "Zwei weiße Kaninchen ruhen im weichen Tageslicht auf Stroh."
+            },
+            "set": {
+                "alternative": "两只白兔在柔和的日光下躺在稻草上休息。"
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 55312,
+            "expect": {
+                "alternative": "Schokoladenhasen und kleine bemalte Holzfiguren auf einem hellen Tisch."
+            },
+            "set": {
+                "alternative": "Chocolate bunnies and small painted wooden figures on a light table."
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 55313,
+            "expect": {
+                "alternative": "Schokoladenhasen und kleine bemalte Holzfiguren auf einem hellen Tisch."
+            },
+            "set": {
+                "alternative": "浅色桌子上的巧克力兔子和彩绘小木偶。"
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 55314,
+            "expect": {
+                "alternative": "Lämmer auf einer grünen Wiese, im Hintergrund blühende Obstbäume."
+            },
+            "set": {
+                "alternative": "Lambs in a green meadow with blossoming fruit trees behind them."
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 55315,
+            "expect": {
+                "alternative": "Lämmer auf einer grünen Wiese, im Hintergrund blühende Obstbäume."
+            },
+            "set": {
+                "alternative": "绿色草地上的小羊，背后是开花的果树。"
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 55316,
+            "expect": {
+                "alternative": "Ein junges Lamm liegt am Nachmittag im Gras einer Frühlingsweide."
+            },
+            "set": {
+                "alternative": "A young lamb lies in the grass of a spring pasture in the afternoon."
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 55317,
+            "expect": {
+                "alternative": "Ein junges Lamm liegt am Nachmittag im Gras einer Frühlingsweide."
+            },
+            "set": {
+                "alternative": "一只小羊午后躺在春天牧场的草地上。"
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 55318,
+            "expect": {
+                "alternative": "Zwei Menschen gehen, von hinten gesehen, Hand in Hand unter einem Schirm durch den Frühlingsregen."
+            },
+            "set": {
+                "alternative": "Two people, seen from behind, walk hand in hand under one umbrella in the spring rain."
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 55319,
+            "expect": {
+                "alternative": "Zwei Menschen gehen, von hinten gesehen, Hand in Hand unter einem Schirm durch den Frühlingsregen."
+            },
+            "set": {
+                "alternative": "两个人的背影，在春雨中共撑一把伞手牵手散步。"
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 55320,
+            "expect": {
+                "alternative": "Gefaltete Wollpullover und Schals werden in eine luftige Aufbewahrungsbox gelegt."
+            },
+            "set": {
+                "alternative": "Folded wool jumpers and scarves go into a breathable storage box."
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 55321,
+            "expect": {
+                "alternative": "Gefaltete Wollpullover und Schals werden in eine luftige Aufbewahrungsbox gelegt."
+            },
+            "set": {
+                "alternative": "叠好的羊毛衫和围巾被放进透气的收纳箱。"
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 55322,
+            "expect": {
+                "alternative": "Kleine Töpfe mit Kresse, Schnittlauch und Petersilie auf einem sonnigen Balkon."
+            },
+            "set": {
+                "alternative": "Small pots of cress, chives and parsley on a sunny balcony."
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 55323,
+            "expect": {
+                "alternative": "Kleine Töpfe mit Kresse, Schnittlauch und Petersilie auf einem sonnigen Balkon."
+            },
+            "set": {
+                "alternative": "阳光充足的阳台上种着水芹、细香葱和欧芹的小花盆。"
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 55324,
+            "expect": {
+                "alternative": "Ein offenes Fenster, auf dem Fensterbrett stehen ein Eimer, ein Tuch und eine Sprühflasche."
+            },
+            "set": {
+                "alternative": "An open window with a bucket, a cloth and a spray bottle on the sill."
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 55325,
+            "expect": {
+                "alternative": "Ein offenes Fenster, auf dem Fensterbrett stehen ein Eimer, ein Tuch und eine Sprühflasche."
+            },
+            "set": {
+                "alternative": "打开的窗户，窗台上放着水桶、抹布和喷壶。"
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 55326,
+            "expect": {
+                "alternative": "Weißer und grüner Spargel auf einem Holzbrett, daneben ein Sparschäler."
+            },
+            "set": {
+                "alternative": "White and green asparagus on a wooden board next to a vegetable peeler."
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 55327,
+            "expect": {
+                "alternative": "Weißer und grüner Spargel auf einem Holzbrett, daneben ein Sparschäler."
+            },
+            "set": {
+                "alternative": "木板上的白芦笋和绿芦笋，旁边放着削皮刀。"
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 55328,
+            "expect": {
+                "alternative": "Ein Fahrrad lehnt im Vorfrühling an einem Holzzaun an einem Landweg."
+            },
+            "set": {
+                "alternative": "A bicycle leans against a wooden fence by a country lane in early spring."
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 55329,
+            "expect": {
+                "alternative": "Ein Fahrrad lehnt im Vorfrühling an einem Holzzaun an einem Landweg."
+            },
+            "set": {
+                "alternative": "早春时节，一辆自行车靠在乡间小路旁的木栅栏上。"
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 55330,
+            "expect": {
+                "alternative": "Frische Tulpen in einer Glasvase mit wenig Wasser auf einer kühlen Fensterbank."
+            },
+            "set": {
+                "alternative": "Fresh tulips in a glass vase with a little water on a cool windowsill."
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 55331,
+            "expect": {
+                "alternative": "Frische Tulpen in einer Glasvase mit wenig Wasser auf einer kühlen Fensterbank."
+            },
+            "set": {
+                "alternative": "凉爽窗台上插在玻璃花瓶里的新鲜郁金香，瓶中只有少量清水。"
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 55332,
+            "expect": {
+                "alternative": "Ein gedeckter Osterbrunch mit Brot, Eiern, Marmelade und Kaffee, von oben gesehen."
+            },
+            "set": {
+                "alternative": "An Easter brunch table with bread, eggs, jam and coffee, seen from above."
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 55333,
+            "expect": {
+                "alternative": "Ein gedeckter Osterbrunch mit Brot, Eiern, Marmelade und Kaffee, von oben gesehen."
+            },
+            "set": {
+                "alternative": "从上方看摆好的复活节早午餐桌，有面包、鸡蛋、果酱和咖啡。"
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 55334,
+            "expect": {
+                "alternative": "Eine Picknickdecke über einer zweiten, wasserdichten Unterlage auf einer Frühlingswiese, daneben Korb und Thermoskanne."
+            },
+            "set": {
+                "alternative": "A picnic blanket over a second, waterproof sheet on a spring meadow, with a basket and a thermos flask."
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 55335,
+            "expect": {
+                "alternative": "Eine Picknickdecke über einer zweiten, wasserdichten Unterlage auf einer Frühlingswiese, daneben Korb und Thermoskanne."
+            },
+            "set": {
+                "alternative": "春日草地上铺着野餐毯，下面垫着一层防水布，旁边有篮子和保温瓶。"
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 55336,
+            "expect": {
+                "alternative": "Ein goldbrauner Hefezopf frisch aus dem Ofen auf einem Backblech."
+            },
+            "set": {
+                "alternative": "A golden braided yeast loaf fresh from the oven on a baking tray."
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 55337,
+            "expect": {
+                "alternative": "Ein goldbrauner Hefezopf frisch aus dem Ofen auf einem Backblech."
+            },
+            "set": {
+                "alternative": "刚出炉的金黄色辫子面包放在烤盘上。"
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 55338,
+            "expect": {
+                "alternative": "Ein frisch gelockertes Gemüsebeet mit Grabegabel und einer Schale mit Saatgut."
+            },
+            "set": {
+                "alternative": "A freshly loosened vegetable bed with a garden fork and a bowl of seeds."
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 55339,
+            "expect": {
+                "alternative": "Ein frisch gelockertes Gemüsebeet mit Grabegabel und einer Schale mit Saatgut."
+            },
+            "set": {
+                "alternative": "刚松过土的菜畦，旁边有一把园艺叉和一碗种子。"
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 58863,
+            "expect": {
+                "alternative": "Frisch geernteter roter Rhabarber mit Blättern in einem Gartenkorb."
+            },
+            "set": {
+                "alternative": "Freshly picked red rhubarb with leaves in a garden basket."
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 58864,
+            "expect": {
+                "alternative": "Eine ruhige Straße in der Abenddämmerung im April, letztes Licht auf blühenden Bäumen."
+            },
+            "set": {
+                "alternative": "A quiet street at dusk in April, the last light on blossoming trees."
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 58885,
+            "expect": {
+                "alternative": "Frisch geernteter roter Rhabarber mit Blättern in einem Gartenkorb."
+            },
+            "set": {
+                "alternative": "花园篮子里刚采摘的带叶红色大黄。"
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 58886,
+            "expect": {
+                "alternative": "Eine ruhige Straße in der Abenddämmerung im April, letztes Licht auf blühenden Bäumen."
+            },
+            "set": {
+                "alternative": "四月黄昏时分安静的街道，最后的光线洒在开花的树上。"
+            }
+        }
+    ]
+}

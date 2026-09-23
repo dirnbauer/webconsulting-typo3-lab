@@ -1,0 +1,119 @@
+{
+    "version": 1,
+    "site": "blog-classico",
+    "root": 15,
+    "language": 0,
+    "languageCode": "de",
+    "generated": "2026-09-23T18:45:00+02:00",
+    "_note": "Post 22 used two photos whose file names say 'getty' (stock photos from the copied press material). Generated replacements show the same scenes; alt texts are unchanged, in each record's language.",
+    "records": [
+        {
+            "table": "tt_content",
+            "uid": 59,
+            "expect": {
+                "CType": "textmedia"
+            },
+            "set": {},
+            "files": {
+                "assets": [
+                    {
+                        "source": "EXT:site_package/Resources/Private/ContentImages/blog/lib-blog-classico-22-regen-terrasse-4eab9a21.webp",
+                        "folder": "1:/blog-classico/featured/",
+                        "alternative": "Eine Familie mit Kindern spielt im Regen auf einer Terrasse.",
+                        "title": ""
+                    }
+                ]
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 60,
+            "expect": {
+                "CType": "textmedia"
+            },
+            "set": {},
+            "files": {
+                "assets": [
+                    {
+                        "source": "EXT:site_package/Resources/Private/ContentImages/blog/lib-blog-classico-22-regen-spaziergang-1e787ad6.webp",
+                        "folder": "1:/blog-classico/featured/",
+                        "alternative": "Eine Familie geht gemeinsam im Regen spazieren.",
+                        "title": ""
+                    }
+                ]
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 1666,
+            "expect": {
+                "CType": "textmedia"
+            },
+            "set": {},
+            "files": {
+                "assets": [
+                    {
+                        "source": "EXT:site_package/Resources/Private/ContentImages/blog/lib-blog-classico-22-regen-terrasse-4eab9a21.webp",
+                        "folder": "1:/blog-classico/featured/",
+                        "alternative": "一家人带着孩子在露台上的雨中玩耍。",
+                        "title": ""
+                    }
+                ]
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 1675,
+            "expect": {
+                "CType": "textmedia"
+            },
+            "set": {},
+            "files": {
+                "assets": [
+                    {
+                        "source": "EXT:site_package/Resources/Private/ContentImages/blog/lib-blog-classico-22-regen-spaziergang-1e787ad6.webp",
+                        "folder": "1:/blog-classico/featured/",
+                        "alternative": "一家人一起在雨中散步。",
+                        "title": ""
+                    }
+                ]
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 1736,
+            "expect": {
+                "CType": "textmedia"
+            },
+            "set": {},
+            "files": {
+                "assets": [
+                    {
+                        "source": "EXT:site_package/Resources/Private/ContentImages/blog/lib-blog-classico-22-regen-terrasse-4eab9a21.webp",
+                        "folder": "1:/blog-classico/featured/",
+                        "alternative": "A family with children plays in the rain on a terrace.",
+                        "title": ""
+                    }
+                ]
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 1740,
+            "expect": {
+                "CType": "textmedia"
+            },
+            "set": {},
+            "files": {
+                "assets": [
+                    {
+                        "source": "EXT:site_package/Resources/Private/ContentImages/blog/lib-blog-classico-22-regen-spaziergang-1e787ad6.webp",
+                        "folder": "1:/blog-classico/featured/",
+                        "alternative": "A family goes for a walk together in the rain.",
+                        "title": ""
+                    }
+                ]
+            }
+        }
+    ]
+}
