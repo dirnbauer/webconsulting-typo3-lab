@@ -1,0 +1,346 @@
+{
+    "version": 1,
+    "site": "desiderio",
+    "root": 505,
+    "language": 0,
+    "languageCode": "en",
+    "generated": "2026-09-23T15:00:00+02:00",
+    "_note": "Clean-up: test elements, the unused English Easter news folder 566 (no plugin lists it; Blog classico has the German news on 44), and the hidden story pages that named real companies (replaced by the anonymised stories 1185-1199).",
+    "records": [
+        {
+            "table": "tt_content",
+            "uid": 7632,
+            "action": "delete",
+            "expect": {
+                "header": "test new"
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 7633,
+            "action": "delete",
+            "expect": {
+                "header": "test2d"
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 12699,
+            "action": "delete",
+            "expect": {
+                "header": "header neu staging 2"
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 13811,
+            "action": "delete",
+            "expect": {
+                "header": "test"
+            }
+        },
+        {
+            "table": "tx_news_domain_model_news",
+            "uid": 569,
+            "action": "delete",
+            "expect": {
+                "title": "Town Easter Egg Hunt Opens With Record Signups"
+            }
+        },
+        {
+            "table": "tx_news_domain_model_news",
+            "uid": 570,
+            "action": "delete",
+            "expect": {
+                "title": "Natural Egg Dye Workshop Adds Second Session"
+            }
+        },
+        {
+            "table": "tx_news_domain_model_news",
+            "uid": 571,
+            "action": "delete",
+            "expect": {
+                "title": "Local Designers Turn Easter Eggs Into Table Centerpieces"
+            }
+        },
+        {
+            "table": "tx_news_domain_model_news",
+            "uid": 572,
+            "action": "delete",
+            "expect": {
+                "title": "Chocolate Speckled Eggs Lead This Season's Sweet Picks"
+            }
+        },
+        {
+            "table": "tx_news_domain_model_news",
+            "uid": 573,
+            "action": "delete",
+            "expect": {
+                "title": "Pastel Egg Display Inspires Minimal Spring Window Trend"
+            }
+        },
+        {
+            "table": "tx_news_domain_model_news",
+            "uid": 574,
+            "action": "delete",
+            "expect": {
+                "title": "Classic Basket Styling Returns for Easter Weekend"
+            }
+        },
+        {
+            "table": "tx_news_domain_model_news",
+            "uid": 575,
+            "action": "delete",
+            "expect": {
+                "title": "Photo Series Captures Easter Eggs in Meadow Light"
+            }
+        },
+        {
+            "table": "tx_news_domain_model_news",
+            "uid": 576,
+            "action": "delete",
+            "expect": {
+                "title": "Playful Painted Faces Make Easter Crafts More Personal"
+            }
+        },
+        {
+            "table": "tx_news_domain_model_news",
+            "uid": 577,
+            "action": "delete",
+            "expect": {
+                "title": "Pastel Egg Palette Shapes This Year's Brunch Decor"
+            }
+        },
+        {
+            "table": "tx_news_domain_model_news",
+            "uid": 578,
+            "action": "delete",
+            "expect": {
+                "title": "Circular Egg Arrangements Offer a New Centerpiece Idea"
+            }
+        },
+        {
+            "table": "tx_news_domain_model_news",
+            "uid": 579,
+            "action": "delete",
+            "expect": {
+                "title": "Community Hunt Extends Route for Younger Visitors"
+            }
+        },
+        {
+            "table": "tx_news_domain_model_news",
+            "uid": 580,
+            "action": "delete",
+            "expect": {
+                "title": "Schools Share Easy Egg Dye Recipes for Holiday Break changed"
+            }
+        },
+        {
+            "table": "tx_news_domain_model_news",
+            "uid": 581,
+            "action": "delete",
+            "expect": {
+                "title": "Flat-Lay Egg Photos Become a Favorite for Spring Menus"
+            }
+        },
+        {
+            "table": "tx_news_domain_model_news",
+            "uid": 582,
+            "action": "delete",
+            "expect": {
+                "title": "Sweet Shops Build Gift Boxes Around Mini Eggs"
+            }
+        },
+        {
+            "table": "tx_news_domain_model_news",
+            "uid": 583,
+            "action": "delete",
+            "expect": {
+                "title": "Window Designers Favor Repetition Over Heavy Ornament"
+            }
+        },
+        {
+            "table": "tx_news_domain_model_news",
+            "uid": 584,
+            "action": "delete",
+            "expect": {
+                "title": "Basket Makers See Early Easter Demand From Local Markets"
+            }
+        },
+        {
+            "table": "tx_news_domain_model_news",
+            "uid": 585,
+            "action": "delete",
+            "expect": {
+                "title": "Outdoor Egg Setups Bring More Texture to Easter Photos"
+            }
+        },
+        {
+            "table": "tx_news_domain_model_news",
+            "uid": 586,
+            "action": "delete",
+            "expect": {
+                "title": "Children's Craft Tables Fill With Character Eggs Again"
+            }
+        },
+        {
+            "table": "tx_news_domain_model_news",
+            "uid": 587,
+            "action": "delete",
+            "expect": {
+                "title": "Soft Color Stories Continue to Lead Easter Styling"
+            }
+        },
+        {
+            "table": "tx_news_domain_model_news",
+            "uid": 588,
+            "action": "delete",
+            "expect": {
+                "title": "Round Egg Layouts Prove Popular for Small Gatherings dirnbauer"
+            }
+        },
+        {
+            "table": "pages",
+            "uid": 566,
+            "action": "delete",
+            "expect": {
+                "title": "News Data"
+            }
+        },
+        {
+            "table": "pages",
+            "uid": 1153,
+            "action": "delete",
+            "expect": {
+                "title": "What if Anthropic ran on TYPO3?",
+                "hidden": 1
+            }
+        },
+        {
+            "table": "pages",
+            "uid": 1154,
+            "action": "delete",
+            "expect": {
+                "title": "What if SpaceX ran on TYPO3?",
+                "hidden": 1
+            }
+        },
+        {
+            "table": "pages",
+            "uid": 1155,
+            "action": "delete",
+            "expect": {
+                "title": "What if OpenAI ran on TYPO3?",
+                "hidden": 1
+            }
+        },
+        {
+            "table": "pages",
+            "uid": 1156,
+            "action": "delete",
+            "expect": {
+                "title": "What if NASA ran on TYPO3?",
+                "hidden": 1
+            }
+        },
+        {
+            "table": "pages",
+            "uid": 1157,
+            "action": "delete",
+            "expect": {
+                "title": "What if Netflix ran on TYPO3?",
+                "hidden": 1
+            }
+        },
+        {
+            "table": "pages",
+            "uid": 1158,
+            "action": "delete",
+            "expect": {
+                "title": "What if Nintendo ran on TYPO3?",
+                "hidden": 1
+            }
+        },
+        {
+            "table": "pages",
+            "uid": 1159,
+            "action": "delete",
+            "expect": {
+                "title": "What if LEGO ran on TYPO3?",
+                "hidden": 1
+            }
+        },
+        {
+            "table": "pages",
+            "uid": 1160,
+            "action": "delete",
+            "expect": {
+                "title": "What if IKEA ran on TYPO3?",
+                "hidden": 1
+            }
+        },
+        {
+            "table": "pages",
+            "uid": 1161,
+            "action": "delete",
+            "expect": {
+                "title": "What if Spotify ran on TYPO3?",
+                "hidden": 1
+            }
+        },
+        {
+            "table": "pages",
+            "uid": 1162,
+            "action": "delete",
+            "expect": {
+                "title": "What if Stripe ran on TYPO3?",
+                "hidden": 1
+            }
+        },
+        {
+            "table": "pages",
+            "uid": 1163,
+            "action": "delete",
+            "expect": {
+                "title": "What if Duolingo ran on TYPO3?",
+                "hidden": 1
+            }
+        },
+        {
+            "table": "pages",
+            "uid": 1164,
+            "action": "delete",
+            "expect": {
+                "title": "What if Wikipedia ran on TYPO3?",
+                "hidden": 1
+            }
+        },
+        {
+            "table": "pages",
+            "uid": 1165,
+            "action": "delete",
+            "expect": {
+                "title": "What if Red Bull ran on TYPO3?",
+                "hidden": 1
+            }
+        },
+        {
+            "table": "pages",
+            "uid": 1166,
+            "action": "delete",
+            "expect": {
+                "title": "What if CERN ran on TYPO3?",
+                "hidden": 1
+            }
+        },
+        {
+            "table": "pages",
+            "uid": 1167,
+            "action": "delete",
+            "expect": {
+                "title": "What if Pixar ran on TYPO3?",
+                "hidden": 1
+            }
+        }
+    ]
+}
