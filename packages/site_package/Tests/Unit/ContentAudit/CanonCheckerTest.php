@@ -95,6 +95,7 @@ final class CanonCheckerTest extends TestCase
         self::assertContains('spelling', $this->rules($this->errors('Pick a color for the element.', FieldRole::Card)));
         self::assertNotContains('spelling', $this->rules($this->errors(\Webconsulting\SitePackage\ContentAudit\CopyMetrics::plainText('<p>Pass <code>organization</code> in the URL.</p>'), FieldRole::Card)));
         self::assertNotContains('spelling', $this->rules($this->errors('The WorkOS Account Center lists every session.', FieldRole::Card)));
+        self::assertNotContains('spelling', $this->rules($this->errors("GET /v2/sites/17/rota\nAuthorization: Bearer <token>", FieldRole::Card)));
     }
 
     public function testSkippedFieldsAreNotChecked(): void
