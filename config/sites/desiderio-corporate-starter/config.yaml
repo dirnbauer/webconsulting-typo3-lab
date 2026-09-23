@@ -7,7 +7,8 @@ dependencies:
   - webconsulting/site-package-search
   - webconsulting/desiderio-preset-corporate
   - webconsulting/skillflow-solr
-  - webconsulting/agent-nexus-desiderio
+  - webconsulting/agent-nexus
+  - webconsulting/desiderio
 solr_enabled_read: true
 solr_host_read: typo3-solr
 solr_path_read: /

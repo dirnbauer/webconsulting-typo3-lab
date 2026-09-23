@@ -12,7 +12,7 @@ dependencies:
   - webconsulting/desiderio-preset-corporate
   - webconsulting/innesto
   - webconsulting/site-package-workos
-  - webconsulting/agent-nexus-desiderio
+  - webconsulting/agent-nexus
 errorHandling:
   -
     errorCode: 404

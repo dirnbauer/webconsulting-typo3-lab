@@ -5,9 +5,10 @@ baseVariants:
     condition: 'applicationContext == "Production"'
 dependencies:
   # The plain agent-nexus set only wraps the plugins; Desiderio supplies
-  # page = PAGE and the shadcn/ui page layouts.
+  # page = PAGE and the shadcn/ui page layouts. (agent-nexus 4 deprecated the
+  # agent-nexus-desiderio set that used to pull these two in.)
   - webconsulting/agent-nexus
-  - webconsulting/agent-nexus-desiderio
+  - webconsulting/desiderio
   - webconsulting/desiderio-shadcnui-templates
 errorHandling: {  }
 languages:
