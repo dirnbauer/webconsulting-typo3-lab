@@ -35,7 +35,7 @@ case "${SUITE}" in
         vendor/bin/phpstan analyse --configuration=Build/phpstan/phpstan.neon --memory-limit=512M --no-progress
         ;;
     phpLint|lint)
-        find packages/site_package packages/skillspector -name '*.php' -not -path '*/vendor/*' -print0 \
+        find packages/site_package -name '*.php' -not -path '*/vendor/*' -print0 \
             | xargs -0 -n 1 php -l
         ;;
     unit)

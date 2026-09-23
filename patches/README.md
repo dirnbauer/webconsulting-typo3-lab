@@ -17,32 +17,31 @@ and reinstall the affected dependency instead.
 
 ## Forked dependencies
 
-`studiomitte/friendlycaptcha` and `studiomitte/solr-numbered-pagination` are installed from
-our own forks (`github.com/dirnbauer/*`), not from upstream.
+Four third-party extensions are installed from our own forks
+(`github.com/dirnbauer/*`, mirrored to gitlab.webconsulting.at), because upstream
+has no release that works on our TYPO3 14 line. We pull upstream changes in; we
+never push, open pull requests or comment upstream.
 
-FriendlyCaptcha: upstream 2.3.0 declares TYPO3 14.3 support, but its Powermail validator calls
-`$mail->getForm()->getPages()` without resolving Extbase lazy proxies and reads the plugin
-FlexForm without a null guard, while Powermail 14 annotates `Mail::$form`, `Form::$pages` and
-`Page::$fields` as `@Lazy` and hands out the proxy unresolved. The fork carries both fixes.
+| Package | Fork, constraint | Why |
+| --- | --- | --- |
+| `in2code/powermail` | `dirnbauer/powermail`, `~14.0.3.3` | in2code's TYPO3 14 line is a paid early-access programme; the fork is our v14 port (no v14.3 deprecations since 14.0.3.2, lazy form relations again since 14.0.3.3). |
+| `in2code/powermail_cond` | `dirnbauer/powermail_cond`, `dev-typo3-v14` | Same situation; the fork adds the `EvaluateRuleEvent` seam webcon_jev uses. |
+| `studiomitte/friendlycaptcha` | `dirnbauer/friendlycaptcha-typo3`, `~2.3.0.1` | Upstream 2.3.0 declares TYPO3 14.3, but its Powermail validator never resolves the Extbase lazy proxies Powermail 14 returns and reads the plugin FlexForm without a null guard. Since 2026-09-23 the fork is upstream 2.3.0 plus that fix (16 files differ, down from 68). |
+| `studiomitte/solr-numbered-pagination` | `dirnbauer/solr_numbered_pagination`, `dev-main` | Upstream supports TYPO3 14 only on an untagged `main`; the fork carries it with a guard for the pagination type EXT:solr 14 hands to the event. |
 
-Solr numbered pagination: upstream has no tagged release supporting TYPO3 14 — the newest tag,
-1.0.4, caps at TYPO3 13.4 and EXT:solr 13. Support exists only on upstream `main`, and consuming
-a moving branch would leave the lab unpinned, so the fork carries it with a guard for the
-pagination type EXT:solr 14 hands to the event.
-
-We do not contribute these changes upstream.
+**Tags.** Our fork releases are four-part tags, `<upstream line>.<our revision>`
+(`14.0.3.3`, `2.3.0.1`), consumed with `~` so Composer can only pick our revisions
+(`~14.0.3.3` = `>=14.0.3.3 <14.0.4`). A `+build` suffix does not work: Composer
+drops it and then prefers an upstream tag without our fixes. Every clone's
+`upstream` remote is fetched with `--no-tags`.
 
 ## Patched dependencies
 
-`supseven/inline-page-module` 4.0.2 is the newest release and predates TYPO3
-14.3.7, which appended a sixteenth constructor argument to
-`PageLayoutController`. The extension's subclass still calls the parent with
-fifteen, so the Page module answered every request with an `ArgumentCountError`.
-The patch passes the argument through. Remove it once a release supports
-14.3.7.
-
 `typo3/cms-core` keeps the workspace move-pointer guard: 14.3.7 still reads the
 live record without checking that the query returned one.
+
+`supseven/inline-page-module` needed a constructor patch for 14.3.7 until 4.0.3,
+which passes the new `RecordIdentityRenderer` argument itself; the patch is gone.
 
 ## Workflow
 

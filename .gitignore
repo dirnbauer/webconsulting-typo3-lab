@@ -24,7 +24,6 @@ scripts/*
 # them from GitHub; link a clone into vendor/ with Build/Scripts/lab-link.sh while developing.
 /packages/*/
 !/packages/site_package/
-!/packages/skillspector/
 /.ddev/traefik/
 /backup-*/
 /.tarballs/*

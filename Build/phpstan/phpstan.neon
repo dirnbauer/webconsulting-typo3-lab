@@ -8,7 +8,6 @@ parameters:
         - ../../packages/site_package/Classes
         - ../../packages/site_package/Configuration/RequestMiddlewares.php
         - ../../packages/site_package/Build/Scripts/lint-copy.php
-        - ../../packages/skillspector/Classes
     excludePaths:
         analyseAndScan:
             - ../../vendor

@@ -24,9 +24,7 @@ config/system/settings.php
 npm-debug.log*
 
 # Local checkouts of separately versioned extensions. Production installs the
-# locked Git revisions through Composer instead of copying these worktrees.
-packages/abilities
-packages/agent_nexus
-packages/llms_txt
-packages/skillflow
-packages/visual_editor_enhancements
+# locked Git revisions through Composer instead of copying these worktrees; only
+# the site package is a path repository that the image needs.
+packages/*
+!packages/site_package

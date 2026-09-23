@@ -1,5 +1,5 @@
 {
-    "_hash": "1f39d0c31798806104d0dbf0153519ceb6e488978da2ccf7cc62f17b3e1508c1",
+    "_hash": "6cac1ab216ce7df26168d18b72f81712dac1390c12cef819e67f61d10ef13f29",
     "patches": {
         "apache-solr-for-typo3/solr": [
             {
@@ -19,18 +19,6 @@
                 "description": "Guard workspace move-pointer overlay when the live record is missing",
                 "url": "patches/typo3-cms-core-fix-workspace-move-pointer-missing-live-record.patch",
                 "sha256": "3e68ab3ee23f72eb894d0f55025a728bd2813275709d3a9a132145beed4feea3",
-                "depth": 1,
-                "extra": {
-                    "provenance": "root"
-                }
-            }
-        ],
-        "supseven/inline-page-module": [
-            {
-                "package": "supseven/inline-page-module",
-                "description": "Pass the record identity renderer TYPO3 14.3.7 added to PageLayoutController",
-                "url": "patches/supseven-inline-page-module-typo3-14.3.7-constructor.patch",
-                "sha256": "59825d1e83e88fc0ae5ed9430ef864fef886c2a665c9a7daed57aff8cdb8314a",
                 "depth": 1,
                 "extra": {
                     "provenance": "root"
