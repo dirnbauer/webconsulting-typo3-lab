@@ -44,6 +44,7 @@ languages:
     flag: de
     iso-639-1: de
     fallbackType: fallback
+    fallbacks: '0'
     solr_core_read: core_de
   -
     languageId: 2
@@ -54,6 +55,7 @@ languages:
     flag: cn
     iso-639-1: zh
     fallbackType: fallback
+    fallbacks: '0'
     solr_core_read: core_zh
   -
     languageId: 3
@@ -64,9 +66,16 @@ languages:
     flag: hu
     iso-639-1: hu
     fallbackType: fallback
+    fallbacks: '0'
     solr_core_read: core_hu
 rootPageId: 505
 routeEnhancers:
+  # EXT:blog's post list pager (imported below) claims /page-{page} on every
+  # page, so /news/page-2/ resolved to the blog pager and the news list stayed
+  # on page 1. The blog post list lives on the success stories page only.
+  BlogPosts:
+    limitToPages:
+      - 987
   SolrSearch:
     type: SolrFacetMaskAndCombineEnhancer
     extensionKey: tx_solr

@@ -28,6 +28,7 @@ languages:
     flag: us
     iso-639-1: en
     fallbackType: fallback
+    fallbacks: '0'
     solr_core_read: core_en
   -
     title: Chinese
@@ -39,6 +40,7 @@ languages:
     flag: cn
     iso-639-1: zh
     fallbackType: fallback
+    fallbacks: '0'
     solr_core_read: core_zh
 rootPageId: 15
 routeEnhancers:
