@@ -15,9 +15,9 @@
                 "description": "News overview page for Easter egg articles."
             },
             "set": {
-                "title": "News",
-                "subtitle": "Easter egg stories",
-                "description": "News overview page for Easter egg articles."
+                "title": "Neuigkeiten",
+                "subtitle": "Meldungen rund ums Osterei",
+                "description": "Neuigkeiten rund ums Osterei: Eiersuchen im Ort, Workshops zum Eierfärben und Ideen für Körbe und Tischdeko. Alle Meldungen stehen auf dieser Seite."
             },
             "_context": {
                 "page": 43,
@@ -40,11 +40,7 @@
                 "description": "<p>test</p>",
                 "reassurance": "call me"
             },
-            "set": {
-                "header": "test",
-                "description": "<p>test</p>",
-                "reassurance": "call me"
-            },
+            "action": "delete",
             "_context": {
                 "page": 43,
                 "pageTitle": "News",
@@ -65,7 +61,8 @@
                 "header": "Easter Egg News"
             },
             "set": {
-                "header": "Easter Egg News"
+                "header": "Neues rund ums Osterei",
+                "pages": "44"
             },
             "_context": {
                 "page": 43,

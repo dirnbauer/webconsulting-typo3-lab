@@ -13,7 +13,8 @@
                 "title": "Blog classico"
             },
             "set": {
-                "title": "Blog classico"
+                "title": "Blog classico",
+                "description": "Blog classico schreibt über Frühling, Ostern und den Alltag: Ideen für Deko, Spaziergänge, Zeit mit der Familie und ruhige Feiertage."
             },
             "_context": {
                 "page": 15,
@@ -23,6 +24,23 @@
                 "roles": {
                     "title": "page_title"
                 }
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 7562,
+            "expect": {
+                "CType": "desiderio_chart",
+                "header": ""
+            },
+            "action": "delete",
+            "_context": {
+                "page": 15,
+                "pageTitle": "Blog classico",
+                "element": 7562,
+                "type": "desiderio_chart",
+                "roles": {},
+                "note": "test leftover: untitled chart with placeholder data (Jan 186, Feb 305)"
             }
         }
     ]

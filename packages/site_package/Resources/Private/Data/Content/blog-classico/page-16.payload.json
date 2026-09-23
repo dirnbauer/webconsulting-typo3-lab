@@ -13,7 +13,7 @@
                 "title": "Data"
             },
             "set": {
-                "title": "Data"
+                "title": "Daten"
             },
             "_context": {
                 "page": 16,
@@ -32,10 +32,7 @@
                 "title": "This is testing typo3 camp",
                 "teaser": "test teaser"
             },
-            "set": {
-                "title": "This is testing typo3 camp",
-                "teaser": "test teaser"
-            },
+            "action": "delete",
             "_context": {
                 "page": 16,
                 "pageTitle": "Data",
@@ -44,6 +41,238 @@
                 "roles": {
                     "title": "headline",
                     "teaser": "lead"
+                }
+            }
+        },
+        {
+            "table": "tx_news_domain_model_news",
+            "uid": 594,
+            "expect": {
+                "title": "API Studio BE token image lang"
+            },
+            "action": "delete",
+            "_context": {
+                "page": 16,
+                "pageTitle": "Data",
+                "element": 594,
+                "type": "tx_news_domain_model_news",
+                "roles": {},
+                "note": "test leftover: hidden API smoke-test news"
+            }
+        },
+        {
+            "table": "tx_blog_domain_model_tag",
+            "uid": 3,
+            "expect": {
+                "title": "Easter"
+            },
+            "set": {
+                "title": "Ostern"
+            },
+            "_context": {
+                "page": 16,
+                "pageTitle": "Data",
+                "element": 3,
+                "type": "tx_blog_domain_model_tag",
+                "roles": {
+                    "title": "badge"
+                }
+            }
+        },
+        {
+            "table": "tx_blog_domain_model_tag",
+            "uid": 4,
+            "expect": {
+                "title": "Spring"
+            },
+            "set": {
+                "title": "Frühling"
+            },
+            "_context": {
+                "page": 16,
+                "pageTitle": "Data",
+                "element": 4,
+                "type": "tx_blog_domain_model_tag",
+                "roles": {
+                    "title": "badge"
+                }
+            }
+        },
+        {
+            "table": "tx_blog_domain_model_tag",
+            "uid": 5,
+            "expect": {
+                "title": "Weather"
+            },
+            "set": {
+                "title": "Wetter"
+            },
+            "_context": {
+                "page": 16,
+                "pageTitle": "Data",
+                "element": 5,
+                "type": "tx_blog_domain_model_tag",
+                "roles": {
+                    "title": "badge"
+                }
+            }
+        },
+        {
+            "table": "tx_blog_domain_model_tag",
+            "uid": 6,
+            "expect": {
+                "title": "Eggs"
+            },
+            "set": {
+                "title": "Eier"
+            },
+            "_context": {
+                "page": 16,
+                "pageTitle": "Data",
+                "element": 6,
+                "type": "tx_blog_domain_model_tag",
+                "roles": {
+                    "title": "badge"
+                }
+            }
+        },
+        {
+            "table": "tx_blog_domain_model_tag",
+            "uid": 7,
+            "expect": {
+                "title": "Rabbit"
+            },
+            "set": {
+                "title": "Hasen"
+            },
+            "_context": {
+                "page": 16,
+                "pageTitle": "Data",
+                "element": 7,
+                "type": "tx_blog_domain_model_tag",
+                "roles": {
+                    "title": "badge"
+                }
+            }
+        },
+        {
+            "table": "tx_blog_domain_model_tag",
+            "uid": 8,
+            "expect": {
+                "title": "Sheep"
+            },
+            "set": {
+                "title": "Schafe"
+            },
+            "_context": {
+                "page": 16,
+                "pageTitle": "Data",
+                "element": 8,
+                "type": "tx_blog_domain_model_tag",
+                "roles": {
+                    "title": "badge"
+                }
+            }
+        },
+        {
+            "table": "tx_blog_domain_model_tag",
+            "uid": 9,
+            "expect": {
+                "title": "Connection"
+            },
+            "set": {
+                "title": "Miteinander"
+            },
+            "_context": {
+                "page": 16,
+                "pageTitle": "Data",
+                "element": 9,
+                "type": "tx_blog_domain_model_tag",
+                "roles": {
+                    "title": "badge"
+                }
+            }
+        },
+        {
+            "table": "tx_blog_domain_model_tag",
+            "uid": 10,
+            "expect": {
+                "title": "Family"
+            },
+            "set": {
+                "title": "Familie"
+            },
+            "_context": {
+                "page": 16,
+                "pageTitle": "Data",
+                "element": 10,
+                "type": "tx_blog_domain_model_tag",
+                "roles": {
+                    "title": "badge"
+                }
+            }
+        },
+        {
+            "table": "tx_blog_domain_model_tag",
+            "uid": 11,
+            "expect": {
+                "title": "Decor"
+            },
+            "set": {
+                "title": "Deko"
+            },
+            "_context": {
+                "page": 16,
+                "pageTitle": "Data",
+                "element": 11,
+                "type": "tx_blog_domain_model_tag",
+                "roles": {
+                    "title": "badge"
+                }
+            }
+        },
+        {
+            "table": "tx_blog_domain_model_tag",
+            "uid": 15,
+            "expect": {
+                "title": "shadcn UI"
+            },
+            "set": {
+                "title": "shadcn/ui"
+            },
+            "_context": {
+                "page": 16,
+                "pageTitle": "Data",
+                "element": 15,
+                "type": "tx_blog_domain_model_tag",
+                "roles": {
+                    "title": "badge"
+                }
+            }
+        },
+        {
+            "table": "tx_blog_domain_model_author",
+            "uid": 6,
+            "expect": {
+                "name": "Webconsulting TYPO3 Team",
+                "title": "TYPO3 integrators",
+                "location": "Austria",
+                "bio": "TYPO3 implementation team maintaining the Desiderio shadcn Blog templates."
+            },
+            "set": {
+                "title": "TYPO3-Integratoren",
+                "location": "Österreich",
+                "bio": "Das TYPO3-Team von webconsulting pflegt die Blog-Vorlagen von Desiderio."
+            },
+            "_context": {
+                "page": 16,
+                "pageTitle": "Data",
+                "element": 6,
+                "type": "tx_blog_domain_model_author",
+                "roles": {
+                    "title": "eyebrow",
+                    "location": "eyebrow",
+                    "bio": "card"
                 }
             }
         }

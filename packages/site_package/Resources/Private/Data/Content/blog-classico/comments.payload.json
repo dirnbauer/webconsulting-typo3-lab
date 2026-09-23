@@ -1,0 +1,286 @@
+{
+    "version": 1,
+    "site": "blog-classico",
+    "root": 15,
+    "language": 0,
+    "languageCode": "de",
+    "generated": "2026-09-23T12:00:00+02:00",
+    "records": [
+        {
+            "table": "tx_blog_domain_model_comment",
+            "uid": 2,
+            "expect": {
+                "name": "Webconsulting QA",
+                "comment": "Seeded comment for checking the Blog comment counter, comment list, and shadcn metadata links."
+            },
+            "set": {
+                "name": "Webconsulting-Team",
+                "comment": "Dies ist ein Beispielkommentar. Sie können jeden Beitrag kommentieren. Die Redaktion prüft jeden Kommentar, bevor er erscheint."
+            }
+        },
+        {
+            "table": "tx_blog_domain_model_comment",
+            "uid": 5,
+            "expect": {
+                "name": "Webconsulting QA",
+                "comment": "Seeded comment for checking the Blog comment counter, comment list, and shadcn metadata links."
+            },
+            "set": {
+                "name": "Webconsulting-Team",
+                "comment": "Dies ist ein Beispielkommentar. Sie können jeden Beitrag kommentieren. Die Redaktion prüft jeden Kommentar, bevor er erscheint."
+            }
+        },
+        {
+            "table": "tx_blog_domain_model_comment",
+            "uid": 6,
+            "expect": {
+                "name": "Webconsulting QA",
+                "comment": "Seeded comment for checking the Blog comment counter, comment list, and shadcn metadata links."
+            },
+            "set": {
+                "name": "Webconsulting-Team",
+                "comment": "Dies ist ein Beispielkommentar. Sie können jeden Beitrag kommentieren. Die Redaktion prüft jeden Kommentar, bevor er erscheint."
+            }
+        },
+        {
+            "table": "tx_blog_domain_model_comment",
+            "uid": 12,
+            "expect": {
+                "name": "Webconsulting QA",
+                "comment": "Seeded comment for checking the Blog comment counter, comment list, and shadcn metadata links."
+            },
+            "set": {
+                "name": "Webconsulting-Team",
+                "comment": "Dies ist ein Beispielkommentar. Sie können jeden Beitrag kommentieren. Die Redaktion prüft jeden Kommentar, bevor er erscheint."
+            }
+        },
+        {
+            "table": "tx_blog_domain_model_comment",
+            "uid": 14,
+            "expect": {
+                "name": "Webconsulting QA",
+                "comment": "Seeded comment for checking the Blog comment counter, comment list, and shadcn metadata links."
+            },
+            "set": {
+                "name": "Webconsulting-Team",
+                "comment": "Dies ist ein Beispielkommentar. Sie können jeden Beitrag kommentieren. Die Redaktion prüft jeden Kommentar, bevor er erscheint."
+            }
+        },
+        {
+            "table": "tx_blog_domain_model_comment",
+            "uid": 16,
+            "expect": {
+                "name": "Webconsulting QA",
+                "comment": "Seeded comment for checking the Blog comment counter, comment list, and shadcn metadata links."
+            },
+            "set": {
+                "name": "Webconsulting-Team",
+                "comment": "Dies ist ein Beispielkommentar. Sie können jeden Beitrag kommentieren. Die Redaktion prüft jeden Kommentar, bevor er erscheint."
+            }
+        },
+        {
+            "table": "tx_blog_domain_model_comment",
+            "uid": 17,
+            "expect": {
+                "name": "Webconsulting QA",
+                "comment": "Seeded comment for checking the Blog comment counter, comment list, and shadcn metadata links."
+            },
+            "set": {
+                "name": "Webconsulting-Team",
+                "comment": "Dies ist ein Beispielkommentar. Sie können jeden Beitrag kommentieren. Die Redaktion prüft jeden Kommentar, bevor er erscheint."
+            }
+        },
+        {
+            "table": "tx_blog_domain_model_comment",
+            "uid": 19,
+            "expect": {
+                "name": "Webconsulting QA",
+                "comment": "Seeded comment for checking the Blog comment counter, comment list, and shadcn metadata links."
+            },
+            "set": {
+                "name": "Webconsulting-Team",
+                "comment": "Dies ist ein Beispielkommentar. Sie können jeden Beitrag kommentieren. Die Redaktion prüft jeden Kommentar, bevor er erscheint."
+            }
+        },
+        {
+            "table": "tx_blog_domain_model_comment",
+            "uid": 20,
+            "expect": {
+                "name": "Webconsulting QA",
+                "comment": "Seeded comment for checking the Blog comment counter, comment list, and shadcn metadata links."
+            },
+            "set": {
+                "name": "Webconsulting-Team",
+                "comment": "Dies ist ein Beispielkommentar. Sie können jeden Beitrag kommentieren. Die Redaktion prüft jeden Kommentar, bevor er erscheint."
+            }
+        },
+        {
+            "table": "tx_blog_domain_model_comment",
+            "uid": 21,
+            "expect": {
+                "name": "Webconsulting QA",
+                "comment": "Seeded comment for checking the Blog comment counter, comment list, and shadcn metadata links."
+            },
+            "set": {
+                "name": "Webconsulting-Team",
+                "comment": "Dies ist ein Beispielkommentar. Sie können jeden Beitrag kommentieren. Die Redaktion prüft jeden Kommentar, bevor er erscheint."
+            }
+        },
+        {
+            "table": "tx_blog_domain_model_comment",
+            "uid": 22,
+            "expect": {
+                "name": "Webconsulting QA",
+                "comment": "Seeded comment for checking the Blog comment counter, comment list, and shadcn metadata links."
+            },
+            "set": {
+                "name": "Webconsulting-Team",
+                "comment": "Dies ist ein Beispielkommentar. Sie können jeden Beitrag kommentieren. Die Redaktion prüft jeden Kommentar, bevor er erscheint."
+            }
+        },
+        {
+            "table": "tx_blog_domain_model_comment",
+            "uid": 23,
+            "expect": {
+                "name": "Webconsulting QA",
+                "comment": "Seeded comment for checking the Blog comment counter, comment list, and shadcn metadata links."
+            },
+            "set": {
+                "name": "Webconsulting-Team",
+                "comment": "Dies ist ein Beispielkommentar. Sie können jeden Beitrag kommentieren. Die Redaktion prüft jeden Kommentar, bevor er erscheint."
+            }
+        },
+        {
+            "table": "tx_blog_domain_model_comment",
+            "uid": 24,
+            "expect": {
+                "name": "Webconsulting QA",
+                "comment": "Seeded comment for checking the Blog comment counter, comment list, and shadcn metadata links."
+            },
+            "set": {
+                "name": "Webconsulting-Team",
+                "comment": "Dies ist ein Beispielkommentar. Sie können jeden Beitrag kommentieren. Die Redaktion prüft jeden Kommentar, bevor er erscheint."
+            }
+        },
+        {
+            "table": "tx_blog_domain_model_comment",
+            "uid": 25,
+            "expect": {
+                "name": "Webconsulting QA",
+                "comment": "Seeded comment for checking the Blog comment counter, comment list, and shadcn metadata links."
+            },
+            "set": {
+                "name": "Webconsulting-Team",
+                "comment": "Dies ist ein Beispielkommentar. Sie können jeden Beitrag kommentieren. Die Redaktion prüft jeden Kommentar, bevor er erscheint."
+            }
+        },
+        {
+            "table": "tx_blog_domain_model_comment",
+            "uid": 27,
+            "expect": {
+                "name": "Webconsulting QA",
+                "comment": "Seeded comment for checking the Blog comment counter, comment list, and shadcn metadata links."
+            },
+            "set": {
+                "name": "Webconsulting-Team",
+                "comment": "Dies ist ein Beispielkommentar. Sie können jeden Beitrag kommentieren. Die Redaktion prüft jeden Kommentar, bevor er erscheint."
+            }
+        },
+        {
+            "table": "tx_blog_domain_model_comment",
+            "uid": 28,
+            "expect": {
+                "name": "Webconsulting QA",
+                "comment": "Seeded comment for checking the Blog comment counter, comment list, and shadcn metadata links."
+            },
+            "set": {
+                "name": "Webconsulting-Team",
+                "comment": "Dies ist ein Beispielkommentar. Sie können jeden Beitrag kommentieren. Die Redaktion prüft jeden Kommentar, bevor er erscheint."
+            }
+        },
+        {
+            "table": "tx_blog_domain_model_comment",
+            "uid": 29,
+            "expect": {
+                "name": "Webconsulting QA",
+                "comment": "Seeded comment for checking the Blog comment counter, comment list, and shadcn metadata links."
+            },
+            "set": {
+                "name": "Webconsulting-Team",
+                "comment": "Dies ist ein Beispielkommentar. Sie können jeden Beitrag kommentieren. Die Redaktion prüft jeden Kommentar, bevor er erscheint."
+            }
+        },
+        {
+            "table": "tx_blog_domain_model_comment",
+            "uid": 30,
+            "expect": {
+                "name": "Webconsulting QA",
+                "comment": "Seeded comment for checking the Blog comment counter, comment list, and shadcn metadata links."
+            },
+            "set": {
+                "name": "Webconsulting-Team",
+                "comment": "Dies ist ein Beispielkommentar. Sie können jeden Beitrag kommentieren. Die Redaktion prüft jeden Kommentar, bevor er erscheint."
+            }
+        },
+        {
+            "table": "tx_blog_domain_model_comment",
+            "uid": 31,
+            "expect": {
+                "name": "Webconsulting QA",
+                "comment": "Seeded comment for checking the Blog comment counter, comment list, and shadcn metadata links."
+            },
+            "set": {
+                "name": "Webconsulting-Team",
+                "comment": "Dies ist ein Beispielkommentar. Sie können jeden Beitrag kommentieren. Die Redaktion prüft jeden Kommentar, bevor er erscheint."
+            }
+        },
+        {
+            "table": "tx_blog_domain_model_comment",
+            "uid": 32,
+            "expect": {
+                "name": "Webconsulting QA",
+                "comment": "Seeded comment for checking the Blog comment counter, comment list, and shadcn metadata links."
+            },
+            "set": {
+                "name": "Webconsulting-Team",
+                "comment": "Dies ist ein Beispielkommentar. Sie können jeden Beitrag kommentieren. Die Redaktion prüft jeden Kommentar, bevor er erscheint."
+            }
+        },
+        {
+            "table": "tx_blog_domain_model_comment",
+            "uid": 33,
+            "expect": {
+                "name": "Webconsulting QA",
+                "comment": "Seeded comment for checking the Blog comment counter, comment list, and shadcn metadata links."
+            },
+            "set": {
+                "name": "Webconsulting-Team",
+                "comment": "Dies ist ein Beispielkommentar. Sie können jeden Beitrag kommentieren. Die Redaktion prüft jeden Kommentar, bevor er erscheint."
+            }
+        },
+        {
+            "table": "tx_blog_domain_model_comment",
+            "uid": 34,
+            "expect": {
+                "name": "Webconsulting QA",
+                "comment": "Seeded comment for checking the Blog comment counter, comment list, and shadcn metadata links."
+            },
+            "set": {
+                "name": "Webconsulting-Team",
+                "comment": "Dies ist ein Beispielkommentar. Sie können jeden Beitrag kommentieren. Die Redaktion prüft jeden Kommentar, bevor er erscheint."
+            }
+        },
+        {
+            "table": "tx_blog_domain_model_comment",
+            "uid": 35,
+            "expect": {
+                "name": "Webconsulting QA",
+                "comment": "Seeded comment for checking the Blog comment counter, comment list, and shadcn metadata links."
+            },
+            "set": {
+                "name": "Webconsulting-Team",
+                "comment": "Dies ist ein Beispielkommentar. Sie können jeden Beitrag kommentieren. Die Redaktion prüft jeden Kommentar, bevor er erscheint."
+            }
+        }
+    ]
+}
