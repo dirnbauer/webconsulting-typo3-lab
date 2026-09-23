@@ -52,7 +52,7 @@ enum FieldRole: string
             };
         }
 
-        if (preg_match('/(^|_)(icon|variant|style|layout|color|colour|alignment|align|position|size|anchor|id|uid|url|href|link|email|phone|tel|slug|class|target|type|format|mode|theme|preset|ratio|lang|language|code|html|svg|embed|iframe|video_id|provider|key|token|hash|date|time|timestamp|datetime|number|value_raw|lat|lng|latitude|longitude|zoom|data|series|dataset|json)$/', $name) === 1
+        if (preg_match('/(^|_)(icon|variant|style|layout|color|colour|alignment|align|position|size|anchor|id|uid|url|href|link|email|phone|tel|slug|class|target|type|format|mode|theme|preset|ratio|lang|language|code|html|svg|embed|iframe|video_id|provider|key|token|hash|date|time|timestamp|datetime|number|value_raw|lat|lng|latitude|longitude|zoom|data|series|dataset|json|autocomplete\w*)$/', $name) === 1
             && preg_match('/(text|label|title|caption)$/', $name) !== 1) {
             return self::Skip;
         }

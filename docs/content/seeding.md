@@ -15,7 +15,7 @@ gone after the next reseed. The style guide for the text itself is
 | Corporate starter (740) | `packages/desiderio/Classes/Data/StarterSiteDefinitions.php` | `desiderio:starter:seed` |
 | Astryx (1290) | `packages/astryx_typo3`: `Classes/Data/AstryxSiteDefinitions.php`, per element `fixture.json` | `astryx-typo3:site:seed --content` |
 | Agent Nexus (1400) | `packages/agent_nexus`: `SeedSiteCommand.php`, FlexForm defaults, catalogs, XLIFF | `agentnexus:seed-site` |
-| Demo posts on the version 14 blog (69) and THE TYPO3 Blog (390) | `packages/desiderio/Classes/Data/BlogDemoPostDefinitions.php` | `desiderio:blog:seed-pages --root=<uid>` |
+| Demo posts on the TYPO3 v14 blog (69) and The TYPO3 blog (390) | `packages/desiderio/Classes/Data/BlogDemoPostDefinitions.php` | `desiderio:blog:seed-pages --root=<uid>` |
 | Camp (933, German), Blog classico (15), the rest of 69 and 390, Camino (99) | payloads in `packages/site_package/Resources/Private/Data/Content/<site>/` | `sitepackage:content:apply` |
 | Camp translations (en/zh/hu) | `packages/site_package/Resources/Private/Data/mtug-camp-translations.json` | `sitepackage:apply-camp-translations` |
 

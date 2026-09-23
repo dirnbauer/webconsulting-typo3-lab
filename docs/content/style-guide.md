@@ -129,7 +129,7 @@ Pick from these. A new label needs a reason.
 | Agent Nexus | Five agent protocols running live on TYPO3 | Developers |
 | Camp | Recap of TYPO3 Camp München 2026 (11–13 September 2026) | Attendees and the community |
 | Blog classico (/blog/) | German lifestyle blog demo: spring, Easter, everyday topics | Blog readers |
-| version 14 Blog, THE TYPO3 Blog | English TYPO3 blog demos | TYPO3 users |
+| TYPO3 v14 blog, The TYPO3 blog | English TYPO3 blog demos | TYPO3 users |
 | Camino | Guide to the Camino de Santiago (theme-camino demo) | Walkers planning a trip |
 
 ## Demo content in the element library
