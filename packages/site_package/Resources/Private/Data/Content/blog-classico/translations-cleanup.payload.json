@@ -1,0 +1,557 @@
+{
+    "version": 1,
+    "site": "blog-classico",
+    "root": 15,
+    "language": 1,
+    "languageCode": "en",
+    "generated": "2026-09-23T17:30:00+02:00",
+    "_note": "Batch T9 cleanup, lab only: the first run of translations-en/-zh attached images to newly created records through the files key, which content:apply does not support for created records. The references stayed without a parent and the English news had no image. This removes both; apply it before translations-en.payload.json.",
+    "records": [
+        {
+            "table": "sys_file_reference",
+            "uid": 58865,
+            "expect": {
+                "tablenames": "tx_news_domain_model_news",
+                "fieldname": "fal_media",
+                "uid_foreign": 0
+            },
+            "action": "delete",
+            "_context": {
+                "reason": "reference created without a parent by the first T9 run"
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 58866,
+            "expect": {
+                "tablenames": "tx_news_domain_model_news",
+                "fieldname": "fal_media",
+                "uid_foreign": 0
+            },
+            "action": "delete",
+            "_context": {
+                "reason": "reference created without a parent by the first T9 run"
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 58867,
+            "expect": {
+                "tablenames": "tx_news_domain_model_news",
+                "fieldname": "fal_media",
+                "uid_foreign": 0
+            },
+            "action": "delete",
+            "_context": {
+                "reason": "reference created without a parent by the first T9 run"
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 58868,
+            "expect": {
+                "tablenames": "tx_news_domain_model_news",
+                "fieldname": "fal_media",
+                "uid_foreign": 0
+            },
+            "action": "delete",
+            "_context": {
+                "reason": "reference created without a parent by the first T9 run"
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 58869,
+            "expect": {
+                "tablenames": "tx_news_domain_model_news",
+                "fieldname": "fal_media",
+                "uid_foreign": 0
+            },
+            "action": "delete",
+            "_context": {
+                "reason": "reference created without a parent by the first T9 run"
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 58870,
+            "expect": {
+                "tablenames": "tx_news_domain_model_news",
+                "fieldname": "fal_media",
+                "uid_foreign": 0
+            },
+            "action": "delete",
+            "_context": {
+                "reason": "reference created without a parent by the first T9 run"
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 58871,
+            "expect": {
+                "tablenames": "tx_news_domain_model_news",
+                "fieldname": "fal_media",
+                "uid_foreign": 0
+            },
+            "action": "delete",
+            "_context": {
+                "reason": "reference created without a parent by the first T9 run"
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 58872,
+            "expect": {
+                "tablenames": "tx_news_domain_model_news",
+                "fieldname": "fal_media",
+                "uid_foreign": 0
+            },
+            "action": "delete",
+            "_context": {
+                "reason": "reference created without a parent by the first T9 run"
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 58873,
+            "expect": {
+                "tablenames": "tx_news_domain_model_news",
+                "fieldname": "fal_media",
+                "uid_foreign": 0
+            },
+            "action": "delete",
+            "_context": {
+                "reason": "reference created without a parent by the first T9 run"
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 58874,
+            "expect": {
+                "tablenames": "tx_news_domain_model_news",
+                "fieldname": "fal_media",
+                "uid_foreign": 0
+            },
+            "action": "delete",
+            "_context": {
+                "reason": "reference created without a parent by the first T9 run"
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 58875,
+            "expect": {
+                "tablenames": "tx_news_domain_model_news",
+                "fieldname": "fal_media",
+                "uid_foreign": 0
+            },
+            "action": "delete",
+            "_context": {
+                "reason": "reference created without a parent by the first T9 run"
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 58876,
+            "expect": {
+                "tablenames": "tx_news_domain_model_news",
+                "fieldname": "fal_media",
+                "uid_foreign": 0
+            },
+            "action": "delete",
+            "_context": {
+                "reason": "reference created without a parent by the first T9 run"
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 58877,
+            "expect": {
+                "tablenames": "tx_news_domain_model_news",
+                "fieldname": "fal_media",
+                "uid_foreign": 0
+            },
+            "action": "delete",
+            "_context": {
+                "reason": "reference created without a parent by the first T9 run"
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 58878,
+            "expect": {
+                "tablenames": "tx_news_domain_model_news",
+                "fieldname": "fal_media",
+                "uid_foreign": 0
+            },
+            "action": "delete",
+            "_context": {
+                "reason": "reference created without a parent by the first T9 run"
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 58879,
+            "expect": {
+                "tablenames": "tx_news_domain_model_news",
+                "fieldname": "fal_media",
+                "uid_foreign": 0
+            },
+            "action": "delete",
+            "_context": {
+                "reason": "reference created without a parent by the first T9 run"
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 58880,
+            "expect": {
+                "tablenames": "tx_news_domain_model_news",
+                "fieldname": "fal_media",
+                "uid_foreign": 0
+            },
+            "action": "delete",
+            "_context": {
+                "reason": "reference created without a parent by the first T9 run"
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 58881,
+            "expect": {
+                "tablenames": "tx_news_domain_model_news",
+                "fieldname": "fal_media",
+                "uid_foreign": 0
+            },
+            "action": "delete",
+            "_context": {
+                "reason": "reference created without a parent by the first T9 run"
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 58882,
+            "expect": {
+                "tablenames": "tx_news_domain_model_news",
+                "fieldname": "fal_media",
+                "uid_foreign": 0
+            },
+            "action": "delete",
+            "_context": {
+                "reason": "reference created without a parent by the first T9 run"
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 58883,
+            "expect": {
+                "tablenames": "tx_news_domain_model_news",
+                "fieldname": "fal_media",
+                "uid_foreign": 0
+            },
+            "action": "delete",
+            "_context": {
+                "reason": "reference created without a parent by the first T9 run"
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 58884,
+            "expect": {
+                "tablenames": "tx_news_domain_model_news",
+                "fieldname": "fal_media",
+                "uid_foreign": 0
+            },
+            "action": "delete",
+            "_context": {
+                "reason": "reference created without a parent by the first T9 run"
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 58887,
+            "expect": {
+                "tablenames": "tt_content",
+                "fieldname": "assets",
+                "uid_foreign": 0
+            },
+            "action": "delete",
+            "_context": {
+                "reason": "reference created without a parent by the first T9 run"
+            }
+        },
+        {
+            "table": "sys_file_reference",
+            "uid": 58888,
+            "expect": {
+                "tablenames": "tt_content",
+                "fieldname": "assets",
+                "uid_foreign": 0
+            },
+            "action": "delete",
+            "_context": {
+                "reason": "reference created without a parent by the first T9 run"
+            }
+        },
+        {
+            "table": "tx_news_domain_model_news",
+            "uid": 1410,
+            "expect": {
+                "l10n_parent": 1,
+                "sys_language_uid": 1,
+                "title": "Local Easter egg hunt: all places taken"
+            },
+            "action": "delete",
+            "_context": {
+                "reason": "English translation created without its image; translations-en creates it again and TYPO3 localises the German image"
+            }
+        },
+        {
+            "table": "tx_news_domain_model_news",
+            "uid": 1411,
+            "expect": {
+                "l10n_parent": 2,
+                "sys_language_uid": 1,
+                "title": "Natural egg dyes: a second workshop date"
+            },
+            "action": "delete",
+            "_context": {
+                "reason": "English translation created without its image; translations-en creates it again and TYPO3 localises the German image"
+            }
+        },
+        {
+            "table": "tx_news_domain_model_news",
+            "uid": 1412,
+            "expect": {
+                "l10n_parent": 3,
+                "sys_language_uid": 1,
+                "title": "Painted eggs at the centre of the table"
+            },
+            "action": "delete",
+            "_context": {
+                "reason": "English translation created without its image; translations-en creates it again and TYPO3 localises the German image"
+            }
+        },
+        {
+            "table": "tx_news_domain_model_news",
+            "uid": 1413,
+            "expect": {
+                "l10n_parent": 4,
+                "sys_language_uid": 1,
+                "title": "Speckled chocolate eggs are in demand"
+            },
+            "action": "delete",
+            "_context": {
+                "reason": "English translation created without its image; translations-en creates it again and TYPO3 localises the German image"
+            }
+        },
+        {
+            "table": "tx_news_domain_model_news",
+            "uid": 1414,
+            "expect": {
+                "l10n_parent": 5,
+                "sys_language_uid": 1,
+                "title": "Rows of pastel eggs fill the shop windows"
+            },
+            "action": "delete",
+            "_context": {
+                "reason": "English translation created without its image; translations-en creates it again and TYPO3 localises the German image"
+            }
+        },
+        {
+            "table": "tx_news_domain_model_news",
+            "uid": 1415,
+            "expect": {
+                "l10n_parent": 6,
+                "sys_language_uid": 1,
+                "title": "Classic Easter baskets are back"
+            },
+            "action": "delete",
+            "_context": {
+                "reason": "English translation created without its image; translations-en creates it again and TYPO3 localises the German image"
+            }
+        },
+        {
+            "table": "tx_news_domain_model_news",
+            "uid": 1416,
+            "expect": {
+                "l10n_parent": 7,
+                "sys_language_uid": 1,
+                "title": "Photo series: Easter eggs in morning light"
+            },
+            "action": "delete",
+            "_context": {
+                "reason": "English translation created without its image; translations-en creates it again and TYPO3 localises the German image"
+            }
+        },
+        {
+            "table": "tx_news_domain_model_news",
+            "uid": 1417,
+            "expect": {
+                "l10n_parent": 8,
+                "sys_language_uid": 1,
+                "title": "Painted faces make eggs personal"
+            },
+            "action": "delete",
+            "_context": {
+                "reason": "English translation created without its image; translations-en creates it again and TYPO3 localises the German image"
+            }
+        },
+        {
+            "table": "tx_news_domain_model_news",
+            "uid": 1418,
+            "expect": {
+                "l10n_parent": 9,
+                "sys_language_uid": 1,
+                "title": "Pastel shades set the tone for Easter brunch"
+            },
+            "action": "delete",
+            "_context": {
+                "reason": "English translation created without its image; translations-en creates it again and TYPO3 localises the German image"
+            }
+        },
+        {
+            "table": "tx_news_domain_model_news",
+            "uid": 1419,
+            "expect": {
+                "l10n_parent": 10,
+                "sys_language_uid": 1,
+                "title": "A circle of eggs as a centrepiece"
+            },
+            "action": "delete",
+            "_context": {
+                "reason": "English translation created without its image; translations-en creates it again and TYPO3 localises the German image"
+            }
+        },
+        {
+            "table": "tx_news_domain_model_news",
+            "uid": 1420,
+            "expect": {
+                "l10n_parent": 11,
+                "sys_language_uid": 1,
+                "title": "Egg hunt: a longer route for young children"
+            },
+            "action": "delete",
+            "_context": {
+                "reason": "English translation created without its image; translations-en creates it again and TYPO3 localises the German image"
+            }
+        },
+        {
+            "table": "tx_news_domain_model_news",
+            "uid": 1421,
+            "expect": {
+                "l10n_parent": 12,
+                "sys_language_uid": 1,
+                "title": "Dyeing recipes from school for the holidays"
+            },
+            "action": "delete",
+            "_context": {
+                "reason": "English translation created without its image; translations-en creates it again and TYPO3 localises the German image"
+            }
+        },
+        {
+            "table": "tx_news_domain_model_news",
+            "uid": 1422,
+            "expect": {
+                "l10n_parent": 13,
+                "sys_language_uid": 1,
+                "title": "Eggs from above: photos for the spring menu"
+            },
+            "action": "delete",
+            "_context": {
+                "reason": "English translation created without its image; translations-en creates it again and TYPO3 localises the German image"
+            }
+        },
+        {
+            "table": "tx_news_domain_model_news",
+            "uid": 1423,
+            "expect": {
+                "l10n_parent": 14,
+                "sys_language_uid": 1,
+                "title": "Small gift boxes built around mini eggs"
+            },
+            "action": "delete",
+            "_context": {
+                "reason": "English translation created without its image; translations-en creates it again and TYPO3 localises the German image"
+            }
+        },
+        {
+            "table": "tx_news_domain_model_news",
+            "uid": 1424,
+            "expect": {
+                "l10n_parent": 15,
+                "sys_language_uid": 1,
+                "title": "Shop windows: repetition instead of abundance"
+            },
+            "action": "delete",
+            "_context": {
+                "reason": "English translation created without its image; translations-en creates it again and TYPO3 localises the German image"
+            }
+        },
+        {
+            "table": "tx_news_domain_model_news",
+            "uid": 1425,
+            "expect": {
+                "l10n_parent": 16,
+                "sys_language_uid": 1,
+                "title": "Hand-woven Easter baskets in early demand"
+            },
+            "action": "delete",
+            "_context": {
+                "reason": "English translation created without its image; translations-en creates it again and TYPO3 localises the German image"
+            }
+        },
+        {
+            "table": "tx_news_domain_model_news",
+            "uid": 1426,
+            "expect": {
+                "l10n_parent": 17,
+                "sys_language_uid": 1,
+                "title": "Eggs outdoors give Easter photos more texture"
+            },
+            "action": "delete",
+            "_context": {
+                "reason": "English translation created without its image; translations-en creates it again and TYPO3 localises the German image"
+            }
+        },
+        {
+            "table": "tx_news_domain_model_news",
+            "uid": 1427,
+            "expect": {
+                "l10n_parent": 18,
+                "sys_language_uid": 1,
+                "title": "Character eggs are back at the craft table"
+            },
+            "action": "delete",
+            "_context": {
+                "reason": "English translation created without its image; translations-en creates it again and TYPO3 localises the German image"
+            }
+        },
+        {
+            "table": "tx_news_domain_model_news",
+            "uid": 1428,
+            "expect": {
+                "l10n_parent": 19,
+                "sys_language_uid": 1,
+                "title": "Soft colours shape Easter decoration"
+            },
+            "action": "delete",
+            "_context": {
+                "reason": "English translation created without its image; translations-en creates it again and TYPO3 localises the German image"
+            }
+        },
+        {
+            "table": "tx_news_domain_model_news",
+            "uid": 1429,
+            "expect": {
+                "l10n_parent": 20,
+                "sys_language_uid": 1,
+                "title": "Round arrangements for small Easter tables"
+            },
+            "action": "delete",
+            "_context": {
+                "reason": "English translation created without its image; translations-en creates it again and TYPO3 localises the German image"
+            }
+        }
+    ]
+}

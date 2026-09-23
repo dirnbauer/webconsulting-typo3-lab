@@ -1,0 +1,62 @@
+{
+    "version": 1,
+    "site": "camp",
+    "root": 933,
+    "language": -1,
+    "languageCode": "de",
+    "generated": "2026-09-23T18:00:00+02:00",
+    "_note": "Batch T9: the camp is over and the German registration form (26292) is hidden. Its en/zh/hu copies are free-mode records without a language parent, so the camp translation command does not rebuild them; this payload hides them. The texts of the translated pages come from mtug-camp-translations.json (sitepackage:apply-camp-translations).",
+    "records": [
+        {
+            "table": "tt_content",
+            "uid": 26293,
+            "expect": {
+                "CType": "powermail_pi1",
+                "sys_language_uid": 1,
+                "header": "Ticket Registration"
+            },
+            "set": {},
+            "action": "hide",
+            "_context": {
+                "page": 934,
+                "pageTitle": "Anmeldung geschlossen",
+                "type": "powermail_pi1",
+                "note": "free-mode translation of the registration form (German 26292 is hidden); registration for 2026 is closed"
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 26294,
+            "expect": {
+                "CType": "powermail_pi1",
+                "sys_language_uid": 2,
+                "header": "门票报名"
+            },
+            "set": {},
+            "action": "hide",
+            "_context": {
+                "page": 934,
+                "pageTitle": "Anmeldung geschlossen",
+                "type": "powermail_pi1",
+                "note": "free-mode translation of the registration form (German 26292 is hidden); registration for 2026 is closed"
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 26295,
+            "expect": {
+                "CType": "powermail_pi1",
+                "sys_language_uid": 3,
+                "header": "Jegyregisztráció"
+            },
+            "set": {},
+            "action": "hide",
+            "_context": {
+                "page": 934,
+                "pageTitle": "Anmeldung geschlossen",
+                "type": "powermail_pi1",
+                "note": "free-mode translation of the registration form (German 26292 is hidden); registration for 2026 is closed"
+            }
+        }
+    ]
+}

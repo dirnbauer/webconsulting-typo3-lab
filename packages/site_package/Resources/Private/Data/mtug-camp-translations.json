@@ -1,22 +1,37 @@
 {
   "pages": {
     "948": {
-      "description": "TYPO3 Camp Munich 2026 is a community barcamp run by the Munich TYPO3 User Group: 11–13 September 2026 at the Puchheim Cultural Centre. The session plan is made on site."
+      "description": "A look back at TYPO3 Camp Munich 2026, a barcamp run by the Munich TYPO3 User Group. It took place on 11–13 September 2026 at the Puchheim Cultural Centre."
     },
     "950": {
-      "description": "2026 年慕尼黑 TYPO3 Camp 是慕尼黑 TYPO3 用户组举办的社区 Barcamp：2026 年 9 月 11–13 日，地点为普赫海姆文化中心。议程在现场共同确定。"
+      "description": "回顾 2026 年慕尼黑 TYPO3 Camp：由慕尼黑 TYPO3 用户组举办的 Barcamp，2026 年 9 月 11–13 日在普赫海姆文化中心举行。"
     },
     "951": {
-      "description": "A TYPO3 Camp München 2026 a Müncheni TYPO3 User Group közösségi barcampje: 2026. szeptember 11–13., Puchheimi Kulturális Központ. A sessionterv a helyszínen áll össze."
+      "description": "Visszatekintés a TYPO3 Camp München 2026-ra: a Müncheni TYPO3 User Group barcampja, 2026. szeptember 11–13., Puchheimi Kulturális Központ."
     },
     "952": {
-      "description": "Register a ticket for TYPO3 Camp Munich 2026: standard or supporter ticket, with Friday's integration workshop as an option."
+      "title": "Registration closed",
+      "nav_title": "Tickets",
+      "description": "Registration for TYPO3 Camp Munich 2026 is closed. This page shows what the ticket included and where to find the recap of the camp."
     },
     "953": {
-      "description": "报名 2026 年慕尼黑 TYPO3 Camp 门票：标准票或支持者票，可选加订周五的集成工作坊。"
+      "title": "报名已截止",
+      "nav_title": "门票",
+      "description": "2026 年慕尼黑 TYPO3 Camp 的报名已经截止。本页说明门票包含的内容，以及在哪里可以看到活动回顾。"
     },
     "954": {
-      "description": "Jegyigénylés a TYPO3 Camp München 2026-ra: standard vagy támogatói jegy, opcionálisan a pénteki integrációs workshoppal."
+      "title": "A jelentkezés lezárult",
+      "nav_title": "Jegyek",
+      "description": "A TYPO3 Camp München 2026-ra a jelentkezés lezárult. Itt láthatjátok, mit tartalmazott a jegy, és hol találjátok a visszatekintést."
+    },
+    "949": {
+      "title": "Thank you for registering"
+    },
+    "970": {
+      "title": "感谢你们的报名"
+    },
+    "971": {
+      "title": "Köszönjük a jelentkezéseteket"
     }
   },
   "elements": [
@@ -26,57 +41,60 @@
       "lang": {
         "1": {
           "fields": {
-            "header": "You write the programme yourselves.",
-            "subheadline": "TYPO3 Camp Munich 2026 is a barcamp run by the Munich TYPO3 User Group. There is no bought-in speaker line-up: whoever turns up brings a topic. On Saturday morning the session board goes up on the wall — until then nobody knows what will run.",
-            "badge_text": "11–13 September 2026 · Puchheim near Munich",
-            "reassurance_text": "Organised by volunteers. Not a commercial conference.",
-            "primary_button_text": "Register for a ticket",
+            "header": "Thank you for being there.",
+            "subheadline": "TYPO3 Camp Munich 2026 took place from 11 to 13 September at the Puchheim Cultural Centre. As at every barcamp, you made the programme yourselves on site.",
+            "badge_text": "2026 recap",
+            "announcement_text": "11–13 September 2026 · Puchheim",
+            "reassurance_text": "Organised by volunteers from the Munich TYPO3 User Group.",
+            "primary_button_text": "See the recap",
             "secondary_button_text": "",
             "secondary_button_link": ""
           },
           "files": {
             "hero_image": [
               {
-                "title": "Session board on camp morning",
-                "alternative": "Illustrative image: five participants stand in front of a pinboard full of colourful notes, voting on the session plan."
+                "title": "Session plan on camp morning",
+                "alternative": "Illustrative image: five participants stand in front of a pinboard full of colourful notes and vote on the session plan."
               }
             ]
           }
         },
         "2": {
           "fields": {
-            "header": "议程由你们自己写。",
-            "subheadline": "2026 年慕尼黑 TYPO3 Camp 是慕尼黑 TYPO3 用户组（MTUG）办的 Barcamp。这里没有请来的讲者名单：来的人各自带一个话题。周六上午，当天的议程才贴上墙——在那之前谁也不知道会开什么。",
-            "badge_text": "2026 年 9 月 11–13 日 · 慕尼黑近郊普赫海姆",
-            "reassurance_text": "由志愿者义务筹办，不是商业大会。",
-            "primary_button_text": "报名门票",
+            "header": "感谢你们的到来。",
+            "subheadline": "2026 年慕尼黑 TYPO3 Camp 于 9 月 11 日至 13 日在普赫海姆文化中心举行。和每一届 Barcamp 一样，议程由你们在现场共同决定。",
+            "badge_text": "2026 回顾",
+            "announcement_text": "2026 年 9 月 11–13 日 · 普赫海姆",
+            "reassurance_text": "由慕尼黑 TYPO3 用户组的志愿者组织。",
+            "primary_button_text": "查看回顾",
             "secondary_button_text": "",
             "secondary_button_link": ""
           },
           "files": {
             "hero_image": [
               {
-                "title": "开营当天的议程墙",
-                "alternative": "示意图：五位参与者站在贴满彩色便签的展示板前，一起票选当天的议程。"
+                "title": "开营早上的议程板",
+                "alternative": "示意图：五位参与者站在贴满彩色便签的展示板前，一起投票决定议程。"
               }
             ]
           }
         },
         "3": {
           "fields": {
-            "header": "A programot ti írjátok.",
-            "subheadline": "A TYPO3 Camp München 2026 a Müncheni TYPO3 User Group barcampje. Nincs megvásárolt előadói névsor: aki eljön, témát hoz magával. A sessiontábla szombat reggel kerül a falra – addig senki nem tudja, mi lesz.",
-            "badge_text": "2026. szeptember 11–13. · Puchheim, München mellett",
-            "reassurance_text": "Önkéntesek szervezik. Nem kereskedelmi konferencia.",
-            "primary_button_text": "Jegyet igénylek",
+            "header": "Köszönjük, hogy ott voltatok.",
+            "subheadline": "A TYPO3 Camp München 2026 szeptember 11. és 13. között volt a Puchheimi Kulturális Központban. Mint minden barcampen, a programot a helyszínen ti magatok állítottátok össze.",
+            "badge_text": "Visszatekintés 2026",
+            "announcement_text": "2026. szeptember 11–13. · Puchheim",
+            "reassurance_text": "Önkéntesen szervezte a Müncheni TYPO3 User Group.",
+            "primary_button_text": "Irány a visszatekintés",
             "secondary_button_text": "",
             "secondary_button_link": ""
           },
           "files": {
             "hero_image": [
               {
-                "title": "Sessiontábla a camp reggelén",
-                "alternative": "Illusztráció: öt résztvevő áll a színes cetlikkel teli tábla előtt, és közösen szavazza meg a sessiontervet."
+                "title": "Sessionterv a camp reggelén",
+                "alternative": "Illusztráció: öt résztvevő áll egy színes cetlikkel teli tábla előtt, és megszavazza a sessiontervet."
               }
             ]
           }
@@ -89,41 +107,113 @@
       "lang": {
         "1": {
           "fields": {
-            "header": "Key facts at a glance",
-            "eyebrow": "Date & venue",
-            "subheadline": "Everything you need to plan the trip."
+            "header": "The camp at a glance",
+            "eyebrow": "Key facts",
+            "subheadline": "When, where and how the camp took place."
           },
           "children": [
-            { "fields": { "value": "3 days", "label": "Dates", "description": "<p>11–13 September 2026: warm-up on Friday evening, camp on Saturday and Sunday.</p>" } },
-            { "fields": { "value": "PUC Puchheim", "label": "Venue", "description": "<p>Puchheim Cultural Centre, just west of Munich.</p>" } },
-            { "fields": { "value": "Open space", "label": "Format", "description": "<p>Sessions are proposed and voted on in the morning.</p>" } },
-            { "fields": { "value": "MTUG", "label": "Organiser", "description": "<p>Munich TYPO3 User Group, run by volunteers.</p>" } }
+            {
+              "fields": {
+                "value": "3 days",
+                "label": "Dates",
+                "description": "<p>11–13 September 2026: warm-up on Friday evening, camp on Saturday and Sunday.</p>"
+              }
+            },
+            {
+              "fields": {
+                "value": "PUC Puchheim",
+                "label": "Venue",
+                "description": "<p>Puchheim Cultural Centre, west of Munich.</p>"
+              }
+            },
+            {
+              "fields": {
+                "value": "Open space",
+                "label": "Format",
+                "description": "<p>Sessions were proposed and voted on at the venue.</p>"
+              }
+            },
+            {
+              "fields": {
+                "value": "MTUG",
+                "label": "Organiser",
+                "description": "<p>Munich TYPO3 User Group, organised by volunteers.</p>"
+              }
+            }
           ]
         },
         "2": {
           "fields": {
-            "header": "关键信息一览",
-            "eyebrow": "时间与地点",
-            "subheadline": "筹划行程需要知道的都在这里。"
+            "header": "活动一览",
+            "eyebrow": "基本信息",
+            "subheadline": "活动的时间、地点和形式。"
           },
           "children": [
-            { "fields": { "value": "3 天", "label": "日期", "description": "<p>2026 年 9 月 11–13 日：周五晚暖场，周六、周日正式开营。</p>" } },
-            { "fields": { "value": "PUC 普赫海姆", "label": "地点", "description": "<p>普赫海姆文化中心，位于慕尼黑以西。</p>" } },
-            { "fields": { "value": "Open Space", "label": "形式", "description": "<p>议题当天上午现场提出并投票决定。</p>" } },
-            { "fields": { "value": "MTUG", "label": "主办方", "description": "<p>慕尼黑 TYPO3 用户组，由志愿者义务筹办。</p>" } }
+            {
+              "fields": {
+                "value": "3 天",
+                "label": "日期",
+                "description": "<p>2026 年 9 月 11–13 日：周五晚暖场，周六和周日正式活动。</p>"
+              }
+            },
+            {
+              "fields": {
+                "value": "PUC 普赫海姆",
+                "label": "地点",
+                "description": "<p>普赫海姆文化中心，位于慕尼黑以西。</p>"
+              }
+            },
+            {
+              "fields": {
+                "value": "Open Space",
+                "label": "形式",
+                "description": "<p>议题在现场提出并投票决定。</p>"
+              }
+            },
+            {
+              "fields": {
+                "value": "MTUG",
+                "label": "主办方",
+                "description": "<p>慕尼黑 TYPO3 用户组，由志愿者组织。</p>"
+              }
+            }
           ]
         },
         "3": {
           "fields": {
-            "header": "Fontos adatok egy pillantásra",
-            "eyebrow": "Időpont és helyszín",
-            "subheadline": "Minden, ami a tervezéshez kell."
+            "header": "A camp egy pillantásra",
+            "eyebrow": "Alapadatok",
+            "subheadline": "Mikor, hol és hogyan zajlott a camp."
           },
           "children": [
-            { "fields": { "value": "3 nap", "label": "Időpont", "description": "<p>2026. szeptember 11–13.: pénteken este warm-up, szombaton és vasárnap camp.</p>" } },
-            { "fields": { "value": "PUC Puchheim", "label": "Helyszín", "description": "<p>Puchheimi Kulturális Központ, Münchentől nyugatra.</p>" } },
-            { "fields": { "value": "Open Space", "label": "Formátum", "description": "<p>A sessionöket reggel javasolják és szavazzák meg.</p>" } },
-            { "fields": { "value": "MTUG", "label": "Szervező", "description": "<p>Müncheni TYPO3 User Group, önkéntes szervezésben.</p>" } }
+            {
+              "fields": {
+                "value": "3 nap",
+                "label": "Időpont",
+                "description": "<p>2026. szeptember 11–13.: pénteken este warm-up, szombaton és vasárnap camp.</p>"
+              }
+            },
+            {
+              "fields": {
+                "value": "PUC Puchheim",
+                "label": "Helyszín",
+                "description": "<p>Puchheimi Kulturális Központ, Münchentől nyugatra.</p>"
+              }
+            },
+            {
+              "fields": {
+                "value": "Open Space",
+                "label": "Formátum",
+                "description": "<p>A sessionöket a helyszínen javasolták és szavazták meg.</p>"
+              }
+            },
+            {
+              "fields": {
+                "value": "MTUG",
+                "label": "Szervező",
+                "description": "<p>Müncheni TYPO3 User Group, önkéntes szervezésben.</p>"
+              }
+            }
           ]
         }
       }
@@ -134,44 +224,134 @@
       "lang": {
         "1": {
           "fields": {
-            "header": "What to expect",
-            "subheadline": "Three days among people who build, run and look after TYPO3 every day."
+            "header": "What the camp offered",
+            "subheadline": "Three days with people who build, run and look after TYPO3 every day."
           },
           "children": [
-            { "fields": { "title": "Open space instead of a speaker list", "description": "<p>The agenda takes shape on Saturday morning: topic on the wall, one sentence to pitch it, then everyone votes. What nobody is interested in does not happen.</p>" } },
-            { "fields": { "title": "TYPO3 v14 in practice", "description": "<p>Site Sets, Content Blocks, Fluid 5, workspaces: sessions about the parts of the move to the current LTS that really cost you time.</p>" } },
-            { "fields": { "title": "Every role at the same table", "description": "<p>Agencies, freelancers, integrators, developers, editors and core contributors. A barcamp has no stage and no audience.</p>" } },
-            { "fields": { "title": "Food and drink included", "description": "<p>Coffee, lunch and drinks on both camp days, plus the Friday evening warm-up, are covered by the ticket.</p>" } },
-            { "fields": { "title": "Social event on Saturday", "description": "<p>The evening carries on together: eat, talk, keep the discussion going. For many people that is the real reason to come.</p>" } },
-            { "fields": { "title": "Supporter ticket", "description": "<p>If you want to contribute more, book a supporter ticket: the same package, and we name you as a supporter on site and in the camp channels.</p>" } }
+            {
+              "fields": {
+                "title": "Open space instead of a fixed schedule",
+                "description": "<p>The agenda took shape on Saturday morning: present a topic, vote, get started.</p>"
+              }
+            },
+            {
+              "fields": {
+                "title": "Topics from everyday work",
+                "description": "<p>Every session came from someone who was there. So the sessions were about what takes effort in everyday work with TYPO3.</p>"
+              }
+            },
+            {
+              "fields": {
+                "title": "Every role at one table",
+                "description": "<p>Agencies, freelancers, developers, editors and core contributors. A barcamp has no stage and no audience.</p>"
+              }
+            },
+            {
+              "fields": {
+                "title": "Food and drink included",
+                "description": "<p>Coffee, lunch and drinks on both camp days and at the warm-up were included in the ticket.</p>"
+              }
+            },
+            {
+              "fields": {
+                "title": "Social event on Saturday",
+                "description": "<p>On Saturday evening everyone carried on together: eating, talking and continuing the discussions.</p>"
+              }
+            },
+            {
+              "fields": {
+                "title": "Supporter tickets",
+                "description": "<p>With a supporter ticket you could give the camp extra support. Thank you to everyone who did.</p>"
+              }
+            }
           ]
         },
         "2": {
           "fields": {
-            "header": "你会遇到什么",
-            "subheadline": "三天时间，和每天与 TYPO3 打交道的人待在一起。"
+            "header": "活动内容",
+            "subheadline": "和每天搭建、运营、维护 TYPO3 的人一起度过的三天。"
           },
           "children": [
-            { "fields": { "title": "Open Space，而不是排好的讲者名单", "description": "<p>议程在周六上午成形：把话题贴到墙上，用一句话讲清楚，然后大家投票。没人感兴趣的，就不会开。</p>" } },
-            { "fields": { "title": "TYPO3 v14 的实战", "description": "<p>Site Sets、Content Blocks、Fluid 5、工作区：聊的都是迁移到当前 LTS 时真正费工夫的地方。</p>" } },
-            { "fields": { "title": "所有角色坐在同一张桌子旁", "description": "<p>代理公司、自由职业者、集成人员、开发者、编辑和核心贡献者。Barcamp 没有讲台，也没有听众。</p>" } },
-            { "fields": { "title": "餐饮包含在内", "description": "<p>两天会期的咖啡、午餐和饮料，以及周五晚的暖场活动，都已包含在门票里。</p>" } },
-            { "fields": { "title": "周六晚的社交活动", "description": "<p>晚上大家继续在一起：吃饭、聊天、把白天没说完的接着说。对很多人来说，这才是来的理由。</p>" } },
-            { "fields": { "title": "支持者门票", "description": "<p>想多出一份力，可以选支持者门票：权益相同，我们会在现场和 Camp 的各个频道里向你致谢。</p>" } }
+            {
+              "fields": {
+                "title": "用 Open Space 代替固定日程",
+                "description": "<p>议程在周六上午形成：介绍话题、投票、开讲。</p>"
+              }
+            },
+            {
+              "fields": {
+                "title": "来自实践的话题",
+                "description": "<p>每场 Session 都来自在场的人，所以讨论的都是日常使用 TYPO3 时真正费功夫的事。</p>"
+              }
+            },
+            {
+              "fields": {
+                "title": "所有角色同桌交流",
+                "description": "<p>代理公司、自由职业者、开发、编辑和核心贡献者。Barcamp 没有讲台，也没有观众。</p>"
+              }
+            },
+            {
+              "fields": {
+                "title": "餐饮包含在内",
+                "description": "<p>两天活动和暖场时的咖啡、午餐和饮料都包含在门票里。</p>"
+              }
+            },
+            {
+              "fields": {
+                "title": "周六的社交活动",
+                "description": "<p>周六晚上大家继续相聚：吃饭、聊天、接着讨论。</p>"
+              }
+            },
+            {
+              "fields": {
+                "title": "支持者门票",
+                "description": "<p>通过支持者门票，你们可以额外支持这次活动。感谢所有这样做的人。</p>"
+              }
+            }
           ]
         },
         "3": {
           "fields": {
-            "header": "Mi vár rátok",
-            "subheadline": "Három nap olyanok között, akik nap mint nap TYPO3-at építenek, üzemeltetnek és tartanak karban."
+            "header": "Ez volt a campen",
+            "subheadline": "Három nap olyanokkal, akik nap mint nap TYPO3-at építenek, üzemeltetnek és gondoznak."
           },
           "children": [
-            { "fields": { "title": "Open Space előadói névsor helyett", "description": "<p>A program szombat reggel áll össze: téma a falra, egy mondatban elmondod, aztán szavazunk. Ami senkit nem érdekel, az nem indul el.</p>" } },
-            { "fields": { "title": "TYPO3 v14 a gyakorlatban", "description": "<p>Site Sets, Content Blocks, Fluid 5, workspace-ek: sessionök arról, ami az aktuális LTS-re váltásnál tényleg munkát ad.</p>" } },
-            { "fields": { "title": "Minden szerep egy asztalnál", "description": "<p>Ügynökségek, freelancerek, integrátorok, fejlesztők, szerkesztők és core contributorok. A barcampon nincs színpad és nincs közönség.</p>" } },
-            { "fields": { "title": "Az ellátás benne van", "description": "<p>Kávé, ebéd és üdítő mindkét camp-napon, és a pénteki warm-up is a jegy ára része.</p>" } },
-            { "fields": { "title": "Szombati social event", "description": "<p>Este együtt megy tovább: enni, beszélgetni, továbbvitatkozni. Sokaknak épp ez az igazi ok, amiért eljönnek.</p>" } },
-            { "fields": { "title": "Támogatói jegy", "description": "<p>Aki többel szeretne hozzájárulni, támogatói jegyet vesz: ugyanaz a szolgáltatás, és a helyszínen meg a camp csatornáin támogatóként említünk meg.</p>" } }
+            {
+              "fields": {
+                "title": "Open Space kötött program helyett",
+                "description": "<p>A napirend szombat reggel állt össze: témát bemutatni, szavazni, belevágni.</p>"
+              }
+            },
+            {
+              "fields": {
+                "title": "Témák a gyakorlatból",
+                "description": "<p>Minden session valakitől jött, aki ott volt. Ezért arról volt szó, ami a TYPO3-mal a mindennapokban munkát ad.</p>"
+              }
+            },
+            {
+              "fields": {
+                "title": "Minden szerep egy asztalnál",
+                "description": "<p>Ügynökségek, freelancerek, fejlesztők, szerkesztők és core contributorok. A barcampen nincs színpad és nincs közönség.</p>"
+              }
+            },
+            {
+              "fields": {
+                "title": "Az ellátás benne volt",
+                "description": "<p>A kávé, az ebéd és az italok mindkét camp-napon és a warm-upon benne voltak a jegy árában.</p>"
+              }
+            },
+            {
+              "fields": {
+                "title": "Social event szombaton",
+                "description": "<p>Szombat este együtt folytattuk: evés, beszélgetés, további viták.</p>"
+              }
+            },
+            {
+              "fields": {
+                "title": "Támogatói jegyek",
+                "description": "<p>Támogatói jeggyel külön is támogathattátok a campet. Köszönjük mindenkinek, aki így tett.</p>"
+              }
+            }
           ]
         }
       }
@@ -184,22 +364,22 @@
           "fields": {
             "header": "One building, short distances",
             "eyebrow": "On site",
-            "description": "<p>The camp takes place at the <strong>Puchheim Cultural Centre (PUC)</strong>, west of Munich. A large foyer, several halls and seminar rooms: enough space for sessions to run in parallel – and in the break everyone still meets in the same place. That is the difference between a barcamp and a conference with six tracks in six buildings.</p>\n<p>Puchheim is on suburban rail line S4 from Munich Hauptbahnhof. Directions, parking information and start times go out with the registration confirmation.</p>"
+            "description": "<p>The camp took place at the <strong>Puchheim Cultural Centre (PUC)</strong>, west of Munich. The foyer, halls and seminar rooms had space for parallel sessions. During the breaks, everyone still met in one place.</p>"
           },
           "files": {
             "image": [
               {
                 "title": "Cultural centre on a late summer afternoon",
-                "alternative": "Illustrative image: a low cultural centre with a large glass front; people with backpacks cross the forecourt towards the entrance."
+                "alternative": "Illustrative image: a low cultural centre with a large glass front; people with backpacks walk to the entrance."
               }
             ]
           }
         },
         "2": {
           "fields": {
-            "header": "一栋楼，路都很短",
-            "eyebrow": "场地",
-            "description": "<p>Camp 在慕尼黑以西的<strong>普赫海姆文化中心（PUC）</strong>举办。宽敞的门厅、多个礼堂和研讨室：足够几场 Session 同时进行——而一到休息，大家又都回到同一个地方。这就是 Barcamp 与分散在六栋楼里、并行六条议程线的大会之间的区别。</p>\n<p>普赫海姆位于慕尼黑中央车站出发的 S4 市郊铁路沿线。路线说明、停车信息和各项开始时间会随报名确认邮件一并发出。</p>"
+            "header": "一栋楼，路程短",
+            "eyebrow": "现场",
+            "description": "<p>活动在慕尼黑以西的<strong>普赫海姆文化中心（PUC）</strong>举行。门厅、礼堂和研讨室可以同时进行多场 Session。休息时，大家仍然在同一个地方碰面。</p>"
           },
           "files": {
             "image": [
@@ -212,9 +392,9 @@
         },
         "3": {
           "fields": {
-            "header": "Egy épület, rövid távolságok",
+            "header": "Egy épület, rövid utak",
             "eyebrow": "A helyszínen",
-            "description": "<p>A camp a <strong>Puchheimi Kulturális Központban (PUC)</strong> zajlik, Münchentől nyugatra. Nagy előtér, több nagyterem és szemináriumi terem: elég hely ahhoz, hogy a sessionök párhuzamosan fussanak – a szünetben mégis mindenki ugyanoda kerül. Ez a különbség egy barcamp és egy olyan konferencia között, ahol hat szekció fut hat épületben.</p>\n<p>Puchheim a müncheni főpályaudvarról induló S4-es elővárosi vonalon fekszik. Az útvonalleírást, a parkolási tudnivalókat és a kezdési időpontokat a regisztráció visszaigazolásával küldjük.</p>"
+            "description": "<p>A camp a <strong>Puchheimi Kulturális Központban (PUC)</strong> volt, Münchentől nyugatra. Az előtérben, a termekben és a szemináriumi termekben párhuzamos sessionöknek is jutott hely. A szünetekben mégis mindenki egy helyen találkozott.</p>"
           },
           "files": {
             "image": [
@@ -234,60 +414,150 @@
         "1": {
           "fields": {
             "header": "What a camp weekend looks like",
-            "subheadline": "The 2026 camp has not taken place yet: every picture on this page is an AI-generated illustration and shows what you can expect."
+            "subheadline": "The images on this page are AI-generated illustrations. They show what a barcamp weekend typically looks like."
           },
           "children": [
             {
-              "fields": { "title": "Sessions", "description": "Twelve people, one flipchart, one topic. Most sessions are discussions, not talks." },
-              "files": { "image": [ { "title": "Session in a seminar room", "alternative": "Illustrative image: about twelve people sit in a semicircle with laptops while a woman sketches a diagram on a flipchart." } ] }
+              "fields": {
+                "title": "Sessions",
+                "description": "Twelve people, one flipchart, one topic. Most sessions are discussions, not talks."
+              },
+              "files": {
+                "image": [
+                  {
+                    "title": "Session in a seminar room",
+                    "alternative": "Illustrative image: about twelve people sit in a semicircle with laptops while a woman sketches a diagram on a flipchart."
+                  }
+                ]
+              }
             },
             {
-              "fields": { "title": "Hallway conversations", "description": "At a barcamp the hallway track is not a by-product, it is half the event." },
-              "files": { "image": [ { "title": "Break in the foyer", "alternative": "Illustrative image: three people stand talking in a bright corridor, holding coffee cups and laptops." } ] }
+              "fields": {
+                "title": "Hallway conversations",
+                "description": "At a barcamp, the hallway track is not a by-product but half of the event."
+              },
+              "files": {
+                "image": [
+                  {
+                    "title": "Break in the foyer",
+                    "alternative": "Illustrative image: three people with coffee cups and laptops stand talking in a bright corridor."
+                  }
+                ]
+              }
             },
             {
-              "fields": { "title": "Social event", "description": "Saturday evening carries on together – outdoors, if the weather plays along." },
-              "files": { "image": [ { "title": "Social event on Saturday evening", "alternative": "Illustrative image: an evening table under string lights, with many people in conversation." } ] }
+              "fields": {
+                "title": "Social event",
+                "description": "On Saturday evening everyone carries on together, outdoors if the weather allows."
+              },
+              "files": {
+                "image": [
+                  {
+                    "title": "Social event on Saturday evening",
+                    "alternative": "Illustrative image: an evening table under string lights, with many people in conversation."
+                  }
+                ]
+              }
             }
           ]
         },
         "2": {
           "fields": {
-            "header": "Camp 的一个周末是什么样",
-            "subheadline": "2026 年的 Camp 尚未举办：本页所有图片都是 AI 生成的示意图，用来说明你可以期待什么。"
+            "header": "Camp 周末是什么样",
+            "subheadline": "本页图片均为 AI 生成的示意图，展示 Barcamp 周末通常的样子。"
           },
           "children": [
             {
-              "fields": { "title": "Sessions", "description": "十来个人、一块白板、一个话题。多数 Session 是讨论，而不是演讲。" },
-              "files": { "image": [ { "title": "研讨室里的 Session", "alternative": "示意图：约十二人带着笔记本电脑围成半圆而坐，一位女士在白板上画示意图。" } ] }
+              "fields": {
+                "title": "Session",
+                "description": "十二个人、一块白板、一个话题。大多数 Session 是讨论，而不是演讲。"
+              },
+              "files": {
+                "image": [
+                  {
+                    "title": "研讨室里的 Session",
+                    "alternative": "示意图：约十二人带着笔记本电脑围坐成半圆，一位女士在白板上画示意图。"
+                  }
+                ]
+              }
             },
             {
-              "fields": { "title": "走廊里的聊天", "description": "在 Barcamp 上，走廊话题不是副产品，而是活动的一半。" },
-              "files": { "image": [ { "title": "门厅里的休息时间", "alternative": "示意图：三个人手拿咖啡杯和笔记本电脑，站在明亮的走廊里交谈。" } ] }
+              "fields": {
+                "title": "走廊交流",
+                "description": "在 Barcamp 上，走廊交流不是附带的，而是活动的一半。"
+              },
+              "files": {
+                "image": [
+                  {
+                    "title": "门厅里的休息时间",
+                    "alternative": "示意图：三个人拿着咖啡杯和笔记本电脑，站在明亮的走廊里交谈。"
+                  }
+                ]
+              }
             },
             {
-              "fields": { "title": "社交活动", "description": "周六晚上大家接着一起——天气好的话就在户外。" },
-              "files": { "image": [ { "title": "周六晚上的社交活动", "alternative": "示意图：夜晚的长桌聚会，头顶挂着串灯，许多人在交谈。" } ] }
+              "fields": {
+                "title": "社交活动",
+                "description": "周六晚上大家继续相聚，天气好的话就在户外。"
+              },
+              "files": {
+                "image": [
+                  {
+                    "title": "周六晚上的社交活动",
+                    "alternative": "示意图：串灯下的晚间餐桌，许多人在交谈。"
+                  }
+                ]
+              }
             }
           ]
         },
         "3": {
           "fields": {
             "header": "Így telik egy camp-hétvége",
-            "subheadline": "A 2026-os camp még nem volt: az oldalon minden kép MI-vel generált illusztráció, és azt mutatja, mire számíthattok."
+            "subheadline": "Az oldalon látható képek MI-vel generált illusztrációk. Azt mutatják, hogyan néz ki általában egy barcamp-hétvége."
           },
           "children": [
             {
-              "fields": { "title": "Sessionök", "description": "Tizenkét ember, egy flipchart, egy téma. A legtöbb session beszélgetés, nem előadás." },
-              "files": { "image": [ { "title": "Session a szemináriumi teremben", "alternative": "Illusztráció: tucatnyi ember ül félkörben laptoppal, egy nő ábrát rajzol a flipchartra." } ] }
+              "fields": {
+                "title": "Sessionök",
+                "description": "Tizenkét ember, egy flipchart, egy téma. A legtöbb session beszélgetés, nem előadás."
+              },
+              "files": {
+                "image": [
+                  {
+                    "title": "Session a szemináriumi teremben",
+                    "alternative": "Illusztráció: tucatnyi ember ül félkörben laptoppal, egy nő ábrát rajzol a flipchartra."
+                  }
+                ]
+              }
             },
             {
-              "fields": { "title": "Folyosói beszélgetések", "description": "Barcampon a folyosói sáv nem melléktermék, hanem a rendezvény fele." },
-              "files": { "image": [ { "title": "Szünet az előtérben", "alternative": "Illusztráció: három ember kávéspohárral és laptoppal beszélget egy világos folyosón." } ] }
+              "fields": {
+                "title": "Folyosói beszélgetések",
+                "description": "Barcampen a folyosói beszélgetés nem melléktermék, hanem a rendezvény fele."
+              },
+              "files": {
+                "image": [
+                  {
+                    "title": "Szünet az előtérben",
+                    "alternative": "Illusztráció: három ember kávéspohárral és laptoppal beszélget egy világos folyosón."
+                  }
+                ]
+              }
             },
             {
-              "fields": { "title": "Social event", "description": "Szombat este együtt megy tovább – ha az idő engedi, a szabadban." },
-              "files": { "image": [ { "title": "Social event szombat este", "alternative": "Illusztráció: esti asztaltársaság fényfüzérek alatt, sokan beszélgetnek." } ] }
+              "fields": {
+                "title": "Social event",
+                "description": "Szombat este együtt megy tovább, ha az idő engedi, a szabadban."
+              },
+              "files": {
+                "image": [
+                  {
+                    "title": "Social event szombat este",
+                    "alternative": "Illusztráció: esti asztaltársaság fényfüzérek alatt, sokan beszélgetnek."
+                  }
+                ]
+              }
             }
           ]
         }
@@ -299,38 +569,98 @@
       "lang": {
         "1": {
           "fields": {
-            "header": "Registered in four steps",
-            "description": "<p>Registration is done with a short form. You do not need an account for it.</p>"
+            "header": "How the weekend went",
+            "description": "<p>Three days that followed the pattern almost every barcamp shares.</p>"
           },
           "children": [
-            { "fields": { "title": "Choose a ticket type", "content": "<p>There is the <strong>standard ticket</strong> with warm-up, both camp days, catering and the social event, and the <strong>supporter ticket</strong> with the same package for everyone who wants to support the camp on top of that. The <strong>integration workshop on Friday</strong> can be booked as an option.</p>" } },
-            { "fields": { "title": "Fill in the form", "content": "<p>On the <a href=\"t3://page?uid=934\">ticket registration</a> page you enter your name, email address and ticket type. Dietary notes and accessibility requests can be sent along right away.</p>" } },
-            { "fields": { "title": "Wait for the confirmation", "content": "<p>You will get a confirmation by email. Friday's workshop has a limited number of places, allocated in the order registrations arrive.</p>" } },
-            { "fields": { "title": "Come along", "content": "<p>The warm-up starts on the evening of Friday, <strong>11 September 2026</strong>. The camp runs on <strong>Saturday and Sunday</strong> at the PUC. Bring a laptop – and a topic you want to talk about.</p>" } }
+            {
+              "fields": {
+                "title": "Friday: warm-up",
+                "content": "<p>On Friday evening, <strong>11 September 2026</strong>, everyone met for the warm-up. During the day there was an integration workshop on TYPO3 v14.</p>"
+              }
+            },
+            {
+              "fields": {
+                "title": "Saturday: session planning",
+                "content": "<p>In the morning, everyone who wanted to offer a session presented their topic. After the vote, the plan went up on the wall.</p>"
+              }
+            },
+            {
+              "fields": {
+                "title": "Saturday evening: social event",
+                "content": "<p>After the sessions, everyone carried on together, with food and long conversations.</p>"
+              }
+            },
+            {
+              "fields": {
+                "title": "Sunday: second camp day",
+                "content": "<p>Another day of sessions and hallway conversations at the PUC.</p>"
+              }
+            }
           ]
         },
         "2": {
           "fields": {
-            "header": "四步完成报名",
-            "description": "<p>报名只需填一个简短的表单，不用注册账号。</p>"
+            "header": "周末是这样度过的",
+            "description": "<p>三天的安排，和几乎所有 Barcamp 的流程一样。</p>"
           },
           "children": [
-            { "fields": { "title": "选择门票类型", "content": "<p><strong>标准票</strong>包含暖场活动、两天会期、餐饮和社交活动；<strong>支持者票</strong>权益相同，适合愿意额外支持 Camp 的人。<strong>周五的集成工作坊</strong>可另行加订。</p>" } },
-            { "fields": { "title": "填写表单", "content": "<p>在<a href=\"t3://page?uid=934\">门票报名</a>页面填写姓名、邮箱和门票类型。饮食需求和无障碍方面的需要也可以一并写上。</p>" } },
-            { "fields": { "title": "等待确认", "content": "<p>你会收到一封确认邮件。周五工作坊名额有限，按报名先后顺序分配。</p>" } },
-            { "fields": { "title": "如期前来", "content": "<p>暖场活动从 <strong>2026 年 9 月 11 日</strong>（周五）傍晚开始，Camp 在<strong>周六和周日</strong>于 PUC 进行。请带上笔记本电脑——以及一个你想聊的话题。</p>" } }
+            {
+              "fields": {
+                "title": "周五：暖场",
+                "content": "<p><strong>2026 年 9 月 11 日</strong>周五晚上，大家在暖场活动中相聚。白天还有一场关于 TYPO3 v14 的集成工作坊。</p>"
+              }
+            },
+            {
+              "fields": {
+                "title": "周六：安排 Session",
+                "content": "<p>上午，想开 Session 的人依次介绍自己的话题。投票之后，议程表就贴上了墙。</p>"
+              }
+            },
+            {
+              "fields": {
+                "title": "周六晚上：社交活动",
+                "content": "<p>Session 结束后，大家继续相聚，一起吃饭、长谈。</p>"
+              }
+            },
+            {
+              "fields": {
+                "title": "周日：第二个活动日",
+                "content": "<p>在 PUC 又度过了一天 Session 和走廊交流。</p>"
+              }
+            }
           ]
         },
         "3": {
           "fields": {
-            "header": "Négy lépésben kész a jelentkezés",
-            "description": "<p>A regisztráció egy rövid űrlapon keresztül megy. Fiókra nincs szükség hozzá.</p>"
+            "header": "Így telt a hétvége",
+            "description": "<p>Három nap azzal a menettel, amely szinte minden barcampen közös.</p>"
           },
           "children": [
-            { "fields": { "title": "Válassz jegytípust", "content": "<p>Van <strong>standard jegy</strong>, amiben benne van a warm-up, mindkét camp-nap, az ellátás és a social event, és van <strong>támogatói jegy</strong> ugyanezzel a szolgáltatással azoknak, akik ezen felül is támogatnák a campot. Külön megváltható a <strong>pénteki integrációs workshop</strong>.</p>" } },
-            { "fields": { "title": "Töltsd ki az űrlapot", "content": "<p>A <a href=\"t3://page?uid=934\">jegyregisztráció</a> oldalon megadod a neved, az e-mail-címed és a jegytípust. Az étrendi tudnivalókat és az akadálymentességi kéréseket rögtön elküldheted vele.</p>" } },
-            { "fields": { "title": "Várd meg a visszaigazolást", "content": "<p>E-mailben kapsz visszaigazolást. A pénteki workshopon korlátozott a helyek száma, a jelentkezések sorrendjében osztjuk ki őket.</p>" } },
-            { "fields": { "title": "Gyere el", "content": "<p>A warm-up <strong>2026. szeptember 11-én</strong>, pénteken este kezdődik. A camp <strong>szombaton és vasárnap</strong> zajlik a PUC-ban. Hozz laptopot – és egy témát, amiről beszélni akarsz.</p>" } }
+            {
+              "fields": {
+                "title": "Péntek: warm-up",
+                "content": "<p>Pénteken este, <strong>2026. szeptember 11-én</strong> mindenki a warm-upon találkozott. Napközben integrációs workshop volt a TYPO3 v14-ről.</p>"
+              }
+            },
+            {
+              "fields": {
+                "title": "Szombat: sessiontervezés",
+                "content": "<p>Reggel mindenki, aki sessiont akart tartani, bemutatta a témáját. A szavazás után a terv felkerült a falra.</p>"
+              }
+            },
+            {
+              "fields": {
+                "title": "Szombat este: social event",
+                "content": "<p>A sessionök után együtt folytattuk, evéssel és hosszú beszélgetésekkel.</p>"
+              }
+            },
+            {
+              "fields": {
+                "title": "Vasárnap: második camp-nap",
+                "content": "<p>Még egy nap sessionökkel és folyosói beszélgetésekkel a PUC-ban.</p>"
+              }
+            }
           ]
         }
       }
@@ -342,46 +672,115 @@
         "1": {
           "fields": {
             "header": "Frequently asked questions",
-            "subheadline": "Tickets, schedule, getting there – and what a barcamp actually is."
+            "subheadline": "About the camp, the format and the next meetings."
           },
           "children": [
-            { "fields": { "question": "What is included in the ticket?", "answer": "<p>The warm-up on Friday evening, both camp days at the PUC, catering on Saturday and Sunday and the social event on Saturday evening. Friday's workshop is booked separately on top.</p>" } },
-            { "fields": { "question": "I have never been to a barcamp. How does it work?", "answer": "<p>On Saturday morning everyone who wants to offer a session introduces the topic in one sentence. Then we vote, and the proposals with the most interest go on the schedule on the wall. You do not have to prepare anything and you do not have to offer anything: listening and joining the discussion is perfectly fine.</p>" } },
-            { "fields": { "question": "Do I need prior knowledge?", "answer": "<p>TYPO3 basics help. Beyond that the camp is open to every role: integration, development, editorial, project management, design.</p>" } },
-            { "fields": { "question": "What language are the sessions in?", "answer": "<p>Mostly German. Sessions in English are expressly welcome and are marked as such on the session board, so everyone knows what they are walking into.</p>" } },
-            { "fields": { "question": "How do I get to Puchheim?", "answer": "<p>By suburban rail line S4 from Munich Hauptbahnhof towards Geltendorf, or by car via the A96. Detailed directions and parking information go out with the registration confirmation.</p>" } },
-            { "fields": { "question": "Is there a workshop on Friday?", "answer": "<p>Yes, bookable as an option: an integration workshop on TYPO3 v14. The number of places is limited. Bring a local TYPO3 14 installation set up with Composer, then you can work along.</p>" } },
-            { "fields": { "question": "Is there a code of conduct?", "answer": "<p>Yes. The <strong>TYPO3 Code of Conduct</strong> applies at the camp: treat each other with respect, no harassment, no discrimination. If you feel uncomfortable, talk to the organising team on site or write to the address given in the <a href=\"t3://page?uid=935\">imprint</a>. Breaches lead to exclusion from the camp.</p>" } }
+            {
+              "fields": {
+                "question": "What is a barcamp?",
+                "answer": "<p>A barcamp has no fixed programme. Anyone who wants to offer a session presents a topic, and everyone votes. Listening and joining the discussion are just as welcome.</p>"
+              }
+            },
+            {
+              "fields": {
+                "question": "Who organised the camp?",
+                "answer": "<p>The Munich TYPO3 User Group (MTUG), run by volunteers. The camp was not a commercial conference.</p>"
+              }
+            },
+            {
+              "fields": {
+                "question": "What language were the sessions in?",
+                "answer": "<p>Mostly German. Sessions in English were welcome and marked on the session plan.</p>"
+              }
+            },
+            {
+              "fields": {
+                "question": "Was there a code of conduct?",
+                "answer": "<p>Yes, the <strong>TYPO3 Code of Conduct</strong>: treat each other with respect, no harassment, no discrimination. The organising team takes reports via the address given in the <a href=\"t3://page?uid=935\">imprint</a>.</p>"
+              }
+            },
+            {
+              "fields": {
+                "question": "Will there be another camp in 2027?",
+                "answer": "<p>That has not been decided yet. News comes first at the meetings of the Munich TYPO3 User Group.</p>"
+              }
+            }
           ]
         },
         "2": {
           "fields": {
             "header": "常见问题",
-            "subheadline": "门票、流程、交通——以及 Barcamp 到底是什么。"
+            "subheadline": "关于本次活动、活动形式和下一次聚会。"
           },
           "children": [
-            { "fields": { "question": "门票包含哪些内容？", "answer": "<p>周五晚的暖场活动、在 PUC 的两天会期、周六和周日的餐饮，以及周六晚的社交活动。周五的工作坊需要另行加订。</p>" } },
-            { "fields": { "question": "我没参加过 Barcamp，流程是怎样的？", "answer": "<p>周六上午，每位想开 Session 的人用一句话介绍自己的话题，然后大家投票，得到最多关注的提议会被排进墙上的日程表。你不需要提前准备，也不必非要开一场——只来听、参与讨论完全可以。</p>" } },
-            { "fields": { "question": "需要什么基础吗？", "answer": "<p>有 TYPO3 基础会更好。除此之外，Camp 对所有角色开放：集成、开发、内容编辑、项目管理、设计。</p>" } },
-            { "fields": { "question": "Session 用什么语言？", "answer": "<p>多数是德语。英语 Session 非常欢迎，并会在日程表上专门标注，这样大家都清楚自己要参加的是哪一种。</p>" } },
-            { "fields": { "question": "怎么去普赫海姆？", "answer": "<p>从慕尼黑中央车站乘 S4 市郊铁路往 Geltendorf 方向，或自驾走 A96 高速。详细路线和停车说明会随报名确认邮件发出。</p>" } },
-            { "fields": { "question": "周五有工作坊吗？", "answer": "<p>有，可选加订：一场关于 TYPO3 v14 的集成工作坊，名额有限。请带上用 Composer 搭好的本地 TYPO3 14 环境，这样可以直接动手。</p>" } },
-            { "fields": { "question": "有行为准则吗？", "answer": "<p>有。Camp 适用 <strong>TYPO3 行为准则（Code of Conduct）</strong>：彼此尊重，不骚扰，不歧视。如果你感到不适，可以在现场联系组织团队，或写信到<a href=\"t3://page?uid=935\">法律声明</a>中列出的地址。违反者将被请离 Camp。</p>" } }
+            {
+              "fields": {
+                "question": "什么是 Barcamp？",
+                "answer": "<p>Barcamp 没有固定的议程。想开 Session 的人介绍一个话题，大家一起投票。只来听、参与讨论同样受欢迎。</p>"
+              }
+            },
+            {
+              "fields": {
+                "question": "这次活动由谁组织？",
+                "answer": "<p>由慕尼黑 TYPO3 用户组（MTUG）的志愿者组织。这不是一场商业会议。</p>"
+              }
+            },
+            {
+              "fields": {
+                "question": "Session 用什么语言？",
+                "answer": "<p>大多用德语。英语 Session 也受欢迎，并在议程表上标注。</p>"
+              }
+            },
+            {
+              "fields": {
+                "question": "有行为准则吗？",
+                "answer": "<p>有，适用 <strong>TYPO3 行为准则（Code of Conduct）</strong>：彼此尊重，不骚扰，不歧视。组织团队通过<a href=\"t3://page?uid=935\">法律声明</a>中列出的地址接收反馈。</p>"
+              }
+            },
+            {
+              "fields": {
+                "question": "2027 年还会再办吗？",
+                "answer": "<p>目前还没有确定。最新消息会首先在慕尼黑 TYPO3 用户组的聚会上公布。</p>"
+              }
+            }
           ]
         },
         "3": {
           "fields": {
             "header": "Gyakori kérdések",
-            "subheadline": "Jegy, menetrend, odautazás – és hogy egyáltalán mi az a barcamp."
+            "subheadline": "A campről, a formátumról és a következő találkozókról."
           },
           "children": [
-            { "fields": { "question": "Mit tartalmaz a jegy?", "answer": "<p>A pénteki warm-upot, mindkét camp-napot a PUC-ban, a szombati és vasárnapi ellátást, valamint a szombat esti social eventet. A pénteki workshop külön váltható meg.</p>" } },
-            { "fields": { "question": "Még sosem voltam barcampon. Hogyan zajlik?", "answer": "<p>Szombat reggel mindenki, aki sessiont tartana, egy mondatban bemutatja a témáját. Utána szavazunk, és a legtöbb érdeklődést kapó javaslatok kerülnek fel a falon lévő menetrendre. Nem kell előre készülnöd, és nem kell sessiont tartanod: hallgatni és hozzászólni teljesen rendben van.</p>" } },
-            { "fields": { "question": "Kell hozzá előismeret?", "answer": "<p>A TYPO3-alapok segítenek. Ezen túl a camp minden szerepkör előtt nyitva áll: integráció, fejlesztés, szerkesztőség, projektvezetés, design.</p>" } },
-            { "fields": { "question": "Milyen nyelven mennek a sessionök?", "answer": "<p>Többnyire németül. Az angol nyelvű sessionök kifejezetten jöhetnek, és a sessiontáblán jelöljük is őket, hogy mindenki tudja, mire számítson.</p>" } },
-            { "fields": { "question": "Hogyan jutok el Puchheimbe?", "answer": "<p>Az S4-es elővárosi vonallal a müncheni főpályaudvarról Geltendorf felé, autóval az A96-oson. A pontos útvonalleírást és a parkolási tudnivalókat a regisztráció visszaigazolásával küldjük.</p>" } },
-            { "fields": { "question": "Van pénteki workshop?", "answer": "<p>Igen, opcionálisan megváltható: egy TYPO3 v14 integrációs workshop. A létszám korlátozott. Hozz magaddal Composerrel telepített helyi TYPO3 14-et, így végig tudsz dolgozni.</p>" } },
-            { "fields": { "question": "Van magatartási kódex?", "answer": "<p>Igen. A campre a <strong>TYPO3 Code of Conduct</strong> érvényes: tiszteletteljes hangnem, zaklatás és diszkrimináció nélkül. Aki rosszul érzi magát, forduljon a helyszínen a szervezőkhöz, vagy írjon az <a href=\"t3://page?uid=935\">impresszumban</a> megadott címre. A szabálysértés a campről való kizárást vonja maga után.</p>" } }
+            {
+              "fields": {
+                "question": "Mi az a barcamp?",
+                "answer": "<p>A barcampnek nincs kötött programja. Aki sessiont szeretne tartani, bemutat egy témát, és mindenki szavaz. A hallgatás és a hozzászólás ugyanúgy szívesen látott.</p>"
+              }
+            },
+            {
+              "fields": {
+                "question": "Ki szervezte a campet?",
+                "answer": "<p>A Müncheni TYPO3 User Group (MTUG), önkéntesként. A camp nem kereskedelmi konferencia volt.</p>"
+              }
+            },
+            {
+              "fields": {
+                "question": "Milyen nyelven zajlottak a sessionök?",
+                "answer": "<p>Többnyire németül. Az angol nyelvű sessionöket is szívesen látták, és a sessiontervben jelölték őket.</p>"
+              }
+            },
+            {
+              "fields": {
+                "question": "Volt magatartási kódex?",
+                "answer": "<p>Igen, a <strong>TYPO3 Code of Conduct</strong>: tiszteletteljes bánásmód, zaklatás és diszkrimináció nélkül. A szervezők az <a href=\"t3://page?uid=935\">impresszumban</a> megadott címen fogadják a jelzéseket.</p>"
+              }
+            },
+            {
+              "fields": {
+                "question": "Lesz 2027-ben is camp?",
+                "answer": "<p>Ez még nem dőlt el. Hírek elsőként a Müncheni TYPO3 User Group találkozóin lesznek.</p>"
+              }
+            }
           ]
         }
       }
@@ -392,9 +791,9 @@
       "lang": {
         "1": {
           "fields": {
-            "header": "Come along.",
-            "subheadline": "Registration is open. One ticket, three days, and a programme you make yourselves.",
-            "primary_button_text": "Register for a ticket"
+            "header": "Until next time.",
+            "subheadline": "Thank you to everyone who took part, offered sessions and helped.",
+            "primary_button_text": "Get in touch"
           },
           "files": {
             "cta_image": [
@@ -407,24 +806,24 @@
         },
         "2": {
           "fields": {
-            "header": "来吧。",
-            "subheadline": "报名已开放。一张票，三天时间，一个由你们自己做出来的议程。",
-            "primary_button_text": "报名门票"
+            "header": "下次再见。",
+            "subheadline": "感谢所有参与、开设 Session 和提供帮助的人。",
+            "primary_button_text": "联系我们"
           },
           "files": {
             "cta_image": [
               {
-                "title": "开营当天的接待台",
-                "alternative": "示意图：接待台前的两位志愿者，正把一张空白姓名牌递给刚到的来宾。"
+                "title": "开营早上的接待台",
+                "alternative": "示意图：接待台前的两位志愿者把一张空白姓名牌递给刚到的来宾。"
               }
             ]
           }
         },
         "3": {
           "fields": {
-            "header": "Gyertek el.",
-            "subheadline": "A regisztráció nyitva. Egy jegy, három nap, és egy program, amit ti csináltok.",
-            "primary_button_text": "Jegyet igénylek"
+            "header": "A következő alkalomig.",
+            "subheadline": "Köszönjük mindenkinek, aki részt vett, sessiont tartott és segített.",
+            "primary_button_text": "Kapcsolatfelvétel"
           },
           "files": {
             "cta_image": [
@@ -442,31 +841,124 @@
       "childTable": "feature_checklist_items",
       "lang": {
         "1": {
-          "fields": { "header": "What you are booking here", "eyebrow": "Tickets" },
+          "fields": {
+            "header": "What the ticket included",
+            "eyebrow": "Tickets 2026"
+          },
           "children": [
-            { "fields": { "title": "Standard ticket", "description_text": "Warm-up on Friday evening, both camp days, catering and the social event." } },
-            { "fields": { "title": "Supporter ticket", "description_text": "The same package – and we name you as a supporter on site and in the camp channels." } },
-            { "fields": { "title": "Integration workshop on Friday", "description_text": "Bookable as an option, limited places, allocated in the order registrations arrive." } },
-            { "fields": { "title": "Dietary notes and accessibility", "description_text": "Put your requirements straight into the form and we will plan for them." } }
+            {
+              "fields": {
+                "title": "Standard ticket",
+                "description_text": "Warm-up on Friday evening, both camp days, food and drink, and the social event."
+              }
+            },
+            {
+              "fields": {
+                "title": "Supporter ticket",
+                "description_text": "The same package, plus a mention as a supporter on site and in the camp channels."
+              }
+            },
+            {
+              "fields": {
+                "title": "Integration workshop on Friday",
+                "description_text": "Bookable as an option. Places were limited and allocated in the order registrations arrived."
+              }
+            },
+            {
+              "fields": {
+                "title": "Dietary needs and accessibility",
+                "description_text": "You could state your requirements directly in the registration form."
+              }
+            }
           ]
         },
         "2": {
-          "fields": { "header": "你在这里预订的是什么", "eyebrow": "门票" },
+          "fields": {
+            "header": "门票包含的内容",
+            "eyebrow": "2026 门票"
+          },
           "children": [
-            { "fields": { "title": "标准票", "description_text": "周五晚的暖场活动、两天会期、餐饮和社交活动。" } },
-            { "fields": { "title": "支持者票", "description_text": "权益完全相同——并会在现场和 Camp 的各个频道里向你致谢。" } },
-            { "fields": { "title": "周五的集成工作坊", "description_text": "可选加订，名额有限，按报名先后顺序分配。" } },
-            { "fields": { "title": "饮食需求与无障碍", "description_text": "请直接写进表单，我们会提前安排。" } }
+            {
+              "fields": {
+                "title": "标准票",
+                "description_text": "周五晚的暖场活动、两天活动、餐饮和社交活动。"
+              }
+            },
+            {
+              "fields": {
+                "title": "支持者票",
+                "description_text": "内容相同，另外会在现场和 Camp 的各个频道中被列为支持者。"
+              }
+            },
+            {
+              "fields": {
+                "title": "周五的集成工作坊",
+                "description_text": "可另行加订。名额有限，按报名先后顺序分配。"
+              }
+            },
+            {
+              "fields": {
+                "title": "饮食需求与无障碍",
+                "description_text": "你们可以直接在报名表中注明相关需求。"
+              }
+            }
           ]
         },
         "3": {
-          "fields": { "header": "Mit foglalsz itt le", "eyebrow": "Jegyek" },
+          "fields": {
+            "header": "Mit tartalmazott a jegy",
+            "eyebrow": "Jegyek 2026"
+          },
           "children": [
-            { "fields": { "title": "Standard jegy", "description_text": "Pénteki warm-up, mindkét camp-nap, ellátás és social event." } },
-            { "fields": { "title": "Támogatói jegy", "description_text": "Ugyanaz a szolgáltatás – és a helyszínen meg a camp csatornáin támogatóként említünk meg." } },
-            { "fields": { "title": "Pénteki integrációs workshop", "description_text": "Külön megváltható, korlátozott létszám, a jelentkezések sorrendjében." } },
-            { "fields": { "title": "Étrendi tudnivalók és akadálymentesség", "description_text": "Írd bele rögtön az űrlapba, és számolunk vele." } }
+            {
+              "fields": {
+                "title": "Standard jegy",
+                "description_text": "Pénteki warm-up, mindkét camp-nap, ellátás és social event."
+              }
+            },
+            {
+              "fields": {
+                "title": "Támogatói jegy",
+                "description_text": "Ugyanez, továbbá támogatóként említés a helyszínen és a camp csatornáin."
+              }
+            },
+            {
+              "fields": {
+                "title": "Pénteki integrációs workshop",
+                "description_text": "Külön volt foglalható. A helyek száma korlátozott volt, és a jelentkezések sorrendjében osztották ki őket."
+              }
+            },
+            {
+              "fields": {
+                "title": "Étrendi igények és akadálymentesség",
+                "description_text": "Az igényeiteket közvetlenül a jelentkezési űrlapon adhattátok meg."
+              }
+            }
           ]
+        }
+      }
+    },
+    {
+      "source": 77234,
+      "childTable": null,
+      "lang": {
+        "1": {
+          "fields": {
+            "header": "The 2026 camp is over",
+            "bodytext": "<p>TYPO3 Camp Munich took place from 11 to 13 September 2026 at the Puchheim Cultural Centre. You can read how the weekend went in the <a href=\"t3://page?uid=933\">recap on the home page</a>.</p>\n<p>Whether there will be another camp in 2027 has not been decided yet. News comes first at the meetings of the Munich TYPO3 User Group.</p>"
+          }
+        },
+        "2": {
+          "fields": {
+            "header": "2026 年的活动已经结束",
+            "bodytext": "<p>慕尼黑 TYPO3 Camp 已于 2026 年 9 月 11 日至 13 日在普赫海姆文化中心举行。周末的经过请看<a href=\"t3://page?uid=933\">首页上的回顾</a>。</p>\n<p>2027 年是否还会举办，目前还没有确定。最新消息会首先在慕尼黑 TYPO3 用户组的聚会上公布。</p>"
+          }
+        },
+        "3": {
+          "fields": {
+            "header": "A 2026-os campnek vége",
+            "bodytext": "<p>A TYPO3 Camp München 2026. szeptember 11. és 13. között volt a Puchheimi Kulturális Központban. Hogy hogyan telt a hétvége, azt a <a href=\"t3://page?uid=933\">nyitóoldalon lévő visszatekintésben</a> olvashatjátok.</p>\n<p>Még nem dőlt el, lesz-e 2027-ben is camp. Hírek elsőként a Müncheni TYPO3 User Group találkozóin lesznek.</p>"
+          }
         }
       }
     },
@@ -476,20 +968,266 @@
       "lang": {
         "1": {
           "fields": {
-            "header": "Registration received",
-            "bodytext": "<p>Thank you! Your registration for TYPO3 Camp Munich 2026 has reached us. A confirmation with all the details about getting there and the schedule will go to the address you gave us shortly.</p>\n<p>No email? Check the spam folder first, and otherwise get in touch using the contact address given in the <a href=\"t3://page?uid=935\">imprint</a>.</p>\n<p>See you in Puchheim in September.</p>"
+            "header": "The camp took place in September",
+            "bodytext": "<p>TYPO3 Camp Munich 2026 ran from 11 to 13 September at the Puchheim Cultural Centre. Thank you to everyone who was there.</p>\n<p>You can read how the weekend went in the <a href=\"t3://page?uid=933\">recap on the home page</a>.</p>\n<p>If you have questions, you can reach us via the contact address given in the <a href=\"t3://page?uid=935\">imprint</a>.</p>"
           }
         },
         "2": {
           "fields": {
-            "header": "报名已收到",
-            "bodytext": "<p>谢谢！你报名 2026 年慕尼黑 TYPO3 Camp 的信息我们已经收到。包含交通和流程全部细节的确认邮件，稍后会发送到你填写的邮箱。</p>\n<p>没收到邮件？请先查看垃圾邮件文件夹；如果仍然没有，请通过<a href=\"t3://page?uid=935\">法律声明</a>中列出的联系方式与我们联系。</p>\n<p>九月，普赫海姆见。</p>"
+            "header": "活动已于九月举行",
+            "bodytext": "<p>2026 年慕尼黑 TYPO3 Camp 于 9 月 11 日至 13 日在普赫海姆文化中心举行。感谢所有到场的朋友。</p>\n<p>周末的经过请看<a href=\"t3://page?uid=933\">首页上的回顾</a>。</p>\n<p>如有问题，可以通过<a href=\"t3://page?uid=935\">法律声明</a>中列出的联系方式联系我们。</p>"
           }
         },
         "3": {
           "fields": {
-            "header": "Regisztráció fogadva",
-            "bodytext": "<p>Köszönjük! A TYPO3 Camp München 2026-ra küldött jelentkezésed megérkezett. A visszaigazolást az odautazás és a menetrend minden részletével hamarosan elküldjük a megadott e-mail-címre.</p>\n<p>Nem jött meg az e-mail? Nézd meg először a spam mappát, egyébként pedig keress minket az <a href=\"t3://page?uid=935\">impresszumban</a> megadott elérhetőségen.</p>\n<p>Szeptemberben találkozunk Puchheimben!</p>"
+            "header": "A camp szeptemberben volt",
+            "bodytext": "<p>A TYPO3 Camp München 2026 szeptember 11. és 13. között zajlott a Puchheimi Kulturális Központban. Köszönjük mindenkinek, aki ott volt.</p>\n<p>Hogy hogyan telt a hétvége, azt a <a href=\"t3://page?uid=933\">nyitóoldalon lévő visszatekintésben</a> olvashatjátok.</p>\n<p>Kérdés esetén az <a href=\"t3://page?uid=935\">impresszumban</a> megadott elérhetőségen értek el minket.</p>"
+          }
+        }
+      }
+    },
+    {
+      "source": 35342,
+      "childTable": null,
+      "lang": {
+        "1": {
+          "fields": {
+            "header": "Imprint",
+            "company_name": "Münchner TYPO3 User Group e.V. (MTUG)",
+            "address": "[Street and house number]\n[Postal code] Munich\nGermany",
+            "contact_email": "info@typo3camp-muenchen.example",
+            "contact_phone": "+49 89 [phone number]",
+            "registry_info": "Registered in the register of associations (Vereinsregister)\nRegistering court: Amtsgericht München (Munich Local Court)\nRegistration number: VR [number]",
+            "additional_info": "<p><strong>Board authorised to represent the association pursuant to § 26 BGB:</strong><br />[First name Last name] (Chair), [First name Last name] (Deputy Chair), [First name Last name] (Treasurer)</p>\n<p><strong>Responsible for content pursuant to § 18 (2) MStV:</strong><br />[First name Last name], address as above</p>\n<h3>Organiser</h3>\n<p>Münchner TYPO3 User Group e.V. organised TYPO3 Camp Munich 2026 as a non-commercial community barcamp. It took place from 11 to 13 September 2026 at the Puchheim Cultural Centre (PUC).</p>\n<h3>Consumer dispute resolution</h3>\n<p>We are neither willing nor obliged to take part in dispute resolution proceedings before a consumer arbitration board (§ 36 VSBG). The EU Online Dispute Resolution (ODR) platform was discontinued on 20 July 2025. It is no longer available.</p>\n<h3>Liability for content</h3>\n<p>As a service provider, we are responsible for our own content on these pages under general law (§ 7 (1) DDG). Under §§ 8 to 10 DDG, however, we are not obliged to monitor transmitted or stored third-party information. Nor are we obliged to investigate circumstances that indicate unlawful activity.</p>\n<h3>Liability for links</h3>\n<p>Our website contains links to external third-party websites. We have no influence on their content. We therefore cannot accept any liability for this third-party content. The respective provider or operator of the linked pages is always responsible for their content.</p>\n<h3>Copyright</h3>\n<p>The content and works created by the operators on these pages are subject to German copyright law. Third-party contributions are marked as such. “TYPO3” is a registered trademark of the TYPO3 Association.</p>\n<p><em>Note (lab demo): Details in square brackets are placeholders in this demo installation. Please replace them with the association's actual, legally valid details before publishing: address, register number and board.</em></p>"
+          }
+        },
+        "2": {
+          "fields": {
+            "header": "法律声明（Impressum）",
+            "company_name": "Münchner TYPO3 User Group e.V. (MTUG)",
+            "address": "[街道和门牌号]\n[邮政编码] 慕尼黑\n德国",
+            "contact_email": "info@typo3camp-muenchen.example",
+            "contact_phone": "+49 89 [电话号码]",
+            "registry_info": "已在社团登记簿（Vereinsregister）登记\n登记法院：慕尼黑地方法院（Amtsgericht München）\n登记号：VR [号码]",
+            "additional_info": "<p><strong>依据《德国民法典》（BGB）第 26 条的法定代表理事会：</strong><br />[姓名]（理事长）、[姓名]（副理事长）、[姓名]（财务）</p>\n<p><strong>依据《媒体国家协定》（MStV）第 18 条第 2 款对内容负责：</strong><br />[姓名]，地址同上</p>\n<h3>主办方</h3>\n<p>Münchner TYPO3 User Group e.V. 以非商业性社区 Barcamp 的形式主办了 2026 年慕尼黑 TYPO3 Camp。活动于 2026 年 9 月 11 日至 13 日在普赫海姆文化中心（PUC）举行。</p>\n<h3>消费者争议解决</h3>\n<p>我们没有意愿、也没有义务参加消费者仲裁机构的争议解决程序（VSBG 第 36 条）。欧盟在线争议解决（ODR）平台已于 2025 年 7 月 20 日停止运营，不再提供服务。</p>\n<h3>内容责任</h3>\n<p>作为服务提供者，我们依据一般法律对本网站的自有内容负责（《数字服务法》DDG 第 7 条第 1 款）。但依据 DDG 第 8 至 10 条，我们没有义务监控所传输或存储的第三方信息，也没有义务调查指向违法行为的情形。</p>\n<h3>链接责任</h3>\n<p>本网站包含指向第三方外部网站的链接。我们无法影响这些网站的内容，因此对这些第三方内容不承担任何责任。被链接页面的内容始终由其各自的提供者或运营者负责。</p>\n<h3>著作权</h3>\n<p>运营者在本网站上创建的内容和作品受德国著作权法保护。第三方的贡献已作相应标注。“TYPO3” 是 TYPO3 Association 的注册商标。</p>\n<p><em>说明（实验演示）：方括号中的信息为本演示环境的占位符。发布前请替换为该社团真实、具有法律效力的数据：地址、登记号和理事会。</em></p>"
+          }
+        },
+        "3": {
+          "fields": {
+            "header": "Impresszum",
+            "company_name": "Münchner TYPO3 User Group e.V. (MTUG)",
+            "address": "[Utca és házszám]\n[Irányítószám] München\nNémetország",
+            "contact_email": "info@typo3camp-muenchen.example",
+            "contact_phone": "+49 89 [telefonszám]",
+            "registry_info": "Bejegyezve az egyesületi nyilvántartásba (Vereinsregister)\nNyilvántartó bíróság: Amtsgericht München (Müncheni Helyi Bíróság)\nNyilvántartási szám: VR [szám]",
+            "additional_info": "<p><strong>A BGB 26. §-a szerint képviseletre jogosult elnökség:</strong><br />[Vezetéknév Keresztnév] (elnök), [Vezetéknév Keresztnév] (alelnök), [Vezetéknév Keresztnév] (pénztáros)</p>\n<p><strong>A tartalomért az MStV 18. § (2) bekezdése szerint felelős:</strong><br />[Vezetéknév Keresztnév], cím mint fent</p>\n<h3>Szervező</h3>\n<p>A Münchner TYPO3 User Group e.V. nem kereskedelmi célú közösségi barcampként szervezte meg a TYPO3 Camp München 2026 rendezvényt. A camp 2026. szeptember 11. és 13. között volt a Puchheimi Kulturális Központban (PUC).</p>\n<h3>Fogyasztói vitarendezés</h3>\n<p>Nem vagyunk hajlandók és nem is vagyunk kötelesek fogyasztói békéltető testület előtti vitarendezési eljárásban részt venni (VSBG 36. §). Az EU online vitarendezési (ODR) platformját 2025. július 20-án megszüntették. Az már nem érhető el.</p>\n<h3>Felelősség a tartalomért</h3>\n<p>Szolgáltatóként az általános jogszabályok szerint felelünk a saját tartalmainkért ezeken az oldalakon (DDG 7. § (1) bekezdés). A DDG 8–10. §-a szerint azonban nem kell felügyelnünk a továbbított vagy tárolt idegen információkat. Jogellenes tevékenységre utaló körülmények után sem kell kutatnunk.</p>\n<h3>Felelősség a hivatkozásokért</h3>\n<p>Oldalunk harmadik felek külső webhelyeire mutató hivatkozásokat tartalmaz. Ezek tartalmára nincs befolyásunk. Ezért ezekért az idegen tartalmakért nem vállalhatunk felelősséget. A hivatkozott oldalak tartalmáért mindig az adott szolgáltató vagy üzemeltető felel.</p>\n<h3>Szerzői jog</h3>\n<p>Az üzemeltetők által ezeken az oldalakon létrehozott tartalmak és művek a német szerzői jog védelme alatt állnak. A harmadik felek hozzájárulásait ekként jelöltük. A „TYPO3” a TYPO3 Association bejegyzett védjegye.</p>\n<p><em>Megjegyzés (lab-demó): A szögletes zárójelben szereplő adatok ennek a demó telepítésnek a helykitöltői. Közzététel előtt kérjük, cserélje le őket az egyesület tényleges, jogilag érvényes adataira: cím, nyilvántartási szám és elnökség.</em></p>"
+          }
+        }
+      }
+    },
+    {
+      "source": 35346,
+      "childTable": "desiderio_title_content",
+      "lang": {
+        "1": {
+          "fields": {
+            "header": "Privacy Policy",
+            "intro": "<p>Protecting your personal data is important to us. This privacy policy shows which data we process when you visit this website and for registrations for TYPO3 Camp Munich 2026. It also states the purpose and the legal basis. We use terms such as “personal data” and “processing” within the meaning of the General Data Protection Regulation (GDPR).</p>",
+            "last_updated": "14 June 2026"
+          },
+          "children": [
+            {
+              "fields": {
+                "title": "Data controller",
+                "content": "<p>The controller responsible for data processing on this website within the meaning of the GDPR is:</p>\n<p>Münchner TYPO3 User Group e.V. (MTUG)<br />[Street and house number], [Postal code] Munich, Germany<br />Email: <a href=\"mailto:datenschutz@typo3camp-muenchen.example\">datenschutz@typo3camp-muenchen.example</a></p>\n<p>If you have questions about data protection or want to exercise your rights, you can contact us at any time at this email address.</p>"
+              }
+            },
+            {
+              "fields": {
+                "title": "Your rights as a data subject",
+                "content": "<p>You have the right at any time to access (Art. 15 GDPR), rectification (Art. 16), erasure (Art. 17), restriction of processing (Art. 18), data portability (Art. 20) and to object to processing (Art. 21). Where processing is based on your consent, you can withdraw it at any time with effect for the future.</p>\n<p>You can also lodge a complaint with a data protection supervisory authority. The authority responsible for us is the Bavarian State Office for Data Protection Supervision (BayLDA), Promenade 18, 91522 Ansbach, Germany.</p>"
+              }
+            },
+            {
+              "fields": {
+                "title": "Hosting and server log files",
+                "content": "<p>This website is operated by a service provider (host) in the European Union. When you access the pages, the server automatically collects and stores information that your browser transmits. These so-called server log files contain the browser type and version, the operating system used and the referrer URL. They also contain the host name of the accessing computer, the time of the server request and the IP address.</p>\n<p>This data is not merged with other data sources. We process it to ensure secure and stable operation. The legal basis is Art. 6 (1) (f) GDPR. The log files are deleted after a short period.</p>"
+              }
+            },
+            {
+              "fields": {
+                "title": "Cookies and consent",
+                "content": "<p>Our website uses technically necessary cookies. They are required for operation, for example to store your privacy settings. The legal basis is Section 25 (2) TDDDG in conjunction with Art. 6 (1) (f) GDPR.</p>\n<p>Optional cookies or services are not strictly necessary. We only use them once you have given your explicit consent via our consent banner (Section 25 (1) TDDDG, Art. 6 (1) (a) GDPR). You can change or withdraw your choice at any time via the banner.</p>"
+              }
+            },
+            {
+              "fields": {
+                "title": "Ticket registration",
+                "content": "<p>If you registered for a ticket for TYPO3 Camp Munich 2026 using the registration form, we process the data you provided. This includes, for example, your name, email address and other mandatory form fields. We use it to handle your registration and to communicate with you about the event.</p>\n<p>The legal basis is Art. 6 (1) (b) GDPR (performance of pre-contractual or contractual measures). In addition, there is our legitimate interest in organising the event (Art. 6 (1) (f) GDPR). We delete the data as soon as it is no longer required for these purposes and no statutory retention obligations prevent deletion.</p>"
+              }
+            },
+            {
+              "fields": {
+                "title": "Spam protection with Friendly Captcha",
+                "content": "<p>We protect our forms against automated input (spam) with “Friendly Captcha”. The service checks in the background whether an entry was made by a human. It does not evaluate personal user profiles and does not use conventional tracking cookies. Technical information such as a cryptographic puzzle and the IP address is processed.</p>\n<p>The legal basis is Art. 6 (1) (f) GDPR. Our legitimate interest lies in preventing misuse and spam. Processing is data-minimising and runs primarily on servers within the EU.</p>"
+              }
+            },
+            {
+              "fields": {
+                "title": "Search function",
+                "content": "<p>We use Apache Solr for the search on this website. Solr runs on our own infrastructure. We process your search queries only to provide the search results and do not pass them on to third parties. The legal basis is Art. 6 (1) (f) GDPR.</p>"
+              }
+            },
+            {
+              "fields": {
+                "title": "SSL/TLS encryption",
+                "content": "<p>This website uses SSL/TLS encryption. It serves security and protects the transmission of confidential content. You can recognise an encrypted connection by “https://” in your browser's address bar. When encryption is active, third parties cannot read the data you transmit to us.</p>"
+              }
+            }
+          ]
+        },
+        "2": {
+          "fields": {
+            "header": "隐私政策",
+            "intro": "<p>保护您的个人数据对我们很重要。本隐私政策说明我们在您访问本网站时以及在 TYPO3 Camp 慕尼黑 2026 报名过程中处理哪些数据，并说明处理目的和法律依据。“个人数据”“处理”等术语均按照《通用数据保护条例》（GDPR）的含义使用。</p>",
+            "last_updated": "2026 年 6 月 14 日"
+          },
+          "children": [
+            {
+              "fields": {
+                "title": "数据控制者",
+                "content": "<p>就 GDPR 而言，负责本网站数据处理的控制者为：</p>\n<p>Münchner TYPO3 User Group e.V. (MTUG)<br />[街道和门牌号]，[邮政编码] 慕尼黑，德国<br />电子邮件：<a href=\"mailto:datenschutz@typo3camp-muenchen.example\">datenschutz@typo3camp-muenchen.example</a></p>\n<p>如果您对数据保护有疑问或希望行使您的权利，可随时通过该电子邮件地址与我们联系。</p>"
+              }
+            },
+            {
+              "fields": {
+                "title": "您作为数据主体的权利",
+                "content": "<p>您随时有权要求访问（GDPR 第 15 条）、更正（第 16 条）、删除（第 17 条）、限制处理（第 18 条）、数据可携（第 20 条）以及反对处理（第 21 条）。若处理基于您的同意，您可随时撤回该同意，撤回自撤回时起对将来生效。</p>\n<p>此外，您可以向数据保护监管机构投诉。对我们具有管辖权的机构为巴伐利亚州数据保护监管局（BayLDA），地址：Promenade 18, 91522 Ansbach, 德国。</p>"
+              }
+            },
+            {
+              "fields": {
+                "title": "托管与服务器日志文件",
+                "content": "<p>本网站由位于欧盟境内的服务提供商（主机服务商）运营。当您访问页面时，服务器会自动收集并存储您的浏览器所传输的信息。这些所谓的服务器日志文件包含浏览器类型及版本、所用操作系统、来源网址（Referrer URL）、访问计算机的主机名、服务器请求的时间以及 IP 地址。</p>\n<p>这些数据不会与其他数据来源合并。我们处理这些数据是为了确保安全、稳定的运行。法律依据为 GDPR 第 6 条第 1 款 (f) 项。日志文件将在短时间后被删除。</p>"
+              }
+            },
+            {
+              "fields": {
+                "title": "Cookie 与同意",
+                "content": "<p>本网站使用技术上必需的 Cookie。它们是运行所必需的，例如用于存储您的隐私设置。法律依据为《电信电媒数据保护法》（TDDDG）第 25 条第 2 款，并结合 GDPR 第 6 条第 1 款 (f) 项。</p>\n<p>可选的 Cookie 或服务并非绝对必要。只有在您通过我们的同意横幅明确同意后，我们才会使用它们（TDDDG 第 25 条第 1 款、GDPR 第 6 条第 1 款 (a) 项）。您可随时通过横幅更改或撤回您的选择。</p>"
+              }
+            },
+            {
+              "fields": {
+                "title": "门票报名",
+                "content": "<p>如果您曾通过报名表为 TYPO3 Camp 慕尼黑 2026 报名门票，我们会处理您所提供的数据，例如姓名、电子邮件地址及表单的其他必填项。我们使用这些数据处理您的报名，并就活动事宜与您沟通。</p>\n<p>法律依据为 GDPR 第 6 条第 1 款 (b) 项（履行合同前或合同措施）。此外还有我们组织活动的正当利益（GDPR 第 6 条第 1 款 (f) 项）。一旦这些数据对上述目的不再必要且无法定保存义务阻止删除，我们即予删除。</p>"
+              }
+            },
+            {
+              "fields": {
+                "title": "使用 Friendly Captcha 进行垃圾信息防护",
+                "content": "<p>我们使用“Friendly Captcha”保护表单免受自动化输入（垃圾信息）侵扰。该服务在后台检查输入是否来自真人。它不分析个人用户画像，也不使用传统的跟踪 Cookie。所处理的是诸如加密计算任务和 IP 地址之类的技术信息。</p>\n<p>法律依据为 GDPR 第 6 条第 1 款 (f) 项。我们的正当利益在于防范滥用与垃圾信息。该处理遵循数据最小化原则，并主要通过欧盟境内的服务器进行。</p>"
+              }
+            },
+            {
+              "fields": {
+                "title": "搜索功能",
+                "content": "<p>本网站的搜索功能使用 Apache Solr。Solr 运行于我们自有的基础设施之上。我们仅为提供搜索结果而处理您的搜索查询，不会将其传输给第三方。法律依据为 GDPR 第 6 条第 1 款 (f) 项。</p>"
+              }
+            },
+            {
+              "fields": {
+                "title": "SSL/TLS 加密",
+                "content": "<p>本网站采用 SSL/TLS 加密。它用于保障安全，并保护机密内容的传输。您可通过浏览器地址栏中的“https://”识别加密连接。在加密生效时，第三方无法读取您向我们传输的数据。</p>"
+              }
+            }
+          ]
+        },
+        "3": {
+          "fields": {
+            "header": "Adatvédelmi tájékoztató",
+            "intro": "<p>Személyes adatainak védelme fontos számunkra. Ez az adatvédelmi tájékoztató bemutatja, milyen adatokat kezelünk a weboldal látogatása során és a TYPO3 Camp München 2026 rendezvényre való regisztrációnál. Megnevezi az adatkezelés célját és jogalapját is. Az olyan fogalmakat, mint a „személyes adat” vagy az „adatkezelés”, az általános adatvédelmi rendelet (GDPR) értelmében használjuk.</p>",
+            "last_updated": "2026. június 14."
+          },
+          "children": [
+            {
+              "fields": {
+                "title": "Adatkezelő",
+                "content": "<p>A weboldalon folytatott adatkezelésért a GDPR értelmében felelős adatkezelő:</p>\n<p>Münchner TYPO3 User Group e.V. (MTUG)<br />[Utca és házszám], [Irányítószám] München, Németország<br />E-mail: <a href=\"mailto:datenschutz@typo3camp-muenchen.example\">datenschutz@typo3camp-muenchen.example</a></p>\n<p>Ha adatvédelemmel kapcsolatos kérdése van, vagy élni kíván jogaival, ezen az e-mail-címen bármikor elérhet minket.</p>"
+              }
+            },
+            {
+              "fields": {
+                "title": "Az Ön jogai érintettként",
+                "content": "<p>Önnek bármikor joga van a hozzáféréshez (GDPR 15. cikk), helyesbítéshez (16. cikk), törléshez (17. cikk), az adatkezelés korlátozásához (18. cikk), az adathordozhatósághoz (20. cikk) és az adatkezelés elleni tiltakozáshoz (21. cikk). Ha az adatkezelés az Ön hozzájárulásán alapul, azt bármikor, a jövőre nézve visszavonhatja.</p>\n<p>Emellett panaszt tehet egy adatvédelmi felügyeleti hatóságnál. A ránk illetékes hatóság a Bajor Adatvédelmi Felügyeleti Hivatal (BayLDA), Promenade 18, 91522 Ansbach, Németország.</p>"
+              }
+            },
+            {
+              "fields": {
+                "title": "Tárhely és szervernaplók",
+                "content": "<p>Ezt a weboldalt egy, az Európai Unióban működő szolgáltató (tárhelyszolgáltató) üzemelteti. Az oldalak megnyitásakor a szerver automatikusan gyűjti és tárolja a böngészője által továbbított információkat. Ezek az úgynevezett szervernaplók tartalmazzák a böngésző típusát és verzióját, a használt operációs rendszert, a hivatkozó URL-t (referrer), a hozzáférő számítógép gazdagépnevét, a szerverkérés időpontját és az IP-címet.</p>\n<p>Ezeket az adatokat nem vonjuk össze más adatforrásokkal. A biztonságos és stabil üzemeltetés érdekében kezeljük őket. Az adatkezelés jogalapja a GDPR 6. cikk (1) bekezdés f) pontja. A naplófájlokat rövid idő után töröljük.</p>"
+              }
+            },
+            {
+              "fields": {
+                "title": "Sütik és hozzájárulás",
+                "content": "<p>Weboldalunk technikailag szükséges sütiket használ. Ezek az üzemeltetéshez kellenek, például az adatvédelmi beállításai tárolásához. Ennek jogalapja a TDDDG 25. § (2) bekezdése a GDPR 6. cikk (1) bekezdés f) pontjával összefüggésben.</p>\n<p>A választható sütik vagy szolgáltatások nem feltétlenül szükségesek. Csak akkor használjuk őket, ha Ön a hozzájárulási sávon (consent banner) keresztül kifejezetten hozzájárult (TDDDG 25. § (1) bekezdés, GDPR 6. cikk (1) bekezdés a) pont). Választását a sávon keresztül bármikor módosíthatja vagy visszavonhatja.</p>"
+              }
+            },
+            {
+              "fields": {
+                "title": "Jegyregisztráció",
+                "content": "<p>Ha a regisztrációs űrlapon jegyet igényelt a TYPO3 Camp München 2026 rendezvényre, az Ön által megadott adatokat kezeljük. Ezek közé tartozik például a név, az e-mail-cím és az űrlap egyéb kötelező mezői. Az adatokat a regisztráció feldolgozására és a rendezvénnyel kapcsolatos kommunikációra használjuk.</p>\n<p>A jogalap a GDPR 6. cikk (1) bekezdés b) pontja (szerződéskötést megelőző vagy szerződéses intézkedések teljesítése). Emellett jogos érdekünk fűződik a rendezvény megszervezéséhez (GDPR 6. cikk (1) bekezdés f) pont). Az adatokat töröljük, amint azok e célokhoz már nem szükségesek, és törlésüknek nincs törvényi megőrzési kötelezettség akadálya.</p>"
+              }
+            },
+            {
+              "fields": {
+                "title": "Spamvédelem a Friendly Captcha segítségével",
+                "content": "<p>Űrlapjainkat a „Friendly Captcha” szolgáltatással védjük az automatizált bevitel (spam) ellen. A szolgáltatás a háttérben ellenőrzi, hogy egy bevitel embertől származik-e. Nem elemez személyes felhasználói profilokat, és nem használ hagyományos nyomkövető sütiket. Technikai információkat kezel, például egy kriptográfiai feladványt és az IP-címet.</p>\n<p>A jogalap a GDPR 6. cikk (1) bekezdés f) pontja. Jogos érdekünk a visszaélések és a spam elhárítása. Az adatkezelés adattakarékos, és elsősorban az EU-n belüli szervereken keresztül történik.</p>"
+              }
+            },
+            {
+              "fields": {
+                "title": "Keresési funkció",
+                "content": "<p>A weboldalon a kereséshez az Apache Solr-t használjuk. A Solr saját infrastruktúránkon fut. Keresési lekérdezéseit csak a találatok megjelenítéséhez kezeljük, és nem továbbítjuk harmadik feleknek. A jogalap a GDPR 6. cikk (1) bekezdés f) pontja.</p>"
+              }
+            },
+            {
+              "fields": {
+                "title": "SSL-/TLS-titkosítás",
+                "content": "<p>Ez a weboldal SSL-/TLS-titkosítást használ. Ez a biztonságot szolgálja, és védi a bizalmas tartalmak továbbítását. A titkosított kapcsolatot a böngésző címsorában megjelenő „https://” jelzi. Aktív titkosítás esetén harmadik felek nem tudják elolvasni az Ön által nekünk továbbított adatokat.</p>"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "source": 35350,
+      "childTable": null,
+      "lang": {
+        "1": {
+          "fields": {
+            "header": "Accessibility Statement",
+            "last_updated": "14 June 2026",
+            "content": "<p>Münchner TYPO3 User Group e.V. aims to make the TYPO3 Camp Munich 2026 website accessible. The applicable digital accessibility regulations are decisive. We use the Web Content Accessibility Guidelines (WCAG) 2.1 at conformance level AA and the European standard EN 301 549 as our benchmark.</p>\n<h3>Conformance status</h3>\n<p>In our assessment, this website is largely conformant with WCAG 2.1 Level AA. The content elements used are designed for keyboard operability, visible focus states, semantic structure (landmarks and heading hierarchy) and sufficient colour contrast.</p>\n<h3>What is already accessible</h3>\n<ul><li>All interactive elements (links, buttons, form fields) can be reached and operated using the keyboard.</li><li>Images have alternative text. Purely decorative graphics are hidden from screen readers.</li><li>The pages are responsive and can be zoomed to 200% without loss of content.</li><li>The website is available in several languages. The language of each page is marked up technically.</li></ul>\n<h3>Known limitations</h3>\n<p>Despite our efforts, some content may not yet be fully accessible. This applies in particular to:</p>\n<ul><li>Embedded third-party services, for example the Friendly Captcha spam-protection widget. We can only influence their design to a limited extent.</li><li>Content submitted by participants, and linked external websites.</li><li>Individual documents (e.g. PDFs) that may not meet all requirements.</li></ul>\n<p>We are continuously working to improve these points.</p>\n<h3>Feedback and contact</h3>\n<p>If you notice any barriers or need information in an accessible format, please write to us at <a href=\"mailto:barrierefreiheit@typo3camp-muenchen.example\">barrierefreiheit@typo3camp-muenchen.example</a>. We try to respond to your request promptly and to provide content in an accessible form on request.</p>\n<h3>Enforcement procedure</h3>\n<p>If we do not respond satisfactorily to your feedback, you can contact the competent conciliation or enforcement body. <em>Note (lab demo): This statement is a template. Before publishing, please add the body responsible for you and the actual contact details.</em></p>",
+            "contact_email": "barrierefreiheit@typo3camp-muenchen.example"
+          }
+        },
+        "2": {
+          "fields": {
+            "header": "无障碍声明",
+            "last_updated": "2026 年 6 月 14 日",
+            "content": "<p>Münchner TYPO3 User Group e.V. 致力于使 TYPO3 Camp 慕尼黑 2026 网站无障碍可用。适用的数字无障碍法规具有决定性意义。我们以《Web 内容无障碍指南》（WCAG）2.1 的 AA 合规级别以及欧洲标准 EN 301 549 为基准。</p>\n<h3>合规状况</h3>\n<p>据我们评估，本网站在很大程度上符合 WCAG 2.1 AA 级。所用的内容元素在键盘可操作性、可见的焦点状态、语义结构（地标与标题层级）以及足够的颜色对比度方面均有设计考虑。</p>\n<h3>已实现无障碍的方面</h3>\n<ul><li>所有交互元素（链接、按钮、表单字段）均可通过键盘到达和操作。</li><li>图像配有替代文本。纯装饰性图形对屏幕阅读器隐藏。</li><li>页面采用响应式设计，可放大至 200% 而不丢失内容。</li><li>网站提供多种语言。每个页面的语言均有技术标注。</li></ul>\n<h3>已知限制</h3>\n<p>尽管我们已尽力，部分内容可能仍未完全实现无障碍。这主要涉及：</p>\n<ul><li>嵌入的第三方服务，例如垃圾信息防护小部件 Friendly Captcha。我们对其设计的影响有限。</li><li>参与者提交的内容以及所链接的外部网站。</li><li>个别文档（例如 PDF），可能未满足全部要求。</li></ul>\n<p>我们正持续努力改进上述方面。</p>\n<h3>反馈与联系</h3>\n<p>如果您发现了障碍，或需要以无障碍格式提供的信息，请发送电子邮件至 <a href=\"mailto:barrierefreiheit@typo3camp-muenchen.example\">barrierefreiheit@typo3camp-muenchen.example</a>。我们将努力及时回复您的请求，并应要求以可访问的形式提供内容。</p>\n<h3>执行程序</h3>\n<p>如果我们未能对您的反馈作出令您满意的回应，您可以联系主管的调解或执行机构。<em>说明（实验演示）：本声明为模板。发布前请补充对您具有管辖权的机构以及真实的联系方式。</em></p>",
+            "contact_email": "barrierefreiheit@typo3camp-muenchen.example"
+          }
+        },
+        "3": {
+          "fields": {
+            "header": "Akadálymentességi nyilatkozat",
+            "last_updated": "2026. június 14.",
+            "content": "<p>A Münchner TYPO3 User Group e.V. arra törekszik, hogy a TYPO3 Camp München 2026 weboldala akadálymentesen hozzáférhető legyen. Ehhez a digitális akadálymentességre vonatkozó hatályos előírások az irányadók. Mércéül a Web Content Accessibility Guidelines (WCAG) 2.1 AA megfelelőségi szintje és az EN 301 549 európai szabvány szolgál.</p>\n<h3>A megfelelés állapota</h3>\n<p>Megítélésünk szerint ez a weboldal nagyrészt megfelel a WCAG 2.1 AA szintjének. Az alkalmazott tartalomelemeket a billentyűzettel való kezelhetőségre, a látható fókuszállapotokra, a szemantikus szerkezetre (tereppontok és címsorhierarchia) és a megfelelő színkontrasztra terveztük.</p>\n<h3>Ami már akadálymentes</h3>\n<ul><li>Minden interaktív elem (hivatkozások, gombok, űrlapmezők) billentyűzettel elérhető és kezelhető.</li><li>A képek alternatív szöveggel rendelkeznek. A tisztán dekoratív grafikák a képernyőolvasók elől rejtve vannak.</li><li>Az oldalak reszponzívak, és 200%-ig nagyíthatók a tartalom elvesztése nélkül.</li><li>A weboldal több nyelven is elérhető. Az egyes oldalak nyelve technikailag jelölve van.</li></ul>\n<h3>Ismert korlátok</h3>\n<p>Erőfeszítéseink ellenére egyes tartalmak talán még nem teljesen akadálymentesek. Ez különösen a következőket érinti:</p>\n<ul><li>Beágyazott, harmadik féltől származó szolgáltatások, például a Friendly Captcha spamvédelmi modul. Ezek kialakítására csak korlátozottan van befolyásunk.</li><li>A résztvevők által beküldött tartalmak és a hivatkozott külső webhelyek.</li><li>Egyes dokumentumok (pl. PDF), amelyek esetleg nem felelnek meg minden követelménynek.</li></ul>\n<p>Folyamatosan dolgozunk e pontok javításán.</p>\n<h3>Visszajelzés és kapcsolat</h3>\n<p>Ha akadályt észlel, vagy akadálymentes formátumban van szüksége információra, kérjük, írjon nekünk a <a href=\"mailto:barrierefreiheit@typo3camp-muenchen.example\">barrierefreiheit@typo3camp-muenchen.example</a> címre. Igyekszünk kérését mielőbb megválaszolni, és kérésre a tartalmat hozzáférhető formában rendelkezésre bocsátani.</p>\n<h3>Végrehajtási eljárás</h3>\n<p>Ha visszajelzésére nem reagálunk kielégítően, az illetékes békéltető vagy végrehajtó szervhez fordulhat. <em>Megjegyzés (lab-demó): Ez a nyilatkozat egy sablon. Közzététel előtt kérjük, egészítse ki az Önre illetékes szervvel és a tényleges elérhetőségekkel.</em></p>",
+            "contact_email": "barrierefreiheit@typo3camp-muenchen.example"
           }
         }
       }
