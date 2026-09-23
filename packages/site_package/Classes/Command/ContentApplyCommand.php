@@ -172,12 +172,19 @@ final class ContentApplyCommand extends Command
 
         $current = $uid > 0 ? $this->currentRow($table, $uid) : null;
         if ($current === null) {
+            if ($action === 'delete' && $this->isDeleted($table, $uid)) {
+                $this->counts['unchanged']++;
+                return;
+            }
             $io->warning(sprintf('%s:%d does not exist (or is deleted / not live); skipped.', $table, $uid));
             $this->counts['skipped']++;
             return;
         }
 
-        if (!$force) {
+        // A row that already holds the new values was applied before: its
+        // expect values are gone, which is not a conflict. The file check
+        // below still runs.
+        if (!$force && !$this->alreadyApplied($action, $set, $current)) {
             foreach ($this->fields($record['expect'] ?? null) as $field => $expected) {
                 if (!array_key_exists($field, $current) || $this->normalise($current[$field]) !== $this->normalise($expected)) {
                     $io->warning(sprintf('%s:%d.%s changed since export; skipped (use --force to overwrite).', $table, $uid, $field));
@@ -374,6 +381,44 @@ final class ContentApplyCommand extends Command
     }
 
     /**
+     * @param array<string, mixed> $set
+     * @param array<string, mixed> $current
+     */
+    private function alreadyApplied(string $action, array $set, array $current): bool
+    {
+        if ($action === 'delete' || $set === []) {
+            return false;
+        }
+        if ($action === 'hide') {
+            $set['hidden'] = 1;
+        }
+        foreach ($set as $field => $value) {
+            if (!array_key_exists($field, $current) || $this->normalise($current[$field]) !== $this->normalise($value)) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    private function isDeleted(string $table, int $uid): bool
+    {
+        if ($uid <= 0) {
+            return false;
+        }
+        $queryBuilder = $this->connectionPool->getQueryBuilderForTable($table);
+        $queryBuilder->getRestrictions()->removeAll();
+        $queryBuilder->count('uid')->from($table)->where(
+            $queryBuilder->expr()->eq('uid', $queryBuilder->createNamedParameter($uid, Connection::PARAM_INT)),
+            $queryBuilder->expr()->eq('deleted', 1),
+        );
+
+        $count = $queryBuilder->executeQuery()->fetchOne();
+
+        return is_numeric($count) && (int)$count > 0;
+    }
+
+    /**
      * @return array<string, mixed>|null
      */
     private function currentRow(string $table, int $uid): ?array
@@ -417,7 +462,9 @@ final class ContentApplyCommand extends Command
     {
         $text = is_scalar($value) ? (string)$value : '';
 
-        return trim(str_replace("\r\n", "\n", $text));
+        // The RTE transformation rewrites whitespace between tags and lines,
+        // so a stored text can differ from its payload only in whitespace.
+        return trim((string)preg_replace(['/>\s+</u', '/\s+/u'], ['><', ' '], $text));
     }
 
     private function excerpt(mixed $value): string
