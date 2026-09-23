@@ -1,0 +1,27 @@
+{
+    "version": 1,
+    "site": "typo3-blog",
+    "root": 390,
+    "language": 0,
+    "languageCode": "en",
+    "generated": "2026-09-23T19:30:00+02:00",
+    "_note": "Two test comments from April 2026 on the first post: lorem ipsum and 'sag was hier.'",
+    "records": [
+        {
+            "table": "tx_blog_domain_model_comment",
+            "uid": 7,
+            "action": "delete",
+            "expect": {
+                "name": "TYPO3 Inc Team"
+            }
+        },
+        {
+            "table": "tx_blog_domain_model_comment",
+            "uid": 8,
+            "action": "delete",
+            "expect": {
+                "comment": "sag was hier."
+            }
+        }
+    ]
+}
