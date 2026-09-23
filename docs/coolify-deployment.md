@@ -118,10 +118,16 @@ step. A failed migration is logged and the container still serves, so the
 problem is visible in both the logs and the site rather than hidden behind a
 boot loop.
 
-On start the container also runs `shadcn-ui:chat:cleanup`
+On start the container also runs `ai-assistant:chat:cleanup`
 (`TYPO3_CHAT_CLEANUP=0` to skip). A chat turn runs inside the request that
 started it, so a request that dies leaves its conversation claimed; there is no
 cron daemon here to run a scheduler task, and at start nothing can be mid-turn.
+For the same reason it runs `agentnexus:cleanup` (`TYPO3_AGENTNEXUS_CLEANUP=0`),
+the data-only upgrade wizards listed in the entrypoint (`TYPO3_RUN_WIZARDS=0`),
+and `language:update` for the core language packs named in
+`TYPO3_LANGUAGE_PACKS` (default `de`; `TYPO3_LANGUAGE_UPDATE=0` to skip), so
+the backend is German in full rather than only where extensions ship their own
+labels.
 
 Every switch named in this section is declared in `docker-compose.coolify.yml`.
 That matters: Coolify injects only what the compose file declares, so a variable

@@ -4,6 +4,63 @@ All notable changes to Webconsulting TYPO3 Lab are documented in this file.
 
 ## Unreleased
 
+### Overhaul, round 3 — 2026-09-23
+
+Backend without shadcn
+
+- **typo3-ai-assistant 2.0** (`webcon_ai_assistant`) replaces
+  `typo3-shadcn-ui`: the same backend chat — nr-llm agent runtime, the MCP
+  tools in-process, every write stopping for approval — rebuilt from TYPO3's
+  own backend parts instead of React, Tailwind and Shadow DOM. The upgrade
+  wizard `webconAiAssistantMigrateFromShadcnUi` moved the conversations; the
+  container runs it on start. `typo3-shadcn-ui` is archived. Its review found
+  why the old chat failed in the lab: GetPage's tool schema used a top-level
+  `oneOf` that function-calling providers reject.
+- **webcon-jev 0.2** — the Jev module is native too (Admin → Jev decisions),
+  with a playground that runs the unsaved form; translations of decisions keep
+  their identifier.
+- Desiderio (and innesto, its frontend family) keep shadcn/ui, in the frontend.
+
+Protocols and Word
+
+- **agent-nexus 4.0** — A2A 1.0 (0.3 still answered), AG-UI 1.0, A2UI v0.9.1,
+  UCP 2026-08-25, AP2 v0.2.0; one API router, a protocol object store, a live
+  traffic log and an inspector, official schemas vendored and every payload
+  validated. Its `agent-nexus-desiderio` set is deprecated; the three sites now
+  list `agent-nexus` and `desiderio` directly. The nine 3.x tables are renamed
+  to `zzz_deleted_*`.
+- **docx-editor 2.3** — the editor runs on docx-editor.dev (Vue, Apache-2.0
+  packages only); pages round-trip through Word (**Word ▾** in the Page
+  module), Jev picks the content element for a new part, a review shows every
+  change before anything is written; printing; pictures embedded at 150 ppi.
+
+Everything else, each with PHPStan level 8, tests and green CI
+
+- mcp-server 0.9.3, abilities 1.3, skillflow 1.8 (abilities contract,
+  claude-sonnet-5), skillspector 1.2 (now its own repository and a Composer
+  package instead of a folder in this repository), llms-txt 1.2, agentation
+  1.5, records-list-types 1.3 / examples 1.5, easy-workspace 1.7.2,
+  visual-editor-enhancements 1.2, image-workbench 0.3, workos-auth 2.3.1,
+  x402-paywall 1.4, innesto 2.3.
+- Forks follow upstream: Powermail and friendlycaptcha ship four-part tags
+  (`14.0.3.x`, `2.3.0.1`) consumed with `~`; friendlycaptcha is upstream 2.3.0
+  plus our validator fix; powermail_cond has upstream's fixes. The
+  inline-page-module patch is gone (4.0.3 ships the fix).
+- Three extensions read the backend user from a `backend.user` request
+  attribute TYPO3 never sets (WorkOS user management, docx-editor's page API,
+  easy-workspace's Visual Editor button); their tests had injected it.
+
+Lab
+
+- The German core language pack is fetched on every container start
+  (`TYPO3_LANGUAGE_UPDATE`, `TYPO3_LANGUAGE_PACKS`); the backend was half
+  English without it.
+- The container also runs `agentnexus:cleanup` and the data-only upgrade
+  wizards at start; `shadcn-ui:chat:cleanup` became `ai-assistant:chat:cleanup`.
+- `Build/Scripts/mirror-to-gitlab.sh` mirrors what GitHub has (branches and
+  tags) instead of whatever a local clone holds, which had brought deleted
+  tags back.
+
 ### Overhaul — 2026-09-19
 
 Platform

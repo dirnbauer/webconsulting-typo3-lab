@@ -9,9 +9,9 @@ reproducible through TYPO3 console commands:
 | `netresearch/nr-vault` | `0.16.0` |
 | `netresearch/t3-cowriter` | `3.6.8` |
 
-The backend chat is the shadcn/ui chat of `webconsulting/typo3-shadcn-ui`; it
-runs the installation's own MCP tools in-process through nr-llm's agent
-runtime. See [shadcn UI and backend chat](shadcn-ui.md).
+The backend chat is `webconsulting/typo3-ai-assistant`; it runs the
+installation's own MCP tools in-process through nr-llm's agent runtime. See
+[AI Assistant](ai-assistant.md).
 
 ## Configure models and Cowriter examples
 
