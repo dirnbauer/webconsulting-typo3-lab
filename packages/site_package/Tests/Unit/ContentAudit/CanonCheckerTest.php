@@ -93,6 +93,8 @@ final class CanonCheckerTest extends TestCase
         self::assertNotContains('spelling', $this->rules($this->errors("Send the token like this:\ncurl -H \"Authorization: Bearer x\" https://example.com", FieldRole::Body)));
         self::assertNotContains('spelling', $this->rules($this->errors('Set `color` in the element.', FieldRole::Card)));
         self::assertContains('spelling', $this->rules($this->errors('Pick a color for the element.', FieldRole::Card)));
+        self::assertNotContains('spelling', $this->rules($this->errors(\Webconsulting\SitePackage\ContentAudit\CopyMetrics::plainText('<p>Pass <code>organization</code> in the URL.</p>'), FieldRole::Card)));
+        self::assertNotContains('spelling', $this->rules($this->errors('The WorkOS Account Center lists every session.', FieldRole::Card)));
     }
 
     public function testSkippedFieldsAreNotChecked(): void

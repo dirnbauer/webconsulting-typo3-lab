@@ -122,8 +122,9 @@ final readonly class CanonChecker
         }
 
         if ($language === 'en') {
+            $prose = str_ireplace($this->canon->properNames, ' ', $text);
             foreach ($this->canon->spellingUk as $us => $uk) {
-                if ($this->containsWord($text, $us)) {
+                if ($this->containsWord($prose, $us)) {
                     $findings[] = new Finding('error', 'spelling', sprintf('British English: "%s", not "%s"', $uk, $us), $us);
                 }
             }

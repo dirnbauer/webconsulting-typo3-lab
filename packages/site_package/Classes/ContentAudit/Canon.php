@@ -25,6 +25,7 @@ final readonly class Canon
      * @param list<string> $bannedSoft
      * @param list<string> $leftovers
      * @param array<string, string> $spellingUk
+     * @param list<string> $properNames names that keep their own spelling (products, plugins)
      * @param array<string, array{root: int, language: string, address: string}> $sites
      * @param array<string, string> $address
      * @param array<string, array<string, string>> $glossary
@@ -38,6 +39,7 @@ final readonly class Canon
         public array $bannedSoft,
         public array $leftovers,
         public array $spellingUk,
+        public array $properNames,
         public array $sites,
         public array $address,
         public array $glossary,
@@ -95,6 +97,7 @@ final readonly class Canon
             bannedSoft: array_map(self::string(...), self::list($banned['soft'] ?? [])),
             leftovers: array_map(self::string(...), self::list($data['leftovers'] ?? [])),
             spellingUk: self::stringMap($data['spelling_uk'] ?? []),
+            properNames: array_map(self::string(...), self::list($data['proper_names'] ?? [])),
             sites: $sites,
             address: self::stringMap($data['address'] ?? []),
             glossary: $glossary,

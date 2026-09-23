@@ -23,7 +23,9 @@ final class CopyMetrics
     {
         // Block-level tags end a sentence-like unit even without punctuation:
         // list items and headings rarely carry a full stop.
-        $value = (string)preg_replace('#</(p|li|h[1-6]|dt|dd|td|th|blockquote|div)>|<br\s*/?>#i', "\n", $value);
+        // Inline code keeps its backticks, so the checks can tell it from prose.
+        $value = (string)preg_replace('#<code[^>]*>(.*?)</code>#is', '`$1`', $value);
+        $value = (string)preg_replace('#</(p|li|h[1-6]|dt|dd|td|th|blockquote|div|pre)>|<br\s*/?>#i', "\n", $value);
         $value = strip_tags($value);
         $value = html_entity_decode($value, ENT_QUOTES | ENT_HTML5, 'UTF-8');
         $value = str_replace("\u{00A0}", ' ', $value);

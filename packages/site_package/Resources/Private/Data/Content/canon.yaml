@@ -125,6 +125,9 @@ spelling_uk:
   enroll: enrol
   license: licence
 
+# Names that keep their own spelling: products, plugins and standards.
+proper_names: ['Account Center', 'Color Picker', 'Organization Schema', 'schema.org Organization', 'Behavior-Driven', 'Help Center', 'Data Center Edition']
+
 # How each site speaks to its readers. Language codes are the site's
 # default language; `address` is checked for German only.
 sites:
