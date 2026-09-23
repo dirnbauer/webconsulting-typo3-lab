@@ -392,11 +392,11 @@ final class ContentApplyCommand extends Command
      */
     private function alreadyApplied(string $action, array $set, array $current): bool
     {
-        if ($action === 'delete' || $set === []) {
-            return false;
-        }
         if ($action === 'hide') {
             $set['hidden'] = 1;
+        }
+        if ($action === 'delete' || $set === []) {
+            return false;
         }
         foreach ($set as $field => $value) {
             if (!array_key_exists($field, $current) || $this->normalise($current[$field]) !== $this->normalise($value)) {
