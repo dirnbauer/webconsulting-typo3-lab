@@ -77,6 +77,7 @@ final class CopyMetricsTest extends TestCase
         yield 'meta description' => ['description', 'pages', FieldRole::Meta];
         yield 'alt text' => ['alternative', 'sys_file_reference', FieldRole::Alt];
         yield 'job title is not a headline' => ['author_title', 'tt_content', FieldRole::Other];
+        yield 'chart data is skipped' => ['chart_data', 'tt_content', FieldRole::Skip];
     }
 
     #[DataProvider('roles')]

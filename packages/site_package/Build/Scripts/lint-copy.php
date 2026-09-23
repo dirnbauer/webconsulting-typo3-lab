@@ -110,8 +110,8 @@ $walk = static function (array $data, string $source, string $table, string $lan
         if (!is_string($value) || trim($value) === '' || $name === '') {
             continue;
         }
-        // Identifiers, paths, links and placeholders are not copy.
-        if (preg_match('#^(\S+://|t3://|/|EXT:|\{\{|[a-z0-9_-]+:[a-z0-9_-]+$|[\w.-]+\.(png|jpe?g|webp|svg|gif|mp4|pdf|wav)$|\#)#i', trim($value)) === 1) {
+        // Identifiers, paths, links, placeholders and embedded JSON (chart data) are not copy.
+        if (preg_match('#^(\S+://|t3://|/|EXT:|\{|\[|[a-z0-9_-]+:[a-z0-9_-]+$|[\w.-]+\.(png|jpe?g|webp|svg|gif|mp4|pdf|wav)$|\#)#i', trim($value)) === 1) {
             continue;
         }
         $role = FieldRole::fromField($name, $table);
