@@ -1,0 +1,113 @@
+{
+    "version": 1,
+    "site": "typo3-blog",
+    "root": 390,
+    "language": 0,
+    "languageCode": "en",
+    "generated": "2026-09-23T16:00:00+02:00",
+    "_note": "Featured images from packages/site_package/Build/Data/blog-image-prompts.json (gpt-image-2).",
+    "records": [
+        {
+            "table": "pages",
+            "uid": 396,
+            "expect": {
+                "title": "First blog post"
+            },
+            "set": {},
+            "files": {
+                "featured_image": [
+                    {
+                        "source": "EXT:site_package/Resources/Private/ContentImages/blog/lib-blog-typo3-first-post-11be362f.webp",
+                        "folder": "1:/blog/featured/",
+                        "alternative": "A laptop with a blog layout on a desk, next to a notebook and a cup."
+                    }
+                ]
+            }
+        },
+        {
+            "table": "pages",
+            "uid": 397,
+            "expect": {
+                "title": "What's new for editors in TYPO3 v14"
+            },
+            "set": {},
+            "files": {
+                "featured_image": [
+                    {
+                        "source": "EXT:site_package/Resources/Private/ContentImages/blog/lib-blog-typo3-397-editors-v14-f3589033.webp",
+                        "folder": "1:/blog/featured/",
+                        "alternative": "An editor works on a laptop in a bright office."
+                    }
+                ]
+            }
+        },
+        {
+            "table": "pages",
+            "uid": 398,
+            "expect": {
+                "title": "Content Blocks: one folder per content element"
+            },
+            "set": {},
+            "files": {
+                "featured_image": [
+                    {
+                        "source": "EXT:site_package/Resources/Private/ContentImages/blog/lib-blog-typo3-398-content-blocks-d4f24d4f.webp",
+                        "folder": "1:/blog/featured/",
+                        "alternative": "Paper folders arranged in a neat grid on a desk, each holding a few cards."
+                    }
+                ]
+            }
+        },
+        {
+            "table": "pages",
+            "uid": 399,
+            "expect": {
+                "title": "What to expect at a TYPO3 camp"
+            },
+            "set": {},
+            "files": {
+                "featured_image": [
+                    {
+                        "source": "EXT:site_package/Resources/Private/ContentImages/blog/lib-blog-typo3-399-camp-f08e8a8d.webp",
+                        "folder": "1:/blog/featured/",
+                        "alternative": "Attendees plan the day's sessions on a board at a camp."
+                    }
+                ]
+            }
+        },
+        {
+            "table": "pages",
+            "uid": 400,
+            "expect": {
+                "title": "Site sets: reusable configuration for sites"
+            },
+            "set": {},
+            "files": {
+                "featured_image": [
+                    {
+                        "source": "EXT:site_package/Resources/Private/ContentImages/blog/lib-blog-typo3-400-site-sets-e955c6f6.webp",
+                        "folder": "1:/blog/featured/",
+                        "alternative": "Wooden building blocks stacked into three matching small houses."
+                    }
+                ]
+            }
+        },
+        {
+            "table": "pages",
+            "uid": 401,
+            "expect": {
+                "title": "Workspaces: prepare changes before they go live"
+            },
+            "set": {},
+            "files": {
+                "featured_image": [
+                    {
+                        "source": "EXT:site_package/Resources/Private/ContentImages/blog/lib-blog-typo3-401-workspaces-80ebb940.webp",
+                        "folder": "1:/blog/featured/",
+                        "alternative": "A printed draft with pencil marks lies next to a laptop."
+                    }
+                ]
+            }
+        }
+    ]
+}

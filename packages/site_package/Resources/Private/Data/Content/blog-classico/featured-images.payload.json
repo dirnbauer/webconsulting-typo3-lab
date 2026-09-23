@@ -1,0 +1,402 @@
+{
+    "version": 1,
+    "site": "blog-classico",
+    "root": 15,
+    "language": 0,
+    "languageCode": "de",
+    "generated": "2026-09-23T16:00:00+02:00",
+    "_note": "Featured images from packages/site_package/Build/Data/blog-image-prompts.json (gpt-image-2).",
+    "records": [
+        {
+            "table": "pages",
+            "uid": 21,
+            "expect": {
+                "title": "Willkommen im Blog classico"
+            },
+            "set": {},
+            "files": {
+                "featured_image": [
+                    {
+                        "source": "EXT:site_package/Resources/Private/ContentImages/blog/lib-blog-classico-21-willkommen-c3746d66.webp",
+                        "folder": "1:/blog-classico/featured/",
+                        "alternative": "Ein Holztisch am Fenster mit Notizbuch, Tee und einer kleinen Vase mit Frühlingsblumen."
+                    }
+                ]
+            }
+        },
+        {
+            "table": "pages",
+            "uid": 22,
+            "expect": {
+                "title": "Osterwetter: ein ruhiger Start in den Tag"
+            },
+            "set": {},
+            "files": {
+                "featured_image": [
+                    {
+                        "source": "EXT:site_package/Resources/Private/ContentImages/blog/lib-blog-classico-22-osterwetter-af5e461d.webp",
+                        "folder": "1:/blog-classico/featured/",
+                        "alternative": "Morgenlicht über einem ruhigen Frühlingsgarten, auf einer Steinstufe liegen einige Ostereier."
+                    }
+                ]
+            }
+        },
+        {
+            "table": "pages",
+            "uid": 23,
+            "expect": {
+                "title": "Eier im Gras: klassische Osterdetails"
+            },
+            "set": {},
+            "files": {
+                "featured_image": [
+                    {
+                        "source": "EXT:site_package/Resources/Private/ContentImages/blog/lib-blog-classico-23-eier-im-gras-de919c45.webp",
+                        "folder": "1:/blog-classico/featured/",
+                        "alternative": "Pastellfarbene Ostereier im frischen Gras."
+                    }
+                ]
+            }
+        },
+        {
+            "table": "pages",
+            "uid": 24,
+            "expect": {
+                "title": "Schlichte Ostereier für einen hellen Tisch"
+            },
+            "set": {},
+            "files": {
+                "featured_image": [
+                    {
+                        "source": "EXT:site_package/Resources/Private/ContentImages/blog/lib-blog-classico-24-schlichte-ostereier-842c3c5e.webp",
+                        "folder": "1:/blog-classico/featured/",
+                        "alternative": "Ein heller Tisch mit Leinentuch und einer Schale mit schlichten Ostereiern."
+                    }
+                ]
+            }
+        },
+        {
+            "table": "pages",
+            "uid": 25,
+            "expect": {
+                "title": "Osternester, Körbe und Eier im Freien"
+            },
+            "set": {},
+            "files": {
+                "featured_image": [
+                    {
+                        "source": "EXT:site_package/Resources/Private/ContentImages/blog/lib-blog-classico-25-osternester-cfb3495d.webp",
+                        "folder": "1:/blog-classico/featured/",
+                        "alternative": "Ein geflochtenes Osternest mit Eiern auf einer bemoosten Gartenbank."
+                    }
+                ]
+            }
+        },
+        {
+            "table": "pages",
+            "uid": 26,
+            "expect": {
+                "title": "Warum der Osterhase bis heute fasziniert"
+            },
+            "set": {},
+            "files": {
+                "featured_image": [
+                    {
+                        "source": "EXT:site_package/Resources/Private/ContentImages/blog/lib-blog-classico-26-osterhase-8ccf4b3b.webp",
+                        "folder": "1:/blog-classico/featured/",
+                        "alternative": "Ein Feldhase sitzt auf einer Frühlingswiese am Feldrand."
+                    }
+                ]
+            }
+        },
+        {
+            "table": "pages",
+            "uid": 27,
+            "expect": {
+                "title": "Ruhige Frühlingsmomente mit weißen Kaninchen"
+            },
+            "set": {},
+            "files": {
+                "featured_image": [
+                    {
+                        "source": "EXT:site_package/Resources/Private/ContentImages/blog/lib-blog-classico-27-weisse-kaninchen-0905ef75.webp",
+                        "folder": "1:/blog-classico/featured/",
+                        "alternative": "Zwei weiße Kaninchen ruhen im weichen Tageslicht auf Stroh."
+                    }
+                ]
+            }
+        },
+        {
+            "table": "pages",
+            "uid": 28,
+            "expect": {
+                "title": "Schokohasen und verspielte Osterdeko"
+            },
+            "set": {},
+            "files": {
+                "featured_image": [
+                    {
+                        "source": "EXT:site_package/Resources/Private/ContentImages/blog/lib-blog-classico-28-schokohasen-c4be8627.webp",
+                        "folder": "1:/blog-classico/featured/",
+                        "alternative": "Schokoladenhasen und kleine bemalte Holzfiguren auf einem hellen Tisch."
+                    }
+                ]
+            }
+        },
+        {
+            "table": "pages",
+            "uid": 29,
+            "expect": {
+                "title": "Lämmer, Wiesen und die Bedeutung von Ostern"
+            },
+            "set": {},
+            "files": {
+                "featured_image": [
+                    {
+                        "source": "EXT:site_package/Resources/Private/ContentImages/blog/lib-blog-classico-29-laemmer-wiesen-b0248aec.webp",
+                        "folder": "1:/blog-classico/featured/",
+                        "alternative": "Lämmer auf einer grünen Wiese, im Hintergrund blühende Obstbäume."
+                    }
+                ]
+            }
+        },
+        {
+            "table": "pages",
+            "uid": 30,
+            "expect": {
+                "title": "Ein stiller Osternachmittag bei jungen Lämmern"
+            },
+            "set": {},
+            "files": {
+                "featured_image": [
+                    {
+                        "source": "EXT:site_package/Resources/Private/ContentImages/blog/lib-blog-classico-30-osternachmittag-b3471027.webp",
+                        "folder": "1:/blog-classico/featured/",
+                        "alternative": "Ein junges Lamm liegt am Nachmittag im Gras einer Frühlingsweide."
+                    }
+                ]
+            }
+        },
+        {
+            "table": "pages",
+            "uid": 31,
+            "expect": {
+                "title": "Hand in Hand durch den Frühlingsregen"
+            },
+            "set": {},
+            "files": {
+                "featured_image": [
+                    {
+                        "source": "EXT:site_package/Resources/Private/ContentImages/blog/lib-blog-classico-31-fruehlingsregen-f6f26152.webp",
+                        "folder": "1:/blog-classico/featured/",
+                        "alternative": "Zwei Menschen gehen, von hinten gesehen, Hand in Hand unter einem Schirm durch den Frühlingsregen."
+                    }
+                ]
+            }
+        },
+        {
+            "table": "pages",
+            "uid": 82,
+            "expect": {
+                "title": "Wintersachen richtig verstauen"
+            },
+            "set": {},
+            "files": {
+                "featured_image": [
+                    {
+                        "source": "EXT:site_package/Resources/Private/ContentImages/blog/lib-blog-classico-82-wintersachen-7e5f3165.webp",
+                        "folder": "1:/blog-classico/featured/",
+                        "alternative": "Gefaltete Wollpullover und Schals werden in eine luftige Aufbewahrungsbox gelegt."
+                    }
+                ]
+            }
+        },
+        {
+            "table": "pages",
+            "uid": 88,
+            "expect": {
+                "title": "Kräuter auf dem Balkon aussäen"
+            },
+            "set": {},
+            "files": {
+                "featured_image": [
+                    {
+                        "source": "EXT:site_package/Resources/Private/ContentImages/blog/lib-blog-classico-88-kraeuter-balkon-5bd44207.webp",
+                        "folder": "1:/blog-classico/featured/",
+                        "alternative": "Kleine Töpfe mit Kresse, Schnittlauch und Petersilie auf einem sonnigen Balkon."
+                    }
+                ]
+            }
+        },
+        {
+            "table": "pages",
+            "uid": 89,
+            "expect": {
+                "title": "Frühjahrsputz in kleinen Schritten"
+            },
+            "set": {},
+            "files": {
+                "featured_image": [
+                    {
+                        "source": "EXT:site_package/Resources/Private/ContentImages/blog/lib-blog-classico-89-fruehjahrsputz-d26c50cb.webp",
+                        "folder": "1:/blog-classico/featured/",
+                        "alternative": "Ein offenes Fenster, auf dem Fensterbrett stehen ein Eimer, ein Tuch und eine Sprühflasche."
+                    }
+                ]
+            }
+        },
+        {
+            "table": "pages",
+            "uid": 90,
+            "expect": {
+                "title": "Weißen und grünen Spargel zubereiten"
+            },
+            "set": {},
+            "files": {
+                "featured_image": [
+                    {
+                        "source": "EXT:site_package/Resources/Private/ContentImages/blog/lib-blog-classico-90-spargel-574c1884.webp",
+                        "folder": "1:/blog-classico/featured/",
+                        "alternative": "Weißer und grüner Spargel auf einem Holzbrett, daneben ein Sparschäler."
+                    }
+                ]
+            }
+        },
+        {
+            "table": "pages",
+            "uid": 91,
+            "expect": {
+                "title": "Die erste Radtour nach dem Winter"
+            },
+            "set": {},
+            "files": {
+                "featured_image": [
+                    {
+                        "source": "EXT:site_package/Resources/Private/ContentImages/blog/lib-blog-classico-91-radtour-5c3e5553.webp",
+                        "folder": "1:/blog-classico/featured/",
+                        "alternative": "Ein Fahrrad lehnt im Vorfrühling an einem Holzzaun an einem Landweg."
+                    }
+                ]
+            }
+        },
+        {
+            "table": "pages",
+            "uid": 92,
+            "expect": {
+                "title": "Tulpen in der Vase länger frisch halten"
+            },
+            "set": {},
+            "files": {
+                "featured_image": [
+                    {
+                        "source": "EXT:site_package/Resources/Private/ContentImages/blog/lib-blog-classico-92-tulpen-e40b8f04.webp",
+                        "folder": "1:/blog-classico/featured/",
+                        "alternative": "Frische Tulpen in einer Glasvase mit wenig Wasser auf einer kühlen Fensterbank."
+                    }
+                ]
+            }
+        },
+        {
+            "table": "pages",
+            "uid": 93,
+            "expect": {
+                "title": "Osterbrunch entspannt vorbereiten"
+            },
+            "set": {},
+            "files": {
+                "featured_image": [
+                    {
+                        "source": "EXT:site_package/Resources/Private/ContentImages/blog/lib-blog-classico-93-osterbrunch-eabb4ff1.webp",
+                        "folder": "1:/blog-classico/featured/",
+                        "alternative": "Ein gedeckter Osterbrunch mit Brot, Eiern, Marmelade und Kaffee, von oben gesehen."
+                    }
+                ]
+            }
+        },
+        {
+            "table": "pages",
+            "uid": 94,
+            "expect": {
+                "title": "Picknick im Frühling: eine Packliste"
+            },
+            "set": {},
+            "files": {
+                "featured_image": [
+                    {
+                        "source": "EXT:site_package/Resources/Private/ContentImages/blog/lib-blog-classico-94-picknick-0ae15423.webp",
+                        "folder": "1:/blog-classico/featured/",
+                        "alternative": "Eine Picknickdecke über einer zweiten, wasserdichten Unterlage auf einer Frühlingswiese, daneben Korb und Thermoskanne."
+                    }
+                ]
+            }
+        },
+        {
+            "table": "pages",
+            "uid": 95,
+            "expect": {
+                "title": "Osterzopf aus Hefeteig backen"
+            },
+            "set": {},
+            "files": {
+                "featured_image": [
+                    {
+                        "source": "EXT:site_package/Resources/Private/ContentImages/blog/lib-blog-classico-95-osterzopf-580948ef.webp",
+                        "folder": "1:/blog-classico/featured/",
+                        "alternative": "Ein goldbrauner Hefezopf frisch aus dem Ofen auf einem Backblech."
+                    }
+                ]
+            }
+        },
+        {
+            "table": "pages",
+            "uid": 97,
+            "expect": {
+                "title": "Das Gemüsebeet vorbereiten und säen"
+            },
+            "set": {},
+            "files": {
+                "featured_image": [
+                    {
+                        "source": "EXT:site_package/Resources/Private/ContentImages/blog/lib-blog-classico-97-gemuesebeet-0452755b.webp",
+                        "folder": "1:/blog-classico/featured/",
+                        "alternative": "Ein frisch gelockertes Gemüsebeet mit Grabegabel und einer Schale mit Saatgut."
+                    }
+                ]
+            }
+        },
+        {
+            "table": "pages",
+            "uid": 405,
+            "expect": {
+                "title": "Rhabarber ernten und zubereiten"
+            },
+            "set": {},
+            "files": {
+                "featured_image": [
+                    {
+                        "source": "EXT:site_package/Resources/Private/ContentImages/blog/lib-blog-classico-405-rhabarber-10aad4ae.webp",
+                        "folder": "1:/blog-classico/featured/",
+                        "alternative": "Frisch geernteter roter Rhabarber mit Blättern in einem Gartenkorb."
+                    }
+                ]
+            }
+        },
+        {
+            "table": "pages",
+            "uid": 551,
+            "expect": {
+                "title": "Gedicht: Abend im April"
+            },
+            "set": {},
+            "files": {
+                "featured_image": [
+                    {
+                        "source": "EXT:site_package/Resources/Private/ContentImages/blog/lib-blog-classico-551-abend-im-april-d72b5de4.webp",
+                        "folder": "1:/blog-classico/featured/",
+                        "alternative": "Eine ruhige Straße in der Abenddämmerung im April, letztes Licht auf blühenden Bäumen."
+                    }
+                ]
+            }
+        }
+    ]
+}

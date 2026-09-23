@@ -1,0 +1,241 @@
+{
+    "_readme": "Featured images for the blog posts on Blog classico (15), the TYPO3 v14 blog (69) and The TYPO3 blog (390). Generate with packages/site_package/Build/Scripts/generate-library-images.mjs --manifest packages/site_package/Build/Data/blog-image-prompts.json --out packages/site_package/Resources/Private/ContentImages/blog; alt texts are in the language of the site the image belongs to.",
+    "styles": {
+        "home": "Editorial photograph for a lifestyle blog. Natural daylight, shallow depth of field, calm palette of warm neutrals with soft spring greens. Realistic and unstaged. No text, no letters, no logos, no watermarks, no brand marks, no recognisable faces.",
+        "tech": "Editorial photograph for a web technology blog. Natural window light, calm palette of warm neutrals with one muted teal accent, modern and uncluttered. No readable screen content, no text, no letters, no logos, no watermarks, no recognisable faces."
+    },
+    "images": [
+        {
+            "slug": "classico-21-willkommen",
+            "role": "blog",
+            "style": "home",
+            "size": "1536x1024",
+            "subject": "A wooden kitchen table by a window with an open notebook, a cup of tea and a small vase of spring flowers.",
+            "alt": "Ein Holztisch am Fenster mit Notizbuch, Tee und einer kleinen Vase mit Frühlingsblumen."
+        },
+        {
+            "slug": "classico-22-osterwetter",
+            "role": "blog",
+            "style": "home",
+            "size": "1536x1024",
+            "subject": "Early morning light over a quiet garden in spring, dew on the grass, a few pastel eggs on a stone step.",
+            "alt": "Morgenlicht über einem ruhigen Frühlingsgarten, auf einer Steinstufe liegen einige Ostereier."
+        },
+        {
+            "slug": "classico-23-eier-im-gras",
+            "role": "blog",
+            "style": "home",
+            "size": "1536x1024",
+            "subject": "Close-up of pastel-coloured Easter eggs lying in fresh green grass.",
+            "alt": "Pastellfarbene Ostereier im frischen Gras."
+        },
+        {
+            "slug": "classico-24-schlichte-ostereier",
+            "role": "blog",
+            "style": "home",
+            "size": "1536x1024",
+            "subject": "A bright table with a linen cloth and a white bowl of plain white and pale-blue eggs, minimal decoration.",
+            "alt": "Ein heller Tisch mit Leinentuch und einer Schale mit schlichten Ostereiern."
+        },
+        {
+            "slug": "classico-25-osternester",
+            "role": "blog",
+            "style": "home",
+            "size": "1536x1024",
+            "subject": "A woven basket nest with eggs on a mossy wooden garden bench outdoors.",
+            "alt": "Ein geflochtenes Osternest mit Eiern auf einer bemoosten Gartenbank."
+        },
+        {
+            "slug": "classico-26-osterhase",
+            "role": "blog",
+            "style": "home",
+            "size": "1536x1024",
+            "subject": "A brown hare sitting in a spring meadow at the edge of a field.",
+            "alt": "Ein Feldhase sitzt auf einer Frühlingswiese am Feldrand."
+        },
+        {
+            "slug": "classico-27-weisse-kaninchen",
+            "role": "blog",
+            "style": "home",
+            "size": "1536x1024",
+            "subject": "Two white rabbits resting on straw in soft daylight.",
+            "alt": "Zwei weiße Kaninchen ruhen im weichen Tageslicht auf Stroh."
+        },
+        {
+            "slug": "classico-28-schokohasen",
+            "role": "blog",
+            "style": "home",
+            "size": "1536x1024",
+            "subject": "Unwrapped chocolate bunnies and small painted wooden figures on a light table, playful but calm.",
+            "alt": "Schokoladenhasen und kleine bemalte Holzfiguren auf einem hellen Tisch."
+        },
+        {
+            "slug": "classico-29-laemmer-wiesen",
+            "role": "blog",
+            "style": "home",
+            "size": "1536x1024",
+            "subject": "Lambs standing in a green meadow with blossoming fruit trees in the background.",
+            "alt": "Lämmer auf einer grünen Wiese, im Hintergrund blühende Obstbäume."
+        },
+        {
+            "slug": "classico-30-osternachmittag",
+            "role": "blog",
+            "style": "home",
+            "size": "1536x1024",
+            "subject": "A young lamb lying in the grass of a spring pasture in late afternoon light.",
+            "alt": "Ein junges Lamm liegt am Nachmittag im Gras einer Frühlingsweide."
+        },
+        {
+            "slug": "classico-31-fruehlingsregen",
+            "role": "blog",
+            "style": "home",
+            "size": "1536x1024",
+            "subject": "Two people seen from behind walking hand in hand under one umbrella along a wet spring path, faces not visible.",
+            "alt": "Zwei Menschen gehen, von hinten gesehen, Hand in Hand unter einem Schirm durch den Frühlingsregen."
+        },
+        {
+            "slug": "classico-82-wintersachen",
+            "role": "blog",
+            "style": "home",
+            "size": "1536x1024",
+            "subject": "Folded wool jumpers and scarves being placed in a breathable fabric storage box on a bed.",
+            "alt": "Gefaltete Wollpullover und Schals werden in eine luftige Aufbewahrungsbox gelegt."
+        },
+        {
+            "slug": "classico-88-kraeuter-balkon",
+            "role": "blog",
+            "style": "home",
+            "size": "1536x1024",
+            "subject": "Small terracotta pots with cress, chives and parsley seedlings on a sunny balcony.",
+            "alt": "Kleine Töpfe mit Kresse, Schnittlauch und Petersilie auf einem sonnigen Balkon."
+        },
+        {
+            "slug": "classico-89-fruehjahrsputz",
+            "role": "blog",
+            "style": "home",
+            "size": "1536x1024",
+            "subject": "An open window with a bucket, a cloth and a plain spray bottle on the sill, spring light outside.",
+            "alt": "Ein offenes Fenster, auf dem Fensterbrett stehen ein Eimer, ein Tuch und eine Sprühflasche."
+        },
+        {
+            "slug": "classico-90-spargel",
+            "role": "blog",
+            "style": "home",
+            "size": "1536x1024",
+            "subject": "Bundles of white and green asparagus on a wooden board with a vegetable peeler.",
+            "alt": "Weißer und grüner Spargel auf einem Holzbrett, daneben ein Sparschäler."
+        },
+        {
+            "slug": "classico-91-radtour",
+            "role": "blog",
+            "style": "home",
+            "size": "1536x1024",
+            "subject": "A plain bicycle without brand names leaning against a wooden fence on a country lane in early spring.",
+            "alt": "Ein Fahrrad lehnt im Vorfrühling an einem Holzzaun an einem Landweg."
+        },
+        {
+            "slug": "classico-92-tulpen",
+            "role": "blog",
+            "style": "home",
+            "size": "1536x1024",
+            "subject": "Fresh tulips in a clear glass vase with a little water on a cool windowsill.",
+            "alt": "Frische Tulpen in einer Glasvase mit wenig Wasser auf einer kühlen Fensterbank."
+        },
+        {
+            "slug": "classico-93-osterbrunch",
+            "role": "blog",
+            "style": "home",
+            "size": "1536x1024",
+            "subject": "A laid Easter brunch table with bread, boiled eggs, jam and coffee, seen from above.",
+            "alt": "Ein gedeckter Osterbrunch mit Brot, Eiern, Marmelade und Kaffee, von oben gesehen."
+        },
+        {
+            "slug": "classico-94-picknick",
+            "role": "blog",
+            "style": "home",
+            "size": "1536x1024",
+            "subject": "A picnic blanket spread over a second waterproof groundsheet on a spring meadow, with a wicker basket and a thermos flask.",
+            "alt": "Eine Picknickdecke über einer zweiten, wasserdichten Unterlage auf einer Frühlingswiese, daneben Korb und Thermoskanne."
+        },
+        {
+            "slug": "classico-95-osterzopf",
+            "role": "blog",
+            "style": "home",
+            "size": "1536x1024",
+            "subject": "A golden braided yeast loaf on a baking tray, fresh from the oven.",
+            "alt": "Ein goldbrauner Hefezopf frisch aus dem Ofen auf einem Backblech."
+        },
+        {
+            "slug": "classico-97-gemuesebeet",
+            "role": "blog",
+            "style": "home",
+            "size": "1536x1024",
+            "subject": "A freshly loosened vegetable bed in a garden with a garden fork and a small bowl of seeds.",
+            "alt": "Ein frisch gelockertes Gemüsebeet mit Grabegabel und einer Schale mit Saatgut."
+        },
+        {
+            "slug": "classico-405-rhabarber",
+            "role": "blog",
+            "style": "home",
+            "size": "1536x1024",
+            "subject": "Freshly harvested red rhubarb stalks with leaves in a garden basket.",
+            "alt": "Frisch geernteter roter Rhabarber mit Blättern in einem Gartenkorb."
+        },
+        {
+            "slug": "classico-551-abend-im-april",
+            "role": "blog",
+            "style": "home",
+            "size": "1536x1024",
+            "subject": "A quiet residential street at dusk in April, last light on blossoming trees and house fronts.",
+            "alt": "Eine ruhige Straße in der Abenddämmerung im April, letztes Licht auf blühenden Bäumen."
+        },
+        {
+            "slug": "typo3-first-post",
+            "role": "blog",
+            "style": "tech",
+            "size": "1536x1024",
+            "subject": "A laptop on a light desk showing a blurred, unreadable blog layout, with a notebook and a cup beside it.",
+            "alt": "A laptop with a blog layout on a desk, next to a notebook and a cup."
+        },
+        {
+            "slug": "typo3-397-editors-v14",
+            "role": "blog",
+            "style": "tech",
+            "size": "1536x1024",
+            "subject": "An editor working at a laptop in a bright office, screen content blurred and unreadable.",
+            "alt": "An editor works on a laptop in a bright office."
+        },
+        {
+            "slug": "typo3-398-content-blocks",
+            "role": "blog",
+            "style": "tech",
+            "size": "1536x1024",
+            "subject": "Plain paper folders arranged in a neat grid on a light desk, each holding a few blank cards.",
+            "alt": "Paper folders arranged in a neat grid on a desk, each holding a few cards."
+        },
+        {
+            "slug": "typo3-399-camp",
+            "role": "blog",
+            "style": "tech",
+            "size": "1536x1024",
+            "subject": "People at a barcamp in a bright room placing blank sticky notes on a session board, faces out of focus.",
+            "alt": "Attendees plan the day's sessions on a board at a camp."
+        },
+        {
+            "slug": "typo3-400-site-sets",
+            "role": "blog",
+            "style": "tech",
+            "size": "1536x1024",
+            "subject": "Wooden building blocks stacked into three matching small houses on a table.",
+            "alt": "Wooden building blocks stacked into three matching small houses."
+        },
+        {
+            "slug": "typo3-401-workspaces",
+            "role": "blog",
+            "style": "tech",
+            "size": "1536x1024",
+            "subject": "A printed page draft with pencil marks next to a laptop on a desk, no readable text.",
+            "alt": "A printed draft with pencil marks lies next to a laptop."
+        }
+    ]
+}

@@ -1,0 +1,28 @@
+{
+    "version": 1,
+    "site": "v14-blog",
+    "root": 69,
+    "language": 0,
+    "languageCode": "en",
+    "generated": "2026-09-23T16:00:00+02:00",
+    "_note": "Featured images from packages/site_package/Build/Data/blog-image-prompts.json (gpt-image-2).",
+    "records": [
+        {
+            "table": "pages",
+            "uid": 75,
+            "expect": {
+                "title": "First blog post"
+            },
+            "set": {},
+            "files": {
+                "featured_image": [
+                    {
+                        "source": "EXT:site_package/Resources/Private/ContentImages/blog/lib-blog-typo3-first-post-11be362f.webp",
+                        "folder": "1:/blog/featured/",
+                        "alternative": "A laptop with a blog layout on a desk, next to a notebook and a cup."
+                    }
+                ]
+            }
+        }
+    ]
+}
