@@ -31,7 +31,7 @@ final readonly class CanonChecker
 
         $findings = [];
         array_push($findings, ...$this->checkLimits($text, $role, $language, $legal));
-        array_push($findings, ...$this->checkPhrases($text, $role, $language, $siteKey));
+        array_push($findings, ...$this->checkPhrases(self::withoutCode($text), $role, $language, $siteKey));
 
         return $findings;
     }
@@ -144,6 +144,21 @@ final readonly class CanonChecker
         }
 
         return $findings;
+    }
+
+    /**
+     * Command lines and `inline code` are not prose: an HTTP header called
+     * Authorization or a CSS property called color is not a spelling mistake.
+     */
+    public static function withoutCode(string $text): string
+    {
+        $text = (string)preg_replace('/`[^`\n]*`/u', ' ', $text);
+        $lines = array_filter(
+            explode("\n", $text),
+            static fn (string $line): bool => preg_match('#^\s*(\$ |> |curl |composer |vendor/bin/|npm |npx |ddev |git |php |docker |[a-z_-]+=|-H |--[a-z])#', $line) !== 1
+        );
+
+        return implode("\n", $lines);
     }
 
     private function containsWord(string $text, string $word): bool

@@ -88,6 +88,13 @@ final class CanonCheckerTest extends TestCase
         self::assertContains('address', $this->rules($this->errors('Schön, dass du da warst.', FieldRole::Card, 'de', 'camp')));
     }
 
+    public function testCommandLinesAndInlineCodeAreNotSpellChecked(): void
+    {
+        self::assertNotContains('spelling', $this->rules($this->errors("Send the token like this:\ncurl -H \"Authorization: Bearer x\" https://example.com", FieldRole::Body)));
+        self::assertNotContains('spelling', $this->rules($this->errors('Set `color` in the element.', FieldRole::Card)));
+        self::assertContains('spelling', $this->rules($this->errors('Pick a color for the element.', FieldRole::Card)));
+    }
+
     public function testSkippedFieldsAreNotChecked(): void
     {
         self::assertSame([], $this->checker->check('lucide:rocket color', FieldRole::Skip, 'en'));
