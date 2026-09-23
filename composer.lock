@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0734b5ffdc96e1badf20564d6235afe4",
+    "content-hash": "223e04846993572b7cfb246c4e092a16",
     "packages": [
         {
             "name": "apache-solr-for-typo3/solr",
@@ -12437,16 +12437,16 @@
         },
         {
             "name": "webconsulting/astryx-typo3",
-            "version": "v2.1.1",
+            "version": "v2.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/astryx-typo3.git",
-                "reference": "32fee24065ed08719b92b38d4daf183b87f44f49"
+                "reference": "67801fbc94072696a24e96e9e920d8603c4f8904"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/astryx-typo3/zipball/32fee24065ed08719b92b38d4daf183b87f44f49",
-                "reference": "32fee24065ed08719b92b38d4daf183b87f44f49",
+                "url": "https://api.github.com/repos/dirnbauer/astryx-typo3/zipball/67801fbc94072696a24e96e9e920d8603c4f8904",
+                "reference": "67801fbc94072696a24e96e9e920d8603c4f8904",
                 "shasum": ""
             },
             "require": {
@@ -12523,20 +12523,20 @@
                 }
             ],
             "description": "Astryx for TYPO3 — the Astryx design system, server-rendered for TYPO3 14: 250 Content Blocks, 189 Fluid components, 25 runtime-switchable themes, no JavaScript framework",
-            "time": "2026-09-19T07:07:04+00:00"
+            "time": "2026-09-23T12:02:04+00:00"
         },
         {
             "name": "webconsulting/desiderio",
-            "version": "v4.2.1",
+            "version": "v4.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/desiderio.git",
-                "reference": "5f423a35d0581c33cf3b120535f63425a9f2338f"
+                "reference": "0155fc02a060193949315f1893faf233b02a0caf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/desiderio/zipball/5f423a35d0581c33cf3b120535f63425a9f2338f",
-                "reference": "5f423a35d0581c33cf3b120535f63425a9f2338f",
+                "url": "https://api.github.com/repos/dirnbauer/desiderio/zipball/0155fc02a060193949315f1893faf233b02a0caf",
+                "reference": "0155fc02a060193949315f1893faf233b02a0caf",
                 "shasum": ""
             },
             "require": {
@@ -12579,7 +12579,7 @@
             "extra": {
                 "typo3/cms": {
                     "extension-key": "desiderio",
-                    "version": "4.2.1",
+                    "version": "4.3.1",
                     "Package": {
                         "providesPackages": []
                     }
@@ -12630,7 +12630,7 @@
                 }
             ],
             "description": "Desiderio — shadcn/ui-inspired Fluid 5 component library, 244 Desiderio Content Blocks, and theme layer for TYPO3 14",
-            "time": "2026-09-20T18:52:33+00:00"
+            "time": "2026-09-23T12:00:35+00:00"
         },
         {
             "name": "webconsulting/docx-editor",
