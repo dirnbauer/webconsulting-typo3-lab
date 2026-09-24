@@ -44,6 +44,8 @@ facts:
     static_analysis: { detail: 'PHPStan level 8; CI on PHP 8.4 and 8.5', source: 'packages/desiderio/phpstan.neon, .github/workflows/ci.yml' }
     services: { detail: 'installation €890 · brand adaptation from €1,990 · custom element from €390 · editor workshop €690 · LTS upgrade from €2,400 · Launch bundle €1,790 · code DESIDERIO20 = 20% off the first year', source: 'StyleguideShowcasePages / ShowcaseAudiencePages' }
     hosting: { detail: 'Managed hosting from €99/month, Business €179/month (staging, 99.9% SLA, CDN) · Creator Care €490/month for 4 hours, €980 and €1,470 for 8 and 12 hours', source: 'ShowcaseAudiencePages' }
+    studio_address: { detail: 'Lindengasse 12, 1070 Vienna, Austria (demo address of the webconsulting studio; every element that names the Vienna studio uses it)', source: 'packages/desiderio/Classes/Data/Showcase/ShowcaseLegalPages.php imprintPage() address, shown on /imprint' }
+    powermail_forms: { detail: 'Desiderio seeds 6 Powermail demo forms (01–06) and webcon_jev adds 5 (07–11), so the Powermail Lab lists 11; copy about the lab names no count', source: 'PowermailDemoFormDefinitions::demoForms() and packages/webcon_jev/Classes/Data/JevExampleDefinitions.php' }
   astryx:
     elements: { value: 250, source: 'ls packages/astryx_typo3/ContentBlocks/ContentElements | wc -l' }
     themes: { value: 25, detail: '7 upstream Astryx themes + 18 webconsulting themes', source: 'packages/astryx_typo3/Build/Data/theme-registry.json (family)' }
@@ -63,6 +65,8 @@ forbidden:
   - { pattern: '\b(fourteen|14)\s+(theme\s+)?(presets|palettes)\b', message: 'Desiderio has 15 presets' }
   - { pattern: '\b(seven|7)\s+(Astryx\s+)?themes\b', message: 'Astryx ships 25 themes (7 upstream + 18 ours); say "7 upstream themes" if that is meant', sites: [astryx] }
   - { pattern: '\b(406|1,?500|1,?200)\s+(colou?r\s+)?pairs\b', message: 'the contrast audit checks 1,600 colour pairs' }
+  - { pattern: '\b(Mariahilfer\s+Stra(ss|ß)e\s+(1|42|103)|1060\s+(Vienna|Wien))\b', message: 'the Vienna studio is at Lindengasse 12, 1070 Vienna (facts.desiderio.studio_address)', sites: [desiderio] }
+  - { pattern: '\b(six|sechs)\s+Powermail\b', message: 'the Powermail Lab lists 11 forms from two seeders; describe the forms without counting them (facts.desiderio.powermail_forms)', sites: [desiderio] }
 
 # Words that make copy vague or loud. Hard: always rewrite. Soft: think twice.
 banned:
