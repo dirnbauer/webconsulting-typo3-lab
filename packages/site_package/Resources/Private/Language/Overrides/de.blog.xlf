@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Overrides EXT:blog/Resources/Private/Language/locallang.xlf for the lab sites (site_package ext_localconf.php): labels the Desiderio templates show that the blog extension or its language packs do not translate. -->
+<xliff version="2.0" xmlns="urn:oasis:names:tc:xliff:document:2.0" srcLang="en" trgLang="de">
+  <file id="blog-overrides">
+    <unit id="headline.relatedposts">
+      <segment state="final">
+        <source>Related posts</source>
+        <target>Ähnliche Beiträge</target>
+      </segment>
+    </unit>
+    <unit id="post.footer.meta">
+      <segment state="final">
+        <source>Filed under</source>
+        <target>Abgelegt unter</target>
+      </segment>
+    </unit>
+    <unit id="widget.feed.recentposts">
+      <segment state="final">
+        <source>Recent posts</source>
+        <target>Neueste Beiträge</target>
+      </segment>
+    </unit>
+    <unit id="tags.empty">
+      <segment state="final">
+        <source>No tags yet.</source>
+        <target>Noch keine Tags.</target>
+      </segment>
+    </unit>
+    <unit id="comments.empty">
+      <segment state="final">
+        <source>No comments yet.</source>
+        <target>Noch keine Kommentare.</target>
+      </segment>
+    </unit>
+    <unit id="archive.empty">
+      <segment state="final">
+        <source>No archive entries yet.</source>
+        <target>Noch keine Archiveinträge.</target>
+      </segment>
+    </unit>
+    <unit id="categories.empty">
+      <segment state="final">
+        <source>No categories yet.</source>
+        <target>Noch keine Kategorien.</target>
+      </segment>
+    </unit>
+    <unit id="commentform.description">
+      <segment state="final">
+        <source>Share your perspective on this post.</source>
+        <target>Teilen Sie Ihre Sicht auf diesen Beitrag.</target>
+      </segment>
+    </unit>
+    <unit id="comments.empty.title">
+      <segment state="final">
+        <source>No comments yet</source>
+        <target>Noch keine Kommentare</target>
+      </segment>
+    </unit>
+    <unit id="comments.closed.title">
+      <segment state="final">
+        <source>Discussion closed</source>
+        <target>Diskussion geschlossen</target>
+      </segment>
+    </unit>
+    <unit id="headline.sidebar">
+      <segment state="final">
+        <source>Blog sidebar</source>
+        <target>Blog-Seitenleiste</target>
+      </segment>
+    </unit>
+  </file>
+</xliff>

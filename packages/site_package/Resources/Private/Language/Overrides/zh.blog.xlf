@@ -1,0 +1,372 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Overrides EXT:blog/Resources/Private/Language/locallang.xlf for the lab sites (site_package ext_localconf.php): labels the Desiderio templates show that the blog extension or its language packs do not translate. -->
+<xliff version="2.0" xmlns="urn:oasis:names:tc:xliff:document:2.0" srcLang="en" trgLang="zh">
+  <file id="blog-overrides">
+    <unit id="general.message.configuration_error.title">
+      <segment state="final">
+        <source>A possible configuration error was detected.</source>
+        <target>检测到可能的配置错误。</target>
+      </segment>
+    </unit>
+    <unit id="general.message.configuration_error.single_no_post">
+      <segment state="final">
+        <source>No matching post could be obtained. Make sure that this plugin is only used on a post.</source>
+        <target>未能获取匹配的文章。请确保此插件只用于文章页面。</target>
+      </segment>
+    </unit>
+    <unit id="headline.category.simple">
+      <segment state="final">
+        <source>Category</source>
+        <target>类别</target>
+      </segment>
+    </unit>
+    <unit id="list.backlink.categories">
+      <segment state="final">
+        <source>Back to Categories</source>
+        <target>返回类别列表</target>
+      </segment>
+    </unit>
+    <unit id="headline.categories">
+      <segment state="final">
+        <source>Categories</source>
+        <target>类别</target>
+      </segment>
+    </unit>
+    <unit id="headline.relatedposts">
+      <segment state="final">
+        <source>Related posts</source>
+        <target>相关文章</target>
+      </segment>
+    </unit>
+    <unit id="headline.tag.simple">
+      <segment state="final">
+        <source>Tag</source>
+        <target>标签</target>
+      </segment>
+    </unit>
+    <unit id="list.backlink.tags">
+      <segment state="final">
+        <source>Back to Tags</source>
+        <target>返回标签列表</target>
+      </segment>
+    </unit>
+    <unit id="headline.tags">
+      <segment state="final">
+        <source>Tags</source>
+        <target>标签</target>
+      </segment>
+    </unit>
+    <unit id="headline.author.simple">
+      <segment state="final">
+        <source>Author</source>
+        <target>作者</target>
+      </segment>
+    </unit>
+    <unit id="list.backlink.authors">
+      <segment state="final">
+        <source>Back to Authors</source>
+        <target>返回作者列表</target>
+      </segment>
+    </unit>
+    <unit id="headline.authors">
+      <segment state="final">
+        <source>Authors</source>
+        <target>作者</target>
+      </segment>
+    </unit>
+    <unit id="author.aboutTheAuthor">
+      <segment state="final">
+        <source>About the Author</source>
+        <target>关于作者</target>
+      </segment>
+    </unit>
+    <unit id="post.footer.meta">
+      <segment state="final">
+        <source>Filed under</source>
+        <target>归类于</target>
+      </segment>
+    </unit>
+    <unit id="headline.archive">
+      <segment state="final">
+        <source>Archive</source>
+        <target>归档</target>
+      </segment>
+    </unit>
+    <unit id="list.backlink.archive">
+      <segment state="final">
+        <source>Back to Archive</source>
+        <target>返回归档</target>
+      </segment>
+    </unit>
+    <unit id="headline.recentposts">
+      <segment state="final">
+        <source>Recent posts</source>
+        <target>最新文章</target>
+      </segment>
+    </unit>
+    <unit id="headline.rssfeed">
+      <segment state="final">
+        <source>RSS-Feeds</source>
+        <target>RSS 订阅源</target>
+      </segment>
+    </unit>
+    <unit id="widget.feed.recentposts">
+      <segment state="final">
+        <source>Recent posts</source>
+        <target>最新文章</target>
+      </segment>
+    </unit>
+    <unit id="tags.empty">
+      <segment state="final">
+        <source>No tags yet.</source>
+        <target>暂无标签。</target>
+      </segment>
+    </unit>
+    <unit id="list.no_posts.message">
+      <segment state="final">
+        <source>This list contains no blog posts.</source>
+        <target>此列表中没有博客文章。</target>
+      </segment>
+    </unit>
+    <unit id="headline.recentcomments">
+      <segment state="final">
+        <source>Recent comments</source>
+        <target>最新评论</target>
+      </segment>
+    </unit>
+    <unit id="widget.recentcomments.on">
+      <segment state="final">
+        <source>on</source>
+        <target>评论于</target>
+      </segment>
+    </unit>
+    <unit id="comments.empty">
+      <segment state="final">
+        <source>No comments yet.</source>
+        <target>暂无评论。</target>
+      </segment>
+    </unit>
+    <unit id="archive.empty">
+      <segment state="final">
+        <source>No archive entries yet.</source>
+        <target>暂无归档条目。</target>
+      </segment>
+    </unit>
+    <unit id="categories.empty">
+      <segment state="final">
+        <source>No categories yet.</source>
+        <target>暂无类别。</target>
+      </segment>
+    </unit>
+    <unit id="headline.comments">
+      <segment state="final">
+        <source>Comments</source>
+        <target>评论</target>
+      </segment>
+    </unit>
+    <unit id="headline.commentform">
+      <segment state="final">
+        <source>Write comment</source>
+        <target>发表评论</target>
+      </segment>
+    </unit>
+    <unit id="commentform.description">
+      <segment state="final">
+        <source>Share your perspective on this post.</source>
+        <target>分享您对这篇文章的看法。</target>
+      </segment>
+    </unit>
+    <unit id="message.comments_closed">
+      <segment state="final">
+        <source>Comments closed</source>
+        <target>评论已关闭</target>
+      </segment>
+    </unit>
+    <unit id="comments.empty.title">
+      <segment state="final">
+        <source>No comments yet</source>
+        <target>暂无评论</target>
+      </segment>
+    </unit>
+    <unit id="message.no_comments">
+      <segment state="final">
+        <source>No Comments</source>
+        <target>没有评论</target>
+      </segment>
+    </unit>
+    <unit id="pagelayout.message.notabstractordescription">
+      <segment state="final">
+        <source>No abstract or description is added for this post.</source>
+        <target>此文章尚未添加摘要或描述。</target>
+      </segment>
+    </unit>
+    <unit id="pagelayout.section.published">
+      <segment state="final">
+        <source>Published</source>
+        <target>发布日期</target>
+      </segment>
+    </unit>
+    <unit id="pagelayout.section.authors">
+      <segment state="final">
+        <source>Authors</source>
+        <target>作者</target>
+      </segment>
+    </unit>
+    <unit id="pagelayout.message.noauthor">
+      <segment state="final">
+        <source>No author assigned.</source>
+        <target>未指定作者。</target>
+      </segment>
+    </unit>
+    <unit id="pagelayout.section.featuredimage">
+      <segment state="final">
+        <source>Featured Image</source>
+        <target>特色图片</target>
+      </segment>
+    </unit>
+    <unit id="pagelayout.message.nofeaturedimage">
+      <segment state="final">
+        <source>No featured image assigned.</source>
+        <target>未指定特色图片。</target>
+      </segment>
+    </unit>
+    <unit id="pagelayout.section.tags">
+      <segment state="final">
+        <source>Tags</source>
+        <target>标签</target>
+      </segment>
+    </unit>
+    <unit id="pagelayout.section.categories">
+      <segment state="final">
+        <source>Categories</source>
+        <target>类别</target>
+      </segment>
+    </unit>
+    <unit id="pagelayout.button.post.edit">
+      <segment state="final">
+        <source>Edit Post Meta-Data</source>
+        <target>编辑文章元数据</target>
+      </segment>
+    </unit>
+    <unit id="list.no_posts.title">
+      <segment state="final">
+        <source>No blog posts</source>
+        <target>暂无博客文章</target>
+      </segment>
+    </unit>
+    <unit id="comments.closed.title">
+      <segment state="final">
+        <source>Discussion closed</source>
+        <target>讨论已关闭</target>
+      </segment>
+    </unit>
+    <unit id="author.more.posts">
+      <segment state="final">
+        <source>More posts by this author</source>
+        <target>该作者的更多文章</target>
+      </segment>
+    </unit>
+    <unit id="meta.published.published">
+      <segment state="final">
+        <source>Published</source>
+        <target>发布于</target>
+      </segment>
+    </unit>
+    <unit id="meta.tags.tag">
+      <segment state="final">
+        <source>Tag</source>
+        <target>标签</target>
+      </segment>
+    </unit>
+    <unit id="meta.tags.tags">
+      <segment state="final">
+        <source>Tags</source>
+        <target>标签</target>
+      </segment>
+    </unit>
+    <unit id="meta.authors.author">
+      <segment state="final">
+        <source>Author</source>
+        <target>作者</target>
+      </segment>
+    </unit>
+    <unit id="meta.authors.authors">
+      <segment state="final">
+        <source>Authors</source>
+        <target>作者</target>
+      </segment>
+    </unit>
+    <unit id="meta.categories.category">
+      <segment state="final">
+        <source>Category</source>
+        <target>类别</target>
+      </segment>
+    </unit>
+    <unit id="meta.categories.categories">
+      <segment state="final">
+        <source>Categories</source>
+        <target>类别</target>
+      </segment>
+    </unit>
+    <unit id="list.show.category">
+      <segment state="final">
+        <source>Show Category</source>
+        <target>查看类别</target>
+      </segment>
+    </unit>
+    <unit id="list.show.author">
+      <segment state="final">
+        <source>Show Author</source>
+        <target>查看作者</target>
+      </segment>
+    </unit>
+    <unit id="headline.sidebar">
+      <segment state="final">
+        <source>Blog sidebar</source>
+        <target>博客侧边栏</target>
+      </segment>
+    </unit>
+    <unit id="form.comment.name">
+      <segment state="final">
+        <source>Name</source>
+        <target>姓名</target>
+      </segment>
+    </unit>
+    <unit id="form.comment.email">
+      <segment state="final">
+        <source>E-Mail</source>
+        <target>电子邮件</target>
+      </segment>
+    </unit>
+    <unit id="form.comment.url">
+      <segment state="final">
+        <source>URL</source>
+        <target>网站</target>
+      </segment>
+    </unit>
+    <unit id="form.comment.comment">
+      <segment state="final">
+        <source>Comment</source>
+        <target>评论</target>
+      </segment>
+    </unit>
+    <unit id="form.comment.submit">
+      <segment state="final">
+        <source>Submit</source>
+        <target>提交评论</target>
+      </segment>
+    </unit>
+    <unit id="label.required.field">
+      <segment state="final">
+        <source>*</source>
+        <target>*</target>
+      </segment>
+    </unit>
+    <unit id="label.required.field.explanation">
+      <segment state="final">
+        <source>These fields are required</source>
+        <target>这些字段为必填项</target>
+      </segment>
+    </unit>
+  </file>
+</xliff>

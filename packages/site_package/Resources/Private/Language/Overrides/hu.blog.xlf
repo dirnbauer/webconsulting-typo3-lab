@@ -1,0 +1,372 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Overrides EXT:blog/Resources/Private/Language/locallang.xlf for the lab sites (site_package ext_localconf.php): labels the Desiderio templates show that the blog extension or its language packs do not translate. -->
+<xliff version="2.0" xmlns="urn:oasis:names:tc:xliff:document:2.0" srcLang="en" trgLang="hu">
+  <file id="blog-overrides">
+    <unit id="general.message.configuration_error.title">
+      <segment state="final">
+        <source>A possible configuration error was detected.</source>
+        <target>Lehetséges konfigurációs hiba észlelve.</target>
+      </segment>
+    </unit>
+    <unit id="general.message.configuration_error.single_no_post">
+      <segment state="final">
+        <source>No matching post could be obtained. Make sure that this plugin is only used on a post.</source>
+        <target>Nem található megfelelő bejegyzés. Győződjön meg arról, hogy ezt a plugint csak bejegyzésoldalon használja.</target>
+      </segment>
+    </unit>
+    <unit id="headline.category.simple">
+      <segment state="final">
+        <source>Category</source>
+        <target>Kategória</target>
+      </segment>
+    </unit>
+    <unit id="list.backlink.categories">
+      <segment state="final">
+        <source>Back to Categories</source>
+        <target>Vissza a kategóriákhoz</target>
+      </segment>
+    </unit>
+    <unit id="headline.categories">
+      <segment state="final">
+        <source>Categories</source>
+        <target>Kategóriák</target>
+      </segment>
+    </unit>
+    <unit id="headline.relatedposts">
+      <segment state="final">
+        <source>Related posts</source>
+        <target>Kapcsolódó bejegyzések</target>
+      </segment>
+    </unit>
+    <unit id="headline.tag.simple">
+      <segment state="final">
+        <source>Tag</source>
+        <target>Címke</target>
+      </segment>
+    </unit>
+    <unit id="list.backlink.tags">
+      <segment state="final">
+        <source>Back to Tags</source>
+        <target>Vissza a címkékhez</target>
+      </segment>
+    </unit>
+    <unit id="headline.tags">
+      <segment state="final">
+        <source>Tags</source>
+        <target>Címkék</target>
+      </segment>
+    </unit>
+    <unit id="headline.author.simple">
+      <segment state="final">
+        <source>Author</source>
+        <target>Szerző</target>
+      </segment>
+    </unit>
+    <unit id="list.backlink.authors">
+      <segment state="final">
+        <source>Back to Authors</source>
+        <target>Vissza a szerzőkhöz</target>
+      </segment>
+    </unit>
+    <unit id="headline.authors">
+      <segment state="final">
+        <source>Authors</source>
+        <target>Szerzők</target>
+      </segment>
+    </unit>
+    <unit id="author.aboutTheAuthor">
+      <segment state="final">
+        <source>About the Author</source>
+        <target>A szerzőről</target>
+      </segment>
+    </unit>
+    <unit id="post.footer.meta">
+      <segment state="final">
+        <source>Filed under</source>
+        <target>Besorolás</target>
+      </segment>
+    </unit>
+    <unit id="headline.archive">
+      <segment state="final">
+        <source>Archive</source>
+        <target>Archívum</target>
+      </segment>
+    </unit>
+    <unit id="list.backlink.archive">
+      <segment state="final">
+        <source>Back to Archive</source>
+        <target>Vissza az archívumhoz</target>
+      </segment>
+    </unit>
+    <unit id="headline.recentposts">
+      <segment state="final">
+        <source>Recent posts</source>
+        <target>Legutóbbi bejegyzések</target>
+      </segment>
+    </unit>
+    <unit id="headline.rssfeed">
+      <segment state="final">
+        <source>RSS-Feeds</source>
+        <target>RSS-hírcsatornák</target>
+      </segment>
+    </unit>
+    <unit id="widget.feed.recentposts">
+      <segment state="final">
+        <source>Recent posts</source>
+        <target>Legutóbbi bejegyzések</target>
+      </segment>
+    </unit>
+    <unit id="tags.empty">
+      <segment state="final">
+        <source>No tags yet.</source>
+        <target>Még nincsenek címkék.</target>
+      </segment>
+    </unit>
+    <unit id="list.no_posts.message">
+      <segment state="final">
+        <source>This list contains no blog posts.</source>
+        <target>Ebben a listában nincsenek blogbejegyzések.</target>
+      </segment>
+    </unit>
+    <unit id="headline.recentcomments">
+      <segment state="final">
+        <source>Recent comments</source>
+        <target>Legutóbbi hozzászólások</target>
+      </segment>
+    </unit>
+    <unit id="widget.recentcomments.on">
+      <segment state="final">
+        <source>on</source>
+        <target>hozzászólt ehhez:</target>
+      </segment>
+    </unit>
+    <unit id="comments.empty">
+      <segment state="final">
+        <source>No comments yet.</source>
+        <target>Még nincsenek hozzászólások.</target>
+      </segment>
+    </unit>
+    <unit id="archive.empty">
+      <segment state="final">
+        <source>No archive entries yet.</source>
+        <target>Még nincsenek archív bejegyzések.</target>
+      </segment>
+    </unit>
+    <unit id="categories.empty">
+      <segment state="final">
+        <source>No categories yet.</source>
+        <target>Még nincsenek kategóriák.</target>
+      </segment>
+    </unit>
+    <unit id="headline.comments">
+      <segment state="final">
+        <source>Comments</source>
+        <target>Hozzászólások</target>
+      </segment>
+    </unit>
+    <unit id="headline.commentform">
+      <segment state="final">
+        <source>Write comment</source>
+        <target>Hozzászólás írása</target>
+      </segment>
+    </unit>
+    <unit id="commentform.description">
+      <segment state="final">
+        <source>Share your perspective on this post.</source>
+        <target>Ossza meg véleményét erről a bejegyzésről.</target>
+      </segment>
+    </unit>
+    <unit id="message.comments_closed">
+      <segment state="final">
+        <source>Comments closed</source>
+        <target>Hozzászólások lezárva</target>
+      </segment>
+    </unit>
+    <unit id="comments.empty.title">
+      <segment state="final">
+        <source>No comments yet</source>
+        <target>Még nincsenek hozzászólások</target>
+      </segment>
+    </unit>
+    <unit id="message.no_comments">
+      <segment state="final">
+        <source>No Comments</source>
+        <target>Nincsenek hozzászólások</target>
+      </segment>
+    </unit>
+    <unit id="pagelayout.message.notabstractordescription">
+      <segment state="final">
+        <source>No abstract or description is added for this post.</source>
+        <target>Ehhez a bejegyzéshez nincs kivonat vagy leírás megadva.</target>
+      </segment>
+    </unit>
+    <unit id="pagelayout.section.published">
+      <segment state="final">
+        <source>Published</source>
+        <target>Közzétéve</target>
+      </segment>
+    </unit>
+    <unit id="pagelayout.section.authors">
+      <segment state="final">
+        <source>Authors</source>
+        <target>Szerzők</target>
+      </segment>
+    </unit>
+    <unit id="pagelayout.message.noauthor">
+      <segment state="final">
+        <source>No author assigned.</source>
+        <target>Nincs szerző hozzárendelve.</target>
+      </segment>
+    </unit>
+    <unit id="pagelayout.section.featuredimage">
+      <segment state="final">
+        <source>Featured Image</source>
+        <target>Kiemelt kép</target>
+      </segment>
+    </unit>
+    <unit id="pagelayout.message.nofeaturedimage">
+      <segment state="final">
+        <source>No featured image assigned.</source>
+        <target>Nincs kiemelt kép hozzárendelve.</target>
+      </segment>
+    </unit>
+    <unit id="pagelayout.section.tags">
+      <segment state="final">
+        <source>Tags</source>
+        <target>Címkék</target>
+      </segment>
+    </unit>
+    <unit id="pagelayout.section.categories">
+      <segment state="final">
+        <source>Categories</source>
+        <target>Kategóriák</target>
+      </segment>
+    </unit>
+    <unit id="pagelayout.button.post.edit">
+      <segment state="final">
+        <source>Edit Post Meta-Data</source>
+        <target>Bejegyzés metaadatainak szerkesztése</target>
+      </segment>
+    </unit>
+    <unit id="list.no_posts.title">
+      <segment state="final">
+        <source>No blog posts</source>
+        <target>Nincsenek blogbejegyzések</target>
+      </segment>
+    </unit>
+    <unit id="comments.closed.title">
+      <segment state="final">
+        <source>Discussion closed</source>
+        <target>A beszélgetés lezárult</target>
+      </segment>
+    </unit>
+    <unit id="author.more.posts">
+      <segment state="final">
+        <source>More posts by this author</source>
+        <target>A szerző további bejegyzései</target>
+      </segment>
+    </unit>
+    <unit id="meta.published.published">
+      <segment state="final">
+        <source>Published</source>
+        <target>Közzétéve</target>
+      </segment>
+    </unit>
+    <unit id="meta.tags.tag">
+      <segment state="final">
+        <source>Tag</source>
+        <target>Címke</target>
+      </segment>
+    </unit>
+    <unit id="meta.tags.tags">
+      <segment state="final">
+        <source>Tags</source>
+        <target>Címkék</target>
+      </segment>
+    </unit>
+    <unit id="meta.authors.author">
+      <segment state="final">
+        <source>Author</source>
+        <target>Szerző</target>
+      </segment>
+    </unit>
+    <unit id="meta.authors.authors">
+      <segment state="final">
+        <source>Authors</source>
+        <target>Szerzők</target>
+      </segment>
+    </unit>
+    <unit id="meta.categories.category">
+      <segment state="final">
+        <source>Category</source>
+        <target>Kategória</target>
+      </segment>
+    </unit>
+    <unit id="meta.categories.categories">
+      <segment state="final">
+        <source>Categories</source>
+        <target>Kategóriák</target>
+      </segment>
+    </unit>
+    <unit id="list.show.category">
+      <segment state="final">
+        <source>Show Category</source>
+        <target>Kategória megtekintése</target>
+      </segment>
+    </unit>
+    <unit id="list.show.author">
+      <segment state="final">
+        <source>Show Author</source>
+        <target>Szerző megtekintése</target>
+      </segment>
+    </unit>
+    <unit id="headline.sidebar">
+      <segment state="final">
+        <source>Blog sidebar</source>
+        <target>A blog oldalsávja</target>
+      </segment>
+    </unit>
+    <unit id="form.comment.name">
+      <segment state="final">
+        <source>Name</source>
+        <target>Név</target>
+      </segment>
+    </unit>
+    <unit id="form.comment.email">
+      <segment state="final">
+        <source>E-Mail</source>
+        <target>E-mail</target>
+      </segment>
+    </unit>
+    <unit id="form.comment.url">
+      <segment state="final">
+        <source>URL</source>
+        <target>Weboldal</target>
+      </segment>
+    </unit>
+    <unit id="form.comment.comment">
+      <segment state="final">
+        <source>Comment</source>
+        <target>Hozzászólás</target>
+      </segment>
+    </unit>
+    <unit id="form.comment.submit">
+      <segment state="final">
+        <source>Submit</source>
+        <target>Hozzászólás küldése</target>
+      </segment>
+    </unit>
+    <unit id="label.required.field">
+      <segment state="final">
+        <source>*</source>
+        <target>*</target>
+      </segment>
+    </unit>
+    <unit id="label.required.field.explanation">
+      <segment state="final">
+        <source>These fields are required</source>
+        <target>Ezek a mezők kötelezők</target>
+      </segment>
+    </unit>
+  </file>
+</xliff>

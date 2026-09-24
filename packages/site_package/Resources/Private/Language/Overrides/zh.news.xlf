@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Overrides EXT:news/Resources/Private/Language/locallang.xlf for the lab sites (site_package ext_localconf.php): labels the Desiderio templates show that the news extension or its language packs do not translate. -->
+<xliff version="2.0" xmlns="urn:oasis:names:tc:xliff:document:2.0" srcLang="en" trgLang="zh">
+  <file id="news-overrides">
+    <unit id="newsNotFound">
+      <segment state="final">
+        <source>The news record is not available anymore.</source>
+        <target>此新闻记录已不再可用。</target>
+      </segment>
+    </unit>
+    <unit id="share-this">
+      <segment state="final">
+        <source>Share this article</source>
+        <target>分享本文</target>
+      </segment>
+    </unit>
+  </file>
+</xliff>

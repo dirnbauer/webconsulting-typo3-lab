@@ -70,3 +70,16 @@ $GLOBALS['TYPO3_CONF_VARS']['GFX']['imageFileConversionFormats'] = [
 // without booting PHP. With one correct path there is no reason to keep a
 // second, weaker one.
 $GLOBALS['TYPO3_CONF_VARS']['EXTENSIONS']['staticfilecache']['useFallbackMiddleware'] = '0';
+
+// Labels the Desiderio templates show on the lab sites that EXT:blog, EXT:news
+// and EXT:powermail do not translate: keys only Desiderio's templates use
+// ("No comments yet", "Share this article" …), and — for Chinese and
+// Hungarian, which have no language packs here — the standard keys as well.
+// German keeps the official language pack for every standard key.
+foreach (['de' => ['blog', 'news'], 'zh' => ['blog', 'news', 'powermail'], 'hu' => ['blog', 'news', 'powermail']] as $siteLabelLanguage => $siteLabelExtensions) {
+    foreach ($siteLabelExtensions as $siteLabelExtension) {
+        $GLOBALS['TYPO3_CONF_VARS']['LANG']['resourceOverrides'][$siteLabelLanguage]['EXT:' . $siteLabelExtension . '/Resources/Private/Language/locallang.xlf'][]
+            = 'EXT:site_package/Resources/Private/Language/Overrides/' . $siteLabelLanguage . '.' . $siteLabelExtension . '.xlf';
+    }
+}
+unset($siteLabelLanguage, $siteLabelExtensions, $siteLabelExtension);
