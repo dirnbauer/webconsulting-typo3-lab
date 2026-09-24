@@ -50,8 +50,9 @@ final class CopyMetrics
     }
 
     /**
-     * Splits on sentence punctuation and on line breaks. A line without
-     * punctuation (a list item, a heading) counts as its own sentence.
+     * Splits on sentence punctuation (full-width 。！？ included) and on line
+     * breaks. A line without punctuation (a list item, a heading) counts as
+     * its own sentence.
      *
      * @return list<string>
      */
@@ -67,7 +68,8 @@ final class CopyMetrics
         // A number, a full stop and a lower-case word is an ordinal ("11. bis"), not an end.
         $protected = (string)preg_replace('/(\d)\.(?=\s+\p{Ll})/u', '$1¤', $protected);
 
-        $parts = preg_split('/(?<=[.!?…])\s+|\n+/u', $protected) ?: [];
+        // Chinese ends a sentence with a full-width mark and no space after it.
+        $parts = preg_split('/(?<=[.!?…])\s+|(?<=[。！？])|\n+/u', $protected) ?: [];
         $sentences = [];
         foreach ($parts as $part) {
             $part = trim($part);

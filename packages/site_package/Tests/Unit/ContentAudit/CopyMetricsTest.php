@@ -27,6 +27,14 @@ final class CopyMetricsTest extends TestCase
         );
     }
 
+    public function testChineseSentencesEndAtFullWidthMarks(): void
+    {
+        self::assertSame(
+            ['Desiderio 提供 244 个内容元素。', '您可以免费使用！', '需要支持吗？'],
+            CopyMetrics::sentences('Desiderio 提供 244 个内容元素。您可以免费使用！需要支持吗？')
+        );
+    }
+
     public function testGermanOrdinalRangesStayOneSentence(): void
     {
         self::assertCount(1, CopyMetrics::sentences('Das Camp fand vom 11. bis 13. September in Puchheim statt.'));
