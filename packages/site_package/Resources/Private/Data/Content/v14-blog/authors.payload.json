@@ -1,0 +1,22 @@
+{
+    "version": 1,
+    "site": "v14-blog",
+    "root": 69,
+    "language": 0,
+    "languageCode": "en",
+    "generated": "2026-09-24T12:00:00+02:00",
+    "_note": "The \"TYPO3 Inc Team\" author comes from the setup wizard of EXT:blog (Configuration/DataHandler/BlogSetupRecords.php) with a Lorem ipsum bio. The bio now says who the author is: TYPO3 GmbH is the developer named in the extension's composer.json.",
+    "records": [
+        {
+            "table": "tx_blog_domain_model_author",
+            "uid": 3,
+            "expect": {
+                "name": "TYPO3 Inc Team",
+                "bio": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae. Sed dui lorem, adipiscing in adipiscing et, interdum nec metus. Mauris ultricies, justo eu convallis placerat, felis enim ornare nisi vitae."
+            },
+            "set": {
+                "bio": "The team at TYPO3 GmbH, which develops the Blog extension for TYPO3. The extension's setup wizard creates this author as an example."
+            }
+        }
+    ]
+}
