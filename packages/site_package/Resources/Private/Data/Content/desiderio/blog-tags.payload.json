@@ -1,0 +1,38 @@
+{
+    "version": 1,
+    "site": "desiderio",
+    "root": 505,
+    "language": 0,
+    "languageCode": "en",
+    "generated": "2026-09-24T12:00:00+02:00",
+    "_note": "Two success-story tags differed only in spelling. \"Catalogue pages\" (87) is the British spelling the seed source (ShowcaseSuccessStories) uses; \"Catalog pages\" (57) was left over from an earlier seed and tagged no live post. Its relations were moved to 87 before the delete (the deleted page 1160 kept one, page 1000 no longer exists), the delete takes its de, zh and hu translations with it, and a 301 redirect keeps its tag URL working in every language.",
+    "records": [
+        {
+            "table": "tx_blog_domain_model_tag",
+            "uid": 57,
+            "action": "delete",
+            "expect": {
+                "title": "Catalog pages",
+                "slug": "catalog-pages"
+            }
+        },
+        {
+            "table": "sys_redirect",
+            "action": "create",
+            "key": "NEW_redirect_catalog_pages",
+            "pid": 0,
+            "match": {
+                "source_host": "*",
+                "source_path": "#^/((?:de/|zh/|hu/)?)success-stories/tag/tag/catalog-pages/?$#"
+            },
+            "set": {
+                "source_host": "*",
+                "source_path": "#^/((?:de/|zh/|hu/)?)success-stories/tag/tag/catalog-pages/?$#",
+                "is_regexp": 1,
+                "target": "/$1success-stories/tag/tag/catalogue-pages/",
+                "target_statuscode": 301,
+                "description": "Blog tag \"Catalog pages\" merged into \"Catalogue pages\" (2026-09-24)."
+            }
+        }
+    ]
+}
