@@ -1,5 +1,5 @@
 {
-    "_hash": "6cac1ab216ce7df26168d18b72f81712dac1390c12cef819e67f61d10ef13f29",
+    "_hash": "31c5748380896ff431abc77aa46fdd1d9ed932aa54c67d79cb7592bb3ade0258",
     "patches": {
         "apache-solr-for-typo3/solr": [
             {
@@ -7,6 +7,18 @@
                 "description": "Align legacy backend styles with TYPO3 v14 design tokens",
                 "url": "patches/apache-solr-for-typo3-solr-typo3-v14-backend-styles.patch",
                 "sha256": "f8aea3239d52ef46163739c0997acf3cbec936cae3ef5b2f12fe37311bed5490",
+                "depth": 1,
+                "extra": {
+                    "provenance": "root"
+                }
+            }
+        ],
+        "t3g/blog": [
+            {
+                "package": "t3g/blog",
+                "description": "Modernize blog backend, plugin, and record icons for TYPO3 v14",
+                "url": "patches/t3g-blog-typo3-v14-icons.patch",
+                "sha256": "9c172b2c86dd2898e9150d35bbb0682cc33e0870ef1ab4720b947195a578ee6a",
                 "depth": 1,
                 "extra": {
                     "provenance": "root"

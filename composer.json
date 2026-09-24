@@ -245,6 +245,9 @@
 			"apache-solr-for-typo3/solr": {
 				"Align legacy backend styles with TYPO3 v14 design tokens": "patches/apache-solr-for-typo3-solr-typo3-v14-backend-styles.patch"
 			},
+			"t3g/blog": {
+				"Modernize blog backend, plugin, and record icons for TYPO3 v14": "patches/t3g-blog-typo3-v14-icons.patch"
+			},
 			"typo3/cms-core": {
 				"Guard workspace move-pointer overlay when the live record is missing": "patches/typo3-cms-core-fix-workspace-move-pointer-missing-live-record.patch"
 			}

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1d38e0fe2b4e6b2d58519c01c26975f8",
+    "content-hash": "ee84125b3e06cef3c6969c73523f9c1f",
     "packages": [
         {
             "name": "apache-solr-for-typo3/solr",
@@ -2061,16 +2061,16 @@
         },
         {
             "name": "hn/typo3-mcp-server",
-            "version": "v0.9.3",
+            "version": "v0.9.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/typo3-mcp-server.git",
-                "reference": "7bfdeb0a93a3a5ae5d271093352d127c33414bb9"
+                "reference": "058b0640b22147aad8f8995c78dbde0f64956580"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/typo3-mcp-server/zipball/7bfdeb0a93a3a5ae5d271093352d127c33414bb9",
-                "reference": "7bfdeb0a93a3a5ae5d271093352d127c33414bb9",
+                "url": "https://api.github.com/repos/dirnbauer/typo3-mcp-server/zipball/058b0640b22147aad8f8995c78dbde0f64956580",
+                "reference": "058b0640b22147aad8f8995c78dbde0f64956580",
                 "shasum": ""
             },
             "require": {
@@ -2108,7 +2108,7 @@
             "extra": {
                 "typo3/cms": {
                     "extension-key": "mcp_server",
-                    "version": "0.9.3",
+                    "version": "0.9.4",
                     "Package": {
                         "providesPackages": []
                     }
@@ -2189,20 +2189,20 @@
             ],
             "description": "MCP Server - Model Context Protocol (MCP) server that lets AI assistants read and edit TYPO3 pages and records through workspaces",
             "homepage": "https://github.com/dirnbauer/typo3-mcp-server",
-            "time": "2026-09-23T13:27:47+00:00"
+            "time": "2026-09-24T08:41:25+00:00"
         },
         {
             "name": "in2code/powermail",
-            "version": "14.0.3.3",
+            "version": "14.0.3.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/powermail.git",
-                "reference": "b227ffd7c6edbf09da2d8413b0f2e65030a29852"
+                "reference": "f58c5ff2b927f471985c19e6e366216df68cf54d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/powermail/zipball/b227ffd7c6edbf09da2d8413b0f2e65030a29852",
-                "reference": "b227ffd7c6edbf09da2d8413b0f2e65030a29852",
+                "url": "https://api.github.com/repos/dirnbauer/powermail/zipball/f58c5ff2b927f471985c19e6e366216df68cf54d",
+                "reference": "f58c5ff2b927f471985c19e6e366216df68cf54d",
                 "shasum": ""
             },
             "require": {
@@ -2261,7 +2261,7 @@
                     "cms-package-dir": "{$vendor-dir}/typo3/cms",
                     "web-dir": ".build/public",
                     "extension-key": "powermail",
-                    "version": "14.0.3.3",
+                    "version": "14.0.3.4",
                     "Package": {
                         "providesPackages": []
                     },
@@ -2344,7 +2344,7 @@
                 "spamprevention",
                 "typo3"
             ],
-            "time": "2026-09-23T18:03:08+00:00"
+            "time": "2026-09-24T08:41:27+00:00"
         },
         {
             "name": "in2code/powermail_cond",
@@ -2352,12 +2352,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/powermail_cond.git",
-                "reference": "9b93c57a4677b73d61abe0766edfd3c72e7b5f66"
+                "reference": "fc5324f9d22ee1bcd3515d3d2ca51793b5545ec1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/powermail_cond/zipball/9b93c57a4677b73d61abe0766edfd3c72e7b5f66",
-                "reference": "9b93c57a4677b73d61abe0766edfd3c72e7b5f66",
+                "url": "https://api.github.com/repos/dirnbauer/powermail_cond/zipball/fc5324f9d22ee1bcd3515d3d2ca51793b5545ec1",
+                "reference": "fc5324f9d22ee1bcd3515d3d2ca51793b5545ec1",
                 "shasum": ""
             },
             "require": {
@@ -2445,7 +2445,7 @@
                 "issues": "https://github.com/dirnbauer/powermail_cond/issues",
                 "source": "https://github.com/dirnbauer/powermail_cond"
             },
-            "time": "2026-09-23T13:14:29+00:00"
+            "time": "2026-09-24T08:38:40+00:00"
         },
         {
             "name": "league/commonmark",
@@ -5719,16 +5719,16 @@
         },
         {
             "name": "studiomitte/friendlycaptcha",
-            "version": "2.3.0.1",
+            "version": "2.3.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/friendlycaptcha-typo3.git",
-                "reference": "f33dc548c571e9a98951125f970c22002d7e132e"
+                "reference": "b1b664d8a5f30bdcfd9ec8ea22a73981fb82abee"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/friendlycaptcha-typo3/zipball/f33dc548c571e9a98951125f970c22002d7e132e",
-                "reference": "f33dc548c571e9a98951125f970c22002d7e132e",
+                "url": "https://api.github.com/repos/dirnbauer/friendlycaptcha-typo3/zipball/b1b664d8a5f30bdcfd9ec8ea22a73981fb82abee",
+                "reference": "b1b664d8a5f30bdcfd9ec8ea22a73981fb82abee",
                 "shasum": ""
             },
             "require": {
@@ -5788,7 +5788,7 @@
             ],
             "description": "FriendlyCaptcha Plugin for EXT:powermail and EXT:form",
             "homepage": "https://www.studiomitte.com",
-            "time": "2026-09-23T08:46:11+00:00"
+            "time": "2026-09-24T08:41:19+00:00"
         },
         {
             "name": "studiomitte/solr-numbered-pagination",
@@ -5796,12 +5796,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/solr_numbered_pagination.git",
-                "reference": "039b062bc9d8a975e9d47b92303c5347d5378400"
+                "reference": "3dd681592560e8efb7399d0c1b7d2c7583d91a56"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/solr_numbered_pagination/zipball/039b062bc9d8a975e9d47b92303c5347d5378400",
-                "reference": "039b062bc9d8a975e9d47b92303c5347d5378400",
+                "url": "https://api.github.com/repos/dirnbauer/solr_numbered_pagination/zipball/3dd681592560e8efb7399d0c1b7d2c7583d91a56",
+                "reference": "3dd681592560e8efb7399d0c1b7d2c7583d91a56",
                 "shasum": ""
             },
             "require": {
@@ -5831,7 +5831,7 @@
                 }
             ],
             "description": "Limit the amount of used pages in EXT:solr in the pagination",
-            "time": "2026-09-23T08:52:43+00:00"
+            "time": "2026-09-24T08:41:34+00:00"
         },
         {
             "name": "supseven/inline-page-module",
@@ -12335,16 +12335,16 @@
         },
         {
             "name": "webconsulting/agentation",
-            "version": "v1.5.0",
+            "version": "v1.5.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/typo3-agentation.git",
-                "reference": "080509e0d659adf4c829bebaa089edc60758ed6b"
+                "reference": "e63ce921af32b8c8b578b7fb5cc2507a8e89816f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/typo3-agentation/zipball/080509e0d659adf4c829bebaa089edc60758ed6b",
-                "reference": "080509e0d659adf4c829bebaa089edc60758ed6b",
+                "url": "https://api.github.com/repos/dirnbauer/typo3-agentation/zipball/e63ce921af32b8c8b578b7fb5cc2507a8e89816f",
+                "reference": "e63ce921af32b8c8b578b7fb5cc2507a8e89816f",
                 "shasum": ""
             },
             "require": {
@@ -12374,7 +12374,7 @@
             "extra": {
                 "typo3/cms": {
                     "extension-key": "agentation",
-                    "version": "1.5.0",
+                    "version": "1.5.1",
                     "web-dir": ".Build/public"
                 }
             },
@@ -12445,20 +12445,20 @@
                 "issues": "https://github.com/dirnbauer/typo3-agentation/issues",
                 "source": "https://github.com/dirnbauer/typo3-agentation"
             },
-            "time": "2026-09-23T13:23:04+00:00"
+            "time": "2026-09-24T08:41:13+00:00"
         },
         {
             "name": "webconsulting/astryx-typo3",
-            "version": "v2.2.0",
+            "version": "v2.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/astryx-typo3.git",
-                "reference": "67801fbc94072696a24e96e9e920d8603c4f8904"
+                "reference": "57e45df3fbcc7f7d8b6f8fda634158b355a7cdb6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/astryx-typo3/zipball/67801fbc94072696a24e96e9e920d8603c4f8904",
-                "reference": "67801fbc94072696a24e96e9e920d8603c4f8904",
+                "url": "https://api.github.com/repos/dirnbauer/astryx-typo3/zipball/57e45df3fbcc7f7d8b6f8fda634158b355a7cdb6",
+                "reference": "57e45df3fbcc7f7d8b6f8fda634158b355a7cdb6",
                 "shasum": ""
             },
             "require": {
@@ -12535,7 +12535,7 @@
                 }
             ],
             "description": "Astryx for TYPO3 — the Astryx design system, server-rendered for TYPO3 14: 250 Content Blocks, 189 Fluid components, 25 runtime-switchable themes, no JavaScript framework",
-            "time": "2026-09-23T12:02:04+00:00"
+            "time": "2026-09-24T08:41:15+00:00"
         },
         {
             "name": "webconsulting/desiderio",
@@ -12871,16 +12871,16 @@
         },
         {
             "name": "webconsulting/innesto",
-            "version": "v2.3.0",
+            "version": "v2.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/innesto",
-                "reference": "6a3dde9b1d380c9e39797e2c709fe9271fd86002"
+                "reference": "992c0e59dcadde9cd189423ad2293d6eeda86b1a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/innesto/zipball/6a3dde9b1d380c9e39797e2c709fe9271fd86002",
-                "reference": "6a3dde9b1d380c9e39797e2c709fe9271fd86002",
+                "url": "https://api.github.com/repos/dirnbauer/innesto/zipball/992c0e59dcadde9cd189423ad2293d6eeda86b1a",
+                "reference": "992c0e59dcadde9cd189423ad2293d6eeda86b1a",
                 "shasum": ""
             },
             "require": {
@@ -12904,7 +12904,7 @@
                 "typo3/cms": {
                     "web-dir": ".Build/public",
                     "extension-key": "innesto",
-                    "version": "2.3.0",
+                    "version": "2.3.1",
                     "Package": {
                         "providesPackages": []
                     }
@@ -12967,20 +12967,20 @@
                 "source": "https://github.com/dirnbauer/innesto",
                 "docs": "https://github.com/dirnbauer/innesto/tree/main/Documentation"
             },
-            "time": "2026-09-23T11:57:50+00:00"
+            "time": "2026-09-24T08:41:21+00:00"
         },
         {
             "name": "webconsulting/records-list-examples",
-            "version": "v2.0.0",
+            "version": "v2.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/typo3-records-list-examples.git",
-                "reference": "fe3b7c6dbe94f92730bc4fabf87ca1d6f6ddf6c3"
+                "reference": "cb1c7eab3a4e7857b2533a3414e2c0df913c02c6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/typo3-records-list-examples/zipball/fe3b7c6dbe94f92730bc4fabf87ca1d6f6ddf6c3",
-                "reference": "fe3b7c6dbe94f92730bc4fabf87ca1d6f6ddf6c3",
+                "url": "https://api.github.com/repos/dirnbauer/typo3-records-list-examples/zipball/cb1c7eab3a4e7857b2533a3414e2c0df913c02c6",
+                "reference": "cb1c7eab3a4e7857b2533a3414e2c0df913c02c6",
                 "shasum": ""
             },
             "require": {
@@ -12988,7 +12988,7 @@
                 "typo3/cms-backend": "^14.3",
                 "typo3/cms-core": "^14.3",
                 "typo3/cms-fluid": "^14.3",
-                "webconsulting/records-list-types": "2.0.0"
+                "webconsulting/records-list-types": "^2.0.1"
             },
             "require-dev": {
                 "friendsofphp/php-cs-fixer": "^3.95",
@@ -13004,7 +13004,7 @@
             "extra": {
                 "typo3/cms": {
                     "extension-key": "records_list_examples",
-                    "version": "2.0.0"
+                    "version": "2.0.1"
                 }
             },
             "autoload": {
@@ -13056,20 +13056,20 @@
                 "issues": "https://github.com/dirnbauer/typo3-records-list-examples/issues",
                 "source": "https://github.com/dirnbauer/typo3-records-list-examples"
             },
-            "time": "2026-09-24T07:48:27+00:00"
+            "time": "2026-09-24T08:44:40+00:00"
         },
         {
             "name": "webconsulting/records-list-types",
-            "version": "v2.0.0",
+            "version": "v2.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/typo3-records-list-types.git",
-                "reference": "e0d6fed1feb03971f8c75693d200299abf908cf6"
+                "reference": "9a07a5ceca3b5c8ab3166debb762d96d1d03adcf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/typo3-records-list-types/zipball/e0d6fed1feb03971f8c75693d200299abf908cf6",
-                "reference": "e0d6fed1feb03971f8c75693d200299abf908cf6",
+                "url": "https://api.github.com/repos/dirnbauer/typo3-records-list-types/zipball/9a07a5ceca3b5c8ab3166debb762d96d1d03adcf",
+                "reference": "9a07a5ceca3b5c8ab3166debb762d96d1d03adcf",
                 "shasum": ""
             },
             "require": {
@@ -13094,7 +13094,7 @@
             "extra": {
                 "typo3/cms": {
                     "extension-key": "records_list_types",
-                    "version": "2.0.0",
+                    "version": "2.0.1",
                     "web-dir": "public"
                 }
             },
@@ -13147,7 +13147,7 @@
                 "issues": "https://github.com/dirnbauer/typo3-records-list-types/issues",
                 "source": "https://github.com/dirnbauer/typo3-records-list-types"
             },
-            "time": "2026-09-24T07:46:48+00:00"
+            "time": "2026-09-24T08:41:29+00:00"
         },
         {
             "name": "webconsulting/site-package",
@@ -13207,16 +13207,16 @@
         },
         {
             "name": "webconsulting/skillflow",
-            "version": "v1.9.0",
+            "version": "v1.9.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/skillflow.git",
-                "reference": "ae7f63f4f5d53907602b883843128ba5da95b827"
+                "reference": "d2ad8330b8e4f04749712e4cdd7afc9e0faff3e6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/skillflow/zipball/ae7f63f4f5d53907602b883843128ba5da95b827",
-                "reference": "ae7f63f4f5d53907602b883843128ba5da95b827",
+                "url": "https://api.github.com/repos/dirnbauer/skillflow/zipball/d2ad8330b8e4f04749712e4cdd7afc9e0faff3e6",
+                "reference": "d2ad8330b8e4f04749712e4cdd7afc9e0faff3e6",
                 "shasum": ""
             },
             "require": {
@@ -13250,7 +13250,7 @@
             "extra": {
                 "typo3/cms": {
                     "extension-key": "skillflow",
-                    "version": "1.9.0"
+                    "version": "1.9.1"
                 }
             },
             "autoload": {
@@ -13316,20 +13316,20 @@
                 "source": "https://github.com/dirnbauer/skillflow",
                 "docs": "https://github.com/dirnbauer/skillflow/tree/main/Documentation"
             },
-            "time": "2026-09-23T20:51:28+00:00"
+            "time": "2026-09-24T08:41:31+00:00"
         },
         {
             "name": "webconsulting/skillspector",
-            "version": "v1.2.0",
+            "version": "v1.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/typo3-skillspector.git",
-                "reference": "5b25fe956d8eeed588da618fc2eea937990a5cb9"
+                "reference": "ad41e5c4039008ba7dd4b5c4b2a22462f4f55366"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/typo3-skillspector/zipball/5b25fe956d8eeed588da618fc2eea937990a5cb9",
-                "reference": "5b25fe956d8eeed588da618fc2eea937990a5cb9",
+                "url": "https://api.github.com/repos/dirnbauer/typo3-skillspector/zipball/ad41e5c4039008ba7dd4b5c4b2a22462f4f55366",
+                "reference": "ad41e5c4039008ba7dd4b5c4b2a22462f4f55366",
                 "shasum": ""
             },
             "require": {
@@ -13355,7 +13355,7 @@
             "extra": {
                 "typo3/cms": {
                     "extension-key": "skillspector",
-                    "version": "1.2.0",
+                    "version": "1.2.1",
                     "web-dir": ".Build/public"
                 }
             },
@@ -13413,20 +13413,20 @@
                 "issues": "https://github.com/dirnbauer/typo3-skillspector/issues",
                 "source": "https://github.com/dirnbauer/typo3-skillspector"
             },
-            "time": "2026-09-23T12:58:38+00:00"
+            "time": "2026-09-24T08:41:33+00:00"
         },
         {
             "name": "webconsulting/typo3-abilities",
-            "version": "v1.3.0",
+            "version": "v1.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/typo3-abilities.git",
-                "reference": "33e54c0256a50d30ca2c06888f791691bd74c1ec"
+                "reference": "9005b1c1c36ebffc0420e1dcb631757d8ef34086"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/typo3-abilities/zipball/33e54c0256a50d30ca2c06888f791691bd74c1ec",
-                "reference": "33e54c0256a50d30ca2c06888f791691bd74c1ec",
+                "url": "https://api.github.com/repos/dirnbauer/typo3-abilities/zipball/9005b1c1c36ebffc0420e1dcb631757d8ef34086",
+                "reference": "9005b1c1c36ebffc0420e1dcb631757d8ef34086",
                 "shasum": ""
             },
             "require": {
@@ -13529,7 +13529,7 @@
                 "issues": "https://github.com/dirnbauer/typo3-abilities/issues",
                 "source": "https://github.com/dirnbauer/typo3-abilities"
             },
-            "time": "2026-09-23T09:08:34+00:00"
+            "time": "2026-09-24T08:37:42+00:00"
         },
         {
             "name": "webconsulting/typo3-ai-assistant",
@@ -13648,16 +13648,16 @@
         },
         {
             "name": "webconsulting/typo3-llms-txt",
-            "version": "v1.2.0",
+            "version": "v1.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/typo3-llms-txt.git",
-                "reference": "091be44d5e8a24c174852117dcd8ebb1f8c03849"
+                "reference": "bbd99b930998112ec4a6b08fc362fb72db1b72c8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/typo3-llms-txt/zipball/091be44d5e8a24c174852117dcd8ebb1f8c03849",
-                "reference": "091be44d5e8a24c174852117dcd8ebb1f8c03849",
+                "url": "https://api.github.com/repos/dirnbauer/typo3-llms-txt/zipball/bbd99b930998112ec4a6b08fc362fb72db1b72c8",
+                "reference": "bbd99b930998112ec4a6b08fc362fb72db1b72c8",
                 "shasum": ""
             },
             "require": {
@@ -13684,7 +13684,7 @@
             "extra": {
                 "typo3/cms": {
                     "extension-key": "llms_txt",
-                    "version": "1.2.0",
+                    "version": "1.2.1",
                     "web-dir": ".Build/public",
                     "Package": {
                         "providesPackages": []
@@ -13746,7 +13746,7 @@
                 "source": "https://github.com/dirnbauer/typo3-llms-txt",
                 "docs": "https://github.com/dirnbauer/typo3-llms-txt/tree/main/Documentation"
             },
-            "time": "2026-09-23T08:28:41+00:00"
+            "time": "2026-09-24T08:41:23+00:00"
         },
         {
             "name": "webconsulting/typo3-x402-paywall",
@@ -14078,16 +14078,16 @@
         },
         {
             "name": "webconsulting/webcon-jev",
-            "version": "v0.2.5",
+            "version": "v0.2.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/typo3-webcon-jev.git",
-                "reference": "66d3de6061385548a8b02980d087668c90a981b1"
+                "reference": "887692941cd413c9936c93dee77f4d8bc0f9464f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/typo3-webcon-jev/zipball/66d3de6061385548a8b02980d087668c90a981b1",
-                "reference": "66d3de6061385548a8b02980d087668c90a981b1",
+                "url": "https://api.github.com/repos/dirnbauer/typo3-webcon-jev/zipball/887692941cd413c9936c93dee77f4d8bc0f9464f",
+                "reference": "887692941cd413c9936c93dee77f4d8bc0f9464f",
                 "shasum": ""
             },
             "require": {
@@ -14182,7 +14182,7 @@
                 "issues": "https://github.com/dirnbauer/typo3-webcon-jev/issues",
                 "source": "https://github.com/dirnbauer/typo3-webcon-jev"
             },
-            "time": "2026-09-24T06:23:45+00:00"
+            "time": "2026-09-24T08:39:04+00:00"
         },
         {
             "name": "webconsulting/workos-auth",

@@ -13,6 +13,7 @@ and reinstall the affected dependency instead.
 | Package | Purpose |
 | --- | --- |
 | `apache-solr-for-typo3/solr` | Align legacy backend typography, spacing, borders, and colors with TYPO3 v14 design tokens. This patch contains CSS only and adds no behavior. |
+| `t3g/blog` | Replace the 28 legacy extension, module, plugin, record, and action icons with theme-aware TYPO3 v14 SVGs. |
 | `typo3/cms-core` | Guard workspace move-pointer overlays when no live record exists. |
 
 ## Forked dependencies
