@@ -4,6 +4,47 @@ All notable changes to Webconsulting TYPO3 Lab are documented in this file.
 
 ## Unreleased
 
+### Classic Records module views — 2026-09-24
+
+- Use Records List Types and Records List Examples 2.0.0 together. These
+  releases restore the earlier Grid, Compact, Teaser and example view markup,
+  including Grid cards with field labels and values. All view choices remain
+  in the Records module.
+- Restore the filter panel's inset spacing; the 1.3.0 stylesheet referenced
+  record-list padding variables outside the element that defined them.
+- The deployment pin check now rejects different release numbers for the two
+  Records List packages.
+
+### Desiderio in German, Chinese and Hungarian — 2026-09-24
+
+- Every page of the Desiderio site now has a German, Chinese and Hungarian
+  version: page titles, navigation titles, SEO fields, every content element
+  with its collection items, image texts, the 22 news articles, the success
+  story tags and categories and the Powermail forms (Chinese and Hungarian;
+  German comes from the Powermail seeders). Until now 61 pages (German) and 81
+  pages (Chinese, Hungarian) fell back to English, and no main content element
+  was translated.
+- **`sitepackage:content:translate --site=desiderio`** (site_package) writes
+  them. The translations live in translation memories keyed by the English
+  text (`Resources/Private/Data/Translations/desiderio/{de,zh,hu}.json`), so a
+  reseed with new uids gets them back; `scope.json` names the pages other
+  commands translate. It localizes through DataHandler in connected mode,
+  updates in place (a second run changes nothing), writes live rows only and
+  refuses the Production context without `--allow-production`.
+  `--dry-run --missing=-` lists English texts that have no translation yet.
+  It runs as step 4 of the seeding order and in `ddev lab-update`.
+- **desiderio 4.5.0**: complete German, Chinese and Hungarian frontend labels
+  and a translatable theme-preset overview. site_package overrides the
+  EXT:blog, EXT:news and EXT:powermail labels the Desiderio templates show but
+  those extensions (or the German language pack) do not translate.
+- Blog classico: the English and Chinese blogs name their tags (and in
+  Chinese the categories and news tags) in their own language
+  (`blog-classico/translations-records-*.payload.json`).
+- The content audit splits Chinese sentences at full-width punctuation, and
+  the canon checks the German Desiderio pages for "Sie".
+- EXT:blog tags may live on standard pages: the success stories keep theirs
+  on `/success-stories`, where DataHandler refused every write.
+
 ### Overhaul, round 3 — 2026-09-23
 
 Backend without shadcn

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8f7cafdd5e17bdbc8aa0eb750f670cf6",
+    "content-hash": "5bd7b55e0705f1d8ba148f70e5611649",
     "packages": [
         {
             "name": "apache-solr-for-typo3/solr",
@@ -12539,16 +12539,16 @@
         },
         {
             "name": "webconsulting/desiderio",
-            "version": "v4.4.2",
+            "version": "v4.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/desiderio.git",
-                "reference": "10691b7694b969c67aeb1ed6f52c5171c72f2f17"
+                "reference": "275500c8588f0eae03befa44b00f5cb9421ea23f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/desiderio/zipball/10691b7694b969c67aeb1ed6f52c5171c72f2f17",
-                "reference": "10691b7694b969c67aeb1ed6f52c5171c72f2f17",
+                "url": "https://api.github.com/repos/dirnbauer/desiderio/zipball/275500c8588f0eae03befa44b00f5cb9421ea23f",
+                "reference": "275500c8588f0eae03befa44b00f5cb9421ea23f",
                 "shasum": ""
             },
             "require": {
@@ -12591,7 +12591,7 @@
             "extra": {
                 "typo3/cms": {
                     "extension-key": "desiderio",
-                    "version": "4.4.2",
+                    "version": "4.5.0",
                     "Package": {
                         "providesPackages": []
                     }
@@ -12642,7 +12642,7 @@
                 }
             ],
             "description": "Desiderio — shadcn/ui-inspired Fluid 5 component library, 244 Desiderio Content Blocks, and theme layer for TYPO3 14",
-            "time": "2026-09-23T20:50:35+00:00"
+            "time": "2026-09-24T05:31:55+00:00"
         },
         {
             "name": "webconsulting/docx-editor",
@@ -12971,40 +12971,40 @@
         },
         {
             "name": "webconsulting/records-list-examples",
-            "version": "v1.5.0",
+            "version": "v2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/typo3-records-list-examples.git",
-                "reference": "0db0f5d746beede21a5e21e5e2731a076910280c"
+                "reference": "fe3b7c6dbe94f92730bc4fabf87ca1d6f6ddf6c3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/typo3-records-list-examples/zipball/0db0f5d746beede21a5e21e5e2731a076910280c",
-                "reference": "0db0f5d746beede21a5e21e5e2731a076910280c",
+                "url": "https://api.github.com/repos/dirnbauer/typo3-records-list-examples/zipball/fe3b7c6dbe94f92730bc4fabf87ca1d6f6ddf6c3",
+                "reference": "fe3b7c6dbe94f92730bc4fabf87ca1d6f6ddf6c3",
                 "shasum": ""
             },
             "require": {
                 "php": "^8.4",
-                "typo3/cms-backend": "^14.3.7",
-                "typo3/cms-core": "^14.3.7",
-                "typo3/cms-fluid": "^14.3.7",
-                "webconsulting/records-list-types": "^1.3"
+                "typo3/cms-backend": "^14.3",
+                "typo3/cms-core": "^14.3",
+                "typo3/cms-fluid": "^14.3",
+                "webconsulting/records-list-types": "2.0.0"
             },
             "require-dev": {
-                "friendsofphp/php-cs-fixer": "^3.95.27",
-                "phpstan/phpstan": "^2.2.14",
-                "phpstan/phpstan-phpunit": "^2.0.18",
-                "phpstan/phpstan-strict-rules": "^2.0.12",
-                "phpunit/phpunit": "^13.3.4",
-                "saschaegerer/phpstan-typo3": "^3.1",
+                "friendsofphp/php-cs-fixer": "^3.95",
+                "phpstan/phpstan": "^2.1",
+                "phpstan/phpstan-phpunit": "^2.0",
+                "phpstan/phpstan-strict-rules": "^2.0",
+                "phpunit/phpunit": "^12.4 || ^13.0",
+                "saschaegerer/phpstan-typo3": "^3.0",
                 "typo3/coding-standards": "^0.9",
-                "typo3/testing-framework": "^9.7"
+                "typo3/testing-framework": "^9.5"
             },
             "type": "typo3-cms-extension",
             "extra": {
                 "typo3/cms": {
                     "extension-key": "records_list_examples",
-                    "version": "1.5.0"
+                    "version": "2.0.0"
                 }
             },
             "autoload": {
@@ -13056,20 +13056,20 @@
                 "issues": "https://github.com/dirnbauer/typo3-records-list-examples/issues",
                 "source": "https://github.com/dirnbauer/typo3-records-list-examples"
             },
-            "time": "2026-09-23T11:35:55+00:00"
+            "time": "2026-09-24T07:48:27+00:00"
         },
         {
             "name": "webconsulting/records-list-types",
-            "version": "v1.3.0",
+            "version": "v2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/typo3-records-list-types.git",
-                "reference": "5bff5b4e469dc2f36c5102d96e83158911ef181d"
+                "reference": "e0d6fed1feb03971f8c75693d200299abf908cf6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/typo3-records-list-types/zipball/5bff5b4e469dc2f36c5102d96e83158911ef181d",
-                "reference": "5bff5b4e469dc2f36c5102d96e83158911ef181d",
+                "url": "https://api.github.com/repos/dirnbauer/typo3-records-list-types/zipball/e0d6fed1feb03971f8c75693d200299abf908cf6",
+                "reference": "e0d6fed1feb03971f8c75693d200299abf908cf6",
                 "shasum": ""
             },
             "require": {
@@ -13079,22 +13079,22 @@
                 "typo3/cms-fluid": "^14.3.7"
             },
             "require-dev": {
-                "friendsofphp/php-cs-fixer": "^3.95.27",
-                "phpat/phpat": "^0.12.5",
-                "phpstan/phpstan": "^2.2.14",
-                "phpstan/phpstan-phpunit": "^2.0.18",
-                "phpstan/phpstan-strict-rules": "^2.0.12",
-                "phpunit/phpunit": "^13.3.4",
-                "saschaegerer/phpstan-typo3": "^3.1",
-                "ssch/typo3-rector": "^3.16",
+                "friendsofphp/php-cs-fixer": "^3.95.2",
+                "phpat/phpat": "^0.12.2",
+                "phpstan/phpstan": "^2.1.55",
+                "phpstan/phpstan-phpunit": "^2.0",
+                "phpstan/phpstan-strict-rules": "^2.0.11",
+                "phpunit/phpunit": "^12.4 || ^13.0",
+                "saschaegerer/phpstan-typo3": "^3.0",
+                "ssch/typo3-rector": "^3.0",
                 "typo3/coding-standards": "^0.9",
-                "typo3/testing-framework": "^9.7"
+                "typo3/testing-framework": "^9.5"
             },
             "type": "typo3-cms-extension",
             "extra": {
                 "typo3/cms": {
                     "extension-key": "records_list_types",
-                    "version": "1.3.0",
+                    "version": "2.0.0",
                     "web-dir": "public"
                 }
             },
@@ -13141,13 +13141,13 @@
                     "role": "Developer"
                 }
             ],
-            "description": "Grid, compact and teaser views for the TYPO3 v14 Records module, built from Core's own record controls, plus custom Fluid views and record filters.",
+            "description": "Grid, compact, teaser and custom Fluid views plus configurable record filters for the TYPO3 v14 Records module.",
             "homepage": "https://github.com/dirnbauer/typo3-records-list-types",
             "support": {
                 "issues": "https://github.com/dirnbauer/typo3-records-list-types/issues",
                 "source": "https://github.com/dirnbauer/typo3-records-list-types"
             },
-            "time": "2026-09-23T11:32:13+00:00"
+            "time": "2026-09-24T07:46:48+00:00"
         },
         {
             "name": "webconsulting/site-package",
@@ -14078,16 +14078,16 @@
         },
         {
             "name": "webconsulting/webcon-jev",
-            "version": "v0.2.4",
+            "version": "v0.2.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/typo3-webcon-jev.git",
-                "reference": "4d80183501d57a5cf0fd851afe5c1f0b750cf7da"
+                "reference": "66d3de6061385548a8b02980d087668c90a981b1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/typo3-webcon-jev/zipball/4d80183501d57a5cf0fd851afe5c1f0b750cf7da",
-                "reference": "4d80183501d57a5cf0fd851afe5c1f0b750cf7da",
+                "url": "https://api.github.com/repos/dirnbauer/typo3-webcon-jev/zipball/66d3de6061385548a8b02980d087668c90a981b1",
+                "reference": "66d3de6061385548a8b02980d087668c90a981b1",
                 "shasum": ""
             },
             "require": {
@@ -14182,7 +14182,7 @@
                 "issues": "https://github.com/dirnbauer/typo3-webcon-jev/issues",
                 "source": "https://github.com/dirnbauer/typo3-webcon-jev"
             },
-            "time": "2026-09-23T20:13:20+00:00"
+            "time": "2026-09-24T06:23:45+00:00"
         },
         {
             "name": "webconsulting/workos-auth",

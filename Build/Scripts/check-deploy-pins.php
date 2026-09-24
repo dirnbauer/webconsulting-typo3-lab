@@ -24,12 +24,26 @@ $problems = [];
 $lock = json_decode((string)file_get_contents($lockPath), true, 512, JSON_THROW_ON_ERROR);
 $lockedReference = null;
 $lockedVersion = null;
+$recordsListVersions = [];
 foreach ([...$lock['packages'] ?? [], ...$lock['packages-dev'] ?? []] as $package) {
+    if (in_array($package['name'] ?? null, ['webconsulting/records-list-types', 'webconsulting/records-list-examples'], true)) {
+        $recordsListVersions[$package['name']] = ltrim((string)($package['version'] ?? ''), 'v');
+    }
     if (($package['name'] ?? null) === 'apache-solr-for-typo3/solr') {
         $lockedReference = $package['source']['reference'] ?? null;
         $lockedVersion = $package['version'] ?? null;
-        break;
     }
+}
+
+if (($recordsListVersions['webconsulting/records-list-types'] ?? '') === ''
+    || ($recordsListVersions['webconsulting/records-list-examples'] ?? '') === '') {
+    $problems[] = 'composer.lock must include both Records List packages.';
+} elseif ($recordsListVersions['webconsulting/records-list-types'] !== $recordsListVersions['webconsulting/records-list-examples']) {
+    $problems[] = sprintf(
+        'Records List Types %s and Examples %s must have the same release number.',
+        $recordsListVersions['webconsulting/records-list-types'],
+        $recordsListVersions['webconsulting/records-list-examples'],
+    );
 }
 
 if (!is_string($lockedReference) || $lockedReference === '') {
@@ -97,4 +111,8 @@ if ($problems !== []) {
     exit(1);
 }
 
-printf("Deployment pins agree with composer.lock (EXT:solr %s).\n", $lockedVersion ?? '?');
+printf(
+    "Deployment pins agree with composer.lock (EXT:solr %s, Records List pair %s).\n",
+    $lockedVersion ?? '?',
+    $recordsListVersions['webconsulting/records-list-types'],
+);
