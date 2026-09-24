@@ -7,6 +7,12 @@ plugin:
       authorUid: 19
       archiveUid: 20
       storagePid: 16
+      # A comment shows on the post in the language it was written in. The
+      # example comments are German, so the English and Chinese posts no
+      # longer list them (EXT:blog shows every comment on every translation
+      # by default).
+      comments:
+        respectPostLanguageId: 1
 desiderio:
   shadcn:
     preset: b6G5977cw
