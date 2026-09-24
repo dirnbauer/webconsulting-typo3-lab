@@ -239,10 +239,16 @@ final class SiteTranslator
                 $wanted = $this->translatedValue('pages', $field, $this->string($source[$field]), $this->role('pages', $field), $where);
                 $this->addChange($changes, $translation, $field, $wanted);
             }
-            // Visibility and menu visibility follow the source: a seeder that hides
-            // and shows its pages again would otherwise leave translations hidden.
+            // Visibility follows the source: a seeder that hides and shows its
+            // pages again would otherwise leave the translation hidden.
             $this->addChange($changes, $translation, 'hidden', $this->int($source['hidden'] ?? 0));
-            $this->addChange($changes, $translation, 'nav_hide', $this->int($source['nav_hide'] ?? 0));
+            // "Hide in menu" is synchronised from the source (allowLanguageSynchronization),
+            // so DataHandler ignores a value written to the translation. Writing the source's
+            // own value to the source makes it copy that value to its translations.
+            $navHide = $this->int($source['nav_hide'] ?? 0);
+            if ($translation !== null && $this->int($translation['nav_hide'] ?? 0) !== $navHide) {
+                $this->dataMap['pages'][$uid]['nav_hide'] = $navHide;
+            }
             // A new translation gets the address of its source under the
             // language prefix (/de/features/…); existing addresses stay.
             if ($isNew) {
