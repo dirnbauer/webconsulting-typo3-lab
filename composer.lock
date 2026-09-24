@@ -12971,16 +12971,16 @@
         },
         {
             "name": "webconsulting/records-list-examples",
-            "version": "v2.0.0",
+            "version": "v2.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/typo3-records-list-examples.git",
-                "reference": "fe3b7c6dbe94f92730bc4fabf87ca1d6f6ddf6c3"
+                "reference": "cb1c7eab3a4e7857b2533a3414e2c0df913c02c6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/typo3-records-list-examples/zipball/fe3b7c6dbe94f92730bc4fabf87ca1d6f6ddf6c3",
-                "reference": "fe3b7c6dbe94f92730bc4fabf87ca1d6f6ddf6c3",
+                "url": "https://api.github.com/repos/dirnbauer/typo3-records-list-examples/zipball/cb1c7eab3a4e7857b2533a3414e2c0df913c02c6",
+                "reference": "cb1c7eab3a4e7857b2533a3414e2c0df913c02c6",
                 "shasum": ""
             },
             "require": {
@@ -12988,7 +12988,7 @@
                 "typo3/cms-backend": "^14.3",
                 "typo3/cms-core": "^14.3",
                 "typo3/cms-fluid": "^14.3",
-                "webconsulting/records-list-types": "2.0.0"
+                "webconsulting/records-list-types": "^2.0.1"
             },
             "require-dev": {
                 "friendsofphp/php-cs-fixer": "^3.95",
@@ -13004,7 +13004,7 @@
             "extra": {
                 "typo3/cms": {
                     "extension-key": "records_list_examples",
-                    "version": "2.0.0"
+                    "version": "2.0.1"
                 }
             },
             "autoload": {
@@ -13056,20 +13056,20 @@
                 "issues": "https://github.com/dirnbauer/typo3-records-list-examples/issues",
                 "source": "https://github.com/dirnbauer/typo3-records-list-examples"
             },
-            "time": "2026-09-24T07:48:27+00:00"
+            "time": "2026-09-24T08:44:40+00:00"
         },
         {
             "name": "webconsulting/records-list-types",
-            "version": "v2.0.0",
+            "version": "v2.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/typo3-records-list-types.git",
-                "reference": "e0d6fed1feb03971f8c75693d200299abf908cf6"
+                "reference": "9a07a5ceca3b5c8ab3166debb762d96d1d03adcf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/typo3-records-list-types/zipball/e0d6fed1feb03971f8c75693d200299abf908cf6",
-                "reference": "e0d6fed1feb03971f8c75693d200299abf908cf6",
+                "url": "https://api.github.com/repos/dirnbauer/typo3-records-list-types/zipball/9a07a5ceca3b5c8ab3166debb762d96d1d03adcf",
+                "reference": "9a07a5ceca3b5c8ab3166debb762d96d1d03adcf",
                 "shasum": ""
             },
             "require": {
@@ -13094,7 +13094,7 @@
             "extra": {
                 "typo3/cms": {
                     "extension-key": "records_list_types",
-                    "version": "2.0.0",
+                    "version": "2.0.1",
                     "web-dir": "public"
                 }
             },
@@ -13147,7 +13147,7 @@
                 "issues": "https://github.com/dirnbauer/typo3-records-list-types/issues",
                 "source": "https://github.com/dirnbauer/typo3-records-list-types"
             },
-            "time": "2026-09-24T07:46:48+00:00"
+            "time": "2026-09-24T08:41:29+00:00"
         },
         {
             "name": "webconsulting/site-package",
