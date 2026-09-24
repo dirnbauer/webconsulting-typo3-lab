@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5bd7b55e0705f1d8ba148f70e5611649",
+    "content-hash": "1d38e0fe2b4e6b2d58519c01c26975f8",
     "packages": [
         {
             "name": "apache-solr-for-typo3/solr",
@@ -12539,16 +12539,16 @@
         },
         {
             "name": "webconsulting/desiderio",
-            "version": "v4.5.0",
+            "version": "v4.5.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/desiderio.git",
-                "reference": "275500c8588f0eae03befa44b00f5cb9421ea23f"
+                "reference": "46b529cdb9104ce3f55023860b358c9704b021ad"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/desiderio/zipball/275500c8588f0eae03befa44b00f5cb9421ea23f",
-                "reference": "275500c8588f0eae03befa44b00f5cb9421ea23f",
+                "url": "https://api.github.com/repos/dirnbauer/desiderio/zipball/46b529cdb9104ce3f55023860b358c9704b021ad",
+                "reference": "46b529cdb9104ce3f55023860b358c9704b021ad",
                 "shasum": ""
             },
             "require": {
@@ -12591,7 +12591,7 @@
             "extra": {
                 "typo3/cms": {
                     "extension-key": "desiderio",
-                    "version": "4.5.0",
+                    "version": "4.5.1",
                     "Package": {
                         "providesPackages": []
                     }
@@ -12642,7 +12642,7 @@
                 }
             ],
             "description": "Desiderio — shadcn/ui-inspired Fluid 5 component library, 244 Desiderio Content Blocks, and theme layer for TYPO3 14",
-            "time": "2026-09-24T05:31:55+00:00"
+            "time": "2026-09-24T07:48:40+00:00"
         },
         {
             "name": "webconsulting/docx-editor",
