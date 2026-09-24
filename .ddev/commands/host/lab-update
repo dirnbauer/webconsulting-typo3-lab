@@ -47,6 +47,11 @@ ddev exec vendor/bin/typo3 sitepackage:seed-utility-translations --no-interactio
 # again, together with the forms, decisions and conditions it lists.
 echo "==> Refreshing the Jev Powermail examples"
 ddev exec vendor/bin/typo3 webcon-jev:examples:seed --no-interaction
+# The seeders above create the site in English. Its German, Chinese and
+# Hungarian pages come from the translation memories in site_package, keyed by
+# the English text, so they survive the new uids of a reseed.
+echo "==> Translating the Desiderio site (de, zh, hu)"
+ddev exec vendor/bin/typo3 sitepackage:content:translate --site=desiderio --no-interaction
 
 # Legacy URLs from when Desiderio lived below /desiderio/ keep working: each
 # points at the page that holds that content now, resolved by slug at run time

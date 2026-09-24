@@ -11,6 +11,7 @@ gone after the next reseed. The style guide for the text itself is
 | Site | Source | Command |
 |---|---|---|
 | Desiderio (505) | `packages/desiderio`: `Classes/Data/StyleguideShowcasePages.php`, `Classes/Data/Showcase/*.php`, `StyleguideContentGroups.php`, `Resources/Private/Data/styleguide-*.json`, `NewsDemoSeeder.php`, `PowermailDemoFormDefinitions.php`; per element `ContentBlocks/ContentElements/*/fixture.json` | `desiderio:styleguide:seed` |
+| Desiderio translations (de/zh/hu): every page, element, collection item, image text, news article, tag, category and Powermail form the seeders create in English | translation memories in `packages/site_package/Resources/Private/Data/Translations/desiderio/` (`de.json`, `zh.json`, `hu.json`: English text → translation; `scope.json`: what other commands own) | `sitepackage:content:translate --site=desiderio` |
 | Element library folders 1065, 1026, 1064, 1306 | per element `library.json` (and `library.de.json` for 1064) in desiderio, innesto and astryx_typo3 | `desiderio:library:seed` |
 | Powermail Lab forms 07–11 on Desiderio (below 712) and their section of the lab's overview | `packages/webcon_jev/Classes/Data/JevExampleDefinitions.php` | `webcon-jev:examples:seed` |
 | Corporate starter (740) | `packages/desiderio/Classes/Data/StarterSiteDefinitions.php` | `desiderio:starter:seed` |
@@ -19,6 +20,7 @@ gone after the next reseed. The style guide for the text itself is
 | Demo posts on the TYPO3 v14 blog (69) and The TYPO3 blog (390) | `packages/desiderio/Classes/Data/BlogDemoPostDefinitions.php` | `desiderio:blog:seed-pages --root=<uid>` |
 | Camp (933, German), Blog classico (15), the rest of 69 and 390, Camino (99) | payloads in `packages/site_package/Resources/Private/Data/Content/<site>/` | `sitepackage:content:apply` |
 | Camp translations (en/zh/hu) | `packages/site_package/Resources/Private/Data/mtug-camp-translations.json` | `sitepackage:apply-camp-translations` |
+| Blog classico translations (en/zh) | `blog-classico/translations-*.payload.json` in the payload folder (posts, news, and in `translations-records-*` the tags, categories and author) | `sitepackage:content:apply` |
 
 ## Order
 
@@ -33,15 +35,16 @@ Then, after a `ddev snapshot`:
 1. `ddev exec vendor/bin/typo3 desiderio:styleguide:seed`
 2. `ddev exec vendor/bin/typo3 sitepackage:seed-utility-translations` (always after 1: the styleguide seed replaces content in every language)
 3. `ddev exec vendor/bin/typo3 webcon-jev:examples:seed` (always after 1: the styleguide seed replaces the content of the Powermail Lab page, including the overview section that lists forms 07–11)
-4. `ddev exec vendor/bin/typo3 desiderio:starter:seed --preset=corporate --root-map=corporate:740` (without `--hide-unmanaged-children`, which would hide the element library folder)
-5. `ddev exec vendor/bin/typo3 desiderio:library:seed --parent=505 --hosts=desiderio,innesto,core`, then `--parent=740`, `--parent=1290 --hosts=astryx_typo3,core`, and `--parent=933 --locale=de`
-6. `ddev exec vendor/bin/typo3 desiderio:blog:seed-pages --root=69` and `--root=390`. Never without `--root`: it would seed English demo posts into every blog.
-7. `ddev exec vendor/bin/typo3 astryx-typo3:site:seed --content`
-8. `ddev exec vendor/bin/typo3 agentnexus:seed-site --base=https://webconsulting-typo3-lab.ddev.site/agent-nexus/`, then `git checkout config/sites/agent-nexus/` (it rewrites the site configuration and drops its comments)
-9. `ddev exec vendor/bin/typo3 sitepackage:content:apply EXT:site_package/Resources/Private/Data/Content/<site>/<file>.payload.json` for each payload (after 6, because the blog seeder writes SEO fields)
-10. `ddev exec vendor/bin/typo3 cache:flush`, then `ddev exec vendor/bin/typo3 sitepackage:solr:reindex --index` (clears each Solr site's documents, queues every indexing configuration again and indexes it; on production run the same command in the web container after a database push)
+4. `ddev exec vendor/bin/typo3 sitepackage:content:translate --site=desiderio` (always after 1–3: it translates what they created into German, Chinese and Hungarian and leaves the translations of steps 2 and 3 alone)
+5. `ddev exec vendor/bin/typo3 desiderio:starter:seed --preset=corporate --root-map=corporate:740` (without `--hide-unmanaged-children`, which would hide the element library folder)
+6. `ddev exec vendor/bin/typo3 desiderio:library:seed --parent=505 --hosts=desiderio,innesto,core`, then `--parent=740`, `--parent=1290 --hosts=astryx_typo3,core`, and `--parent=933 --locale=de`
+7. `ddev exec vendor/bin/typo3 desiderio:blog:seed-pages --root=69` and `--root=390`. Never without `--root`: it would seed English demo posts into every blog.
+8. `ddev exec vendor/bin/typo3 astryx-typo3:site:seed --content`
+9. `ddev exec vendor/bin/typo3 agentnexus:seed-site --base=https://webconsulting-typo3-lab.ddev.site/agent-nexus/`, then `git checkout config/sites/agent-nexus/` (it rewrites the site configuration and drops its comments)
+10. `ddev exec vendor/bin/typo3 sitepackage:content:apply EXT:site_package/Resources/Private/Data/Content/<site>/<file>.payload.json` for each payload (after 7, because the blog seeder writes SEO fields)
+11. `ddev exec vendor/bin/typo3 cache:flush`, then `ddev exec vendor/bin/typo3 sitepackage:solr:reindex --index` (clears each Solr site's documents, queues every indexing configuration again and indexes it; on production run the same command in the web container after a database push)
 
-`ddev lab-update <package>` runs steps 1–3 and the legacy redirects after a
+`ddev lab-update <package>` runs steps 1–4 and the legacy redirects after a
 Composer update. It refuses to run while development clones are linked.
 
 ## Checking the result
@@ -69,5 +72,13 @@ ddev exec php packages/site_package/Build/Scripts/lint-copy.php --site=desiderio
 - **Payloads are uid-keyed.** `expect` guards against overwriting rows that
   changed after the export. After a reseed of seeded sites, their uids are
   new, which is why seeded content lives in seed sources and not in payloads.
+- **A changed English text needs a new translation.** The Desiderio
+  translation memories are keyed by the English text, so they survive a
+  reseed, but a rewritten headline has no translation until someone adds one;
+  until then the language pages show the English text. After changing seed
+  copy, run `sitepackage:content:translate --site=desiderio --dry-run --missing=-`:
+  it lists every English text without a translation, per language, with the
+  page and field it belongs to. Add the translations to the memories and run
+  the command again. `--fail-on-missing` makes that check fail a script.
 - **Solr doesn't notice seeders.** They write through SQL, so run
   `sitepackage:solr:reindex --index` afterwards.

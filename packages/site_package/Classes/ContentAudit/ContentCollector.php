@@ -29,9 +29,9 @@ final class ContentCollector
     /**
      * Columns that are input/text in TCA but are not reader-facing copy.
      */
-    private const IGNORED_COLUMNS = ['rowDescription', 'l18n_diffsource', 'l10n_diffsource', 't3ver_label', 'tx_impexp_origuid', 'editlock', 'fe_group', 'tsconfig_includes', 'TSconfig', 'backend_layout', 'backend_layout_next_level', 'content_from_pid', 'cache_tags', 'target', 'url', 'mount_pid', 'shortcut', 'canonical_link', 'sitemap_changefreq', 'sitemap_priority', 'no_index', 'no_follow', 'module', 'media', 'categories', 'layout', 'l18n_cfg', 'author', 'author_email', 'keywords', 'lastUpdated', 'newUntil'];
+    public const IGNORED_COLUMNS = ['rowDescription', 'l18n_diffsource', 'l10n_diffsource', 't3ver_label', 'tx_impexp_origuid', 'editlock', 'fe_group', 'tsconfig_includes', 'TSconfig', 'backend_layout', 'backend_layout_next_level', 'content_from_pid', 'cache_tags', 'target', 'url', 'mount_pid', 'shortcut', 'canonical_link', 'sitemap_changefreq', 'sitemap_priority', 'no_index', 'no_follow', 'module', 'media', 'categories', 'layout', 'l18n_cfg', 'author', 'author_email', 'keywords', 'lastUpdated', 'newUntil'];
 
-    private const PAGE_TEXT_COLUMNS = ['title', 'nav_title', 'subtitle', 'abstract', 'description', 'seo_title', 'og_title', 'og_description', 'twitter_title', 'twitter_description'];
+    public const PAGE_TEXT_COLUMNS = ['title', 'nav_title', 'subtitle', 'abstract', 'description', 'seo_title', 'og_title', 'og_description', 'twitter_title', 'twitter_description'];
 
     private const LEGAL_PATTERN = '/imprint|impressum|privacy|datenschutz|accessibility|barrierefrei|legal|terms|agb|cookie/i';
 
