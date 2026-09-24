@@ -37,6 +37,11 @@ All notable changes to Webconsulting TYPO3 Lab are documented in this file.
   and a translatable theme-preset overview. site_package overrides the
   EXT:blog, EXT:news and EXT:powermail labels the Desiderio templates show but
   those extensions (or the German language pack) do not translate.
+- **desiderio 4.5.1** and **webcon-jev 0.2.5**: the German Powermail thank-you
+  pages and the German intros of the Jev examples show in German. Both seeders
+  stored that content on the pages' translation records, where TYPO3 never
+  looks. A desiderio reseed no longer hides the Chinese and Hungarian
+  Powermail pages.
 - Blog classico: the English and Chinese blogs name their tags (and in
   Chinese the categories and news tags) in their own language
   (`blog-classico/translations-records-*.payload.json`).

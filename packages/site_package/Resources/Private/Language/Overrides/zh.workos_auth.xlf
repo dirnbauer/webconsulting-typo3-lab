@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Overrides EXT:workos_auth/Resources/Private/Language/locallang.xlf for the lab sites (site_package ext_localconf.php): the labels the WorkOS demo pages show before sign-in; the extension ships English and German only. -->
+<xliff version="2.0" xmlns="urn:oasis:names:tc:xliff:document:2.0" srcLang="en" trgLang="zh">
+  <file id="workos_auth-overrides">
+    <unit id="account.password.title">
+      <segment state="final">
+        <source>Password</source>
+        <target>密码</target>
+      </segment>
+    </unit>
+    <unit id="account.signInRequired">
+      <segment state="final">
+        <source>Please sign in to manage your WorkOS account.</source>
+        <target>请登录以管理您的 WorkOS 账户。</target>
+      </segment>
+    </unit>
+    <unit id="backend.login.email">
+      <segment state="final">
+        <source>Email</source>
+        <target>电子邮件</target>
+      </segment>
+    </unit>
+    <unit id="backend.login.password">
+      <segment state="final">
+        <source>Password</source>
+        <target>密码</target>
+      </segment>
+    </unit>
+    <unit id="backend.login.signIn">
+      <segment state="final">
+        <source>Sign in</source>
+        <target>登录</target>
+      </segment>
+    </unit>
+    <unit id="common.email">
+      <segment state="final">
+        <source>Email</source>
+        <target>电子邮件</target>
+      </segment>
+    </unit>
+    <unit id="common.or">
+      <segment state="final">
+        <source>or</source>
+        <target>或</target>
+      </segment>
+    </unit>
+    <unit id="common.password">
+      <segment state="final">
+        <source>Password</source>
+        <target>密码</target>
+      </segment>
+    </unit>
+    <unit id="frontend.login.emailCode">
+      <segment state="final">
+        <source>Email code</source>
+        <target>电子邮件验证码</target>
+      </segment>
+    </unit>
+    <unit id="frontend.login.noAccount">
+      <segment state="final">
+        <source>Don't have an account?</source>
+        <target>还没有账户？</target>
+      </segment>
+    </unit>
+    <unit id="frontend.login.passwordPlaceholder">
+      <segment state="final">
+        <source>Enter your password</source>
+        <target>请输入您的密码</target>
+      </segment>
+    </unit>
+    <unit id="frontend.login.profileEmail">
+      <segment state="final">
+        <source>Email</source>
+        <target>电子邮件</target>
+      </segment>
+    </unit>
+    <unit id="frontend.login.signIn">
+      <segment state="final">
+        <source>Sign in</source>
+        <target>登录</target>
+      </segment>
+    </unit>
+    <unit id="frontend.login.signUp">
+      <segment state="final">
+        <source>Sign up</source>
+        <target>注册</target>
+      </segment>
+    </unit>
+    <unit id="frontend.signup.signIn">
+      <segment state="final">
+        <source>Sign in</source>
+        <target>登录</target>
+      </segment>
+    </unit>
+    <unit id="plugin.account.title">
+      <segment state="final">
+        <source>WorkOS Account Center</source>
+        <target>WorkOS 账户中心</target>
+      </segment>
+    </unit>
+    <unit id="plugin.login.description">
+      <segment state="final">
+        <source>Frontend login and sign-up form powered by WorkOS AuthKit.</source>
+        <target>基于 WorkOS AuthKit 的前端登录与注册表单。</target>
+      </segment>
+    </unit>
+    <unit id="plugin.login.title">
+      <segment state="final">
+        <source>WorkOS Login</source>
+        <target>WorkOS 登录</target>
+      </segment>
+    </unit>
+    <unit id="plugin.team.title">
+      <segment state="final">
+        <source>WorkOS Team</source>
+        <target>WorkOS 团队</target>
+      </segment>
+    </unit>
+    <unit id="team.signInRequired">
+      <segment state="final">
+        <source>Please sign in to access the team workspace.</source>
+        <target>请登录以访问团队工作区。</target>
+      </segment>
+    </unit>
+  </file>
+</xliff>

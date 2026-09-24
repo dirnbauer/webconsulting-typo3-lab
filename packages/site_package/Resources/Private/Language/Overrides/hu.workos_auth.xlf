@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Overrides EXT:workos_auth/Resources/Private/Language/locallang.xlf for the lab sites (site_package ext_localconf.php): the labels the WorkOS demo pages show before sign-in; the extension ships English and German only. -->
+<xliff version="2.0" xmlns="urn:oasis:names:tc:xliff:document:2.0" srcLang="en" trgLang="hu">
+  <file id="workos_auth-overrides">
+    <unit id="account.password.title">
+      <segment state="final">
+        <source>Password</source>
+        <target>Jelszó</target>
+      </segment>
+    </unit>
+    <unit id="account.signInRequired">
+      <segment state="final">
+        <source>Please sign in to manage your WorkOS account.</source>
+        <target>Jelentkezzen be a WorkOS-fiókja kezeléséhez.</target>
+      </segment>
+    </unit>
+    <unit id="backend.login.email">
+      <segment state="final">
+        <source>Email</source>
+        <target>E-mail</target>
+      </segment>
+    </unit>
+    <unit id="backend.login.password">
+      <segment state="final">
+        <source>Password</source>
+        <target>Jelszó</target>
+      </segment>
+    </unit>
+    <unit id="backend.login.signIn">
+      <segment state="final">
+        <source>Sign in</source>
+        <target>Bejelentkezés</target>
+      </segment>
+    </unit>
+    <unit id="common.email">
+      <segment state="final">
+        <source>Email</source>
+        <target>E-mail</target>
+      </segment>
+    </unit>
+    <unit id="common.or">
+      <segment state="final">
+        <source>or</source>
+        <target>vagy</target>
+      </segment>
+    </unit>
+    <unit id="common.password">
+      <segment state="final">
+        <source>Password</source>
+        <target>Jelszó</target>
+      </segment>
+    </unit>
+    <unit id="frontend.login.emailCode">
+      <segment state="final">
+        <source>Email code</source>
+        <target>E-mailes kód</target>
+      </segment>
+    </unit>
+    <unit id="frontend.login.noAccount">
+      <segment state="final">
+        <source>Don't have an account?</source>
+        <target>Nincs még fiókja?</target>
+      </segment>
+    </unit>
+    <unit id="frontend.login.passwordPlaceholder">
+      <segment state="final">
+        <source>Enter your password</source>
+        <target>Adja meg a jelszavát</target>
+      </segment>
+    </unit>
+    <unit id="frontend.login.profileEmail">
+      <segment state="final">
+        <source>Email</source>
+        <target>E-mail</target>
+      </segment>
+    </unit>
+    <unit id="frontend.login.signIn">
+      <segment state="final">
+        <source>Sign in</source>
+        <target>Bejelentkezés</target>
+      </segment>
+    </unit>
+    <unit id="frontend.login.signUp">
+      <segment state="final">
+        <source>Sign up</source>
+        <target>Regisztráció</target>
+      </segment>
+    </unit>
+    <unit id="frontend.signup.signIn">
+      <segment state="final">
+        <source>Sign in</source>
+        <target>Bejelentkezés</target>
+      </segment>
+    </unit>
+    <unit id="plugin.account.title">
+      <segment state="final">
+        <source>WorkOS Account Center</source>
+        <target>WorkOS-fiókközpont</target>
+      </segment>
+    </unit>
+    <unit id="plugin.login.description">
+      <segment state="final">
+        <source>Frontend login and sign-up form powered by WorkOS AuthKit.</source>
+        <target>Frontend-bejelentkezési és regisztrációs űrlap WorkOS AuthKittel.</target>
+      </segment>
+    </unit>
+    <unit id="plugin.login.title">
+      <segment state="final">
+        <source>WorkOS Login</source>
+        <target>WorkOS-bejelentkezés</target>
+      </segment>
+    </unit>
+    <unit id="plugin.team.title">
+      <segment state="final">
+        <source>WorkOS Team</source>
+        <target>WorkOS-csapat</target>
+      </segment>
+    </unit>
+    <unit id="team.signInRequired">
+      <segment state="final">
+        <source>Please sign in to access the team workspace.</source>
+        <target>Jelentkezzen be a csapat munkaterületének eléréséhez.</target>
+      </segment>
+    </unit>
+  </file>
+</xliff>

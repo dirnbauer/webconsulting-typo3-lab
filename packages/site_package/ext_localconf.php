@@ -76,10 +76,13 @@ $GLOBALS['TYPO3_CONF_VARS']['EXTENSIONS']['staticfilecache']['useFallbackMiddlew
 // ("No comments yet", "Share this article" …), and — for Chinese and
 // Hungarian, which have no language packs here — the standard keys as well.
 // German keeps the official language pack for every standard key.
-foreach (['de' => ['blog', 'news'], 'zh' => ['blog', 'news', 'powermail'], 'hu' => ['blog', 'news', 'powermail']] as $siteLabelLanguage => $siteLabelExtensions) {
+// The WorkOS templates address their labels by domain (workos_auth.messages),
+// so the override is registered under the file and the domain name.
+foreach (['de' => ['blog', 'news'], 'zh' => ['blog', 'news', 'powermail', 'workos_auth'], 'hu' => ['blog', 'news', 'powermail', 'workos_auth']] as $siteLabelLanguage => $siteLabelExtensions) {
     foreach ($siteLabelExtensions as $siteLabelExtension) {
-        $GLOBALS['TYPO3_CONF_VARS']['LANG']['resourceOverrides'][$siteLabelLanguage]['EXT:' . $siteLabelExtension . '/Resources/Private/Language/locallang.xlf'][]
-            = 'EXT:site_package/Resources/Private/Language/Overrides/' . $siteLabelLanguage . '.' . $siteLabelExtension . '.xlf';
+        $siteLabelOverride = 'EXT:site_package/Resources/Private/Language/Overrides/' . $siteLabelLanguage . '.' . $siteLabelExtension . '.xlf';
+        $GLOBALS['TYPO3_CONF_VARS']['LANG']['resourceOverrides'][$siteLabelLanguage]['EXT:' . $siteLabelExtension . '/Resources/Private/Language/locallang.xlf'][] = $siteLabelOverride;
+        $GLOBALS['TYPO3_CONF_VARS']['LANG']['resourceOverrides'][$siteLabelLanguage][$siteLabelExtension . '.messages'][] = $siteLabelOverride;
     }
 }
-unset($siteLabelLanguage, $siteLabelExtensions, $siteLabelExtension);
+unset($siteLabelLanguage, $siteLabelExtensions, $siteLabelExtension, $siteLabelOverride);
