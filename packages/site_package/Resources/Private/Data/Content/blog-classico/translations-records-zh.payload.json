@@ -1,0 +1,349 @@
+{
+  "version": 1,
+  "site": "blog-classico",
+  "root": 15,
+  "language": 2,
+  "languageCode": "zh",
+  "generated": "2026-09-24T09:00:00+02:00",
+  "_note": "Records the Chinese blog shows next to the posts: blog tags, blog and news categories and news tags. Since the site falls back to German (fallbacks: 0), untranslated records showed their German titles. Words that read the same in both languages (TYPO3, Fluid, shadcn/ui) need no translation. Authors are not translated: EXT:blog copies an author's post relations to each translation (l10n_mode exclude on \"posts\"), so a German post would list the German and the translated author.",
+  "records": [
+    {
+      "action": "create",
+      "table": "tx_blog_domain_model_tag",
+      "key": "NEW_tag3_zh",
+      "pid": 16,
+      "match": {
+        "l18n_parent": 3,
+        "sys_language_uid": 2,
+        "pid": 16
+      },
+      "set": {
+        "title": "复活节",
+        "slug": "easter",
+        "sys_language_uid": 2,
+        "l18n_parent": 3,
+        "hidden": 0
+      },
+      "_context": {
+        "source": "Ostern",
+        "roles": {
+          "title": "eyebrow"
+        }
+      }
+    },
+    {
+      "action": "create",
+      "table": "tx_blog_domain_model_tag",
+      "key": "NEW_tag4_zh",
+      "pid": 16,
+      "match": {
+        "l18n_parent": 4,
+        "sys_language_uid": 2,
+        "pid": 16
+      },
+      "set": {
+        "title": "春天",
+        "slug": "spring",
+        "sys_language_uid": 2,
+        "l18n_parent": 4,
+        "hidden": 0
+      },
+      "_context": {
+        "source": "Frühling",
+        "roles": {
+          "title": "eyebrow"
+        }
+      }
+    },
+    {
+      "action": "create",
+      "table": "tx_blog_domain_model_tag",
+      "key": "NEW_tag5_zh",
+      "pid": 16,
+      "match": {
+        "l18n_parent": 5,
+        "sys_language_uid": 2,
+        "pid": 16
+      },
+      "set": {
+        "title": "天气",
+        "slug": "weather",
+        "sys_language_uid": 2,
+        "l18n_parent": 5,
+        "hidden": 0
+      },
+      "_context": {
+        "source": "Wetter",
+        "roles": {
+          "title": "eyebrow"
+        }
+      }
+    },
+    {
+      "action": "create",
+      "table": "tx_blog_domain_model_tag",
+      "key": "NEW_tag6_zh",
+      "pid": 16,
+      "match": {
+        "l18n_parent": 6,
+        "sys_language_uid": 2,
+        "pid": 16
+      },
+      "set": {
+        "title": "彩蛋",
+        "slug": "eggs",
+        "sys_language_uid": 2,
+        "l18n_parent": 6,
+        "hidden": 0
+      },
+      "_context": {
+        "source": "Eier",
+        "roles": {
+          "title": "eyebrow"
+        }
+      }
+    },
+    {
+      "action": "create",
+      "table": "tx_blog_domain_model_tag",
+      "key": "NEW_tag7_zh",
+      "pid": 16,
+      "match": {
+        "l18n_parent": 7,
+        "sys_language_uid": 2,
+        "pid": 16
+      },
+      "set": {
+        "title": "兔子",
+        "slug": "rabbit",
+        "sys_language_uid": 2,
+        "l18n_parent": 7,
+        "hidden": 0
+      },
+      "_context": {
+        "source": "Hasen",
+        "roles": {
+          "title": "eyebrow"
+        }
+      }
+    },
+    {
+      "action": "create",
+      "table": "tx_blog_domain_model_tag",
+      "key": "NEW_tag8_zh",
+      "pid": 16,
+      "match": {
+        "l18n_parent": 8,
+        "sys_language_uid": 2,
+        "pid": 16
+      },
+      "set": {
+        "title": "羊",
+        "slug": "sheep",
+        "sys_language_uid": 2,
+        "l18n_parent": 8,
+        "hidden": 0
+      },
+      "_context": {
+        "source": "Schafe",
+        "roles": {
+          "title": "eyebrow"
+        }
+      }
+    },
+    {
+      "action": "create",
+      "table": "tx_blog_domain_model_tag",
+      "key": "NEW_tag9_zh",
+      "pid": 16,
+      "match": {
+        "l18n_parent": 9,
+        "sys_language_uid": 2,
+        "pid": 16
+      },
+      "set": {
+        "title": "相聚",
+        "slug": "connection",
+        "sys_language_uid": 2,
+        "l18n_parent": 9,
+        "hidden": 0
+      },
+      "_context": {
+        "source": "Miteinander",
+        "roles": {
+          "title": "eyebrow"
+        }
+      }
+    },
+    {
+      "action": "create",
+      "table": "tx_blog_domain_model_tag",
+      "key": "NEW_tag10_zh",
+      "pid": 16,
+      "match": {
+        "l18n_parent": 10,
+        "sys_language_uid": 2,
+        "pid": 16
+      },
+      "set": {
+        "title": "家庭",
+        "slug": "family",
+        "sys_language_uid": 2,
+        "l18n_parent": 10,
+        "hidden": 0
+      },
+      "_context": {
+        "source": "Familie",
+        "roles": {
+          "title": "eyebrow"
+        }
+      }
+    },
+    {
+      "action": "create",
+      "table": "tx_blog_domain_model_tag",
+      "key": "NEW_tag11_zh",
+      "pid": 16,
+      "match": {
+        "l18n_parent": 11,
+        "sys_language_uid": 2,
+        "pid": 16
+      },
+      "set": {
+        "title": "装饰",
+        "slug": "decor",
+        "sys_language_uid": 2,
+        "l18n_parent": 11,
+        "hidden": 0
+      },
+      "_context": {
+        "source": "Deko",
+        "roles": {
+          "title": "eyebrow"
+        }
+      }
+    },
+    {
+      "action": "create",
+      "table": "sys_category",
+      "key": "NEW_category3_zh",
+      "pid": 16,
+      "match": {
+        "l10n_parent": 3,
+        "sys_language_uid": 2,
+        "pid": 16
+      },
+      "set": {
+        "title": "博客",
+        "slug": "blog",
+        "sys_language_uid": 2,
+        "l10n_parent": 3,
+        "hidden": 0
+      },
+      "_context": {
+        "source": "Blog",
+        "roles": {
+          "title": "eyebrow"
+        }
+      }
+    },
+    {
+      "action": "create",
+      "table": "sys_category",
+      "key": "NEW_category25_zh",
+      "pid": 16,
+      "match": {
+        "l10n_parent": 25,
+        "sys_language_uid": 2,
+        "pid": 16
+      },
+      "set": {
+        "title": "新闻",
+        "slug": "news",
+        "sys_language_uid": 2,
+        "l10n_parent": 25,
+        "hidden": 0
+      },
+      "_context": {
+        "source": "News",
+        "roles": {
+          "title": "eyebrow"
+        }
+      }
+    },
+    {
+      "action": "create",
+      "table": "sys_category",
+      "key": "NEW_category26_zh",
+      "pid": 44,
+      "match": {
+        "l10n_parent": 26,
+        "sys_language_uid": 2,
+        "pid": 44
+      },
+      "set": {
+        "title": "新闻",
+        "slug": "news-1",
+        "sys_language_uid": 2,
+        "l10n_parent": 26,
+        "hidden": 0
+      },
+      "_context": {
+        "source": "News",
+        "roles": {
+          "title": "eyebrow"
+        }
+      }
+    },
+    {
+      "action": "create",
+      "table": "tx_news_domain_model_tag",
+      "key": "NEW_newstag41_zh",
+      "pid": 16,
+      "match": {
+        "l10n_parent": 41,
+        "sys_language_uid": 2,
+        "pid": 16
+      },
+      "set": {
+        "title": "新闻",
+        "slug": "news",
+        "sys_language_uid": 2,
+        "l10n_parent": 41,
+        "l10n_source": 41,
+        "hidden": 0
+      },
+      "_context": {
+        "source": "News",
+        "roles": {
+          "title": "eyebrow"
+        }
+      }
+    },
+    {
+      "action": "create",
+      "table": "tx_news_domain_model_tag",
+      "key": "NEW_newstag43_zh",
+      "pid": 44,
+      "match": {
+        "l10n_parent": 43,
+        "sys_language_uid": 2,
+        "pid": 44
+      },
+      "set": {
+        "title": "新闻",
+        "slug": "news-1",
+        "sys_language_uid": 2,
+        "l10n_parent": 43,
+        "l10n_source": 43,
+        "hidden": 0
+      },
+      "_context": {
+        "source": "News",
+        "roles": {
+          "title": "eyebrow"
+        }
+      }
+    }
+  ]
+}

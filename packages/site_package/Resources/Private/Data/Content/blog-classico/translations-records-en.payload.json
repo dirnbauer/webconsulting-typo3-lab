@@ -1,0 +1,227 @@
+{
+  "version": 1,
+  "site": "blog-classico",
+  "root": 15,
+  "language": 1,
+  "languageCode": "en",
+  "generated": "2026-09-24T09:00:00+02:00",
+  "_note": "Records the English blog shows next to the posts: blog tags. Since the site falls back to German (fallbacks: 0), untranslated records showed their German titles. Words that read the same in both languages (TYPO3, Fluid, shadcn/ui, Blog, News) need no translation. Authors are not translated: EXT:blog copies an author's post relations to each translation (l10n_mode exclude on \"posts\"), so a German post would list the German and the translated author.",
+  "records": [
+    {
+      "action": "create",
+      "table": "tx_blog_domain_model_tag",
+      "key": "NEW_tag3_en",
+      "pid": 16,
+      "match": {
+        "l18n_parent": 3,
+        "sys_language_uid": 1,
+        "pid": 16
+      },
+      "set": {
+        "title": "Easter",
+        "slug": "easter",
+        "sys_language_uid": 1,
+        "l18n_parent": 3,
+        "hidden": 0
+      },
+      "_context": {
+        "source": "Ostern",
+        "roles": {
+          "title": "eyebrow"
+        }
+      }
+    },
+    {
+      "action": "create",
+      "table": "tx_blog_domain_model_tag",
+      "key": "NEW_tag4_en",
+      "pid": 16,
+      "match": {
+        "l18n_parent": 4,
+        "sys_language_uid": 1,
+        "pid": 16
+      },
+      "set": {
+        "title": "Spring",
+        "slug": "spring",
+        "sys_language_uid": 1,
+        "l18n_parent": 4,
+        "hidden": 0
+      },
+      "_context": {
+        "source": "Frühling",
+        "roles": {
+          "title": "eyebrow"
+        }
+      }
+    },
+    {
+      "action": "create",
+      "table": "tx_blog_domain_model_tag",
+      "key": "NEW_tag5_en",
+      "pid": 16,
+      "match": {
+        "l18n_parent": 5,
+        "sys_language_uid": 1,
+        "pid": 16
+      },
+      "set": {
+        "title": "Weather",
+        "slug": "weather",
+        "sys_language_uid": 1,
+        "l18n_parent": 5,
+        "hidden": 0
+      },
+      "_context": {
+        "source": "Wetter",
+        "roles": {
+          "title": "eyebrow"
+        }
+      }
+    },
+    {
+      "action": "create",
+      "table": "tx_blog_domain_model_tag",
+      "key": "NEW_tag6_en",
+      "pid": 16,
+      "match": {
+        "l18n_parent": 6,
+        "sys_language_uid": 1,
+        "pid": 16
+      },
+      "set": {
+        "title": "Eggs",
+        "slug": "eggs",
+        "sys_language_uid": 1,
+        "l18n_parent": 6,
+        "hidden": 0
+      },
+      "_context": {
+        "source": "Eier",
+        "roles": {
+          "title": "eyebrow"
+        }
+      }
+    },
+    {
+      "action": "create",
+      "table": "tx_blog_domain_model_tag",
+      "key": "NEW_tag7_en",
+      "pid": 16,
+      "match": {
+        "l18n_parent": 7,
+        "sys_language_uid": 1,
+        "pid": 16
+      },
+      "set": {
+        "title": "Rabbits",
+        "slug": "rabbit",
+        "sys_language_uid": 1,
+        "l18n_parent": 7,
+        "hidden": 0
+      },
+      "_context": {
+        "source": "Hasen",
+        "roles": {
+          "title": "eyebrow"
+        }
+      }
+    },
+    {
+      "action": "create",
+      "table": "tx_blog_domain_model_tag",
+      "key": "NEW_tag8_en",
+      "pid": 16,
+      "match": {
+        "l18n_parent": 8,
+        "sys_language_uid": 1,
+        "pid": 16
+      },
+      "set": {
+        "title": "Sheep",
+        "slug": "sheep",
+        "sys_language_uid": 1,
+        "l18n_parent": 8,
+        "hidden": 0
+      },
+      "_context": {
+        "source": "Schafe",
+        "roles": {
+          "title": "eyebrow"
+        }
+      }
+    },
+    {
+      "action": "create",
+      "table": "tx_blog_domain_model_tag",
+      "key": "NEW_tag9_en",
+      "pid": 16,
+      "match": {
+        "l18n_parent": 9,
+        "sys_language_uid": 1,
+        "pid": 16
+      },
+      "set": {
+        "title": "Togetherness",
+        "slug": "connection",
+        "sys_language_uid": 1,
+        "l18n_parent": 9,
+        "hidden": 0
+      },
+      "_context": {
+        "source": "Miteinander",
+        "roles": {
+          "title": "eyebrow"
+        }
+      }
+    },
+    {
+      "action": "create",
+      "table": "tx_blog_domain_model_tag",
+      "key": "NEW_tag10_en",
+      "pid": 16,
+      "match": {
+        "l18n_parent": 10,
+        "sys_language_uid": 1,
+        "pid": 16
+      },
+      "set": {
+        "title": "Family",
+        "slug": "family",
+        "sys_language_uid": 1,
+        "l18n_parent": 10,
+        "hidden": 0
+      },
+      "_context": {
+        "source": "Familie",
+        "roles": {
+          "title": "eyebrow"
+        }
+      }
+    },
+    {
+      "action": "create",
+      "table": "tx_blog_domain_model_tag",
+      "key": "NEW_tag11_en",
+      "pid": 16,
+      "match": {
+        "l18n_parent": 11,
+        "sys_language_uid": 1,
+        "pid": 16
+      },
+      "set": {
+        "title": "Decoration",
+        "slug": "decor",
+        "sys_language_uid": 1,
+        "l18n_parent": 11,
+        "hidden": 0
+      },
+      "_context": {
+        "source": "Deko",
+        "roles": {
+          "title": "eyebrow"
+        }
+      }
+    }
+  ]
+}
