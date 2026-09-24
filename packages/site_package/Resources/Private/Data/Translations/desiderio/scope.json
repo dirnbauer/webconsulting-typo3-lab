@@ -1,0 +1,88 @@
+{
+  "site": "desiderio",
+  "_note": "What sitepackage:content:translate writes for the Desiderio site (root 505). Pages listed under skip have translations another command owns; recordTables are translated wherever they are stored in the tree.",
+  "skip": [
+    {
+      "page": 736,
+      "languages": [
+        "de"
+      ],
+      "owner": "sitepackage:seed-utility-translations (German accessibility statement)"
+    },
+    {
+      "page": 737,
+      "owner": "sitepackage:seed-utility-translations (404 page)"
+    },
+    {
+      "page": 738,
+      "owner": "sitepackage:seed-utility-translations (search page)"
+    },
+    {
+      "tree": 712,
+      "languages": [
+        "de"
+      ],
+      "owner": "desiderio:styleguide:seed (Powermail demo forms 01-06) and webcon-jev:examples:seed (forms 07-11)"
+    },
+    {
+      "tree": 1065,
+      "owner": "desiderio:library:seed; the element library folder is never shown as a page"
+    },
+    {
+      "tree": 569,
+      "owner": "address records the site does not show"
+    }
+  ],
+  "recordTables": [
+    "tx_news_domain_model_news",
+    "tx_blog_domain_model_tag",
+    "sys_category",
+    "tx_powermail_domain_model_form"
+  ],
+  "ignoreFields": {
+    "tt_content": [
+      "filename"
+    ],
+    "tx_powermail_domain_model_form": [
+      "css"
+    ],
+    "tx_powermail_domain_model_page": [
+      "css"
+    ],
+    "tx_powermail_domain_model_field": [
+      "marker",
+      "css",
+      "validation_configuration",
+      "prefill_value",
+      "datepicker_settings",
+      "feuser_value",
+      "path",
+      "content_element",
+      "autocomplete_token",
+      "autocomplete_section",
+      "autocomplete_type",
+      "autocomplete_purpose"
+    ]
+  },
+  "lineFields": {
+    "tx_powermail_domain_model_field": {
+      "settings": "|"
+    }
+  },
+  "translateFields": {
+    "tt_content": [
+      "author",
+      "reading_time"
+    ],
+    "product_reviews_reviews": [
+      "author",
+      "date"
+    ],
+    "directions_routes": [
+      "mode"
+    ],
+    "investor_grid_investors": [
+      "type"
+    ]
+  }
+}

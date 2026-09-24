@@ -129,9 +129,10 @@ spelling_uk:
 proper_names: ['Account Center', 'Color Picker', 'Organization Schema', 'schema.org Organization', 'Behavior-Driven', 'Help Center', 'Data Center Edition']
 
 # How each site speaks to its readers. Language codes are the site's
-# default language; `address` is checked for German only.
+# default language; `address` is checked for German only, which on an English
+# site means its German translation (sitepackage:content:audit --lang=<id>).
 sites:
-  desiderio: { root: 505, language: en }
+  desiderio: { root: 505, language: en, address: sie }
   corporate-starter: { root: 740, language: en }
   astryx: { root: 1290, language: en }
   agent-nexus: { root: 1400, language: en }
