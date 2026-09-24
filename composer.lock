@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7dd06936bf8435bfd91764dbb8a3f857",
+    "content-hash": "8f7cafdd5e17bdbc8aa0eb750f670cf6",
     "packages": [
         {
             "name": "apache-solr-for-typo3/solr",
@@ -12219,16 +12219,16 @@
         },
         {
             "name": "webconsulting/agent-nexus",
-            "version": "v4.0.3",
+            "version": "v4.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/typo3-agent-nexus.git",
-                "reference": "e7294a6bddbe756711ab4310f4966da3d6aca9a2"
+                "reference": "e4acf36761ea7ebe2429a3647b848f36771a7dc7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/typo3-agent-nexus/zipball/e7294a6bddbe756711ab4310f4966da3d6aca9a2",
-                "reference": "e7294a6bddbe756711ab4310f4966da3d6aca9a2",
+                "url": "https://api.github.com/repos/dirnbauer/typo3-agent-nexus/zipball/e4acf36761ea7ebe2429a3647b848f36771a7dc7",
+                "reference": "e4acf36761ea7ebe2429a3647b848f36771a7dc7",
                 "shasum": ""
             },
             "require": {
@@ -12261,7 +12261,7 @@
                 "typo3/cms": {
                     "extension-key": "agent_nexus",
                     "web-dir": ".Build/Web",
-                    "version": "4.0.3",
+                    "version": "4.0.4",
                     "Package": {
                         "providesPackages": []
                     }
@@ -12331,7 +12331,7 @@
                 "issues": "https://github.com/dirnbauer/typo3-agent-nexus/issues",
                 "source": "https://github.com/dirnbauer/typo3-agent-nexus"
             },
-            "time": "2026-09-23T17:57:39+00:00"
+            "time": "2026-09-24T04:04:13+00:00"
         },
         {
             "name": "webconsulting/agentation",
