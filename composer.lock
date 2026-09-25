@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "01b070076cd8ec428587ddb0a04e6162",
+    "content-hash": "f0712ccb231af6f04c1f5862e22810f2",
     "packages": [
         {
             "name": "apache-solr-for-typo3/solr",
@@ -13969,16 +13969,16 @@
         },
         {
             "name": "webconsulting/webcon-easy-workspace",
-            "version": "v1.7.3",
+            "version": "v1.8.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/typo3-webcon-easy-workspace.git",
-                "reference": "72803e890eb955b474c983cdb82c081a23bcd00e"
+                "reference": "0a214637a8c9ef0bf0896346c8b2568cc12b8ec7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/typo3-webcon-easy-workspace/zipball/72803e890eb955b474c983cdb82c081a23bcd00e",
-                "reference": "72803e890eb955b474c983cdb82c081a23bcd00e",
+                "url": "https://api.github.com/repos/dirnbauer/typo3-webcon-easy-workspace/zipball/0a214637a8c9ef0bf0896346c8b2568cc12b8ec7",
+                "reference": "0a214637a8c9ef0bf0896346c8b2568cc12b8ec7",
                 "shasum": ""
             },
             "require": {
@@ -14005,7 +14005,7 @@
             "extra": {
                 "typo3/cms": {
                     "extension-key": "webcon_easy_workspace",
-                    "version": "1.7.3",
+                    "version": "1.8.0",
                     "Package": {
                         "providesPackages": []
                     }
@@ -14074,7 +14074,7 @@
                 "issues": "https://github.com/dirnbauer/typo3-webcon-easy-workspace/issues",
                 "source": "https://github.com/dirnbauer/typo3-webcon-easy-workspace"
             },
-            "time": "2026-09-24T14:59:08+00:00"
+            "time": "2026-09-25T09:03:01+00:00"
         },
         {
             "name": "webconsulting/webcon-jev",
