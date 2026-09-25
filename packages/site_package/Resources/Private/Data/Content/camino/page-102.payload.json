@@ -4,17 +4,18 @@
     "root": 99,
     "language": 0,
     "languageCode": "en",
-    "generated": "2026-09-23T10:12:23+02:00",
+    "generated": "2026-09-25T12:00:00+02:00",
     "records": [
         {
             "table": "pages",
             "uid": 102,
             "expect": {
-                "title": "Imprint"
+                "title": "Imprint",
+                "description": "Imprint for Camino, a demo site built with the TYPO3 Camino theme. The site has no operator of its own, so it lists no company details."
             },
             "set": {
                 "title": "Imprint",
-                "description": "Imprint for Camino, a demo site built with the TYPO3 Camino theme. The site has no operator of its own, so it lists no company details."
+                "description": "Imprint for Camino, a demo site built with the TYPO3 Camino theme and operated by webconsulting business services gmbh in Mattersburg, Austria."
             },
             "_context": {
                 "page": 102,
@@ -52,10 +53,10 @@
             "uid": 1392,
             "expect": {
                 "CType": "text",
-                "bodytext": "<p><strong>Company Information test hier.</strong><br />[Company Name]<br />[Street Address]<br />[ZIP Code, City]<br />[Country]</p>\r\n<p><strong>Represented by</strong>:&nbsp; ddd<br />[Name], [Position]</p>\r\n<p><strong>Contact</strong>:&nbsp;<br />Phone: [+00 000 000000]<br />Email: [email@example.com]<br />Website: [www.example.com]</p>\r\n<p><strong>Commercial Register</strong>: [Register Court] [Registration Number]<br /><strong>VAT Identification Number</strong>: [VAT ID]</p>\r\n<p><strong>Responsible for content</strong>:<br />[Name]<br />[Street Address]<br />[ZIP Code, City]</p>\r\n<p><strong>Disclaimer</strong>:<br />This is dummy content for demonstration purposes only. Please replace all placeholder fields marked with [brackets] with your actual company information before publishing. The disclaimer text below should also be reviewed and adapted to your legal requirements.</p>\r\n<p>The contents of this website have been created with the utmost care. However, we cannot guarantee the accuracy, completeness, or timeliness of the information provided. External links have been checked at the time of linking; we accept no responsibility for their content.</p>"
+                "bodytext": "<p><strong>About this site</strong><br />Camino is a demo site built with the TYPO3 Camino theme. It has no operator of its own, so there is no company, address or register entry to list here.</p>\r\n<p><strong>Disclaimer</strong>:<br />The content of this site was written with care. It may still be inaccurate, incomplete or out of date. External links were checked when they were added. Their owners are responsible for their content.</p>"
             },
             "set": {
-                "bodytext": "<p><strong>About this site</strong><br />Camino is a demo site built with the TYPO3 Camino theme. It has no operator of its own, so there is no company, address or register entry to list here.</p>\n<p><strong>Disclaimer</strong>:<br />The content of this site was written with care. It may still be inaccurate, incomplete or out of date. External links were checked when they were added. Their owners are responsible for their content.</p>"
+                "bodytext": "<p><strong>Operator</strong><br />webconsulting business services gmbh<br />Johann Nepomuk Berger-Straße 7/2/14<br />7210 Mattersburg<br />Austria</p>\n<p><strong>Contact</strong><br />Phone: <a href=\"tel:+43262620156\">+43 2626 20156</a><br />Email: <a href=\"mailto:office@webconsulting.at\">office@webconsulting.at</a><br />Website: <a href=\"https://webconsulting.at\">webconsulting.at</a></p>\n<p><strong>Company register</strong><br />Company register number: FN 401904 k<br />Company register court: Landesgericht Eisenstadt<br />Registered office: Mattersburg<br />VAT ID: ATU68140807</p>\n<p><strong>Managing director</strong><br />DI(FH) Kurt Dirnbauer</p>\n<p><strong>Business purpose</strong><br />Management consulting including business organisation, IT services (software development, web design, web consulting, trade in hardware and software), advertising agency</p>\n<p><strong>Trade licence</strong><br />Services in automatic data processing and information technology</p>\n<p><strong>Supervisory authority</strong><br />Bezirkshauptmannschaft Mattersburg (Mattersburg district authority)</p>\n<p><strong>Chamber membership</strong><br />Wirtschaftskammer Burgenland (Economic Chamber of Burgenland), UBIT professional group (management consulting, accounting and information technology)</p>\n<p><strong>Applicable regulations</strong><br />Trade Regulation Act 1994 (GewO), E-Commerce Act (ECG), Media Act (MedienG), Telecommunications Act (TKG)</p>\n<p><strong>Media owner and disclosure under § 25 MedienG</strong><br />Media owner: webconsulting business services gmbh, Johann Nepomuk Berger-Straße 7/2/14, 7210 Mattersburg<br />Legal form: limited liability company (Gesellschaft mit beschränkter Haftung)<br />Share capital: EUR 35,000<br />Shareholder: DI(FH) Kurt Dirnbauer (100%)<br />Responsible for content: DI(FH) Kurt Dirnbauer</p>\n<p><strong>About this site</strong><br />Camino is a demo site built with the TYPO3 Camino theme.</p>\n<p><strong>Disclaimer</strong>:<br />The content of this site was written with care. It may still be inaccurate, incomplete or out of date. External links were checked when they were added. Their owners are responsible for their content.</p>"
             },
             "_context": {
                 "page": 102,

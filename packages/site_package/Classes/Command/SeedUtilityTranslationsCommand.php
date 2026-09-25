@@ -160,7 +160,7 @@ final class SeedUtilityTranslationsCommand extends Command
         'description' => 'Accessibility statement for the Desiderio demo site. It sums up the WCAG 2.2 AA audit of 10 pages on 7 July 2026 and the checks still to be done by hand.',
         'statementHeader' => 'Accessibility statement and WCAG 2.2 audit',
         'lastUpdated' => '7 July 2026',
-        'contactEmail' => 'accessibility@desiderio.example',
+        'contactEmail' => 'office@webconsulting.at',
         'statementContent' => <<<'HTML'
 <p>Desiderio aims to make this demo website accessible. The benchmark for this statement is <strong>WCAG 2.2, conformance level AA</strong>.</p>
 <h3>Audit scope</h3>
@@ -180,7 +180,7 @@ final class SeedUtilityTranslationsCommand extends Command
 <h3>Current conformance status</h3>
 <p>The tested Desiderio pages have no unresolved automated WCAG 2.2 A/AA violations. This result is based on the automated and code-inspected audit sample. A final legal conformance statement still requires the manual checks listed above.</p>
 <h3>Feedback and contact</h3>
-<p>If you find an accessibility barrier or need information in another format, email <a href="mailto:accessibility@desiderio.example">accessibility@desiderio.example</a>. Please include the affected page, your device and browser, and the assistive technology you use, if any.</p>
+<p>If you find an accessibility barrier or need information in another format, email <a href="mailto:office@webconsulting.at">office@webconsulting.at</a>. Please include the affected page, your device and browser, and the assistive technology you use, if any.</p>
 HTML,
         'highlightHeader' => 'What was tested and what remains manual',
         'highlightContent' => <<<'HTML'
@@ -197,7 +197,7 @@ HTML,
         // A page title may have 50 characters; the statement's heading has 51.
         'seoTitle' => 'Erklärung zur Barrierefreiheit (WCAG 2.2)',
         'lastUpdated' => '7. Juli 2026',
-        'contactEmail' => 'accessibility@desiderio.example',
+        'contactEmail' => 'office@webconsulting.at',
         'statementContent' => <<<'HTML'
 <p>Desiderio möchte diese Demo-Website barrierefrei zugänglich machen. Maßstab dieser Erklärung sind die <strong>Web Content Accessibility Guidelines (WCAG) 2.2, Konformitätsstufe AA</strong>.</p>
 <h3>Prüfumfang</h3>
@@ -217,7 +217,7 @@ HTML,
 <h3>Aktueller Konformitätsstatus</h3>
 <p>Die geprüften Desiderio-Seiten haben keine ungelösten, automatisiert erkannten Verstöße gegen WCAG 2.2 A/AA. Grundlage ist die automatisierte und codebasierte Prüfung der Stichprobe. Eine abschließende rechtliche Konformitätserklärung erfordert weiterhin die oben genannten manuellen Prüfungen.</p>
 <h3>Feedback und Kontakt</h3>
-<p>Wenn Sie auf eine Barriere stoßen oder Informationen in einem anderen Format benötigen, schreiben Sie an <a href="mailto:accessibility@desiderio.example">accessibility@desiderio.example</a>. Bitte nennen Sie die betroffene Seite, Ihr Gerät, Ihren Browser und gegebenenfalls Ihre assistive Technologie.</p>
+<p>Wenn Sie auf eine Barriere stoßen oder Informationen in einem anderen Format benötigen, schreiben Sie an <a href="mailto:office@webconsulting.at">office@webconsulting.at</a>. Bitte nennen Sie die betroffene Seite, Ihr Gerät, Ihren Browser und gegebenenfalls Ihre assistive Technologie.</p>
 HTML,
         'highlightHeader' => 'Was geprüft wurde und was manuell bleibt',
         'highlightContent' => <<<'HTML'

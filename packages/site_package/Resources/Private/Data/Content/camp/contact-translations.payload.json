@@ -1,0 +1,395 @@
+{
+    "version": 1,
+    "site": "camp",
+    "root": 933,
+    "language": -1,
+    "languageCode": "",
+    "generated": "2026-09-25T12:00:00+02:00",
+    "_note": "Contact data on the camp legal pages in en/zh/hu: operator, data controller and contacts are webconsulting business services gmbh. Updates the rows sitepackage:apply-camp-translations created, in place, so their uids stay; mtug-camp-translations.json holds the same texts for a rebuild.",
+    "records": [
+        {
+            "table": "tt_content",
+            "uid": 84599,
+            "expect": {
+                "CType": "desiderio_imprint",
+                "header": "Imprint",
+                "company_name": "Münchner TYPO3 User Group e.V. (MTUG)",
+                "address": "[Street and house number]\n[Postal code] Munich\nGermany",
+                "contact_email": "info@typo3camp-muenchen.example",
+                "contact_phone": "+49 89 [phone number]",
+                "registry_info": "Registered in the register of associations (Vereinsregister)\nRegistering court: Amtsgericht München (Munich Local Court)\nRegistration number: VR [number]",
+                "vat_id": "",
+                "additional_info": "<p><strong>Board authorised to represent the association pursuant to § 26 BGB:</strong><br />[First name Last name] (Chair), [First name Last name] (Deputy Chair), [First name Last name] (Treasurer)</p>\r\n<p><strong>Responsible for content pursuant to § 18 (2) MStV:</strong><br />[First name Last name], address as above</p>\r\n<h3>Organiser</h3>\r\n<p>Münchner TYPO3 User Group e.V. organised TYPO3 Camp Munich 2026 as a non-commercial community barcamp. It took place from 11 to 13 September 2026 at the Puchheim Cultural Centre (PUC).</p>\r\n<h3>Consumer dispute resolution</h3>\r\n<p>We are neither willing nor obliged to take part in dispute resolution proceedings before a consumer arbitration board (§ 36 VSBG). The EU Online Dispute Resolution (ODR) platform was discontinued on 20 July 2025. It is no longer available.</p>\r\n<h3>Liability for content</h3>\r\n<p>As a service provider, we are responsible for our own content on these pages under general law (§ 7 (1) DDG). Under §§ 8 to 10 DDG, however, we are not obliged to monitor transmitted or stored third-party information. Nor are we obliged to investigate circumstances that indicate unlawful activity.</p>\r\n<h3>Liability for links</h3>\r\n<p>Our website contains links to external third-party websites. We have no influence on their content. We therefore cannot accept any liability for this third-party content. The respective provider or operator of the linked pages is always responsible for their content.</p>\r\n<h3>Copyright</h3>\r\n<p>The content and works created by the operators on these pages are subject to German copyright law. Third-party contributions are marked as such. “TYPO3” is a registered trademark of the TYPO3 Association.</p>\r\n<p><em>Note (lab demo): Details in square brackets are placeholders in this demo installation. Please replace them with the association's actual, legally valid details before publishing: address, register number and board.</em></p>"
+            },
+            "set": {
+                "company_name": "webconsulting business services gmbh",
+                "address": "Johann Nepomuk Berger-Straße 7/2/14\n7210 Mattersburg\nAustria",
+                "contact_email": "office@webconsulting.at",
+                "contact_phone": "+43 2626 20156",
+                "registry_info": "Company register number: FN 401904 k\nCompany register court: Landesgericht Eisenstadt\nManaging director: DI(FH) Kurt Dirnbauer",
+                "vat_id": "ATU68140807",
+                "additional_info": "<p><strong>Business purpose:</strong> management consulting including business organisation, IT services (software development, web design, web consulting, trade in hardware and software), advertising agency</p>\n<p><strong>Trade licence:</strong> services in automatic data processing and information technology</p>\n<p><strong>Membership:</strong> Wirtschaftskammer Burgenland (Economic Chamber of Burgenland), UBIT professional group (management consulting, accounting and information technology)</p>\n<p><strong>Supervisory authority:</strong> Bezirkshauptmannschaft Mattersburg (Mattersburg district authority)</p>\n<p><strong>Applicable regulations:</strong> Trade Regulation Act 1994 (GewO), E-Commerce Act (ECG), Media Act (MedienG), Telecommunications Act (TKG)</p>\n<h3>Media owner and disclosure pursuant to § 25 MedienG</h3>\n<p><strong>Media owner:</strong> webconsulting business services gmbh, Johann Nepomuk Berger-Straße 7/2/14, 7210 Mattersburg<br /><strong>Registered office:</strong> Mattersburg<br /><strong>Legal form:</strong> limited liability company (Gesellschaft mit beschränkter Haftung)<br /><strong>Share capital:</strong> EUR 35,000<br /><strong>Shareholder:</strong> DI(FH) Kurt Dirnbauer (100%)<br /><strong>Responsible for content:</strong> DI(FH) Kurt Dirnbauer</p>\n<h3>Organiser</h3>\n<p>This website is a lab demo operated by webconsulting business services gmbh. Münchner TYPO3 User Group e.V. organised TYPO3 Camp Munich 2026 as a non-commercial community barcamp. It took place from 11 to 13 September 2026 at the Puchheim Cultural Centre (PUC).</p>\n<h3>Consumer dispute resolution</h3>\n<p>We are neither obliged nor willing to take part in dispute resolution proceedings before a consumer arbitration board. However, you are welcome to send any complaints directly to us at <a href=\"mailto:office@webconsulting.at\">office@webconsulting.at</a>. The EU Online Dispute Resolution (ODR) platform was discontinued on 20 July 2025. It is no longer available.</p>\n<h3>Liability for links</h3>\n<p>Our website contains links to external third-party websites. We have no influence on their content. We therefore cannot accept any liability for this third-party content. The respective provider or operator of the linked pages is always responsible for their content.</p>\n<h3>Copyright</h3>\n<p>The content and works created by the operators on these pages are subject to copyright law. Third-party contributions are marked as such. “TYPO3” is a registered trademark of the TYPO3 Association.</p>"
+            },
+            "_context": {
+                "page": 935,
+                "pageTitle": "Impressum",
+                "element": 84599,
+                "type": "desiderio_imprint",
+                "language": "en",
+                "roles": {
+                    "company_name": "other",
+                    "address": "other",
+                    "contact_email": "other",
+                    "contact_phone": "other",
+                    "registry_info": "other",
+                    "vat_id": "other",
+                    "additional_info": "other"
+                }
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 84600,
+            "expect": {
+                "CType": "desiderio_imprint",
+                "header": "法律声明（Impressum）",
+                "company_name": "Münchner TYPO3 User Group e.V. (MTUG)",
+                "address": "[街道和门牌号]\n[邮政编码] 慕尼黑\n德国",
+                "contact_email": "info@typo3camp-muenchen.example",
+                "contact_phone": "+49 89 [电话号码]",
+                "registry_info": "已在社团登记簿（Vereinsregister）登记\n登记法院：慕尼黑地方法院（Amtsgericht München）\n登记号：VR [号码]",
+                "vat_id": "",
+                "additional_info": "<p><strong>依据《德国民法典》（BGB）第 26 条的法定代表理事会：</strong><br />[姓名]（理事长）、[姓名]（副理事长）、[姓名]（财务）</p>\r\n<p><strong>依据《媒体国家协定》（MStV）第 18 条第 2 款对内容负责：</strong><br />[姓名]，地址同上</p>\r\n<h3>主办方</h3>\r\n<p>Münchner TYPO3 User Group e.V. 以非商业性社区 Barcamp 的形式主办了 2026 年慕尼黑 TYPO3 Camp。活动于 2026 年 9 月 11 日至 13 日在普赫海姆文化中心（PUC）举行。</p>\r\n<h3>消费者争议解决</h3>\r\n<p>我们没有意愿、也没有义务参加消费者仲裁机构的争议解决程序（VSBG 第 36 条）。欧盟在线争议解决（ODR）平台已于 2025 年 7 月 20 日停止运营，不再提供服务。</p>\r\n<h3>内容责任</h3>\r\n<p>作为服务提供者，我们依据一般法律对本网站的自有内容负责（《数字服务法》DDG 第 7 条第 1 款）。但依据 DDG 第 8 至 10 条，我们没有义务监控所传输或存储的第三方信息，也没有义务调查指向违法行为的情形。</p>\r\n<h3>链接责任</h3>\r\n<p>本网站包含指向第三方外部网站的链接。我们无法影响这些网站的内容，因此对这些第三方内容不承担任何责任。被链接页面的内容始终由其各自的提供者或运营者负责。</p>\r\n<h3>著作权</h3>\r\n<p>运营者在本网站上创建的内容和作品受德国著作权法保护。第三方的贡献已作相应标注。“TYPO3” 是 TYPO3 Association 的注册商标。</p>\r\n<p><em>说明（实验演示）：方括号中的信息为本演示环境的占位符。发布前请替换为该社团真实、具有法律效力的数据：地址、登记号和理事会。</em></p>"
+            },
+            "set": {
+                "company_name": "webconsulting business services gmbh",
+                "address": "Johann Nepomuk Berger-Straße 7/2/14\n7210 Mattersburg\n奥地利",
+                "contact_email": "office@webconsulting.at",
+                "contact_phone": "+43 2626 20156",
+                "registry_info": "公司注册号（Firmenbuchnummer）：FN 401904 k\n公司注册法院：艾森施塔特州法院（Landesgericht Eisenstadt）\n总经理：DI(FH) Kurt Dirnbauer",
+                "vat_id": "ATU68140807",
+                "additional_info": "<p><strong>经营范围：</strong>企业管理咨询（包括企业组织）、IT 服务（软件开发、网页设计、网络咨询、硬件和软件贸易）、广告代理</p>\n<p><strong>营业许可：</strong>自动化数据处理与信息技术服务</p>\n<p><strong>会员资格：</strong>布尔根兰州经济商会（Wirtschaftskammer Burgenland），企业咨询、会计与信息技术专业组（UBIT）</p>\n<p><strong>监管机构：</strong>马特斯堡县行政公署（Bezirkshauptmannschaft Mattersburg）</p>\n<p><strong>适用法规：</strong>《1994 年营业条例》（GewO）、《电子商务法》（ECG）、《媒体法》（MedienG）、《电信法》（TKG）</p>\n<h3>依据《媒体法》（MedienG）第 25 条的媒体所有人信息与披露</h3>\n<p><strong>媒体所有人：</strong>webconsulting business services gmbh，Johann Nepomuk Berger-Straße 7/2/14，7210 Mattersburg<br /><strong>注册地：</strong>Mattersburg<br /><strong>法律形式：</strong>有限责任公司（Gesellschaft mit beschränkter Haftung）<br /><strong>注册资本：</strong>35,000 欧元<br /><strong>股东：</strong>DI(FH) Kurt Dirnbauer（100%）<br /><strong>内容负责人：</strong>DI(FH) Kurt Dirnbauer</p>\n<h3>主办方</h3>\n<p>本网站是由 webconsulting business services gmbh 运营的实验演示站点。Münchner TYPO3 User Group e.V. 以非商业性社区 Barcamp 的形式主办了 2026 年慕尼黑 TYPO3 Camp。活动于 2026 年 9 月 11 日至 13 日在普赫海姆文化中心（PUC）举行。</p>\n<h3>消费者争议解决</h3>\n<p>我们没有义务、也不愿意参加消费者仲裁机构的争议解决程序。但您可以直接将投诉发送至 <a href=\"mailto:office@webconsulting.at\">office@webconsulting.at</a>。欧盟在线争议解决（ODR）平台已于 2025 年 7 月 20 日停止运营，不再提供服务。</p>\n<h3>链接责任</h3>\n<p>本网站包含指向第三方外部网站的链接。我们无法影响这些网站的内容，因此对这些第三方内容不承担任何责任。被链接页面的内容始终由其各自的提供者或运营者负责。</p>\n<h3>著作权</h3>\n<p>运营者在本网站上创建的内容和作品受著作权法保护。第三方的贡献已作相应标注。“TYPO3” 是 TYPO3 Association 的注册商标。</p>"
+            },
+            "_context": {
+                "page": 935,
+                "pageTitle": "Impressum",
+                "element": 84600,
+                "type": "desiderio_imprint",
+                "language": "zh",
+                "roles": {
+                    "company_name": "other",
+                    "address": "other",
+                    "contact_email": "other",
+                    "contact_phone": "other",
+                    "registry_info": "other",
+                    "vat_id": "other",
+                    "additional_info": "other"
+                }
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 84601,
+            "expect": {
+                "CType": "desiderio_imprint",
+                "header": "Impresszum",
+                "company_name": "Münchner TYPO3 User Group e.V. (MTUG)",
+                "address": "[Utca és házszám]\n[Irányítószám] München\nNémetország",
+                "contact_email": "info@typo3camp-muenchen.example",
+                "contact_phone": "+49 89 [telefonszám]",
+                "registry_info": "Bejegyezve az egyesületi nyilvántartásba (Vereinsregister)\nNyilvántartó bíróság: Amtsgericht München (Müncheni Helyi Bíróság)\nNyilvántartási szám: VR [szám]",
+                "vat_id": "",
+                "additional_info": "<p><strong>A BGB 26. §-a szerint képviseletre jogosult elnökség:</strong><br />[Vezetéknév Keresztnév] (elnök), [Vezetéknév Keresztnév] (alelnök), [Vezetéknév Keresztnév] (pénztáros)</p>\r\n<p><strong>A tartalomért az MStV 18. § (2) bekezdése szerint felelős:</strong><br />[Vezetéknév Keresztnév], cím mint fent</p>\r\n<h3>Szervező</h3>\r\n<p>A Münchner TYPO3 User Group e.V. nem kereskedelmi célú közösségi barcampként szervezte meg a TYPO3 Camp München 2026 rendezvényt. A camp 2026. szeptember 11. és 13. között volt a Puchheimi Kulturális Központban (PUC).</p>\r\n<h3>Fogyasztói vitarendezés</h3>\r\n<p>Nem vagyunk hajlandók és nem is vagyunk kötelesek fogyasztói békéltető testület előtti vitarendezési eljárásban részt venni (VSBG 36. §). Az EU online vitarendezési (ODR) platformját 2025. július 20-án megszüntették. Az már nem érhető el.</p>\r\n<h3>Felelősség a tartalomért</h3>\r\n<p>Szolgáltatóként az általános jogszabályok szerint felelünk a saját tartalmainkért ezeken az oldalakon (DDG 7. § (1) bekezdés). A DDG 8–10. §-a szerint azonban nem kell felügyelnünk a továbbított vagy tárolt idegen információkat. Jogellenes tevékenységre utaló körülmények után sem kell kutatnunk.</p>\r\n<h3>Felelősség a hivatkozásokért</h3>\r\n<p>Oldalunk harmadik felek külső webhelyeire mutató hivatkozásokat tartalmaz. Ezek tartalmára nincs befolyásunk. Ezért ezekért az idegen tartalmakért nem vállalhatunk felelősséget. A hivatkozott oldalak tartalmáért mindig az adott szolgáltató vagy üzemeltető felel.</p>\r\n<h3>Szerzői jog</h3>\r\n<p>Az üzemeltetők által ezeken az oldalakon létrehozott tartalmak és művek a német szerzői jog védelme alatt állnak. A harmadik felek hozzájárulásait ekként jelöltük. A „TYPO3” a TYPO3 Association bejegyzett védjegye.</p>\r\n<p><em>Megjegyzés (lab-demó): A szögletes zárójelben szereplő adatok ennek a demó telepítésnek a helykitöltői. Közzététel előtt kérjük, cserélje le őket az egyesület tényleges, jogilag érvényes adataira: cím, nyilvántartási szám és elnökség.</em></p>"
+            },
+            "set": {
+                "company_name": "webconsulting business services gmbh",
+                "address": "Johann Nepomuk Berger-Straße 7/2/14\n7210 Mattersburg\nAusztria",
+                "contact_email": "office@webconsulting.at",
+                "contact_phone": "+43 2626 20156",
+                "registry_info": "Cégjegyzékszám (Firmenbuchnummer): FN 401904 k\nCégbíróság: Landesgericht Eisenstadt (Kismartoni Tartományi Bíróság)\nÜgyvezető: DI(FH) Kurt Dirnbauer",
+                "vat_id": "ATU68140807",
+                "additional_info": "<p><strong>Tevékenységi kör:</strong> vállalkozási tanácsadás, beleértve a vállalati szervezést, informatikai szolgáltatások (szoftverfejlesztés, webdesign, webes tanácsadás, hardver- és szoftverkereskedelem), reklámügynökség</p>\n<p><strong>Iparjogosítvány:</strong> szolgáltatások az automatikus adatfeldolgozás és az információtechnológia területén</p>\n<p><strong>Tagság:</strong> Wirtschaftskammer Burgenland (Burgenlandi Gazdasági Kamara), vállalkozási tanácsadási, könyvelési és információtechnológiai szakcsoport (UBIT)</p>\n<p><strong>Felügyeleti hatóság:</strong> Bezirkshauptmannschaft Mattersburg (mattersburgi járási hatóság)</p>\n<p><strong>Alkalmazandó jogszabályok:</strong> 1994. évi iparűzési törvény (GewO), e-kereskedelmi törvény (ECG), médiatörvény (MedienG), távközlési törvény (TKG)</p>\n<h3>Médiatulajdonos és közzététel a MedienG 25. §-a szerint</h3>\n<p><strong>Médiatulajdonos:</strong> webconsulting business services gmbh, Johann Nepomuk Berger-Straße 7/2/14, 7210 Mattersburg<br /><strong>Székhely:</strong> Mattersburg<br /><strong>Társasági forma:</strong> korlátolt felelősségű társaság (Gesellschaft mit beschränkter Haftung)<br /><strong>Törzstőke:</strong> 35 000 EUR<br /><strong>Tulajdonos:</strong> DI(FH) Kurt Dirnbauer (100%)<br /><strong>A tartalomért felelős:</strong> DI(FH) Kurt Dirnbauer</p>\n<h3>Szervező</h3>\n<p>Ez a weboldal egy lab-demó, amelyet a webconsulting business services gmbh üzemeltet. A Münchner TYPO3 User Group e.V. nem kereskedelmi célú közösségi barcampként szervezte meg a TYPO3 Camp München 2026 rendezvényt. A camp 2026. szeptember 11. és 13. között volt a Puchheimi Kulturális Központban (PUC).</p>\n<h3>Fogyasztói vitarendezés</h3>\n<p>Nem vagyunk kötelesek és nem is vagyunk hajlandók fogyasztói békéltető testület előtti vitarendezési eljárásban részt venni. Esetleges panaszaival azonban közvetlenül is fordulhat hozzánk az <a href=\"mailto:office@webconsulting.at\">office@webconsulting.at</a> címen. Az EU online vitarendezési (ODR) platformját 2025. július 20-án megszüntették. Az már nem érhető el.</p>\n<h3>Felelősség a hivatkozásokért</h3>\n<p>Oldalunk harmadik felek külső webhelyeire mutató hivatkozásokat tartalmaz. Ezek tartalmára nincs befolyásunk. Ezért ezekért az idegen tartalmakért nem vállalhatunk felelősséget. A hivatkozott oldalak tartalmáért mindig az adott szolgáltató vagy üzemeltető felel.</p>\n<h3>Szerzői jog</h3>\n<p>Az üzemeltetők által ezeken az oldalakon létrehozott tartalmak és művek szerzői jogi védelem alatt állnak. A harmadik felek hozzájárulásait ekként jelöltük. A „TYPO3” a TYPO3 Association bejegyzett védjegye.</p>"
+            },
+            "_context": {
+                "page": 935,
+                "pageTitle": "Impressum",
+                "element": 84601,
+                "type": "desiderio_imprint",
+                "language": "hu",
+                "roles": {
+                    "company_name": "other",
+                    "address": "other",
+                    "contact_email": "other",
+                    "contact_phone": "other",
+                    "registry_info": "other",
+                    "vat_id": "other",
+                    "additional_info": "other"
+                }
+            }
+        },
+        {
+            "table": "desiderio_title_content",
+            "uid": 345,
+            "expect": {
+                "title": "Data controller",
+                "content": "<p>The controller responsible for data processing on this website within the meaning of the GDPR is:</p>\r\n<p>Münchner TYPO3 User Group e.V. (MTUG)<br />[Street and house number], [Postal code] Munich, Germany<br />Email: <a href=\"mailto:datenschutz@typo3camp-muenchen.example\">datenschutz@typo3camp-muenchen.example</a></p>\r\n<p>If you have questions about data protection or want to exercise your rights, you can contact us at any time at this email address.</p>"
+            },
+            "set": {
+                "content": "<p>The controller responsible for data processing on this website within the meaning of the GDPR is:</p>\n<p>webconsulting business services gmbh<br />Johann Nepomuk Berger-Straße 7/2/14, 7210 Mattersburg, Austria<br />Email: <a href=\"mailto:office@webconsulting.at\">office@webconsulting.at</a><br />Phone: <a href=\"tel:+43262620156\">+43 2626 20156</a></p>\n<p>If you have questions about data protection or want to exercise your rights, you can contact us at any time at this email address.</p>"
+            },
+            "_context": {
+                "page": 936,
+                "pageTitle": "Datenschutz",
+                "element": 84602,
+                "type": "desiderio_privacynotice",
+                "language": "en",
+                "roles": {
+                    "content": "card"
+                }
+            }
+        },
+        {
+            "table": "desiderio_title_content",
+            "uid": 346,
+            "expect": {
+                "title": "Your rights as a data subject",
+                "content": "<p>You have the right at any time to access (Art. 15 GDPR), rectification (Art. 16), erasure (Art. 17), restriction of processing (Art. 18), data portability (Art. 20) and to object to processing (Art. 21). Where processing is based on your consent, you can withdraw it at any time with effect for the future.</p>\r\n<p>You can also lodge a complaint with a data protection supervisory authority. The authority responsible for us is the Bavarian State Office for Data Protection Supervision (BayLDA), Promenade 18, 91522 Ansbach, Germany.</p>"
+            },
+            "set": {
+                "content": "<p>You have the right at any time to access (Art. 15 GDPR), rectification (Art. 16), erasure (Art. 17), restriction of processing (Art. 18), data portability (Art. 20) and to object to processing (Art. 21). Where processing is based on your consent, you can withdraw it at any time with effect for the future.</p>\n<p>You can also lodge a complaint with a data protection supervisory authority. The authority responsible for us is the Austrian Data Protection Authority (Österreichische Datenschutzbehörde).</p>"
+            },
+            "_context": {
+                "page": 936,
+                "pageTitle": "Datenschutz",
+                "element": 84602,
+                "type": "desiderio_privacynotice",
+                "language": "en",
+                "roles": {
+                    "content": "card"
+                }
+            }
+        },
+        {
+            "table": "desiderio_title_content",
+            "uid": 348,
+            "expect": {
+                "title": "Cookies and consent",
+                "content": "<p>Our website uses technically necessary cookies. They are required for operation, for example to store your privacy settings. The legal basis is Section 25 (2) TDDDG in conjunction with Art. 6 (1) (f) GDPR.</p>\r\n<p>Optional cookies or services are not strictly necessary. We only use them once you have given your explicit consent via our consent banner (Section 25 (1) TDDDG, Art. 6 (1) (a) GDPR). You can change or withdraw your choice at any time via the banner.</p>"
+            },
+            "set": {
+                "content": "<p>Our website uses technically necessary cookies. They are required for operation, for example to store your privacy settings. The legal basis is Art. 6 (1) (f) GDPR.</p>\n<p>Optional cookies or services are not strictly necessary. We only use them once you have given your explicit consent via our consent banner (Art. 6 (1) (a) GDPR). You can change or withdraw your choice at any time via the banner.</p>"
+            },
+            "_context": {
+                "page": 936,
+                "pageTitle": "Datenschutz",
+                "element": 84602,
+                "type": "desiderio_privacynotice",
+                "language": "en",
+                "roles": {
+                    "content": "card"
+                }
+            }
+        },
+        {
+            "table": "desiderio_title_content",
+            "uid": 353,
+            "expect": {
+                "title": "数据控制者",
+                "content": "<p>就 GDPR 而言，负责本网站数据处理的控制者为：</p>\r\n<p>Münchner TYPO3 User Group e.V. (MTUG)<br />[街道和门牌号]，[邮政编码] 慕尼黑，德国<br />电子邮件：<a href=\"mailto:datenschutz@typo3camp-muenchen.example\">datenschutz@typo3camp-muenchen.example</a></p>\r\n<p>如果您对数据保护有疑问或希望行使您的权利，可随时通过该电子邮件地址与我们联系。</p>"
+            },
+            "set": {
+                "content": "<p>就 GDPR 而言，负责本网站数据处理的控制者为：</p>\n<p>webconsulting business services gmbh<br />Johann Nepomuk Berger-Straße 7/2/14，7210 Mattersburg，奥地利<br />电子邮件：<a href=\"mailto:office@webconsulting.at\">office@webconsulting.at</a><br />电话：<a href=\"tel:+43262620156\">+43 2626 20156</a></p>\n<p>如果您对数据保护有疑问或希望行使您的权利，可随时通过该电子邮件地址与我们联系。</p>"
+            },
+            "_context": {
+                "page": 936,
+                "pageTitle": "Datenschutz",
+                "element": 84603,
+                "type": "desiderio_privacynotice",
+                "language": "zh",
+                "roles": {
+                    "content": "card"
+                }
+            }
+        },
+        {
+            "table": "desiderio_title_content",
+            "uid": 354,
+            "expect": {
+                "title": "您作为数据主体的权利",
+                "content": "<p>您随时有权要求访问（GDPR 第 15 条）、更正（第 16 条）、删除（第 17 条）、限制处理（第 18 条）、数据可携（第 20 条）以及反对处理（第 21 条）。若处理基于您的同意，您可随时撤回该同意，撤回自撤回时起对将来生效。</p>\r\n<p>此外，您可以向数据保护监管机构投诉。对我们具有管辖权的机构为巴伐利亚州数据保护监管局（BayLDA），地址：Promenade 18, 91522 Ansbach, 德国。</p>"
+            },
+            "set": {
+                "content": "<p>您随时有权要求访问（GDPR 第 15 条）、更正（第 16 条）、删除（第 17 条）、限制处理（第 18 条）、数据可携（第 20 条）以及反对处理（第 21 条）。若处理基于您的同意，您可随时撤回该同意，撤回自撤回时起对将来生效。</p>\n<p>此外，您可以向数据保护监管机构投诉。对我们具有管辖权的机构为奥地利数据保护局（Österreichische Datenschutzbehörde）。</p>"
+            },
+            "_context": {
+                "page": 936,
+                "pageTitle": "Datenschutz",
+                "element": 84603,
+                "type": "desiderio_privacynotice",
+                "language": "zh",
+                "roles": {
+                    "content": "card"
+                }
+            }
+        },
+        {
+            "table": "desiderio_title_content",
+            "uid": 356,
+            "expect": {
+                "title": "Cookie 与同意",
+                "content": "<p>本网站使用技术上必需的 Cookie。它们是运行所必需的，例如用于存储您的隐私设置。法律依据为《电信电媒数据保护法》（TDDDG）第 25 条第 2 款，并结合 GDPR 第 6 条第 1 款 (f) 项。</p>\r\n<p>可选的 Cookie 或服务并非绝对必要。只有在您通过我们的同意横幅明确同意后，我们才会使用它们（TDDDG 第 25 条第 1 款、GDPR 第 6 条第 1 款 (a) 项）。您可随时通过横幅更改或撤回您的选择。</p>"
+            },
+            "set": {
+                "content": "<p>本网站使用技术上必需的 Cookie。它们是运行所必需的，例如用于存储您的隐私设置。法律依据为 GDPR 第 6 条第 1 款 (f) 项。</p>\n<p>可选的 Cookie 或服务并非绝对必要。只有在您通过我们的同意横幅明确同意后，我们才会使用它们（GDPR 第 6 条第 1 款 (a) 项）。您可随时通过横幅更改或撤回您的选择。</p>"
+            },
+            "_context": {
+                "page": 936,
+                "pageTitle": "Datenschutz",
+                "element": 84603,
+                "type": "desiderio_privacynotice",
+                "language": "zh",
+                "roles": {
+                    "content": "card"
+                }
+            }
+        },
+        {
+            "table": "desiderio_title_content",
+            "uid": 361,
+            "expect": {
+                "title": "Adatkezelő",
+                "content": "<p>A weboldalon folytatott adatkezelésért a GDPR értelmében felelős adatkezelő:</p>\r\n<p>Münchner TYPO3 User Group e.V. (MTUG)<br />[Utca és házszám], [Irányítószám] München, Németország<br />E-mail: <a href=\"mailto:datenschutz@typo3camp-muenchen.example\">datenschutz@typo3camp-muenchen.example</a></p>\r\n<p>Ha adatvédelemmel kapcsolatos kérdése van, vagy élni kíván jogaival, ezen az e-mail-címen bármikor elérhet minket.</p>"
+            },
+            "set": {
+                "content": "<p>A weboldalon folytatott adatkezelésért a GDPR értelmében felelős adatkezelő:</p>\n<p>webconsulting business services gmbh<br />Johann Nepomuk Berger-Straße 7/2/14, 7210 Mattersburg, Ausztria<br />E-mail: <a href=\"mailto:office@webconsulting.at\">office@webconsulting.at</a><br />Telefon: <a href=\"tel:+43262620156\">+43 2626 20156</a></p>\n<p>Ha adatvédelemmel kapcsolatos kérdése van, vagy élni kíván jogaival, ezen az e-mail-címen bármikor elérhet minket.</p>"
+            },
+            "_context": {
+                "page": 936,
+                "pageTitle": "Datenschutz",
+                "element": 84604,
+                "type": "desiderio_privacynotice",
+                "language": "hu",
+                "roles": {
+                    "content": "card"
+                }
+            }
+        },
+        {
+            "table": "desiderio_title_content",
+            "uid": 362,
+            "expect": {
+                "title": "Az Ön jogai érintettként",
+                "content": "<p>Önnek bármikor joga van a hozzáféréshez (GDPR 15. cikk), helyesbítéshez (16. cikk), törléshez (17. cikk), az adatkezelés korlátozásához (18. cikk), az adathordozhatósághoz (20. cikk) és az adatkezelés elleni tiltakozáshoz (21. cikk). Ha az adatkezelés az Ön hozzájárulásán alapul, azt bármikor, a jövőre nézve visszavonhatja.</p>\r\n<p>Emellett panaszt tehet egy adatvédelmi felügyeleti hatóságnál. A ránk illetékes hatóság a Bajor Adatvédelmi Felügyeleti Hivatal (BayLDA), Promenade 18, 91522 Ansbach, Németország.</p>"
+            },
+            "set": {
+                "content": "<p>Önnek bármikor joga van a hozzáféréshez (GDPR 15. cikk), a helyesbítéshez (16. cikk) és a törléshez (17. cikk). Joga van továbbá az adatkezelés korlátozásához (18. cikk), az adathordozhatósághoz (20. cikk) és az adatkezelés elleni tiltakozáshoz (21. cikk). Ha az adatkezelés az Ön hozzájárulásán alapul, azt bármikor, a jövőre nézve visszavonhatja.</p>\n<p>Emellett panaszt tehet egy adatvédelmi felügyeleti hatóságnál. A ránk illetékes hatóság az osztrák adatvédelmi hatóság (Österreichische Datenschutzbehörde).</p>"
+            },
+            "_context": {
+                "page": 936,
+                "pageTitle": "Datenschutz",
+                "element": 84604,
+                "type": "desiderio_privacynotice",
+                "language": "hu",
+                "roles": {
+                    "content": "card"
+                }
+            }
+        },
+        {
+            "table": "desiderio_title_content",
+            "uid": 364,
+            "expect": {
+                "title": "Sütik és hozzájárulás",
+                "content": "<p>Weboldalunk technikailag szükséges sütiket használ. Ezek az üzemeltetéshez kellenek, például az adatvédelmi beállításai tárolásához. Ennek jogalapja a TDDDG 25. § (2) bekezdése a GDPR 6. cikk (1) bekezdés f) pontjával összefüggésben.</p>\r\n<p>A választható sütik vagy szolgáltatások nem feltétlenül szükségesek. Csak akkor használjuk őket, ha Ön a hozzájárulási sávon (consent banner) keresztül kifejezetten hozzájárult (TDDDG 25. § (1) bekezdés, GDPR 6. cikk (1) bekezdés a) pont). Választását a sávon keresztül bármikor módosíthatja vagy visszavonhatja.</p>"
+            },
+            "set": {
+                "content": "<p>Weboldalunk technikailag szükséges sütiket használ. Ezek az üzemeltetéshez kellenek, például az adatvédelmi beállításai tárolásához. Ennek jogalapja a GDPR 6. cikk (1) bekezdés f) pontja.</p>\n<p>A választható sütik vagy szolgáltatások nem feltétlenül szükségesek. Csak akkor használjuk őket, ha Ön a hozzájárulási sávon (consent banner) keresztül kifejezetten hozzájárult (GDPR 6. cikk (1) bekezdés a) pont). Választását a sávon keresztül bármikor módosíthatja vagy visszavonhatja.</p>"
+            },
+            "_context": {
+                "page": 936,
+                "pageTitle": "Datenschutz",
+                "element": 84604,
+                "type": "desiderio_privacynotice",
+                "language": "hu",
+                "roles": {
+                    "content": "card"
+                }
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 84605,
+            "expect": {
+                "CType": "desiderio_accessibilitystatement",
+                "header": "Accessibility Statement",
+                "content": "<p>Münchner TYPO3 User Group e.V. aims to make the TYPO3 Camp Munich 2026 website accessible. The applicable digital accessibility regulations are decisive. We use the Web Content Accessibility Guidelines (WCAG) 2.1 at conformance level AA and the European standard EN 301 549 as our benchmark.</p>\r\n<h3>Conformance status</h3>\r\n<p>In our assessment, this website is largely conformant with WCAG 2.1 Level AA. The content elements used are designed for keyboard operability, visible focus states, semantic structure (landmarks and heading hierarchy) and sufficient colour contrast.</p>\r\n<h3>What is already accessible</h3>\r\n<ul><li>All interactive elements (links, buttons, form fields) can be reached and operated using the keyboard.</li><li>Images have alternative text. Purely decorative graphics are hidden from screen readers.</li><li>The pages are responsive and can be zoomed to 200% without loss of content.</li><li>The website is available in several languages. The language of each page is marked up technically.</li></ul>\r\n<h3>Known limitations</h3>\r\n<p>Despite our efforts, some content may not yet be fully accessible. This applies in particular to:</p>\r\n<ul><li>Embedded third-party services, for example the Friendly Captcha spam-protection widget. We can only influence their design to a limited extent.</li><li>Content submitted by participants, and linked external websites.</li><li>Individual documents (e.g. PDFs) that may not meet all requirements.</li></ul>\r\n<p>We are continuously working to improve these points.</p>\r\n<h3>Feedback and contact</h3>\r\n<p>If you notice any barriers or need information in an accessible format, please write to us at <a href=\"mailto:barrierefreiheit@typo3camp-muenchen.example\">barrierefreiheit@typo3camp-muenchen.example</a>. We try to respond to your request promptly and to provide content in an accessible form on request.</p>\r\n<h3>Enforcement procedure</h3>\r\n<p>If we do not respond satisfactorily to your feedback, you can contact the competent conciliation or enforcement body. <em>Note (lab demo): This statement is a template. Before publishing, please add the body responsible for you and the actual contact details.</em></p>",
+                "contact_email": "barrierefreiheit@typo3camp-muenchen.example"
+            },
+            "set": {
+                "content": "<p>webconsulting business services gmbh aims to make the TYPO3 Camp Munich 2026 website accessible. The applicable digital accessibility regulations are decisive. We use the Web Content Accessibility Guidelines (WCAG) 2.1 at conformance level AA and the European standard EN 301 549 as our benchmark.</p>\n<h3>Conformance status</h3>\n<p>In our assessment, this website is largely conformant with WCAG 2.1 Level AA. The content elements used are designed for keyboard operability, visible focus states, semantic structure (landmarks and heading hierarchy) and sufficient colour contrast.</p>\n<h3>What is already accessible</h3>\n<ul><li>All interactive elements (links, buttons, form fields) can be reached and operated using the keyboard.</li><li>Images have alternative text. Purely decorative graphics are hidden from screen readers.</li><li>The pages are responsive and can be zoomed to 200% without loss of content.</li><li>The website is available in several languages. The language of each page is marked up technically.</li></ul>\n<h3>Known limitations</h3>\n<p>Despite our efforts, some content may not yet be fully accessible. This applies in particular to:</p>\n<ul><li>Embedded third-party services, for example the Friendly Captcha spam-protection widget. We can only influence their design to a limited extent.</li><li>Content submitted by participants, and linked external websites.</li><li>Individual documents (e.g. PDFs) that may not meet all requirements.</li></ul>\n<p>We are continuously working to improve these points.</p>\n<h3>Feedback and contact</h3>\n<p>If you notice any barriers or need information in an accessible format, please write to us at <a href=\"mailto:office@webconsulting.at\">office@webconsulting.at</a>. We try to respond to your request promptly and to provide content in an accessible form on request.</p>\n<h3>Enforcement procedure</h3>\n<p>If we do not respond satisfactorily to your feedback, you can contact the competent conciliation or enforcement body. <em>Note (lab demo): This statement is a template. Before publishing, please add the body responsible for you.</em></p>",
+                "contact_email": "office@webconsulting.at"
+            },
+            "_context": {
+                "page": 937,
+                "pageTitle": "Barrierefreiheit",
+                "element": 84605,
+                "type": "desiderio_accessibilitystatement",
+                "language": "en",
+                "roles": {
+                    "content": "card",
+                    "contact_email": "other"
+                }
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 84606,
+            "expect": {
+                "CType": "desiderio_accessibilitystatement",
+                "header": "无障碍声明",
+                "content": "<p>Münchner TYPO3 User Group e.V. 致力于使 TYPO3 Camp 慕尼黑 2026 网站无障碍可用。适用的数字无障碍法规具有决定性意义。我们以《Web 内容无障碍指南》（WCAG）2.1 的 AA 合规级别以及欧洲标准 EN 301 549 为基准。</p>\r\n<h3>合规状况</h3>\r\n<p>据我们评估，本网站在很大程度上符合 WCAG 2.1 AA 级。所用的内容元素在键盘可操作性、可见的焦点状态、语义结构（地标与标题层级）以及足够的颜色对比度方面均有设计考虑。</p>\r\n<h3>已实现无障碍的方面</h3>\r\n<ul><li>所有交互元素（链接、按钮、表单字段）均可通过键盘到达和操作。</li><li>图像配有替代文本。纯装饰性图形对屏幕阅读器隐藏。</li><li>页面采用响应式设计，可放大至 200% 而不丢失内容。</li><li>网站提供多种语言。每个页面的语言均有技术标注。</li></ul>\r\n<h3>已知限制</h3>\r\n<p>尽管我们已尽力，部分内容可能仍未完全实现无障碍。这主要涉及：</p>\r\n<ul><li>嵌入的第三方服务，例如垃圾信息防护小部件 Friendly Captcha。我们对其设计的影响有限。</li><li>参与者提交的内容以及所链接的外部网站。</li><li>个别文档（例如 PDF），可能未满足全部要求。</li></ul>\r\n<p>我们正持续努力改进上述方面。</p>\r\n<h3>反馈与联系</h3>\r\n<p>如果您发现了障碍，或需要以无障碍格式提供的信息，请发送电子邮件至 <a href=\"mailto:barrierefreiheit@typo3camp-muenchen.example\">barrierefreiheit@typo3camp-muenchen.example</a>。我们将努力及时回复您的请求，并应要求以可访问的形式提供内容。</p>\r\n<h3>执行程序</h3>\r\n<p>如果我们未能对您的反馈作出令您满意的回应，您可以联系主管的调解或执行机构。<em>说明（实验演示）：本声明为模板。发布前请补充对您具有管辖权的机构以及真实的联系方式。</em></p>",
+                "contact_email": "barrierefreiheit@typo3camp-muenchen.example"
+            },
+            "set": {
+                "content": "<p>webconsulting business services gmbh 致力于使 TYPO3 Camp 慕尼黑 2026 网站无障碍可用。适用的数字无障碍法规具有决定性意义。我们以《Web 内容无障碍指南》（WCAG）2.1 的 AA 合规级别以及欧洲标准 EN 301 549 为基准。</p>\n<h3>合规状况</h3>\n<p>据我们评估，本网站在很大程度上符合 WCAG 2.1 AA 级。所用的内容元素在键盘可操作性、可见的焦点状态、语义结构（地标与标题层级）以及足够的颜色对比度方面均有设计考虑。</p>\n<h3>已实现无障碍的方面</h3>\n<ul><li>所有交互元素（链接、按钮、表单字段）均可通过键盘到达和操作。</li><li>图像配有替代文本。纯装饰性图形对屏幕阅读器隐藏。</li><li>页面采用响应式设计，可放大至 200% 而不丢失内容。</li><li>网站提供多种语言。每个页面的语言均有技术标注。</li></ul>\n<h3>已知限制</h3>\n<p>尽管我们已尽力，部分内容可能仍未完全实现无障碍。这主要涉及：</p>\n<ul><li>嵌入的第三方服务，例如垃圾信息防护小部件 Friendly Captcha。我们对其设计的影响有限。</li><li>参与者提交的内容以及所链接的外部网站。</li><li>个别文档（例如 PDF），可能未满足全部要求。</li></ul>\n<p>我们正持续努力改进上述方面。</p>\n<h3>反馈与联系</h3>\n<p>如果您发现了障碍，或需要以无障碍格式提供的信息，请发送电子邮件至 <a href=\"mailto:office@webconsulting.at\">office@webconsulting.at</a>。我们将努力及时回复您的请求，并应要求以可访问的形式提供内容。</p>\n<h3>执行程序</h3>\n<p>如果我们未能对您的反馈作出令您满意的回应，您可以联系主管的调解或执行机构。<em>说明（实验演示）：本声明为模板。发布前请补充对您具有管辖权的机构。</em></p>",
+                "contact_email": "office@webconsulting.at"
+            },
+            "_context": {
+                "page": 937,
+                "pageTitle": "Barrierefreiheit",
+                "element": 84606,
+                "type": "desiderio_accessibilitystatement",
+                "language": "zh",
+                "roles": {
+                    "content": "card",
+                    "contact_email": "other"
+                }
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 84607,
+            "expect": {
+                "CType": "desiderio_accessibilitystatement",
+                "header": "Akadálymentességi nyilatkozat",
+                "content": "<p>A Münchner TYPO3 User Group e.V. arra törekszik, hogy a TYPO3 Camp München 2026 weboldala akadálymentesen hozzáférhető legyen. Ehhez a digitális akadálymentességre vonatkozó hatályos előírások az irányadók. Mércéül a Web Content Accessibility Guidelines (WCAG) 2.1 AA megfelelőségi szintje és az EN 301 549 európai szabvány szolgál.</p>\r\n<h3>A megfelelés állapota</h3>\r\n<p>Megítélésünk szerint ez a weboldal nagyrészt megfelel a WCAG 2.1 AA szintjének. Az alkalmazott tartalomelemeket a billentyűzettel való kezelhetőségre, a látható fókuszállapotokra, a szemantikus szerkezetre (tereppontok és címsorhierarchia) és a megfelelő színkontrasztra terveztük.</p>\r\n<h3>Ami már akadálymentes</h3>\r\n<ul><li>Minden interaktív elem (hivatkozások, gombok, űrlapmezők) billentyűzettel elérhető és kezelhető.</li><li>A képek alternatív szöveggel rendelkeznek. A tisztán dekoratív grafikák a képernyőolvasók elől rejtve vannak.</li><li>Az oldalak reszponzívak, és 200%-ig nagyíthatók a tartalom elvesztése nélkül.</li><li>A weboldal több nyelven is elérhető. Az egyes oldalak nyelve technikailag jelölve van.</li></ul>\r\n<h3>Ismert korlátok</h3>\r\n<p>Erőfeszítéseink ellenére egyes tartalmak talán még nem teljesen akadálymentesek. Ez különösen a következőket érinti:</p>\r\n<ul><li>Beágyazott, harmadik féltől származó szolgáltatások, például a Friendly Captcha spamvédelmi modul. Ezek kialakítására csak korlátozottan van befolyásunk.</li><li>A résztvevők által beküldött tartalmak és a hivatkozott külső webhelyek.</li><li>Egyes dokumentumok (pl. PDF), amelyek esetleg nem felelnek meg minden követelménynek.</li></ul>\r\n<p>Folyamatosan dolgozunk e pontok javításán.</p>\r\n<h3>Visszajelzés és kapcsolat</h3>\r\n<p>Ha akadályt észlel, vagy akadálymentes formátumban van szüksége információra, kérjük, írjon nekünk a <a href=\"mailto:barrierefreiheit@typo3camp-muenchen.example\">barrierefreiheit@typo3camp-muenchen.example</a> címre. Igyekszünk kérését mielőbb megválaszolni, és kérésre a tartalmat hozzáférhető formában rendelkezésre bocsátani.</p>\r\n<h3>Végrehajtási eljárás</h3>\r\n<p>Ha visszajelzésére nem reagálunk kielégítően, az illetékes békéltető vagy végrehajtó szervhez fordulhat. <em>Megjegyzés (lab-demó): Ez a nyilatkozat egy sablon. Közzététel előtt kérjük, egészítse ki az Önre illetékes szervvel és a tényleges elérhetőségekkel.</em></p>",
+                "contact_email": "barrierefreiheit@typo3camp-muenchen.example"
+            },
+            "set": {
+                "content": "<p>A webconsulting business services gmbh arra törekszik, hogy a TYPO3 Camp München 2026 weboldala akadálymentesen hozzáférhető legyen. Ehhez a digitális akadálymentességre vonatkozó hatályos előírások az irányadók. Mércéül a Web Content Accessibility Guidelines (WCAG) 2.1 AA megfelelőségi szintje és az EN 301 549 európai szabvány szolgál.</p>\n<h3>A megfelelés állapota</h3>\n<p>Megítélésünk szerint ez a weboldal nagyrészt megfelel a WCAG 2.1 AA szintjének. Az alkalmazott tartalomelemeket a billentyűzettel való kezelhetőségre, a látható fókuszállapotokra, a szemantikus szerkezetre (tereppontok és címsorhierarchia) és a megfelelő színkontrasztra terveztük.</p>\n<h3>Ami már akadálymentes</h3>\n<ul><li>Minden interaktív elem (hivatkozások, gombok, űrlapmezők) billentyűzettel elérhető és kezelhető.</li><li>A képek alternatív szöveggel rendelkeznek. A tisztán dekoratív grafikák a képernyőolvasók elől rejtve vannak.</li><li>Az oldalak reszponzívak, és 200%-ig nagyíthatók a tartalom elvesztése nélkül.</li><li>A weboldal több nyelven is elérhető. Az egyes oldalak nyelve technikailag jelölve van.</li></ul>\n<h3>Ismert korlátok</h3>\n<p>Erőfeszítéseink ellenére egyes tartalmak talán még nem teljesen akadálymentesek. Ez különösen a következőket érinti:</p>\n<ul><li>Beágyazott, harmadik féltől származó szolgáltatások, például a Friendly Captcha spamvédelmi modul. Ezek kialakítására csak korlátozottan van befolyásunk.</li><li>A résztvevők által beküldött tartalmak és a hivatkozott külső webhelyek.</li><li>Egyes dokumentumok (pl. PDF), amelyek esetleg nem felelnek meg minden követelménynek.</li></ul>\n<p>Folyamatosan dolgozunk e pontok javításán.</p>\n<h3>Visszajelzés és kapcsolat</h3>\n<p>Ha akadályt észlel, vagy akadálymentes formátumban van szüksége információra, kérjük, írjon nekünk az <a href=\"mailto:office@webconsulting.at\">office@webconsulting.at</a> címre. Igyekszünk kérését mielőbb megválaszolni, és kérésre a tartalmat hozzáférhető formában rendelkezésre bocsátani.</p>\n<h3>Végrehajtási eljárás</h3>\n<p>Ha visszajelzésére nem reagálunk kielégítően, az illetékes békéltető vagy végrehajtó szervhez fordulhat. <em>Megjegyzés (lab-demó): Ez a nyilatkozat egy sablon. Közzététel előtt kérjük, egészítse ki az Önre illetékes szervvel.</em></p>",
+                "contact_email": "office@webconsulting.at"
+            },
+            "_context": {
+                "page": 937,
+                "pageTitle": "Barrierefreiheit",
+                "element": 84607,
+                "type": "desiderio_accessibilitystatement",
+                "language": "hu",
+                "roles": {
+                    "content": "card",
+                    "contact_email": "other"
+                }
+            }
+        }
+    ]
+}
