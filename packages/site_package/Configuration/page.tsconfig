@@ -1,0 +1,11 @@
+#
+# Global page TSconfig for every site in the lab.
+#
+
+# Visual Editor (Web > Edit) toolbar: no single/multi-language view switch and
+# no autosave toggle. Editors save with the Save button; the module stays in
+# its single-language view. Both keys are read by visual_editor_enhancements.
+tx_visualeditorenhancements.toolbar {
+  viewModeSelector = 0
+  autoSave = 0
+}
