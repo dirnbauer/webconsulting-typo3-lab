@@ -35,7 +35,7 @@ limits:
 facts:
   desiderio:
     elements: { value: 244, source: 'ls packages/desiderio/ContentBlocks/ContentElements | wc -l' }
-    element_groups: { value: 10, detail: 'hero 21, navigation 23, content 24, features 25, pricing 25, social proof 25, team 24, data 29, conversion 25, footer 23', source: 'packages/desiderio/Resources/Private/Data/styleguide-content-groups.json' }
+    element_groups: { value: 10, detail: 'hero 21, navigation 24, content 24, features 25, pricing 25, social proof 25, team 24, data 29, conversion 24, footer 23', source: 'packages/desiderio/Resources/Private/Data/styleguide-content-groups.json' }
     components: { value: 62, detail: '17 atoms, 37 molecules, 4 layouts, 4 organisms', source: 'find packages/desiderio/Resources/Private/Components/{Atom,Molecule,Layout,Organism} -name "*.html"' }
     presets: { value: 15, detail: '5 shadcn create presets + 10 house presets', source: 'desiderio.shadcn.preset enum in Configuration/Sets/Desiderio/settings.definitions.yaml (without custom)' }
     icon_libraries: { value: 5, detail: 'Lucide, Tabler, HugeIcons, Phosphor, Remix', source: 'desiderio.shadcn.iconLibrary enum' }
