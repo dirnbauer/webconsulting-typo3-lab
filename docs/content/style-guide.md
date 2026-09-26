@@ -159,9 +159,23 @@ the showcase site and may describe Desiderio itself.
 - **Screenshots come from the current site**, taken after its text was
   rewritten, never from an older state.
 
+## Contact data
+
+Addresses, phone numbers and emails on every site are webconsulting's own
+(canon `facts.webconsulting`), except in Desiderio's demo content: the
+Desiderio site, its element library and the corporate starter. Desiderio is
+a product, and its demo records end up on other people's pages, so its
+contact data must reach no one: Example Studio GmbH, streets that
+OpenStreetMap does not know anywhere, the phone numbers the
+Bundesnetzagentur keeps free for film and television, and example.com
+(canon `facts.desiderio.demo_contact`). Austria and Switzerland keep no
+numbers free for fiction, which is why the example offices are in Berlin,
+Hamburg and Munich. Never put a real address, phone number or email into a
+Desiderio seed, webconsulting's included.
+
 ## Legal pages
 
 Imprint, privacy and accessibility pages use the same operator details and
-section names on every site. Rewriting them may only make them clearer; every
-required statement stays. Labels: Imprint · Privacy · Accessibility, and in
+section names on every site; Desiderio's use the demo company and say so.
+Rewriting them may only make them clearer; every required statement stays. Labels: Imprint · Privacy · Accessibility, and in
 German Impressum · Datenschutz · Barrierefreiheit.

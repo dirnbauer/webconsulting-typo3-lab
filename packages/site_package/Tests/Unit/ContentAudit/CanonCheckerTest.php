@@ -66,6 +66,20 @@ final class CanonCheckerTest extends TestCase
         self::assertNotContains('fact', $this->rules($this->errors('Pick one of seven themes.', FieldRole::Card, site: 'desiderio')));
     }
 
+    public function testDesiderioDemoContentGivesNoRealContactData(): void
+    {
+        foreach (['Call +43 2626 20156.', 'Write to office@webconsulting.at.', 'Johann Nepomuk Berger-Straße 7/2/14, 7210 Mattersburg'] as $real) {
+            self::assertContains('fact', $this->rules($this->errors($real, FieldRole::Card, site: 'desiderio')), $real);
+            self::assertContains('fact', $this->rules($this->errors($real, FieldRole::Card, site: 'element-library-de')), $real);
+            self::assertNotContains('fact', $this->rules($this->errors($real, FieldRole::Card, site: 'camp')), $real);
+        }
+        self::assertNotContains('fact', $this->rules($this->errors('Musterstraße 12, 10115 Berlin, +49 30 23125 100', FieldRole::Card, site: 'desiderio')));
+        self::assertNotContains('fact', $this->rules($this->errors('Write to privacy@example.com.', FieldRole::Card, site: 'desiderio')));
+        self::assertContains('fact', $this->rules($this->errors('Write to privacy@example.com.', FieldRole::Card, site: 'camp')));
+        self::assertContains('fact', $this->rules($this->errors('Torstraße 140, 10119 Berlin', FieldRole::Card)));
+        self::assertContains('fact', $this->rules($this->errors('Call +41 44 123 45 67.', FieldRole::Card)));
+    }
+
     public function testUsSpellingFailsInEnglishOnly(): void
     {
         self::assertContains('spelling', $this->rules($this->errors('Pick a color.', FieldRole::Card)));
