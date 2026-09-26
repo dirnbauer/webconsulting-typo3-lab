@@ -14,7 +14,7 @@
                 </f:if>
 
                 <f:form action="signUpSubmit" method="post" class="workos-form" requestToken="{requestToken}">
-                    <f:form.hidden name="returnTo" value="{returnToUrl}" />
+                    <f:if condition="{returnToUrl}"><f:form.hidden name="returnTo" value="{returnToUrl}" /></f:if>
                     <div class="workos-form__grid">
                         <div class="workos-field">
                             <label class="workos-label" for="workos-first-name"><f:translate key="workos_auth.messages:frontend.signup.firstName" /></label>
@@ -47,7 +47,7 @@
 
                 <p class="workos-footnote">
                     <f:translate key="workos_auth.messages:frontend.signup.hasAccount" />
-                    <f:link.action action="show" arguments="{returnTo: returnToUrl}"><f:translate key="workos_auth.messages:frontend.signup.signIn" /></f:link.action>
+                    <f:link.action action="show" arguments="{returnArguments}"><f:translate key="workos_auth.messages:frontend.signup.signIn" /></f:link.action>
                 </p>
             </div>
         </f:then>

@@ -221,6 +221,8 @@ return [
         'cacheHash' => [
             'excludedParameters' => [
                 'editMode',
+                // WorkOS Login plugin: links into the login page may carry the page to return to.
+                'returnTo',
             ],
             'enforceValidation' => true,
         ],

@@ -91,7 +91,7 @@
                     </f:if>
 
                     <f:form action="passwordAuth" method="post" class="workos-form" requestToken="{requestToken}">
-                        <f:form.hidden name="returnTo" value="{returnToUrl}" />
+                        <f:if condition="{returnToUrl}"><f:form.hidden name="returnTo" value="{returnToUrl}" /></f:if>
                         <div class="workos-field">
                             <label class="workos-label" for="workos-email"><f:translate key="workos_auth.messages:common.email" /></label>
                             <input class="workos-input" data-slot="input" id="workos-email" type="email" name="email" required="required" autocomplete="email" placeholder="{f:translate(key: 'workos_auth.messages:frontend.login.emailPlaceholder')}" />
@@ -108,7 +108,7 @@
                     <div class="workos-divider"><f:translate key="workos_auth.messages:common.or" /></div>
 
                     <f:form action="magicAuthSend" method="post" class="workos-form" requestToken="{requestToken}">
-                        <f:form.hidden name="returnTo" value="{returnToUrl}" />
+                        <f:if condition="{returnToUrl}"><f:form.hidden name="returnTo" value="{returnToUrl}" /></f:if>
                         <div class="workos-magic-row">
                             <label class="workos-field">
                                 <span class="workos-label"><f:translate key="workos_auth.messages:common.email" /></span>
@@ -128,7 +128,7 @@
 
                     <p class="workos-footnote">
                         <f:translate key="workos_auth.messages:frontend.login.noAccount" />
-                        <f:link.action action="signUp" arguments="{returnTo: returnToUrl}"><f:translate key="workos_auth.messages:frontend.login.signUp" /></f:link.action>
+                        <f:link.action action="signUp" arguments="{returnArguments}"><f:translate key="workos_auth.messages:frontend.login.signUp" /></f:link.action>
                     </p>
                 </div>
             </f:if>

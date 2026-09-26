@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c37400a0e50901edcf167777d30f7d93",
+    "content-hash": "57d85716ba824641611735e38ddb10b9",
     "packages": [
         {
             "name": "apache-solr-for-typo3/solr",
@@ -12449,16 +12449,16 @@
         },
         {
             "name": "webconsulting/astryx-typo3",
-            "version": "v2.2.1",
+            "version": "v2.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/astryx-typo3.git",
-                "reference": "57e45df3fbcc7f7d8b6f8fda634158b355a7cdb6"
+                "reference": "ac50c2b8fba42bd7376d25dee5d44f03a2103f36"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/astryx-typo3/zipball/57e45df3fbcc7f7d8b6f8fda634158b355a7cdb6",
-                "reference": "57e45df3fbcc7f7d8b6f8fda634158b355a7cdb6",
+                "url": "https://api.github.com/repos/dirnbauer/astryx-typo3/zipball/ac50c2b8fba42bd7376d25dee5d44f03a2103f36",
+                "reference": "ac50c2b8fba42bd7376d25dee5d44f03a2103f36",
                 "shasum": ""
             },
             "require": {
@@ -12535,7 +12535,7 @@
                 }
             ],
             "description": "Astryx for TYPO3 — the Astryx design system, server-rendered for TYPO3 14: 250 Content Blocks, 189 Fluid components, 25 runtime-switchable themes, no JavaScript framework",
-            "time": "2026-09-24T08:41:15+00:00"
+            "time": "2026-09-26T14:53:28+00:00"
         },
         {
             "name": "webconsulting/desiderio",
@@ -14078,16 +14078,16 @@
         },
         {
             "name": "webconsulting/webcon-jev",
-            "version": "v0.2.6",
+            "version": "v0.2.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/typo3-webcon-jev.git",
-                "reference": "887692941cd413c9936c93dee77f4d8bc0f9464f"
+                "reference": "ffa49bd7d1ef5bb7e0295da2df77b25a08a2bdac"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/typo3-webcon-jev/zipball/887692941cd413c9936c93dee77f4d8bc0f9464f",
-                "reference": "887692941cd413c9936c93dee77f4d8bc0f9464f",
+                "url": "https://api.github.com/repos/dirnbauer/typo3-webcon-jev/zipball/ffa49bd7d1ef5bb7e0295da2df77b25a08a2bdac",
+                "reference": "ffa49bd7d1ef5bb7e0295da2df77b25a08a2bdac",
                 "shasum": ""
             },
             "require": {
@@ -14182,20 +14182,20 @@
                 "issues": "https://github.com/dirnbauer/typo3-webcon-jev/issues",
                 "source": "https://github.com/dirnbauer/typo3-webcon-jev"
             },
-            "time": "2026-09-24T08:39:04+00:00"
+            "time": "2026-09-25T16:25:52+00:00"
         },
         {
             "name": "webconsulting/workos-auth",
-            "version": "v2.3.2",
+            "version": "v2.3.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/workos.git",
-                "reference": "72d6a30939d2c530d89703562d943dfcacddf14c"
+                "reference": "5c447294dcd8023368c73ca893dd99c544c81b71"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/workos/zipball/72d6a30939d2c530d89703562d943dfcacddf14c",
-                "reference": "72d6a30939d2c530d89703562d943dfcacddf14c",
+                "url": "https://api.github.com/repos/dirnbauer/workos/zipball/5c447294dcd8023368c73ca893dd99c544c81b71",
+                "reference": "5c447294dcd8023368c73ca893dd99c544c81b71",
                 "shasum": ""
             },
             "require": {
@@ -14228,7 +14228,7 @@
                 "typo3/cms": {
                     "app-dir": ".Build",
                     "extension-key": "workos_auth",
-                    "version": "2.3.2",
+                    "version": "2.3.3",
                     "web-dir": ".Build/public"
                 }
             },
@@ -14297,7 +14297,7 @@
                 "issues": "https://github.com/dirnbauer/workos/issues",
                 "source": "https://github.com/dirnbauer/workos"
             },
-            "time": "2026-09-24T14:40:42+00:00"
+            "time": "2026-09-25T16:04:00+00:00"
         },
         {
             "name": "webmozart/assert",
