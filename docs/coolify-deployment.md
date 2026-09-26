@@ -259,3 +259,33 @@ Apache's `always` table because nearly everything the internet sees of the lab
 is the basic-auth 401, which `Header set` — and therefore `public/.htaccess` —
 never touches. There is no Content-Security-Policy here on purpose: TYPO3 owns
 that per site, and a second one from Apache could only ever tighten it blindly.
+
+## Jev API token
+
+The TypeSafe (Jev) token lives in nr-vault as `typesafe_api_key`, owned by the
+non-login backend user `vault_provisioner` and readable by the frontend, which
+is where Powermail's conditions and routing ask for it. It is deliberately not
+an environment variable of the container: exported, it would sit in every
+process's environment and in `docker inspect` output. nr-vault keeps
+`allowCliAccess` off on the server, so commands that touch the secret run
+`--as-provisioner`.
+
+Check it:
+
+```bash
+ssh root@49.13.173.37 'docker exec -u www-data $(docker ps -qf name=^web-kj8tirxaijsk4cmzevgaphvr) vendor/bin/typo3 webcon-jev:ping --as-provisioner'
+```
+
+Replace it by handing the new key to the one import command, never to the
+container's environment. `read -s` keeps it off the screen and out of the shell
+history, and the remote side passes it to `docker exec` through the client's
+environment, so it never appears in a process list either:
+
+```bash
+read -rs KEY && printf %s "$KEY" | ssh root@49.13.173.37 'TYPESAFE_API_KEY=$(cat) docker exec -u www-data -e TYPESAFE_API_KEY $(docker ps -qf name=^web-kj8tirxaijsk4cmzevgaphvr) vendor/bin/typo3 webcon-jev:token:import --as-provisioner --force'; unset KEY
+```
+
+`webcon-jev:vault:setup-provisioner` creates the provisioner if a database
+without it is ever deployed. `provisioningBeUserUid` in
+`config/system/settings.php.example` names it for nr-vault's own commands;
+webcon_jev finds it by name when that uid goes stale.

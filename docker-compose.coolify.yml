@@ -21,10 +21,10 @@ services:
       # Workers x ~700 MB must stay under mem_limit below; see apache-mpm.conf.
       APACHE_MAX_REQUEST_WORKERS: ${APACHE_MAX_REQUEST_WORKERS:-6}
       APACHE_MAX_CONNECTIONS_PER_CHILD: ${APACHE_MAX_CONNECTIONS_PER_CHILD:-500}
-      # Jev API token. webcon-jev:token:import reads it from the environment
-      # and stores it in the vault; without the passthrough a value set in
-      # Coolify never reaches the container.
-      TYPESAFE_API_KEY: ${TYPESAFE_API_KEY:-}
+      # No TYPESAFE_API_KEY here, on purpose: the Jev token lives in nr-vault
+      # and the frontend reads it from there. Exported, it would sit in every
+      # process's environment and in `docker inspect`. To replace it, hand it
+      # to the one import command instead - see docs/coolify-deployment.md.
       # Friendly Captcha sitekey and API key. The desiderio and
       # mtug-camp-munich-2026 site configs read them as %env()%; empty, every
       # captcha-protected form rejects its submissions. A changed value arrives

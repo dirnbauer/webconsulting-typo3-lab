@@ -102,8 +102,11 @@ return [
             // while allowCliAccess stays off. This lives here rather than
             // being written into settings.php on the server, because the
             // image regenerates that file from this template on every deploy
-            // and config/ is not a persistent volume.
-            'provisioningBeUserUid' => '12',
+            // and config/ is not a persistent volume. It was 12 until the
+            // production database was replaced by a DDEV copy, where the user
+            // is 13; webcon_jev 0.2.9 finds it by name when this goes stale,
+            // nr-vault's own vault:store --as-provisioner does not.
+            'provisioningBeUserUid' => '13',
         ],
         'nr_llm' => [
             'image' => [
