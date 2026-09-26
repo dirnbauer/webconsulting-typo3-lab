@@ -13870,16 +13870,16 @@
         },
         {
             "name": "webconsulting/visual-editor-enhancements",
-            "version": "v1.3.1",
+            "version": "v1.3.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/typo3-visual-editor-enhancements.git",
-                "reference": "01677fd324605fc0d720f5187386743e953eadb4"
+                "reference": "c91af869efe8df5b28ebfdf92569155e1bf346f5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/typo3-visual-editor-enhancements/zipball/01677fd324605fc0d720f5187386743e953eadb4",
-                "reference": "01677fd324605fc0d720f5187386743e953eadb4",
+                "url": "https://api.github.com/repos/dirnbauer/typo3-visual-editor-enhancements/zipball/c91af869efe8df5b28ebfdf92569155e1bf346f5",
+                "reference": "c91af869efe8df5b28ebfdf92569155e1bf346f5",
                 "shasum": ""
             },
             "require": {
@@ -13933,6 +13933,15 @@
                     "@test:unit",
                     "@test:js"
                 ],
+                "test:e2e": [
+                    "Composer\\Config::disableProcessTimeout",
+                    "@test:e2e:install",
+                    "node_modules/.bin/playwright test --config Tests/E2E"
+                ],
+                "test:e2e:install": [
+                    "npm install --prefix . --no-save --no-package-lock --no-audit --no-fund --silent $(node -p \"Object.entries(require('./Tests/E2E/package.json').devDependencies).map(([name, version]) => name + '@' + version).join(' ')\")",
+                    "node_modules/.bin/playwright install chromium"
+                ],
                 "test:functional": [
                     "phpunit -c Build/phpunit/FunctionalTests.xml"
                 ],
@@ -13965,7 +13974,7 @@
                 "issues": "https://github.com/dirnbauer/typo3-visual-editor-enhancements/issues",
                 "source": "https://github.com/dirnbauer/typo3-visual-editor-enhancements"
             },
-            "time": "2026-09-25T16:32:50+00:00"
+            "time": "2026-09-26T16:29:35+00:00"
         },
         {
             "name": "webconsulting/webcon-easy-workspace",
