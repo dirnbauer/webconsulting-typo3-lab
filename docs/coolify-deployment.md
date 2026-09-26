@@ -264,11 +264,15 @@ that per site, and a second one from Apache could only ever tighten it blindly.
 
 The TypeSafe (Jev) token lives in nr-vault as `typesafe_api_key`, owned by the
 non-login backend user `vault_provisioner` and readable by the frontend, which
-is where Powermail's conditions and routing ask for it. It is deliberately not
-an environment variable of the container: exported, it would sit in every
-process's environment and in `docker inspect` output. nr-vault keeps
-`allowCliAccess` off on the server, so commands that touch the secret run
-`--as-provisioner`.
+is where Powermail's conditions and routing ask for it. `docker-compose.coolify.yml`
+does not pass it to the container, and nothing reads it from the environment
+while the vault has it. Coolify, however, writes every variable of the
+application into a generated `.env` and loads that file into every service
+(`env_file`), whatever the compose file lists — so a `TYPESAFE_API_KEY` kept in
+Coolify's variable list shows up in the web, Solr and MariaDB containers all the
+same, unused. Deleting it from Coolify is the only way to take it out of them;
+it was kept on purpose on 2026-09-26. nr-vault keeps `allowCliAccess` off on the
+server, so commands that touch the secret run `--as-provisioner`.
 
 Check it:
 
