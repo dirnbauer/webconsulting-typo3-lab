@@ -24,6 +24,16 @@ model credentials from nr-llm's vault, not from environment variables.
 These credentials belong in Coolify's production environment configuration;
 deploying the repository does not copy ignored local TYPO3 settings.
 
+Friendly Captcha takes `FRIENDLYCAPTCHA_SITE_KEY` (the application's sitekey)
+and `FRIENDLYCAPTCHA_API_KEY` from the Friendly Captcha dashboard, where the
+application must allow the domain `typo3-lab.webconsulting.at`. The site
+configurations of `desiderio` and `mtug-camp-munich-2026` read both through
+`%env()%`, so the keys never enter the repository. While either is empty, every
+captcha-protected Powermail and TYPO3 Form submission is rejected. A new value
+takes effect with the next deploy. DDEV runs in the Development context, which
+shows an inert placeholder instead of the widget and skips verification, so it
+needs neither key.
+
 ## Deploy
 
 Coolify has no webhook and no deploy key on this repository, so it never

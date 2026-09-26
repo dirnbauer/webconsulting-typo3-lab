@@ -4,6 +4,17 @@ All notable changes to Webconsulting TYPO3 Lab are documented in this file.
 
 ## Unreleased
 
+### Friendly Captcha keys from Coolify — 2026-09-26
+
+- The `desiderio` and `mtug-camp-munich-2026` sites read their Friendly
+  Captcha sitekey and API key from `FRIENDLYCAPTCHA_SITE_KEY` and
+  `FRIENDLYCAPTCHA_API_KEY`, which `docker-compose.coolify.yml` now passes
+  through. Both sites had carried the DDEV placeholders `ddev-site-key` and
+  `ddev-secret-key` into production, so every captcha-protected form on
+  typo3-lab.webconsulting.at rejected its submissions. That lasts until both
+  keys are set in Coolify and the lab is redeployed. DDEV is unaffected: its
+  Development context bypasses the captcha.
+
 ### Classic Records module views — 2026-09-24
 
 - Use Records List Types and Records List Examples 2.0.0 together. These

@@ -25,6 +25,12 @@ services:
       # and stores it in the vault; without the passthrough a value set in
       # Coolify never reaches the container.
       TYPESAFE_API_KEY: ${TYPESAFE_API_KEY:-}
+      # Friendly Captcha sitekey and API key. The desiderio and
+      # mtug-camp-munich-2026 site configs read them as %env()%; empty, every
+      # captcha-protected form rejects its submissions. A changed value arrives
+      # with the next deploy, whose start clears the cached site configuration.
+      FRIENDLYCAPTCHA_SITE_KEY: ${FRIENDLYCAPTCHA_SITE_KEY:-}
+      FRIENDLYCAPTCHA_API_KEY: ${FRIENDLYCAPTCHA_API_KEY:-}
       TYPO3_DB_DATABASE: typo3
       TYPO3_DB_HOST: database
       TYPO3_DB_PASSWORD: ${SERVICE_PASSWORD_DB}
