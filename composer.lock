@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "57d85716ba824641611735e38ddb10b9",
+    "content-hash": "4a55c249c6b905e676f92ec5962b95b8",
     "packages": [
         {
             "name": "apache-solr-for-typo3/solr",
@@ -2352,12 +2352,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/powermail_cond.git",
-                "reference": "fc5324f9d22ee1bcd3515d3d2ca51793b5545ec1"
+                "reference": "38eec7d64b15912f9ece2fdae184d5fb3be939bb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/powermail_cond/zipball/fc5324f9d22ee1bcd3515d3d2ca51793b5545ec1",
-                "reference": "fc5324f9d22ee1bcd3515d3d2ca51793b5545ec1",
+                "url": "https://api.github.com/repos/dirnbauer/powermail_cond/zipball/38eec7d64b15912f9ece2fdae184d5fb3be939bb",
+                "reference": "38eec7d64b15912f9ece2fdae184d5fb3be939bb",
                 "shasum": ""
             },
             "require": {
@@ -2445,7 +2445,7 @@
                 "issues": "https://github.com/dirnbauer/powermail_cond/issues",
                 "source": "https://github.com/dirnbauer/powermail_cond"
             },
-            "time": "2026-09-24T08:38:40+00:00"
+            "time": "2026-09-26T14:46:54+00:00"
         },
         {
             "name": "league/commonmark",
@@ -12539,16 +12539,16 @@
         },
         {
             "name": "webconsulting/desiderio",
-            "version": "v4.7.0",
+            "version": "v4.7.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/desiderio.git",
-                "reference": "e12e6709d2bd9a11193faf61f2f08ec62a9d2c7c"
+                "reference": "365a560c766992e7e1e248aead20c774c5b22df9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/desiderio/zipball/e12e6709d2bd9a11193faf61f2f08ec62a9d2c7c",
-                "reference": "e12e6709d2bd9a11193faf61f2f08ec62a9d2c7c",
+                "url": "https://api.github.com/repos/dirnbauer/desiderio/zipball/365a560c766992e7e1e248aead20c774c5b22df9",
+                "reference": "365a560c766992e7e1e248aead20c774c5b22df9",
                 "shasum": ""
             },
             "require": {
@@ -12591,7 +12591,7 @@
             "extra": {
                 "typo3/cms": {
                     "extension-key": "desiderio",
-                    "version": "4.7.0",
+                    "version": "4.7.1",
                     "Package": {
                         "providesPackages": []
                     }
@@ -12642,7 +12642,7 @@
                 }
             ],
             "description": "Desiderio — shadcn/ui-inspired Fluid 5 component library, 244 Desiderio Content Blocks, and theme layer for TYPO3 14",
-            "time": "2026-09-26T14:38:18+00:00"
+            "time": "2026-09-26T15:15:07+00:00"
         },
         {
             "name": "webconsulting/docx-editor",
@@ -14078,16 +14078,16 @@
         },
         {
             "name": "webconsulting/webcon-jev",
-            "version": "v0.2.7",
+            "version": "v0.2.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/typo3-webcon-jev.git",
-                "reference": "ffa49bd7d1ef5bb7e0295da2df77b25a08a2bdac"
+                "reference": "c74866c7de449a6a971fbebcd4cf61390a58be70"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/typo3-webcon-jev/zipball/ffa49bd7d1ef5bb7e0295da2df77b25a08a2bdac",
-                "reference": "ffa49bd7d1ef5bb7e0295da2df77b25a08a2bdac",
+                "url": "https://api.github.com/repos/dirnbauer/typo3-webcon-jev/zipball/c74866c7de449a6a971fbebcd4cf61390a58be70",
+                "reference": "c74866c7de449a6a971fbebcd4cf61390a58be70",
                 "shasum": ""
             },
             "require": {
@@ -14182,7 +14182,7 @@
                 "issues": "https://github.com/dirnbauer/typo3-webcon-jev/issues",
                 "source": "https://github.com/dirnbauer/typo3-webcon-jev"
             },
-            "time": "2026-09-25T16:25:52+00:00"
+            "time": "2026-09-26T15:14:28+00:00"
         },
         {
             "name": "webconsulting/workos-auth",
