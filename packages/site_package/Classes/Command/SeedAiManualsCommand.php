@@ -17,7 +17,9 @@ use TYPO3\CMS\Core\Resource\StorageRepository;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 /**
- * Creates the two lab-owned AI manuals and keeps their screenshots current.
+ * Creates the lab-owned nr-llm manual and keeps its screenshots current. The
+ * Cowriter manual went with t3-cowriter (2026-09-26): a run deletes the page
+ * and its screenshots where an earlier run created them.
  *
  * Pages and content records are updated in place through DataHandler. Screenshot
  * files are imported into FAL so the manuals do not depend on Composer's hashed
@@ -25,13 +27,14 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
  */
 #[AsCommand(
     name: 'sitepackage:seed-ai-manuals',
-    description: 'Create or refresh the nr-llm and Cowriter frontend manuals.',
+    description: 'Create or refresh the nr-llm frontend manual (and remove the retired Cowriter manual).',
 )]
 final class SeedAiManualsCommand extends Command
 {
     private const FEATURES_PAGE_UID = 1068;
     private const NR_LLM_SLUG = '/features/nr-llm-manual';
-    private const COWRITER_SLUG = '/features/cowriter-manual';
+    private const RETIRED_COWRITER_SLUG = '/features/cowriter-manual';
+    private const RETIRED_COWRITER_SCREENSHOTS = ['cowriter-status.jpg', 'cowriter-dialog.jpg'];
     private const SCREENSHOT_DIRECTORY = 'EXT:site_package/Resources/Public/Images/AiManual/';
     private const FAL_FOLDER = 'ai-manual';
 
@@ -58,24 +61,13 @@ final class SeedAiManualsCommand extends Command
                     'sorting' => 3584,
                 ],
             );
-            $cowriterPageUid = $this->ensurePage(
-                self::COWRITER_SLUG,
-                [
-                    'title' => 'Cowriter manual — AI editing in TYPO3',
-                    'nav_title' => 'Cowriter manual',
-                    'seo_title' => 'How to configure and use the TYPO3 Cowriter',
-                    'description' => 'How to check the t3-cowriter 3.5 setup, use its CKEditor toolbar, tasks and context scopes, and insert AI text into TYPO3 safely.',
-                    'sorting' => 3840,
-                ],
-            );
-
             $this->seedNrLlmManual($nrLlmPageUid);
-            $this->seedCowriterManual($cowriterPageUid);
+            $retiredPageUid = $this->retireCowriterManual();
 
-            $io->success('The nr-llm and Cowriter manuals were created or refreshed.');
+            $io->success('The nr-llm manual was created or refreshed.');
             $io->definitionList(
                 ['nr-llm manual' => sprintf('%d (%s)', $nrLlmPageUid, self::NR_LLM_SLUG)],
-                ['Cowriter manual' => sprintf('%d (%s)', $cowriterPageUid, self::COWRITER_SLUG)],
+                ['Cowriter manual' => $retiredPageUid === null ? 'not present' : sprintf('%d deleted', $retiredPageUid)],
             );
 
             return Command::SUCCESS;
@@ -188,110 +180,34 @@ HTML,
         $this->orderRecords('tt_content', $pageUid, [$headerUid, $overviewUid, $configurationUid, $checklistUid]);
     }
 
-    private function seedCowriterManual(int $pageUid): void
+    /**
+     * Deletes the Cowriter manual page (with its content, translations and file
+     * references, as DataHandler does) and the two screenshots it showed.
+     */
+    private function retireCowriterManual(): ?int
     {
-        $headerUid = $this->ensureContent(
-            $pageUid,
-            'desiderio_headersection',
-            'Cowriter: AI assistance inside CKEditor',
-            [
-                'eyebrow' => 'Editor manual',
-                'subheadline' => 'This manual covers Cowriter version 3.5.0. Improve, summarise, structure, translate and review rich text without leaving the TYPO3 form or exposing API keys.',
-                'desiderio_headersection_variant' => 'center',
-                'sorting' => 256,
-            ],
-        );
-        $statusUid = $this->ensureContent(
-            $pageUid,
-            'desiderio_textmedia',
-            '1. Verify the setup before editing',
-            [
-                'subheadline' => 'Cowriter 3.5 has its own status module. It shows which nr-llm layer still needs attention.',
-                'content' => <<<'HTML'
-<ol>
-  <li>Open <strong>Administration → Cowriter Status</strong>.</li>
-  <li>Check that provider, API key, model, active configuration and default configuration all show green.</li>
-  <li>If a check fails, use its fix link and return to this status page.</li>
-</ol>
-<p>The lab also registers a combined <strong>Desiderio + Cowriter</strong> RTE preset. That is why Cowriter appears in generic TYPO3 text fields and in the rich-text fields of Desiderio content elements.</p>
-<p>For generic fields, the Page TSconfig default stays <code>RTE.default.preset = cowriter</code>. Desiderio fields set the <code>desiderio</code> preset explicitly, and the lab adds the Cowriter controls to it.</p>
-HTML,
-                'shadcn_layout' => 'media-right',
-                'media_rounded' => 1,
-                'media' => 1,
-                'sorting' => 512,
-            ],
-        );
-        $this->attachScreenshot(
-            $statusUid,
-            $pageUid,
-            'cowriter-status.jpg',
-            'Cowriter setup status in TYPO3',
-            'The Cowriter Status backend module with passed checks for provider, model, API key and configuration.',
-        );
+        $pageUid = $this->findPageBySlug(self::RETIRED_COWRITER_SLUG);
+        if ($pageUid !== null) {
+            $dataHandler = GeneralUtility::makeInstance(DataHandler::class);
+            $dataHandler->start([], ['pages' => [$pageUid => ['delete' => 1]]]);
+            $dataHandler->process_cmdmap();
+            if ($dataHandler->errorLog !== []) {
+                throw new \RuntimeException('DataHandler error: ' . $this->formatDataHandlerErrors($dataHandler), 1790500001);
+            }
+        }
 
-        $dialogUid = $this->ensureContent(
-            $pageUid,
-            'desiderio_textmedia',
-            '2. Run a task and review the result',
-            [
-                'subheadline' => 'The dialog has separate areas for the task, the context scope, optional references, your instructions and the result preview.',
-                'content' => <<<'HTML'
-<ol>
-  <li>Open any content element with a rich-text field.</li>
-  <li>Select text for a focused rewrite, or leave the selection empty to work with the full editor content.</li>
-  <li>Click the <strong>Cowriter</strong> sparkle button.</li>
-  <li>Choose a task and a context scope. Use page or parent-page context only when that extra content matters for the task.</li>
-  <li>Optionally add instructions such as tone, audience, length or required terms.</li>
-  <li>Click <strong>Execute</strong>, check the result, then choose <strong>Insert</strong>. Insert only changes the editor content, so save the TYPO3 record afterwards.</li>
-</ol>
-<p>Use <strong>Reset</strong> to refine a request without closing the editor, and <strong>Cancel</strong> to discard the result.</p>
-HTML,
-                'shadcn_layout' => 'media-left',
-                'media_rounded' => 1,
-                'media' => 1,
-                'sorting' => 768,
-            ],
-        );
-        $this->attachScreenshot(
-            $dialogUid,
-            $pageUid,
-            'cowriter-dialog.jpg',
-            'Cowriter task dialog in CKEditor',
-            'The Cowriter dialog with the Improve Text task, full-content context, an instruction, the result and the insert controls.',
-        );
+        $storage = $this->storageRepository->getDefaultStorage();
+        $rootFolder = $storage?->getRootLevelFolder(false);
+        if ($rootFolder !== null && $rootFolder->hasFolder(self::FAL_FOLDER)) {
+            $folder = $rootFolder->getSubfolder(self::FAL_FOLDER);
+            foreach (self::RETIRED_COWRITER_SCREENSHOTS as $fileName) {
+                if ($folder->hasFile($fileName)) {
+                    $folder->getFile($fileName)?->delete();
+                }
+            }
+        }
 
-        $referenceUid = $this->ensureContent(
-            $pageUid,
-            'text',
-            '3. Tasks, shortcuts, and safe use',
-            [
-                'header_layout' => 2,
-                'bodytext' => <<<'HTML'
-<h3>Configured tasks</h3>
-<p>The lab provides tasks that improve, summarise or extend text and fix its grammar. Other tasks translate to English or German, format text as a table, add structure, convert text to a list or enhance the visual layout.</p>
-<p>Tasks live in <strong>Administration → LLM → Tasks</strong> and use the category <code>content</code>. Each task is assigned to either the Terra or the Luna configuration.</p>
-<h3>Toolbar shortcuts</h3>
-<ul>
-  <li><strong>Cowriter:</strong> full task dialog with preview.</li>
-  <li><strong>Vision:</strong> generate alt text for a selected editor image.</li>
-  <li><strong>Translate:</strong> translate selected text inline.</li>
-  <li><strong>Tasks:</strong> open the dialog with a predefined task selected.</li>
-</ul>
-<h3>Editorial guardrails</h3>
-<ul>
-  <li>Don't send confidential, personal or embargoed content unless the provider and your policy allow it.</li>
-  <li>Use the smallest context scope that works. A larger scope costs more and can weaken the instruction.</li>
-  <li>After inserting, check headings, links, lists, tables, facts, language and accessibility.</li>
-  <li>If the toolbar is missing, reload the form, check the active RTE preset and open <strong>Cowriter Status</strong>.</li>
-  <li>If the task list is empty, create active tasks with category <code>content</code> and reload the editor.</li>
-</ul>
-HTML,
-                'sorting' => 1024,
-            ],
-        );
-
-        $this->orderRecords('tt_content', $pageUid, [$headerUid, $statusUid, $dialogUid, $referenceUid]);
+        return $pageUid;
     }
 
     /**

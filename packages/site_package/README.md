@@ -1,14 +1,14 @@
 # Webconsulting TYPO3 Lab Site Package
 
 Local TYPO3 14.3 provider extension for shared lab Site Sets, editor defaults,
-Desiderio integration, Solr defaults, Admin Panel defaults, and Visual Editor
-Cowriter integration. Package version: `14.3.4`; PHP requirement: `^8.4`.
+Desiderio integration, Solr defaults and Admin Panel defaults. Package version:
+`14.3.4`; PHP requirement: `^8.4`.
 
 ## Site Sets
 
 | Site Set | Dependencies | Purpose |
 |---|---|---|
-| `webconsulting/site-package` | — | Base defaults, Admin Panel, Cowriter RTE, middleware, and Blog plugin wrappers |
+| `webconsulting/site-package` | — | Base defaults, Admin Panel and Blog plugin wrappers |
 | `webconsulting/site-package-search` | base, `webconsulting/solr-defaults` | Solr defaults and numbered pagination |
 | `webconsulting/site-package-blog` | search, `webconsulting/desiderio-blog-standalone` | Desiderio standalone Blog rendering |
 | `webconsulting/site-package-camino` | search, `typo3/theme-camino` | Camino demo rendering |
@@ -22,7 +22,7 @@ to `config/sites/desiderio/config.yaml`.
 
 | Path | Purpose |
 |---|---|
-| `Configuration/Sets/SitePackage/` | Base Site Set, Admin Panel TypoScript, Cowriter RTE TSconfig |
+| `Configuration/Sets/SitePackage/` | Base Site Set and Admin Panel TypoScript |
 | `Configuration/Sets/Search/` | Solr Site Set and numbered pagination defaults |
 | `Configuration/Sets/Blog/` | Standalone Desiderio Blog wrapper for `blog`, `typo3-blog`, and `14lts` |
 | `Configuration/Sets/AgentStack/` | Agent Nexus plugin rendering |
@@ -31,7 +31,6 @@ to `config/sites/desiderio/config.yaml`.
 | `Classes/Command/SeedWorkosFrontendDemoCommand.php` | Idempotent DataHandler page/content seeder |
 | `Resources/Private/Extensions/WorkosAuth/` | Lab-owned WorkOS Fluid templates and partials |
 | `Resources/Public/Css/workos-shadcn.css` | Semantic WorkOS component styling |
-| `Classes/Middleware/CowriterPreloadMiddleware.php` | Visual Editor Cowriter module preload |
 | `Configuration/TCA/Overrides/tt_content.php` | Address content-element icon, applied after the required `tt_address` package |
 
 `ext_localconf.php` also configures the official Vite Asset Collector. Compiled
@@ -44,13 +43,12 @@ provisioning remain in `webconsulting/workos-auth`. The lab package changes
 presentation only and never edits vendor files.
 
 The current MCP server discovers addresses from TYPO3 TCA without project
-registration. Cowriter is a required Composer dependency: loading its main
-module includes all its imports in the Visual Editor iframe. The middleware
-runs after page resolution and before Visual Editor persistence.
+registration.
 
-The base Site Set selects the Cowriter RTE preset and enables the Admin Panel
-for authenticated backend users. `ext_localconf.php` extends Desiderio's own
-RTE preset with Cowriter and selects compiled Vite assets by default.
+The base Site Set enables the Admin Panel for authenticated backend users.
+`ext_localconf.php` selects compiled Vite assets by default. Rich-text fields
+use TYPO3's default RTE preset, and Desiderio's elements their own `desiderio`
+preset; the lab no longer ships t3-cowriter (removed 2026-09-26).
 
 ## WorkOS demo data
 
@@ -87,7 +85,7 @@ These commands remain available for intentional demo-data maintenance:
 - `sitepackage:seed-workos-frontend`: WorkOS pages and plugin records.
 - `sitepackage:seed-utility-translations`: translations after a library reseed.
 - `sitepackage:content:translate --site=desiderio`: German, Chinese and Hungarian for every page, element, collection item, image text and record the Desiderio seeders create, from the translation memories in `Resources/Private/Data/Translations/<site>/` (English text → translation, so a reseed does not lose them). `--dry-run --missing=-` lists English texts without a translation.
-- `sitepackage:seed-ai-manuals`: nr-llm and Cowriter manual pages.
+- `sitepackage:seed-ai-manuals`: the nr-llm manual page (and removal of the retired Cowriter manual).
 - `sitepackage:configure-ai-examples`: configured models and example records.
 - `sitepackage:llm:generate-image`: optional provider-backed image generation.
 

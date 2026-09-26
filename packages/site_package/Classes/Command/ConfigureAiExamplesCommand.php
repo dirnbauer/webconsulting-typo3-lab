@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Webconsulting\SitePackage\Command;
 
+use Doctrine\DBAL\ParameterType;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
@@ -146,7 +147,7 @@ PROMPT;
                     'is_default' => 1,
                 ],
             );
-            $fastConfigurationUid = $this->ensureConfiguration(
+            $this->ensureConfiguration(
                 'content-assistant-fast',
                 [
                     'name' => 'Content Assistant Fast',
@@ -185,7 +186,7 @@ PROMPT;
             $this->makeDefault('tx_nrllm_configuration', $contentConfigurationUid);
 
             $this->routeExistingConfigurations($terraUid, $lunaUid);
-            $taskCount = $this->seedCowriterTasks($contentConfigurationUid, $fastConfigurationUid);
+            $this->retireCowriterTasks();
             $backendTaskUid = $this->ensureTask(
                 'backend-assistant',
                 [
@@ -205,13 +206,12 @@ PROMPT;
             $this->disableBrokenLegacyTask();
             $this->synchronizeExtensionSettings($provider, $io);
 
-            $io->success('AI models, Content Assistant, Cowriter examples, and image generation are configured.');
+            $io->success('AI models, Content Assistant and image generation are configured.');
             $io->definitionList(
                 ['Default content model' => 'gpt-5.6-terra'],
                 ['Low-end model' => 'gpt-5.6-luna'],
                 ['Tool model' => 'gpt-5-mini'],
                 ['Image model' => 'gpt-image-2'],
-                ['Cowriter tasks' => (string)$taskCount],
                 ['Backend assistant task UID' => (string)$backendTaskUid],
             );
 
@@ -360,115 +360,23 @@ PROMPT;
         );
     }
 
-    private function seedCowriterTasks(int $terraConfigurationUid, int $lunaConfigurationUid): int
-    {
-        foreach ($this->cowriterTasks() as $task) {
-            $configurationUid = $task['tier'] === 'luna' ? $lunaConfigurationUid : $terraConfigurationUid;
-            unset($task['tier']);
-            $identifier = $task['identifier'];
-            unset($task['identifier']);
-            $task['prompt_template'] = str_replace('\\n', "\n", $task['prompt_template']);
-            $this->ensureTask($identifier, $task + [
-                'category' => 'content',
-                'configuration_uid' => $configurationUid,
-                'input_type' => 'manual',
-                'input_source' => '',
-                'output_format' => 'plain',
-                'is_active' => 1,
-                'is_system' => 1,
-            ]);
-        }
-
-        return count($this->cowriterTasks());
-    }
-
     /**
-     * @return list<array{identifier: string, name: string, description: string, prompt_template: string, sorting: int, tier: 'terra'|'luna'}>
+     * The lab no longer ships t3-cowriter (2026-09-26); earlier runs of this
+     * command created its ten tasks, which nothing uses any more.
      */
-    private function cowriterTasks(): array
+    private function retireCowriterTasks(): void
     {
-        return [
-            [
-                'identifier' => 'cowriter_improve',
-                'name' => 'Improve Text',
-                'description' => 'Enhance readability, clarity, and quality while preserving the original meaning.',
-                'prompt_template' => 'Improve the following HTML content from a rich text editor. Enhance readability, clarity, and overall quality while preserving the original meaning and structure. Respond with ONLY the improved HTML, without explanations, commentary, or markdown fences.\n\n{{input}}',
-                'sorting' => 10,
-                'tier' => 'terra',
-            ],
-            [
-                'identifier' => 'cowriter_summarize',
-                'name' => 'Summarize',
-                'description' => 'Create a concise summary of the text.',
-                'prompt_template' => 'Summarize the following HTML content. Capture the key points concisely and preserve valid HTML. Respond with ONLY the summary as HTML, without explanations, commentary, or markdown fences.\n\n{{input}}',
-                'sorting' => 20,
-                'tier' => 'terra',
-            ],
-            [
-                'identifier' => 'cowriter_extend',
-                'name' => 'Extend / Elaborate',
-                'description' => 'Add depth, detail, and supporting information to the text.',
-                'prompt_template' => 'Expand the following HTML content. Add useful depth, detail, and examples while matching the existing tone and structure. Respond with ONLY the extended HTML, without explanations, commentary, or markdown fences.\n\n{{input}}',
-                'sorting' => 30,
-                'tier' => 'terra',
-            ],
-            [
-                'identifier' => 'cowriter_fix_grammar',
-                'name' => 'Fix Grammar & Spelling',
-                'description' => 'Correct grammar, spelling, and punctuation with minimal changes.',
-                'prompt_template' => 'Fix grammar, spelling, and punctuation in the following HTML. Make minimal changes, preserve the HTML structure exactly, and respond with ONLY the corrected HTML.\n\n{{input}}',
-                'sorting' => 40,
-                'tier' => 'luna',
-            ],
-            [
-                'identifier' => 'cowriter_translate_en',
-                'name' => 'Translate to English',
-                'description' => 'Translate the text to English while preserving tone and markup.',
-                'prompt_template' => 'Translate the following HTML content to English. Preserve meaning, tone, links, and HTML structure. Respond with ONLY the translated HTML.\n\n{{input}}',
-                'sorting' => 50,
-                'tier' => 'terra',
-            ],
-            [
-                'identifier' => 'cowriter_translate_de',
-                'name' => 'Translate to German',
-                'description' => 'Translate the text to German while preserving tone and markup.',
-                'prompt_template' => 'Translate the following HTML content to German. Preserve meaning, tone, links, and HTML structure. Respond with ONLY the translated HTML.\n\n{{input}}',
-                'sorting' => 60,
-                'tier' => 'terra',
-            ],
-            [
-                'identifier' => 'cowriter_format_table',
-                'name' => 'Format as Table',
-                'description' => 'Convert structured information into an accessible HTML table.',
-                'prompt_template' => 'Convert suitable data or comparisons in the following HTML into an accessible table using caption, thead, tbody, th, and td where appropriate. Keep non-tabular surrounding text. Respond with ONLY the resulting HTML.\n\n{{input}}',
-                'sorting' => 70,
-                'tier' => 'luna',
-            ],
-            [
-                'identifier' => 'cowriter_add_structure',
-                'name' => 'Add Structure',
-                'description' => 'Organize unstructured text with headings, lists, and emphasis.',
-                'prompt_template' => 'Add useful structure to the following HTML with headings, paragraphs, lists, and restrained emphasis. Preserve the meaning and respond with ONLY the structured HTML.\n\n{{input}}',
-                'sorting' => 80,
-                'tier' => 'terra',
-            ],
-            [
-                'identifier' => 'cowriter_convert_list',
-                'name' => 'Convert to List',
-                'description' => 'Transform suitable prose into organized lists.',
-                'prompt_template' => 'Convert suitable parts of the following HTML into ordered or unordered lists. Preserve meaning and respond with ONLY the resulting HTML.\n\n{{input}}',
-                'sorting' => 90,
-                'tier' => 'luna',
-            ],
-            [
-                'identifier' => 'cowriter_visual_layout',
-                'name' => 'Enhance Visual Layout',
-                'description' => 'Improve scanability with a complete but restrained HTML layout pass.',
-                'prompt_template' => 'Improve the visual hierarchy of the following HTML using headings, lists, tables, blockquotes, and restrained emphasis where appropriate. Preserve meaning and accessibility. Respond with ONLY the enhanced HTML.\n\n{{input}}',
-                'sorting' => 100,
-                'tier' => 'terra',
-            ],
-        ];
+        $queryBuilder = $this->connectionPool->getQueryBuilderForTable('tx_nrllm_task');
+        $queryBuilder->getRestrictions()->removeAll();
+        $queryBuilder
+            ->update('tx_nrllm_task')
+            ->set('deleted', 1)
+            ->set('tstamp', time())
+            ->where(
+                $queryBuilder->expr()->like('identifier', $queryBuilder->createNamedParameter('cowriter\\_%')),
+                $queryBuilder->expr()->eq('deleted', $queryBuilder->createNamedParameter(0, ParameterType::INTEGER)),
+            )
+            ->executeStatement();
     }
 
     private function disableBrokenLegacyTask(): void

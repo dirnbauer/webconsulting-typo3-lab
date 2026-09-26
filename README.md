@@ -19,7 +19,7 @@ content editing, search, forms, APIs and governed agent workflows.
 | Node.js | `24` inside DDEV |
 | Frontend | Vite `8`, official TYPO3 plugin and asset collector |
 | Search | EXT:solr `14.0.2` against Apache Solr `10.0.0` through `ddev/ddev-typo3-solr` |
-| LLM stack | nr-llm `0.35`, nr-vault `0.16` (the newest nr-llm supports), Cowriter `3.6.8` |
+| LLM stack | nr-llm `0.35`, nr-vault `0.16` (the newest nr-llm supports) |
 | Browser regression | Playwright + axe-core, desktop and mobile Chromium |
 
 The Composer platform is PHP 8.4. Run Composer, npm and Vite inside DDEV so

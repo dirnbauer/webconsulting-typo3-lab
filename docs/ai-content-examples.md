@@ -7,13 +7,15 @@ reproducible through TYPO3 console commands:
 |---|---:|
 | `netresearch/nr-llm` | `0.35.0` |
 | `netresearch/nr-vault` | `0.16.0` |
-| `netresearch/t3-cowriter` | `3.6.8` |
+
+The lab no longer ships `netresearch/t3-cowriter` (removed 2026-09-26): rich-text
+fields use TYPO3's default preset and Desiderio's own `desiderio` preset.
 
 The backend chat is `webconsulting/typo3-ai-assistant`; it runs the
 installation's own MCP tools in-process through nr-llm's agent runtime. See
 [AI Assistant](ai-assistant.md).
 
-## Configure models and Cowriter examples
+## Configure models and examples
 
 Run this after installing extensions or importing a fresh database:
 
@@ -32,8 +34,7 @@ The command is idempotent. It:
   and analytics configurations to Terra;
 - reserves Luna for genuinely low-complexity transformations: grammar fixes,
   table/list conversion, and the short Solr query enhancer;
-- creates ten active Cowriter tasks with valid instructions and `{{input}}`
-  placeholders;
+- deletes the ten Cowriter tasks earlier runs created;
 - replaces the broken legacy RTE task in `nr-mcp-agent` with a dedicated
   `gpt-5-mini` configuration and backend-assistant task;
 - copies only the OpenAI provider's opaque nr-vault identifier into the
@@ -107,46 +108,7 @@ The OpenAI provider record additionally uses a 120-second API timeout and the
 `nrLlm_providerApiTimeout120` and `nrLlm_stampProviderTrustZone` normalize those
 values after updating from an older nr-llm release.
 
-### Cowriter
-
-Cowriter 3.x no longer has its own API-key or model settings. It resolves the
-active/default nr-llm configuration and displays its diagnostic result in
-**Administration → Cowriter Status**.
-
-Generic TYPO3 rich-text fields use the Cowriter preset through:
-
-```typoscript
-RTE.default.preset = cowriter
-```
-
-Desiderio Content Blocks explicitly select `richtextConfiguration: desiderio`,
-so the default Page TSconfig does not reach them. The site package therefore
-re-registers that preset with
-[`DesiderioCowriter.yaml`](../packages/site_package/Configuration/RTE/DesiderioCowriter.yaml):
-
-```yaml
-imports:
-  - { resource: 'EXT:desiderio/Configuration/RTE/Desiderio.yaml' }
-
-editor:
-  config:
-    importModules:
-      - { module: '@netresearch/t3_cowriter/cowriter', exports: ['Cowriter'] }
-    toolbar:
-      items:
-        - cowriter
-        - cowriterVision
-        - cowriterTranslate
-        - cowriterTemplates
-```
-
-This preserves Desiderio's headings, semantic inline styles, language markup,
-and abbreviation plugin while adding all four Cowriter controls. The existing
-frontend middleware remains necessary for TYPO3's Visual Editor `editMode=1`
-iframe: it explicitly queues the Cowriter JavaScript modules so TYPO3 emits
-their import-map entries. It does not run on normal frontend requests.
-
-## Create the two frontend manuals
+## Create the nr-llm manual
 
 The checked-in screenshots and manual content are reproducible:
 
@@ -155,10 +117,9 @@ ddev typo3 sitepackage:seed-ai-manuals
 ddev typo3 cache:flush
 ```
 
-The idempotent command creates or refreshes exactly one page per extension:
-
-- `/features/nr-llm-manual`
-- `/features/cowriter-manual`
+The idempotent command creates or refreshes `/features/nr-llm-manual`, and
+deletes the retired `/features/cowriter-manual` page and its screenshots where
+an earlier run created them.
 
 It imports the backend screenshots into `fileadmin/ai-manual/` through FAL and
 attaches them to normal TYPO3 content elements. Re-run it after replacing a

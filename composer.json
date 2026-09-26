@@ -116,10 +116,6 @@
 		},
 		{
 			"type": "vcs",
-			"url": "https://github.com/netresearch/t3x-cowriter.git"
-		},
-		{
-			"type": "vcs",
 			"url": "https://github.com/dirnbauer/workos.git",
 			"no-api": true
 		},
@@ -172,7 +168,6 @@
 		"lochmueller/staticfilecache": "^16.1.2",
 		"netresearch/nr-llm": "^0.35",
 		"netresearch/nr-vault": "^0.16",
-		"netresearch/t3-cowriter": "^3.6.8",
 		"paragonie/sodium_compat": "^2.5.2",
 		"praetorius/vite-asset-collector": "^1.18.3",
 		"sgalinski/sg-apicore": "^3.1.2",

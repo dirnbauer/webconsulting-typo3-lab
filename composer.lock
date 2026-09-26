@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2ead2c4a7c923da0ce63fc93b94cdc62",
+    "content-hash": "13ad7a113847b1c5c9e8ef5bb560cc22",
     "packages": [
         {
             "name": "apache-solr-for-typo3/solr",
@@ -3456,149 +3456,6 @@
                 "source": "https://github.com/netresearch/t3x-nr-vault"
             },
             "time": "2026-09-04T22:58:46+00:00"
-        },
-        {
-            "name": "netresearch/t3-cowriter",
-            "version": "v3.6.8",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/netresearch/t3x-cowriter.git",
-                "reference": "6f68cd62eab9c1d028f7f2dcf77379635bf7e1bf"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/netresearch/t3x-cowriter/zipball/6f68cd62eab9c1d028f7f2dcf77379635bf7e1bf",
-                "reference": "6f68cd62eab9c1d028f7f2dcf77379635bf7e1bf",
-                "shasum": ""
-            },
-            "require": {
-                "netresearch/nr-llm": "^0.34 || ^0.35",
-                "php": "^8.2",
-                "typo3/cms-backend": "^13.4 || ^14.3",
-                "typo3/cms-core": "^13.4 || ^14.3",
-                "typo3/cms-rte-ckeditor": "^13.4 || ^14.3"
-            },
-            "require-dev": {
-                "netresearch/typo3-ci-workflows": "^1.8.1"
-            },
-            "type": "typo3-cms-extension",
-            "extra": {
-                "typo3/cms": {
-                    "extension-key": "t3_cowriter",
-                    "web-dir": ".Build/public"
-                },
-                "branch-alias": {
-                    "dev-main": "3.0.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Netresearch\\T3Cowriter\\": "Classes/"
-                }
-            },
-            "autoload-dev": {
-                "psr-4": {
-                    "Netresearch\\T3Cowriter\\Tests\\": "Tests/"
-                }
-            },
-            "scripts": {
-                "ci:cgl": [
-                    "sh -c 'if [ -f /.dockerenv ] || [ -n \"${CI:-}\" ]; then php-cs-fixer fix --config Build/.php-cs-fixer.dist.php \"$@\"; else ./Build/Scripts/runTests.sh -s cgl \"$@\"; fi' --"
-                ],
-                "ci:rector": [
-                    "sh -c 'if [ -f /.dockerenv ] || [ -n \"${CI:-}\" ]; then rector process --config Build/rector.php \"$@\"; else ./Build/Scripts/runTests.sh -s rector \"$@\"; fi' --"
-                ],
-                "ci:security": [
-                    "composer audit"
-                ],
-                "ci:test:php:cgl": [
-                    "sh -c 'if [ -f /.dockerenv ] || [ -n \"${CI:-}\" ]; then php-cs-fixer fix --config Build/.php-cs-fixer.dist.php --dry-run --diff \"$@\"; else ./Build/Scripts/runTests.sh -s cgl -n \"$@\"; fi' --"
-                ],
-                "ci:test:php:lint": [
-                    "phplint --configuration Build/.phplint.yml"
-                ],
-                "ci:test:php:phpstan": [
-                    "sh -c 'if [ -f /.dockerenv ] || [ -n \"${CI:-}\" ]; then phpstan analyse -c Build/phpstan.neon \"$@\"; else ./Build/Scripts/runTests.sh -s phpstan \"$@\"; fi' --"
-                ],
-                "ci:test:php:phpstan:baseline": [
-                    "phpstan analyze --configuration Build/phpstan.neon --memory-limit=-1 --generate-baseline Build/phpstan-baseline.neon --allow-empty-baseline"
-                ],
-                "ci:test:php:rector": [
-                    "sh -c 'if [ -f /.dockerenv ] || [ -n \"${CI:-}\" ]; then rector process --config Build/rector.php --dry-run \"$@\"; else ./Build/Scripts/runTests.sh -s rector -n \"$@\"; fi' --"
-                ],
-                "ci:test": [
-                    "@ci:test:php:lint",
-                    "@ci:test:php:phpstan",
-                    "@ci:test:php:rector",
-                    "@ci:test:php:cgl"
-                ],
-                "ci:test:php:unit": [
-                    "sh -c 'if [ -f /.dockerenv ] || [ -n \"${CI:-}\" ]; then phpunit -c Build/phpunit/UnitTests.xml \"$@\"; else ./Build/Scripts/runTests.sh -s unit \"$@\"; fi' --"
-                ],
-                "ci:test:php:integration": [
-                    "phpunit -c Build/phpunit/IntegrationTests.xml"
-                ],
-                "ci:test:php:e2e": [
-                    "phpunit -c Build/phpunit/E2ETests.xml"
-                ],
-                "ci:test:php:functional": [
-                    "sh -c 'if [ -f /.dockerenv ] || [ -n \"${CI:-}\" ]; then phpunit -c Build/phpunit/FunctionalTests.xml \"$@\"; else ./Build/Scripts/runTests.sh -s functional \"$@\"; fi' --"
-                ],
-                "ci:test:all": [
-                    "@ci:test:php:unit",
-                    "@ci:test:php:functional",
-                    "@ci:test:php:integration",
-                    "@ci:test:php:e2e"
-                ]
-            },
-            "license": [
-                "GPL-3.0-or-later"
-            ],
-            "authors": [
-                {
-                    "name": "Netresearch",
-                    "email": "andre.lademann@netresearch.de",
-                    "homepage": "https://www.netresearch.de",
-                    "role": "Developer"
-                },
-                {
-                    "name": "Netresearch",
-                    "email": "thomas.schoene@netresearch.de",
-                    "homepage": "https://www.netresearch.de",
-                    "role": "Developer"
-                },
-                {
-                    "name": "Netresearch",
-                    "email": "sebastian.koschel@netresearch.de",
-                    "homepage": "https://www.netresearch.de",
-                    "role": "Developer"
-                },
-                {
-                    "name": "Netresearch",
-                    "email": "martin.wunderlich@netresearch.de",
-                    "homepage": "https://www.netresearch.de",
-                    "role": "Developer"
-                },
-                {
-                    "name": "Netresearch DTT GmbH",
-                    "homepage": "https://www.netresearch.de"
-                }
-            ],
-            "description": "With the help of AI you can now work on a page together with a cowriter - a digital assistant that helps you to write your content.",
-            "homepage": "https://github.com/netresearch/t3x-cowriter",
-            "keywords": [
-                "ai",
-                "backend",
-                "cowriter",
-                "extension",
-                "typo3"
-            ],
-            "support": {
-                "issues": "https://github.com/netresearch/t3x-cowriter/issues",
-                "source": "https://github.com/netresearch/t3x-cowriter",
-                "docs": "https://github.com/netresearch/t3x-cowriter"
-            },
-            "time": "2026-09-17T09:41:25+00:00"
         },
         {
             "name": "nette/schema",
@@ -13155,7 +13012,7 @@
             "dist": {
                 "type": "path",
                 "url": "packages/site_package",
-                "reference": "613d377049de98a2539ca624243423586ea75b56"
+                "reference": "52ebf65d299af8d27366ed4cb5d12dc5b798a907"
             },
             "require": {
                 "apache-solr-for-typo3/solr": "^14.0.1",
@@ -13163,7 +13020,6 @@
                 "friendsoftypo3/visual-editor": "^1.10.2",
                 "georgringer/news": "^14.0",
                 "netresearch/nr-llm": "^0.35",
-                "netresearch/t3-cowriter": "^3.6.7",
                 "php": "^8.4",
                 "praetorius/vite-asset-collector": "^1.18",
                 "studiomitte/solr-numbered-pagination": "dev-main",
@@ -13199,7 +13055,7 @@
             "license": [
                 "GPL-2.0-or-later"
             ],
-            "description": "Webconsulting TYPO3 Lab site package - shared Site Sets, Desiderio integration, editor defaults, Solr defaults, Admin Panel defaults, and Visual Editor Cowriter integration",
+            "description": "Webconsulting TYPO3 Lab site package - shared Site Sets, Desiderio integration, editor defaults, Solr defaults, and Admin Panel defaults",
             "transport-options": {
                 "symlink": true,
                 "relative": true

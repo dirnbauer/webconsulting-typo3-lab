@@ -4,6 +4,24 @@ All notable changes to Webconsulting TYPO3 Lab are documented in this file.
 
 ## Unreleased
 
+### Cowriter removed — 2026-09-26
+
+- The lab no longer ships `netresearch/t3-cowriter`: it is out of
+  `composer.json` (package and VCS repository), the lock and the site
+  package. Its lab integration is gone with it: the `cowriter` default RTE
+  preset, the Desiderio preset override (`DesiderioCowriter.yaml`), the Visual
+  Editor preload middleware and its test. Rich-text fields use TYPO3's default
+  preset again, and Desiderio's elements their own `desiderio` preset.
+- `sitepackage:seed-ai-manuals` keeps the nr-llm manual and deletes the
+  Cowriter manual (`/features/cowriter-manual`, with its content, translations
+  and two screenshots) where an earlier run created it.
+  `sitepackage:configure-ai-examples` deletes the ten `cowriter_*` nr-llm tasks
+  instead of creating them. The translation memories lost the manual's 19
+  texts per language.
+- In a database that had Cowriter installed, drop `cache_cowriter_ratelimit`
+  and `cache_cowriter_ratelimit_tags` and the `t3_cowriter` entry in
+  `sys_registry` after deploying.
+
 ### Friendly Captcha keys from Coolify — 2026-09-26
 
 - The `desiderio` and `mtug-camp-munich-2026` sites read their Friendly
