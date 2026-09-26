@@ -12539,16 +12539,16 @@
         },
         {
             "name": "webconsulting/desiderio",
-            "version": "v4.6.0",
+            "version": "v4.7.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/desiderio.git",
-                "reference": "415c5e8477bc6d5378b9ede3318499ad4fff4191"
+                "reference": "e12e6709d2bd9a11193faf61f2f08ec62a9d2c7c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/desiderio/zipball/415c5e8477bc6d5378b9ede3318499ad4fff4191",
-                "reference": "415c5e8477bc6d5378b9ede3318499ad4fff4191",
+                "url": "https://api.github.com/repos/dirnbauer/desiderio/zipball/e12e6709d2bd9a11193faf61f2f08ec62a9d2c7c",
+                "reference": "e12e6709d2bd9a11193faf61f2f08ec62a9d2c7c",
                 "shasum": ""
             },
             "require": {
@@ -12591,7 +12591,7 @@
             "extra": {
                 "typo3/cms": {
                     "extension-key": "desiderio",
-                    "version": "4.6.0",
+                    "version": "4.7.0",
                     "Package": {
                         "providesPackages": []
                     }
@@ -12642,7 +12642,7 @@
                 }
             ],
             "description": "Desiderio — shadcn/ui-inspired Fluid 5 component library, 244 Desiderio Content Blocks, and theme layer for TYPO3 14",
-            "time": "2026-09-24T09:36:31+00:00"
+            "time": "2026-09-26T14:38:18+00:00"
         },
         {
             "name": "webconsulting/docx-editor",
@@ -12871,16 +12871,16 @@
         },
         {
             "name": "webconsulting/innesto",
-            "version": "v2.3.1",
+            "version": "v2.3.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/innesto",
-                "reference": "992c0e59dcadde9cd189423ad2293d6eeda86b1a"
+                "reference": "6af59917e0f76309e20f6798d089f3617b418e0c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/innesto/zipball/992c0e59dcadde9cd189423ad2293d6eeda86b1a",
-                "reference": "992c0e59dcadde9cd189423ad2293d6eeda86b1a",
+                "url": "https://api.github.com/repos/dirnbauer/innesto/zipball/6af59917e0f76309e20f6798d089f3617b418e0c",
+                "reference": "6af59917e0f76309e20f6798d089f3617b418e0c",
                 "shasum": ""
             },
             "require": {
@@ -12904,7 +12904,7 @@
                 "typo3/cms": {
                     "web-dir": ".Build/public",
                     "extension-key": "innesto",
-                    "version": "2.3.1",
+                    "version": "2.3.2",
                     "Package": {
                         "providesPackages": []
                     }
@@ -12967,7 +12967,7 @@
                 "source": "https://github.com/dirnbauer/innesto",
                 "docs": "https://github.com/dirnbauer/innesto/tree/main/Documentation"
             },
-            "time": "2026-09-24T08:41:21+00:00"
+            "time": "2026-09-26T14:38:42+00:00"
         },
         {
             "name": "webconsulting/records-list-examples",
