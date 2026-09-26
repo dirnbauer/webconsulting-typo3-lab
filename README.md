@@ -221,7 +221,16 @@ ddev exec Build/Scripts/lab-link.sh --status
 ```
 
 Restore every link before `composer update` or before committing `composer.lock`; the quality
-runner refuses to run while a clone is linked. `Build/Scripts/extension-baseline-report.sh`
+runner refuses to run while a clone is linked.
+
+Several sessions share this checkout, and any `composer install` or `composer update` that
+touches a linked package used to put its release back in `vendor/`, silently. A link is now
+recorded in `.lab-links` (git-ignored, one Composer name per line), and Composer's
+post-install/post-update hook runs `lab-link.sh --relink`, which puts back every recorded link
+a run replaced. Only `--restore` takes a package off that list; `--status` flags a recorded
+package that is not linked. CI and the Docker build have no `.lab-links`, so the hook does
+nothing there. To refresh the lock without touching `vendor/` at all, use
+`ddev composer update <package> --no-install`. `Build/Scripts/extension-baseline-report.sh`
 prints the PHPStan level, CI, README and docs state of every own extension clone.
 
 ## Documentation

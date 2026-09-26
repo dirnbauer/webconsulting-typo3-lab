@@ -4,12 +4,21 @@
 #   Build/Scripts/lab-link.sh <composer-name>            symlink vendor/<vendor>/<pkg> -> packages/<clone>
 #   Build/Scripts/lab-link.sh --restore <composer-name>  put the dist install back (composer reinstall)
 #   Build/Scripts/lab-link.sh --status                   list linked packages (exit 1 if any)
+#   Build/Scripts/lab-link.sh --relink                   re-link every recorded package a Composer run replaced
 #
 # Composer keeps installing every own extension from its GitHub repository, so
 # CI and Coolify builds never see a link. Restore before `composer update` or
 # before committing composer.lock.
+#
+# Several sessions share this checkout, and any `composer install/update` that
+# touches a linked package puts its dist zip back in vendor/: the lab then runs
+# the release, not the clone someone is editing, and nothing says so. So a link
+# is recorded in .lab-links (git-ignored, synced into DDEV, absent from CI and the Docker
+# build), and composer.json's post-install/post-update hook runs --relink. Only
+# --restore takes a package off that list.
 set -euo pipefail
 cd "$(dirname "$0")/../.."
+STATE=.lab-links
 
 # Composer name and the packages/ directory holding its clone, one pair per
 # line. An associative array would read better, but macOS still ships bash 3.2,
@@ -60,6 +69,44 @@ install_path() {
   ' "$1"
 }
 
+record() {
+  mkdir -p "$(dirname "$STATE")"
+  touch "$STATE"
+  grep -qxF "$1" "$STATE" || printf '%s\n' "$1" >> "$STATE"
+}
+
+unrecord() {
+  [ -f "$STATE" ] || return 0
+  grep -vxF "$1" "$STATE" > "$STATE.tmp" || true
+  mv "$STATE.tmp" "$STATE"
+}
+
+relink() {
+  [ -s "$STATE" ] || return 0
+  local changed=0 name clone path
+  while IFS= read -r name; do
+    [ -n "$name" ] || continue
+    clone=$(clone_for "$name")
+    path=$(install_path "$name" 2>/dev/null || true)
+    if [ -z "$clone" ] || [ -z "$path" ] || [ ! -f "packages/$clone/composer.json" ]; then
+      echo "lab-link: cannot relink $name (clone or install path missing); left as installed" >&2
+      continue
+    fi
+    [ -L "$path" ] && continue
+    rm -rf "$path"
+    ln -s "../../packages/$clone" "$path"
+    echo "lab-link: relinked $name -> packages/$clone (a Composer run had replaced it)"
+    changed=1
+  done < "$STATE"
+  if [ "$changed" -eq 1 ]; then
+    # The CLI OPcache file cache can hand Composer a stale autoload_files.php
+    # when two dumps land in the same second (docs: cli-opcache trap).
+    if [ -d /tmp/opcache ]; then rm -rf /tmp/opcache/*; fi
+    composer dump-autoload --no-interaction
+    vendor/bin/typo3 cache:flush >/dev/null 2>&1 || true
+  fi
+}
+
 status() {
   local linked=0
   for name in $(clone_names); do
@@ -73,16 +120,27 @@ status() {
   if [ "$linked" -eq 0 ]; then
     echo "no development clones linked"
   fi
+  if [ -s "$STATE" ]; then
+    while IFS= read -r name; do
+      [ -n "$name" ] || continue
+      path=$(install_path "$name" 2>/dev/null || true)
+      if [ -z "$path" ] || [ ! -L "$path" ]; then
+        printf 'recorded %-44s but NOT linked (run: %s --relink)\n' "$name" "$0"
+      fi
+    done < "$STATE"
+  fi
   return "$linked"
 }
 
 case "${1:-}" in
   --status) status ;;
+  --relink) relink ;;
   --restore)
     name="${2:?composer name required}"
     # Composer removes the link itself. Deleting it first makes `composer
     # reinstall` report the package as not installed and abort, which is how a
     # restore used to fail from inside the web container.
+    unrecord "$name"
     if ! composer reinstall "$name" --no-interaction; then
       echo "reinstall failed for $name — run 'composer install' to restore every missing vendor directory" >&2
       exit 1
@@ -101,6 +159,7 @@ case "${1:-}" in
     path=$(install_path "$name")
     rm -rf "$path"
     ln -s "../../packages/$clone" "$path"
+    record "$name"
     composer dump-autoload --no-interaction
     vendor/bin/typo3 cache:flush >/dev/null 2>&1 || true
     echo "linked $name -> packages/$clone (restore with: $0 --restore $name)"

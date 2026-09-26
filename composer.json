@@ -252,5 +252,17 @@
 				"Guard workspace move-pointer overlay when the live record is missing": "patches/typo3-cms-core-fix-workspace-move-pointer-missing-live-record.patch"
 			}
 		}
+	},
+	"scripts": {
+		"lab-relink": "sh -c 'test -s .lab-links || exit 0; bash Build/Scripts/lab-link.sh --relink || echo \"lab-relink failed: run Build/Scripts/lab-link.sh --relink\"'",
+		"post-install-cmd": [
+			"@lab-relink"
+		],
+		"post-update-cmd": [
+			"@lab-relink"
+		]
+	},
+	"scripts-descriptions": {
+		"lab-relink": "Re-link the development clones recorded in .lab-links (Build/Scripts/lab-link.sh) that a Composer run replaced with their dist zip. A no-op without that file, so CI and the Docker build are unaffected."
 	}
 }

@@ -41,3 +41,6 @@ dump.sql.gz
 # Safety copies taken before a destructive migration (table dumps, pre-update
 # composer.lock). Same reasoning: local, large and stale on arrival.
 /Build/backup/
+
+# Development links recorded by Build/Scripts/lab-link.sh (per checkout)
+/.lab-links

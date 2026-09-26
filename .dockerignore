@@ -28,3 +28,6 @@ npm-debug.log*
 # the site package is a path repository that the image needs.
 packages/*
 !packages/site_package
+
+# Local development-link state (Build/Scripts/lab-link.sh)
+.lab-links
