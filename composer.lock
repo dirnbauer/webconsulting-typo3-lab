@@ -2061,16 +2061,16 @@
         },
         {
             "name": "hn/typo3-mcp-server",
-            "version": "v0.9.4",
+            "version": "v0.9.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/typo3-mcp-server.git",
-                "reference": "058b0640b22147aad8f8995c78dbde0f64956580"
+                "reference": "d5133c844736098691e81de1bd8c43433ce058b2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/typo3-mcp-server/zipball/058b0640b22147aad8f8995c78dbde0f64956580",
-                "reference": "058b0640b22147aad8f8995c78dbde0f64956580",
+                "url": "https://api.github.com/repos/dirnbauer/typo3-mcp-server/zipball/d5133c844736098691e81de1bd8c43433ce058b2",
+                "reference": "d5133c844736098691e81de1bd8c43433ce058b2",
                 "shasum": ""
             },
             "require": {
@@ -2108,7 +2108,7 @@
             "extra": {
                 "typo3/cms": {
                     "extension-key": "mcp_server",
-                    "version": "0.9.4",
+                    "version": "0.9.5",
                     "Package": {
                         "providesPackages": []
                     }
@@ -2189,7 +2189,7 @@
             ],
             "description": "MCP Server - Model Context Protocol (MCP) server that lets AI assistants read and edit TYPO3 pages and records through workspaces",
             "homepage": "https://github.com/dirnbauer/typo3-mcp-server",
-            "time": "2026-09-24T08:41:25+00:00"
+            "time": "2026-09-26T17:40:59+00:00"
         },
         {
             "name": "in2code/powermail",
@@ -13533,16 +13533,16 @@
         },
         {
             "name": "webconsulting/typo3-ai-assistant",
-            "version": "v2.0.0",
+            "version": "v2.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/typo3-ai-assistant.git",
-                "reference": "1da02c18fb3b431cbea4ce9bb28ac1f881fb6a29"
+                "reference": "7b574c0d7d6308405b412b4179b398c3236ae5c5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/typo3-ai-assistant/zipball/1da02c18fb3b431cbea4ce9bb28ac1f881fb6a29",
-                "reference": "1da02c18fb3b431cbea4ce9bb28ac1f881fb6a29",
+                "url": "https://api.github.com/repos/dirnbauer/typo3-ai-assistant/zipball/7b574c0d7d6308405b412b4179b398c3236ae5c5",
+                "reference": "7b574c0d7d6308405b412b4179b398c3236ae5c5",
                 "shasum": ""
             },
             "require": {
@@ -13571,7 +13571,7 @@
             "extra": {
                 "typo3/cms": {
                     "extension-key": "webcon_ai_assistant",
-                    "version": "2.0.0",
+                    "version": "2.0.1",
                     "Package": {
                         "providesPackages": []
                     },
@@ -13644,7 +13644,7 @@
                 "issues": "https://github.com/dirnbauer/typo3-ai-assistant/issues",
                 "source": "https://github.com/dirnbauer/typo3-ai-assistant"
             },
-            "time": "2026-09-23T11:04:12+00:00"
+            "time": "2026-09-26T17:43:48+00:00"
         },
         {
             "name": "webconsulting/typo3-llms-txt",
@@ -14087,16 +14087,16 @@
         },
         {
             "name": "webconsulting/webcon-jev",
-            "version": "v0.2.9",
+            "version": "v0.2.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/typo3-webcon-jev.git",
-                "reference": "ae5d4f3dca16250a35c0e4afd3e599807f7f528f"
+                "reference": "8bd10c9e3a192a475dcee3b72dcc6529a80a8dcb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/typo3-webcon-jev/zipball/ae5d4f3dca16250a35c0e4afd3e599807f7f528f",
-                "reference": "ae5d4f3dca16250a35c0e4afd3e599807f7f528f",
+                "url": "https://api.github.com/repos/dirnbauer/typo3-webcon-jev/zipball/8bd10c9e3a192a475dcee3b72dcc6529a80a8dcb",
+                "reference": "8bd10c9e3a192a475dcee3b72dcc6529a80a8dcb",
                 "shasum": ""
             },
             "require": {
@@ -14191,7 +14191,7 @@
                 "issues": "https://github.com/dirnbauer/typo3-webcon-jev/issues",
                 "source": "https://github.com/dirnbauer/typo3-webcon-jev"
             },
-            "time": "2026-09-26T15:54:38+00:00"
+            "time": "2026-09-26T17:45:33+00:00"
         },
         {
             "name": "webconsulting/workos-auth",
