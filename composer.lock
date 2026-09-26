@@ -14078,16 +14078,16 @@
         },
         {
             "name": "webconsulting/webcon-jev",
-            "version": "v0.2.8",
+            "version": "v0.2.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/typo3-webcon-jev.git",
-                "reference": "c74866c7de449a6a971fbebcd4cf61390a58be70"
+                "reference": "ae5d4f3dca16250a35c0e4afd3e599807f7f528f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/typo3-webcon-jev/zipball/c74866c7de449a6a971fbebcd4cf61390a58be70",
-                "reference": "c74866c7de449a6a971fbebcd4cf61390a58be70",
+                "url": "https://api.github.com/repos/dirnbauer/typo3-webcon-jev/zipball/ae5d4f3dca16250a35c0e4afd3e599807f7f528f",
+                "reference": "ae5d4f3dca16250a35c0e4afd3e599807f7f528f",
                 "shasum": ""
             },
             "require": {
@@ -14182,7 +14182,7 @@
                 "issues": "https://github.com/dirnbauer/typo3-webcon-jev/issues",
                 "source": "https://github.com/dirnbauer/typo3-webcon-jev"
             },
-            "time": "2026-09-26T15:14:28+00:00"
+            "time": "2026-09-26T15:54:38+00:00"
         },
         {
             "name": "webconsulting/workos-auth",
