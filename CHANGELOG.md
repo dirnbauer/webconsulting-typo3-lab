@@ -4,6 +4,18 @@ All notable changes to Webconsulting TYPO3 Lab are documented in this file.
 
 ## Unreleased
 
+### Production can send mail — 2026-09-27
+
+- Powermail forms on typo3-lab.webconsulting.at saved every submission and
+  showed their thank-you text, but no email arrived: production wrote all mail
+  to `var/log/mail.mbox`, and its configuration had no way to name an SMTP
+  server. `config/system/additional.coolify.php` now reads
+  `TYPO3_MAIL_SMTP_SERVER`, `_ENCRYPT`, `_USERNAME`, `_PASSWORD` and an
+  optional `TYPO3_MAIL_FROM_ADDRESS` / `_NAME` from Coolify when
+  `TYPO3_MAIL_TRANSPORT=smtp`. `docker-compose.coolify.yml` passes them
+  through. Without a server it stays on `mbox`. See
+  [Coolify deployment](docs/coolify-deployment.md).
+
 ### /features rebuilt with live screenshots — 2026-09-27
 
 - Desiderio 4.11.0: /features lists every feature of the lab. A hub by

@@ -12,7 +12,31 @@ if (getenv('IS_DDEV_PROJECT') !== 'true') {
         throw new RuntimeException('TYPO3 encryption key is not configured.');
     }
 
+    // Mail leaves the server only through SMTP. The account comes from Coolify's
+    // variables, never from this repository. Without a server, mail is written to
+    // var/log/mail.mbox: forms still save their submissions, but nobody gets an email.
     $mailTransport = trim((string)getenv('TYPO3_MAIL_TRANSPORT')) ?: 'mbox';
+    $smtpServer = trim((string)getenv('TYPO3_MAIL_SMTP_SERVER'));
+    if ($mailTransport === 'smtp' && $smtpServer === '') {
+        $mailTransport = 'mbox';
+    }
+    $mail = [
+        'transport' => $mailTransport,
+        'transport_mbox_file' => '/var/www/html/var/log/mail.mbox',
+    ];
+    if ($mailTransport === 'smtp') {
+        $mail['transport_smtp_server'] = $smtpServer;
+        // true = implicit TLS (smtps, usually port 465); false still upgrades a
+        // plain connection with STARTTLS when the server offers it (port 587).
+        $mail['transport_smtp_encrypt'] = filter_var(getenv('TYPO3_MAIL_SMTP_ENCRYPT'), FILTER_VALIDATE_BOOL);
+        $mail['transport_smtp_username'] = (string)getenv('TYPO3_MAIL_SMTP_USERNAME');
+        $mail['transport_smtp_password'] = (string)getenv('TYPO3_MAIL_SMTP_PASSWORD');
+    }
+    $mailFromAddress = trim((string)getenv('TYPO3_MAIL_FROM_ADDRESS'));
+    if ($mailFromAddress !== '') {
+        $mail['defaultMailFromAddress'] = $mailFromAddress;
+        $mail['defaultMailFromName'] = trim((string)getenv('TYPO3_MAIL_FROM_NAME')) ?: 'webconsulting';
+    }
 
     $GLOBALS['TYPO3_CONF_VARS'] = array_replace_recursive(
         $GLOBALS['TYPO3_CONF_VARS'],
@@ -46,10 +70,7 @@ if (getenv('IS_DDEV_PROJECT') !== 'true') {
                 'processor_enabled' => true,
                 'processor_path' => '/usr/bin/',
             ],
-            'MAIL' => [
-                'transport' => $mailTransport,
-                'transport_mbox_file' => '/var/www/html/var/log/mail.mbox',
-            ],
+            'MAIL' => $mail,
             'SYS' => [
                 'devIPmask' => '',
                 'displayErrors' => 0,

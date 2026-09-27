@@ -34,6 +34,30 @@ takes effect with the next deploy. DDEV runs in the Development context, which
 shows an inert placeholder instead of the widget and skips verification, so it
 needs neither key.
 
+Mail leaves the server only through SMTP. By default (`TYPO3_MAIL_TRANSPORT`
+unset or `mbox`), TYPO3 writes every mail to `var/log/mail.mbox` in the web
+container. Powermail then still saves each submission and shows its thank-you
+text, but neither the receiver nor the visitor gets an email. To send mail, set
+these variables in Coolify and redeploy:
+
+| Variable | Value |
+| --- | --- |
+| `TYPO3_MAIL_TRANSPORT` | `smtp` |
+| `TYPO3_MAIL_SMTP_SERVER` | `host:port`, e.g. `mail.example.org:587` |
+| `TYPO3_MAIL_SMTP_ENCRYPT` | `true` for implicit TLS (port 465); `false` for 587, which still upgrades with STARTTLS |
+| `TYPO3_MAIL_SMTP_USERNAME`, `TYPO3_MAIL_SMTP_PASSWORD` | the SMTP login |
+| `TYPO3_MAIL_FROM_ADDRESS`, `TYPO3_MAIL_FROM_NAME` | optional sender for TYPO3's own mails (Powermail sets its own) |
+
+`smtp` without a server falls back to `mbox`, so a half-finished setup never
+breaks a request. The Powermail demos send as `office@webconsulting.at` and
+route to the real `sales@`, `support@` and `jobs@` addresses, so the SMTP
+account must be allowed to send for `webconsulting.at`. Check what was queued
+instead of sent:
+
+```bash
+ssh root@49.13.173.37 'docker exec $(docker ps --format "{{.Names}}" | grep "^web-kj8tir") grep -E "^(Date|To|Subject):" /var/www/html/var/log/mail.mbox | tail'
+```
+
 ## Deploy
 
 Coolify has no webhook and no deploy key on this repository, so it never
