@@ -16,6 +16,25 @@ All notable changes to Webconsulting TYPO3 Lab are documented in this file.
   through. Without a server it stays on `mbox`. See
   [Coolify deployment](docs/coolify-deployment.md).
 
+### A sales menu, new prices and hero photos for Desiderio — 2026-09-27
+
+- Desiderio 4.12.0: the site's first level reads Product, Features, AI,
+  Solutions, Pricing, Resources and Download (was twelve entries). Features
+  and AI are two hubs; the AI tools moved to /ai/<tool> with redirects from
+  the old URLs in every language. Themes, the tech facts and the content
+  types sit below Product; GEO and the TYPO3 v14 strategy below AI; the news
+  and the Powermail Lab below Resources.
+- New prices from the sales plan: Desiderio stays free with every release,
+  and agencies buy yearly support plans (Studio €590, Agency €1,990, Partner
+  €4,900), fixed-price services and a Launch Pack; a founding offer replaces
+  the discount code. A /pricing page and
+  an order page; Astryx 2.3.4 shows the same plans.
+- Every first-level page and the homepage open with the same sales hero and
+  an AI-generated photo (16:10, 1440 × 900). The Download page is a button in
+  the header, and an AI transparency notice (EU AI Act, Art. 50) sits above
+  the footer in all four languages.
+- German, Chinese and Hungarian for all new copy (translation memories).
+
 ### No more basic-auth prompts after a backend logout — 2026-09-27
 
 - When a TYPO3 backend session ended, the open backend tab kept asking the
