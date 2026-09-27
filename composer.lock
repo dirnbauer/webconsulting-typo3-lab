@@ -12076,16 +12076,16 @@
         },
         {
             "name": "webconsulting/agent-nexus",
-            "version": "v4.0.4",
+            "version": "v4.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/typo3-agent-nexus.git",
-                "reference": "e4acf36761ea7ebe2429a3647b848f36771a7dc7"
+                "reference": "c94df0c1c37826f098a5827a3a267c601519ce49"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/typo3-agent-nexus/zipball/e4acf36761ea7ebe2429a3647b848f36771a7dc7",
-                "reference": "e4acf36761ea7ebe2429a3647b848f36771a7dc7",
+                "url": "https://api.github.com/repos/dirnbauer/typo3-agent-nexus/zipball/c94df0c1c37826f098a5827a3a267c601519ce49",
+                "reference": "c94df0c1c37826f098a5827a3a267c601519ce49",
                 "shasum": ""
             },
             "require": {
@@ -12118,7 +12118,7 @@
                 "typo3/cms": {
                     "extension-key": "agent_nexus",
                     "web-dir": ".Build/Web",
-                    "version": "4.0.4",
+                    "version": "4.1.1",
                     "Package": {
                         "providesPackages": []
                     }
@@ -12188,7 +12188,7 @@
                 "issues": "https://github.com/dirnbauer/typo3-agent-nexus/issues",
                 "source": "https://github.com/dirnbauer/typo3-agent-nexus"
             },
-            "time": "2026-09-24T04:04:13+00:00"
+            "time": "2026-09-27T15:15:33+00:00"
         },
         {
             "name": "webconsulting/agentation",
