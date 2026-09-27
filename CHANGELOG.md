@@ -4,6 +4,31 @@ All notable changes to Webconsulting TYPO3 Lab are documented in this file.
 
 ## Unreleased
 
+### Two blog templates and 20 new posts on the TYPO3 v14 blog — 2026-09-27
+
+- Desiderio's blog comes in two page templates now. "Blog – Classic" is a
+  journal: a centred masthead, one post after another with a date leaf, the
+  widgets in a sidebar, a drop cap and three small dots instead of rules.
+  "Blog – Modern" is a magazine: the newest post as a large card, a card grid
+  whose last row always fills and topic tabs; its posts get a table of
+  contents, share buttons and a reading progress bar. Blog classico uses
+  Classic, the TYPO3 v14 blog uses Modern
+  (`blog-classico/page-template.payload.json`,
+  `v14-blog/page-template.payload.json`), and both sites have a
+  `websiteTitle` instead of showing "blog" and "14lts".
+- The TYPO3 v14 blog has 20 new posts: one for each extension of this lab
+  (Records List Types and its examples share one), an overview and one about
+  the two templates, illustrated with the live screenshots from /features.
+  They are written in `Build/Data/v14-blog/extension-posts.json`;
+  `Build/Scripts/build-blog-posts-payload.php` turns them into
+  `v14-blog/extension-posts.payload.json`. The two Easter posts show the
+  pictures of their Blog classico originals.
+- `sitepackage:content:apply` resolves `@<key>` references between the
+  records of one payload, attaches files to records it creates in a second
+  pass (before, such a file reference was stored without an owner), keeps a
+  file's `description` as its caption and compares MM relations (categories,
+  tags, authors) by uid, so a second run changes nothing.
+
 ### Production can send mail — 2026-09-27
 
 - Powermail forms on typo3-lab.webconsulting.at saved every submission and

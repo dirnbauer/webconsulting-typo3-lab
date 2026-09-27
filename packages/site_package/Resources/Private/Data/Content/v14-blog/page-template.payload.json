@@ -1,0 +1,155 @@
+{
+    "version": 1,
+    "site": "v14-blog",
+    "root": 69,
+    "language": 0,
+    "languageCode": "en",
+    "generated": "2026-09-27T16:00:00+02:00",
+    "_note": "The TYPO3 v14 blog uses the page template \"Desiderio: Blog – Modern\": featured post, card grid, topics, table of contents.",
+    "records": [
+        {
+            "table": "pages",
+            "uid": 69,
+            "expect": {
+                "backend_layout": "pagets__DesiderioBlog",
+                "backend_layout_next_level": "pagets__DesiderioBlog"
+            },
+            "set": {
+                "backend_layout": "pagets__DesiderioBlogModern",
+                "backend_layout_next_level": "pagets__DesiderioBlogModern"
+            },
+            "_context": {
+                "page": 69,
+                "pageTitle": "TYPO3 v14 blog"
+            }
+        },
+        {
+            "table": "pages",
+            "uid": 70,
+            "expect": {
+                "backend_layout": "pagets__DesiderioBlog",
+                "backend_layout_next_level": "pagets__DesiderioBlog"
+            },
+            "set": {
+                "backend_layout": "pagets__DesiderioBlogModern",
+                "backend_layout_next_level": "pagets__DesiderioBlogModern"
+            },
+            "_context": {
+                "page": 70,
+                "pageTitle": "Data"
+            }
+        },
+        {
+            "table": "pages",
+            "uid": 71,
+            "expect": {
+                "backend_layout": "pagets__DesiderioBlog",
+                "backend_layout_next_level": "pagets__DesiderioBlog"
+            },
+            "set": {
+                "backend_layout": "pagets__DesiderioBlogModern",
+                "backend_layout_next_level": "pagets__DesiderioBlogModern"
+            },
+            "_context": {
+                "page": 71,
+                "pageTitle": "Categories"
+            }
+        },
+        {
+            "table": "pages",
+            "uid": 72,
+            "expect": {
+                "backend_layout": "pagets__DesiderioBlog",
+                "backend_layout_next_level": "pagets__DesiderioBlog"
+            },
+            "set": {
+                "backend_layout": "pagets__DesiderioBlogModern",
+                "backend_layout_next_level": "pagets__DesiderioBlogModern"
+            },
+            "_context": {
+                "page": 72,
+                "pageTitle": "Tags"
+            }
+        },
+        {
+            "table": "pages",
+            "uid": 73,
+            "expect": {
+                "backend_layout": "pagets__DesiderioBlog",
+                "backend_layout_next_level": "pagets__DesiderioBlog"
+            },
+            "set": {
+                "backend_layout": "pagets__DesiderioBlogModern",
+                "backend_layout_next_level": "pagets__DesiderioBlogModern"
+            },
+            "_context": {
+                "page": 73,
+                "pageTitle": "Authors"
+            }
+        },
+        {
+            "table": "pages",
+            "uid": 74,
+            "expect": {
+                "backend_layout": "pagets__DesiderioBlog",
+                "backend_layout_next_level": "pagets__DesiderioBlog"
+            },
+            "set": {
+                "backend_layout": "pagets__DesiderioBlogModern",
+                "backend_layout_next_level": "pagets__DesiderioBlogModern"
+            },
+            "_context": {
+                "page": 74,
+                "pageTitle": "Archive"
+            }
+        },
+        {
+            "table": "pages",
+            "uid": 75,
+            "expect": {
+                "backend_layout": "pagets__DesiderioBlog",
+                "backend_layout_next_level": "pagets__DesiderioBlog"
+            },
+            "set": {
+                "backend_layout": "pagets__DesiderioBlogModern",
+                "backend_layout_next_level": "pagets__DesiderioBlogModern"
+            },
+            "_context": {
+                "page": 75,
+                "pageTitle": "First blog post"
+            }
+        },
+        {
+            "table": "pages",
+            "uid": 790,
+            "expect": {
+                "backend_layout": "pagets__DesiderioBlog",
+                "backend_layout_next_level": "pagets__DesiderioBlog"
+            },
+            "set": {
+                "backend_layout": "pagets__DesiderioBlogModern",
+                "backend_layout_next_level": "pagets__DesiderioBlogModern"
+            },
+            "_context": {
+                "page": 790,
+                "pageTitle": "Holding hands through spring showers"
+            }
+        },
+        {
+            "table": "pages",
+            "uid": 791,
+            "expect": {
+                "backend_layout": "pagets__DesiderioBlog",
+                "backend_layout_next_level": "pagets__DesiderioBlog"
+            },
+            "set": {
+                "backend_layout": "pagets__DesiderioBlogModern",
+                "backend_layout_next_level": "pagets__DesiderioBlogModern"
+            },
+            "_context": {
+                "page": 791,
+                "pageTitle": "Minimal egg decorating for a bright table"
+            }
+        }
+    ]
+}

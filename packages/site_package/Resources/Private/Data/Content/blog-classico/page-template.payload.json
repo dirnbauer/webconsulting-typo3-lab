@@ -1,0 +1,491 @@
+{
+    "version": 1,
+    "site": "blog-classico",
+    "root": 15,
+    "language": 0,
+    "languageCode": "de",
+    "generated": "2026-09-27T16:00:00+02:00",
+    "_note": "Blog classico uses the page template \"Desiderio: Blog – Classic\": the journal look with a sidebar. Translations follow, backend_layout is l10n_mode exclude.",
+    "records": [
+        {
+            "table": "pages",
+            "uid": 15,
+            "expect": {
+                "backend_layout": "pagets__DesiderioBlog",
+                "backend_layout_next_level": "pagets__DesiderioBlog"
+            },
+            "set": {
+                "backend_layout": "pagets__DesiderioBlogClassic",
+                "backend_layout_next_level": "pagets__DesiderioBlogClassic"
+            },
+            "_context": {
+                "page": 15,
+                "pageTitle": "Blog classico"
+            }
+        },
+        {
+            "table": "pages",
+            "uid": 16,
+            "expect": {
+                "backend_layout": "pagets__DesiderioBlog",
+                "backend_layout_next_level": "pagets__DesiderioBlog"
+            },
+            "set": {
+                "backend_layout": "pagets__DesiderioBlogClassic",
+                "backend_layout_next_level": "pagets__DesiderioBlogClassic"
+            },
+            "_context": {
+                "page": 16,
+                "pageTitle": "Daten"
+            }
+        },
+        {
+            "table": "pages",
+            "uid": 17,
+            "expect": {
+                "backend_layout": "pagets__DesiderioBlog",
+                "backend_layout_next_level": "pagets__DesiderioBlog"
+            },
+            "set": {
+                "backend_layout": "pagets__DesiderioBlogClassic",
+                "backend_layout_next_level": "pagets__DesiderioBlogClassic"
+            },
+            "_context": {
+                "page": 17,
+                "pageTitle": "Kategorie"
+            }
+        },
+        {
+            "table": "pages",
+            "uid": 18,
+            "expect": {
+                "backend_layout": "pagets__DesiderioBlog",
+                "backend_layout_next_level": "pagets__DesiderioBlog"
+            },
+            "set": {
+                "backend_layout": "pagets__DesiderioBlogClassic",
+                "backend_layout_next_level": "pagets__DesiderioBlogClassic"
+            },
+            "_context": {
+                "page": 18,
+                "pageTitle": "Schlagwort"
+            }
+        },
+        {
+            "table": "pages",
+            "uid": 19,
+            "expect": {
+                "backend_layout": "pagets__DesiderioBlog",
+                "backend_layout_next_level": "pagets__DesiderioBlog"
+            },
+            "set": {
+                "backend_layout": "pagets__DesiderioBlogClassic",
+                "backend_layout_next_level": "pagets__DesiderioBlogClassic"
+            },
+            "_context": {
+                "page": 19,
+                "pageTitle": "Autor"
+            }
+        },
+        {
+            "table": "pages",
+            "uid": 20,
+            "expect": {
+                "backend_layout": "pagets__DesiderioBlog",
+                "backend_layout_next_level": "pagets__DesiderioBlog"
+            },
+            "set": {
+                "backend_layout": "pagets__DesiderioBlogClassic",
+                "backend_layout_next_level": "pagets__DesiderioBlogClassic"
+            },
+            "_context": {
+                "page": 20,
+                "pageTitle": "Archiv"
+            }
+        },
+        {
+            "table": "pages",
+            "uid": 21,
+            "expect": {
+                "backend_layout": "pagets__DesiderioBlog",
+                "backend_layout_next_level": "pagets__DesiderioBlog"
+            },
+            "set": {
+                "backend_layout": "pagets__DesiderioBlogClassic",
+                "backend_layout_next_level": "pagets__DesiderioBlogClassic"
+            },
+            "_context": {
+                "page": 21,
+                "pageTitle": "Willkommen im Blog classico"
+            }
+        },
+        {
+            "table": "pages",
+            "uid": 22,
+            "expect": {
+                "backend_layout": "pagets__DesiderioBlog",
+                "backend_layout_next_level": "pagets__DesiderioBlog"
+            },
+            "set": {
+                "backend_layout": "pagets__DesiderioBlogClassic",
+                "backend_layout_next_level": "pagets__DesiderioBlogClassic"
+            },
+            "_context": {
+                "page": 22,
+                "pageTitle": "Osterwetter: ein ruhiger Start in den Tag"
+            }
+        },
+        {
+            "table": "pages",
+            "uid": 23,
+            "expect": {
+                "backend_layout": "pagets__DesiderioBlog",
+                "backend_layout_next_level": "pagets__DesiderioBlog"
+            },
+            "set": {
+                "backend_layout": "pagets__DesiderioBlogClassic",
+                "backend_layout_next_level": "pagets__DesiderioBlogClassic"
+            },
+            "_context": {
+                "page": 23,
+                "pageTitle": "Eier im Gras: klassische Osterdetails"
+            }
+        },
+        {
+            "table": "pages",
+            "uid": 24,
+            "expect": {
+                "backend_layout": "pagets__DesiderioBlog",
+                "backend_layout_next_level": "pagets__DesiderioBlog"
+            },
+            "set": {
+                "backend_layout": "pagets__DesiderioBlogClassic",
+                "backend_layout_next_level": "pagets__DesiderioBlogClassic"
+            },
+            "_context": {
+                "page": 24,
+                "pageTitle": "Schlichte Ostereier für einen hellen Tisch"
+            }
+        },
+        {
+            "table": "pages",
+            "uid": 25,
+            "expect": {
+                "backend_layout": "pagets__DesiderioBlog",
+                "backend_layout_next_level": "pagets__DesiderioBlog"
+            },
+            "set": {
+                "backend_layout": "pagets__DesiderioBlogClassic",
+                "backend_layout_next_level": "pagets__DesiderioBlogClassic"
+            },
+            "_context": {
+                "page": 25,
+                "pageTitle": "Osternester, Körbe und Eier im Freien"
+            }
+        },
+        {
+            "table": "pages",
+            "uid": 26,
+            "expect": {
+                "backend_layout": "pagets__DesiderioBlog",
+                "backend_layout_next_level": "pagets__DesiderioBlog"
+            },
+            "set": {
+                "backend_layout": "pagets__DesiderioBlogClassic",
+                "backend_layout_next_level": "pagets__DesiderioBlogClassic"
+            },
+            "_context": {
+                "page": 26,
+                "pageTitle": "Warum der Osterhase bis heute fasziniert"
+            }
+        },
+        {
+            "table": "pages",
+            "uid": 27,
+            "expect": {
+                "backend_layout": "pagets__DesiderioBlog",
+                "backend_layout_next_level": "pagets__DesiderioBlog"
+            },
+            "set": {
+                "backend_layout": "pagets__DesiderioBlogClassic",
+                "backend_layout_next_level": "pagets__DesiderioBlogClassic"
+            },
+            "_context": {
+                "page": 27,
+                "pageTitle": "Ruhige Frühlingsmomente mit weißen Kaninchen"
+            }
+        },
+        {
+            "table": "pages",
+            "uid": 28,
+            "expect": {
+                "backend_layout": "pagets__DesiderioBlog",
+                "backend_layout_next_level": "pagets__DesiderioBlog"
+            },
+            "set": {
+                "backend_layout": "pagets__DesiderioBlogClassic",
+                "backend_layout_next_level": "pagets__DesiderioBlogClassic"
+            },
+            "_context": {
+                "page": 28,
+                "pageTitle": "Schokohasen und verspielte Osterdeko"
+            }
+        },
+        {
+            "table": "pages",
+            "uid": 29,
+            "expect": {
+                "backend_layout": "pagets__DesiderioBlog",
+                "backend_layout_next_level": "pagets__DesiderioBlog"
+            },
+            "set": {
+                "backend_layout": "pagets__DesiderioBlogClassic",
+                "backend_layout_next_level": "pagets__DesiderioBlogClassic"
+            },
+            "_context": {
+                "page": 29,
+                "pageTitle": "Lämmer, Wiesen und die Bedeutung von Ostern"
+            }
+        },
+        {
+            "table": "pages",
+            "uid": 30,
+            "expect": {
+                "backend_layout": "pagets__DesiderioBlog",
+                "backend_layout_next_level": "pagets__DesiderioBlog"
+            },
+            "set": {
+                "backend_layout": "pagets__DesiderioBlogClassic",
+                "backend_layout_next_level": "pagets__DesiderioBlogClassic"
+            },
+            "_context": {
+                "page": 30,
+                "pageTitle": "Ein stiller Osternachmittag bei jungen Lämmern"
+            }
+        },
+        {
+            "table": "pages",
+            "uid": 31,
+            "expect": {
+                "backend_layout": "pagets__DesiderioBlog",
+                "backend_layout_next_level": "pagets__DesiderioBlog"
+            },
+            "set": {
+                "backend_layout": "pagets__DesiderioBlogClassic",
+                "backend_layout_next_level": "pagets__DesiderioBlogClassic"
+            },
+            "_context": {
+                "page": 31,
+                "pageTitle": "Hand in Hand durch den Frühlingsregen"
+            }
+        },
+        {
+            "table": "pages",
+            "uid": 82,
+            "expect": {
+                "backend_layout": "pagets__DesiderioBlog",
+                "backend_layout_next_level": "pagets__DesiderioBlog"
+            },
+            "set": {
+                "backend_layout": "pagets__DesiderioBlogClassic",
+                "backend_layout_next_level": "pagets__DesiderioBlogClassic"
+            },
+            "_context": {
+                "page": 82,
+                "pageTitle": "Wintersachen richtig verstauen"
+            }
+        },
+        {
+            "table": "pages",
+            "uid": 88,
+            "expect": {
+                "backend_layout": "pagets__DesiderioBlog",
+                "backend_layout_next_level": "pagets__DesiderioBlog"
+            },
+            "set": {
+                "backend_layout": "pagets__DesiderioBlogClassic",
+                "backend_layout_next_level": "pagets__DesiderioBlogClassic"
+            },
+            "_context": {
+                "page": 88,
+                "pageTitle": "Kräuter auf dem Balkon aussäen"
+            }
+        },
+        {
+            "table": "pages",
+            "uid": 89,
+            "expect": {
+                "backend_layout": "pagets__DesiderioBlog",
+                "backend_layout_next_level": "pagets__DesiderioBlog"
+            },
+            "set": {
+                "backend_layout": "pagets__DesiderioBlogClassic",
+                "backend_layout_next_level": "pagets__DesiderioBlogClassic"
+            },
+            "_context": {
+                "page": 89,
+                "pageTitle": "Frühjahrsputz in kleinen Schritten"
+            }
+        },
+        {
+            "table": "pages",
+            "uid": 90,
+            "expect": {
+                "backend_layout": "pagets__DesiderioBlog",
+                "backend_layout_next_level": "pagets__DesiderioBlog"
+            },
+            "set": {
+                "backend_layout": "pagets__DesiderioBlogClassic",
+                "backend_layout_next_level": "pagets__DesiderioBlogClassic"
+            },
+            "_context": {
+                "page": 90,
+                "pageTitle": "Weißen und grünen Spargel zubereiten"
+            }
+        },
+        {
+            "table": "pages",
+            "uid": 91,
+            "expect": {
+                "backend_layout": "pagets__DesiderioBlog",
+                "backend_layout_next_level": "pagets__DesiderioBlog"
+            },
+            "set": {
+                "backend_layout": "pagets__DesiderioBlogClassic",
+                "backend_layout_next_level": "pagets__DesiderioBlogClassic"
+            },
+            "_context": {
+                "page": 91,
+                "pageTitle": "Die erste Radtour nach dem Winter"
+            }
+        },
+        {
+            "table": "pages",
+            "uid": 92,
+            "expect": {
+                "backend_layout": "pagets__DesiderioBlog",
+                "backend_layout_next_level": "pagets__DesiderioBlog"
+            },
+            "set": {
+                "backend_layout": "pagets__DesiderioBlogClassic",
+                "backend_layout_next_level": "pagets__DesiderioBlogClassic"
+            },
+            "_context": {
+                "page": 92,
+                "pageTitle": "Tulpen in der Vase länger frisch halten"
+            }
+        },
+        {
+            "table": "pages",
+            "uid": 93,
+            "expect": {
+                "backend_layout": "pagets__DesiderioBlog",
+                "backend_layout_next_level": "pagets__DesiderioBlog"
+            },
+            "set": {
+                "backend_layout": "pagets__DesiderioBlogClassic",
+                "backend_layout_next_level": "pagets__DesiderioBlogClassic"
+            },
+            "_context": {
+                "page": 93,
+                "pageTitle": "Osterbrunch entspannt vorbereiten"
+            }
+        },
+        {
+            "table": "pages",
+            "uid": 94,
+            "expect": {
+                "backend_layout": "pagets__DesiderioBlog",
+                "backend_layout_next_level": "pagets__DesiderioBlog"
+            },
+            "set": {
+                "backend_layout": "pagets__DesiderioBlogClassic",
+                "backend_layout_next_level": "pagets__DesiderioBlogClassic"
+            },
+            "_context": {
+                "page": 94,
+                "pageTitle": "Picknick im Frühling: eine Packliste"
+            }
+        },
+        {
+            "table": "pages",
+            "uid": 95,
+            "expect": {
+                "backend_layout": "pagets__DesiderioBlog",
+                "backend_layout_next_level": "pagets__DesiderioBlog"
+            },
+            "set": {
+                "backend_layout": "pagets__DesiderioBlogClassic",
+                "backend_layout_next_level": "pagets__DesiderioBlogClassic"
+            },
+            "_context": {
+                "page": 95,
+                "pageTitle": "Osterzopf aus Hefeteig backen"
+            }
+        },
+        {
+            "table": "pages",
+            "uid": 97,
+            "expect": {
+                "backend_layout": "pagets__DesiderioBlog",
+                "backend_layout_next_level": "pagets__DesiderioBlog"
+            },
+            "set": {
+                "backend_layout": "pagets__DesiderioBlogClassic",
+                "backend_layout_next_level": "pagets__DesiderioBlogClassic"
+            },
+            "_context": {
+                "page": 97,
+                "pageTitle": "Das Gemüsebeet vorbereiten und säen"
+            }
+        },
+        {
+            "table": "pages",
+            "uid": 106,
+            "expect": {
+                "backend_layout": "pagets__DesiderioBlog",
+                "backend_layout_next_level": "pagets__DesiderioBlog"
+            },
+            "set": {
+                "backend_layout": "pagets__DesiderioBlogClassic",
+                "backend_layout_next_level": "pagets__DesiderioBlogClassic"
+            },
+            "_context": {
+                "page": 106,
+                "pageTitle": "TUGA 102: Release-Party für TYPO3 v14 LTS in Wien"
+            }
+        },
+        {
+            "table": "pages",
+            "uid": 405,
+            "expect": {
+                "backend_layout": "pagets__DesiderioBlog",
+                "backend_layout_next_level": "pagets__DesiderioBlog"
+            },
+            "set": {
+                "backend_layout": "pagets__DesiderioBlogClassic",
+                "backend_layout_next_level": "pagets__DesiderioBlogClassic"
+            },
+            "_context": {
+                "page": 405,
+                "pageTitle": "Rhabarber ernten und zubereiten"
+            }
+        },
+        {
+            "table": "pages",
+            "uid": 551,
+            "expect": {
+                "backend_layout": "pagets__DesiderioBlog",
+                "backend_layout_next_level": "pagets__DesiderioBlog"
+            },
+            "set": {
+                "backend_layout": "pagets__DesiderioBlogClassic",
+                "backend_layout_next_level": "pagets__DesiderioBlogClassic"
+            },
+            "_context": {
+                "page": 551,
+                "pageTitle": "Gedicht: Abend im April"
+            }
+        }
+    ]
+}

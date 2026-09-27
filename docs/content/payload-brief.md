@@ -36,6 +36,17 @@ Add `"action"` to a record when it should not just be updated:
 | `"hide"` | Keep the record but take it off the page. | |
 | `"create"` | A new record, e.g. one more text element a new post needs. Give `key` (`NEW_…`), `pid` and `match` (fields that find it again, so a second run updates instead of duplicating). | `{"action":"create","table":"tt_content","key":"NEW_post88_intro","pid":88,"match":{"pid":88,"header":"…"},"set":{"CType":"text","colPos":0,"header":"…","bodytext":"<p>…</p>"}}` |
 
+A later record can point at a record the payload creates with `@<key>`, in
+its `pid`, its `match` and its `set` values (comma lists too, e.g.
+`"tags": "@NEW_tag_a,@NEW_tag_b"`). It stands for the uid when the record
+exists already and for its `NEW_…` placeholder in the run that creates it,
+so a whole new post (page, categories, tags, content elements) fits in one
+payload and a second run still changes nothing. Files of a record created in
+the same run are attached in a second pass, once it has its uid; a file's
+`description` is its caption. `Build/Scripts/build-blog-posts-payload.php`
+writes such a payload from a file of post definitions (see
+`Build/Data/v14-blog/extension-posts.json`).
+
 To reuse a record for different content (a replacement post), update it in
 place: new title, text and slug. Delete what the new text doesn't need.
 

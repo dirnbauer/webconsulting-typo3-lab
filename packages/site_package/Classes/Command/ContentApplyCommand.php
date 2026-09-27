@@ -16,6 +16,7 @@ use TYPO3\CMS\Core\Core\Bootstrap;
 use TYPO3\CMS\Core\Core\Environment;
 use TYPO3\CMS\Core\Database\Connection;
 use TYPO3\CMS\Core\Database\ConnectionPool;
+use TYPO3\CMS\Core\Database\RelationHandler;
 use TYPO3\CMS\Core\DataHandling\DataHandler;
 use TYPO3\CMS\Core\Resource\Enum\DuplicationBehavior;
 use TYPO3\CMS\Core\Resource\StorageRepository;
@@ -34,8 +35,13 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
  * Record actions: `update` (default), `hide`, `delete` (soft delete through
  * DataHandler) and `create` (with `key`, `pid` and optional `match`, which
  * finds an existing row to update instead of creating a second one).
- * `files: {field: [{source, folder, alternative, title}]}` replaces the file
- * references of a field; images are imported into `folder` by file name.
+ * A later record refers to a created one as `@<key>` in its `pid`, `match`
+ * or `set` values (comma lists too): the uid when the row exists already,
+ * its NEW placeholder in the run that creates it. So a post and its content
+ * elements can live in one payload and a second run still changes nothing.
+ * `files: {field: [{source, folder, alternative, title, description}]}`
+ * replaces the file references of a field; images are imported into
+ * `folder` by file name.
  *
  * Everything goes through DataHandler in workspace 0, so history, the
  * reference index, cache tags and the Solr record monitor all see the change.
@@ -54,6 +60,24 @@ final class ContentApplyCommand extends Command
      * for fixing mislabelled records, the language.
      */
     private const EXTRA_COLUMNS = ['hidden', 'sys_language_uid', 'slug', 'nav_hide', 'CType', 'colPos', 'sorting', 'pid'];
+
+    /**
+     * uid (existing row) or NEW placeholder (created in this run) per `key`
+     * of a `create` record, for the `@<key>` references of later records.
+     *
+     * @var array<string, int|string>
+     */
+    private array $keys = [];
+
+    /**
+     * Files of records created in this run. DataHandler does not map a NEW
+     * placeholder into sys_file_reference.uid_foreign (a passthrough
+     * column), so these references are written in a second pass, once the
+     * records have their uids.
+     *
+     * @var list<array{record: array<mixed>, table: string, key: string, language: int}>
+     */
+    private array $deferredFiles = [];
 
     /** @var array<string, int> */
     private array $counts = ['updated' => 0, 'created' => 0, 'hidden' => 0, 'deleted' => 0, 'unchanged' => 0, 'skipped' => 0, 'files' => 0];
@@ -139,6 +163,34 @@ final class ContentApplyCommand extends Command
                 }
                 return Command::FAILURE;
             }
+
+            // Second pass: the files of the records created above.
+            $fileDataMap = [];
+            $fileCommandMap = [];
+            // Counted when the record was planned; the second pass must not count them again.
+            $plannedFiles = $this->counts['files'];
+            foreach ($this->deferredFiles as $deferred) {
+                $createdUid = (int)($dataHandler->substNEWwithIDs[$deferred['key']] ?? 0);
+                $createdRow = $createdUid > 0 ? $this->currentRow($deferred['table'], $createdUid) : null;
+                if ($createdRow === null) {
+                    $io->warning(sprintf('%s %s was not created; its files were skipped.', $deferred['table'], $deferred['key']));
+                    continue;
+                }
+                $this->planFiles($deferred['record'], $deferred['table'], $createdUid, (int)$this->scalar($createdRow['pid'] ?? 0), $deferred['language'], $fileDataMap, $fileCommandMap, $io, false);
+            }
+            $this->counts['files'] = $plannedFiles;
+            if ($fileDataMap !== []) {
+                $fileHandler = GeneralUtility::makeInstance(DataHandler::class);
+                $fileHandler->start($fileDataMap, $fileCommandMap);
+                $fileHandler->process_datamap();
+                $fileHandler->process_cmdmap();
+                if ($fileHandler->errorLog !== []) {
+                    foreach ($fileHandler->errorLog as $error) {
+                        $io->error($error);
+                    }
+                    return Command::FAILURE;
+                }
+            }
         }
         $io->success(sprintf('%s. Flush caches next.', ucfirst($this->summary())));
 
@@ -153,20 +205,37 @@ final class ContentApplyCommand extends Command
     private function planRecord(array $record, string $table, int $uid, bool $force, array &$dataMap, array &$commandMap, SymfonyStyle $io, bool $dryRun): void
     {
         $action = $this->text($record['action'] ?? 'update');
-        $set = $this->fields($record['set'] ?? null);
+        $record['pid'] = $this->resolveReference($record['pid'] ?? 0, $io);
+        $set = array_map(fn (mixed $value): mixed => $this->resolveReference($value, $io), $this->fields($record['set'] ?? null));
 
         if ($action === 'create') {
-            $matched = $this->findMatch($table, $this->fields($record['match'] ?? null));
+            $recordKey = $this->text($record['key'] ?? '');
+            $match = array_map(fn (mixed $value): mixed => $this->resolveReference($value, $io), $this->fields($record['match'] ?? null));
+            // A match on a row created in this very run (its parent is still
+            // a NEW placeholder) cannot find anything yet.
+            $matchable = array_filter($match, fn (mixed $value): bool => is_string($value) && preg_match('/^-?NEW/', $value) === 1) === [];
+            $matched = $matchable ? $this->findMatch($table, $match) : null;
             if ($matched === null) {
-                $key = $this->text($record['key'] ?? '');
-                $key = str_starts_with($key, 'NEW') ? $key : 'NEW_' . substr(md5(serialize($record)), 0, 10);
-                $pid = $record['pid'] ?? 0;
+                $key = str_starts_with($recordKey, 'NEW') ? $recordKey : 'NEW_' . substr(md5(serialize($record)), 0, 10);
+                $pid = $record['pid'];
                 $dataMap[$table][$key] = $this->validFields($table, $set, $io) + ['pid' => is_string($pid) ? $pid : (int)$this->scalar($pid)];
                 $language = (int)$this->scalar($set['sys_language_uid'] ?? 0);
-                $this->planFiles($record, $table, $key, (int)$this->scalar($pid), $language, $dataMap, $commandMap, $io, $dryRun);
+                if ($this->fields($record['files'] ?? null) !== []) {
+                    $this->deferredFiles[] = ['record' => $record, 'table' => $table, 'key' => $key, 'language' => $language];
+                    foreach ($this->fields($record['files']) as $field => $files) {
+                        $this->counts['files'] += is_array($files) ? count($files) : 0;
+                        $io->writeln(sprintf('  %s:%s.%s: 0 file(s) → %d after creation', $table, $key, $field, is_array($files) ? count($files) : 0));
+                    }
+                }
+                if ($recordKey !== '') {
+                    $this->keys[$recordKey] = $key;
+                }
                 $this->counts['created']++;
                 $io->writeln(sprintf('  create %s %s', $table, $key));
                 return;
+            }
+            if ($recordKey !== '') {
+                $this->keys[$recordKey] = $matched;
             }
             $uid = $matched;
         }
@@ -207,7 +276,10 @@ final class ContentApplyCommand extends Command
 
         $changes = [];
         foreach ($this->validFields($table, $set, $io) as $field => $value) {
-            if ($this->normalise($current[$field] ?? null) !== $this->normalise($value)) {
+            // An MM relation (categories, tags, authors) keeps only a count in
+            // the row; compare the related uids instead.
+            $currentValue = $this->isMmField($table, $field) ? $this->mmValue($table, $uid, $field) : ($current[$field] ?? null);
+            if ($this->normalise($currentValue) !== $this->normalise($value)) {
                 $changes[$field] = $value;
             }
         }
@@ -254,13 +326,14 @@ final class ContentApplyCommand extends Command
                     'name' => basename($source),
                     'alternative' => $this->text($file['alternative'] ?? ''),
                     'title' => $this->text($file['title'] ?? ''),
+                    'description' => $this->text($file['description'] ?? ''),
                 ];
             }
             $existing = is_int($uid) ? $this->references($table, $uid, $field) : [];
             $same = count($existing) === count($wanted);
             foreach ($wanted as $position => $file) {
                 $ref = $existing[$position] ?? null;
-                if ($ref === null || $ref['name'] !== $file['name'] || $ref['alternative'] !== $file['alternative'] || $ref['title'] !== $file['title']) {
+                if ($ref === null || $ref['name'] !== $file['name'] || $ref['alternative'] !== $file['alternative'] || $ref['title'] !== $file['title'] || $ref['description'] !== $file['description']) {
                     $same = false;
                 }
             }
@@ -291,6 +364,7 @@ final class ContentApplyCommand extends Command
                     'sys_language_uid' => $language,
                     'alternative' => $file['alternative'],
                     'title' => $file['title'],
+                    'description' => $file['description'],
                 ];
                 $newKeys[] = $key;
             }
@@ -335,14 +409,14 @@ final class ContentApplyCommand extends Command
     }
 
     /**
-     * @return list<array{uid: int, name: string, alternative: string, title: string}>
+     * @return list<array{uid: int, name: string, alternative: string, title: string, description: string}>
      */
     private function references(string $table, int $uid, string $field): array
     {
         $queryBuilder = $this->connectionPool->getQueryBuilderForTable('sys_file_reference');
         $queryBuilder->getRestrictions()->removeAll();
         $rows = $queryBuilder
-            ->select('r.uid', 'r.alternative', 'r.title', 'f.name')
+            ->select('r.uid', 'r.alternative', 'r.title', 'r.description', 'f.name')
             ->from('sys_file_reference', 'r')
             ->leftJoin('r', 'sys_file', 'f', 'f.uid = r.uid_local')
             ->where(
@@ -361,7 +435,64 @@ final class ContentApplyCommand extends Command
             'name' => $this->text($row['name'] ?? ''),
             'alternative' => $this->text($row['alternative'] ?? ''),
             'title' => $this->text($row['title'] ?? ''),
+            'description' => $this->text($row['description'] ?? ''),
         ], array_values($rows));
+    }
+
+    private function isMmField(string $table, string $field): bool
+    {
+        $schema = $this->tcaSchemaFactory->get($table);
+
+        return $schema->hasField($field) && is_string($schema->getField($field)->getConfiguration()['MM'] ?? null);
+    }
+
+    /**
+     * The uids an MM field relates to, in their stored order, as a comma list.
+     */
+    private function mmValue(string $table, int $uid, string $field): string
+    {
+        $config = $this->tcaSchemaFactory->get($table)->getField($field)->getConfiguration();
+        $relationHandler = GeneralUtility::makeInstance(RelationHandler::class);
+        $foreignTable = $this->text($config['foreign_table'] ?? ($config['allowed'] ?? ''));
+        $relationHandler->start('', $foreignTable, $this->text($config['MM'] ?? ''), $uid, $table, $config);
+
+        return implode(',', array_map(fn (mixed $value): string => $this->text($value), $relationHandler->getValueArray()));
+    }
+
+    /**
+     * Replaces `@<key>` (alone or in a comma list, optionally as `-@<key>`)
+     * with the uid or NEW placeholder of an earlier `create` record. Only a
+     * value that is nothing but such a list is touched, so text that
+     * happens to contain an @ (an email address, a handle) stays as it is.
+     */
+    private function resolveReference(mixed $value, SymfonyStyle $io): mixed
+    {
+        if (!is_string($value) || !str_contains($value, '@')
+            || preg_match('/^\s*-?@?[\w-]+(?:\s*,\s*-?@?[\w-]+)*\s*$/', $value) !== 1) {
+            return $value;
+        }
+        $parts = array_map('trim', explode(',', $value));
+        $resolved = [];
+        foreach ($parts as $part) {
+            $sign = str_starts_with($part, '-@') ? '-' : '';
+            $name = ltrim($part, '-');
+            if (!str_starts_with($name, '@')) {
+                $resolved[] = $part;
+                continue;
+            }
+            $target = $this->keys[substr($name, 1)] ?? null;
+            if ($target === null) {
+                $io->warning(sprintf('Unknown reference %s (no earlier create record with that key).', $name));
+                $resolved[] = $part;
+                continue;
+            }
+            $resolved[] = $sign . $target;
+        }
+        if (count($resolved) === 1 && is_numeric($resolved[0])) {
+            return (int)$resolved[0];
+        }
+
+        return implode(',', $resolved);
     }
 
     /**

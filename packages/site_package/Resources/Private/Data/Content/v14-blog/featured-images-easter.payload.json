@@ -1,0 +1,45 @@
+{
+    "version": 1,
+    "site": "v14-blog",
+    "root": 69,
+    "language": 0,
+    "languageCode": "en",
+    "generated": "2026-09-27T14:00:00+02:00",
+    "_note": "The two English Easter posts get the pictures of their German originals on Blog classico (pages 31 and 24), so every card of the Modern blog template shows a picture.",
+    "records": [
+        {
+            "table": "pages",
+            "uid": 790,
+            "expect": {
+                "title": "Holding hands through spring showers"
+            },
+            "set": {},
+            "files": {
+                "featured_image": [
+                    {
+                        "source": "EXT:site_package/Resources/Private/ContentImages/blog/lib-blog-classico-31-fruehlingsregen-f6f26152.webp",
+                        "folder": "1:/blog/featured/",
+                        "alternative": "Two people, seen from behind, walk hand in hand under an umbrella through the spring rain."
+                    }
+                ]
+            }
+        },
+        {
+            "table": "pages",
+            "uid": 791,
+            "expect": {
+                "title": "Minimal egg decorating for a bright table"
+            },
+            "set": {},
+            "files": {
+                "featured_image": [
+                    {
+                        "source": "EXT:site_package/Resources/Private/ContentImages/blog/lib-blog-classico-24-schlichte-ostereier-842c3c5e.webp",
+                        "folder": "1:/blog/featured/",
+                        "alternative": "A bright table with a linen cloth and a bowl of plain Easter eggs."
+                    }
+                ]
+            }
+        }
+    ]
+}

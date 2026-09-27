@@ -23,7 +23,7 @@ solr_port_read: '8983'
 solr_scheme_read: http
 solr_use_write_connection: false
 routeEnhancers: {  }
-websiteTitle: ''
+websiteTitle: 'TYPO3 v14 blog'
 imports:
   -
     resource: 'EXT:blog/Configuration/Routes/Default.yaml'
