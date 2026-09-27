@@ -39,6 +39,8 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
  * or `set` values (comma lists too): the uid when the row exists already,
  * its NEW placeholder in the run that creates it. So a post and its content
  * elements can live in one payload and a second run still changes nothing.
+ * Relations to a created record (a post's new tags) are written in a second
+ * DataHandler pass, once that record has its uid.
  * `files: {field: [{source, folder, alternative, title, description}]}`
  * replaces the file references of a field; images are imported into
  * `folder` by file name.
@@ -78,6 +80,17 @@ final class ContentApplyCommand extends Command
      * @var list<array{record: array<mixed>, table: string, key: string, language: int}>
      */
     private array $deferredFiles = [];
+
+    /**
+     * Values that refer to a record created in this run, other than `pid`.
+     * DataHandler processes pages before every other table, so a post's
+     * categories or tags pointing at a category or tag created in the same
+     * run were dropped: no MM row, a count of 0. They are written in a
+     * second pass, once every record has its uid.
+     *
+     * @var list<array{table: string, id: int|string, field: string, value: string}>
+     */
+    private array $deferredRelations = [];
 
     /** @var array<string, int> */
     private array $counts = ['updated' => 0, 'created' => 0, 'hidden' => 0, 'deleted' => 0, 'unchanged' => 0, 'skipped' => 0, 'files' => 0];
@@ -164,7 +177,29 @@ final class ContentApplyCommand extends Command
                 return Command::FAILURE;
             }
 
-            // Second pass: the files of the records created above.
+            // Second pass: relations to the records created above.
+            $relationDataMap = [];
+            foreach ($this->deferredRelations as $deferred) {
+                $id = is_string($deferred['id']) ? (int)($dataHandler->substNEWwithIDs[$deferred['id']] ?? 0) : $deferred['id'];
+                if ($id <= 0) {
+                    $io->warning(sprintf('%s %s was not created; its %s were skipped.', $deferred['table'], (string)$deferred['id'], $deferred['field']));
+                    continue;
+                }
+                $relationDataMap[$deferred['table']][$id][$deferred['field']] = self::substituteNewIds($deferred['value'], $dataHandler->substNEWwithIDs);
+            }
+            if ($relationDataMap !== []) {
+                $relationHandler = GeneralUtility::makeInstance(DataHandler::class);
+                $relationHandler->start($relationDataMap, []);
+                $relationHandler->process_datamap();
+                if ($relationHandler->errorLog !== []) {
+                    foreach ($relationHandler->errorLog as $error) {
+                        $io->error($error);
+                    }
+                    return Command::FAILURE;
+                }
+            }
+
+            // Third pass: the files of the records created above.
             $fileDataMap = [];
             $fileCommandMap = [];
             // Counted when the record was planned; the second pass must not count them again.
@@ -218,7 +253,8 @@ final class ContentApplyCommand extends Command
             if ($matched === null) {
                 $key = str_starts_with($recordKey, 'NEW') ? $recordKey : 'NEW_' . substr(md5(serialize($record)), 0, 10);
                 $pid = $record['pid'];
-                $dataMap[$table][$key] = $this->validFields($table, $set, $io) + ['pid' => is_string($pid) ? $pid : (int)$this->scalar($pid)];
+                $dataMap[$table][$key] = $this->deferNewReferences($table, $key, $this->validFields($table, $set, $io))
+                    + ['pid' => is_string($pid) ? $pid : (int)$this->scalar($pid)];
                 $language = (int)$this->scalar($set['sys_language_uid'] ?? 0);
                 if ($this->fields($record['files'] ?? null) !== []) {
                     $this->deferredFiles[] = ['record' => $record, 'table' => $table, 'key' => $key, 'language' => $language];
@@ -290,7 +326,10 @@ final class ContentApplyCommand extends Command
             return;
         }
         if ($changes !== []) {
-            $dataMap[$table][$uid] = ($dataMap[$table][$uid] ?? []) + $changes;
+            $immediate = $this->deferNewReferences($table, $uid, $changes);
+            if ($immediate !== []) {
+                $dataMap[$table][$uid] = ($dataMap[$table][$uid] ?? []) + $immediate;
+            }
             foreach ($changes as $field => $value) {
                 $io->writeln(sprintf('  %s:%d.%s: "%s" → "%s"', $table, $uid, $field, $this->excerpt($current[$field] ?? ''), $this->excerpt($value)));
             }
@@ -493,6 +532,75 @@ final class ContentApplyCommand extends Command
         }
 
         return implode(',', $resolved);
+    }
+
+    /**
+     * Takes the fields that refer to a record created in this run out of
+     * $fields and keeps them for the second pass. `pid` stays: DataHandler
+     * resolves a NEW parent itself.
+     *
+     * @param array<string, mixed> $fields
+     * @return array<string, mixed>
+     */
+    private function deferNewReferences(string $table, int|string $id, array $fields): array
+    {
+        $placeholders = array_values(array_filter($this->keys, is_string(...)));
+        [$immediate, $deferred] = self::splitNewReferences($fields, $placeholders);
+        foreach ($deferred as $field => $value) {
+            $this->deferredRelations[] = ['table' => $table, 'id' => $id, 'field' => $field, 'value' => $value];
+        }
+
+        return $immediate;
+    }
+
+    /**
+     * Splits fields into those DataHandler can write now and those whose
+     * value names a placeholder of a record created in this run (alone or in
+     * a comma list, optionally with a leading minus). Only the placeholders
+     * `@<key>` references resolved to count, so text that happens to contain
+     * "NEW" is never held back.
+     *
+     * @param array<string, mixed> $fields
+     * @param list<string> $placeholders
+     * @return array{0: array<string, mixed>, 1: array<string, string>}
+     */
+    public static function splitNewReferences(array $fields, array $placeholders): array
+    {
+        $immediate = [];
+        $deferred = [];
+        foreach ($fields as $field => $value) {
+            $refersToNewRecord = $field !== 'pid' && is_string($value) && $placeholders !== [] && array_intersect(
+                array_map(static fn (string $part): string => ltrim(trim($part), '-'), explode(',', $value)),
+                $placeholders
+            ) !== [];
+            if ($refersToNewRecord) {
+                $deferred[$field] = $value;
+            } else {
+                $immediate[$field] = $value;
+            }
+        }
+
+        return [$immediate, $deferred];
+    }
+
+    /**
+     * Replaces the NEW placeholders in a comma list with the uids DataHandler
+     * gave the records, keeping a leading minus.
+     *
+     * @param array<array-key, mixed> $substNEWwithIDs
+     */
+    public static function substituteNewIds(string $value, array $substNEWwithIDs): string
+    {
+        $parts = [];
+        foreach (explode(',', $value) as $part) {
+            $part = trim($part);
+            $sign = str_starts_with($part, '-') ? '-' : '';
+            $name = ltrim($part, '-');
+            $uid = $substNEWwithIDs[$name] ?? null;
+            $parts[] = is_int($uid) || (is_string($uid) && ctype_digit($uid)) ? $sign . $uid : $part;
+        }
+
+        return implode(',', $parts);
     }
 
     /**

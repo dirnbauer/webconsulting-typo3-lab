@@ -28,6 +28,12 @@ All notable changes to Webconsulting TYPO3 Lab are documented in this file.
   pass (before, such a file reference was stored without an owner), keeps a
   file's `description` as its caption and compares MM relations (categories,
   tags, authors) by uid, so a second run changes nothing.
+- `sitepackage:content:apply` writes relations to records it creates in the
+  same run in a second pass. DataHandler handles pages before every other
+  table, so a new post lost its new categories and tags (no MM row, a count
+  of 0) and only a second run added them. On production the 20 extension
+  posts went without categories and tags until the payload ran again;
+  `desiderio:blog:seed-pages` had meanwhile given them its default ones.
 - Desiderio 4.13.2: Tailwind spacing utilities work on grids again. Card
   headers keep title and description 4px apart (was 24px), alerts,
   Powermail option lists and team grids get the gaps their templates ask
