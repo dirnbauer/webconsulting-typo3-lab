@@ -33,6 +33,18 @@ All notable changes to Webconsulting TYPO3 Lab are documented in this file.
   Powermail option lists and team grids get the gaps their templates ask
   for, pricing prices sit 0.75rem under the plan name, and a form's radio
   group no longer centres its last option.
+- Desiderio 4.14.0: its CSS has no `.container` or `.table` class any more,
+  which shared their names with Tailwind utilities. As in shadcn/ui,
+  `container` is Tailwind's utility (extended with `@utility`) and tables
+  are shadcn's Table markup; the preset matrix on /themes is such a table in
+  a card and scrolls in a keyboard-reachable region on phones. The seed
+  commands use the new templates: `desiderio:blog:seed-pages` keeps a blog's
+  Classic or Modern template and gives any other blog Blog – Classic (The
+  TYPO3 blog, 390, now uses it), `--layout=classic|modern` chooses, and the
+  success stories get Blog – Classic with the next Desiderio reseed, as does
+  the new /features/blog copy (German, Chinese and Hungarian are in the
+  translation memories). [Seeding](docs/content/seeding.md) lists the
+  blog payloads and when to regenerate the extension posts.
 
 ### Production can send mail — 2026-09-27
 
