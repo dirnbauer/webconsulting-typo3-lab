@@ -21,3 +21,10 @@ plugin.tx_blog.settings.storagePid: 987
 plugin.tx_blog.settings.categoryUid: 994
 plugin.tx_blog.settings.tagUid: 995
 plugin.tx_blog.settings.lists.pagination.itemsPerPage: 6
+
+# AI transparency notice above the footer (EU AI Act, Art. 50): the hero photos,
+# the portraits of the demo cast and the translations are made with AI.
+desiderio.footer.aiNotice: true
+
+# The Download page shows as a button next to the search on desktop.
+desiderio.header.ctaSlug: /downloads

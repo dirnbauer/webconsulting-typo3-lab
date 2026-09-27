@@ -71,6 +71,12 @@ final class ApplyDownloadsPageCommand extends Command
             return Command::FAILURE;
         }
 
+        $contentType = $content['CType'] ?? null;
+        if (!is_string($contentType) || $contentType === '') {
+            $io->error('The definition has no content.CType.');
+            return Command::FAILURE;
+        }
+
         $slug = $page['slug'] ?? null;
         if (!is_string($slug) || $slug === '') {
             $io->error('The definition has no page.slug.');
@@ -88,7 +94,7 @@ final class ApplyDownloadsPageCommand extends Command
             $io->writeln($pageUid === null
                 ? sprintf('Would create %s under root %d.', $slug, $rootPage)
                 : sprintf('Would update page %d at %s.', $pageUid, $slug));
-            $contentUid = $pageUid === null ? null : $this->findFirstContent($pageUid);
+            $contentUid = $pageUid === null ? null : $this->findFirstContent($pageUid, $contentType);
             $io->writeln($contentUid === null
                 ? 'Would create its content element.'
                 : sprintf('Would update content element %d.', $contentUid));
@@ -126,9 +132,9 @@ final class ApplyDownloadsPageCommand extends Command
             $io->success(sprintf('Updated page %d at %s.', $pageUid, $slug));
         }
 
-        // Reuse the first element rather than appending, so repeated runs keep
-        // one element on the page instead of stacking duplicates.
-        $contentUid = $this->findFirstContent($pageUid);
+        // Reuse the page's own element rather than appending, so repeated runs
+        // keep one element on the page instead of stacking duplicates.
+        $contentUid = $this->findFirstContent($pageUid, $contentType);
         if ($contentUid === null) {
             $this->runDataHandler(
                 ['tt_content' => ['NEW_downloads_ce' => $content + ['pid' => $pageUid]]],
@@ -295,7 +301,12 @@ final class ApplyDownloadsPageCommand extends Command
         return is_numeric($uid) && (int)$uid > 0 ? (int)$uid : null;
     }
 
-    private function findFirstContent(int $pageUid): ?int
+    /**
+     * The page's own element: the first live element of the definition's
+     * content type. Other elements on the page (the sales hero the Desiderio
+     * showcase puts first) are someone else's and stay untouched.
+     */
+    private function findFirstContent(int $pageUid, string $cType): ?int
     {
         $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)
             ->getQueryBuilderForTable('tt_content');
@@ -307,7 +318,9 @@ final class ApplyDownloadsPageCommand extends Command
             ->where(
                 $queryBuilder->expr()->eq('pid', $queryBuilder->createNamedParameter($pageUid, ParameterType::INTEGER)),
                 $queryBuilder->expr()->eq('deleted', $queryBuilder->createNamedParameter(0, ParameterType::INTEGER)),
-                $queryBuilder->expr()->eq('t3ver_wsid', $queryBuilder->createNamedParameter(0, ParameterType::INTEGER))
+                $queryBuilder->expr()->eq('t3ver_wsid', $queryBuilder->createNamedParameter(0, ParameterType::INTEGER)),
+                $queryBuilder->expr()->eq('sys_language_uid', $queryBuilder->createNamedParameter(0, ParameterType::INTEGER)),
+                $queryBuilder->expr()->eq('CType', $queryBuilder->createNamedParameter($cType))
             )
             ->orderBy('sorting')
             ->setMaxResults(1)

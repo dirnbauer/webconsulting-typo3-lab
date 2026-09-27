@@ -39,11 +39,10 @@ facts:
     components: { value: 62, detail: '17 atoms, 37 molecules, 4 layouts, 4 organisms', source: 'find packages/desiderio/Resources/Private/Components/{Atom,Molecule,Layout,Organism} -name "*.html"' }
     presets: { value: 15, detail: '5 shadcn create presets + 10 house presets', source: 'desiderio.shadcn.preset enum in Configuration/Sets/Desiderio/settings.definitions.yaml (without custom)' }
     icon_libraries: { value: 5, detail: 'Lucide, Tabler, HugeIcons, Phosphor, Remix', source: 'desiderio.shadcn.iconLibrary enum' }
-    pricing: { detail: 'Community €0 forever (GPL-2.0) · Pro €49/month or €490/year · Agency €149/month or €1,490/year', source: 'StyleguideShowcasePages::homeContent() pricing block' }
+    pricing: { detail: 'Community €0 forever (GPL-2.0) · Studio €590/year or €59/month, up to 5 live sites · Agency €1,990/year or €199/month, up to 25 live sites, 10 more for €490/year · Partner €4,900/year, unlimited sites, five places. Staging and local installs are free; one plan covers Desiderio and Astryx', source: 'ShowcasePricing::plans(), the sales plan of 2026-09-27' }
     forms: { value: 8, detail: '8 ready Form Framework forms wired to elements, plus 2 reference definitions (AllFields, SimpleForm)', source: 'packages/desiderio/Resources/Private/Forms/*.form.yaml' }
     static_analysis: { detail: 'PHPStan level 8; CI on PHP 8.4 and 8.5', source: 'packages/desiderio/phpstan.neon, .github/workflows/ci.yml' }
-    services: { detail: 'installation €890 · brand adaptation from €1,990 · custom element from €390 · editor workshop €690 · LTS upgrade from €2,400 · Launch bundle €1,790 · code DESIDERIO20 = 20% off the first year', source: 'StyleguideShowcasePages / ShowcaseAudiencePages' }
-    hosting: { detail: 'Managed hosting from €99/month, Business €179/month (staging, 99.9% SLA, CDN) · Creator Care €490/month for 4 hours, €980 and €1,470 for 8 and 12 hours', source: 'ShowcaseAudiencePages' }
+    services: { detail: 'Kickstart workshop €1,490 · Brand Theme €2,490 · custom element S €890, M €1,690, L by quote · upgrade audit €690, credited to the upgrade · editor training €790 · support hours €650 for 5 · Launch Pack €5,970 (Agency for a year, Kickstart and a Brand Theme, editor training included) · founding offer: the first 20 agencies keep their price, until 31 March 2027. No discount code, no hosting, no Creator Care', source: 'ShowcasePricing::services(), launchPack(), foundingOffer()' }
     powermail_forms: { detail: 'Desiderio seeds 6 Powermail demo forms (01–06) and webcon_jev adds 5 (07–11), so the Powermail Lab lists 11; copy about the lab names no count', source: 'PowermailDemoFormDefinitions::demoForms() and packages/webcon_jev/Classes/Data/JevExampleDefinitions.php' }
     # Contact data in Desiderio's demo content (the site, its element library and
     # the corporate starter) is made up so that it reaches no one: the streets
@@ -55,7 +54,7 @@ facts:
     elements: { value: 250, source: 'ls packages/astryx_typo3/ContentBlocks/ContentElements | wc -l' }
     themes: { value: 25, detail: '7 upstream Astryx themes + 18 webconsulting themes', source: 'packages/astryx_typo3/Build/Data/theme-registry.json (family)' }
     contrast_pairs: { value: 1600, detail: '25 themes × 2 colour schemes, 0 failures against WCAG 2.2 AA', source: 'node packages/astryx_typo3/Build/Scripts/audit-contrast.mjs' }
-    pricing: { detail: 'same scheme as Desiderio: Community €0 · Pro €49/month · Agency €149/month · installation €890', source: 'AstryxSiteDefinitions::homeContent()' }
+    pricing: { detail: 'same plans as Desiderio (one plan covers both): Community €0 · Studio €590/year · Agency €1,990/year · Partner €4,900/year', source: 'AstryxSiteDefinitions::homeContent()' }
   # Contact data on every other site is webconsulting's own: no demo studio,
   # no fictional companies, email only @webconsulting.at. Every element there
   # that gives an address, phone number, email, office hours, a map or
@@ -96,6 +95,11 @@ forbidden:
   - { pattern: 'Mattersburg|Ungargasse|Berger-Stra(ß|ss)e|\+43\s?2626\s?20156|\+43262620156|@webconsulting\.at\b|\bFN\s?401904\s?k\b|\bATU68140807\b|Landesgericht\s+Eisenstadt|\bRennweg\b', message: 'Desiderio''s demo content gives no real address, phone number or email, webconsulting''s included: use facts.desiderio.demo_contact', sites: [desiderio, corporate-starter, element-library-de] }
   - { pattern: '\bFN\s?(000\s?000\s?x|000000x|214663\s?f|412\s?908\s?v)\b|\bATU(00000000|51442807)\b|MedienG[^<]{0,40}Mara\s+Lindqvist', message: 'retired demo register data; the imprint gives FN 401904 k, Landesgericht Eisenstadt, ATU68140807, DI(FH) Kurt Dirnbauer (facts.webconsulting.legal)' }
   - { pattern: '\b9\s?am\s?[–-]\s?5\s?pm\b|\bMo(n)?[–-]Fr(i)?,?\s+9[–-]17\b|\bSaturday\s+10:00\s*[–-]\s*14:00\b', message: 'retired demo office hours; webconsulting is open Mon–Thu 8:00–18:00, Fri 8:00–16:00 (facts.webconsulting.office_hours)', sites: [desiderio] }
+  # Retired offers of the price scheme before 2026-09-27 (facts.desiderio.pricing and .services).
+  - { pattern: '€\s?(49|149)\s*(\/|per|a)\s*(month|mo\b)|€\s?1,490\s*(\/|per|a)\s*year', message: 'retired plan prices: Studio €590, Agency €1,990, Partner €4,900 a year (facts.desiderio.pricing)', sites: [desiderio, astryx, corporate-starter, element-library-de] }
+  - { pattern: 'DESIDERIO20', message: 'the discount code is retired; the founding offer replaces it (facts.desiderio.services)' }
+  - { pattern: '\bCreator Care\b|\b[Mm]anaged hosting\b|installation service', message: 'retired services: no hosting, no Creator Care, no installation service (facts.desiderio.services)', sites: [desiderio, astryx] }
+  - { pattern: 'custom elements? (cost |costs )?from €\s?390|(LTS )?upgrades? (to TYPO3 v14 )?from €\s?2,400|4 business hours|unlimited (client )?projects', message: 'retired service prices and promises (facts.desiderio.services)', sites: [desiderio, astryx] }
   - { pattern: '\b(six|sechs)\s+Powermail\b', message: 'the Powermail Lab lists 11 forms from two seeders; describe the forms without counting them (facts.desiderio.powermail_forms)', sites: [desiderio] }
 
 # Words that make copy vague or loud. Hard: always rewrite. Soft: think twice.
