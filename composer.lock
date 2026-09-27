@@ -12306,16 +12306,16 @@
         },
         {
             "name": "webconsulting/astryx-typo3",
-            "version": "v2.3.1",
+            "version": "v2.3.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/astryx-typo3.git",
-                "reference": "ac50c2b8fba42bd7376d25dee5d44f03a2103f36"
+                "reference": "f39be7e3a6c25ffb94c9c8d1b072eb5578cd7e79"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/astryx-typo3/zipball/ac50c2b8fba42bd7376d25dee5d44f03a2103f36",
-                "reference": "ac50c2b8fba42bd7376d25dee5d44f03a2103f36",
+                "url": "https://api.github.com/repos/dirnbauer/astryx-typo3/zipball/f39be7e3a6c25ffb94c9c8d1b072eb5578cd7e79",
+                "reference": "f39be7e3a6c25ffb94c9c8d1b072eb5578cd7e79",
                 "shasum": ""
             },
             "require": {
@@ -12392,20 +12392,20 @@
                 }
             ],
             "description": "Astryx for TYPO3 — the Astryx design system, server-rendered for TYPO3 14: 250 Content Blocks, 189 Fluid components, 25 runtime-switchable themes, no JavaScript framework",
-            "time": "2026-09-26T14:53:28+00:00"
+            "time": "2026-09-26T23:15:57+00:00"
         },
         {
             "name": "webconsulting/desiderio",
-            "version": "v4.10.1",
+            "version": "v4.11.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/desiderio.git",
-                "reference": "5655c95fb239bfe32a68f10d66478cc333472ca6"
+                "reference": "02bc1dacd70b37e28f46678c884accea25fd799e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/desiderio/zipball/5655c95fb239bfe32a68f10d66478cc333472ca6",
-                "reference": "5655c95fb239bfe32a68f10d66478cc333472ca6",
+                "url": "https://api.github.com/repos/dirnbauer/desiderio/zipball/02bc1dacd70b37e28f46678c884accea25fd799e",
+                "reference": "02bc1dacd70b37e28f46678c884accea25fd799e",
                 "shasum": ""
             },
             "require": {
@@ -12448,7 +12448,7 @@
             "extra": {
                 "typo3/cms": {
                     "extension-key": "desiderio",
-                    "version": "4.10.1",
+                    "version": "4.11.0",
                     "Package": {
                         "providesPackages": []
                     }
@@ -12499,7 +12499,7 @@
                 }
             ],
             "description": "Desiderio — shadcn/ui-inspired Fluid 5 component library, 244 Desiderio Content Blocks, and theme layer for TYPO3 14",
-            "time": "2026-09-26T22:24:41+00:00"
+            "time": "2026-09-27T00:04:30+00:00"
         },
         {
             "name": "webconsulting/docx-editor",
@@ -12623,16 +12623,16 @@
         },
         {
             "name": "webconsulting/image-workbench",
-            "version": "v0.3.0",
+            "version": "v0.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/typo3-image-workbench.git",
-                "reference": "ee25f8396995199258ba3fda8e01a6924320c463"
+                "reference": "0d5eca45dc8c7948f63f143abc30abdf1af97004"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/typo3-image-workbench/zipball/ee25f8396995199258ba3fda8e01a6924320c463",
-                "reference": "ee25f8396995199258ba3fda8e01a6924320c463",
+                "url": "https://api.github.com/repos/dirnbauer/typo3-image-workbench/zipball/0d5eca45dc8c7948f63f143abc30abdf1af97004",
+                "reference": "0d5eca45dc8c7948f63f143abc30abdf1af97004",
                 "shasum": ""
             },
             "require": {
@@ -12724,7 +12724,7 @@
                 "source": "https://github.com/dirnbauer/typo3-image-workbench",
                 "docs": "https://github.com/dirnbauer/typo3-image-workbench/tree/main/Documentation"
             },
-            "time": "2026-09-23T08:56:32+00:00"
+            "time": "2026-09-26T23:17:18+00:00"
         },
         {
             "name": "webconsulting/innesto",
@@ -13389,16 +13389,16 @@
         },
         {
             "name": "webconsulting/typo3-ai-assistant",
-            "version": "v2.0.1",
+            "version": "v2.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/typo3-ai-assistant.git",
-                "reference": "7b574c0d7d6308405b412b4179b398c3236ae5c5"
+                "reference": "0acd9cedcd45c01ed0de6238f40c3aa84dee1084"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/typo3-ai-assistant/zipball/7b574c0d7d6308405b412b4179b398c3236ae5c5",
-                "reference": "7b574c0d7d6308405b412b4179b398c3236ae5c5",
+                "url": "https://api.github.com/repos/dirnbauer/typo3-ai-assistant/zipball/0acd9cedcd45c01ed0de6238f40c3aa84dee1084",
+                "reference": "0acd9cedcd45c01ed0de6238f40c3aa84dee1084",
                 "shasum": ""
             },
             "require": {
@@ -13427,7 +13427,7 @@
             "extra": {
                 "typo3/cms": {
                     "extension-key": "webcon_ai_assistant",
-                    "version": "2.0.1",
+                    "version": "2.0.2",
                     "Package": {
                         "providesPackages": []
                     },
@@ -13500,7 +13500,7 @@
                 "issues": "https://github.com/dirnbauer/typo3-ai-assistant/issues",
                 "source": "https://github.com/dirnbauer/typo3-ai-assistant"
             },
-            "time": "2026-09-26T17:43:48+00:00"
+            "time": "2026-09-26T23:32:28+00:00"
         },
         {
             "name": "webconsulting/typo3-llms-txt",
@@ -13606,16 +13606,16 @@
         },
         {
             "name": "webconsulting/typo3-x402-paywall",
-            "version": "v1.4.0",
+            "version": "v1.4.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/typo3-x402-paywall.git",
-                "reference": "092ee9be92a36a9923598411572c207ab09dff2e"
+                "reference": "2d3b6febf2f160435709dce155befc9786896a40"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/typo3-x402-paywall/zipball/092ee9be92a36a9923598411572c207ab09dff2e",
-                "reference": "092ee9be92a36a9923598411572c207ab09dff2e",
+                "url": "https://api.github.com/repos/dirnbauer/typo3-x402-paywall/zipball/2d3b6febf2f160435709dce155befc9786896a40",
+                "reference": "2d3b6febf2f160435709dce155befc9786896a40",
                 "shasum": ""
             },
             "require": {
@@ -13722,7 +13722,7 @@
                 "source": "https://github.com/dirnbauer/typo3-x402-paywall",
                 "docs": "https://github.com/dirnbauer/typo3-x402-paywall/tree/main/Documentation"
             },
-            "time": "2026-09-23T11:46:59+00:00"
+            "time": "2026-09-26T22:11:48+00:00"
         },
         {
             "name": "webconsulting/visual-editor-enhancements",
@@ -13943,16 +13943,16 @@
         },
         {
             "name": "webconsulting/webcon-jev",
-            "version": "v0.2.12",
+            "version": "v0.2.13",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/typo3-webcon-jev.git",
-                "reference": "c6ee694ac1b4ad454ff1150c5c4f5aa8d91cd615"
+                "reference": "911dc7889932b41f4bc8c25df237648fb0e423ec"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/typo3-webcon-jev/zipball/c6ee694ac1b4ad454ff1150c5c4f5aa8d91cd615",
-                "reference": "c6ee694ac1b4ad454ff1150c5c4f5aa8d91cd615",
+                "url": "https://api.github.com/repos/dirnbauer/typo3-webcon-jev/zipball/911dc7889932b41f4bc8c25df237648fb0e423ec",
+                "reference": "911dc7889932b41f4bc8c25df237648fb0e423ec",
                 "shasum": ""
             },
             "require": {
@@ -14047,7 +14047,7 @@
                 "issues": "https://github.com/dirnbauer/typo3-webcon-jev/issues",
                 "source": "https://github.com/dirnbauer/typo3-webcon-jev"
             },
-            "time": "2026-09-26T20:43:06+00:00"
+            "time": "2026-09-26T22:28:21+00:00"
         },
         {
             "name": "webconsulting/workos-auth",

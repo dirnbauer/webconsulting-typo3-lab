@@ -4,6 +4,26 @@ All notable changes to Webconsulting TYPO3 Lab are documented in this file.
 
 ## Unreleased
 
+### /features rebuilt with live screenshots — 2026-09-27
+
+- Desiderio 4.11.0: /features lists every feature of the lab. A hub by
+  category and 23 sales pages, ten of them new, each with live screenshots
+  from this lab in a 16:10 gallery. The German, Chinese and Hungarian copy is
+  in the translation memories (about 1,000 new strings per language).
+- `sitepackage:seed-ai-manuals` is gone, with its three screenshots: the
+  nr-llm page is one of the Desiderio /features pages now, and the Cowriter
+  manual it also removed is gone from every environment.
+- Fixes found while taking the screenshots, each in its own release:
+  x402 Paywall 1.4.1 (the simulator can run a scenario again), webcon-jev
+  0.2.13 (the Jev routing tab and the condition rule's decision field load
+  on MariaDB), AI Assistant 2.0.2 (a reopened conversation no longer shows
+  its reads as writes), Image Workbench 0.3.1 ("Edit image" in the file list
+  context menu works) and Astryx 2.3.2 (the theme field no longer says
+  there are seven themes).
+- The Staging workspace listed a deleted page (1111) as a mount point, which
+  made TYPO3's own workspace listing fail in Staging; the mount is removed in
+  the lab database.
+
 ### Cowriter removed — 2026-09-26
 
 - The lab no longer ships `netresearch/t3-cowriter`: it is out of
