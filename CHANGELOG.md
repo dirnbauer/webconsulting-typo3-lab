@@ -16,6 +16,33 @@ All notable changes to Webconsulting TYPO3 Lab are documented in this file.
   through. Without a server it stays on `mbox`. See
   [Coolify deployment](docs/coolify-deployment.md).
 
+### Four fixes from the /features shoot — 2026-09-27
+
+- Easy Workspace 1.10.1: in a workspace with its own mount points (Staging),
+  the toolbar lists the drafts on every page below the mounts, not only on
+  the mount pages. A mount point whose page is gone is logged and skipped.
+- AI Assistant 2.0.3: a write approved in the chat appears under "Changes in
+  this conversation" straight away and after reopening the conversation.
+- DOCX Editor 2.4.3: the review dialog of "Edit in Word" is styled inside the
+  backend, and its scripts load with the release's cache-busting suffix.
+- Powermail 14.0.3.7 (our fork), Desiderio 4.11.1 and webcon_jev 0.2.14: the
+  form list's "Used on Page" column finds every page that shows the form; the
+  demo seeders store their plugins as the backend does.
+
+### x402 paywall live on Blog classico — 2026-09-27
+
+- The Blog classico site has an `x402_paywall` block (Base Sepolia testnet,
+  0.01 USDC, x402.org facilitator), and the post "Wintersachen richtig
+  verstauen" is sold in all its languages. The wallet is a placeholder nobody
+  holds a key for; put your own Base Sepolia address into `wallet_address` to
+  receive test payments.
+- Page 1111 (the former "Aktuelle Temperaturen" site) is gone for good: the
+  Staging workspace no longer mounts it, and its unused editor group is
+  deleted, in the lab and on production.
+- A CV that sat in `fileadmin/desiderio-styleguide/` is out of both web roots
+  (moved, not deleted); a Word export of the Target groups page is the
+  document for DOCX Editor demos instead.
+
 ### /features rebuilt with live screenshots — 2026-09-27
 
 - Desiderio 4.11.0: /features lists every feature of the lab. A hub by
