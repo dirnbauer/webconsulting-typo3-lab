@@ -28,6 +28,11 @@ All notable changes to Webconsulting TYPO3 Lab are documented in this file.
   pass (before, such a file reference was stored without an owner), keeps a
   file's `description` as its caption and compares MM relations (categories,
   tags, authors) by uid, so a second run changes nothing.
+- Desiderio 4.13.2: Tailwind spacing utilities work on grids again. Card
+  headers keep title and description 4px apart (was 24px), alerts,
+  Powermail option lists and team grids get the gaps their templates ask
+  for, pricing prices sit 0.75rem under the plan name, and a form's radio
+  group no longer centres its last option.
 
 ### Production can send mail — 2026-09-27
 
