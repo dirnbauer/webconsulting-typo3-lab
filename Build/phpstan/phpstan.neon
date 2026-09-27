@@ -19,3 +19,6 @@ parameters:
     treatPhpDocTypesAsCertain: false
     checkTooWideReturnTypesInProtectedAndPublicMethods: true
     checkUninitializedProperties: true
+    typo3:
+        requestGetAttributeMapping:
+            route: TYPO3\CMS\Backend\Routing\Route|null

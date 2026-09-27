@@ -16,6 +16,17 @@ All notable changes to Webconsulting TYPO3 Lab are documented in this file.
   through. Without a server it stays on `mbox`. See
   [Coolify deployment](docs/coolify-deployment.md).
 
+### No more basic-auth prompts after a backend logout — 2026-09-27
+
+- When a TYPO3 backend session ended, the open backend tab kept asking the
+  browser for the basic-auth password on every click. TYPO3 answers the
+  backend's AJAX calls with 401 once the session is gone, and Chrome takes a
+  401 on a request that carried basic-auth credentials as a rejection of
+  those credentials and forgets them. Behind basic auth, those answers now
+  go out as 403 (site_package middleware `BasicAuthSafeBackendDenial`);
+  the backend's own login refresh still asks for the TYPO3 login. Without
+  basic auth in front (DDEV) nothing changes.
+
 ### Four fixes from the /features shoot — 2026-09-27
 
 - Easy Workspace 1.10.1: in a workspace with its own mount points (Staging),
