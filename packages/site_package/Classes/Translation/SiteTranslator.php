@@ -50,8 +50,12 @@ final class SiteTranslator
     /** @var array<string, array<int|string, array<string, mixed>>> */
     private array $dataMap = [];
 
-    /** @var array<string, array<int, array<string, mixed>>> */
-    private array $syncCommands = [];
+    /**
+     * Fields whose children a translation lacks, per record.
+     *
+     * @var array<string, array<int, list<string>>>
+     */
+    private array $syncFields = [];
 
     /** @var array<string, int> */
     private array $counts = [];
@@ -89,7 +93,7 @@ final class SiteTranslator
         $this->missing = [];
         $this->copied = [];
         $this->dataMap = [];
-        $this->syncCommands = [];
+        $this->syncFields = [];
         $this->counts = ['pagesLocalized' => 0, 'recordsLocalized' => 0, 'childrenSynchronized' => 0, 'fieldsUpdated' => 0, 'recordsUpdated' => 0];
 
         [$pages, $records] = $this->units($root, $otherRoots, $languageCode, $onlyPages);
@@ -125,8 +129,10 @@ final class SiteTranslator
         foreach ($pages as $page) {
             $this->planPage($page['uid'], in_array($page['uid'], $newPages, true), true);
         }
-        if (!$dryRun && $this->syncCommands !== []) {
-            $this->processCommands($this->syncCommands);
+        if (!$dryRun) {
+            foreach (self::synchronizeRounds($this->syncFields, $language) as $commands) {
+                $this->processCommands($commands);
+            }
         }
 
         // 3. Fill every translation from the memory.
@@ -334,7 +340,7 @@ final class SiteTranslator
                 $this->planRecord($childTable, $childUid, $syncOnly, $depth + 1);
             }
             if ($unsynchronized && $syncOnly && $translationUid !== null) {
-                $this->syncCommands[$table][$uid]['inlineLocalizeSynchronize'] = ['field' => $field->getName(), 'language' => $this->language, 'action' => 'synchronize'];
+                $this->syncFields[$table][$uid][] = $field->getName();
                 $this->counts['childrenSynchronized']++;
             }
             if (!$syncOnly && $translationUid === null) {
@@ -390,7 +396,7 @@ final class SiteTranslator
                 }
             }
             if ($unsynchronized && $syncOnly && $translationUid !== null) {
-                $this->syncCommands[$table][$sourceUid]['inlineLocalizeSynchronize'] = ['field' => $field->getName(), 'language' => $this->language, 'action' => 'synchronize'];
+                $this->syncFields[$table][$sourceUid][] = $field->getName();
                 $this->counts['childrenSynchronized']++;
             }
         }
@@ -677,6 +683,29 @@ final class SiteTranslator
         $schema = $this->tcaSchemaFactory->get($table);
 
         return $schema->supportsSubSchema() ? $this->string($row[$schema->getSubSchemaTypeInformation()->getFieldName()] ?? $table) : $table;
+    }
+
+    /**
+     * One command map per round: DataHandler takes a single
+     * inlineLocalizeSynchronize per record and command map, so a record with
+     * two fields to synchronize (its images and a collection) needs two. The
+     * second used to overwrite the first, which then waited for the next run.
+     *
+     * @param array<string, array<int, list<string>>> $syncFields
+     * @return list<array<string, array<int, array{inlineLocalizeSynchronize: array{field: string, language: int, action: string}}>>>
+     */
+    public static function synchronizeRounds(array $syncFields, int $language): array
+    {
+        $rounds = [];
+        foreach ($syncFields as $table => $records) {
+            foreach ($records as $uid => $fields) {
+                foreach (array_values(array_unique($fields)) as $round => $field) {
+                    $rounds[$round][$table][$uid]['inlineLocalizeSynchronize'] = ['field' => $field, 'language' => $language, 'action' => 'synchronize'];
+                }
+            }
+        }
+
+        return array_values($rounds);
     }
 
     /**
