@@ -51,6 +51,13 @@ All notable changes to Webconsulting TYPO3 Lab are documented in this file.
   the new /features/blog copy (German, Chinese and Hungarian are in the
   translation memories). [Seeding](docs/content/seeding.md) lists the
   blog payloads and when to regenerate the extension posts.
+- The Desiderio site was reseeded and translated in the lab: /features/blog
+  shows the two templates in all four languages, and the success stories
+  use Blog – Classic in all of them. Desiderio 4.14.2 makes the styleguide
+  seed give a page's translations the template it writes; before, the
+  German, Chinese and Hungarian success stories kept the previous blog
+  template. The translation memories gained the plain-text caption of the
+  Blog – Classic screenshot, which the reseed reported as missing.
 
 ### Production can send mail — 2026-09-27
 
