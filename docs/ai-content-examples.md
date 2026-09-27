@@ -108,22 +108,13 @@ The OpenAI provider record additionally uses a 120-second API timeout and the
 `nrLlm_providerApiTimeout120` and `nrLlm_stampProviderTrustZone` normalize those
 values after updating from an older nr-llm release.
 
-## Create the nr-llm manual
+## The nr-llm manual
 
-The checked-in screenshots and manual content are reproducible:
-
-```bash
-ddev typo3 sitepackage:seed-ai-manuals
-ddev typo3 cache:flush
-```
-
-The idempotent command creates or refreshes `/features/nr-llm-manual`, and
-deletes the retired `/features/cowriter-manual` page and its screenshots where
-an earlier run created them.
-
-It imports the backend screenshots into `fileadmin/ai-manual/` through FAL and
-attaches them to normal TYPO3 content elements. Re-run it after replacing a
-screenshot or importing a fresh database.
+`/features/nr-llm-manual` ("nr-llm: one AI setup for every extension") is one
+of the Desiderio /features pages. `desiderio:styleguide:seed` creates it with
+the others, with live screenshots that
+`packages/desiderio/Build/Scripts/capture-feature-screenshots.mjs` takes from
+this lab. The former `sitepackage:seed-ai-manuals` command is gone.
 
 ## Generate images with GPT Image 2
 

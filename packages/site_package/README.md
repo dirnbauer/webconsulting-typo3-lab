@@ -85,7 +85,6 @@ These commands remain available for intentional demo-data maintenance:
 - `sitepackage:seed-workos-frontend`: WorkOS pages and plugin records.
 - `sitepackage:seed-utility-translations`: translations after a library reseed.
 - `sitepackage:content:translate --site=desiderio`: German, Chinese and Hungarian for every page, element, collection item, image text and record the Desiderio seeders create, from the translation memories in `Resources/Private/Data/Translations/<site>/` (English text → translation, so a reseed does not lose them). `--dry-run --missing=-` lists English texts without a translation.
-- `sitepackage:seed-ai-manuals`: the nr-llm manual page (and removal of the retired Cowriter manual).
 - `sitepackage:configure-ai-examples`: configured models and example records.
 - `sitepackage:llm:generate-image`: optional provider-backed image generation.
 
