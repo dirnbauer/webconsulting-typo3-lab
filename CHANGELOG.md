@@ -59,6 +59,8 @@ All notable changes to Webconsulting TYPO3 Lab are documented in this file.
   the header, and an AI transparency notice (EU AI Act, Art. 50) sits above
   the footer in all four languages.
 - German, Chinese and Hungarian for all new copy (translation memories).
+- Desiderio 4.13.1: a hero photo shows its own description as alt text,
+  in the page's language, instead of repeating the headline.
 
 ### No more basic-auth prompts after a backend logout — 2026-09-27
 
