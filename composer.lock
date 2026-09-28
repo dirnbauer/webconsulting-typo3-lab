@@ -12503,16 +12503,16 @@
         },
         {
             "name": "webconsulting/docx-editor",
-            "version": "v2.4.3",
+            "version": "v2.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/typo3-docx.git",
-                "reference": "d0e3fdfaaaad5236d94592c831cf710c17dffffa"
+                "reference": "cd70de9679f2373300bbd07325fed8bc9ec296de"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/typo3-docx/zipball/d0e3fdfaaaad5236d94592c831cf710c17dffffa",
-                "reference": "d0e3fdfaaaad5236d94592c831cf710c17dffffa",
+                "url": "https://api.github.com/repos/dirnbauer/typo3-docx/zipball/cd70de9679f2373300bbd07325fed8bc9ec296de",
+                "reference": "cd70de9679f2373300bbd07325fed8bc9ec296de",
                 "shasum": ""
             },
             "require": {
@@ -12544,7 +12544,7 @@
             "extra": {
                 "typo3/cms": {
                     "extension-key": "docx_editor",
-                    "version": "2.4.3"
+                    "version": "2.5.0"
                 }
             },
             "autoload": {
@@ -12619,7 +12619,7 @@
                 "issues": "https://github.com/dirnbauer/typo3-docx/issues",
                 "source": "https://github.com/dirnbauer/typo3-docx"
             },
-            "time": "2026-09-27T08:43:41+00:00"
+            "time": "2026-09-28T16:15:30+00:00"
         },
         {
             "name": "webconsulting/image-workbench",
