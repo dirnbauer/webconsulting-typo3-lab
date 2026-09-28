@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "62140438564e8ede0b4508e23aaf7fa3",
+    "content-hash": "acd0a558be37e48e2ac665b2f79caf91",
     "packages": [
         {
             "name": "apache-solr-for-typo3/solr",
@@ -13943,16 +13943,16 @@
         },
         {
             "name": "webconsulting/webcon-jev",
-            "version": "v0.2.16",
+            "version": "v0.2.17",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/typo3-webcon-jev.git",
-                "reference": "ecb8278563a8074c07219e83cb9c63ddeb9fac0f"
+                "reference": "2782483063038597e586105f601105666570e9f5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/typo3-webcon-jev/zipball/ecb8278563a8074c07219e83cb9c63ddeb9fac0f",
-                "reference": "ecb8278563a8074c07219e83cb9c63ddeb9fac0f",
+                "url": "https://api.github.com/repos/dirnbauer/typo3-webcon-jev/zipball/2782483063038597e586105f601105666570e9f5",
+                "reference": "2782483063038597e586105f601105666570e9f5",
                 "shasum": ""
             },
             "require": {
@@ -14047,7 +14047,7 @@
                 "issues": "https://github.com/dirnbauer/typo3-webcon-jev/issues",
                 "source": "https://github.com/dirnbauer/typo3-webcon-jev"
             },
-            "time": "2026-09-27T20:10:00+00:00"
+            "time": "2026-09-28T15:53:42+00:00"
         },
         {
             "name": "webconsulting/workos-auth",
