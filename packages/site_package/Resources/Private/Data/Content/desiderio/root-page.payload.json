@@ -4,20 +4,20 @@
     "root": 505,
     "language": 0,
     "languageCode": "en",
-    "generated": "2026-09-23T10:02:14+02:00",
+    "generated": "2026-10-03T11:48:42+02:00",
     "records": [
         {
             "table": "pages",
             "uid": 505,
             "expect": {
                 "title": "Desiderio",
-                "description": "A complete TYPO3 14 design system: 300 audited content elements, shadcn-style theme presets, one-command seeding. Free under GPL-2.0.",
-                "seo_title": "The shadcn/ui design system for TYPO3 14 · 244 content elements"
+                "description": "Desiderio brings shadcn/ui to TYPO3 v14: 244 content elements, 62 Fluid components and 15 theme presets. Free under GPL-2.0.",
+                "seo_title": "Desiderio: shadcn/ui for TYPO3 v14"
             },
             "set": {
                 "title": "Desiderio",
                 "description": "Desiderio brings shadcn/ui to TYPO3 v14: 244 content elements, 62 Fluid components and 15 theme presets. Free under GPL-2.0.",
-                "seo_title": "Desiderio: shadcn/ui for TYPO3 v14"
+                "seo_title": "shadcn/ui for TYPO3 v14"
             },
             "_context": {
                 "page": 505,
@@ -32,5 +32,5 @@
             }
         }
     ],
-    "_note": "Root page SEO texts of the Desiderio site. They exist only in the database, not in the seed."
+    "_note": "Root page SEO texts of the Desiderio site. They exist only in the database, not in the seed. TYPO3 puts the site name in front of every page title, so the SEO title leaves it out."
 }
