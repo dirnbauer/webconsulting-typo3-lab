@@ -12306,16 +12306,16 @@
         },
         {
             "name": "webconsulting/astryx-typo3",
-            "version": "v2.4.0",
+            "version": "v2.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/astryx-typo3.git",
-                "reference": "ef783657c8c917cd34d8ecf43c95b16ab447a4ca"
+                "reference": "5ec34c57cad1b0a49e68e0a52625a1cb01746f2f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/astryx-typo3/zipball/ef783657c8c917cd34d8ecf43c95b16ab447a4ca",
-                "reference": "ef783657c8c917cd34d8ecf43c95b16ab447a4ca",
+                "url": "https://api.github.com/repos/dirnbauer/astryx-typo3/zipball/5ec34c57cad1b0a49e68e0a52625a1cb01746f2f",
+                "reference": "5ec34c57cad1b0a49e68e0a52625a1cb01746f2f",
                 "shasum": ""
             },
             "require": {
@@ -12392,20 +12392,20 @@
                 }
             ],
             "description": "Astryx for TYPO3 — the Astryx design system, server-rendered for TYPO3 14: 250 Content Blocks, 189 Fluid components, 25 runtime-switchable themes, no JavaScript framework",
-            "time": "2026-09-28T16:17:12+00:00"
+            "time": "2026-10-03T19:25:25+00:00"
         },
         {
             "name": "webconsulting/desiderio",
-            "version": "v4.16.1",
+            "version": "v4.18.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/desiderio.git",
-                "reference": "724c7db6ae54e2384c6e10d3ce1f449b0cc5b971"
+                "reference": "c928d0904ad9e00a80fca6943e4e2a47aec7acbe"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/desiderio/zipball/724c7db6ae54e2384c6e10d3ce1f449b0cc5b971",
-                "reference": "724c7db6ae54e2384c6e10d3ce1f449b0cc5b971",
+                "url": "https://api.github.com/repos/dirnbauer/desiderio/zipball/c928d0904ad9e00a80fca6943e4e2a47aec7acbe",
+                "reference": "c928d0904ad9e00a80fca6943e4e2a47aec7acbe",
                 "shasum": ""
             },
             "require": {
@@ -12448,7 +12448,7 @@
             "extra": {
                 "typo3/cms": {
                     "extension-key": "desiderio",
-                    "version": "4.16.1",
+                    "version": "4.18.0",
                     "Package": {
                         "providesPackages": []
                     }
@@ -12499,7 +12499,7 @@
                 }
             ],
             "description": "Desiderio — shadcn/ui-inspired Fluid 5 component library, 244 Desiderio Content Blocks, and theme layer for TYPO3 14",
-            "time": "2026-10-03T14:35:08+00:00"
+            "time": "2026-10-03T19:38:42+00:00"
         },
         {
             "name": "webconsulting/docx-editor",
