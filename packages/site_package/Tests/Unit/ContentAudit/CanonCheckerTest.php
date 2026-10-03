@@ -12,11 +12,11 @@ use Webconsulting\SitePackage\ContentAudit\Finding;
 
 final class CanonCheckerTest extends TestCase
 {
-    private CanonChecker $checker;
+    private ?CanonChecker $checker = null;
 
-    protected function setUp(): void
+    private function checker(): CanonChecker
     {
-        $this->checker = new CanonChecker(Canon::fromFile());
+        return $this->checker ??= new CanonChecker(Canon::fromFile());
     }
 
     public function testTheShippedCanonLoads(): void
@@ -114,7 +114,7 @@ final class CanonCheckerTest extends TestCase
 
     public function testSkippedFieldsAreNotChecked(): void
     {
-        self::assertSame([], $this->checker->check('lucide:rocket color', FieldRole::Skip, 'en'));
+        self::assertSame([], $this->checker()->check('lucide:rocket color', FieldRole::Skip, 'en'));
     }
 
     /**
@@ -123,7 +123,7 @@ final class CanonCheckerTest extends TestCase
     private function errors(string $text, FieldRole $role, string $language = 'en', string $site = '', bool $legal = false): array
     {
         return array_values(array_filter(
-            $this->checker->check($text, $role, $language, $site, $legal),
+            $this->checker()->check($text, $role, $language, $site, $legal),
             static fn (Finding $finding): bool => $finding->isError()
         ));
     }
