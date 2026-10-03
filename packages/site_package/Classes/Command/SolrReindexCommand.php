@@ -68,11 +68,12 @@ final class SolrReindexCommand extends Command
                 continue;
             }
 
-            $types = array_map(
-                static fn (string $name): string => $configuration->getIndexQueueTypeOrFallbackToConfigurationName($name),
-                $names
-            );
-            $deleteQuery = 'type:(' . implode(' OR ', array_unique($types)) . ') AND siteHash:' . $site->getSiteHash();
+            // Every document of the site, not only the types it indexes today:
+            // a type whose configuration is gone (skillflow's own skill table
+            // before it indexed nr_llm's) was never deleted, and its documents
+            // stayed in the results and the facets with links that no longer
+            // work. Everything the site should have is queued again below.
+            $deleteQuery = 'siteHash:' . $site->getSiteHash();
             foreach ($connectionManager->getConnectionsBySite($site) as $connection) {
                 $connection->getWriteService()->deleteByQuery($deleteQuery);
                 if ($configuration->getEnableCommits()) {

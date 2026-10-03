@@ -77,22 +77,6 @@ routeEnhancers:
   BlogPosts:
     limitToPages:
       - 987
-  SolrSearch:
-    type: SolrFacetMaskAndCombineEnhancer
-    extensionKey: tx_solr
-    limitToPages:
-      - 738
-    solr:
-      query:
-        concat: true
-        mask: true
-        map:
-          type: type
-    routePath: '/{type}'
-    _arguments:
-      type: filter-type
-    requirements:
-      type: '.*'
   PageTypeSuffix:
     type: PageType
     default: /

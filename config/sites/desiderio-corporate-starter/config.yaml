@@ -48,22 +48,6 @@ routeEnhancers:
         type: PersistedAliasMapper
         tableName: tx_nrllm_skill
         routeFieldName: name
-  SolrSearch:
-    type: SolrFacetMaskAndCombineEnhancer
-    extensionKey: tx_solr
-    limitToPages:
-      - 748
-    solr:
-      query:
-        concat: true
-        mask: true
-        map:
-          type: type
-    routePath: '/{type}'
-    _arguments:
-      type: filter-type
-    requirements:
-      type: '.*'
   PageTypeSuffix:
     type: PageType
     default: /
