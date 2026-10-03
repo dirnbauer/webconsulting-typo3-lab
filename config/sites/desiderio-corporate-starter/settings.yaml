@@ -1,4 +1,19 @@
-
 elementLibrary:
   storagePid: 1026
-  hosts: 'desiderio,innesto,core'
+  hosts: desiderio,innesto,core
+desiderio:
+  brand:
+    wordmark: Northstar Advisory
+    tagline: Operational change with a clear plan.
+  seo:
+    defaultDescription: Northstar Advisory Group starter website for procurement-ready B2B service positioning, proof, governance, and contact paths.
+    robotsTxtEnabled: true
+    sitemapPath: sitemap.xml
+  tracking:
+    enabled: false
+  search:
+    targetPageId: '748'
+  footer:
+    legalPageIds: 750,751,752
+  consent:
+    privacyPageId: '751'
