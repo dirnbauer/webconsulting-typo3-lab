@@ -12396,16 +12396,16 @@
         },
         {
             "name": "webconsulting/desiderio",
-            "version": "v4.19.0",
+            "version": "v4.20.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/desiderio.git",
-                "reference": "7f315f3939673308e5832e7718c056feb90d1f46"
+                "reference": "7f8c892a0ecf7aae61d1bf82d1340055c24f75bd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/desiderio/zipball/7f315f3939673308e5832e7718c056feb90d1f46",
-                "reference": "7f315f3939673308e5832e7718c056feb90d1f46",
+                "url": "https://api.github.com/repos/dirnbauer/desiderio/zipball/7f8c892a0ecf7aae61d1bf82d1340055c24f75bd",
+                "reference": "7f8c892a0ecf7aae61d1bf82d1340055c24f75bd",
                 "shasum": ""
             },
             "require": {
@@ -12448,7 +12448,7 @@
             "extra": {
                 "typo3/cms": {
                     "extension-key": "desiderio",
-                    "version": "4.19.0",
+                    "version": "4.20.0",
                     "Package": {
                         "providesPackages": []
                     }
@@ -12499,7 +12499,7 @@
                 }
             ],
             "description": "Desiderio — shadcn/ui-inspired Fluid 5 component library, 244 Desiderio Content Blocks, and theme layer for TYPO3 14",
-            "time": "2026-10-03T20:39:05+00:00"
+            "time": "2026-10-03T22:16:54+00:00"
         },
         {
             "name": "webconsulting/docx-editor",
