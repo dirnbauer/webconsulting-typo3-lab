@@ -1,0 +1,41 @@
+{
+    "version": 1,
+    "site": "desiderio-corporate-starter",
+    "root": 740,
+    "language": 0,
+    "languageCode": "en",
+    "generated": "2026-10-04T11:45:00+02:00",
+    "_note": "The two skill catalogue demos (Skillflow's neutral shadcn and typo3.org templates) led the Northstar Advisory main menu. They leave the menu and keep their URLs; /ai/skillflow on the Desiderio site links to the shadcn one.",
+    "records": [
+        {
+            "table": "pages",
+            "uid": 1030,
+            "expect": {
+                "title": "Skills (neutral shadcn)",
+                "nav_hide": 0
+            },
+            "set": {
+                "nav_hide": 1
+            },
+            "_context": {
+                "page": 1030,
+                "pageTitle": "Skills (neutral shadcn)"
+            }
+        },
+        {
+            "table": "pages",
+            "uid": 1063,
+            "expect": {
+                "title": "Skills (typo3.org style)",
+                "nav_hide": 0
+            },
+            "set": {
+                "nav_hide": 1
+            },
+            "_context": {
+                "page": 1063,
+                "pageTitle": "Skills (typo3.org style)"
+            }
+        }
+    ]
+}

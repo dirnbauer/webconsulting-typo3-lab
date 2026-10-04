@@ -15,6 +15,24 @@ plugin.tx_solr.search {
     # "Content type" facet (every hit is a skill, the block would be noise).
     query.filter.onlySkills = type:tx_nrllm_skill
     faceting.facets.type >
+    # Source, tools and licence filter the catalogue (skillflow indexes tool
+    # names and licence expressions since 1.9.2). Trust and support listed
+    # bare values ("first_party", "partial"). Category and tags appear as soon
+    # as skills carry them. Sorting: every skill was imported the same day and
+    # has no author, so relevance and title remain.
+    faceting.facets {
+        trust >
+        support >
+    }
+    sorting.options {
+        type >
+        author >
+        created >
+        category >
+    }
+    # skillflow's own page sizes: full rows in the three-column card grid.
+    results.resultsPerPage = 12
+    results.resultsPerPageSwitchOptions = 12, 24, 48
     # The skill detail body has its own readable code/prose presentation.
     # EXT:solr's site highlighter adds sword_list[] to result links, which is
     # unnecessary here and conflicts with strict Extbase route arguments.
@@ -37,6 +55,14 @@ page.includeCSS {
     skillsTerFontawesome = https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/css/all.min.css
     skillsTerFontawesome.external = 1
     skillsTerTheme = EXT:skillflow/Resources/Public/Css/skills-ter.css
+}
+# The "Filters" button on phones is a Bootstrap collapse toggle: without
+# Bootstrap's script it did nothing.
+page.includeJSFooterlibs {
+    skillsTerBootstrap = https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js
+    skillsTerBootstrap.external = 1
+    skillsTerBootstrap.integrity = sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz
+    skillsTerBootstrap.crossorigin = anonymous
 }
 [END]
 

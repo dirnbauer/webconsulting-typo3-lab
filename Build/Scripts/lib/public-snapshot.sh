@@ -16,7 +16,15 @@
 # audit logs, notes, and the demo shop's orders and leads. Caches and the
 # orphaned indexed_search tables go too: they hold rendered copies of pages,
 # including pages deleted since, and they rebuild themselves.
-SNAPSHOT_SENSITIVE_PATTERN='vault|secret|token|credential|oauth|identity|payment_log|_provider$|^fe_users$|^be_users$|^be_sessions$|^fe_sessions$|^sys_log$|^sys_history$|^sys_note$|^tx_powermail_domain_model_(mail|answer)$|^tx_blog_domain_model_comment$|^tx_[a-z0-9_]+_(conversation|message|run|audit|audit_log)$|^tx_webconmcpchatbridge_|^tx_agentnexus_(ucp_order|ucp_order_log|a2ui_inquiry|a2a_request|agui_lead|object|traffic)$|^cache_|^sys_file_processedfile$|^tx_docx_editor_revision$|^index_(config|debug|fulltext|grlist|phash|rel|section|stat_word|words)$'
+#
+# The third half is what visitors and the system left behind: Solr's search
+# statistics (visitor IP addresses and what they searched for), the search
+# event queue, browser CSP reports, workspace preview links (each a token),
+# webhook and reaction secrets, queued messages, rate-limit counters keyed by
+# IP address, LLM and agent run logs with their usage and telemetry, MCP server
+# credentials, editor sessions, and the zzz_deleted_ tables TYPO3 leaves
+# behind for removed extensions (old order and run logs among them).
+SNAPSHOT_SENSITIVE_PATTERN='vault|secret|token|credential|oauth|identity|payment_log|_provider$|^fe_users$|^be_users$|^be_sessions$|^fe_sessions$|^sys_log$|^sys_history$|^sys_note$|^tx_powermail_domain_model_(mail|answer)$|^tx_blog_domain_model_comment$|^tx_[a-z0-9_]+_(conversation|message|run|audit|audit_log)$|^tx_webconmcpchatbridge_|^tx_agentnexus_(ucp_order|ucp_order_log|a2ui_inquiry|a2a_request|agui_lead|object|traffic)$|^cache_|^sys_file_processedfile$|^tx_docx_editor_revision$|^index_(config|debug|fulltext|grlist|phash|rel|section|stat_word|words)$|^sys_(http_report|preview|reaction|webhook|messenger_messages|lockedrecords)$|^tx_solr_(statistics|last_searches|eventqueue_item)$|_(usage|telemetry|trace|rate_limit)$|_session(_message)?$|^tx_nrllm_(agentrun|agentrun_event|governance_event|call_outcome|eval_result)$|mcp_server$|^zzz_deleted_'
 
 # Fileadmin paths the published files archive never contains: uploads made
 # through the AI chat, personal documents (invoices, tax reports, a CV) that
@@ -41,9 +49,11 @@ done
 # - sys_file, sys_file_metadata: the index rows of the private documents and
 #   of the unreferenced press photos left from the replaced ORF posts, whose
 #   files the archive leaves out too (their names alone say too much).
+# - tx_nrllm_skill_source: a skill source with a GitHub access token stays
+#   behind as a whole (the column would ship the token).
 # No quotes in a condition (it passes through ssh, sh -c and ddev exec), so
 # every string is a hex literal: 0x25676574747925 = '%getty%'.
-SNAPSHOT_ROW_FILTERS='tt_address|deleted=0 AND pid<>15;sys_file|NOT (LOWER(identifier) LIKE 0x256c6562656e736c61756625 OR LOWER(identifier) LIKE 0x2f61692d636861742f25 OR LOWER(identifier) LIKE 0x257374657565726265726963687425 OR LOWER(identifier) LIKE 0x25726563686e756e6725 OR LOWER(identifier) LIKE 0x25696e766f69636525 OR LOWER(identifier) LIKE 0x256761735c5f323025 OR LOWER(identifier) LIKE 0x2f6d63702f776f726b7370616365732f77732d312f6f72662d6e6577732f25 OR LOWER(identifier) LIKE 0x2f6d63702f776f726b7370616365732f77732d312f696d616765732f6f72662d25 OR LOWER(identifier) LIKE 0x2f6d63702f776f726b7370616365732f77732d312f255c5f7469636b65725c5f25 OR LOWER(identifier) LIKE 0x2f6d63702f776f726b7370616365732f77732d312f255c5f6f70656e65725c5f25 OR LOWER(identifier) LIKE 0x2f6d63702f776f726b7370616365732f77732d312f255c5f626f64795c5f25 OR LOWER(identifier) LIKE 0x25676574747925);sys_file_metadata|file NOT IN (SELECT uid FROM sys_file WHERE LOWER(identifier) LIKE 0x256c6562656e736c61756625 OR LOWER(identifier) LIKE 0x2f61692d636861742f25 OR LOWER(identifier) LIKE 0x257374657565726265726963687425 OR LOWER(identifier) LIKE 0x25726563686e756e6725 OR LOWER(identifier) LIKE 0x25696e766f69636525 OR LOWER(identifier) LIKE 0x256761735c5f323025 OR LOWER(identifier) LIKE 0x2f6d63702f776f726b7370616365732f77732d312f6f72662d6e6577732f25 OR LOWER(identifier) LIKE 0x2f6d63702f776f726b7370616365732f77732d312f696d616765732f6f72662d25 OR LOWER(identifier) LIKE 0x2f6d63702f776f726b7370616365732f77732d312f255c5f7469636b65725c5f25 OR LOWER(identifier) LIKE 0x2f6d63702f776f726b7370616365732f77732d312f255c5f6f70656e65725c5f25 OR LOWER(identifier) LIKE 0x2f6d63702f776f726b7370616365732f77732d312f255c5f626f64795c5f25 OR LOWER(identifier) LIKE 0x25676574747925);sys_registry|NOT (entry_namespace = 0x6167656e745f6e65787573 OR entry_namespace = 0x74785f6e727661756c745f61756469745f616e63686f72 OR (entry_namespace = 0x636f7265 AND entry_key LIKE 0x666f726d50726f74656374696f6e53657373696f6e546f6b656e3a25))'
+SNAPSHOT_ROW_FILTERS='tt_address|deleted=0 AND pid<>15;sys_file|NOT (LOWER(identifier) LIKE 0x256c6562656e736c61756625 OR LOWER(identifier) LIKE 0x2f61692d636861742f25 OR LOWER(identifier) LIKE 0x257374657565726265726963687425 OR LOWER(identifier) LIKE 0x25726563686e756e6725 OR LOWER(identifier) LIKE 0x25696e766f69636525 OR LOWER(identifier) LIKE 0x256761735c5f323025 OR LOWER(identifier) LIKE 0x2f6d63702f776f726b7370616365732f77732d312f6f72662d6e6577732f25 OR LOWER(identifier) LIKE 0x2f6d63702f776f726b7370616365732f77732d312f696d616765732f6f72662d25 OR LOWER(identifier) LIKE 0x2f6d63702f776f726b7370616365732f77732d312f255c5f7469636b65725c5f25 OR LOWER(identifier) LIKE 0x2f6d63702f776f726b7370616365732f77732d312f255c5f6f70656e65725c5f25 OR LOWER(identifier) LIKE 0x2f6d63702f776f726b7370616365732f77732d312f255c5f626f64795c5f25 OR LOWER(identifier) LIKE 0x25676574747925);sys_file_metadata|file NOT IN (SELECT uid FROM sys_file WHERE LOWER(identifier) LIKE 0x256c6562656e736c61756625 OR LOWER(identifier) LIKE 0x2f61692d636861742f25 OR LOWER(identifier) LIKE 0x257374657565726265726963687425 OR LOWER(identifier) LIKE 0x25726563686e756e6725 OR LOWER(identifier) LIKE 0x25696e766f69636525 OR LOWER(identifier) LIKE 0x256761735c5f323025 OR LOWER(identifier) LIKE 0x2f6d63702f776f726b7370616365732f77732d312f6f72662d6e6577732f25 OR LOWER(identifier) LIKE 0x2f6d63702f776f726b7370616365732f77732d312f696d616765732f6f72662d25 OR LOWER(identifier) LIKE 0x2f6d63702f776f726b7370616365732f77732d312f255c5f7469636b65725c5f25 OR LOWER(identifier) LIKE 0x2f6d63702f776f726b7370616365732f77732d312f255c5f6f70656e65725c5f25 OR LOWER(identifier) LIKE 0x2f6d63702f776f726b7370616365732f77732d312f255c5f626f64795c5f25 OR LOWER(identifier) LIKE 0x25676574747925);sys_registry|NOT (entry_namespace = 0x6167656e745f6e65787573 OR entry_namespace = 0x74785f6e727661756c745f61756469745f616e63686f72 OR (entry_namespace = 0x636f7265 AND entry_key LIKE 0x666f726d50726f74656374696f6e53657373696f6e546f6b656e3a25));tx_nrllm_skill_source|deleted=0 AND (github_token IS NULL OR CHAR_LENGTH(github_token) = 0)'
 
 # The one account the published database keeps. The password is in the
 # documentation already; it is a demo login, not a secret.
@@ -84,8 +94,10 @@ Sign in with ${SNAPSHOT_DEMO_USER} / ${SNAPSHOT_DEMO_PASSWORD} and change it.
 Sanitised means: Vault secrets, API and MCP access tokens, OAuth rows, WorkOS
 identities, the LLM provider credential, all backend and frontend accounts, the
 log/history tables, form submissions, comments, chat and agent conversations
-and run logs keep their structure but ship with no rows. Fileadmin ships
-without AI chat uploads and personal documents. Import both archives together -
-the database references Fileadmin files by uid.
+and run logs keep their structure but ship with no rows. So do the visitor
+data: search statistics with IP addresses, browser reports, preview links,
+rate-limit counters, sessions, and LLM and agent usage and telemetry. Fileadmin
+ships without AI chat uploads and personal documents. Import both archives
+together - the database references Fileadmin files by uid.
 EOF
 }

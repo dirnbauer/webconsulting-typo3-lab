@@ -12396,16 +12396,16 @@
         },
         {
             "name": "webconsulting/desiderio",
-            "version": "v4.20.0",
+            "version": "v4.21.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/desiderio.git",
-                "reference": "7f8c892a0ecf7aae61d1bf82d1340055c24f75bd"
+                "reference": "3010048c2a1b851cc9bec383e54b4dccfadaa814"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/desiderio/zipball/7f8c892a0ecf7aae61d1bf82d1340055c24f75bd",
-                "reference": "7f8c892a0ecf7aae61d1bf82d1340055c24f75bd",
+                "url": "https://api.github.com/repos/dirnbauer/desiderio/zipball/3010048c2a1b851cc9bec383e54b4dccfadaa814",
+                "reference": "3010048c2a1b851cc9bec383e54b4dccfadaa814",
                 "shasum": ""
             },
             "require": {
@@ -12448,7 +12448,7 @@
             "extra": {
                 "typo3/cms": {
                     "extension-key": "desiderio",
-                    "version": "4.20.0",
+                    "version": "4.21.0",
                     "Package": {
                         "providesPackages": []
                     }
@@ -12499,7 +12499,7 @@
                 }
             ],
             "description": "Desiderio — shadcn/ui-inspired Fluid 5 component library, 244 Desiderio Content Blocks, and theme layer for TYPO3 14",
-            "time": "2026-10-03T22:16:54+00:00"
+            "time": "2026-10-04T09:32:08+00:00"
         },
         {
             "name": "webconsulting/docx-editor",
@@ -13063,16 +13063,16 @@
         },
         {
             "name": "webconsulting/skillflow",
-            "version": "v1.9.1",
+            "version": "v1.9.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/skillflow.git",
-                "reference": "d2ad8330b8e4f04749712e4cdd7afc9e0faff3e6"
+                "reference": "c8dd2ecfc78f88a1e88346426a1a61fa7bfce1c8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/skillflow/zipball/d2ad8330b8e4f04749712e4cdd7afc9e0faff3e6",
-                "reference": "d2ad8330b8e4f04749712e4cdd7afc9e0faff3e6",
+                "url": "https://api.github.com/repos/dirnbauer/skillflow/zipball/c8dd2ecfc78f88a1e88346426a1a61fa7bfce1c8",
+                "reference": "c8dd2ecfc78f88a1e88346426a1a61fa7bfce1c8",
                 "shasum": ""
             },
             "require": {
@@ -13106,7 +13106,7 @@
             "extra": {
                 "typo3/cms": {
                     "extension-key": "skillflow",
-                    "version": "1.9.1"
+                    "version": "1.9.2"
                 }
             },
             "autoload": {
@@ -13172,7 +13172,7 @@
                 "source": "https://github.com/dirnbauer/skillflow",
                 "docs": "https://github.com/dirnbauer/skillflow/tree/main/Documentation"
             },
-            "time": "2026-09-24T08:41:31+00:00"
+            "time": "2026-10-04T09:29:09+00:00"
         },
         {
             "name": "webconsulting/skillspector",

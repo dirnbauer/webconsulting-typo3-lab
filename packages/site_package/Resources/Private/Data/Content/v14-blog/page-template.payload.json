@@ -118,38 +118,6 @@
                 "page": 75,
                 "pageTitle": "First blog post"
             }
-        },
-        {
-            "table": "pages",
-            "uid": 790,
-            "expect": {
-                "backend_layout": "pagets__DesiderioBlog",
-                "backend_layout_next_level": "pagets__DesiderioBlog"
-            },
-            "set": {
-                "backend_layout": "pagets__DesiderioBlogModern",
-                "backend_layout_next_level": "pagets__DesiderioBlogModern"
-            },
-            "_context": {
-                "page": 790,
-                "pageTitle": "Holding hands through spring showers"
-            }
-        },
-        {
-            "table": "pages",
-            "uid": 791,
-            "expect": {
-                "backend_layout": "pagets__DesiderioBlog",
-                "backend_layout_next_level": "pagets__DesiderioBlog"
-            },
-            "set": {
-                "backend_layout": "pagets__DesiderioBlogModern",
-                "backend_layout_next_level": "pagets__DesiderioBlogModern"
-            },
-            "_context": {
-                "page": 791,
-                "pageTitle": "Minimal egg decorating for a bright table"
-            }
         }
     ]
 }
