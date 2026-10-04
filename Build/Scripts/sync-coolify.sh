@@ -416,12 +416,28 @@ publish_snapshot() {
             '${SNAPSHOT_PRIVATE_PATHS}' \
             '${SNAPSHOT_ROW_FILTERS}'"
 
+    # Check what was just published, inside the web container: no rows in a
+    # table the pattern empties, no credential-shaped strings, one account, no
+    # key files. A leak takes both archives down again.
+    local published="/var/www/html/public/fileadmin/${SNAPSHOT_DIR_NAME}"
+    printf '%s' "${SNAPSHOT_SENSITIVE_PATTERN}" > "${SYNC_WORK_DIR}/snapshot-pattern.txt"
+    scp "${SSH_OPTIONS[@]}" "$(dirname "$0")/lib/scan-snapshot.php" "${SYNC_WORK_DIR}/snapshot-pattern.txt" "${REMOTE_HOST}:${stage}/"
+    if ! ssh "${SSH_OPTIONS[@]}" "${REMOTE_HOST}" \
+        "docker cp '${stage}/scan-snapshot.php' '${web_container}:/tmp/scan-snapshot.php' \
+         && docker cp '${stage}/snapshot-pattern.txt' '${web_container}:/tmp/snapshot-pattern.txt' \
+         && docker exec '${web_container}' php -d memory_limit=3G /tmp/scan-snapshot.php /tmp/snapshot-pattern.txt '${published}'; \
+         rc=\$?; docker exec '${web_container}' rm -f /tmp/scan-snapshot.php /tmp/snapshot-pattern.txt; exit \$rc"; then
+        ssh "${SSH_OPTIONS[@]}" "${REMOTE_HOST}" \
+            "docker exec '${web_container}' rm -f '${published}/${SNAPSHOT_DB_ARCHIVE}' '${published}/${SNAPSHOT_FILES_ARCHIVE}'; rm -rf '${stage}'"
+        echo "The scan found a leak: ${SNAPSHOT_DB_ARCHIVE} and ${SNAPSHOT_FILES_ARCHIVE} were taken down." >&2
+        echo "Extend Build/Scripts/lib/public-snapshot.sh, then publish again." >&2
+        exit 1
+    fi
+
     ssh "${SSH_OPTIONS[@]}" "${REMOTE_HOST}" "rm -rf '${stage}'"
     echo
-    echo "Verify before announcing the links - exactly one INSERT is expected,"
-    echo "the demo administrator:"
-    echo "  curl -u lab:PASSWORD -fsSLO https://typo3-lab.webconsulting.at/fileadmin/${SNAPSHOT_DIR_NAME}/${SNAPSHOT_DB_ARCHIVE}"
-    echo "  unzip -p ${SNAPSHOT_DB_ARCHIVE} ${SNAPSHOT_DB_MEMBER} | grep -c 'INSERT INTO .be_users.'"
+    echo "The scan above passed. Review its e-mail domains and IPv4-like values"
+    echo "before announcing the links."
 }
 
 publish_downloads_page() {

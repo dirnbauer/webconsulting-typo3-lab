@@ -69,6 +69,9 @@ ddev import-db --file=db-public.zip
 ddev import-files --source=.tarballs/fileadmin-public.zip
 
 ddev typo3 extension:setup
+# The snapshot ships without a reference index (it repeated addresses from the
+# emptied tables); TYPO3 rebuilds it from the records.
+ddev typo3 referenceindex:update
 ddev vite build
 ddev typo3 cache:flush
 
@@ -82,6 +85,7 @@ Done.
 
 The published database is sanitised: Vault secrets, API and MCP tokens, OAuth
 rows, WorkOS identities and every other account were stripped before export,
-so integrations that need credentials stay switched off until you supply your
-own through the Vault backend module.
+and so were comments, form entries and visitor data. Integrations that need
+credentials stay switched off until you supply your own through the Vault
+backend module.
 EOF

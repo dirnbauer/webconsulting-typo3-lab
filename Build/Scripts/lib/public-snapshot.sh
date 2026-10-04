@@ -24,7 +24,10 @@
 # IP address, LLM and agent run logs with their usage and telemetry, MCP server
 # credentials, editor sessions, and the zzz_deleted_ tables TYPO3 leaves
 # behind for removed extensions (old order and run logs among them).
-SNAPSHOT_SENSITIVE_PATTERN='vault|secret|token|credential|oauth|identity|payment_log|_provider$|^fe_users$|^be_users$|^be_sessions$|^fe_sessions$|^sys_log$|^sys_history$|^sys_note$|^tx_powermail_domain_model_(mail|answer)$|^tx_blog_domain_model_comment$|^tx_[a-z0-9_]+_(conversation|message|run|audit|audit_log)$|^tx_webconmcpchatbridge_|^tx_agentnexus_(ucp_order|ucp_order_log|a2ui_inquiry|a2a_request|agui_lead|object|traffic)$|^cache_|^sys_file_processedfile$|^tx_docx_editor_revision$|^index_(config|debug|fulltext|grlist|phash|rel|section|stat_word|words)$|^sys_(http_report|preview|reaction|webhook|messenger_messages|lockedrecords)$|^tx_solr_(statistics|last_searches|eventqueue_item)$|_(usage|telemetry|trace|rate_limit)$|_session(_message)?$|^tx_nrllm_(agentrun|agentrun_event|governance_event|call_outcome|eval_result)$|mcp_server$|^zzz_deleted_'
+# sys_refindex goes as well: the reference index repeats the e-mail addresses
+# and links it parsed out of every table, the emptied ones included (commenter
+# addresses, accounts, the scraped shop contacts). install.txt rebuilds it.
+SNAPSHOT_SENSITIVE_PATTERN='vault|secret|token|credential|oauth|identity|payment_log|_provider$|^fe_users$|^be_users$|^be_sessions$|^fe_sessions$|^sys_log$|^sys_history$|^sys_note$|^tx_powermail_domain_model_(mail|answer)$|^tx_blog_domain_model_comment$|^tx_[a-z0-9_]+_(conversation|message|run|audit|audit_log)$|^tx_webconmcpchatbridge_|^tx_agentnexus_(ucp_order|ucp_order_log|a2ui_inquiry|a2a_request|agui_lead|object|traffic)$|^cache_|^sys_file_processedfile$|^tx_docx_editor_revision$|^index_(config|debug|fulltext|grlist|phash|rel|section|stat_word|words)$|^sys_(http_report|preview|reaction|webhook|messenger_messages|lockedrecords)$|^tx_solr_(statistics|last_searches|eventqueue_item)$|_(usage|telemetry|trace|rate_limit)$|_session(_message)?$|^tx_nrllm_(agentrun|agentrun_event|governance_event|call_outcome|eval_result)$|mcp_server$|^zzz_deleted_|^sys_refindex$'
 
 # Fileadmin paths the published files archive never contains: uploads made
 # through the AI chat, personal documents (invoices, tax reports, a CV) that
@@ -96,8 +99,10 @@ identities, the LLM provider credential, all backend and frontend accounts, the
 log/history tables, form submissions, comments, chat and agent conversations
 and run logs keep their structure but ship with no rows. So do the visitor
 data: search statistics with IP addresses, browser reports, preview links,
-rate-limit counters, sessions, and LLM and agent usage and telemetry. Fileadmin
-ships without AI chat uploads and personal documents. Import both archives
-together - the database references Fileadmin files by uid.
+rate-limit counters, sessions, LLM and agent usage and telemetry, and the
+reference index, which repeated addresses from all of the above (rebuild it
+with: typo3 referenceindex:update). Fileadmin ships without AI chat uploads
+and personal documents. Import both archives together - the database
+references Fileadmin files by uid.
 EOF
 }
