@@ -269,10 +269,30 @@ deploy, while three cold workers each compiled the TCA. Steady state is around
 500 MB. The margin is in normal operation, not in a rebuild: a worker killed
 inside the container right after a deploy is the limit working, not a fault.
 
-Every deploy also leaves about 3 GB of images on the host until Coolify's
-nightly cleanup (00:00 UTC, forced) removes them. Ten deploys on 2026-09-19 took
-the disk from 68 % to 91 %. Check `df -h /` along with `free -m` before a run
-of deploys.
+Every deploy also leaves about 3 GB of images on the host. Ten deploys on
+2026-09-19 took the disk from 68 % to 91 %, and six on 2026-10-10 took it to
+99 %. Check `df -h /` along with `free -m` before a run of deploys.
+
+The host keeps the **last three deployed versions** (a version is the `web` and
+the `typo3-solr` image of one commit) and nothing older:
+
+- The application's "Docker images to keep" is **6**, not 3. Coolify 4.4.6 counts
+  images, sorts both services' images together by date and, for a Compose
+  application, counts the running one too, so 6 images are 3 versions.
+- Coolify applies that retention only in its nightly Docker cleanup (02:00 UTC,
+  when the disk is at least 75 % full). So after every finished deploy, the CI
+  deploy job and `Build/Scripts/sync-coolify.sh deploy` start the same cleanup
+  through `POST /api/v1/servers/<server uuid>/docker-cleanup/run`, without
+  deleting volumes or networks. That run also removes build cache and other
+  projects' unused images on the host, as the nightly run does. Clearing the
+  build cache matters here: an image built from cache keeps the old build's
+  date (seen 2026-10-10 on a Solr image), and Coolify picks what to keep by
+  date. The cost is one cold build per deploy, about 3 minutes.
+- Both need a token with the **write** permission (besides read and deploy).
+  Without it the deploy still works and the cleanup waits for the night.
+
+Freeing disk by hand: delete only lab versions older than the newest three, plus
+`docker builder prune -f`. Never delete other projects' images or volumes.
 
 ## Response headers
 

@@ -159,7 +159,8 @@ jobs:
     needs: [deploy-gate]
     if: needs.deploy-gate.outputs.configured == 'true'
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    # Waits for Coolify to build and start the new image (up to 30 minutes).
+    timeout-minutes: 35
     concurrency:
       group: deploy-typo3-lab
       cancel-in-progress: false
@@ -205,3 +206,58 @@ jobs:
 
           cat response.txt
           echo "Deployment queued for ${GITHUB_SHA}."
+
+      # The host keeps the last three deployed versions (user rule, 2026-10-10).
+      # Coolify's retention is set to 6 images (web + Solr per version), but it
+      # applies it only in its nightly cleanup, so several deploys in one day
+      # used to pile up until the disk was full. Run that cleanup now.
+      - name: Wait for the deployment, then keep the last three versions
+        env:
+          COOLIFY_TOKEN: ${{ secrets.COOLIFY_TOKEN }}
+          COOLIFY_URL: ${{ vars.COOLIFY_URL || 'https://coolify.webconsulting.at' }}
+          COOLIFY_SERVER_UUID: ${{ vars.COOLIFY_SERVER_UUID || 'j2islqjevpoywpdmlpbzrnsy' }}
+        run: |
+          deployment_uuid=$(jq -r '.deployments[0].deployment_uuid // empty' response.txt)
+          if [ -z "${deployment_uuid}" ]; then
+            echo "::warning::Coolify returned no deployment id, so there is nothing to wait for. The nightly cleanup keeps three versions."
+            exit 0
+          fi
+
+          state=""
+          for _ in $(seq 1 90); do
+            code=$(curl -sS -o deployment.json -w '%{http_code}' --max-time 30 \
+              -H "Authorization: Bearer ${COOLIFY_TOKEN}" \
+              "${COOLIFY_URL}/api/v1/deployments/${deployment_uuid}" || echo 000)
+            # "Deployment already queued for this commit" hands out an id that
+            # Coolify then answers 404 for; the other run cleans up after it.
+            if [ "${code}" = "404" ]; then
+              echo "::warning::Coolify does not know deployment ${deployment_uuid} (already queued for this commit?). Not waiting."
+              exit 0
+            fi
+            state=$(jq -r '.status // empty' deployment.json 2>/dev/null || true)
+            case "${state}" in
+              finished|failed|cancelled|cancelled-by-user) break ;;
+            esac
+            sleep 20
+          done
+
+          if [ "${state}" != "finished" ]; then
+            echo "::error::Coolify deployment ${deployment_uuid} ended as '${state:-unknown}'; the previous image keeps serving."
+            exit 1
+          fi
+          echo "Deployment ${deployment_uuid} finished."
+
+          status=$(curl -sS -o cleanup.txt -w '%{http_code}' --max-time 60 \
+            -X POST \
+            -H "Authorization: Bearer ${COOLIFY_TOKEN}" \
+            -H 'Content-Type: application/json' \
+            -d '{"delete_unused_volumes":false,"delete_unused_networks":false}' \
+            "${COOLIFY_URL}/api/v1/servers/${COOLIFY_SERVER_UUID}/docker-cleanup/run" || echo 000)
+          case "${status}" in
+            200|201|202)
+              echo "Coolify cleanup started: older versions than the last three are removed." ;;
+            403)
+              echo "::warning::Coolify refused the cleanup (the token needs the 'write' permission): $(cat cleanup.txt). The nightly cleanup still keeps three versions." ;;
+            *)
+              echo "::warning::Coolify cleanup answered ${status}: $(cat cleanup.txt). The nightly cleanup still keeps three versions." ;;
+          esac

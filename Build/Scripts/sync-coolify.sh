@@ -344,6 +344,32 @@ deploy() {
     done
     echo "Deployed: $(remote_image_tag || echo unknown) — edge answers ${edge}."
     [[ "${edge}" == "401" || "${edge}" == "200" ]] || exit 1
+
+    keep_three_versions "${base_url}" "${token}"
+}
+
+# The host keeps the last three deployed versions (user rule, 2026-10-10).
+# Coolify's retention is 6 images (web + Solr per version) but runs only in its
+# nightly cleanup, so start that cleanup now. CI's deploy job does the same.
+keep_three_versions() {
+    local base_url="$1" token="$2"
+    local server_uuid="${COOLIFY_SERVER_UUID:-j2islqjevpoywpdmlpbzrnsy}"
+    local body status
+
+    body="$(curl -sS -w $'\n%{http_code}' --max-time 60 \
+        -X POST \
+        -H "Authorization: Bearer ${token}" \
+        -H 'Content-Type: application/json' \
+        -d '{"delete_unused_volumes":false,"delete_unused_networks":false}' \
+        "${base_url}/api/v1/servers/${server_uuid}/docker-cleanup/run")" || body=$'\n000'
+    status="${body##*$'\n'}"
+    body="${body%$'\n'*}"
+
+    case "${status}" in
+        200|201|202) echo "Coolify cleanup started: versions older than the last three are removed." ;;
+        403) echo "Coolify refused the cleanup (the token needs the \"write\" permission): ${body}. The nightly cleanup still keeps three versions." >&2 ;;
+        *) echo "Coolify cleanup answered ${status}: ${body}. The nightly cleanup still keeps three versions." >&2 ;;
+    esac
 }
 
 require_green_ci() {
