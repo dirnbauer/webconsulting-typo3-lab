@@ -10,8 +10,10 @@ The repository is private. GitHub CI uses the read-only project deploy key in
 `GITLAB_EXTENSIONS_READ_KEY`. Coolify uses the same key as a build-only Docker
 secret, with **Use Docker Build Secrets** enabled. The Dockerfile mounts it only
 during Composer installation; the private key is absent from image layers.
-Compose overrides its value to empty in every runtime service because Coolify
-adds its generated `.env` to all services. The build context excludes `.env`.
+The key has `is_runtime=false` and is absent from service `environment`
+declarations. Coolify substitutes saved values even for explicit empty entries,
+so an empty Compose override would expose the key at runtime. Its generated
+runtime `.env` respects `is_runtime=false`. The build context excludes `.env`.
 Both Dockerfiles use syntax 1.10 because Coolify injects secret environment
 mounts into their build steps; this syntax supports those mounts.
 Coolify trims the key's final newline. The Composer step restores it in a
@@ -33,7 +35,9 @@ caller and exposes public metadata/JWKS; assertions remain behind the lab login
 and require an HttpOnly visitor cookie, a CSRF token and the canonical Origin.
 Its signing key persists in `var/poppy/identity.json`, outside the web root.
 HTTP Basic Auth exempts the exact protocol paths because DPoP uses the same
-Authorization header. Pages, the playground and its assertion route retain Basic.
+Authorization header. The Apache rule checks the original request line so the
+exception survives TYPO3's internal rewrite to `index.php`. Pages, the
+playground and its assertion route retain Basic.
 
 ## Native content
 
