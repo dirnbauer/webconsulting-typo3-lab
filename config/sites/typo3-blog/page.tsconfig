@@ -1,0 +1,13 @@
+# Categories of this site: the ones stored in its category folder(s)
+# (391). site_package's TCA override limits category fields to
+# TCEFORM.<table>.<field>.PAGE_TSCONFIG_IDLIST; the theme set hides the
+# content element's category tab, which this site uses.
+TCEFORM {
+  tt_content.categories {
+    disabled = 0
+    PAGE_TSCONFIG_IDLIST = 391
+  }
+  tt_content.selected_categories.PAGE_TSCONFIG_IDLIST < TCEFORM.tt_content.categories.PAGE_TSCONFIG_IDLIST
+  pages.categories.PAGE_TSCONFIG_IDLIST < TCEFORM.tt_content.categories.PAGE_TSCONFIG_IDLIST
+  sys_category.parent.PAGE_TSCONFIG_IDLIST < TCEFORM.tt_content.categories.PAGE_TSCONFIG_IDLIST
+}
