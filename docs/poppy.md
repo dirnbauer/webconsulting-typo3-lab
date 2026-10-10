@@ -14,6 +14,9 @@ Compose overrides its value to empty in every runtime service because Coolify
 adds its generated `.env` to all services. The build context excludes `.env`.
 Both Dockerfiles use syntax 1.10 because Coolify injects secret environment
 mounts into their build steps; this syntax supports those mounts.
+Coolify trims the key's final newline. The Composer step restores it in a
+temporary memory mount, so OpenSSH can read the key and no key file enters an
+image layer.
 The trusted GitLab host key is pinned in `Build/SSH/known_hosts`. Local builds
 can instead forward an SSH agent with `docker build --ssh default`.
 

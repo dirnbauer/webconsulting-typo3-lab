@@ -65,7 +65,12 @@ RUN mkdir -p -m 0700 /root/.ssh \
 # BuildKit never copies the agent or private key into an image layer.
 RUN --mount=type=ssh \
     --mount=type=secret,id=GITLAB_EXTENSIONS_READ_KEY,target=/root/.ssh/poppy-read-key,mode=0600 \
-    if [ -s /root/.ssh/poppy-read-key ]; then export GIT_SSH_COMMAND='ssh -i /root/.ssh/poppy-read-key -o IdentitiesOnly=yes'; fi \
+    --mount=type=tmpfs,target=/run/poppy-build \
+    if [ -s /root/.ssh/poppy-read-key ]; then \
+        (cat /root/.ssh/poppy-read-key && printf '\n') > /run/poppy-build/key \
+        && chmod 0600 /run/poppy-build/key \
+        && export GIT_SSH_COMMAND='ssh -i /run/poppy-build/key -o IdentitiesOnly=yes -o BatchMode=yes'; \
+    fi \
     && composer install \
         --no-dev \
         --no-interaction \
