@@ -22,7 +22,7 @@ trap cleanup EXIT
 
 usage() {
     cat <<'USAGE'
-Usage: Build/Scripts/sync-coolify.sh <status|deploy|publish-snapshot|publish-downloads-page|push|pull> [--confirm|--force]
+Usage: Build/Scripts/sync-coolify.sh <status|deploy|publish-snapshot|publish-downloads-page|publish-poppy|push|pull> [--confirm|--force]
 
   status            Show the local DDEV and remote Coolify container state.
   deploy            Ask Coolify to rebuild and redeploy the application from
@@ -41,6 +41,10 @@ Usage: Build/Scripts/sync-coolify.sh <status|deploy|publish-snapshot|publish-dow
                     database record, so neither deploy nor publish-snapshot
                     carries it over. Matched by slug, so re-running updates
                     rather than duplicating.
+  publish-poppy --confirm
+                    Back up live data, then apply only the Poppy feature,
+                    Pi Durable example, help and their native images through
+                    the deployed TYPO3 DataHandler seeder.
   push --confirm    Back up Coolify, then replace its database and fileadmin
                     with exports from this DDEV project.
   pull --confirm    Back up DDEV, then replace its database and fileadmin
@@ -440,6 +444,20 @@ publish_snapshot() {
     echo "before announcing the links."
 }
 
+publish_poppy() {
+    local web_container database_container timestamp
+    web_container="$(remote_container web)"
+    database_container="$(remote_container database)"
+    ssh "${SSH_OPTIONS[@]}" "${REMOTE_HOST}" \
+        "docker exec -u www-data '${web_container}' vendor/bin/typo3 help sitepackage:seed-poppy >/dev/null"
+    timestamp="poppy-$(date -u +%Y%m%dT%H%M%SZ)"
+    remote_backup "${timestamp}" "${database_container}" "${web_container}"
+    ssh "${SSH_OPTIONS[@]}" "${REMOTE_HOST}" \
+        "docker exec -u www-data '${web_container}' vendor/bin/typo3 sitepackage:seed-poppy --allow-production \
+         && docker exec -u www-data '${web_container}' vendor/bin/typo3 cache:flush --group pages"
+    echo 'Poppy native content published. Test /poppy/demo using the lab login.'
+}
+
 publish_downloads_page() {
     local stage web_container root_page
     local definition="$(dirname "$0")/lib/downloads-page.json"
@@ -485,6 +503,10 @@ case "${command}" in
     publish-downloads-page)
         require_confirmation "$@"
         publish_downloads_page
+        ;;
+    publish-poppy)
+        require_confirmation "$@"
+        publish_poppy
         ;;
     push)
         require_confirmation "$@"

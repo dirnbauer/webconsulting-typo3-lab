@@ -90,3 +90,13 @@ These commands remain available for intentional demo-data maintenance:
 
 Run commands through `ddev typo3` and inspect `--help` for their options. Take a
 snapshot before changing demo data; these are not part of the quality suite.
+
+## Poppy feature and help
+
+`sitepackage:seed-poppy` creates or refreshes the lab-owned Poppy feature, Pi
+Durable example and help pages, plus links from Features, Resources and
+Technical features. Content definitions live in
+`Resources/Private/Data/Content/poppy/poppy.payload.json`; source SVG diagrams
+live in `Resources/Public/Images/Poppy`. Writes and ordering use DataHandler;
+images use FAL. Reapply after Desiderio reseeding. The API implementation is the
+separate `webconsulting/typo3-poppy` extension. See `docs/poppy.md` at lab root.

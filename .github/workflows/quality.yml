@@ -42,6 +42,20 @@ jobs:
           path: ~/.composer/cache/files
           key: composer-files-${{ runner.os }}-${{ hashFiles('composer.lock') }}
 
+      - name: Configure private extension access
+        env:
+          GITLAB_EXTENSIONS_READ_KEY: ${{ secrets.GITLAB_EXTENSIONS_READ_KEY }}
+        run: |
+          if [ -z "$GITLAB_EXTENSIONS_READ_KEY" ]; then
+            echo '::error::Set GITLAB_EXTENSIONS_READ_KEY to a read-only deploy key for extensions/typo3-poppy.'
+            exit 1
+          fi
+          mkdir -p ~/.ssh
+          chmod 700 ~/.ssh
+          cp Build/SSH/known_hosts ~/.ssh/known_hosts
+          printf '%s\n' "$GITLAB_EXTENSIONS_READ_KEY" > ~/.ssh/id_ed25519
+          chmod 600 ~/.ssh/id_ed25519
+
       - name: Install dependencies
         run: composer install --no-interaction --no-progress --prefer-dist
 

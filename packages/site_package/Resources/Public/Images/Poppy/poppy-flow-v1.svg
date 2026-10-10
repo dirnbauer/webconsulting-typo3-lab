@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="660" viewBox="0 0 1440 660" role="img" aria-labelledby="title desc">
+  <title id="title">A personal agent asks TYPO3</title>
+  <desc id="desc">Poppy draft 0.1 · verified guest access</desc>
+  <rect width="1440" height="660" fill="#111827"></rect>
+  <text x="64" y="94" fill="#fff" font-family="Arial,sans-serif" font-weight="700" font-size="44">A personal agent asks TYPO3</text>
+  <text x="64" y="147" fill="#cbd5e1" font-family="Arial,sans-serif" font-size="26">Poppy draft 0.1 · verified guest access</text>
+  <rect x="64" y="230" width="310" height="250" fill="#1e293b"></rect>
+  <text x="88" y="285" fill="#a3e635" font-family="Arial,sans-serif" font-size="28">01</text>
+  <text x="88" y="347" fill="#fff" font-family="Arial,sans-serif" font-weight="700" font-size="27">DISCOVER</text>
+  <text x="88" y="404" fill="#e2e8f0" font-family="Arial,sans-serif" font-size="20">poppy.json + issuer</text>
+  <path d="M376 355h20m-8-8 8 8-8 8" stroke="#a3e635" stroke-width="3" fill="none"></path>
+  <rect x="398" y="230" width="310" height="250" fill="#1e293b"></rect>
+  <text x="422" y="285" fill="#a3e635" font-family="Arial,sans-serif" font-size="28">02</text>
+  <text x="422" y="347" fill="#fff" font-family="Arial,sans-serif" font-weight="700" font-size="27">IDENTIFY</text>
+  <text x="422" y="404" fill="#e2e8f0" font-family="Arial,sans-serif" font-size="20">Assertions + session</text>
+  <path d="M710 355h20m-8-8 8 8-8 8" stroke="#a3e635" stroke-width="3" fill="none"></path>
+  <rect x="732" y="230" width="310" height="250" fill="#1e293b"></rect>
+  <text x="756" y="285" fill="#a3e635" font-family="Arial,sans-serif" font-size="28">03</text>
+  <text x="756" y="347" fill="#fff" font-family="Arial,sans-serif" font-weight="700" font-size="27">PROVE</text>
+  <text x="756" y="404" fill="#e2e8f0" font-family="Arial,sans-serif" font-size="20">DPoP for each request</text>
+  <path d="M1044 355h20m-8-8 8 8-8 8" stroke="#a3e635" stroke-width="3" fill="none"></path>
+  <rect x="1066" y="230" width="310" height="250" fill="#1e293b"></rect>
+  <text x="1090" y="285" fill="#a3e635" font-family="Arial,sans-serif" font-size="28">04</text>
+  <text x="1090" y="347" fill="#fff" font-family="Arial,sans-serif" font-weight="700" font-size="27">READ</text>
+  <text x="1090" y="404" fill="#e2e8f0" font-family="Arial,sans-serif" font-size="20">CMS text + source URL</text>
+  <text x="64" y="576" fill="#cbd5e1" font-family="Arial,sans-serif" font-size="24">TYPO3 LAB / webconsulting</text>
+</svg>

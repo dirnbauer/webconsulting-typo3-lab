@@ -46,7 +46,9 @@ case "${SUITE}" in
         while IFS= read -r -d '' YAML_FILE; do
             vendor/bin/typo3 lint:yaml --parse-tags "${YAML_FILE}" >/dev/null
             YAML_FILE_COUNT=$((YAML_FILE_COUNT + 1))
-        done < <(find config packages -type f \( -name '*.yaml' -o -name '*.yml' \) \
+        # Match the repository-owned scope used by PHP lint. Local packages/*
+        # can contain ignored development checkouts with other YAML dialects.
+        done < <(find config packages/site_package -type f \( -name '*.yaml' -o -name '*.yml' \) \
             -not -path '*/vendor/*' -not -path '*/node_modules/*' -print0)
         echo "Validated ${YAML_FILE_COUNT} YAML files."
         ;;

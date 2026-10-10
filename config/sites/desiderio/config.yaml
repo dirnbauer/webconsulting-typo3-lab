@@ -98,3 +98,17 @@ imports:
     resource: 'EXT:blog/Configuration/Routes/Default.yaml'
   -
     resource: '../../shared/route-enhancers.yaml'
+
+# Domain-wide Personal Agent Protocol draft 0.1 (guest knowledge profile).
+poppy:
+  enabled: true
+  playground: true
+  organizationName: 'Webconsulting TYPO3 Lab'
+  allowedClients: []
+  sources:
+    poppy:
+      slug: /features/poppy
+      header: 'What TYPO3 Lab says'
+    pi-durable:
+      slug: /features/poppy/pi-durable
+      header: 'What TYPO3 Lab says'

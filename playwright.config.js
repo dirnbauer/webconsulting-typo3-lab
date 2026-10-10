@@ -1,7 +1,11 @@
 import { defineConfig, devices } from "@playwright/test";
+import { readFileSync } from "node:fs";
 
 const baseURL = process.env.PLAYWRIGHT_BASE_URL
   ?? "https://webconsulting-typo3-lab.ddev.site";
+const httpCredentials = process.env.PLAYWRIGHT_HTTP_CREDENTIALS_FILE
+  ? JSON.parse(readFileSync(process.env.PLAYWRIGHT_HTTP_CREDENTIALS_FILE, 'utf8'))
+  : undefined;
 
 export default defineConfig({
   testDir: "./Tests/E2E",
@@ -17,6 +21,7 @@ export default defineConfig({
   expect: { timeout: 5_000 },
   use: {
     baseURL,
+    httpCredentials,
     ignoreHTTPSErrors: true,
     screenshot: "only-on-failure",
     trace: "retain-on-failure",

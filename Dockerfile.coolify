@@ -27,6 +27,7 @@ RUN apt-get update \
         libzip4 \
     && apt-get install --no-install-recommends -y \
         git \
+        openssh-client \
         libfreetype6-dev \
         libicu-dev \
         libjpeg62-turbo-dev \
@@ -56,8 +57,16 @@ RUN ln -s /usr/local/lib/node_modules/npm/bin/npm-cli.js /usr/local/bin/npm \
 
 WORKDIR /var/www/html
 COPY . .
+RUN mkdir -p -m 0700 /root/.ssh \
+    && cp Build/SSH/known_hosts /root/.ssh/known_hosts \
+    && chmod 0600 /root/.ssh/known_hosts
 
-RUN composer install \
+# Forward a repository-read SSH agent with `docker build --ssh default`.
+# BuildKit never copies the agent or private key into an image layer.
+RUN --mount=type=ssh \
+    --mount=type=secret,id=GITLAB_EXTENSIONS_READ_KEY,target=/root/.ssh/poppy-read-key,mode=0600 \
+    if [ -s /root/.ssh/poppy-read-key ]; then export GIT_SSH_COMMAND='ssh -i /root/.ssh/poppy-read-key -o IdentitiesOnly=yes'; fi \
+    && composer install \
         --no-dev \
         --no-interaction \
         --no-progress \
@@ -67,6 +76,7 @@ RUN composer install \
     && npm run build \
     && apt-get purge -y --auto-remove \
         git \
+        openssh-client \
         libfreetype6-dev \
         libicu-dev \
         libjpeg62-turbo-dev \

@@ -6,13 +6,14 @@ content editing, search, forms, APIs and governed agent workflows.
 [Documentation](docs/README.md) ·
 [Site inventory](docs/site-configuration.md) ·
 [MCP clients](docs/mcp-clients.md) ·
+[Poppy + Pi Durable](docs/poppy.md) ·
 [GitHub](https://github.com/dirnbauer/webconsulting-typo3-lab)
 
 ## Runtime
 
 | Component | Version or policy |
 |---|---|
-| TYPO3 | `14.3.7` (minimum `^14.3.7`) |
+| TYPO3 | `14.3.8` (minimum `^14.3.8`) |
 | PHP | `8.4` minimum |
 | DDEV | `>=1.25.3`, Apache FPM, Mutagen |
 | Database | MariaDB `10.11` |
@@ -254,3 +255,23 @@ systems community and all Astryx contributors. The pinned upstream Astryx
 release is MIT-licensed, copyright 2026 Meta Platforms, Inc.; the exact licence
 text and pinned source commit are retained in
 [Astryx for TYPO3's third-party notice](https://github.com/dirnbauer/astryx-typo3/blob/main/THIRD_PARTY_NOTICES.md).
+
+## Personal Agent Protocol (Poppy)
+
+`webconsulting/typo3-poppy` adds the draft 0.1 signed-out knowledge profile:
+HTTPS discovery, registered agent identities, DPoP guest sessions and a
+read-only API backed by published TYPO3 text. The extension has its own
+[GitLab repository](https://gitlab.webconsulting.at/extensions/typo3-poppy).
+
+After installing dependencies and running extension setup:
+
+```bash
+ddev exec vendor/bin/typo3 sitepackage:seed-poppy
+ddev exec vendor/bin/typo3 cache:flush
+```
+
+The native pages are `/features/poppy/`, `/features/poppy/pi-durable/` and
+`/resources/poppy-help/`. They include two explanatory diagrams, an editorial
+example answer, supported capabilities and help. The Pi Durable example
+provides a pinned Cloudflare PiHarness integration; its protocol transport is
+tested against the actual TYPO3 instance. See [setup and testing](docs/poppy.md).

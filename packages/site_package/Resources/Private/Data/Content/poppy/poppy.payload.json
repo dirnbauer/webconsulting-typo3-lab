@@ -1,0 +1,502 @@
+{
+  "version": 1,
+  "site": "desiderio",
+  "root": 505,
+  "language": 0,
+  "languageCode": "en",
+  "_note": "Lab-owned, idempotent Poppy feature, Pi Durable example and help. Reapply after Desiderio reseeding. All records and FAL references use DataHandler.",
+  "records": [
+    {
+      "table": "pages",
+      "action": "create",
+      "key": "NEW_poppy_feature",
+      "pid": 1068,
+      "match": {
+        "pid": 1068,
+        "slug": "/features/poppy",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "title": "Poppy: personal agents meet TYPO3",
+        "slug": "/features/poppy",
+        "hidden": 0,
+        "nav_hide": 0,
+        "sys_language_uid": 0,
+        "seo_title": "Poppy: personal agents meet TYPO3 | TYPO3 Lab",
+        "description": "Try Personal Agent Protocol draft 0.1 in TYPO3: discovery, verified guest sessions and a read-only published-content API."
+      }
+    },
+    {
+      "table": "tt_content",
+      "action": "create",
+      "key": "NEW_poppy_hero",
+      "pid": "@NEW_poppy_feature",
+      "match": {
+        "pid": "@NEW_poppy_feature",
+        "sys_language_uid": 0,
+        "CType": "desiderio_headerpage"
+      },
+      "set": {
+        "CType": "desiderio_headerpage",
+        "header": "A shared interface for personal agents",
+        "header_layout": 2,
+        "colPos": 0,
+        "hidden": 0,
+        "sys_language_uid": 0,
+        "content": "",
+        "eyebrow": "Personal Agent Protocol · Draft 0.1",
+        "subheadline": "Your personal agent discovers the lab, identifies itself and reads an explanation through a documented API. The text stays editable in TYPO3."
+      }
+    },
+    {
+      "table": "tt_content",
+      "action": "create",
+      "key": "NEW_poppy_answer",
+      "pid": "@NEW_poppy_feature",
+      "match": {
+        "pid": "@NEW_poppy_feature",
+        "header": "What TYPO3 Lab says",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "CType": "text",
+        "header": "What TYPO3 Lab says",
+        "header_layout": 2,
+        "colPos": 0,
+        "hidden": 0,
+        "sys_language_uid": 0,
+        "bodytext": "<p>Poppy gives personal agents a shared way to discover a website, identify themselves and work within the access the website offers. TYPO3 Lab implements the signed-out profile of draft 0.1: verified guest sessions and a read-only OpenAPI endpoint for published explanations.</p><p>Our first use case is simple: ask what the lab says about Poppy or Pi Durable and receive the CMS text with its source URL. A separate TYPO3 extension handles the protocol. Editors own the explanation in normal TYPO3 content records.</p><p>This release offers public knowledge, with no account sign-in or editing permissions. Browser visitors remain ordinary signed-out visitors. Poppy is an early draft, so we document the supported profile and test its security boundaries.</p>"
+      }
+    },
+    {
+      "table": "tt_content",
+      "action": "create",
+      "key": "NEW_poppy_flow",
+      "pid": "@NEW_poppy_feature",
+      "match": {
+        "pid": "@NEW_poppy_feature",
+        "header": "From discovery to a sourced answer",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "CType": "desiderio_textmedia",
+        "header": "From discovery to a sourced answer",
+        "header_layout": 2,
+        "colPos": 0,
+        "hidden": 0,
+        "sys_language_uid": 0,
+        "content": "<p>The agent reads the discovery document and checks the issuer. It proves its identity, starts a guest session and signs its API request. TYPO3 returns the published explanation with a link back to this page.</p>",
+        "shadcn_layout": "media-above",
+        "media_rounded": 0
+      },
+      "files": {
+        "media": [
+          {
+            "source": "EXT:site_package/Resources/Public/Images/Poppy/poppy-flow-v1.svg",
+            "folder": "1:/user_upload/poppy/",
+            "alternative": "Four steps: discover poppy.json; verify identity and start a guest session; send a DPoP proof; read published TYPO3 content and its source.",
+            "title": "From discovery to a sourced answer",
+            "description": "Four steps: discover poppy.json; verify identity and start a guest session; send a DPoP proof; read published TYPO3 content and its source."
+          }
+        ]
+      }
+    },
+    {
+      "table": "tt_content",
+      "action": "create",
+      "key": "NEW_poppy_try",
+      "pid": "@NEW_poppy_feature",
+      "match": {
+        "pid": "@NEW_poppy_feature",
+        "header": "Try the published interface",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "CType": "text",
+        "header": "Try the published interface",
+        "header_layout": 2,
+        "colPos": 0,
+        "hidden": 0,
+        "sys_language_uid": 0,
+        "bodytext": "<p><a href=\"/poppy/demo\">Open the live Poppy playground</a>. Ask about Poppy or Pi Durable, renew the verified guest session and test replay rejection. The answer comes from the published TYPO3 text below.</p><p>Open the <a href=\"/.well-known/poppy.json\">live discovery document</a>, <a href=\"/.well-known/oauth-authorization-server/poppy\">OAuth server metadata</a> and <a href=\"/poppy/openapi.json\">OpenAPI schema</a>. Discovery is public. API calls require an administrator-registered personal agent, independent client and session assertions, and a fresh DPoP proof.</p><p><strong>Example question:</strong> What does TYPO3 Lab say about Poppy?</p><p><strong>Example answer:</strong> TYPO3 Lab implements Poppy draft 0.1 for verified guest sessions and published knowledge. Editors maintain the explanation in TYPO3. The API returns that text with its source URL.</p><p>This displayed answer is an editorial example. The authenticated API reads the section “What TYPO3 Lab says” above on every request.</p>"
+      }
+    },
+    {
+      "table": "tt_content",
+      "action": "create",
+      "key": "NEW_poppy_scope",
+      "pid": "@NEW_poppy_feature",
+      "match": {
+        "pid": "@NEW_poppy_feature",
+        "header": "What this release supports",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "CType": "text",
+        "header": "What this release supports",
+        "header_layout": 2,
+        "colPos": 0,
+        "hidden": 0,
+        "sys_language_uid": 0,
+        "bodytext": "<ul><li>Domain-wide HTTPS discovery and reciprocal OAuth issuer metadata.</li><li>ES256 and RS256 agent authentication, short-lived assertions and atomic replay rejection.</li><li>Guest sessions, renewal, random opaque Session Tokens and DPoP key binding.</li><li>A read-only OpenAPI endpoint for explicitly selected, published English CMS text.</li><li>Ordinary signed-out website browsing.</li></ul><p>Direct, device and mediated sign-in, Account Tokens, browser-session exchange, MCP and Poppy conversations are outside this release. They are not advertised by discovery. Existing TYPO3 MCP credentials do not become Poppy credentials.</p><p>See the <a href=\"https://personalagentprotocol.org/docs/spec\">official draft</a> and <a href=\"https://sierra.ai/blog/poppy\">Sierra’s announcement</a> from 9 October 2026.</p>"
+      }
+    },
+    {
+      "table": "tt_content",
+      "action": "create",
+      "key": "NEW_poppy_links",
+      "pid": "@NEW_poppy_feature",
+      "match": {
+        "pid": "@NEW_poppy_feature",
+        "header": "Continue with Pi Durable",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "CType": "text",
+        "header": "Continue with Pi Durable",
+        "header_layout": 2,
+        "colPos": 0,
+        "hidden": 0,
+        "sys_language_uid": 0,
+        "bodytext": "<p>Follow the <a href=\"/features/poppy/pi-durable/\">Pi Durable example</a>, read the <a href=\"/resources/poppy-help/\">installation and troubleshooting guide</a>, or browse the <a href=\"https://gitlab.webconsulting.at/extensions/typo3-poppy\">extension repository</a>.</p>"
+      }
+    },
+    {
+      "table": "pages",
+      "action": "create",
+      "key": "NEW_poppy_pi",
+      "pid": "@NEW_poppy_feature",
+      "match": {
+        "pid": "@NEW_poppy_feature",
+        "slug": "/features/poppy/pi-durable",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "title": "Pi Durable + TYPO3: a personal agent example",
+        "slug": "/features/poppy/pi-durable",
+        "hidden": 0,
+        "nav_hide": 0,
+        "sys_language_uid": 0,
+        "seo_title": "Pi Durable + TYPO3: a personal agent example | TYPO3 Lab",
+        "description": "Use Pi Durable on Cloudflare to discover TYPO3 through Poppy and read a published explanation with a source URL."
+      }
+    },
+    {
+      "table": "tt_content",
+      "action": "create",
+      "key": "NEW_poppy_pi_hero",
+      "pid": "@NEW_poppy_pi",
+      "match": {
+        "pid": "@NEW_poppy_pi",
+        "sys_language_uid": 0,
+        "CType": "desiderio_headerpage"
+      },
+      "set": {
+        "CType": "desiderio_headerpage",
+        "header": "Keep the personal agent’s work durable",
+        "header_layout": 2,
+        "colPos": 0,
+        "hidden": 0,
+        "sys_language_uid": 0,
+        "content": "",
+        "eyebrow": "Personal Agent Protocol · Draft 0.1",
+        "subheadline": "A durable personal agent calls the TYPO3 Lab knowledge API through Poppy. Its session state survives between tool calls."
+      }
+    },
+    {
+      "table": "tt_content",
+      "action": "create",
+      "key": "NEW_poppy_pi_answer",
+      "pid": "@NEW_poppy_pi",
+      "match": {
+        "pid": "@NEW_poppy_pi",
+        "header": "What TYPO3 Lab says",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "CType": "text",
+        "header": "What TYPO3 Lab says",
+        "header_layout": 2,
+        "colPos": 0,
+        "hidden": 0,
+        "sys_language_uid": 0,
+        "bodytext": "<p>Pi Durable provides the runtime for a personal agent whose conversations and tool work need to survive interruptions. Poppy provides the interface to the company. TYPO3 provides the editable, published knowledge.</p><p>In our example, a Pi tool discovers TYPO3 Lab, verifies its issuer, starts a signed-out session and reads the Poppy explanation. The tool returns only the published answer and its source URL to the model. Signing keys, DPoP keys and Session Tokens stay in private durable storage.</p><p>The example includes a protocol client and a Cloudflare Agents SDK PiHarness integration. Its transport is tested against TYPO3 locally. Cloudflare deployment and live model inference require a configured caller origin and authenticated application routing.</p>"
+      }
+    },
+    {
+      "table": "tt_content",
+      "action": "create",
+      "key": "NEW_poppy_pi_image",
+      "pid": "@NEW_poppy_pi",
+      "match": {
+        "pid": "@NEW_poppy_pi",
+        "header": "Three responsibilities, one request",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "CType": "desiderio_textmedia",
+        "header": "Three responsibilities, one request",
+        "header_layout": 2,
+        "colPos": 0,
+        "hidden": 0,
+        "sys_language_uid": 0,
+        "content": "<p>Pi Durable keeps the agent’s work and private protocol state. Poppy connects that agent to the lab. TYPO3 returns the editor-maintained explanation. Resuming an agent run reuses the stored identity and renews the guest session when necessary.</p>",
+        "shadcn_layout": "media-above",
+        "media_rounded": 0
+      },
+      "files": {
+        "media": [
+          {
+            "source": "EXT:site_package/Resources/Public/Images/Poppy/pi-durable-typo3-v1.svg",
+            "folder": "1:/user_upload/poppy/",
+            "alternative": "Pi Durable on Cloudflare stores the personal agent state; Poppy carries verified requests; TYPO3 owns the published answer and source URL.",
+            "title": "Three responsibilities, one request",
+            "description": "Pi Durable on Cloudflare stores the personal agent state; Poppy carries verified requests; TYPO3 owns the published answer and source URL."
+          }
+        ]
+      }
+    },
+    {
+      "table": "tt_content",
+      "action": "create",
+      "key": "NEW_poppy_pi_example",
+      "pid": "@NEW_poppy_pi",
+      "match": {
+        "pid": "@NEW_poppy_pi",
+        "header": "Example: ask the lab, keep the source",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "CType": "text",
+        "header": "Example: ask the lab, keep the source",
+        "header_layout": 2,
+        "colPos": 0,
+        "hidden": 0,
+        "sys_language_uid": 0,
+        "bodytext": "<p><strong>You:</strong> What does TYPO3 Lab say about Poppy, and how does Pi Durable fit?</p><p><strong>Pi tool:</strong> read_typo3_lab({\"topic\":\"poppy\"}), followed by read_typo3_lab({\"topic\":\"pi-durable\"}).</p><p><strong>Expected assistant response:</strong> The lab offers verified guest sessions and a read-only API for its published explanations. Pi Durable runs the personal agent and preserves its work; Poppy carries the requests; TYPO3 owns the content. Sources: the Poppy and Pi Durable feature pages.</p><p>This is an example transcript, not a claim that a live model ran on this page. The included integration test runs the discovery, session, renewal and content requests against TYPO3.</p><p><a href=\"/poppy/demo?topic=pi-durable\">Try this topic in the live protocol playground</a>. The playground verifies Poppy requests in your browser. The Pi Durable source example adds a model and durable runtime.</p>"
+      }
+    },
+    {
+      "table": "tt_content",
+      "action": "create",
+      "key": "NEW_poppy_pi_source",
+      "pid": "@NEW_poppy_pi",
+      "match": {
+        "pid": "@NEW_poppy_pi",
+        "header": "Build on the original Pi Durable demo",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "CType": "text",
+        "header": "Build on the original Pi Durable demo",
+        "header_layout": 2,
+        "colPos": 0,
+        "hidden": 0,
+        "sys_language_uid": 0,
+        "bodytext": "<p>Brendan Irvine-Broque’s <a href=\"https://x.com/irvinebroque/status/2108673648999723482\">Poppy demo post</a> links a <a href=\"https://github.com/irvinebroque/poppy-demo\">two-Worker example</a> with a simulated order exchange. Our example uses the same personal-agent/company separation for published TYPO3 knowledge.</p><p>The source lives in <code>Examples/pi-durable</code> in the extension repository. It includes pinned dependencies, a Worker entry point, a WebCrypto protocol client, tests and setup instructions. Read Cloudflare’s <a href=\"https://developers.cloudflare.com/changelog/post/2026-10-02-pi-harness/\">PiHarness announcement</a> for the runtime integration. PiHarness and Pi Durable are experimental APIs.</p><p><a href=\"/resources/poppy-help/\">Set up and test the example</a>.</p>"
+      }
+    },
+    {
+      "table": "pages",
+      "action": "create",
+      "key": "NEW_poppy_help",
+      "pid": 2232,
+      "match": {
+        "pid": 2232,
+        "slug": "/resources/poppy-help",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "title": "Poppy help: install, connect and test",
+        "slug": "/resources/poppy-help",
+        "hidden": 0,
+        "nav_hide": 0,
+        "sys_language_uid": 0,
+        "seo_title": "Poppy help: install, connect and test | TYPO3 Lab",
+        "description": "Install the TYPO3 Poppy extension, register a personal agent, edit published answers and diagnose protocol errors."
+      }
+    },
+    {
+      "table": "tt_content",
+      "action": "create",
+      "key": "NEW_poppy_help_hero",
+      "pid": "@NEW_poppy_help",
+      "match": {
+        "pid": "@NEW_poppy_help",
+        "sys_language_uid": 0,
+        "CType": "desiderio_headerpage"
+      },
+      "set": {
+        "CType": "desiderio_headerpage",
+        "header": "Connect, edit and troubleshoot",
+        "header_layout": 2,
+        "colPos": 0,
+        "hidden": 0,
+        "sys_language_uid": 0,
+        "content": "",
+        "eyebrow": "Personal Agent Protocol · Draft 0.1",
+        "subheadline": "Install the extension, connect a registered agent and keep the lab’s explanation current in TYPO3."
+      }
+    },
+    {
+      "table": "tt_content",
+      "action": "create",
+      "key": "NEW_poppy_help_install",
+      "pid": "@NEW_poppy_help",
+      "match": {
+        "pid": "@NEW_poppy_help",
+        "header": "Install and enable",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "CType": "text",
+        "header": "Install and enable",
+        "header_layout": 2,
+        "colPos": 0,
+        "hidden": 0,
+        "sys_language_uid": 0,
+        "bodytext": "<p>Require <code>webconsulting/typo3-poppy</code> from our GitLab repository, run TYPO3 extension setup and flush caches. Enable <code>poppy.enabled</code> on the domain’s canonical root site. The discovery file belongs at <code>/.well-known/poppy.json</code>, not under a language or site path.</p><p>Configure the organisation name, exact allowed client metadata URLs and topic sources in the site’s <code>poppy</code> configuration. A source selects one public page slug and one text-section heading. The extension README contains the full configuration.</p>"
+      }
+    },
+    {
+      "table": "tt_content",
+      "action": "create",
+      "key": "NEW_poppy_help_edit",
+      "pid": "@NEW_poppy_help",
+      "match": {
+        "pid": "@NEW_poppy_help",
+        "header": "Edit the answer in TYPO3",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "CType": "text",
+        "header": "Edit the answer in TYPO3",
+        "header_layout": 2,
+        "colPos": 0,
+        "hidden": 0,
+        "sys_language_uid": 0,
+        "bodytext": "<ol><li>Open Features → Poppy in the TYPO3 Page module.</li><li>Edit the normal text element headed “What TYPO3 Lab says”.</li><li>Publish your change using the normal TYPO3 workflow.</li><li>Call the knowledge API again. It reads the current published record.</li></ol><p>The Pi Durable page has its own answer under the same heading. Hidden, scheduled, workspace-only, group-protected and x402-gated records are not returned. The first release serves English source records.</p>"
+      }
+    },
+    {
+      "table": "tt_content",
+      "action": "create",
+      "key": "NEW_poppy_help_pi",
+      "pid": "@NEW_poppy_help",
+      "match": {
+        "pid": "@NEW_poppy_help",
+        "header": "Connect the Pi Durable example",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "CType": "text",
+        "header": "Connect the Pi Durable example",
+        "header_layout": 2,
+        "colPos": 0,
+        "hidden": 0,
+        "sys_language_uid": 0,
+        "bodytext": "<ol><li>Install the locked dependencies in <code>Examples/pi-durable</code>.</li><li>Set the public HTTPS TYPO3 origin, caller origin and Workers AI model.</li><li>Deploy the Worker in your Cloudflare account and register its <code>/agent.json</code> URL in the TYPO3 site configuration.</li><li>Connect <code>LabAssistant.ask</code> through your application’s authenticated, user-scoped routing.</li><li>Ask the agent to read the Poppy and Pi Durable topics.</li></ol><p>The example Worker publishes client metadata and public signing keys. Private keys and Session Tokens remain in durable storage. Its generic agent routes are not publicly exposed.</p>"
+      }
+    },
+    {
+      "table": "tt_content",
+      "action": "create",
+      "key": "NEW_poppy_help_errors",
+      "pid": "@NEW_poppy_help",
+      "match": {
+        "pid": "@NEW_poppy_help",
+        "header": "If a request fails",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "CType": "text",
+        "header": "If a request fails",
+        "header_layout": 2,
+        "colPos": 0,
+        "hidden": 0,
+        "sys_language_uid": 0,
+        "bodytext": "<ul><li><strong>invalid_client:</strong> check the exact allowlist URL, public metadata, same-host HTTPS JWKS, signing algorithm and assertion audience.</li><li><strong>invalid_grant:</strong> create fresh independent assertions. Check expiry, clock and unique assertion IDs.</li><li><strong>invalid_dpop_proof:</strong> sign the current HTTP method and URL without query or fragment. Use the bound key and the token hash. Never reuse a proof.</li><li><strong>invalid_session:</strong> start a new guest session. Do not reuse another agent’s or user’s session ID.</li><li><strong>not_found:</strong> check the configured topic, source slug, exact section heading and publication permissions.</li><li><strong>rate_limited:</strong> wait for the response’s Retry-After interval.</li></ul><p>Guest sessions grant no account scopes. Requests for account scopes are rejected. Tokens belong in the Authorization header.</p>"
+      }
+    },
+    {
+      "table": "tt_content",
+      "action": "create",
+      "key": "NEW_poppy_help_test",
+      "pid": "@NEW_poppy_help",
+      "match": {
+        "pid": "@NEW_poppy_help",
+        "header": "Run the checks",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "CType": "text",
+        "header": "Run the checks",
+        "header_layout": 2,
+        "colPos": 0,
+        "hidden": 0,
+        "sys_language_uid": 0,
+        "bodytext": "<p><a href=\"/poppy/demo\">Test Poppy in your browser</a>: choose a topic, ask the lab, renew the session and test replay protection. Expand “See the requests” to inspect HTTP outcomes. The playground uses the same published CMS content as external personal agents.</p><p>The extension’s <code>Build/Scripts/runTests.sh</code> runs the PHP unit suite and syntax checks. The Pi Durable example has transport tests, TypeScript checks and a Worker dry build. The lab’s <code>Build/Scripts/test-poppy.sh</code> runs authenticated requests against DDEV, verifies renewal and replay rejection, then removes its temporary test identity.</p><p><a href=\"/features/poppy/\">Back to the feature</a> · <a href=\"/features/poppy/pi-durable/\">Pi Durable example</a> · <a href=\"https://gitlab.webconsulting.at/extensions/typo3-poppy\">Source and README</a></p>"
+      }
+    },
+    {
+      "table": "tt_content",
+      "action": "create",
+      "key": "NEW_poppy_hub",
+      "pid": 1068,
+      "match": {
+        "pid": 1068,
+        "header": "Poppy: connect personal agents to TYPO3",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "CType": "text",
+        "header": "Poppy: connect personal agents to TYPO3",
+        "header_layout": 2,
+        "colPos": 0,
+        "hidden": 0,
+        "sys_language_uid": 0,
+        "bodytext": "<p>A new protocol experiment: verified guest sessions and published knowledge through Personal Agent Protocol draft 0.1. <a href=\"/features/poppy/\">Explore Poppy</a> and its <a href=\"/features/poppy/pi-durable/\">Pi Durable example</a>.</p>"
+      }
+    },
+    {
+      "table": "tt_content",
+      "action": "create",
+      "key": "NEW_poppy_resources",
+      "pid": 2232,
+      "match": {
+        "pid": 2232,
+        "header": "Poppy installation and help",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "CType": "text",
+        "header": "Poppy installation and help",
+        "header_layout": 2,
+        "colPos": 0,
+        "hidden": 0,
+        "sys_language_uid": 0,
+        "bodytext": "<p><a href=\"/resources/poppy-help/\">Install Poppy, register an agent and troubleshoot requests</a>. Follow the <a href=\"/features/poppy/pi-durable/\">Pi Durable example</a> to connect a durable personal agent to the lab.</p>"
+      }
+    },
+    {
+      "table": "tt_content",
+      "action": "create",
+      "key": "NEW_poppy_technical",
+      "pid": 1149,
+      "match": {
+        "pid": 1149,
+        "header": "Personal Agent Protocol (Poppy)",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "CType": "text",
+        "header": "Personal Agent Protocol (Poppy)",
+        "header_layout": 2,
+        "colPos": 0,
+        "hidden": 0,
+        "sys_language_uid": 0,
+        "bodytext": "<p>The lab includes the standalone <code>webconsulting/typo3-poppy</code> extension: domain discovery, verified guest sessions, DPoP proofs and a read-only OpenAPI content endpoint. <a href=\"/features/poppy/\">See the supported draft 0.1 profile</a>.</p>"
+      }
+    }
+  ]
+}

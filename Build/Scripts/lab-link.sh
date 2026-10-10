@@ -25,6 +25,7 @@ STATE=.lab-links
 # where `declare -A` is a syntax error - and `set -u` then turned that into
 # "webconsulting: unbound variable", so --status never ran on the host.
 CLONES='
+webconsulting/typo3-poppy poppy
 webconsulting/typo3-abilities abilities
 webconsulting/agent-nexus agent_nexus
 webconsulting/typo3-llms-txt llms_txt

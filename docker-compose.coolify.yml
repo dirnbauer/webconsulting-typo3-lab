@@ -4,6 +4,9 @@ services:
       context: .
       dockerfile: Dockerfile.coolify
     environment:
+      # Coolify adds its .env to every service. Override the build-only key so
+      # it cannot enter a running container through that env_file.
+      GITLAB_EXTENSIONS_READ_KEY: ''
       BASIC_AUTH_PASSWORD: ${SERVICE_PASSWORD_BASIC}
       BASIC_AUTH_USER: ${BASIC_AUTH_USER:-lab}
       TYPO3_CONTEXT: Production
@@ -92,6 +95,7 @@ services:
       # could not stay in memory; at 384 MB it does, with room to grow.
       - --innodb-buffer-pool-size=384M
     environment:
+      GITLAB_EXTENSIONS_READ_KEY: ''
       MARIADB_DATABASE: typo3
       MARIADB_PASSWORD: ${SERVICE_PASSWORD_DB}
       MARIADB_ROOT_PASSWORD: ${SERVICE_PASSWORD_ROOT}
@@ -119,6 +123,7 @@ services:
       context: .
       dockerfile: Dockerfile.solr.coolify
     environment:
+      GITLAB_EXTENSIONS_READ_KEY: ''
       SOLR_HEAP: 1g
       TYPO3_SOLR_ENABLED_CORES: english german hungarian chinese
     volumes:

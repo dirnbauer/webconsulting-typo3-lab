@@ -11,6 +11,7 @@ gone after the next reseed. The style guide for the text itself is
 | Site | Source | Command |
 |---|---|---|
 | Desiderio (505) | `packages/desiderio`: `Classes/Data/StyleguideShowcasePages.php`, `Classes/Data/Showcase/*.php`, `StyleguideContentGroups.php`, `Resources/Private/Data/styleguide-*.json`, `NewsDemoSeeder.php`, `PowermailDemoFormDefinitions.php`; per element `ContentBlocks/ContentElements/*/fixture.json` | `desiderio:styleguide:seed` |
+| Poppy feature, Pi Durable example, help and hub links | `packages/site_package/Resources/Private/Data/Content/poppy/poppy.payload.json`, diagrams in `Resources/Public/Images/Poppy` | `sitepackage:seed-poppy` |
 | Desiderio translations (de/zh/hu): every page, element, collection item, image text, news article, tag, category and Powermail form the seeders create in English | translation memories in `packages/site_package/Resources/Private/Data/Translations/desiderio/` (`de.json`, `zh.json`, `hu.json`: English text → translation; `scope.json`: what other commands own) | `sitepackage:content:translate --site=desiderio` |
 | Element library folders 1065, 1026, 1064, 1306 | per element `library.json` (and `library.de.json` for 1064) in desiderio, innesto and astryx_typo3 | `desiderio:library:seed` |
 | Powermail Lab forms 07–11 on Desiderio (below 712) and their section of the lab's overview | `packages/webcon_jev/Classes/Data/JevExampleDefinitions.php` | `webcon-jev:examples:seed` |
@@ -48,7 +49,8 @@ Then, after a `ddev snapshot`:
     ```bash
     php packages/site_package/Build/Scripts/build-blog-posts-payload.php --definitions=packages/site_package/Build/Data/v14-blog/extension-posts.json --out=packages/site_package/Resources/Private/Data/Content/v14-blog/extension-posts.payload.json --site=v14-blog --root=69 --folder=70 --language=en --layout=pagets__DesiderioBlogModern --author="Webconsulting TYPO3 Team" --author-email=office@webconsulting.at
     ```
-11. `ddev exec vendor/bin/typo3 cache:flush`, then `ddev exec vendor/bin/typo3 sitepackage:solr:reindex --index` (clears each Solr site's documents, queues every indexing configuration again and indexes it; on production run the same command in the web container after a database push)
+11. `ddev exec vendor/bin/typo3 sitepackage:seed-poppy` (after Desiderio reseeding: applies the lab-owned feature/help payload, imports its native FAL images and orders content through DataHandler move commands).
+12. `ddev exec vendor/bin/typo3 cache:flush`, then `ddev exec vendor/bin/typo3 sitepackage:solr:reindex --index` (clears each Solr site's documents, queues every indexing configuration again and indexes it; on production run the same command in the web container after a database push)
 
 `ddev lab-update <package>` runs steps 1–4 and the legacy redirects after a
 Composer update. It refuses to run while development clones are linked.

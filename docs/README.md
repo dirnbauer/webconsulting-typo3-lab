@@ -9,6 +9,7 @@ extension-specific behaviour remains in each extension repository.
 | [coolify-deployment.md](coolify-deployment.md) | Deployment architecture and explicit DDEV synchronization procedures. |
 | [ddev-bootstrap.md](ddev-bootstrap.md) | Database/Fileadmin import, backups, reset and release snapshots. |
 | [site-configuration.md](site-configuration.md) | Active sites, Site Set ownership, languages and validation. |
+| [poppy.md](poppy.md) | Personal Agent Protocol extension, native pages, Pi Durable example and verification. |
 | [mcp-clients.md](mcp-clients.md) | Codex, Claude Code and Cursor stdio setup and troubleshooting. |
 | [workos-frontend-plugins.md](workos-frontend-plugins.md) | WorkOS page tree, Desiderio overrides and verification. |
 | [ai-content-examples.md](ai-content-examples.md) | LLM routing, Content Assistant and image examples. |

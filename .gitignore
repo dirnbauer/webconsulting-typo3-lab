@@ -12,6 +12,8 @@ nbproject
 /public/fileadmin/*
 !/public/fileadmin/user_upload
 /public/fileadmin/user_upload/_temp_
+# Imported by sitepackage:seed-poppy from the versioned source diagrams.
+/public/fileadmin/user_upload/poppy/
 !/public/.htaccess
 node_modules/*
 apps/*/.next/

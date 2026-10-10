@@ -1,5 +1,5 @@
 {
-    "_hash": "31c5748380896ff431abc77aa46fdd1d9ed932aa54c67d79cb7592bb3ade0258",
+    "_hash": "d96cb9a1d1eee6d43292073de55df8e99345e411699e91b1f89984477c284bb6",
     "patches": {
         "apache-solr-for-typo3/solr": [
             {
@@ -19,18 +19,6 @@
                 "description": "Modernize blog backend, plugin, and record icons for TYPO3 v14",
                 "url": "patches/t3g-blog-typo3-v14-icons.patch",
                 "sha256": "9c172b2c86dd2898e9150d35bbb0682cc33e0870ef1ab4720b947195a578ee6a",
-                "depth": 1,
-                "extra": {
-                    "provenance": "root"
-                }
-            }
-        ],
-        "typo3/cms-core": [
-            {
-                "package": "typo3/cms-core",
-                "description": "Guard workspace move-pointer overlay when the live record is missing",
-                "url": "patches/typo3-cms-core-fix-workspace-move-pointer-missing-live-record.patch",
-                "sha256": "3e68ab3ee23f72eb894d0f55025a728bd2813275709d3a9a132145beed4feea3",
                 "depth": 1,
                 "extra": {
                     "provenance": "root"
