@@ -12,6 +12,8 @@ secret, with **Use Docker Build Secrets** enabled. The Dockerfile mounts it only
 during Composer installation; the private key is absent from image layers.
 Compose overrides its value to empty in every runtime service because Coolify
 adds its generated `.env` to all services. The build context excludes `.env`.
+Both Dockerfiles use syntax 1.10 because Coolify injects secret environment
+mounts into their build steps; this syntax supports those mounts.
 The trusted GitLab host key is pinned in `Build/SSH/known_hosts`. Local builds
 can instead forward an SSH agent with `docker build --ssh default`.
 
