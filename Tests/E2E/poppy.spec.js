@@ -65,7 +65,8 @@ test('Poppy playground cannot mint assertions without its browser CSRF context',
 
 test('Poppy public routes cannot bypass the deployed lab login with other TYPO3 handlers', async ({ playwright, baseURL }) => {
   test.skip(new URL(baseURL).hostname.endsWith('.ddev.site'), 'DDEV has no Apache Basic Auth; this boundary is tested on the deployed lab.');
-  const anonymous = await playwright.request.newContext({ baseURL });
+  // Override the suite's lab login; new request contexts inherit its defaults.
+  const anonymous = await playwright.request.newContext({ baseURL, httpCredentials: { username: '', password: '' } });
   try {
     expect((await anonymous.get('/.well-known/poppy.json')).status()).toBe(200);
     for (const path of ['/poppy/demo', '/poppy/demo/assertions', '/features/poppy/', '/.well-known/poppy.json?eID=unknown', '/poppy/knowledge?topic=poppy&eID=unknown']) {
