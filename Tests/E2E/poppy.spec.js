@@ -62,3 +62,21 @@ test('Poppy playground cannot mint assertions without its browser CSRF context',
   expect(jwks.keys[0].kty).toBe('EC');
   expect(jwks.keys[0].d).toBeUndefined();
 });
+
+test('Poppy public routes cannot bypass the deployed lab login with other TYPO3 handlers', async ({ playwright, baseURL }) => {
+  test.skip(new URL(baseURL).hostname.endsWith('.ddev.site'), 'DDEV has no Apache Basic Auth; this boundary is tested on the deployed lab.');
+  const anonymous = await playwright.request.newContext({ baseURL });
+  try {
+    expect((await anonymous.get('/.well-known/poppy.json')).status()).toBe(200);
+    for (const path of ['/poppy/demo', '/poppy/demo/assertions', '/features/poppy/', '/.well-known/poppy.json?eID=unknown', '/poppy/knowledge?topic=poppy&eID=unknown']) {
+      const response = await anonymous.get(path);
+      expect(response.status(), path).toBe(401);
+      expect(response.headers()['www-authenticate'], path).toContain('Basic');
+    }
+    const api = await anonymous.get('/poppy/knowledge?topic=poppy');
+    expect(api.status()).toBe(401);
+    expect((await api.json()).error).toBeDefined();
+  } finally {
+    await anonymous.dispose();
+  }
+});

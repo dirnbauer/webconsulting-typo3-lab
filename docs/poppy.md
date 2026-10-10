@@ -38,6 +38,9 @@ HTTP Basic Auth exempts the exact protocol paths because DPoP uses the same
 Authorization header. The Apache rule checks the original request line so the
 exception survives TYPO3's internal rewrite to `index.php`. Pages, the
 playground and its assertion route retain Basic.
+Only the knowledge endpoint accepts a simple `topic` query on public protocol
+routes. Other query strings retain Basic Auth so TYPO3's earlier eID handler
+cannot bypass the lab login through a protocol URL.
 
 ## Native content
 
