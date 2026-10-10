@@ -83,4 +83,11 @@ if (getenv('IS_DDEV_PROJECT') !== 'true') {
             ],
         ]
     );
+
+    // Skillflow refuses to run outside a local DDEV install in Development
+    // context. This lab instance is allowed to run skills anyway, but only
+    // through the API runner: the CLI runner would start Claude Code with tool
+    // access on this server. Local installs keep the guard.
+    $GLOBALS['TYPO3_CONF_VARS']['EXTENSIONS']['skillflow']['requireLocalEnvironment'] = '0';
+    $GLOBALS['TYPO3_CONF_VARS']['EXTENSIONS']['skillflow']['runner'] = 'api';
 }
