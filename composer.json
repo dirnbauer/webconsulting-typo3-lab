@@ -248,6 +248,9 @@
 			},
 			"t3g/blog": {
 				"Modernize blog backend, plugin, and record icons for TYPO3 v14": "patches/t3g-blog-typo3-v14-icons.patch"
+			},
+			"webconsulting/desiderio": {
+				"Localize required checkbox and radio validation in the selected frontend language": "patches/webconsulting-desiderio-powermail-required-localization.patch"
 			}
 		}
 	},

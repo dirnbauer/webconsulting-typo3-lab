@@ -1,5 +1,5 @@
 {
-    "_hash": "d96cb9a1d1eee6d43292073de55df8e99345e411699e91b1f89984477c284bb6",
+    "_hash": "7b90ff8cce806dd46084275346beade76d4bfdc9b9ea4490de39f78b9bb8eff0",
     "patches": {
         "apache-solr-for-typo3/solr": [
             {
@@ -19,6 +19,18 @@
                 "description": "Modernize blog backend, plugin, and record icons for TYPO3 v14",
                 "url": "patches/t3g-blog-typo3-v14-icons.patch",
                 "sha256": "9c172b2c86dd2898e9150d35bbb0682cc33e0870ef1ab4720b947195a578ee6a",
+                "depth": 1,
+                "extra": {
+                    "provenance": "root"
+                }
+            }
+        ],
+        "webconsulting/desiderio": [
+            {
+                "package": "webconsulting/desiderio",
+                "description": "Localize required checkbox and radio validation in the selected frontend language",
+                "url": "patches/webconsulting-desiderio-powermail-required-localization.patch",
+                "sha256": "3a10a16bbf48fb02759248abf1b81b7d4562790bc6105e0e73c00ac8816484c3",
                 "depth": 1,
                 "extra": {
                     "provenance": "root"
