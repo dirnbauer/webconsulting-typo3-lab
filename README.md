@@ -274,7 +274,7 @@ Poppy is the sixth protocol in the Agent Nexus field guide. The native pages
 are `/agent-nexus/poppy/`, `/agent-nexus/poppy/pi-durable/` and
 `/agent-nexus/poppy/help/`; former content URLs redirect to them.
 The overview, menu, shared playground and docs link this structure.
-The pages include practical uses, two explanatory diagrams, an editorial
+The pages include practical uses, a Poppy diagram and editable Pi Durable steps, an editorial
 example answer, supported capabilities and help. The Pi Durable example
 provides a pinned Cloudflare PiHarness integration; its protocol transport is
 tested against the actual TYPO3 instance. See [setup and testing](docs/poppy.md).

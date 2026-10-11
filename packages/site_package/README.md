@@ -98,7 +98,8 @@ Durable example and help pages in Agent Nexus, plus the six-protocol overview,
 shared playground, docs and links from Features, Resources and Technical features.
 It moves existing pages with DataHandler, retains their content/FAL IDs and
 creates permanent redirects from former content URLs. Content definitions live in
-`Resources/Private/Data/Content/poppy/poppy.payload.json`; source SVG diagrams
-live in `Resources/Public/Images/Poppy`. Writes and ordering use DataHandler;
+`Resources/Private/Data/Content/poppy/poppy.payload.json`. Poppy uses a source
+SVG in `Resources/Public/Images/Poppy`; Pi Durable uses the existing Numbered
+Feature Steps Content Block with four editable repeatable items. Writes and ordering use DataHandler;
 images use FAL. Reapply after Desiderio reseeding. The API implementation is the
 separate `webconsulting/typo3-poppy` extension. See `docs/poppy.md` at lab root.

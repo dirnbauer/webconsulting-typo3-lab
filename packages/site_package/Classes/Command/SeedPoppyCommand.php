@@ -79,9 +79,12 @@ final class SeedPoppyCommand extends Command
         $groups = [];
         foreach ($payload['records'] as $record) {
             $match = $record['match'];
-            if (is_string($match['pid']) && str_starts_with($match['pid'], '@')) {
-                $match['pid'] = $keys[substr($match['pid'], 1)];
+            foreach ($match as &$value) {
+                if (is_string($value) && str_starts_with($value, '@')) {
+                    $value = $keys[substr($value, 1)];
+                }
             }
+            unset($value);
             $uid = (int)$this->pool->getConnectionForTable($record['table'])->select(
                 ['uid'], $record['table'], $match + ['deleted' => 0],
             )->fetchOne();
@@ -91,6 +94,20 @@ final class SeedPoppyCommand extends Command
             $keys[$record['key']] = $uid;
             if ($record['table'] === 'tt_content') {
                 $groups[$match['pid']][] = $uid;
+            }
+        }
+        // Connect native repeatable items after new parent and child IDs are known.
+        foreach ($payload['records'] as $record) {
+            if (!isset($record['_collection'])) {
+                continue;
+            }
+            $collection = $record['_collection'];
+            $children = array_map(static fn (string $key): int => $keys[$key], $collection['keys']);
+            $handler = GeneralUtility::makeInstance(DataHandler::class);
+            $handler->start([$record['table'] => [$keys[$record['key']] => [$collection['field'] => implode(',', $children)]]], []);
+            $handler->process_datamap();
+            if ($handler->errorLog !== []) {
+                throw new \RuntimeException('DataHandler could not connect the Poppy content steps.');
             }
         }
         foreach ($groups as $pid => $uids) {

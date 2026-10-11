@@ -5,7 +5,7 @@ test.use({ reducedMotion: 'reduce' });
 
 for (const [path, heading, image] of [
   ['/agent-nexus/poppy/', 'Poppy: personal agents meet TYPO3', 'Four steps: discover'],
-  ['/agent-nexus/poppy/pi-durable/', 'Pi Durable + TYPO3: a personal agent example', 'Pi Durable on Cloudflare'],
+  ['/agent-nexus/poppy/pi-durable/', 'Pi Durable + TYPO3: a personal agent example', null],
   ['/agent-nexus/poppy/help/', 'Poppy help: install, connect and test', null],
 ]) {
   test(`Poppy CMS page ${path}`, async ({ page }, testInfo) => {
@@ -19,6 +19,18 @@ for (const [path, heading, image] of [
       await img.scrollIntoViewIfNeeded();
       await expect(img).toBeVisible();
       expect(await img.evaluate(element => element.complete && element.naturalWidth > 0)).toBeTruthy();
+    }
+    if (path.includes('pi-durable')) {
+      const steps = page.locator('.feature-numbered');
+      await expect(steps.getByRole('heading', { name: 'Three responsibilities, one request' })).toBeVisible();
+      await expect(steps.locator('ol > li')).toHaveCount(4);
+      for (const title of ['Pi Durable', 'Poppy', 'TYPO3', 'Answer + source']) {
+        await expect(steps.getByRole('heading', { name: title, exact: true })).toBeVisible();
+      }
+      await expect(steps.locator('a')).toHaveCount(4);
+      const columns = await steps.locator('ol').evaluate(el => getComputedStyle(el).gridTemplateColumns.split(/\s+/).length);
+      expect(columns).toBe(page.viewportSize().width <= 640 ? 1 : 2);
+      await expect(page.locator('img[src*="pi-durable-typo3"]')).toHaveCount(0);
     }
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth + 1)).toBeTruthy();
     expect(errors).toEqual([]);

@@ -1,2 +1,6 @@
 plugin.tx_agentnexus.view.partialRootPaths.100 = EXT:site_package/Resources/Private/Extensions/AgentNexus/Partials/
 plugin.tx_agentnexus.settings.poppyDemoUrl = /agent-nexus/poppy/
+
+[page["slug"] == "/poppy/pi-durable"]
+page.includeCSS.poppyNativeSteps = EXT:site_package/Resources/Public/Css/poppy-native-steps.css
+[END]

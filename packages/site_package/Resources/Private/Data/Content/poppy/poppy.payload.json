@@ -436,26 +436,102 @@
         "sys_language_uid": 0
       },
       "set": {
-        "CType": "desiderio_textmedia",
+        "CType": "desiderio_featurenumbered",
         "header": "Three responsibilities, one request",
         "header_layout": 2,
         "colPos": 0,
         "hidden": 0,
         "sys_language_uid": 0,
-        "content": "<p>Pi Durable keeps the agent’s work and private protocol state. Poppy connects that agent to the lab. TYPO3 returns the editor-maintained explanation. Resuming an agent run reuses the stored identity and renews the guest session when necessary.</p>",
-        "shadcn_layout": "media-above",
-        "media_rounded": 0
+        "subheadline": "Pi Durable keeps the agent’s work. Poppy verifies the request. TYPO3 supplies the published answer and its source.",
+        "content": ""
       },
       "files": {
-        "media": [
-          {
-            "source": "EXT:site_package/Resources/Public/Images/Poppy/pi-durable-typo3-v1.svg",
-            "folder": "1:/user_upload/poppy/",
-            "alternative": "Pi Durable on Cloudflare stores the personal agent state; Poppy carries verified requests; TYPO3 owns the published answer and source URL.",
-            "title": "Three responsibilities, one request",
-            "description": "Pi Durable on Cloudflare stores the personal agent state; Poppy carries verified requests; TYPO3 owns the published answer and source URL."
-          }
+        "media": []
+      },
+      "_collection": {
+        "field": "desiderio_featurenumbered_items",
+        "keys": [
+          "NEW_poppy_pi_step_pi",
+          "NEW_poppy_pi_step_poppy",
+          "NEW_poppy_pi_step_typo3",
+          "NEW_poppy_pi_step_source"
         ]
+      }
+    },
+    {
+      "table": "feature_numbered_items",
+      "action": "create",
+      "key": "NEW_poppy_pi_step_pi",
+      "pid": "@NEW_poppy_pi",
+      "match": {
+        "pid": "@NEW_poppy_pi",
+        "foreign_table_parent_uid": "@NEW_poppy_pi_image",
+        "title": "Pi Durable",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "title": "Pi Durable",
+        "description": "<p>The personal agent keeps its conversation, tool work and private protocol state in durable storage. It can resume after an interruption and renew its guest session when necessary.</p><p>Signing keys, DPoP keys and tokens stay private. <a href=\"https://gitlab.webconsulting.at/extensions/typo3-poppy/-/tree/main/Examples/pi-durable\">Explore the Pi Durable source example</a>.</p>",
+        "foreign_table_parent_uid": "@NEW_poppy_pi_image",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "feature_numbered_items",
+      "action": "create",
+      "key": "NEW_poppy_pi_step_poppy",
+      "pid": "@NEW_poppy_pi",
+      "match": {
+        "pid": "@NEW_poppy_pi",
+        "foreign_table_parent_uid": "@NEW_poppy_pi_image",
+        "title": "Poppy",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "title": "Poppy",
+        "description": "<p>The agent discovers the lab, proves its identity and starts a verified guest session. Each knowledge request includes a fresh DPoP proof bound to the agent’s key.</p><p><a href=\"/agent-nexus/poppy/\">Read how Poppy works</a>.</p>",
+        "foreign_table_parent_uid": "@NEW_poppy_pi_image",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "feature_numbered_items",
+      "action": "create",
+      "key": "NEW_poppy_pi_step_typo3",
+      "pid": "@NEW_poppy_pi",
+      "match": {
+        "pid": "@NEW_poppy_pi",
+        "foreign_table_parent_uid": "@NEW_poppy_pi_image",
+        "title": "TYPO3",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "title": "TYPO3",
+        "description": "<p>TYPO3 reads the published text element headed “What TYPO3 Lab says”. Editors maintain the answer in normal content records; hidden or protected content is excluded.</p><p><a href=\"/agent-nexus/poppy/help/\">See the editorial workflow</a>.</p>",
+        "foreign_table_parent_uid": "@NEW_poppy_pi_image",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "feature_numbered_items",
+      "action": "create",
+      "key": "NEW_poppy_pi_step_source",
+      "pid": "@NEW_poppy_pi",
+      "match": {
+        "pid": "@NEW_poppy_pi",
+        "foreign_table_parent_uid": "@NEW_poppy_pi_image",
+        "title": "Answer + source",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "title": "Answer + source",
+        "description": "<p>The tool returns the published explanation and its source URL to the agent. The person can follow the citation and check the original TYPO3 page.</p><p><a href=\"/poppy/demo?topic=pi-durable\">Try the Pi Durable topic in the playground</a>. This tests the protocol; running the model requires the separate Pi Durable runtime.</p>",
+        "foreign_table_parent_uid": "@NEW_poppy_pi_image",
+        "sys_language_uid": 0,
+        "hidden": 0
       }
     },
     {

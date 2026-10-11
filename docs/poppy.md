@@ -52,8 +52,13 @@ cannot bypass the lab login through a protocol URL.
 
 Poppy is the sixth protocol in the Agent Nexus field guide. Its native page contains purpose, practical uses, the request flow, endpoint explanations, scope and comparisons with the other five protocols, followed by a sourced summary of Sierra's draft announcement: the draft at a glance, the five building blocks (each marked with what the lab implements), the standards it builds on, Sierra's three examples, next steps and a numbered source list. Those sections paraphrase the sources and link them inline; keep them in the lab's own wording when the draft changes. Pi Durable and Help are child pages. Features, Resources, Technical features, the Agent Nexus product page, overview, shared playground and docs link to this structure. The repeatable
 source is `packages/site_package/Resources/Private/Data/Content/poppy/poppy.payload.json`.
-The two source SVG diagrams are imported into FAL and attached to native
-Desiderio text/media blocks, with alternative text and captions.
+The Poppy SVG diagram is imported into FAL with alternative text and a caption.
+The Pi Durable flow uses the existing `desiderio_featurenumbered` Content Block
+with four native `feature_numbered_items` records: Pi Durable, Poppy, TYPO3 and
+Answer + source. Each title, rich-text explanation and link is editable in TYPO3.
+The former Pi Durable diagram reference is removed through DataHandler; its
+source file remains available in history. The collection uses a two-column
+desktop layout and a single column on mobile.
 
 ```sh
 ddev exec vendor/bin/typo3 extension:setup --extension=poppy
@@ -165,4 +170,4 @@ changed by these local content and protocol tests.
 - Lab: 103 unit tests, PHPStan level 8, YAML/lint, Composer audit, frontend build and deployment pins.
 - 17 authenticated protocol integration checks read the moved native content and verify publication changes, renewal and replay rejection.
 - 18 Poppy browser cases cover desktop/mobile content, six overview cards, cross-links, redirects, guest sessions and the deployed Basic Auth boundary (the two deployment-only cases skip on DDEV).
-- Reapplying the native content seeder reports 36 unchanged records, with no duplicates or file changes.
+- Reapplying the native content seeder reports no content changes or duplicate records.
