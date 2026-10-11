@@ -46,7 +46,7 @@
         "sys_language_uid": 0,
         "content": "",
         "eyebrow": "Personal Agent Protocol · Draft 0.1",
-        "subheadline": "Your personal agent discovers the lab, identifies itself and reads an explanation through a documented API. The text stays editable in TYPO3."
+        "subheadline": "A registered personal agent discovers the lab, proves its identity and reads an explanation through a documented API. The text stays editable in TYPO3."
       }
     },
     {
@@ -60,13 +60,16 @@
         "sys_language_uid": 0
       },
       "set": {
-        "CType": "text",
         "header": "What can I do with Poppy — and why is it useful?",
         "header_layout": 2,
         "colPos": 0,
         "hidden": 0,
         "sys_language_uid": 0,
-        "bodytext": "<p>Think of Poppy as an agent’s identity check and a limited permission slip. A website can recognise which personal agent is visiting and which person it represents. The person chooses the access to grant; the business chooses the actions it offers.</p><ul><li><strong>Ask before signing in:</strong> read product facts, opening hours or published support guidance through a guest session.</li><li><strong>Continue with permission:</strong> a future account integration could offer returns, appointments or order changes, limited to the access the person approved.</li><li><strong>Keep one visit across channels:</strong> the protocol is designed to carry the session between a website, APIs and a business’s own agent.</li></ul><p><strong>Try it here:</strong> our current TYPO3 profile reads two published explanations. It starts and renews a verified guest session and rejects reused request proofs. It does not book appointments, change accounts or edit TYPO3. The playground is a real protocol test; it does not need a language model.</p>"
+        "CType": "desiderio_contentsidebar",
+        "bodytext": "",
+        "sidebar_position": "right",
+        "content": "<p>Poppy gives a personal agent a standard way to identify itself and work within the access a business offers. For account tasks, the person approves the access and the business decides which actions are available.</p><ul><li><strong>Ask before account sign-in:</strong> read product facts, opening hours or published support guidance through a guest session.</li><li><strong>Continue with permission:</strong> an account integration could offer returns, appointments or order changes, limited to the access the person approved.</li><li><strong>Keep session context across supported channels:</strong> the protocol connects a website, APIs and a business’s own agent through a shared session model.</li></ul>",
+        "sidebar_content": "<h3>Try it in TYPO3 Lab</h3><p>Our current profile reads two published explanations. It establishes and renews verified guest sessions and rejects reused request proofs.</p><p>The agent supplies an opaque guest user identifier. This identifies its guest session; it does not prove the person’s identity or sign them in to a customer account.</p><p>The playground tests the protocol without a language model. This release does not book appointments, change accounts or edit TYPO3.</p>"
       }
     },
     {
@@ -86,7 +89,7 @@
         "colPos": 0,
         "hidden": 0,
         "sys_language_uid": 0,
-        "bodytext": "<p>Poppy gives personal agents a shared way to discover a website, identify themselves and work within the access the website offers. TYPO3 Lab implements the signed-out profile of draft 0.1: verified guest sessions and a read-only OpenAPI endpoint for published explanations.</p><p>Our first use case is simple: ask what the lab says about Poppy or Pi Durable and receive the CMS text with its source URL. A separate TYPO3 extension handles the protocol. Editors own the explanation in normal TYPO3 content records.</p><p>This release offers public knowledge, with no account sign-in or editing permissions. Browser visitors remain ordinary signed-out visitors. Poppy is an early draft, so we document the supported profile and test its security boundaries.</p>"
+        "bodytext": "<p>Poppy gives personal agents a shared way to discover a website, identify themselves and work within the access the website offers. TYPO3 Lab implements the signed-out profile of draft 0.1: verified guest sessions and a read-only OpenAPI endpoint for published explanations.</p><p>Our first use case is simple: ask what the lab says about Poppy or Pi Durable and receive the CMS text with its source URL. A separate TYPO3 extension handles the protocol. Editors own the explanation in normal TYPO3 content records.</p><p>The Poppy API offers public knowledge through a verified guest session, with no Poppy customer-account sign-in or editing permissions. The lab’s own website login is separate. Poppy is an early draft, so we document the supported profile and test its security boundaries.</p>"
       }
     },
     {
@@ -106,7 +109,7 @@
         "colPos": 0,
         "hidden": 0,
         "sys_language_uid": 0,
-        "content": "<p>The agent reads the discovery document and checks the issuer. It proves its identity, starts a guest session and signs its API request. TYPO3 returns the published explanation with a link back to this page.</p>",
+        "content": "<p>The registered agent reads the discovery document and checks the issuer. It proves its identity and establishes a guest session with separate client and user-session assertions. Each knowledge request carries the session token and a fresh DPoP proof. TYPO3 returns the published explanation with a link back to this page.</p>",
         "shadcn_layout": "media-above",
         "media_rounded": 0
       },
@@ -133,13 +136,119 @@
         "sys_language_uid": 0
       },
       "set": {
-        "CType": "text",
         "header": "How Poppy works",
         "header_layout": 2,
         "colPos": 0,
         "hidden": 0,
         "sys_language_uid": 0,
-        "bodytext": "<ol><li><strong>Discover:</strong> the personal agent reads <code>/.well-known/poppy.json</code> and learns the issuer and available API.</li><li><strong>Identify:</strong> TYPO3 verifies the registered agent’s signature and its separate user-session assertion.</li><li><strong>Start a guest session:</strong> the agent gets a short-lived token tied to its own DPoP key. A copied token alone is insufficient.</li><li><strong>Ask the lab:</strong> a signed request selects Poppy or Pi Durable. TYPO3 reads the published “What TYPO3 Lab says” section and returns the text and source.</li><li><strong>Continue safely:</strong> the agent renews its session when necessary. Reusing a request proof is rejected.</li></ol><p><a href=\"/poppy/demo\">Run these steps in the playground</a>. Use “See the requests” to inspect the actual responses.</p>"
+        "CType": "desiderio_featurenumbered",
+        "bodytext": "",
+        "subheadline": "Discovery, agent verification and a session token lead to a published answer with a source URL."
+      },
+      "_collection": {
+        "field": "desiderio_featurenumbered_items",
+        "keys": [
+          "NEW_poppy_how_discover",
+          "NEW_poppy_how_identify",
+          "NEW_poppy_how_session",
+          "NEW_poppy_how_ask",
+          "NEW_poppy_how_renew"
+        ]
+      }
+    },
+    {
+      "table": "feature_numbered_items",
+      "action": "create",
+      "key": "NEW_poppy_how_discover",
+      "pid": "@NEW_poppy_feature",
+      "match": {
+        "pid": "@NEW_poppy_feature",
+        "foreign_table_parent_uid": "@NEW_poppy_how",
+        "title": "Discover",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "title": "Discover",
+        "description": "<p>The personal agent reads <a href=\"/.well-known/poppy.json\"><code>/.well-known/poppy.json</code></a> to learn the issuer and available API.</p>",
+        "foreign_table_parent_uid": "@NEW_poppy_how",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "feature_numbered_items",
+      "action": "create",
+      "key": "NEW_poppy_how_identify",
+      "pid": "@NEW_poppy_feature",
+      "match": {
+        "pid": "@NEW_poppy_feature",
+        "foreign_table_parent_uid": "@NEW_poppy_how",
+        "title": "Identify",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "title": "Identify",
+        "description": "<p>TYPO3 verifies the registered agent’s client assertion and its separate user-session assertion. The guest identifier is supplied by the agent; it does not establish a customer-account identity.</p>",
+        "foreign_table_parent_uid": "@NEW_poppy_how",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "feature_numbered_items",
+      "action": "create",
+      "key": "NEW_poppy_how_session",
+      "pid": "@NEW_poppy_feature",
+      "match": {
+        "pid": "@NEW_poppy_feature",
+        "foreign_table_parent_uid": "@NEW_poppy_how",
+        "title": "Start a guest session",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "title": "Start a guest session",
+        "description": "<p>The agent receives a short-lived session token bound to its DPoP key. A copied token alone is insufficient to call the knowledge API.</p>",
+        "foreign_table_parent_uid": "@NEW_poppy_how",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "feature_numbered_items",
+      "action": "create",
+      "key": "NEW_poppy_how_ask",
+      "pid": "@NEW_poppy_feature",
+      "match": {
+        "pid": "@NEW_poppy_feature",
+        "foreign_table_parent_uid": "@NEW_poppy_how",
+        "title": "Ask the lab",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "title": "Ask the lab",
+        "description": "<p>The agent sends the session token and a fresh DPoP proof, selecting Poppy or Pi Durable. TYPO3 reads the published “What TYPO3 Lab says” section and returns its text and source.</p>",
+        "foreign_table_parent_uid": "@NEW_poppy_how",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "feature_numbered_items",
+      "action": "create",
+      "key": "NEW_poppy_how_renew",
+      "pid": "@NEW_poppy_feature",
+      "match": {
+        "pid": "@NEW_poppy_feature",
+        "foreign_table_parent_uid": "@NEW_poppy_how",
+        "title": "Continue safely",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "title": "Continue safely",
+        "description": "<p>The agent renews the guest session with fresh client and user-session assertions when necessary. Reusing a request proof is rejected.</p><p><a href=\"/poppy/demo\">Run the flow in the playground</a> and use “See the requests” to inspect the actual responses.</p>",
+        "foreign_table_parent_uid": "@NEW_poppy_how",
+        "sys_language_uid": 0,
+        "hidden": 0
       }
     },
     {
@@ -153,13 +262,16 @@
         "sys_language_uid": 0
       },
       "set": {
-        "CType": "text",
         "header": "Try the published interface",
         "header_layout": 2,
         "colPos": 0,
         "hidden": 0,
         "sys_language_uid": 0,
-        "bodytext": "<p><a href=\"/poppy/demo\">Open the live Poppy playground</a>. Ask about Poppy or Pi Durable, renew the verified guest session and test replay rejection. The answer comes from the published TYPO3 text below.</p><p>Open the <a href=\"/.well-known/poppy.json\">live discovery document</a>, <a href=\"/.well-known/oauth-authorization-server/poppy\">OAuth server metadata</a> and <a href=\"/poppy/openapi.json\">OpenAPI schema</a>. Discovery is public. API calls require an administrator-registered personal agent, independent client and session assertions, and a fresh DPoP proof.</p><p><strong>Example question:</strong> What does TYPO3 Lab say about Poppy?</p><p><strong>Example answer:</strong> TYPO3 Lab implements Poppy draft 0.1 for verified guest sessions and published knowledge. Editors maintain the explanation in TYPO3. The API returns that text with its source URL.</p><p>This displayed answer is an editorial example. The authenticated API reads the section “What TYPO3 Lab says” above on every request.</p>"
+        "CType": "desiderio_contentsidebar",
+        "bodytext": "",
+        "sidebar_position": "right",
+        "content": "<p><a href=\"/poppy/demo\">Open the live Poppy playground</a>. Ask about Poppy or Pi Durable, renew the guest session and test replay rejection. The answer comes from the published TYPO3 section “What TYPO3 Lab says”.</p><p>Inspect the <a href=\"/.well-known/poppy.json\">live discovery document</a>, <a href=\"/.well-known/oauth-authorization-server/poppy\">OAuth server metadata</a> and <a href=\"/poppy/openapi.json\">OpenAPI schema</a>.</p><p>Discovery is public. Starting or renewing a guest session requires an administrator-registered personal agent, separate client and user-session assertions, and a fresh DPoP proof. Knowledge requests use the session token and a fresh DPoP proof.</p>",
+        "sidebar_content": "<h3>Example question</h3><p>What does TYPO3 Lab say about Poppy?</p><h3>Example answer</h3><p>TYPO3 Lab implements Poppy draft 0.1 for verified guest sessions and published knowledge. Editors maintain the explanation in TYPO3. The API returns that text with its source URL.</p><p>This is an editorial example. The authenticated API reads the current published section on every request.</p>"
       }
     },
     {
@@ -173,13 +285,159 @@
         "sys_language_uid": 0
       },
       "set": {
-        "CType": "text",
         "header": "Endpoints on this site",
         "header_layout": 2,
         "colPos": 0,
         "hidden": 0,
         "sys_language_uid": 0,
-        "bodytext": "<ul><li><code>GET /.well-known/poppy.json</code> — domain discovery.</li><li><code>GET /.well-known/oauth-authorization-server/poppy</code> — OAuth issuer metadata.</li><li><code>GET /poppy/openapi.json</code> — supported operations and topics.</li><li><code>POST /poppy/token</code> — verify assertions and start or renew a guest session.</li><li><code>GET /poppy/knowledge?topic=poppy</code> — read the Poppy explanation with a fresh DPoP proof; <code>pi-durable</code> selects the second topic.</li><li><code>POST /poppy/revoke</code> — revoke a session token.</li></ul><p>The field guide lives under <code>/agent-nexus/poppy/</code>. The domain-level protocol URLs remain stable under <code>/poppy</code>. Moving the explanation does not change the issuer or require agents to register again.</p>"
+        "CType": "desiderio_definitionlist",
+        "bodytext": "",
+        "shadcn_layout": "stacked"
+      },
+      "_collection": {
+        "field": "desiderio_definitionlist_items",
+        "keys": [
+          "NEW_poppy_endpoints_discovery",
+          "NEW_poppy_endpoints_oauth",
+          "NEW_poppy_endpoints_openapi",
+          "NEW_poppy_endpoints_token",
+          "NEW_poppy_endpoints_knowledge",
+          "NEW_poppy_endpoints_revoke",
+          "NEW_poppy_endpoints_urls"
+        ]
+      }
+    },
+    {
+      "table": "definition_list_items",
+      "action": "create",
+      "key": "NEW_poppy_endpoints_discovery",
+      "pid": "@NEW_poppy_feature",
+      "match": {
+        "pid": "@NEW_poppy_feature",
+        "foreign_table_parent_uid": "@NEW_poppy_endpoints",
+        "term": "GET /.well-known/poppy.json",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "term": "GET /.well-known/poppy.json",
+        "definition": "Domain discovery: the issuer and supported interaction channels.",
+        "foreign_table_parent_uid": "@NEW_poppy_endpoints",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "definition_list_items",
+      "action": "create",
+      "key": "NEW_poppy_endpoints_oauth",
+      "pid": "@NEW_poppy_feature",
+      "match": {
+        "pid": "@NEW_poppy_feature",
+        "foreign_table_parent_uid": "@NEW_poppy_endpoints",
+        "term": "GET /.well-known/oauth-authorization-server/poppy",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "term": "GET /.well-known/oauth-authorization-server/poppy",
+        "definition": "OAuth issuer metadata.",
+        "foreign_table_parent_uid": "@NEW_poppy_endpoints",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "definition_list_items",
+      "action": "create",
+      "key": "NEW_poppy_endpoints_openapi",
+      "pid": "@NEW_poppy_feature",
+      "match": {
+        "pid": "@NEW_poppy_feature",
+        "foreign_table_parent_uid": "@NEW_poppy_endpoints",
+        "term": "GET /poppy/openapi.json",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "term": "GET /poppy/openapi.json",
+        "definition": "Supported HTTP operations and knowledge topics.",
+        "foreign_table_parent_uid": "@NEW_poppy_endpoints",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "definition_list_items",
+      "action": "create",
+      "key": "NEW_poppy_endpoints_token",
+      "pid": "@NEW_poppy_feature",
+      "match": {
+        "pid": "@NEW_poppy_feature",
+        "foreign_table_parent_uid": "@NEW_poppy_endpoints",
+        "term": "POST /poppy/token",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "term": "POST /poppy/token",
+        "definition": "Verify client and user-session assertions to establish or renew a guest session, with a fresh DPoP proof.",
+        "foreign_table_parent_uid": "@NEW_poppy_endpoints",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "definition_list_items",
+      "action": "create",
+      "key": "NEW_poppy_endpoints_knowledge",
+      "pid": "@NEW_poppy_feature",
+      "match": {
+        "pid": "@NEW_poppy_feature",
+        "foreign_table_parent_uid": "@NEW_poppy_endpoints",
+        "term": "GET /poppy/knowledge?topic=poppy",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "term": "GET /poppy/knowledge?topic=poppy",
+        "definition": "Read the Poppy explanation with the session token and a fresh DPoP proof. Use topic=pi-durable for the second topic.",
+        "foreign_table_parent_uid": "@NEW_poppy_endpoints",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "definition_list_items",
+      "action": "create",
+      "key": "NEW_poppy_endpoints_revoke",
+      "pid": "@NEW_poppy_feature",
+      "match": {
+        "pid": "@NEW_poppy_feature",
+        "foreign_table_parent_uid": "@NEW_poppy_endpoints",
+        "term": "POST /poppy/revoke",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "term": "POST /poppy/revoke",
+        "definition": "Account Token revocation endpoint. This guest-only release issues no Account Tokens and does not provide guest Session Token revocation.",
+        "foreign_table_parent_uid": "@NEW_poppy_endpoints",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "definition_list_items",
+      "action": "create",
+      "key": "NEW_poppy_endpoints_urls",
+      "pid": "@NEW_poppy_feature",
+      "match": {
+        "pid": "@NEW_poppy_feature",
+        "foreign_table_parent_uid": "@NEW_poppy_endpoints",
+        "term": "Field guide and stable protocol URLs",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "term": "Field guide and stable protocol URLs",
+        "definition": "The field guide lives under /agent-nexus/poppy/. Protocol endpoints remain under /poppy, with discovery under /.well-known/. Moving the explanation does not change the issuer or require agent registration again.",
+        "foreign_table_parent_uid": "@NEW_poppy_endpoints",
+        "sys_language_uid": 0,
+        "hidden": 0
       }
     },
     {
@@ -193,13 +451,16 @@
         "sys_language_uid": 0
       },
       "set": {
-        "CType": "text",
         "header": "What this release supports",
         "header_layout": 2,
         "colPos": 0,
         "hidden": 0,
         "sys_language_uid": 0,
-        "bodytext": "<ul><li>Domain-wide HTTPS discovery and reciprocal OAuth issuer metadata.</li><li>ES256 and RS256 agent authentication, short-lived assertions and atomic replay rejection.</li><li>Guest sessions, renewal, random opaque Session Tokens and DPoP key binding.</li><li>A read-only OpenAPI endpoint for explicitly selected, published English CMS text.</li><li>Ordinary signed-out website browsing.</li></ul><p>Direct, device and mediated sign-in, Account Tokens, browser-session exchange, MCP and Poppy conversations are outside this release. They are not advertised by discovery. Existing TYPO3 MCP credentials do not become Poppy credentials.</p><p>See the <a href=\"https://personalagentprotocol.org/docs/spec\">official draft</a> and <a href=\"https://sierra.ai/blog/poppy\">Sierra’s announcement</a> from 9 October 2026.</p>"
+        "CType": "desiderio_contentsidebar",
+        "bodytext": "",
+        "sidebar_position": "right",
+        "content": "<ul><li>Domain-wide HTTPS discovery and reciprocal OAuth issuer metadata.</li><li>ES256 and RS256 agent authentication, short-lived assertions and atomic replay rejection.</li><li>Guest sessions, renewal, random opaque Session Tokens and DPoP key binding.</li><li>A read-only OpenAPI endpoint for explicitly selected, published English CMS text.</li><li>Ordinary website browsing, separate from Poppy customer-account sign-in.</li></ul>",
+        "sidebar_content": "<h3>Outside this release</h3><p>Direct, device and mediated account sign-in, Account Tokens, browser-session exchange, MCP and Poppy conversations are not advertised by discovery.</p><p>Existing TYPO3 MCP credentials do not become Poppy credentials.</p><p>See the <a href=\"https://personalagentprotocol.org/docs/spec\">official draft specification</a> and <a href=\"https://sierra.ai/blog/poppy\">Sierra’s draft announcement</a> of 9 October 2026.</p>"
       }
     },
     {
@@ -213,13 +474,145 @@
         "sys_language_uid": 0
       },
       "set": {
-        "CType": "text",
         "header": "Where Poppy fits in Agent Nexus",
         "header_layout": 2,
         "colPos": 0,
         "hidden": 0,
         "sys_language_uid": 0,
-        "bodytext": "<p>Agent Nexus is the lab’s shared field guide for six protocols. Each one solves a different part of an agent visit:</p><ul><li><a href=\"/agent-nexus/a2ui/\">A2UI</a>: describe an interface as data.</li><li><a href=\"/agent-nexus/ag-ui/\">AG-UI</a>: stream an agent’s work and request approval.</li><li><a href=\"/agent-nexus/a2a/\">A2A</a>: delegate a task to another agent.</li><li><a href=\"/agent-nexus/ucp/\">UCP</a>: discover a merchant and prepare a checkout.</li><li><a href=\"/agent-nexus/ap2/\">AP2</a>: prove a purchase was authorised.</li><li><strong>Poppy:</strong> identify the personal agent and establish the person’s permitted access.</li></ul><p>MCP exposes tools; OpenAPI describes HTTP operations. Poppy can give a personal agent a session for those channels. Our current profile advertises only its read-only OpenAPI channel. Agent Nexus supplies five protocol demos; the independent Poppy extension supplies this sixth experiment.</p>"
+        "CType": "desiderio_contentgrid",
+        "bodytext": "",
+        "columns": "3"
+      },
+      "_collection": {
+        "field": "desiderio_contentgrid_items",
+        "keys": [
+          "NEW_poppy_compare_a2ui",
+          "NEW_poppy_compare_agui",
+          "NEW_poppy_compare_a2a",
+          "NEW_poppy_compare_ucp",
+          "NEW_poppy_compare_ap2",
+          "NEW_poppy_compare_poppy"
+        ]
+      }
+    },
+    {
+      "table": "content_grid_items",
+      "action": "create",
+      "key": "NEW_poppy_compare_a2ui",
+      "pid": "@NEW_poppy_feature",
+      "match": {
+        "pid": "@NEW_poppy_feature",
+        "foreign_table_parent_uid": "@NEW_poppy_compare",
+        "title": "A2UI",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "title": "A2UI",
+        "content": "<p>Describe an interface as data.</p>",
+        "link": "/agent-nexus/a2ui/",
+        "foreign_table_parent_uid": "@NEW_poppy_compare",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "content_grid_items",
+      "action": "create",
+      "key": "NEW_poppy_compare_agui",
+      "pid": "@NEW_poppy_feature",
+      "match": {
+        "pid": "@NEW_poppy_feature",
+        "foreign_table_parent_uid": "@NEW_poppy_compare",
+        "title": "AG-UI",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "title": "AG-UI",
+        "content": "<p>Stream an agent’s work and request approval.</p>",
+        "link": "/agent-nexus/ag-ui/",
+        "foreign_table_parent_uid": "@NEW_poppy_compare",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "content_grid_items",
+      "action": "create",
+      "key": "NEW_poppy_compare_a2a",
+      "pid": "@NEW_poppy_feature",
+      "match": {
+        "pid": "@NEW_poppy_feature",
+        "foreign_table_parent_uid": "@NEW_poppy_compare",
+        "title": "A2A",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "title": "A2A",
+        "content": "<p>Delegate a task to another agent.</p>",
+        "link": "/agent-nexus/a2a/",
+        "foreign_table_parent_uid": "@NEW_poppy_compare",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "content_grid_items",
+      "action": "create",
+      "key": "NEW_poppy_compare_ucp",
+      "pid": "@NEW_poppy_feature",
+      "match": {
+        "pid": "@NEW_poppy_feature",
+        "foreign_table_parent_uid": "@NEW_poppy_compare",
+        "title": "UCP",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "title": "UCP",
+        "content": "<p>Discover a merchant and prepare a checkout.</p>",
+        "link": "/agent-nexus/ucp/",
+        "foreign_table_parent_uid": "@NEW_poppy_compare",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "content_grid_items",
+      "action": "create",
+      "key": "NEW_poppy_compare_ap2",
+      "pid": "@NEW_poppy_feature",
+      "match": {
+        "pid": "@NEW_poppy_feature",
+        "foreign_table_parent_uid": "@NEW_poppy_compare",
+        "title": "AP2",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "title": "AP2",
+        "content": "<p>Prove that a purchase was authorised.</p>",
+        "link": "/agent-nexus/ap2/",
+        "foreign_table_parent_uid": "@NEW_poppy_compare",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "content_grid_items",
+      "action": "create",
+      "key": "NEW_poppy_compare_poppy",
+      "pid": "@NEW_poppy_feature",
+      "match": {
+        "pid": "@NEW_poppy_feature",
+        "foreign_table_parent_uid": "@NEW_poppy_compare",
+        "title": "Poppy",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "title": "Poppy",
+        "content": "<p>Identify the personal agent and establish a session for permitted access. MCP exposes tools; OpenAPI describes HTTP operations. This profile uses a read-only OpenAPI channel.</p><p>Agent Nexus brings these six protocols together: five demos from Agent Nexus and this independent Poppy extension.</p>",
+        "link": "/agent-nexus/poppy/",
+        "foreign_table_parent_uid": "@NEW_poppy_compare",
+        "sys_language_uid": 0,
+        "hidden": 0
       }
     },
     {
@@ -233,13 +626,16 @@
         "sys_language_uid": 0
       },
       "set": {
-        "CType": "text",
         "header": "Sierra’s draft at a glance",
         "header_layout": 2,
         "colPos": 0,
         "hidden": 0,
         "sys_language_uid": 0,
-        "bodytext": "<p>On 9 October 2026 Sierra published a first draft of the Personal Agent Protocol, nicknamed Poppy (<a href=\"https://sierra.ai/blog/poppy\">Bret Taylor and Clay Bavor, Sierra</a>). Three days earlier Sierra had announced the protocol together with Meta, Genesys, Instinct, NiCE, Rocket, Shopify, Stripe and Walmart (<a href=\"https://sierra.ai/blog/introducing-personal-agent-protocol\">Sierra, 6 October 2026</a>). With the draft, 35 more companies joined as design partners to shape it, among them Adyen, Bank of America, Cloudflare, Mastercard, OpenAI, PayPal, Target, Visa and Zapier.</p><p>The problem it addresses: a personal agent often has to log in as its person and click through pages built for humans. Businesses have no standard way to recognise such an agent, to see whom it represents or to guide what it does. Poppy splits the control: the person decides how much access the agent gets, and the business decides what an agent may do. A company can serve agents through its existing website and APIs or through an agent of its own.</p>"
+        "CType": "desiderio_contentsidebar",
+        "bodytext": "",
+        "sidebar_position": "right",
+        "content": "<p>Personal agents often have to sign in as their person and click through pages built for humans. Poppy proposes a standard way for a business to recognise the agent, associate its session with a person and control the actions available.</p><p>The person decides how much account access to approve. The business decides which actions it supports. A company can serve agents through its website, APIs or an agent of its own.</p>",
+        "sidebar_content": "<h3>From announcement to draft</h3><p>Sierra <a href=\"https://sierra.ai/blog/introducing-personal-agent-protocol\">announced the Personal Agent Protocol on 6 October 2026</a> with Meta, Genesys, Instinct, NiCE, Rocket, Shopify, Stripe and Walmart.</p><p>On 9 October 2026, <a href=\"https://sierra.ai/blog/poppy\">Bret Taylor and Clay Bavor published the first draft, nicknamed Poppy</a>. Sierra reported 35 additional design partners, including Adyen, Bank of America, Cloudflare, Mastercard, OpenAI, PayPal, Target, Visa and Zapier.</p>"
       }
     },
     {
@@ -253,13 +649,119 @@
         "sys_language_uid": 0
       },
       "set": {
-        "CType": "text",
         "header": "The five building blocks — and what this lab implements",
         "header_layout": 2,
         "colPos": 0,
         "hidden": 0,
         "sys_language_uid": 0,
-        "bodytext": "<ol><li><strong>Discovery:</strong> a company publishes a standard file at <code>/.well-known/poppy.json</code>. It tells agents how to work with the company, how people sign in and what an agent can do. <em>In the lab: implemented — <a href=\"/.well-known/poppy.json\">open our discovery document</a>.</em></li><li><strong>Sessions:</strong> an agent starts a session for its person and identifies itself, so the company knows an agent is acting. A guest session already answers questions such as stock levels or a returns policy. <em>In the lab: verified guest sessions with renewal.</em></li><li><strong>Sign-in:</strong> when a task needs the person’s account, the person signs in on the company’s own page with OAuth. If the company allows it, the agent then receives a token limited to the access the person approved. <em>In the lab: not part of this release.</em></li><li><strong>One session across every channel:</strong> one token works on the website, the APIs and the company’s agent, and the steps before and after sign-in count as one visit. Nobody starts over, and the company sees the whole journey. <em>In the lab: the session covers our single OpenAPI channel.</em></li><li><strong>Getting the job done:</strong> each company chooses its channels — ordinary web pages with permissions checked on every page, APIs described with OpenAPI or MCP, or its own agent for conversations such as a warranty claim, with streamed replies and requests that can wait for updates. <em>In the lab: a read-only OpenAPI endpoint for published TYPO3 text.</em></li></ol><p>Source: <a href=\"https://sierra.ai/blog/poppy\">Sierra, “Sharing a draft of Personal Agent Protocol”</a>. The <a href=\"https://personalagentprotocol.org/docs/spec\">draft specification</a> defines each block in detail.</p>"
+        "CType": "desiderio_featurenumbered",
+        "bodytext": "",
+        "subheadline": "The draft describes a broader protocol. This lab implements its guest-session profile and one read-only API."
+      },
+      "_collection": {
+        "field": "desiderio_featurenumbered_items",
+        "keys": [
+          "NEW_poppy_sierra_blocks_discovery",
+          "NEW_poppy_sierra_blocks_sessions",
+          "NEW_poppy_sierra_blocks_signin",
+          "NEW_poppy_sierra_blocks_channels",
+          "NEW_poppy_sierra_blocks_tasks"
+        ]
+      }
+    },
+    {
+      "table": "feature_numbered_items",
+      "action": "create",
+      "key": "NEW_poppy_sierra_blocks_discovery",
+      "pid": "@NEW_poppy_feature",
+      "match": {
+        "pid": "@NEW_poppy_feature",
+        "foreign_table_parent_uid": "@NEW_poppy_sierra_blocks",
+        "title": "Discovery",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "title": "Discovery",
+        "description": "<p>A company publishes <code>/.well-known/poppy.json</code> to describe its issuer, interaction channels and supported sign-in methods.</p><p><strong>In the lab:</strong> implemented. <a href=\"/.well-known/poppy.json\">Open the discovery document</a>.</p>",
+        "foreign_table_parent_uid": "@NEW_poppy_sierra_blocks",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "feature_numbered_items",
+      "action": "create",
+      "key": "NEW_poppy_sierra_blocks_sessions",
+      "pid": "@NEW_poppy_feature",
+      "match": {
+        "pid": "@NEW_poppy_feature",
+        "foreign_table_parent_uid": "@NEW_poppy_sierra_blocks",
+        "title": "Sessions",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "title": "Sessions",
+        "description": "<p>An agent identifies itself and establishes a session for its person. A guest session can already support questions about stock levels or a returns policy.</p><p><strong>In the lab:</strong> verified guest sessions with renewal and an opaque, agent-supplied guest identifier.</p>",
+        "foreign_table_parent_uid": "@NEW_poppy_sierra_blocks",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "feature_numbered_items",
+      "action": "create",
+      "key": "NEW_poppy_sierra_blocks_signin",
+      "pid": "@NEW_poppy_feature",
+      "match": {
+        "pid": "@NEW_poppy_feature",
+        "foreign_table_parent_uid": "@NEW_poppy_sierra_blocks",
+        "title": "Account sign-in",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "title": "Account sign-in",
+        "description": "<p>For account tasks, the person signs in through a business-controlled OAuth flow and approves the access. The business can issue an Account Token for that access.</p><p><strong>In the lab:</strong> outside this release.</p>",
+        "foreign_table_parent_uid": "@NEW_poppy_sierra_blocks",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "feature_numbered_items",
+      "action": "create",
+      "key": "NEW_poppy_sierra_blocks_channels",
+      "pid": "@NEW_poppy_feature",
+      "match": {
+        "pid": "@NEW_poppy_feature",
+        "foreign_table_parent_uid": "@NEW_poppy_sierra_blocks",
+        "title": "Session context across channels",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "title": "Session context across channels",
+        "description": "<p>Supported website, API and conversational channels can retain session context before and after account sign-in. Browser access uses a separate session-exchange mechanism; a session token is not simply reused as a browser cookie.</p><p><strong>In the lab:</strong> one read-only OpenAPI channel. No browser-session exchange.</p>",
+        "foreign_table_parent_uid": "@NEW_poppy_sierra_blocks",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "feature_numbered_items",
+      "action": "create",
+      "key": "NEW_poppy_sierra_blocks_tasks",
+      "pid": "@NEW_poppy_feature",
+      "match": {
+        "pid": "@NEW_poppy_feature",
+        "foreign_table_parent_uid": "@NEW_poppy_sierra_blocks",
+        "title": "Getting the job done",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "title": "Getting the job done",
+        "description": "<p>A business chooses its channels: web pages, APIs described by OpenAPI or MCP, or its own conversational agent.</p><p><strong>In the lab:</strong> a read-only endpoint for published TYPO3 text.</p><p>Sources: <a href=\"https://sierra.ai/blog/poppy\">Sierra’s draft announcement</a> and the <a href=\"https://personalagentprotocol.org/docs/spec\">draft specification</a>.</p>",
+        "foreign_table_parent_uid": "@NEW_poppy_sierra_blocks",
+        "sys_language_uid": 0,
+        "hidden": 0
       }
     },
     {
@@ -273,13 +775,61 @@
         "sys_language_uid": 0
       },
       "set": {
-        "CType": "text",
         "header": "Built on standards companies already run",
         "header_layout": 2,
         "colPos": 0,
         "hidden": 0,
         "sys_language_uid": 0,
-        "bodytext": "<p>Poppy builds on OAuth, JSON Web Tokens, HTTPS, OpenAPI and MCP, so teams can use libraries they already know, start with the infrastructure they have and add channels later. A company connects once through Poppy instead of building a separate integration for every agent, and industries can extend the core with layers of their own (<a href=\"https://sierra.ai/blog/poppy\">Sierra</a>).</p><p>Sierra describes Poppy as complementary to shopping protocols such as the Universal Commerce Protocol. UCP covers finding products, checking out and managing orders; Poppy covers who the agent is, what its person allowed and any kind of task, from buying clothes to applying for a mortgage. Agent Nexus runs both side by side: compare Poppy with our <a href=\"/agent-nexus/ucp/\">UCP demo</a>.</p>"
+        "CType": "desiderio_contentgrid",
+        "bodytext": "",
+        "columns": "2"
+      },
+      "_collection": {
+        "field": "desiderio_contentgrid_items",
+        "keys": [
+          "NEW_poppy_sierra_standards_standards",
+          "NEW_poppy_sierra_standards_commerce"
+        ]
+      }
+    },
+    {
+      "table": "content_grid_items",
+      "action": "create",
+      "key": "NEW_poppy_sierra_standards_standards",
+      "pid": "@NEW_poppy_feature",
+      "match": {
+        "pid": "@NEW_poppy_feature",
+        "foreign_table_parent_uid": "@NEW_poppy_sierra_standards",
+        "title": "Established standards",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "title": "Established standards",
+        "content": "<p>Poppy builds on OAuth, JSON Web Tokens and HTTPS, with interaction channels described through OpenAPI or MCP. Teams can build on familiar infrastructure and add supported channels over time.</p><p><a href=\"https://sierra.ai/blog/poppy\">Sierra describes</a> a shared integration for personal agents that industries can extend for their own tasks.</p>",
+        "link": "https://personalagentprotocol.org/docs/spec",
+        "foreign_table_parent_uid": "@NEW_poppy_sierra_standards",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "content_grid_items",
+      "action": "create",
+      "key": "NEW_poppy_sierra_standards_commerce",
+      "pid": "@NEW_poppy_feature",
+      "match": {
+        "pid": "@NEW_poppy_feature",
+        "foreign_table_parent_uid": "@NEW_poppy_sierra_standards",
+        "title": "Complementary to UCP",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "title": "Complementary to UCP",
+        "content": "<p>UCP covers commerce workflows such as product discovery, checkout and order management. Poppy covers agent identity, sessions and permitted access across a wider range of tasks.</p><p>Agent Nexus runs both side by side. Compare the protocols in the UCP demo.</p>",
+        "link": "/agent-nexus/ucp/",
+        "foreign_table_parent_uid": "@NEW_poppy_sierra_standards",
+        "sys_language_uid": 0,
+        "hidden": 0
       }
     },
     {
@@ -293,13 +843,82 @@
         "sys_language_uid": 0
       },
       "set": {
-        "CType": "text",
         "header": "Three examples from Sierra’s draft",
         "header_layout": 2,
         "colPos": 0,
         "hidden": 0,
         "sys_language_uid": 0,
-        "bodytext": "<ul><li><strong>Return a jacket through the website:</strong> the agent finds the retailer through Poppy and identifies itself, and its person signs in once. The agent uses the normal returns page and can start the return, but it cannot change the payment details on file.</li><li><strong>Rebook a cancelled flight through APIs:</strong> with the access its person approved, the agent connects to the airline’s booking tools over MCP, finds the next available flight and confirms the seat with its person before booking.</li><li><strong>Get a mortgage pre-approval through the company’s agent:</strong> at Sierra Summit, Alex McGillis, VP of Product at Rocket, showed Meta’s personal agent Muse finding Rocket’s agent through Poppy and asking for permission to connect. He signed in to share his credit and income details. The two agents worked through purchase price, down payment and interest rate, and a pre-approval letter was ready within moments, with Alex in control throughout (<a href=\"https://x.com/SierraPlatform/status/2108245197440307584\">demo on X</a>, <a href=\"https://sierra.ai/blog/summit-recap-2026\">Sierra Summit 2026 recap</a>).</li></ul><p>Source: <a href=\"https://sierra.ai/blog/poppy\">Sierra, 9 October 2026</a>. TYPO3 Lab does not implement these account scenarios yet. It shows the signed-out part: discovery, a verified guest session and a sourced answer.</p>"
+        "CType": "desiderio_usecasegrid",
+        "bodytext": "",
+        "subheadline": "These are account scenarios described by Sierra. TYPO3 Lab currently demonstrates discovery, a verified guest session and a sourced answer."
+      },
+      "_collection": {
+        "field": "desiderio_usecasegrid_items",
+        "keys": [
+          "NEW_poppy_sierra_examples_return",
+          "NEW_poppy_sierra_examples_flight",
+          "NEW_poppy_sierra_examples_mortgage"
+        ]
+      }
+    },
+    {
+      "table": "use_case_grid_items",
+      "action": "create",
+      "key": "NEW_poppy_sierra_examples_return",
+      "pid": "@NEW_poppy_feature",
+      "match": {
+        "pid": "@NEW_poppy_feature",
+        "foreign_table_parent_uid": "@NEW_poppy_sierra_examples",
+        "title": "Return a jacket through the website",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "title": "Return a jacket through the website",
+        "description": "<p>The agent discovers a retailer and identifies itself. Its person signs in and approves access. The agent can start a return through the retailer’s website without being allowed to change stored payment details.</p>",
+        "link": "",
+        "foreign_table_parent_uid": "@NEW_poppy_sierra_examples",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "use_case_grid_items",
+      "action": "create",
+      "key": "NEW_poppy_sierra_examples_flight",
+      "pid": "@NEW_poppy_feature",
+      "match": {
+        "pid": "@NEW_poppy_feature",
+        "foreign_table_parent_uid": "@NEW_poppy_sierra_examples",
+        "title": "Rebook a cancelled flight through APIs",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "title": "Rebook a cancelled flight through APIs",
+        "description": "<p>With approved account access, the agent connects to airline booking tools over MCP, finds an available flight and asks its person to confirm before booking.</p>",
+        "link": "",
+        "foreign_table_parent_uid": "@NEW_poppy_sierra_examples",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "use_case_grid_items",
+      "action": "create",
+      "key": "NEW_poppy_sierra_examples_mortgage",
+      "pid": "@NEW_poppy_feature",
+      "match": {
+        "pid": "@NEW_poppy_feature",
+        "foreign_table_parent_uid": "@NEW_poppy_sierra_examples",
+        "title": "Request mortgage pre-approval through an agent",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "title": "Request mortgage pre-approval through an agent",
+        "description": "<p>At Sierra Summit, Rocket’s Alex McGillis demonstrated Meta’s personal agent Muse discovering Rocket’s agent. After he approved access to account information, the agents worked through a mortgage pre-approval scenario.</p><p>Watch the <a href=\"https://x.com/SierraPlatform/status/2108245197440307584\">Rocket and Muse demo</a> or read the <a href=\"https://sierra.ai/blog/summit-recap-2026\">Sierra Summit recap</a>. The scenarios come from <a href=\"https://sierra.ai/blog/poppy\">Sierra’s draft announcement</a>.</p>",
+        "link": "",
+        "foreign_table_parent_uid": "@NEW_poppy_sierra_examples",
+        "sys_language_uid": 0,
+        "hidden": 0
       }
     },
     {
@@ -313,13 +932,18 @@
         "sys_language_uid": 0
       },
       "set": {
-        "CType": "text",
         "header": "What comes next",
         "header_layout": 2,
         "colPos": 0,
         "hidden": 0,
         "sys_language_uid": 0,
-        "bodytext": "<p>Over the month after the draft, Sierra plans design workshops and a reference implementation for developers, and it invites more companies to read the draft and contribute (<a href=\"https://sierra.ai/blog/poppy\">Sierra</a>). The draft is published at <a href=\"https://personalagentprotocol.org/\">personalagentprotocol.org</a>.</p><p>TYPO3 Lab follows draft 0.1. When the draft or the reference implementation changes, the <a href=\"https://gitlab.webconsulting.at/extensions/typo3-poppy\">typo3-poppy extension</a> and this page follow.</p>"
+        "CType": "desiderio_contenthighlight",
+        "bodytext": "",
+        "variant": "muted",
+        "alignment": "left",
+        "content": "<p>In its <a href=\"https://sierra.ai/blog/poppy\">9 October 2026 announcement</a>, Sierra described plans for design workshops and a reference implementation over the following month, and invited companies to contribute. These were announced plans, not released features.</p><p>TYPO3 Lab follows draft 0.1 and tracks changes to the specification and reference work. Follow the <a href=\"https://gitlab.webconsulting.at/extensions/typo3-poppy\">typo3-poppy extension</a> for the lab’s implementation.</p>",
+        "link": "https://personalagentprotocol.org/",
+        "link_text": "Read the Personal Agent Protocol draft"
       }
     },
     {
@@ -333,13 +957,129 @@
         "sys_language_uid": 0
       },
       "set": {
-        "CType": "text",
         "header": "Sources",
         "header_layout": 2,
         "colPos": 0,
         "hidden": 0,
         "sys_language_uid": 0,
-        "bodytext": "<ol><li>Bret Taylor, Clay Bavor: <a href=\"https://sierra.ai/blog/poppy\">Sharing a draft of Personal Agent Protocol</a>. Sierra, 9 October 2026.</li><li>Bret Taylor, Clay Bavor: <a href=\"https://sierra.ai/blog/introducing-personal-agent-protocol\">Introducing Personal Agent Protocol</a>. Sierra, 6 October 2026.</li><li><a href=\"https://personalagentprotocol.org/docs/spec\">Personal Agent Protocol specification</a>, draft. personalagentprotocol.org.</li><li>Sierra: <a href=\"https://sierra.ai/blog/summit-recap-2026\">Sierra Summit 2026 recap</a>.</li><li>Sierra on X: <a href=\"https://x.com/SierraPlatform/status/2108245197440307584\">the Rocket and Muse demo of Personal Agent Protocol</a>.</li></ol><p>The summaries above are TYPO3 Lab’s own wording of these sources.</p>"
+        "CType": "desiderio_resourcelibrary",
+        "bodytext": "",
+        "eyebrow": "Primary sources"
+      },
+      "_collection": {
+        "field": "desiderio_resourcelibrary_items",
+        "keys": [
+          "NEW_poppy_sierra_sources_draft",
+          "NEW_poppy_sierra_sources_announcement",
+          "NEW_poppy_sierra_sources_specification",
+          "NEW_poppy_sierra_sources_summit",
+          "NEW_poppy_sierra_sources_demo"
+        ]
+      }
+    },
+    {
+      "table": "resource_library_items",
+      "action": "create",
+      "key": "NEW_poppy_sierra_sources_draft",
+      "pid": "@NEW_poppy_feature",
+      "match": {
+        "pid": "@NEW_poppy_feature",
+        "foreign_table_parent_uid": "@NEW_poppy_sierra_sources",
+        "title": "Sharing a draft of Personal Agent Protocol",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "title": "Sharing a draft of Personal Agent Protocol",
+        "type_label": "Draft announcement",
+        "description": "<p>Bret Taylor and Clay Bavor. Sierra, 9 October 2026.</p>",
+        "link": "https://sierra.ai/blog/poppy",
+        "foreign_table_parent_uid": "@NEW_poppy_sierra_sources",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "resource_library_items",
+      "action": "create",
+      "key": "NEW_poppy_sierra_sources_announcement",
+      "pid": "@NEW_poppy_feature",
+      "match": {
+        "pid": "@NEW_poppy_feature",
+        "foreign_table_parent_uid": "@NEW_poppy_sierra_sources",
+        "title": "Introducing Personal Agent Protocol",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "title": "Introducing Personal Agent Protocol",
+        "type_label": "Announcement",
+        "description": "<p>Bret Taylor and Clay Bavor. Sierra, 6 October 2026.</p>",
+        "link": "https://sierra.ai/blog/introducing-personal-agent-protocol",
+        "foreign_table_parent_uid": "@NEW_poppy_sierra_sources",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "resource_library_items",
+      "action": "create",
+      "key": "NEW_poppy_sierra_sources_specification",
+      "pid": "@NEW_poppy_feature",
+      "match": {
+        "pid": "@NEW_poppy_feature",
+        "foreign_table_parent_uid": "@NEW_poppy_sierra_sources",
+        "title": "Personal Agent Protocol specification",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "title": "Personal Agent Protocol specification",
+        "type_label": "Specification",
+        "description": "<p>The draft specification at personalagentprotocol.org.</p>",
+        "link": "https://personalagentprotocol.org/docs/spec",
+        "foreign_table_parent_uid": "@NEW_poppy_sierra_sources",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "resource_library_items",
+      "action": "create",
+      "key": "NEW_poppy_sierra_sources_summit",
+      "pid": "@NEW_poppy_feature",
+      "match": {
+        "pid": "@NEW_poppy_feature",
+        "foreign_table_parent_uid": "@NEW_poppy_sierra_sources",
+        "title": "Sierra Summit 2026 recap",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "title": "Sierra Summit 2026 recap",
+        "type_label": "Event recap",
+        "description": "<p>Sierra’s account of its Summit demonstrations.</p>",
+        "link": "https://sierra.ai/blog/summit-recap-2026",
+        "foreign_table_parent_uid": "@NEW_poppy_sierra_sources",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "resource_library_items",
+      "action": "create",
+      "key": "NEW_poppy_sierra_sources_demo",
+      "pid": "@NEW_poppy_feature",
+      "match": {
+        "pid": "@NEW_poppy_feature",
+        "foreign_table_parent_uid": "@NEW_poppy_sierra_sources",
+        "title": "Rocket and Muse protocol demo",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "title": "Rocket and Muse protocol demo",
+        "type_label": "Demo",
+        "description": "<p>Sierra’s video on X. The summaries on this page are TYPO3 Lab’s own wording of these sources.</p>",
+        "link": "https://x.com/SierraPlatform/status/2108245197440307584",
+        "foreign_table_parent_uid": "@NEW_poppy_sierra_sources",
+        "sys_language_uid": 0,
+        "hidden": 0
       }
     },
     {
@@ -353,13 +1093,85 @@
         "sys_language_uid": 0
       },
       "set": {
-        "CType": "text",
         "header": "Continue with Pi Durable",
         "header_layout": 2,
         "colPos": 0,
         "hidden": 0,
         "sys_language_uid": 0,
-        "bodytext": "<p>Follow the <a href=\"/agent-nexus/poppy/pi-durable/\">Pi Durable example</a>, read the <a href=\"/agent-nexus/poppy/help/\">installation and troubleshooting guide</a>, or browse the <a href=\"https://gitlab.webconsulting.at/extensions/typo3-poppy\">extension repository</a>.</p>"
+        "CType": "desiderio_resourcelibrary",
+        "bodytext": "",
+        "eyebrow": "Continue exploring"
+      },
+      "_collection": {
+        "field": "desiderio_resourcelibrary_items",
+        "keys": [
+          "NEW_poppy_links_pi",
+          "NEW_poppy_links_help",
+          "NEW_poppy_links_repository"
+        ]
+      }
+    },
+    {
+      "table": "resource_library_items",
+      "action": "create",
+      "key": "NEW_poppy_links_pi",
+      "pid": "@NEW_poppy_feature",
+      "match": {
+        "pid": "@NEW_poppy_feature",
+        "foreign_table_parent_uid": "@NEW_poppy_links",
+        "title": "Pi Durable example",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "title": "Pi Durable example",
+        "type_label": "Agent example",
+        "description": "<p>See how a durable personal-agent runtime connects to the lab through Poppy.</p>",
+        "link": "/agent-nexus/poppy/pi-durable/",
+        "foreign_table_parent_uid": "@NEW_poppy_links",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "resource_library_items",
+      "action": "create",
+      "key": "NEW_poppy_links_help",
+      "pid": "@NEW_poppy_feature",
+      "match": {
+        "pid": "@NEW_poppy_feature",
+        "foreign_table_parent_uid": "@NEW_poppy_links",
+        "title": "Installation and troubleshooting",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "title": "Installation and troubleshooting",
+        "type_label": "Guide",
+        "description": "<p>Configure the extension and work through common integration issues.</p>",
+        "link": "/agent-nexus/poppy/help/",
+        "foreign_table_parent_uid": "@NEW_poppy_links",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "resource_library_items",
+      "action": "create",
+      "key": "NEW_poppy_links_repository",
+      "pid": "@NEW_poppy_feature",
+      "match": {
+        "pid": "@NEW_poppy_feature",
+        "foreign_table_parent_uid": "@NEW_poppy_links",
+        "title": "typo3-poppy extension",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "title": "typo3-poppy extension",
+        "type_label": "Source code",
+        "description": "<p>Browse the independent TYPO3 extension and its examples.</p>",
+        "link": "https://gitlab.webconsulting.at/extensions/typo3-poppy",
+        "foreign_table_parent_uid": "@NEW_poppy_links",
+        "sys_language_uid": 0,
+        "hidden": 0
       }
     },
     {

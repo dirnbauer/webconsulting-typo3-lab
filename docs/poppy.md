@@ -77,10 +77,20 @@ For production, deploy the code first, then run
 production database and Fileadmin before calling the seeder with
 `--allow-production`; it does not replace the production database.
 
+The main Poppy page uses existing Desiderio content sidebars, numbered features,
+definition lists, content grids, use-case grids, a highlighted callout and resource
+lists. Its 36 repeatable items are native records linked through the payload's
+`_collection` declarations; element templates, fields and layouts remain unchanged.
+The diagram keeps its existing FAL reference. Content distinguishes agent identity
+from customer-account identity, session assertions from authenticated knowledge
+requests, and Account Token revocation from guest Session Tokens.
+
 The knowledge API reads the current published `text` record headed
 **What TYPO3 Lab says** on the selected page. Editing that record in the backend
 changes the next API answer. Update the payload as well when changing seeded
-copy, so reseeding preserves the edit. The Agent Nexus field guide and API sources are English.
+copy, so reseeding preserves the edit. Keep this record's `CType=text`, heading and
+`bodytext` storage: the API selects that exact source, while the surrounding sections
+use Desiderio. The Agent Nexus field guide and API sources are English.
 
 ## Protocol configuration
 

@@ -28,6 +28,5 @@ desiderio.footer.aiNotice: true
 
 # The Download page shows as a button next to the search on desktop.
 desiderio.header.ctaSlug: /downloads
-# The footer line after the copyright: the corporate preset's own tagline
-# ("Inspired by Camino") means nothing on this site.
-desiderio.brand.tagline: 'shadcn/ui for TYPO3 v14.'
+# Compact footer tagline with the framework and design inspiration.
+desiderio.brand.tagline: 'shadcn/ui · TYPO3 v14 · inspired by Camino'
