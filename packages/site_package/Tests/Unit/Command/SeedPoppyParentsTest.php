@@ -26,7 +26,7 @@ final class SeedPoppyParentsTest extends TestCase
         }
         $pool = $this->createMock(ConnectionPool::class);
         $pool->expects(self::atLeastOnce())->method('getConnectionForTable')->with('pages')->willReturn($this->connection);
-        $this->command = new SeedPoppyCommand($pool);
+        $this->command = new SeedPoppyCommand($pool, $this->createStub(\TYPO3\CMS\Core\Site\SiteFinder::class));
     }
 
     private function resolve(string $slug): int

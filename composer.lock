@@ -13606,11 +13606,11 @@
         },
         {
             "name": "webconsulting/typo3-poppy",
-            "version": "v0.2.0",
+            "version": "v0.2.1",
             "source": {
                 "type": "git",
                 "url": "git@gitlab.webconsulting.at:extensions/typo3-poppy.git",
-                "reference": "3214fd30f9c2fdec9403d3fd9ff282811b90e9bc"
+                "reference": "cf5d4533cc948f3da5d4e0e0417dd9837697535d"
             },
             "require": {
                 "ext-openssl": "*",
@@ -13625,7 +13625,7 @@
             "extra": {
                 "typo3/cms": {
                     "extension-key": "poppy",
-                    "version": "0.2.0"
+                    "version": "0.2.1"
                 }
             },
             "autoload": {
@@ -13637,7 +13637,7 @@
                 "GPL-2.0-or-later"
             ],
             "description": "Personal Agent Protocol (Poppy draft 0.1) for TYPO3: discovery, DPoP guest sessions and a published-content API",
-            "time": "2026-10-10T10:45:45+00:00"
+            "time": "2026-10-11T06:53:01+00:00"
         },
         {
             "name": "webconsulting/typo3-x402-paywall",

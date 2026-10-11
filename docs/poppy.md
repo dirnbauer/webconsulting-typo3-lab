@@ -46,11 +46,11 @@ cannot bypass the lab login through a protocol URL.
 
 | Page | Native slug |
 | --- | --- |
-| Feature, protocol explanation and example answer | `/features/poppy/` |
-| Pi Durable personal agent example | `/features/poppy/pi-durable/` |
-| Installation, editorial workflow, errors and testing | `/resources/poppy-help/` |
+| Feature, protocol explanation and example answer | `/agent-nexus/poppy/` |
+| Pi Durable personal agent example | `/agent-nexus/poppy/pi-durable/` |
+| Installation, editorial workflow, errors and testing | `/agent-nexus/poppy/help/` |
 
-Features, Resources and Technical features link to these pages. The repeatable
+Poppy is the sixth protocol in the Agent Nexus field guide. Its native page contains purpose, practical uses, the request flow, endpoint explanations, scope and comparisons with the other five protocols. Pi Durable and Help are child pages. Features, Resources, Technical features, the Agent Nexus product page, overview, shared playground and docs link to this structure. The repeatable
 source is `packages/site_package/Resources/Private/Data/Content/poppy/poppy.payload.json`.
 The two source SVG diagrams are imported into FAL and attached to native
 Desiderio text/media blocks, with alternative text and captions.
@@ -62,7 +62,7 @@ ddev exec vendor/bin/typo3 cache:flush
 ```
 
 The seeder resolves English parent pages by slug within the configured site
-root, so production and local page IDs may differ. It then uses the existing content payload command and applies
+root, so production and local page IDs may differ. Existing Poppy pages are moved into the Agent Nexus site with DataHandler; their content and FAL references retain their IDs. Former `/poppy/`, `/features/poppy/`, its Pi Durable child and `/resources/poppy-help/` paths redirect permanently to the canonical pages. The domain-level `/poppy/demo` and protocol endpoints remain stable. It then uses the existing content payload command and applies
 DataHandler move commands to establish the intended reading order. TYPO3
 manages sort values itself; direct sorting-field values in an import are not
 an ordering contract. Reapply this lab-owned seeder after the general
@@ -75,13 +75,12 @@ production database and Fileadmin before calling the seeder with
 The knowledge API reads the current published `text` record headed
 **What TYPO3 Lab says** on the selected page. Editing that record in the backend
 changes the next API answer. Update the payload as well when changing seeded
-copy, so reseeding preserves the edit. The feature/help pages and API sources
-are currently English; the other site languages use their configured fallback.
+copy, so reseeding preserves the edit. The Agent Nexus field guide and API sources are English.
 
 ## Protocol configuration
 
 Only the root Desiderio site enables `poppy`. Its configuration defines two
-allowlisted topics and starts with no external trusted personal-agent clients. The optional playground registers its own caller. Register
+allowlisted topics with an explicit `site: agent-nexus` publication boundary, and starts with no external trusted personal-agent clients. The optional playground registers its own caller. Register
 an actual caller by adding its public HTTPS `/agent.json` URL to
 `poppy.allowedClients`. The extension checks its metadata and public JWKS;
 private keys stay with the caller.
@@ -159,3 +158,11 @@ ranges; its audit is clean.
 A database snapshot was taken before content creation:
 `before-poppy-20261010`. No production database or Cloudflare deployment was
 changed by these local content and protocol tests.
+
+## Agent Nexus integration verification (11 October 2026)
+
+- Poppy 0.2.1: 45 PHP unit tests, including cross-site publication boundaries and canonical source URLs.
+- Lab: 103 unit tests, PHPStan level 8, YAML/lint, Composer audit, frontend build and deployment pins.
+- 17 authenticated protocol integration checks read the moved native content and verify publication changes, renewal and replay rejection.
+- 18 Poppy browser cases cover desktop/mobile content, six overview cards, cross-links, redirects, guest sessions and the deployed Basic Auth boundary (the two deployment-only cases skip on DDEV).
+- Reapplying the native content seeder reports 36 unchanged records, with no duplicates or file changes.

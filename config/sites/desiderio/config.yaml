@@ -103,12 +103,19 @@ imports:
 poppy:
   enabled: true
   playground: true
+  playgroundLinks:
+    overview: /agent-nexus/
+    feature: /agent-nexus/poppy/
+    pi: /agent-nexus/poppy/pi-durable/
+    help: /agent-nexus/poppy/help/
   organizationName: 'Webconsulting TYPO3 Lab'
   allowedClients: []
   sources:
     poppy:
-      slug: /features/poppy
+      site: agent-nexus
+      slug: /poppy
       header: 'What TYPO3 Lab says'
     pi-durable:
-      slug: /features/poppy/pi-durable
+      site: agent-nexus
+      slug: /poppy/pi-durable
       header: 'What TYPO3 Lab says'

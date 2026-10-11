@@ -1,0 +1,5 @@
+name: webconsulting/agent-nexus-lab
+label: 'Agent Nexus lab integration'
+hidden: true
+dependencies:
+  - webconsulting/agent-nexus

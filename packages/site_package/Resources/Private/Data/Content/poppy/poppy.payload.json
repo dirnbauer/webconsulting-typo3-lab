@@ -4,26 +4,27 @@
   "root": 505,
   "language": 0,
   "languageCode": "en",
-  "_note": "Lab-owned, idempotent Poppy feature, Pi Durable example and help. Reapply after Desiderio reseeding. All records and FAL references use DataHandler.",
+  "_note": "Agent Nexus field guide and native Poppy/Pi Durable/help content; seed-poppy migrates existing pages with DataHandler and preserves former URLs.",
   "records": [
     {
       "table": "pages",
       "action": "create",
       "key": "NEW_poppy_feature",
-      "pid": 1068,
+      "pid": 1400,
       "match": {
-        "pid": 1068,
-        "slug": "/features/poppy",
+        "pid": 1400,
+        "slug": "/poppy",
         "sys_language_uid": 0
       },
       "set": {
         "title": "Poppy: personal agents meet TYPO3",
-        "slug": "/features/poppy",
+        "slug": "/poppy",
         "hidden": 0,
         "nav_hide": 0,
         "sys_language_uid": 0,
         "seo_title": "Poppy: personal agents meet TYPO3 | TYPO3 Lab",
-        "description": "Try Personal Agent Protocol draft 0.1 in TYPO3: discovery, verified guest sessions and a read-only published-content API."
+        "description": "Try Personal Agent Protocol draft 0.1 in TYPO3: discovery, verified guest sessions and a read-only published-content API.",
+        "nav_title": "Poppy"
       }
     },
     {
@@ -46,6 +47,26 @@
         "content": "",
         "eyebrow": "Personal Agent Protocol · Draft 0.1",
         "subheadline": "Your personal agent discovers the lab, identifies itself and reads an explanation through a documented API. The text stays editable in TYPO3."
+      }
+    },
+    {
+      "table": "tt_content",
+      "action": "create",
+      "key": "NEW_poppy_why",
+      "pid": "@NEW_poppy_feature",
+      "match": {
+        "pid": "@NEW_poppy_feature",
+        "header": "What can I do with Poppy — and why is it useful?",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "CType": "text",
+        "header": "What can I do with Poppy — and why is it useful?",
+        "header_layout": 2,
+        "colPos": 0,
+        "hidden": 0,
+        "sys_language_uid": 0,
+        "bodytext": "<p>Think of Poppy as an agent’s identity check and a limited permission slip. A website can recognise which personal agent is visiting and which person it represents. The person chooses the access to grant; the business chooses the actions it offers.</p><ul><li><strong>Ask before signing in:</strong> read product facts, opening hours or published support guidance through a guest session.</li><li><strong>Continue with permission:</strong> a future account integration could offer returns, appointments or order changes, limited to the access the person approved.</li><li><strong>Keep one visit across channels:</strong> the protocol is designed to carry the session between a website, APIs and a business’s own agent.</li></ul><p><strong>Try it here:</strong> our current TYPO3 profile reads two published explanations. It starts and renews a verified guest session and rejects reused request proofs. It does not book appointments, change accounts or edit TYPO3. The playground is a real protocol test; it does not need a language model.</p>"
       }
     },
     {
@@ -104,6 +125,26 @@
     {
       "table": "tt_content",
       "action": "create",
+      "key": "NEW_poppy_how",
+      "pid": "@NEW_poppy_feature",
+      "match": {
+        "pid": "@NEW_poppy_feature",
+        "header": "How Poppy works",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "CType": "text",
+        "header": "How Poppy works",
+        "header_layout": 2,
+        "colPos": 0,
+        "hidden": 0,
+        "sys_language_uid": 0,
+        "bodytext": "<ol><li><strong>Discover:</strong> the personal agent reads <code>/.well-known/poppy.json</code> and learns the issuer and available API.</li><li><strong>Identify:</strong> TYPO3 verifies the registered agent’s signature and its separate user-session assertion.</li><li><strong>Start a guest session:</strong> the agent gets a short-lived token tied to its own DPoP key. A copied token alone is insufficient.</li><li><strong>Ask the lab:</strong> a signed request selects Poppy or Pi Durable. TYPO3 reads the published “What TYPO3 Lab says” section and returns the text and source.</li><li><strong>Continue safely:</strong> the agent renews its session when necessary. Reusing a request proof is rejected.</li></ol><p><a href=\"/poppy/demo\">Run these steps in the playground</a>. Use “See the requests” to inspect the actual responses.</p>"
+      }
+    },
+    {
+      "table": "tt_content",
+      "action": "create",
       "key": "NEW_poppy_try",
       "pid": "@NEW_poppy_feature",
       "match": {
@@ -119,6 +160,26 @@
         "hidden": 0,
         "sys_language_uid": 0,
         "bodytext": "<p><a href=\"/poppy/demo\">Open the live Poppy playground</a>. Ask about Poppy or Pi Durable, renew the verified guest session and test replay rejection. The answer comes from the published TYPO3 text below.</p><p>Open the <a href=\"/.well-known/poppy.json\">live discovery document</a>, <a href=\"/.well-known/oauth-authorization-server/poppy\">OAuth server metadata</a> and <a href=\"/poppy/openapi.json\">OpenAPI schema</a>. Discovery is public. API calls require an administrator-registered personal agent, independent client and session assertions, and a fresh DPoP proof.</p><p><strong>Example question:</strong> What does TYPO3 Lab say about Poppy?</p><p><strong>Example answer:</strong> TYPO3 Lab implements Poppy draft 0.1 for verified guest sessions and published knowledge. Editors maintain the explanation in TYPO3. The API returns that text with its source URL.</p><p>This displayed answer is an editorial example. The authenticated API reads the section “What TYPO3 Lab says” above on every request.</p>"
+      }
+    },
+    {
+      "table": "tt_content",
+      "action": "create",
+      "key": "NEW_poppy_endpoints",
+      "pid": "@NEW_poppy_feature",
+      "match": {
+        "pid": "@NEW_poppy_feature",
+        "header": "Endpoints on this site",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "CType": "text",
+        "header": "Endpoints on this site",
+        "header_layout": 2,
+        "colPos": 0,
+        "hidden": 0,
+        "sys_language_uid": 0,
+        "bodytext": "<ul><li><code>GET /.well-known/poppy.json</code> — domain discovery.</li><li><code>GET /.well-known/oauth-authorization-server/poppy</code> — OAuth issuer metadata.</li><li><code>GET /poppy/openapi.json</code> — supported operations and topics.</li><li><code>POST /poppy/token</code> — verify assertions and start or renew a guest session.</li><li><code>GET /poppy/knowledge?topic=poppy</code> — read the Poppy explanation with a fresh DPoP proof; <code>pi-durable</code> selects the second topic.</li><li><code>POST /poppy/revoke</code> — revoke a session token.</li></ul><p>The field guide lives under <code>/agent-nexus/poppy/</code>. The domain-level protocol URLs remain stable under <code>/poppy</code>. Moving the explanation does not change the issuer or require agents to register again.</p>"
       }
     },
     {
@@ -144,6 +205,26 @@
     {
       "table": "tt_content",
       "action": "create",
+      "key": "NEW_poppy_compare",
+      "pid": "@NEW_poppy_feature",
+      "match": {
+        "pid": "@NEW_poppy_feature",
+        "header": "Where Poppy fits in Agent Nexus",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "CType": "text",
+        "header": "Where Poppy fits in Agent Nexus",
+        "header_layout": 2,
+        "colPos": 0,
+        "hidden": 0,
+        "sys_language_uid": 0,
+        "bodytext": "<p>Agent Nexus is the lab’s shared field guide for six protocols. Each one solves a different part of an agent visit:</p><ul><li><a href=\"/agent-nexus/a2ui/\">A2UI</a>: describe an interface as data.</li><li><a href=\"/agent-nexus/ag-ui/\">AG-UI</a>: stream an agent’s work and request approval.</li><li><a href=\"/agent-nexus/a2a/\">A2A</a>: delegate a task to another agent.</li><li><a href=\"/agent-nexus/ucp/\">UCP</a>: discover a merchant and prepare a checkout.</li><li><a href=\"/agent-nexus/ap2/\">AP2</a>: prove a purchase was authorised.</li><li><strong>Poppy:</strong> identify the personal agent and establish the person’s permitted access.</li></ul><p>MCP exposes tools; OpenAPI describes HTTP operations. Poppy can give a personal agent a session for those channels. Our current profile advertises only its read-only OpenAPI channel. Agent Nexus supplies five protocol demos; the independent Poppy extension supplies this sixth experiment.</p>"
+      }
+    },
+    {
+      "table": "tt_content",
+      "action": "create",
       "key": "NEW_poppy_links",
       "pid": "@NEW_poppy_feature",
       "match": {
@@ -158,7 +239,7 @@
         "colPos": 0,
         "hidden": 0,
         "sys_language_uid": 0,
-        "bodytext": "<p>Follow the <a href=\"/features/poppy/pi-durable/\">Pi Durable example</a>, read the <a href=\"/resources/poppy-help/\">installation and troubleshooting guide</a>, or browse the <a href=\"https://gitlab.webconsulting.at/extensions/typo3-poppy\">extension repository</a>.</p>"
+        "bodytext": "<p>Follow the <a href=\"/agent-nexus/poppy/pi-durable/\">Pi Durable example</a>, read the <a href=\"/agent-nexus/poppy/help/\">installation and troubleshooting guide</a>, or browse the <a href=\"https://gitlab.webconsulting.at/extensions/typo3-poppy\">extension repository</a>.</p>"
       }
     },
     {
@@ -168,17 +249,18 @@
       "pid": "@NEW_poppy_feature",
       "match": {
         "pid": "@NEW_poppy_feature",
-        "slug": "/features/poppy/pi-durable",
+        "slug": "/poppy/pi-durable",
         "sys_language_uid": 0
       },
       "set": {
         "title": "Pi Durable + TYPO3: a personal agent example",
-        "slug": "/features/poppy/pi-durable",
+        "slug": "/poppy/pi-durable",
         "hidden": 0,
         "nav_hide": 0,
         "sys_language_uid": 0,
         "seo_title": "Pi Durable + TYPO3: a personal agent example | TYPO3 Lab",
-        "description": "Use Pi Durable on Cloudflare to discover TYPO3 through Poppy and read a published explanation with a source URL."
+        "description": "Use Pi Durable on Cloudflare to discover TYPO3 through Poppy and read a published explanation with a source URL.",
+        "nav_title": "Pi Durable"
       }
     },
     {
@@ -293,27 +375,28 @@
         "colPos": 0,
         "hidden": 0,
         "sys_language_uid": 0,
-        "bodytext": "<p>Brendan Irvine-Broque’s <a href=\"https://x.com/irvinebroque/status/2108673648999723482\">Poppy demo post</a> links a <a href=\"https://github.com/irvinebroque/poppy-demo\">two-Worker example</a> with a simulated order exchange. Our example uses the same personal-agent/company separation for published TYPO3 knowledge.</p><p>The source lives in <code>Examples/pi-durable</code> in the extension repository. It includes pinned dependencies, a Worker entry point, a WebCrypto protocol client, tests and setup instructions. Read Cloudflare’s <a href=\"https://developers.cloudflare.com/changelog/post/2026-10-02-pi-harness/\">PiHarness announcement</a> for the runtime integration. PiHarness and Pi Durable are experimental APIs.</p><p><a href=\"/resources/poppy-help/\">Set up and test the example</a>.</p>"
+        "bodytext": "<p>Brendan Irvine-Broque’s <a href=\"https://x.com/irvinebroque/status/2108673648999723482\">Poppy demo post</a> links a <a href=\"https://github.com/irvinebroque/poppy-demo\">two-Worker example</a> with a simulated order exchange. Our example uses the same personal-agent/company separation for published TYPO3 knowledge.</p><p>The source lives in <code>Examples/pi-durable</code> in the extension repository. It includes pinned dependencies, a Worker entry point, a WebCrypto protocol client, tests and setup instructions. Read Cloudflare’s <a href=\"https://developers.cloudflare.com/changelog/post/2026-10-02-pi-harness/\">PiHarness announcement</a> for the runtime integration. PiHarness and Pi Durable are experimental APIs.</p><p><a href=\"/agent-nexus/poppy/help/\">Set up and test the example</a>.</p>"
       }
     },
     {
       "table": "pages",
       "action": "create",
       "key": "NEW_poppy_help",
-      "pid": 2232,
+      "pid": "@NEW_poppy_feature",
       "match": {
-        "pid": 2232,
-        "slug": "/resources/poppy-help",
+        "pid": "@NEW_poppy_feature",
+        "slug": "/poppy/help",
         "sys_language_uid": 0
       },
       "set": {
         "title": "Poppy help: install, connect and test",
-        "slug": "/resources/poppy-help",
+        "slug": "/poppy/help",
         "hidden": 0,
         "nav_hide": 0,
         "sys_language_uid": 0,
         "seo_title": "Poppy help: install, connect and test | TYPO3 Lab",
-        "description": "Install the TYPO3 Poppy extension, register a personal agent, edit published answers and diagnose protocol errors."
+        "description": "Install the TYPO3 Poppy extension, register a personal agent, edit published answers and diagnose protocol errors.",
+        "nav_title": "Help"
       }
     },
     {
@@ -375,7 +458,7 @@
         "colPos": 0,
         "hidden": 0,
         "sys_language_uid": 0,
-        "bodytext": "<ol><li>Open Features → Poppy in the TYPO3 Page module.</li><li>Edit the normal text element headed “What TYPO3 Lab says”.</li><li>Publish your change using the normal TYPO3 workflow.</li><li>Call the knowledge API again. It reads the current published record.</li></ol><p>The Pi Durable page has its own answer under the same heading. Hidden, scheduled, workspace-only, group-protected and x402-gated records are not returned. The first release serves English source records.</p>"
+        "bodytext": "<ol><li>Open Agent Nexus → Poppy in the TYPO3 Page module.</li><li>Edit the normal text element headed “What TYPO3 Lab says”.</li><li>Publish your change using the normal TYPO3 workflow.</li><li>Call the knowledge API again. It reads the current published record.</li></ol><p>The Pi Durable page has its own answer under the same heading. Hidden, scheduled, workspace-only, group-protected and x402-gated records are not returned. The first release serves English source records.</p>"
       }
     },
     {
@@ -435,7 +518,7 @@
         "colPos": 0,
         "hidden": 0,
         "sys_language_uid": 0,
-        "bodytext": "<p><a href=\"/poppy/demo\">Test Poppy in your browser</a>: choose a topic, ask the lab, renew the session and test replay protection. Expand “See the requests” to inspect HTTP outcomes. The playground uses the same published CMS content as external personal agents.</p><p>The extension’s <code>Build/Scripts/runTests.sh</code> runs the PHP unit suite and syntax checks. The Pi Durable example has transport tests, TypeScript checks and a Worker dry build. The lab’s <code>Build/Scripts/test-poppy.sh</code> runs authenticated requests against DDEV, verifies renewal and replay rejection, then removes its temporary test identity.</p><p><a href=\"/features/poppy/\">Back to the feature</a> · <a href=\"/features/poppy/pi-durable/\">Pi Durable example</a> · <a href=\"https://gitlab.webconsulting.at/extensions/typo3-poppy\">Source and README</a></p>"
+        "bodytext": "<p><a href=\"/poppy/demo\">Test Poppy in your browser</a>: choose a topic, ask the lab, renew the session and test replay protection. Expand “See the requests” to inspect HTTP outcomes. The playground uses the same published CMS content as external personal agents.</p><p>The extension’s <code>Build/Scripts/runTests.sh</code> runs the PHP unit suite and syntax checks. The Pi Durable example has transport tests, TypeScript checks and a Worker dry build. The lab’s <code>Build/Scripts/test-poppy.sh</code> runs authenticated requests against DDEV, verifies renewal and replay rejection, then removes its temporary test identity.</p><p><a href=\"/agent-nexus/poppy/\">Back to the feature</a> · <a href=\"/agent-nexus/poppy/pi-durable/\">Pi Durable example</a> · <a href=\"https://gitlab.webconsulting.at/extensions/typo3-poppy\">Source and README</a></p>"
       }
     },
     {
@@ -455,7 +538,7 @@
         "colPos": 0,
         "hidden": 0,
         "sys_language_uid": 0,
-        "bodytext": "<p>A new protocol experiment: verified guest sessions and published knowledge through Personal Agent Protocol draft 0.1. <a href=\"/features/poppy/\">Explore Poppy</a> and its <a href=\"/features/poppy/pi-durable/\">Pi Durable example</a>.</p>"
+        "bodytext": "<p>Explore Poppy in <a href=\"/agent-nexus/\">Agent Nexus</a>, the lab’s home for agent protocols. Poppy adds identity and limited access for personal agents. <a href=\"/agent-nexus/poppy/\">Read the explanation</a>, <a href=\"/poppy/demo\">try a verified guest session</a> or follow the <a href=\"/agent-nexus/poppy/pi-durable/\">Pi Durable example</a>.</p>"
       }
     },
     {
@@ -475,7 +558,7 @@
         "colPos": 0,
         "hidden": 0,
         "sys_language_uid": 0,
-        "bodytext": "<p><a href=\"/resources/poppy-help/\">Install Poppy, register an agent and troubleshoot requests</a>. Follow the <a href=\"/features/poppy/pi-durable/\">Pi Durable example</a> to connect a durable personal agent to the lab.</p>"
+        "bodytext": "<p><a href=\"/agent-nexus/poppy/help/\">Install Poppy, register an agent and troubleshoot requests</a>. Follow the <a href=\"/agent-nexus/poppy/pi-durable/\">Pi Durable example</a> to connect a durable personal agent to the lab.</p>"
       }
     },
     {
@@ -495,7 +578,156 @@
         "colPos": 0,
         "hidden": 0,
         "sys_language_uid": 0,
-        "bodytext": "<p>The lab includes the standalone <code>webconsulting/typo3-poppy</code> extension: domain discovery, verified guest sessions, DPoP proofs and a read-only OpenAPI content endpoint. <a href=\"/features/poppy/\">See the supported draft 0.1 profile</a>.</p>"
+        "bodytext": "<p>The lab includes the standalone <code>webconsulting/typo3-poppy</code> extension: domain discovery, verified guest sessions, DPoP proofs and a read-only OpenAPI content endpoint. <a href=\"/agent-nexus/poppy/\">See the supported draft 0.1 profile</a>.</p>"
+      }
+    },
+    {
+      "table": "tt_content",
+      "action": "create",
+      "key": "NEW_nexus_intro",
+      "pid": 1400,
+      "match": {
+        "pid": 1400,
+        "CType": "textmedia",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "header": "Six agent protocols running on TYPO3",
+        "bodytext": "<p>Explore how a personal agent identifies itself, builds interfaces, streams its work, delegates tasks and prepares purchases. Agent Nexus brings six protocols together in one field guide: A2UI, AG-UI, A2A, UCP, AP2 and Poppy.</p><p>Choose a protocol below, read how it works and try its demo. The first five run sandbox workflows; Poppy makes verified, read-only requests to published TYPO3 knowledge. Nothing is charged or sent to another person.</p>"
+      }
+    },
+    {
+      "table": "tt_content",
+      "action": "create",
+      "key": "NEW_nexus_roles",
+      "pid": 1400,
+      "match": {
+        "pid": 1400,
+        "header": "Which protocol should I try?",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "CType": "text",
+        "header": "Which protocol should I try?",
+        "header_layout": 2,
+        "colPos": 0,
+        "hidden": 0,
+        "sys_language_uid": 0,
+        "bodytext": "<p><strong>Identity and access → Poppy.</strong> Start here to understand how a site recognises a personal agent. Continue to A2UI for interfaces, AG-UI for streaming and approvals, A2A for delegated tasks, UCP for checkout and AP2 for payment authorisation.</p><p>Use the <a href=\"/agent-nexus/playground/\">shared playground</a> to compare the five embedded demos, or open the <a href=\"/poppy/demo\">Poppy playground</a> to discover the lab, start a session and request a sourced explanation. The <a href=\"/agent-nexus/poppy/pi-durable/\">Pi Durable example</a> shows how the calling agent can preserve its work.</p>"
+      }
+    },
+    {
+      "table": "tt_content",
+      "action": "create",
+      "key": "NEW_nexus_playground_intro",
+      "pid": 1407,
+      "match": {
+        "pid": 1407,
+        "CType": "textmedia",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "header": "Compare the agent protocols",
+        "bodytext": "<p>Try A2UI, AG-UI, A2A, UCP and AP2 in the five embedded demos below. Each uses its own endpoint. For identity and access, <a href=\"/poppy/demo\">open the Poppy playground</a>: discover the lab, start a verified guest session, read published knowledge, renew the session and test replay rejection.</p>"
+      }
+    },
+    {
+      "table": "tt_content",
+      "action": "create",
+      "key": "NEW_nexus_playground_poppy",
+      "pid": 1407,
+      "match": {
+        "pid": 1407,
+        "header": "Poppy — identify the agent and read published knowledge",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "CType": "text",
+        "header": "Poppy — identify the agent and read published knowledge",
+        "header_layout": 2,
+        "colPos": 0,
+        "hidden": 0,
+        "sys_language_uid": 0,
+        "bodytext": "<p><a href=\"/poppy/demo\">Open the Poppy playground</a>. Select Poppy or Pi Durable, choose “Ask the lab”, renew the session and test replay protection. Inspect “See the requests” to follow the protocol. <a href=\"/agent-nexus/poppy/\">Read how it works</a> · <a href=\"/agent-nexus/poppy/help/\">Help and troubleshooting</a>.</p>"
+      }
+    },
+    {
+      "table": "tt_content",
+      "action": "create",
+      "key": "NEW_nexus_docs_intro",
+      "pid": 1408,
+      "match": {
+        "pid": 1408,
+        "CType": "textmedia",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "header": "Specifications, explanations and setup",
+        "bodytext": "<p>Agent Nexus is a field guide to six protocols. Its bundled extension implements A2UI, AG-UI, A2A, UCP and AP2; the independent TYPO3 Poppy extension adds personal-agent identity and guest access. Each protocol has an explanation and a working demo.</p><p><a href=\"/agent-nexus/poppy/\">Poppy: purpose, request flow and supported profile</a> · <a href=\"/agent-nexus/poppy/pi-durable/\">Pi Durable example</a> · <a href=\"/agent-nexus/poppy/help/\">Poppy installation and troubleshooting</a> · <a href=\"https://personalagentprotocol.org/docs/spec\">Poppy draft specification</a>.</p>"
+      }
+    },
+    {
+      "table": "pages",
+      "action": "create",
+      "key": "NEW_nexus_product",
+      "pid": 2229,
+      "match": {
+        "pid": 2229,
+        "slug": "/ai/agent-nexus",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "title": "Agent Nexus: agent protocols on your TYPO3",
+        "seo_title": "Agent Nexus: six agent protocols | TYPO3 Lab",
+        "description": "Explore six agent protocols on TYPO3: A2UI, AG-UI, A2A, UCP, AP2 and Poppy, with explanations, demos and a Pi Durable example."
+      }
+    },
+    {
+      "table": "tt_content",
+      "action": "create",
+      "key": "NEW_nexus_product_hero",
+      "pid": "@NEW_nexus_product",
+      "match": {
+        "pid": "@NEW_nexus_product",
+        "CType": "desiderio_herosaas",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "header": "Explore six agent protocols on your TYPO3"
+      }
+    },
+    {
+      "table": "tt_content",
+      "action": "create",
+      "key": "NEW_nexus_product_poppy",
+      "pid": "@NEW_nexus_product",
+      "match": {
+        "pid": "@NEW_nexus_product",
+        "header": "Six protocols, one field guide",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "CType": "text",
+        "header": "Six protocols, one field guide",
+        "header_layout": 2,
+        "colPos": 0,
+        "hidden": 0,
+        "sys_language_uid": 0,
+        "bodytext": "<p><a href=\"/agent-nexus/\">Open Agent Nexus</a> to explore A2UI, AG-UI, A2A, UCP, AP2 and Poppy. The Agent Nexus extension provides the five interface, interaction, delegation, checkout and payment demos. The lab also installs the independent <code>webconsulting/typo3-poppy</code> extension for personal-agent identity and verified guest sessions.</p><p><a href=\"/agent-nexus/poppy/\">Understand Poppy</a> · <a href=\"/poppy/demo\">Try the live protocol</a> · <a href=\"/agent-nexus/poppy/pi-durable/\">See the Pi Durable example</a> · <a href=\"/agent-nexus/poppy/help/\">Install and get help</a>.</p>"
+      }
+    },
+    {
+      "table": "tt_content",
+      "action": "create",
+      "key": "NEW_nexus_docs_hub",
+      "pid": 1408,
+      "match": {
+        "pid": 1408,
+        "CType": "agentnexus_hub",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "header": "Protocol specifications and demos"
       }
     }
   ]

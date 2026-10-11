@@ -24,7 +24,7 @@ const discovery = await client.discover();
 assert.equal(discovery.protocol_version, '0.1'); assert.deepEqual(discovery.topics, ['poppy', 'pi-durable']); passed('reciprocal discovery and OpenAPI');
 const publicApi = await fetch(origin + '/poppy/knowledge?topic=poppy'); assert.equal(publicApi.status, 401); passed('anonymous API access rejected');
 await client.session(); assert.equal(state.token.signed_in, false); assert.equal(state.token.scope, ''); passed('verified DPoP guest session');
-const answer = await client.knowledge('poppy'); assert.match(answer.answer, /signed-out profile/); assert.equal(answer.source, origin + '/features/poppy/'); passed('answer read from native TYPO3 content');
+const answer = await client.knowledge('poppy'); assert.match(answer.answer, /signed-out profile/); assert.equal(answer.source, origin + '/agent-nexus/poppy/'); passed('answer read from native TYPO3 content');
 const pi = await client.knowledge('pi-durable'); assert.match(pi.answer, /Pi Durable/); passed('Pi Durable topic');
 const session = state.token.session_id;
 const restored = JSON.parse(await readFile(stateFile));
@@ -56,7 +56,7 @@ const elevated = await tokenRequest(await form({scope:'poppy:write'})); assert.e
 const hijack = await tokenRequest(await form({session_id:session, assertion: await sign(claims('usr_other_opaque'), state.identity)}));
 assert.equal((await hijack.json()).error, 'invalid_session'); passed('another user cannot renew the session');
 // Exercise native content changes and publication rules through DataHandler, and restore in finally.
-const uid = Number(execFileSync('ddev', ['mysql','-N','-e', "SELECT uid FROM tt_content WHERE pid=(SELECT uid FROM pages WHERE slug='/features/poppy' AND deleted=0 AND sys_language_uid=0 LIMIT 1) AND header='What TYPO3 Lab says' AND deleted=0 AND sys_language_uid=0 LIMIT 1"], {encoding:'utf8'}).trim());
+const uid = Number(execFileSync('ddev', ['mysql','-N','-e', "SELECT uid FROM tt_content WHERE pid=(SELECT uid FROM pages WHERE slug='/poppy' AND deleted=0 AND sys_language_uid=0 LIMIT 1) AND header='What TYPO3 Lab says' AND deleted=0 AND sys_language_uid=0 LIMIT 1"], {encoding:'utf8'}).trim());
 assert.ok(uid > 0);
 const nativeHtml = execFileSync('ddev',['mysql','--batch','--raw','--skip-column-names','-e',`SELECT bodytext FROM tt_content WHERE uid=${uid}`],{encoding:'utf8'}).trimEnd();
 const payloadPath = 'packages/site_package/Resources/Private/Data/Content/poppy/temporary-test.payload.json';
