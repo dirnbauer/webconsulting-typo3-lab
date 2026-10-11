@@ -94,8 +94,10 @@ snapshot before changing demo data; these are not part of the quality suite.
 ## Poppy feature and help
 
 `sitepackage:seed-poppy` creates or refreshes the lab-owned Poppy feature, Pi
-Durable example and help pages, plus links from Features, Resources and
-Technical features. Content definitions live in
+Durable example and help pages in Agent Nexus, plus the six-protocol overview,
+shared playground, docs and links from Features, Resources and Technical features.
+It moves existing pages with DataHandler, retains their content/FAL IDs and
+creates permanent redirects from former content URLs. Content definitions live in
 `Resources/Private/Data/Content/poppy/poppy.payload.json`; source SVG diagrams
 live in `Resources/Public/Images/Poppy`. Writes and ordering use DataHandler;
 images use FAL. Reapply after Desiderio reseeding. The API implementation is the

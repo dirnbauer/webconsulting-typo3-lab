@@ -11,7 +11,7 @@ gone after the next reseed. The style guide for the text itself is
 | Site | Source | Command |
 |---|---|---|
 | Desiderio (505) | `packages/desiderio`: `Classes/Data/StyleguideShowcasePages.php`, `Classes/Data/Showcase/*.php`, `StyleguideContentGroups.php`, `Resources/Private/Data/styleguide-*.json`, `NewsDemoSeeder.php`, `PowermailDemoFormDefinitions.php`; per element `ContentBlocks/ContentElements/*/fixture.json` | `desiderio:styleguide:seed` |
-| Poppy feature, Pi Durable example, help and hub links | `packages/site_package/Resources/Private/Data/Content/poppy/poppy.payload.json`, diagrams in `Resources/Public/Images/Poppy` | `sitepackage:seed-poppy` |
+| Agent Nexus overview, Poppy/Pi Durable/help, navigation and legacy redirects | `packages/site_package/Resources/Private/Data/Content/poppy/poppy.payload.json`, diagrams in `Resources/Public/Images/Poppy` | `sitepackage:seed-poppy` |
 | Desiderio translations (de/zh/hu): every page, element, collection item, image text, news article, tag, category and Powermail form the seeders create in English | translation memories in `packages/site_package/Resources/Private/Data/Translations/desiderio/` (`de.json`, `zh.json`, `hu.json`: English text → translation; `scope.json`: what other commands own) | `sitepackage:content:translate --site=desiderio` |
 | Element library folders 1065, 1026, 1064, 1306 | per element `library.json` (and `library.de.json` for 1064) in desiderio, innesto and astryx_typo3 | `desiderio:library:seed` |
 | Powermail Lab forms 07–11 on Desiderio (below 712) and their section of the lab's overview | `packages/webcon_jev/Classes/Data/JevExampleDefinitions.php` | `webcon-jev:examples:seed` |

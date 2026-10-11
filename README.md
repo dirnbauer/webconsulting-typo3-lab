@@ -270,8 +270,11 @@ ddev exec vendor/bin/typo3 sitepackage:seed-poppy
 ddev exec vendor/bin/typo3 cache:flush
 ```
 
-The native pages are `/features/poppy/`, `/features/poppy/pi-durable/` and
-`/resources/poppy-help/`. They include two explanatory diagrams, an editorial
+Poppy is the sixth protocol in the Agent Nexus field guide. The native pages
+are `/agent-nexus/poppy/`, `/agent-nexus/poppy/pi-durable/` and
+`/agent-nexus/poppy/help/`; former content URLs redirect to them.
+The overview, menu, shared playground and docs link this structure.
+The pages include practical uses, two explanatory diagrams, an editorial
 example answer, supported capabilities and help. The Pi Durable example
 provides a pinned Cloudflare PiHarness integration; its protocol transport is
 tested against the actual TYPO3 instance. See [setup and testing](docs/poppy.md).
