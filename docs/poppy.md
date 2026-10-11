@@ -50,7 +50,7 @@ cannot bypass the lab login through a protocol URL.
 | Pi Durable personal agent example | `/agent-nexus/poppy/pi-durable/` |
 | Installation, editorial workflow, errors and testing | `/agent-nexus/poppy/help/` |
 
-Poppy is the sixth protocol in the Agent Nexus field guide. Its native page contains purpose, practical uses, the request flow, endpoint explanations, scope and comparisons with the other five protocols. Pi Durable and Help are child pages. Features, Resources, Technical features, the Agent Nexus product page, overview, shared playground and docs link to this structure. The repeatable
+Poppy is the sixth protocol in the Agent Nexus field guide. Its native page contains purpose, practical uses, the request flow, endpoint explanations, scope and comparisons with the other five protocols, followed by a sourced summary of Sierra's draft announcement: the draft at a glance, the five building blocks (each marked with what the lab implements), the standards it builds on, Sierra's three examples, next steps and a numbered source list. Those sections paraphrase the sources and link them inline; keep them in the lab's own wording when the draft changes. Pi Durable and Help are child pages. Features, Resources, Technical features, the Agent Nexus product page, overview, shared playground and docs link to this structure. The repeatable
 source is `packages/site_package/Resources/Private/Data/Content/poppy/poppy.payload.json`.
 The two source SVG diagrams are imported into FAL and attached to native
 Desiderio text/media blocks, with alternative text and captions.
