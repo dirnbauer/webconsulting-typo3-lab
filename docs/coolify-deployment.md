@@ -304,6 +304,22 @@ is the basic-auth 401, which `Header set` â€” and therefore `public/.htaccess` â
 never touches. There is no Content-Security-Policy here on purpose: TYPO3 owns
 that per site, and a second one from Apache could only ever tighten it blindly.
 
+## Basic Auth and frontend editing
+
+Basic Auth and the TYPO3 backend session are separate. A frontend editing
+response with HTTP 401 can make Chrome discard the valid Basic Auth login,
+prompting again on the next backend request. The site package maps editing
+session denials to 403 behind Basic Auth, including the visual editor's
+immediate login response. Explicit authentication challenges and unrelated
+frontend requests keep their original responses.
+
+A shared workspace preview leaves an `ADMCMD_prev` cookie. Core can use that
+cookie to replace an authenticated backend user with a preview-only user,
+which the visual editor correctly refuses. Authenticated frontend editing
+requests therefore use Core's `ADMCMD_prev=IGNORE` request option before
+workspace preview runs. This keeps the editor's current user and workspace;
+the cookie and normal shared-preview tabs are unchanged.
+
 ## Jev API token
 
 The TypeSafe (Jev) token lives in nr-vault as `typesafe_api_key`, owned by the
