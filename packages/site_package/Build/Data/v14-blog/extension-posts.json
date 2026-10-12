@@ -28,8 +28,8 @@
                 "Fluid"
             ],
             "featuredImage": {
-                "file": "frontend-feature-desiderio-home-hero-cad71b20.webp",
-                "alternative": "Desiderio home page with the headline 244 ready-made content elements for TYPO3 and a preview of theme preset cards."
+                "file": "frontend-feature-desiderio-home-hero-b85b6c67.webp",
+                "alternative": "Desiderio home page with the headline “Ship TYPO3 client sites in days, not weeks”, download and pricing buttons, and a photo of an agency team working together."
             },
             "content": [
                 {
@@ -40,8 +40,8 @@
                     "header": "244 elements in 10 groups, ready for editors",
                     "body": "<p>The content wizard lists 10 Desiderio groups next to the core types. They cover heroes, navigation, content, features, pricing, social proof, team, data, conversion and footers. Each element has its own icon, a description and demo content in English and German.</p><p>Every element is a Content Block. In the page module, it shows a preview card with its type, headline and key fields. So editors find content without opening forms.</p>",
                     "image": {
-                        "file": "feature-desiderio-page-module-77441b8c.webp",
-                        "alternative": "TYPO3 page module for Hero & Landing Intros with preview cards listing each hero element's type, headline and fields.",
+                        "file": "feature-desiderio-page-module-9d43bf8e.webp",
+                        "alternative": "TYPO3 page module in dark mode with a Desiderio feature grid, one icon per item, readable content and a subtle record footer.",
                         "caption": "Preview cards show each element's type, headline and key fields."
                     }
                 },
@@ -82,7 +82,7 @@
                 "Fluid"
             ],
             "featuredImage": {
-                "file": "feature-desiderio-content-wizard-e6136a19.webp",
+                "file": "feature-desiderio-content-wizard-f80cbefc.webp",
                 "alternative": "TYPO3 content wizard with Desiderio's groups and Innesto's Magic UI and Stats groups, Plans & Pricing open."
             },
             "content": [
@@ -137,7 +137,7 @@
                 "Content Blocks"
             ],
             "featuredImage": {
-                "file": "frontend-feature-astryx-home-7eb2ba52.webp",
+                "file": "frontend-feature-astryx-home-49b56de0.webp",
                 "alternative": "Astryx lab start page with a team photo beside the headline Meta's design system, rendered by TYPO3."
             },
             "content": [
@@ -191,7 +191,7 @@
                 "Accessibility"
             ],
             "featuredImage": {
-                "file": "feature-visual-editor-element-library-6456fd81.webp",
+                "file": "feature-visual-editor-element-library-17a5d6ac.webp",
                 "alternative": "TYPO3 Visual Editor with the Add content panel open, showing element cards with rendered previews and keyword chips."
             },
             "content": [
@@ -203,7 +203,7 @@
                     "header": "An element library with live previews",
                     "body": "<p>A round button opens a side panel of content element types. Each card is a rendered preview with keyword chips. Drag a card onto a drop zone, and the element arrives pre-filled from its demo record. So a new section never starts empty.</p><p>The search forgives typos. Type <em>testimonal</em>, and the library still finds the testimonial elements, with a 'Did you mean' link. Elements you used recently stay at the top.</p>",
                     "image": {
-                        "file": "feature-visual-editor-search-4e3a64e9.webp",
+                        "file": "feature-visual-editor-search-cf0a8d71.webp",
                         "alternative": "Element library search for the misspelt word testimonal, listing testimonial elements and a Did you mean suggestion.",
                         "caption": "A typo still finds the testimonial elements."
                     }
@@ -212,8 +212,8 @@
                     "header": "Layout options and links on the page",
                     "body": "<p>The field chooser is a popover with the record's choice fields: selects, category trees, links, checkboxes and colours. It groups them like the backend form. Open it from the element's action bar or from a button on an editable text. Changes wait in the Visual Editor's pending list until you save.</p><p>Hover a button, and a chain icon opens the TYPO3 link browser for its link field. The rich-text toolbar sits in one row above the text. Bold, italic, link and bulleted list stay visible, and the other buttons sit behind 'Show more items'.</p>",
                     "image": {
-                        "file": "feature-visual-editor-field-chooser-9a6feecb.webp",
-                        "alternative": "Visual Editor with the Field settings popover open on a hero, showing background and spacing options in tabs.",
+                        "file": "feature-visual-editor-field-chooser-a068f1c8.webp",
+                        "alternative": "Visual Editor with the Field settings popover open on the homepage hero, showing the Background setting in the Appearance tab.",
                         "caption": "The Field settings popover groups the options in the tabs of the backend form."
                     }
                 },
@@ -368,7 +368,7 @@
                 "Backend"
             ],
             "featuredImage": {
-                "file": "feature-docx-editor-word-menu-8e5a83a1.webp",
+                "file": "feature-docx-editor-word-menu-ec67045e.webp",
                 "alternative": "TYPO3 page module with the Word menu open, offering Edit in Word, Download as Word document and import as subpages."
             },
             "content": [
@@ -389,7 +389,7 @@
                     "header": "Pages travel to Word and back",
                     "body": "<p>Every page gets a <strong>Word</strong> menu. <strong>Edit in Word</strong> opens the page in the embedded editor. Each content element becomes a framed block, and each field becomes a frame inside it. You can also download the page as a .docx file, edit it in Word or LibreOffice, and upload it again.</p><p>Before an import, a review lists each element as new, changed, conflicting or removed. Nothing is written until you confirm. A Word document can also become new pages: one page, a page per Heading 1 or a page per page break. New pages start hidden.</p>",
                     "image": {
-                        "file": "feature-docx-editor-review-cb15cece.webp",
+                        "file": "feature-docx-editor-review-651b124b.webp",
                         "alternative": "Review changes before saving dialog listing a changed text element, its field marked changed in Word and an Import button.",
                         "caption": "The review lists every change before anything reaches the page."
                     }
@@ -722,7 +722,7 @@
                 "Search"
             ],
             "featuredImage": {
-                "file": "frontend-feature-skillflow-catalogue-8403a331.webp",
+                "file": "frontend-feature-skillflow-catalogue-0bc661cd.webp",
                 "alternative": "Skill catalogue on a TYPO3 page: a search for security with 24 results and facet filters for source, tools and licence."
             },
             "content": [
@@ -747,7 +747,7 @@
                     "header": "A catalogue visitors can search",
                     "body": "<p>Publish your active skills with Solr search and translated facets. Each skill gets a detail page with its skill ID, licence, version and allowed tools. The detail element also sets the page title and meta description. Imported skills keep their own licences, and the catalogue shows them.</p>",
                     "image": {
-                        "file": "frontend-feature-skillflow-skill-detail-d142c5ed.webp",
+                        "file": "frontend-feature-skillflow-skill-detail-e6bc304e.webp",
                         "alternative": "Detail page of the security-audit skill with its description, a copyable skill ID, licence, version and allowed tools.",
                         "caption": "Each skill gets its own page with ID, licence and allowed tools."
                     }
@@ -899,8 +899,8 @@
                 "TYPO3 v14"
             ],
             "featuredImage": {
-                "file": "frontend-feature-agent-nexus-hub-94abe630.webp",
-                "alternative": "Protocol hub on a TYPO3 page with cards for A2UI, AG-UI and A2A, their endpoints, spec versions and ready status."
+                "file": "frontend-feature-agent-nexus-hub-441f1125.webp",
+                "alternative": "Agent Nexus protocol hub with cards for A2UI, AG-UI, A2A, UCP, AP2 and Poppy, showing their specification versions, endpoints and status."
             },
             "content": [
                 {
@@ -915,7 +915,7 @@
                     "header": "Demos editors can place on a page",
                     "body": "<p>Each protocol has public endpoints, a backend console that shows the raw traffic and a content element with its live demo. In the A2UI demo, one sentence becomes a working form. TYPO3 draws only components from its trusted catalogue and drops everything else. In the AG-UI demo, the run arrives as a stream of typed events and stops for your approval.</p>",
                     "image": {
-                        "file": "frontend-feature-agent-nexus-a2ui-form-465cca4b.webp",
+                        "file": "frontend-feature-agent-nexus-a2ui-form-5edb828e.webp",
                         "alternative": "A2UI demo on a TYPO3 page with the request for a project quote and the form the agent generated from it.",
                         "caption": "One sentence in, a working form out."
                     }
@@ -958,8 +958,8 @@
                 "Backend"
             ],
             "featuredImage": {
-                "file": "frontend-feature-agentation-frontend-note-dbfbbbf8.webp",
-                "alternative": "The home page with the Agentation toolbar, two numbered notes on the headline and main button, and a third note in progress."
+                "file": "frontend-feature-agentation-frontend-note-2687acec.webp",
+                "alternative": "Agentation feedback draft attached to the current Desiderio homepage headline beside an agency team photo."
             },
             "content": [
                 {
@@ -970,8 +970,8 @@
                     "header": "Point at the element and write a note",
                     "body": "<p>Click an element or select text, then write a note. The toolbar records the selector, the page and the computed styles, plus the page id and the user. You choose the corner it sits in, and a webhook can receive each submission with its TYPO3 context. The same toolbar runs inside backend modules. So editors can mark up the page module, record forms or your own modules.</p>",
                     "image": {
-                        "file": "feature-agentation-backend-note-63e8d068.webp",
-                        "alternative": "TYPO3 page module with the Agentation toolbar and a numbered note attached to a content element preview.",
+                        "file": "feature-agentation-backend-note-30e21524.webp",
+                        "alternative": "TYPO3 page module with the updated Desiderio preview and an unsent Agentation feedback note attached to the content.",
                         "caption": "The toolbar also works on backend screens such as the page module."
                     }
                 },
@@ -1017,7 +1017,7 @@
                 "MCP"
             ],
             "featuredImage": {
-                "file": "frontend-feature-llms-txt-llms-05e929b5.webp",
+                "file": "frontend-feature-llms-txt-llms-c6dcc0ac.webp",
                 "alternative": "The llms.txt of the lab site: site title, summary, a pointer to agents.md and link lists with descriptions per section."
             },
             "content": [
@@ -1029,7 +1029,7 @@
                     "header": "llms.txt maps your content",
                     "body": "<p>The llms.txt follows version 2 of the llms.txt proposal. It starts with the site title and a summary, then points agents to agents.md. Each visible first-level page becomes a section, with its visible children as links, up to 25 per section. Hidden, timed-out, noindex and nav-hidden pages never appear.</p><p>Editors steer it through page properties. The root page's description becomes the summary, and each page's title and description become its link. Every language gets its own file, with translated titles and URLs.</p>",
                     "image": {
-                        "file": "frontend-feature-llms-txt-per-language-fc6c28f6.webp",
+                        "file": "frontend-feature-llms-txt-per-language-052280a8.webp",
                         "alternative": "German llms.txt of the lab site with a German summary, German section titles and links to /de/ pages.",
                         "caption": "Each language base serves its own llms.txt."
                     }
@@ -1038,7 +1038,7 @@
                     "header": "agents.md explains your machine interfaces",
                     "body": "<p>The agents.md file is an operating guide for agents. It lists only the interfaces your installation really has. It names the MCP server and the <a href=\"/14/abilities-registry-one-rulebook-for-ai-agents\">Abilities Registry</a>, with each ability's risk tier. It also names the sitemap and, with the <a href=\"/14/x402-paywall-sell-pages-to-people-and-agents\">x402 Paywall</a>, the lane for paid content. Each entry appears only when that extension is installed.</p>",
                     "image": {
-                        "file": "frontend-feature-llms-txt-agents-md-75272488.webp",
+                        "file": "frontend-feature-llms-txt-agents-md-5e603f90.webp",
                         "alternative": "The agents.md of the lab site: MCP endpoint, abilities registry with REST and CLI access, and abilities with risk tiers.",
                         "caption": "The agents.md lists the MCP endpoint and each ability with its risk tier."
                     }
@@ -1075,8 +1075,8 @@
                 "Open source"
             ],
             "featuredImage": {
-                "file": "frontend-feature-desiderio-home-hero-cad71b20.webp",
-                "alternative": "Desiderio home page with the headline 244 ready-made content elements for TYPO3 and a preview of theme preset cards."
+                "file": "frontend-feature-desiderio-home-hero-b85b6c67.webp",
+                "alternative": "Desiderio home page with the headline “Ship TYPO3 client sites in days, not weeks”, download and pricing buttons, and a photo of an agency team working together."
             },
             "content": [
                 {
