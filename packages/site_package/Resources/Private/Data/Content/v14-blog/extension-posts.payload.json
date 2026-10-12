@@ -1466,9 +1466,9 @@
             "files": {
                 "featured_image": [
                     {
-                        "source": "EXT:desiderio/Resources/Public/Styleguide/Backend/feature-easy-workspace-dropdown-aa5e4b9e.webp",
+                        "source": "EXT:desiderio/Resources/Public/Styleguide/Backend/feature-easy-workspace-dropdown-ba2be060.webp",
                         "folder": "1:/blog/v14-blog/",
-                        "alternative": "Easy Workspace dropdown listing five pending changes on the People & Team page with New and Changed badges."
+                        "alternative": "Easy Workspace 1.11 dropdown showing pending edits on the People & Team page, with unchanged translations grouped under their original edit."
                     }
                 ]
             },
@@ -1549,9 +1549,9 @@
             "files": {
                 "assets": [
                     {
-                        "source": "EXT:desiderio/Resources/Public/Styleguide/Backend/feature-easy-workspace-selection-5f8a9766.webp",
+                        "source": "EXT:desiderio/Resources/Public/Styleguide/Backend/feature-easy-workspace-selection-440f2fe1.webp",
                         "folder": "1:/blog/v14-blog/",
-                        "alternative": "Dropdown with two of five changes selected and a Publish 2 button in the footer.",
+                        "alternative": "Easy Workspace dropdown with only the ready changes selected for publishing.",
                         "description": "Untick what is not ready, and the button counts what goes live."
                     }
                 ]
@@ -1584,9 +1584,9 @@
             "files": {
                 "assets": [
                     {
-                        "source": "EXT:desiderio/Resources/Public/Styleguide/Backend/feature-easy-workspace-languages-3e1507a3.webp",
+                        "source": "EXT:desiderio/Resources/Public/Styleguide/Backend/feature-easy-workspace-languages-23de7971.webp",
                         "folder": "1:/blog/v14-blog/",
-                        "alternative": "Dropdown with two German changes in view and three English changes under an Other languages heading.",
+                        "alternative": "Easy Workspace dropdown showing English edits and an expanded German translation section.",
                         "description": "Changes in other languages get their own section and stay selected."
                     }
                 ]

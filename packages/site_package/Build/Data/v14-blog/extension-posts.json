@@ -309,8 +309,8 @@
                 "Backend"
             ],
             "featuredImage": {
-                "file": "feature-easy-workspace-dropdown-aa5e4b9e.webp",
-                "alternative": "Easy Workspace dropdown listing five pending changes on the People & Team page with New and Changed badges."
+                "file": "feature-easy-workspace-dropdown-ba2be060.webp",
+                "alternative": "Easy Workspace 1.11 dropdown showing pending edits on the People & Team page, with unchanged translations grouped under their original edit."
             },
             "content": [
                 {
@@ -325,8 +325,8 @@
                     "header": "Translations are listed, never left behind",
                     "body": "<p>The dropdown knows which language you are looking at. Edited elements of the current view come first. Translations follow in a folded section that opens with one click. They stay selected and publish together with the rest.</p><p>When you edit an element, TYPO3 also versions its translations as copies. The dropdown marks such a copy as 'Unchanged', not 'Changed'.</p>",
                     "image": {
-                        "file": "feature-easy-workspace-languages-3e1507a3.webp",
-                        "alternative": "Dropdown with two German changes in view and three English changes under an Other languages heading.",
+                        "file": "feature-easy-workspace-languages-23de7971.webp",
+                        "alternative": "Easy Workspace dropdown showing English edits and an expanded German translation section.",
                         "caption": "Changes in other languages get their own section and stay selected."
                     }
                 },
@@ -334,8 +334,8 @@
                     "header": "Choose what goes live, keep the rest staged",
                     "body": "<p>Every change starts selected. Untick what is not ready, and the button says exactly how many records go live. Each row can open the editor, show the diff and history, or discard one draft. <strong>Publish</strong> sends the selection live with its related records, and the rest stays in the workspace.</p><p>The list comes from the same core code as the Workspaces module. Publishing and discarding go through the DataHandler. So permissions, stages and history stay as they are. The dropdown is hidden in Live.</p>",
                     "image": {
-                        "file": "feature-easy-workspace-selection-5f8a9766.webp",
-                        "alternative": "Dropdown with two of five changes selected and a Publish 2 button in the footer.",
+                        "file": "feature-easy-workspace-selection-440f2fe1.webp",
+                        "alternative": "Easy Workspace dropdown with only the ready changes selected for publishing.",
                         "caption": "Untick what is not ready, and the button counts what goes live."
                     }
                 },
