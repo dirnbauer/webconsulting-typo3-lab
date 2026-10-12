@@ -2,10 +2,10 @@ astryx.theme.default: neutral
 astryx.theme.colorScheme: system
 astryx.theme.schemeToggle: true
 astryx.brand.wordmark: 'Astryx'
-astryx.brand.tagline: 'Meta''s open design system for TYPO3: 250 content elements and 25 themes, without a JavaScript framework.'
+astryx.brand.tagline: 'LLL:EXT:site_package/Resources/Private/Language/astryx.xlf:footer.tagline'
 astryx.header.breadcrumb: true
 astryx.footer.legalPageIds: '1292,1293,1294'
-astryx.footer.copyrightText: 'Astryx for TYPO3 — a webconsulting lab site'
+astryx.footer.copyrightText: 'LLL:EXT:site_package/Resources/Private/Language/astryx.xlf:footer.copyright'
 
 # The loupe in the header submits to page 1308, which carries the Solr plugin.
 astryx.search.enabled: true

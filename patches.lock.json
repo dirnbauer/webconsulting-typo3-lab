@@ -1,5 +1,5 @@
 {
-    "_hash": "aeabd03e50837edac789edf76a3f16988a37351f8d869d93459bbc93af52647e",
+    "_hash": "9591264654fc78ddd04a5fda93b78ddaefbe070ca50f1d84121e288658c3ac40",
     "patches": {
         "apache-solr-for-typo3/solr": [
             {
@@ -41,6 +41,18 @@
                 "description": "Show server validation errors when the client summary is disabled",
                 "url": "patches/webconsulting-desiderio-powermail-server-errors.patch",
                 "sha256": "9c51495e43683018a9d27847edd4cd68ad8427c2baaaa76e444dda0b0232cc22",
+                "depth": 1,
+                "extra": {
+                    "provenance": "root"
+                }
+            }
+        ],
+        "webconsulting/astryx-typo3": [
+            {
+                "package": "webconsulting/astryx-typo3",
+                "description": "Translate the German theme overview and preserve localized page layouts",
+                "url": "patches/webconsulting-astryx-german-theme-overview.patch",
+                "sha256": "375ff89f89d22094cf68fa80ca38942f5beca9fe18c099a008f0a042d94af90e",
                 "depth": 1,
                 "extra": {
                     "provenance": "root"

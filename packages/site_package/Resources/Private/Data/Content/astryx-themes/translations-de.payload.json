@@ -1,0 +1,374 @@
+{
+    "version": 1,
+    "site": "astryx-typo3",
+    "root": 1290,
+    "language": 1,
+    "_note": "Repair the German theme overview and its 25 theme page layout/theme settings through DataHandler; preserve editorial content and record IDs.",
+    "records": [
+        {
+            "table": "pages",
+            "uid": 1349,
+            "expect": {
+                "sys_language_uid": 1,
+                "l10n_parent": 1307,
+                "title": "Themes"
+            },
+            "set": {
+                "backend_layout": "pagets__AstryxThemes",
+                "backend_layout_next_level": "pagets__AstryxContentpage",
+                "tx_desiderioastryx_theme": "",
+                "description": "Alle 25 Themes im direkten Vergleich – jede Karte zeigt ihr eigenes Theme."
+            }
+        },
+        {
+            "table": "pages",
+            "uid": 1351,
+            "expect": {
+                "sys_language_uid": 1,
+                "l10n_parent": 1312,
+                "title": "Neutral"
+            },
+            "set": {
+                "backend_layout": "pagets__AstryxContentpage",
+                "backend_layout_next_level": "",
+                "tx_desiderioastryx_theme": "neutral"
+            }
+        },
+        {
+            "table": "pages",
+            "uid": 1352,
+            "expect": {
+                "sys_language_uid": 1,
+                "l10n_parent": 1313,
+                "title": "Butter"
+            },
+            "set": {
+                "backend_layout": "pagets__AstryxContentpage",
+                "backend_layout_next_level": "",
+                "tx_desiderioastryx_theme": "butter"
+            }
+        },
+        {
+            "table": "pages",
+            "uid": 1353,
+            "expect": {
+                "sys_language_uid": 1,
+                "l10n_parent": 1314,
+                "title": "Chocolate"
+            },
+            "set": {
+                "backend_layout": "pagets__AstryxContentpage",
+                "backend_layout_next_level": "",
+                "tx_desiderioastryx_theme": "chocolate"
+            }
+        },
+        {
+            "table": "pages",
+            "uid": 1354,
+            "expect": {
+                "sys_language_uid": 1,
+                "l10n_parent": 1315,
+                "title": "Matcha"
+            },
+            "set": {
+                "backend_layout": "pagets__AstryxContentpage",
+                "backend_layout_next_level": "",
+                "tx_desiderioastryx_theme": "matcha"
+            }
+        },
+        {
+            "table": "pages",
+            "uid": 1355,
+            "expect": {
+                "sys_language_uid": 1,
+                "l10n_parent": 1316,
+                "title": "Stone"
+            },
+            "set": {
+                "backend_layout": "pagets__AstryxContentpage",
+                "backend_layout_next_level": "",
+                "tx_desiderioastryx_theme": "stone"
+            }
+        },
+        {
+            "table": "pages",
+            "uid": 1356,
+            "expect": {
+                "sys_language_uid": 1,
+                "l10n_parent": 1317,
+                "title": "Gothic"
+            },
+            "set": {
+                "backend_layout": "pagets__AstryxContentpage",
+                "backend_layout_next_level": "",
+                "tx_desiderioastryx_theme": "gothic"
+            }
+        },
+        {
+            "table": "pages",
+            "uid": 1357,
+            "expect": {
+                "sys_language_uid": 1,
+                "l10n_parent": 1318,
+                "title": "Y2K"
+            },
+            "set": {
+                "backend_layout": "pagets__AstryxContentpage",
+                "backend_layout_next_level": "",
+                "tx_desiderioastryx_theme": "y2k"
+            }
+        },
+        {
+            "table": "pages",
+            "uid": 1358,
+            "expect": {
+                "sys_language_uid": 1,
+                "l10n_parent": 1319,
+                "title": "Harbour"
+            },
+            "set": {
+                "backend_layout": "pagets__AstryxContentpage",
+                "backend_layout_next_level": "",
+                "tx_desiderioastryx_theme": "harbour"
+            }
+        },
+        {
+            "table": "pages",
+            "uid": 1359,
+            "expect": {
+                "sys_language_uid": 1,
+                "l10n_parent": 1320,
+                "title": "Ember"
+            },
+            "set": {
+                "backend_layout": "pagets__AstryxContentpage",
+                "backend_layout_next_level": "",
+                "tx_desiderioastryx_theme": "ember"
+            }
+        },
+        {
+            "table": "pages",
+            "uid": 1360,
+            "expect": {
+                "sys_language_uid": 1,
+                "l10n_parent": 1321,
+                "title": "Linen"
+            },
+            "set": {
+                "backend_layout": "pagets__AstryxContentpage",
+                "backend_layout_next_level": "",
+                "tx_desiderioastryx_theme": "linen"
+            }
+        },
+        {
+            "table": "pages",
+            "uid": 1361,
+            "expect": {
+                "sys_language_uid": 1,
+                "l10n_parent": 1322,
+                "title": "Orchid"
+            },
+            "set": {
+                "backend_layout": "pagets__AstryxContentpage",
+                "backend_layout_next_level": "",
+                "tx_desiderioastryx_theme": "orchid"
+            }
+        },
+        {
+            "table": "pages",
+            "uid": 1362,
+            "expect": {
+                "sys_language_uid": 1,
+                "l10n_parent": 1323,
+                "title": "Cobalt"
+            },
+            "set": {
+                "backend_layout": "pagets__AstryxContentpage",
+                "backend_layout_next_level": "",
+                "tx_desiderioastryx_theme": "cobalt"
+            }
+        },
+        {
+            "table": "pages",
+            "uid": 1363,
+            "expect": {
+                "sys_language_uid": 1,
+                "l10n_parent": 1324,
+                "title": "Moss"
+            },
+            "set": {
+                "backend_layout": "pagets__AstryxContentpage",
+                "backend_layout_next_level": "",
+                "tx_desiderioastryx_theme": "moss"
+            }
+        },
+        {
+            "table": "pages",
+            "uid": 1364,
+            "expect": {
+                "sys_language_uid": 1,
+                "l10n_parent": 1325,
+                "title": "Clay"
+            },
+            "set": {
+                "backend_layout": "pagets__AstryxContentpage",
+                "backend_layout_next_level": "",
+                "tx_desiderioastryx_theme": "clay"
+            }
+        },
+        {
+            "table": "pages",
+            "uid": 1365,
+            "expect": {
+                "sys_language_uid": 1,
+                "l10n_parent": 1326,
+                "title": "Plum"
+            },
+            "set": {
+                "backend_layout": "pagets__AstryxContentpage",
+                "backend_layout_next_level": "",
+                "tx_desiderioastryx_theme": "plum"
+            }
+        },
+        {
+            "table": "pages",
+            "uid": 1366,
+            "expect": {
+                "sys_language_uid": 1,
+                "l10n_parent": 1327,
+                "title": "Sand"
+            },
+            "set": {
+                "backend_layout": "pagets__AstryxContentpage",
+                "backend_layout_next_level": "",
+                "tx_desiderioastryx_theme": "sand"
+            }
+        },
+        {
+            "table": "pages",
+            "uid": 1367,
+            "expect": {
+                "sys_language_uid": 1,
+                "l10n_parent": 1328,
+                "title": "Ink"
+            },
+            "set": {
+                "backend_layout": "pagets__AstryxContentpage",
+                "backend_layout_next_level": "",
+                "tx_desiderioastryx_theme": "ink"
+            }
+        },
+        {
+            "table": "pages",
+            "uid": 1368,
+            "expect": {
+                "sys_language_uid": 1,
+                "l10n_parent": 1329,
+                "title": "Lagoon"
+            },
+            "set": {
+                "backend_layout": "pagets__AstryxContentpage",
+                "backend_layout_next_level": "",
+                "tx_desiderioastryx_theme": "lagoon"
+            }
+        },
+        {
+            "table": "pages",
+            "uid": 1369,
+            "expect": {
+                "sys_language_uid": 1,
+                "l10n_parent": 1330,
+                "title": "Rose"
+            },
+            "set": {
+                "backend_layout": "pagets__AstryxContentpage",
+                "backend_layout_next_level": "",
+                "tx_desiderioastryx_theme": "rose"
+            }
+        },
+        {
+            "table": "pages",
+            "uid": 1370,
+            "expect": {
+                "sys_language_uid": 1,
+                "l10n_parent": 1331,
+                "title": "Graphite"
+            },
+            "set": {
+                "backend_layout": "pagets__AstryxContentpage",
+                "backend_layout_next_level": "",
+                "tx_desiderioastryx_theme": "graphite"
+            }
+        },
+        {
+            "table": "pages",
+            "uid": 1376,
+            "expect": {
+                "sys_language_uid": 1,
+                "l10n_parent": 1371,
+                "title": "Frost"
+            },
+            "set": {
+                "backend_layout": "pagets__AstryxContentpage",
+                "backend_layout_next_level": "",
+                "tx_desiderioastryx_theme": "frost"
+            }
+        },
+        {
+            "table": "pages",
+            "uid": 1377,
+            "expect": {
+                "sys_language_uid": 1,
+                "l10n_parent": 1372,
+                "title": "Latte"
+            },
+            "set": {
+                "backend_layout": "pagets__AstryxContentpage",
+                "backend_layout_next_level": "",
+                "tx_desiderioastryx_theme": "latte"
+            }
+        },
+        {
+            "table": "pages",
+            "uid": 1378,
+            "expect": {
+                "sys_language_uid": 1,
+                "l10n_parent": 1373,
+                "title": "Solar"
+            },
+            "set": {
+                "backend_layout": "pagets__AstryxContentpage",
+                "backend_layout_next_level": "",
+                "tx_desiderioastryx_theme": "solar"
+            }
+        },
+        {
+            "table": "pages",
+            "uid": 1379,
+            "expect": {
+                "sys_language_uid": 1,
+                "l10n_parent": 1374,
+                "title": "Retro"
+            },
+            "set": {
+                "backend_layout": "pagets__AstryxContentpage",
+                "backend_layout_next_level": "",
+                "tx_desiderioastryx_theme": "retro"
+            }
+        },
+        {
+            "table": "pages",
+            "uid": 1380,
+            "expect": {
+                "sys_language_uid": 1,
+                "l10n_parent": 1375,
+                "title": "Midnight"
+            },
+            "set": {
+                "backend_layout": "pagets__AstryxContentpage",
+                "backend_layout_next_level": "",
+                "tx_desiderioastryx_theme": "midnight"
+            }
+        }
+    ]
+}

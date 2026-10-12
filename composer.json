@@ -252,6 +252,9 @@
 			"webconsulting/desiderio": {
 				"Localize required checkbox and radio validation in the selected frontend language": "patches/webconsulting-desiderio-powermail-required-localization.patch",
 				"Show server validation errors when the client summary is disabled": "patches/webconsulting-desiderio-powermail-server-errors.patch"
+			},
+			"webconsulting/astryx-typo3": {
+				"Translate the German theme overview and preserve localized page layouts": "patches/webconsulting-astryx-german-theme-overview.patch"
 			}
 		}
 	},
