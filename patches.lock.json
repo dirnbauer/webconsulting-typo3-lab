@@ -1,5 +1,5 @@
 {
-    "_hash": "7b90ff8cce806dd46084275346beade76d4bfdc9b9ea4490de39f78b9bb8eff0",
+    "_hash": "aeabd03e50837edac789edf76a3f16988a37351f8d869d93459bbc93af52647e",
     "patches": {
         "apache-solr-for-typo3/solr": [
             {
@@ -31,6 +31,16 @@
                 "description": "Localize required checkbox and radio validation in the selected frontend language",
                 "url": "patches/webconsulting-desiderio-powermail-required-localization.patch",
                 "sha256": "3a10a16bbf48fb02759248abf1b81b7d4562790bc6105e0e73c00ac8816484c3",
+                "depth": 1,
+                "extra": {
+                    "provenance": "root"
+                }
+            },
+            {
+                "package": "webconsulting/desiderio",
+                "description": "Show server validation errors when the client summary is disabled",
+                "url": "patches/webconsulting-desiderio-powermail-server-errors.patch",
+                "sha256": "9c51495e43683018a9d27847edd4cd68ad8427c2baaaa76e444dda0b0232cc22",
                 "depth": 1,
                 "extra": {
                     "provenance": "root"

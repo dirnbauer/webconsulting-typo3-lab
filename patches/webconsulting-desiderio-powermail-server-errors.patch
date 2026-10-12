@@ -1,0 +1,28 @@
+diff --git a/Resources/Private/Extensions/Powermail/Templates/Form/Form.html b/Resources/Private/Extensions/Powermail/Templates/Form/Form.html
+--- a/Resources/Private/Extensions/Powermail/Templates/Form/Form.html
++++ b/Resources/Private/Extensions/Powermail/Templates/Form/Form.html
+@@ -50,9 +50,8 @@
+                         </header>
+                     </f:if>
+
+-                    <f:if condition="{settings.validation.errorSummary.mode} != 'off'">
+-                        <f:render partial="Misc/FormError" arguments="{_all}" />
+-                    </f:if>
++                    <!-- Server rejections must remain visible when the client summary is disabled. -->
++                    <f:render partial="Misc/FormError" arguments="{_all}" />
+
+                     <div class="d-powermail-client-errors hidden mb-6" data-powermail-error-summary hidden role="alert">
+                         <h3 class="mb-2 font-medium text-destructive" data-powermail-error-summary-title>
+diff --git a/Resources/Private/Extensions/Powermail/Partials/Misc/FormError.html b/Resources/Private/Extensions/Powermail/Partials/Misc/FormError.html
+--- a/Resources/Private/Extensions/Powermail/Partials/Misc/FormError.html
++++ b/Resources/Private/Extensions/Powermail/Partials/Misc/FormError.html
+@@ -45,6 +45,9 @@
+                                             </li>
+                                         </ul>
+                                     </f:if>
++                                    <f:if condition="!{singleError.arguments.marker}">
++                                        <f:translate key="validationerror_{singleError.message}" extensionName="Powermail">{singleError.message}</f:translate>
++                                    </f:if>
+                                 </f:else>
+                             </f:if>
+                         </li>

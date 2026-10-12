@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Frontend validation messages missing from EXT:friendlycaptcha_official. -->
+<xliff version="2.0" xmlns="urn:oasis:names:tc:xliff:document:2.0" srcLang="en" trgLang="zh">
+  <file id="friendlycaptcha-overrides">
+    <unit id="message.invalid">
+      <segment state="final">
+        <source>Captcha is invalid. Please try again</source>
+        <target>验证失败，请重试。</target>
+      </segment>
+    </unit>
+  </file>
+</xliff>

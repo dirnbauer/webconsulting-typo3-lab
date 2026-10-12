@@ -44,6 +44,18 @@
         <target>有问题的表单字段</target>
       </segment>
     </unit>
+    <unit id="validationerror_validation.1">
+      <segment state="final">
+        <source>This is not a valid email address!</source>
+        <target>请输入有效的电子邮箱地址。</target>
+      </segment>
+    </unit>
+    <unit id="validationerror_validation.6">
+      <segment state="final">
+        <source>Please increase number!</source>
+        <target>请输入更大的数字。</target>
+      </segment>
+    </unit>
     <unit id="deleteAllFiles">
       <segment state="final">
         <source>Delete All Files</source>

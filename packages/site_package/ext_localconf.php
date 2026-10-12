@@ -62,14 +62,14 @@ $GLOBALS['TYPO3_CONF_VARS']['GFX']['imageFileConversionFormats'] = [
 // second, weaker one.
 $GLOBALS['TYPO3_CONF_VARS']['EXTENSIONS']['staticfilecache']['useFallbackMiddleware'] = '0';
 
-// Labels the Desiderio templates show on the lab sites that EXT:blog, EXT:news
-// and EXT:powermail do not translate: keys only Desiderio's templates use
+// Labels the Desiderio templates show on the lab sites that the extensions
+// do not translate: keys only Desiderio's templates use
 // ("No comments yet", "Share this article" …), and — for Chinese and
 // Hungarian, which have no language packs here — the standard keys as well.
 // German keeps the official language pack for every standard key.
 // The WorkOS templates address their labels by domain (workos_auth.messages),
 // so the override is registered under the file and the domain name.
-foreach (['de' => ['blog', 'news'], 'zh' => ['blog', 'news', 'powermail', 'workos_auth'], 'hu' => ['blog', 'news', 'powermail', 'workos_auth']] as $siteLabelLanguage => $siteLabelExtensions) {
+foreach (['de' => ['blog', 'news'], 'zh' => ['blog', 'news', 'powermail', 'workos_auth', 'friendlycaptcha_official'], 'hu' => ['blog', 'news', 'powermail', 'workos_auth', 'friendlycaptcha_official']] as $siteLabelLanguage => $siteLabelExtensions) {
     foreach ($siteLabelExtensions as $siteLabelExtension) {
         $siteLabelOverride = 'EXT:site_package/Resources/Private/Language/Overrides/' . $siteLabelLanguage . '.' . $siteLabelExtension . '.xlf';
         $GLOBALS['TYPO3_CONF_VARS']['LANG']['resourceOverrides'][$siteLabelLanguage]['EXT:' . $siteLabelExtension . '/Resources/Private/Language/locallang.xlf'][] = $siteLabelOverride;

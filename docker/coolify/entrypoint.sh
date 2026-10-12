@@ -41,6 +41,8 @@ chmod 0755 \
     /var/www/html/public/typo3temp/assets/images \
     /var/www/html/var
 
+/usr/local/bin/typo3-provision-powermail-uploads
+
 # The compiled dependency-injection container and class caches live in the
 # persistent var/ volume, so a new image inherits whatever the previous one
 # compiled. When a vendor library that produced them changes, the new code

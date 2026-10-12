@@ -44,6 +44,18 @@
         <target>Hibás űrlapmezők</target>
       </segment>
     </unit>
+    <unit id="validationerror_validation.1">
+      <segment state="final">
+        <source>This is not a valid email address!</source>
+        <target>Adjon meg érvényes email-címet.</target>
+      </segment>
+    </unit>
+    <unit id="validationerror_validation.6">
+      <segment state="final">
+        <source>Please increase number!</source>
+        <target>Adjon meg nagyobb számot.</target>
+      </segment>
+    </unit>
     <unit id="deleteAllFiles">
       <segment state="final">
         <source>Delete All Files</source>

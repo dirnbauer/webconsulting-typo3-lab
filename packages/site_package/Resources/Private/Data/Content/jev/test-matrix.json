@@ -1,0 +1,1795 @@
+{
+  "date": "2026-10-12",
+  "scope": "Synthetic EN/DE/ZH/HU natural-language inputs and every product, timing, start and education select value. Live condition HTTP plus persisted decision routing runner; deterministic fallback fixtures are separate.",
+  "cases": [
+    {
+      "id": "07_sales",
+      "slug": "contact-routing",
+      "label": "sales",
+      "fields": {
+        "subject": "",
+        "message": "What would a TYPO3 website relaunch with 40 pages cost? Please send us a quote."
+      },
+      "expected_route": "sales@webconsulting.at",
+      "expected_actions": {},
+      "expected_answers": {},
+      "fields_by_language": {
+        "en": {
+          "subject": "",
+          "message": "What would a TYPO3 website relaunch with 40 pages cost? Please send us a quote."
+        },
+        "de": {
+          "subject": "",
+          "message": "Was würde ein Relaunch einer TYPO3-Website mit 40 Seiten kosten? Bitte senden Sie uns ein Angebot."
+        },
+        "zh": {
+          "subject": "",
+          "message": "重新制作一个有40个页面的TYPO3网站需要多少钱？请给我们报价。"
+        },
+        "hu": {
+          "subject": "",
+          "message": "Mennyibe kerülne egy 40 oldalas TYPO3-weboldal megújítása? Kérünk árajánlatot."
+        }
+      }
+    },
+    {
+      "id": "07_support",
+      "slug": "contact-routing",
+      "label": "support",
+      "fields": {
+        "subject": "",
+        "message": "Since the update the TYPO3 editor no longer saves images. Can technical support fix this error?"
+      },
+      "expected_route": "support@webconsulting.at",
+      "expected_actions": {},
+      "expected_answers": {},
+      "fields_by_language": {
+        "en": {
+          "subject": "",
+          "message": "Since the update the TYPO3 editor no longer saves images. Can technical support fix this error?"
+        },
+        "de": {
+          "subject": "",
+          "message": "Seit dem Update speichert der TYPO3-Editor keine Bilder mehr. Kann der technische Support diesen Fehler beheben?"
+        },
+        "zh": {
+          "subject": "",
+          "message": "更新后TYPO3编辑器无法保存图片。技术支持能修复这个错误吗？"
+        },
+        "hu": {
+          "subject": "",
+          "message": "A frissítés óta a TYPO3-szerkesztő nem menti a képeket. Ki tudja javítani ezt a hibát a műszaki támogatás?"
+        }
+      }
+    },
+    {
+      "id": "07_accounting",
+      "slug": "contact-routing",
+      "label": "accounting",
+      "fields": {
+        "subject": "",
+        "message": "Our last invoice lists the maintenance fee twice. Could you send a corrected invoice?"
+      },
+      "expected_route": "accounting@webconsulting.at",
+      "expected_actions": {},
+      "expected_answers": {},
+      "fields_by_language": {
+        "en": {
+          "subject": "",
+          "message": "Our last invoice lists the maintenance fee twice. Could you send a corrected invoice?"
+        },
+        "de": {
+          "subject": "",
+          "message": "Unsere letzte Rechnung enthält die Wartungspauschale doppelt. Können Sie eine korrigierte Rechnung senden?"
+        },
+        "zh": {
+          "subject": "",
+          "message": "我们最近的发票把维护费列了两次。能否发送更正后的发票？"
+        },
+        "hu": {
+          "subject": "",
+          "message": "A legutóbbi számlánkon kétszer szerepel a karbantartási díj. Tudnának javított számlát küldeni?"
+        }
+      }
+    },
+    {
+      "id": "07_jobs",
+      "slug": "contact-routing",
+      "label": "jobs",
+      "fields": {
+        "subject": "",
+        "message": "Do you have an opening for a junior developer? I would like to apply for a job."
+      },
+      "expected_route": "jobs@webconsulting.at",
+      "expected_actions": {},
+      "expected_answers": {},
+      "fields_by_language": {
+        "en": {
+          "subject": "",
+          "message": "Do you have an opening for a junior developer? I would like to apply for a job."
+        },
+        "de": {
+          "subject": "",
+          "message": "Haben Sie eine freie Stelle für einen Junior-Entwickler? Ich möchte mich um eine Stelle bewerben."
+        },
+        "zh": {
+          "subject": "",
+          "message": "你们有初级开发人员的空缺职位吗？我想申请工作。"
+        },
+        "hu": {
+          "subject": "",
+          "message": "Van nyitott junior fejlesztői állásuk? Szeretnék jelentkezni."
+        }
+      }
+    },
+    {
+      "id": "07_press",
+      "slug": "contact-routing",
+      "label": "press",
+      "fields": {
+        "subject": "",
+        "message": "I am a journalist writing an article about TYPO3 agencies and would like to interview you for publication."
+      },
+      "expected_route": "press@webconsulting.at",
+      "expected_actions": {},
+      "expected_answers": {},
+      "fields_by_language": {
+        "en": {
+          "subject": "",
+          "message": "I am a journalist writing an article about TYPO3 agencies and would like to interview you for publication."
+        },
+        "de": {
+          "subject": "",
+          "message": "Ich bin Journalist und schreibe einen Artikel über TYPO3-Agenturen. Für die Veröffentlichung möchte ich Sie interviewen."
+        },
+        "zh": {
+          "subject": "",
+          "message": "我是一名记者，正在撰写关于TYPO3机构的文章，希望采访你们并发表。"
+        },
+        "hu": {
+          "subject": "",
+          "message": "Újságíró vagyok, és a TYPO3-ügynökségekről írok cikket. Interjút szeretnék készíteni Önökkel a megjelenéshez."
+        }
+      }
+    },
+    {
+      "id": "08_usage",
+      "slug": "support-triage",
+      "label": "usage",
+      "fields": {
+        "product": "website",
+        "message": "How can I add a new page in TYPO3? Please point me to the documentation. Nothing is broken."
+      },
+      "expected_route": "support@webconsulting.at",
+      "expected_actions": {
+        "reproduction": "hide",
+        "escalation": "hide"
+      },
+      "expected_answers": {},
+      "fields_by_language": {
+        "en": {
+          "product": "website",
+          "message": "How can I add a new page in TYPO3? Please point me to the documentation. Nothing is broken."
+        },
+        "de": {
+          "product": "website",
+          "message": "Wie lege ich in TYPO3 eine neue Seite an? Bitte verweisen Sie mich auf die Dokumentation. Nichts ist kaputt."
+        },
+        "zh": {
+          "product": "website",
+          "message": "如何在TYPO3中添加新页面？请告诉我相关文档在哪里。没有任何故障。"
+        },
+        "hu": {
+          "product": "website",
+          "message": "Hogyan hozhatok létre új oldalt a TYPO3-ban? Kérem, mutassák meg a dokumentációt. Semmi sem hibás."
+        }
+      },
+      "expected_score_ranges": {
+        "severity": [
+          0,
+          0.5
+        ]
+      }
+    },
+    {
+      "id": "08_cosmetic",
+      "slug": "support-triage",
+      "label": "cosmetic",
+      "fields": {
+        "product": "website",
+        "message": "Since the last update the footer shows the wrong year. Everything else works normally."
+      },
+      "expected_route": "engineering@webconsulting.at",
+      "expected_actions": {
+        "reproduction": "un_hide",
+        "escalation": "hide"
+      },
+      "expected_answers": {},
+      "fields_by_language": {
+        "en": {
+          "product": "website",
+          "message": "Since the last update the footer shows the wrong year. Everything else works normally."
+        },
+        "de": {
+          "product": "website",
+          "message": "Seit dem letzten Update zeigt die Fußzeile das falsche Jahr. Alles andere funktioniert normal."
+        },
+        "zh": {
+          "product": "website",
+          "message": "上次更新后，页脚显示的年份不对。其他功能都正常。"
+        },
+        "hu": {
+          "product": "website",
+          "message": "A legutóbbi frissítés óta rossz évszám látható a láblécben. Minden más rendesen működik."
+        }
+      },
+      "expected_score_ranges": {
+        "severity": [
+          0,
+          0.5
+        ]
+      }
+    },
+    {
+      "id": "08_workaround",
+      "slug": "support-triage",
+      "label": "workaround",
+      "fields": {
+        "product": "website",
+        "message": "The image upload button fails with a JavaScript error, but uploading through the file list works, so I can continue working."
+      },
+      "expected_route": "engineering@webconsulting.at",
+      "expected_actions": {
+        "reproduction": "un_hide",
+        "escalation": "hide"
+      },
+      "expected_answers": {},
+      "fields_by_language": {
+        "en": {
+          "product": "website",
+          "message": "The image upload button fails with a JavaScript error, but uploading through the file list works, so I can continue working."
+        },
+        "de": {
+          "product": "website",
+          "message": "Der Bild-Upload-Button scheitert mit einem JavaScript-Fehler, aber das Hochladen über die Dateiliste funktioniert. Ich kann also weiterarbeiten."
+        },
+        "zh": {
+          "product": "website",
+          "message": "图片上传按钮出现JavaScript错误，但通过文件列表上传仍然可用，所以我可以继续工作。"
+        },
+        "hu": {
+          "product": "website",
+          "message": "A képfeltöltő gomb JavaScript-hibát jelez, de a fájllistán keresztül működik a feltöltés, így tovább tudok dolgozni."
+        }
+      },
+      "expected_score_ranges": {
+        "severity": [
+          0.5,
+          1.5
+        ]
+      }
+    },
+    {
+      "id": "08_blocking",
+      "slug": "support-triage",
+      "label": "blocking",
+      "fields": {
+        "product": "website",
+        "message": "The content editor cannot save any pages: every save produces an exception. There is no workaround; the public website remains online but our editors cannot publish anything."
+      },
+      "expected_route": "engineering@webconsulting.at",
+      "expected_actions": {
+        "reproduction": "un_hide",
+        "escalation": "un_hide"
+      },
+      "expected_answers": {},
+      "fields_by_language": {
+        "en": {
+          "product": "website",
+          "message": "The content editor cannot save any pages: every save produces an exception. There is no workaround; the public website remains online but our editors cannot publish anything."
+        },
+        "de": {
+          "product": "website",
+          "message": "Der Inhaltseditor kann keine Seiten speichern: Jeder Speicherversuch löst eine Exception aus. Es gibt keinen Umweg. Die öffentliche Website bleibt online, aber unsere Redaktion kann nichts veröffentlichen."
+        },
+        "zh": {
+          "product": "website",
+          "message": "内容编辑器无法保存任何页面，每次保存都会出现异常。没有替代办法。公开网站仍在线，但编辑人员无法发布任何内容。"
+        },
+        "hu": {
+          "product": "website",
+          "message": "A tartalomszerkesztő egyetlen oldalt sem tud menteni: minden mentés kivételt okoz. Nincs kerülő megoldás. A nyilvános weboldal működik, de a szerkesztők semmit sem tudnak közzétenni."
+        }
+      },
+      "expected_score_ranges": {
+        "severity": [
+          1.5,
+          2.5
+        ]
+      }
+    },
+    {
+      "id": "08_outage",
+      "slug": "support-triage",
+      "label": "outage",
+      "fields": {
+        "product": "website",
+        "message": "The whole online shop is down after the update. Every checkout fails and we lose orders every hour."
+      },
+      "expected_route": "engineering@webconsulting.at",
+      "expected_actions": {
+        "reproduction": "un_hide",
+        "escalation": "un_hide"
+      },
+      "expected_answers": {},
+      "fields_by_language": {
+        "en": {
+          "product": "website",
+          "message": "The whole online shop is down after the update. Every checkout fails and we lose orders every hour."
+        },
+        "de": {
+          "product": "website",
+          "message": "Seit dem Update ist der ganze Onlineshop ausgefallen. Jeder Bestellabschluss schlägt fehl und wir verlieren stündlich Bestellungen."
+        },
+        "zh": {
+          "product": "website",
+          "message": "更新后整个网店都无法使用。每次结账都失败，每小时都在损失订单。"
+        },
+        "hu": {
+          "product": "website",
+          "message": "A frissítés óta az egész webáruház leállt. Minden vásárlás hibába fut, és óránként rendeléseket veszítünk."
+        }
+      },
+      "expected_score_ranges": {
+        "severity": [
+          2.5,
+          3
+        ]
+      }
+    },
+    {
+      "id": "08_billing",
+      "slug": "support-triage",
+      "label": "billing",
+      "fields": {
+        "product": "website",
+        "message": "Please change the billing address on our licence renewal invoice. This is an accounting request; the website works normally."
+      },
+      "expected_route": "accounting@webconsulting.at",
+      "expected_actions": {
+        "reproduction": "hide",
+        "escalation": "hide"
+      },
+      "expected_answers": {},
+      "fields_by_language": {
+        "en": {
+          "product": "website",
+          "message": "Please change the billing address on our licence renewal invoice. This is an accounting request; the website works normally."
+        },
+        "de": {
+          "product": "website",
+          "message": "Bitte ändern Sie die Rechnungsadresse auf unserer Rechnung zur Lizenzverlängerung. Dies ist eine Buchhaltungsanfrage; die Website funktioniert normal."
+        },
+        "zh": {
+          "product": "website",
+          "message": "请更改许可证续费发票上的账单地址。这是财务请求，网站运行正常。"
+        },
+        "hu": {
+          "product": "website",
+          "message": "Kérem, módosítsák a számlázási címet a licenchosszabbítás számláján. Ez könyvelési kérés; a weboldal rendesen működik."
+        }
+      },
+      "expected_score_ranges": {
+        "severity": [
+          0,
+          0.5
+        ]
+      }
+    },
+    {
+      "id": "09_nothing",
+      "slug": "quality-gate",
+      "label": "nothing",
+      "fields": {
+        "subject": "",
+        "message": "asdf"
+      },
+      "expected_route": "quarantine@webconsulting.at",
+      "expected_actions": {
+        "submit": "hide",
+        "thin": "un_hide"
+      },
+      "expected_answers": {},
+      "fields_by_language": {
+        "en": {
+          "subject": "",
+          "message": "asdf"
+        },
+        "de": {
+          "subject": "",
+          "message": "asdf"
+        },
+        "zh": {
+          "subject": "",
+          "message": "asdf"
+        },
+        "hu": {
+          "subject": "",
+          "message": "asdf"
+        }
+      },
+      "expected_score_ranges": {
+        "effort": [
+          0,
+          0.5
+        ]
+      }
+    },
+    {
+      "id": "09_almost_nothing",
+      "slug": "quality-gate",
+      "label": "almost_nothing",
+      "fields": {
+        "subject": "",
+        "message": "info please"
+      },
+      "expected_route": "office@webconsulting.at",
+      "expected_actions": {
+        "submit": "hide",
+        "thin": "un_hide"
+      },
+      "expected_answers": {},
+      "fields_by_language": {
+        "en": {
+          "subject": "",
+          "message": "info please"
+        },
+        "de": {
+          "subject": "",
+          "message": "bitte Infos"
+        },
+        "zh": {
+          "subject": "",
+          "message": "请给信息"
+        },
+        "hu": {
+          "subject": "",
+          "message": "kérek infót"
+        }
+      },
+      "expected_score_ranges": {
+        "effort": [
+          0.5,
+          1.5
+        ]
+      }
+    },
+    {
+      "id": "09_enough",
+      "slug": "quality-gate",
+      "label": "enough",
+      "fields": {
+        "subject": "",
+        "message": "Do you offer TYPO3 maintenance?"
+      },
+      "expected_route": "office@webconsulting.at",
+      "expected_actions": {
+        "submit": "un_hide",
+        "thin": "hide"
+      },
+      "expected_answers": {},
+      "fields_by_language": {
+        "en": {
+          "subject": "",
+          "message": "Do you offer TYPO3 maintenance?"
+        },
+        "de": {
+          "subject": "",
+          "message": "Bieten Sie TYPO3-Wartung an?"
+        },
+        "zh": {
+          "subject": "",
+          "message": "你们提供TYPO3维护服务吗？"
+        },
+        "hu": {
+          "subject": "",
+          "message": "Vállalnak TYPO3-karbantartást?"
+        }
+      },
+      "expected_score_ranges": {
+        "effort": [
+          1.5,
+          2.5
+        ]
+      }
+    },
+    {
+      "id": "09_detailed",
+      "slug": "quality-gate",
+      "label": "detailed",
+      "fields": {
+        "subject": "",
+        "message": "Can you migrate our TYPO3 11 site to version 14 before March, including our booking extension? We have 40 pages and need an estimate for the migration."
+      },
+      "expected_route": "office@webconsulting.at",
+      "expected_actions": {
+        "submit": "un_hide",
+        "thin": "hide"
+      },
+      "expected_answers": {},
+      "fields_by_language": {
+        "en": {
+          "subject": "",
+          "message": "Can you migrate our TYPO3 11 site to version 14 before March, including our booking extension? We have 40 pages and need an estimate for the migration."
+        },
+        "de": {
+          "subject": "",
+          "message": "Können Sie unsere TYPO3-11-Website bis März auf Version 14 migrieren, einschließlich unserer Buchungs-Extension? Wir haben 40 Seiten und benötigen eine Kostenschätzung für die Migration."
+        },
+        "zh": {
+          "subject": "",
+          "message": "你们能在三月之前将我们的TYPO3 11网站迁移到14版，并迁移预订扩展吗？我们有40个页面，需要迁移费用估算。"
+        },
+        "hu": {
+          "subject": "",
+          "message": "Át tudják állítani a TYPO3 11 weboldalunkat 14-es verzióra március előtt, a foglalási bővítménnyel együtt? Negyven oldalunk van, és költségbecslést kérünk a migrációra."
+        }
+      },
+      "expected_score_ranges": {
+        "effort": [
+          2.5,
+          3
+        ]
+      }
+    },
+    {
+      "id": "09_spam",
+      "slug": "quality-gate",
+      "label": "spam",
+      "fields": {
+        "subject": "",
+        "message": "Buy 100000 SEO backlinks and crypto profits now. We sell guaranteed traffic and cheap SEO to every website. Contact us for 90% discount."
+      },
+      "expected_route": "quarantine@webconsulting.at",
+      "expected_actions": {
+        "submit": "hide",
+        "thin": "un_hide"
+      },
+      "expected_answers": {},
+      "fields_by_language": {
+        "en": {
+          "subject": "",
+          "message": "Buy 100000 SEO backlinks and crypto profits now. We sell guaranteed traffic and cheap SEO to every website. Contact us for 90% discount."
+        },
+        "de": {
+          "subject": "",
+          "message": "Kaufen Sie jetzt 100000 SEO-Backlinks und Krypto-Gewinne. Wir verkaufen garantierten Traffic und billiges SEO an jede Website. Kontaktieren Sie uns für 90% Rabatt."
+        },
+        "zh": {
+          "subject": "",
+          "message": "立即购买100000个SEO反向链接和加密货币利润。我们向所有网站出售保证流量和廉价SEO。联系我们可享90%折扣。"
+        },
+        "hu": {
+          "subject": "",
+          "message": "Vásároljon most 100000 SEO-visszahivatkozást és kriptonyereséget. Garantált forgalmat és olcsó SEO-t árulunk minden weboldalnak. Keressen minket 90% kedvezményért."
+        }
+      }
+    },
+    {
+      "id": "10_small",
+      "slug": "project-enquiry",
+      "label": "small",
+      "fields": {
+        "company": "Synthetic QA company",
+        "project": "Please fix one broken link on our existing TYPO3 website. This is a small change, less than a day of work."
+      },
+      "expected_route": "sales@webconsulting.at",
+      "expected_actions": {
+        "tender": "hide",
+        "procurement": "hide",
+        "nda": "hide"
+      },
+      "expected_answers": {
+        "size": "small"
+      },
+      "fields_by_language": {
+        "en": {
+          "company": "Synthetic QA company",
+          "project": "Please fix one broken link on our existing TYPO3 website. This is a small change, less than a day of work."
+        },
+        "de": {
+          "company": "Synthetic QA company",
+          "project": "Bitte reparieren Sie einen kaputten Link auf unserer bestehenden TYPO3-Website. Das ist eine kleine Änderung mit weniger als einem Tag Arbeit."
+        },
+        "zh": {
+          "company": "Synthetic QA company",
+          "project": "请修复我们现有TYPO3网站上的一个失效链接。这是一项不到一天工作量的小修改。"
+        },
+        "hu": {
+          "company": "Synthetic QA company",
+          "project": "Kérem, javítsanak ki egy hibás hivatkozást a meglévő TYPO3-weboldalunkon. Ez kis módosítás, kevesebb mint egy napi munka."
+        }
+      },
+      "expected_score_ranges": {
+        "fit": [
+          2.5,
+          3
+        ]
+      }
+    },
+    {
+      "id": "10_medium",
+      "slug": "project-enquiry",
+      "label": "medium",
+      "fields": {
+        "company": "Synthetic QA company",
+        "project": "Please build a new public website with 20 pages, contact forms and a catalogue. We estimate six weeks of work. This is an ordinary commercial project."
+      },
+      "expected_route": "sales@webconsulting.at",
+      "expected_actions": {
+        "tender": "hide",
+        "procurement": "hide",
+        "nda": "hide"
+      },
+      "expected_answers": {
+        "size": "medium"
+      },
+      "fields_by_language": {
+        "en": {
+          "company": "Synthetic QA company",
+          "project": "Please build a new public website with 20 pages, contact forms and a catalogue. We estimate six weeks of work. This is an ordinary commercial project."
+        },
+        "de": {
+          "company": "Synthetic QA company",
+          "project": "Bitte bauen Sie eine neue öffentliche Website mit 20 Seiten, Kontaktformularen und einem Katalog. Wir rechnen mit sechs Wochen Arbeit. Dies ist ein gewöhnliches kommerzielles Projekt."
+        },
+        "zh": {
+          "company": "Synthetic QA company",
+          "project": "请制作一个有20个页面、联系表单和目录的新公开网站。我们估计需要六周。这是一个普通商业项目。"
+        },
+        "hu": {
+          "company": "Synthetic QA company",
+          "project": "Kérünk egy új, nyilvános weboldalt 20 oldallal, kapcsolatfelvételi űrlapokkal és katalógussal. Hat hét munkával számolunk. Ez egy szokásos üzleti projekt."
+        }
+      },
+      "expected_score_ranges": {
+        "fit": [
+          1.5,
+          2.5
+        ]
+      }
+    },
+    {
+      "id": "10_large_confidential",
+      "slug": "project-enquiry",
+      "label": "large_confidential",
+      "fields": {
+        "company": "Synthetic QA company",
+        "project": "Public tender for relaunching a federal ministry portal: 40 sub-sites, accessibility audit, EU-wide procurement. The strategy papers we share must stay confidential."
+      },
+      "expected_route": "bids@webconsulting.at",
+      "expected_actions": {
+        "tender": "un_hide",
+        "procurement": "un_hide",
+        "nda": "un_hide"
+      },
+      "expected_answers": {
+        "size": "large"
+      },
+      "fields_by_language": {
+        "en": {
+          "company": "Synthetic QA company",
+          "project": "Public tender for relaunching a federal ministry portal: 40 sub-sites, accessibility audit, EU-wide procurement. The strategy papers we share must stay confidential."
+        },
+        "de": {
+          "company": "Synthetic QA company",
+          "project": "Öffentliche Ausschreibung für den Relaunch eines Bundesministeriums-Portals: 40 Unterseiten-Websites, Barrierefreiheitsprüfung und EU-weite Vergabe. Die Strategiepapiere, die wir teilen, müssen vertraulich bleiben."
+        },
+        "zh": {
+          "company": "Synthetic QA company",
+          "project": "联邦部委门户网站改版公开招标：40个子站点、无障碍审计、欧盟范围采购。我们分享的战略文件必须保密。"
+        },
+        "hu": {
+          "company": "Synthetic QA company",
+          "project": "Nyilvános közbeszerzés egy szövetségi minisztériumi portál megújítására: 40 alwebhely, akadálymentességi audit, uniós beszerzés. A megosztott stratégiai dokumentumoknak bizalmasnak kell maradniuk."
+        }
+      }
+    },
+    {
+      "id": "10_partner",
+      "slug": "project-enquiry",
+      "label": "partner",
+      "fields": {
+        "company": "Synthetic QA company",
+        "project": "We are a design agency looking for a TYPO3 development partner. Could your team work with us on a six-week website project for our client? We propose agency-to-agency collaboration."
+      },
+      "expected_route": "partners@webconsulting.at",
+      "expected_actions": {
+        "tender": "hide",
+        "procurement": "hide",
+        "nda": "hide"
+      },
+      "expected_answers": {
+        "size": "medium"
+      },
+      "fields_by_language": {
+        "en": {
+          "company": "Synthetic QA company",
+          "project": "We are a design agency looking for a TYPO3 development partner. Could your team work with us on a six-week website project for our client? We propose agency-to-agency collaboration."
+        },
+        "de": {
+          "company": "Synthetic QA company",
+          "project": "Wir sind eine Designagentur und suchen einen TYPO3-Entwicklungspartner. Kann Ihr Team mit uns an einem sechswöchigen Websiteprojekt für unseren Kunden arbeiten? Wir schlagen eine Zusammenarbeit zwischen Agenturen vor."
+        },
+        "zh": {
+          "company": "Synthetic QA company",
+          "project": "我们是一家设计机构，正在寻找TYPO3开发合作伙伴。你们的团队能与我们一起为客户完成一个六周的网站项目吗？我们提议开展机构间合作。"
+        },
+        "hu": {
+          "company": "Synthetic QA company",
+          "project": "Designügynökség vagyunk, és TYPO3-fejlesztőpartnert keresünk. Dolgozna velünk a csapatuk ügyfelünk hathetes weboldalprojektjén? Ügynökségek közötti együttműködést javaslunk."
+        }
+      }
+    },
+    {
+      "id": "10_non_software",
+      "slug": "project-enquiry",
+      "label": "non_software",
+      "fields": {
+        "company": "Synthetic QA company",
+        "project": "Could you repair the leaking tap in our office kitchen? We need a plumber for this small repair."
+      },
+      "expected_route": "sales@webconsulting.at",
+      "expected_actions": {
+        "tender": "hide",
+        "procurement": "hide",
+        "nda": "hide"
+      },
+      "expected_answers": {
+        "size": "small"
+      },
+      "fields_by_language": {
+        "en": {
+          "company": "Synthetic QA company",
+          "project": "Could you repair the leaking tap in our office kitchen? We need a plumber for this small repair."
+        },
+        "de": {
+          "company": "Synthetic QA company",
+          "project": "Können Sie den tropfenden Wasserhahn in unserer Büroküche reparieren? Wir brauchen einen Installateur für diese kleine Reparatur."
+        },
+        "zh": {
+          "company": "Synthetic QA company",
+          "project": "能修理办公室厨房漏水的水龙头吗？我们需要水管工进行这项小修理。"
+        },
+        "hu": {
+          "company": "Synthetic QA company",
+          "project": "Meg tudnák javítani az irodai konyha csöpögő csapját? Vízvezeték-szerelőre van szükségünk ehhez a kis javításhoz."
+        }
+      },
+      "expected_score_ranges": {
+        "fit": [
+          0,
+          0.5
+        ]
+      }
+    },
+    {
+      "id": "10_non_web_software",
+      "slug": "project-enquiry",
+      "label": "non_web_software",
+      "fields": {
+        "company": "Synthetic QA company",
+        "project": "We need a small Python desktop script to rename files on a local computer. No website or content management is involved."
+      },
+      "expected_route": "sales@webconsulting.at",
+      "expected_actions": {
+        "tender": "hide",
+        "procurement": "hide",
+        "nda": "hide"
+      },
+      "expected_answers": {
+        "size": "small"
+      },
+      "fields_by_language": {
+        "en": {
+          "company": "Synthetic QA company",
+          "project": "We need a small Python desktop script to rename files on a local computer. No website or content management is involved."
+        },
+        "de": {
+          "company": "Synthetic QA company",
+          "project": "Wir brauchen ein kleines Python-Desktopskript zum Umbenennen von Dateien auf einem lokalen Computer. Es geht weder um eine Website noch um Content-Management."
+        },
+        "zh": {
+          "company": "Synthetic QA company",
+          "project": "我们需要一个小型Python桌面脚本，在本地计算机上重命名文件。不涉及网站或内容管理。"
+        },
+        "hu": {
+          "company": "Synthetic QA company",
+          "project": "Kellene egy kis Python asztali szkript, amely fájlokat nevez át egy helyi számítógépen. Nincs weboldal vagy tartalomkezelés a feladatban."
+        }
+      },
+      "expected_score_ranges": {
+        "fit": [
+          0.5,
+          1.5
+        ]
+      }
+    },
+    {
+      "id": "11_engineering_senior_remote",
+      "slug": "job-application",
+      "label": "engineering_senior_remote",
+      "fields": {
+        "position": "Backend developer",
+        "letter": "I have led backend teams for nine years, most recently a TYPO3 platform for 30 sites. I live in Graz and would like to work fully remotely."
+      },
+      "expected_route": "engineering-hiring@webconsulting.at",
+      "expected_actions": {
+        "portfolio": "un_hide",
+        "leadership": "un_hide",
+        "school": "hide",
+        "relocation_note": "un_hide"
+      },
+      "expected_answers": {},
+      "fields_by_language": {
+        "en": {
+          "position": "Backend developer",
+          "letter": "I have led backend teams for nine years, most recently a TYPO3 platform for 30 sites. I live in Graz and would like to work fully remotely."
+        },
+        "de": {
+          "position": "Backend-Entwickler",
+          "letter": "Ich leite seit neun Jahren Backend-Teams, zuletzt für eine TYPO3-Plattform mit 30 Websites. Ich wohne in Graz und möchte vollständig remote arbeiten."
+        },
+        "zh": {
+          "position": "后端开发人员",
+          "letter": "我领导后端团队已有九年，最近负责一个包含30个网站的TYPO3平台。我住在格拉茨，希望完全远程工作。"
+        },
+        "hu": {
+          "position": "Backendfejlesztő",
+          "letter": "Kilenc éve vezetek backendcsapatokat, legutóbb egy 30 webhelyes TYPO3-platformon. Grazban élek, és teljesen távolról szeretnék dolgozni."
+        }
+      },
+      "expected_score_ranges": {
+        "seniority": [
+          2.5,
+          3
+        ]
+      }
+    },
+    {
+      "id": "11_design_experienced",
+      "slug": "job-application",
+      "label": "design_experienced",
+      "fields": {
+        "position": "UX designer",
+        "letter": "I have worked independently as a professional UX and interface designer for six years, creating accessible website designs. I would like to work in your Vienna office."
+      },
+      "expected_route": "design-hiring@webconsulting.at",
+      "expected_actions": {
+        "portfolio": "un_hide",
+        "leadership": "un_hide",
+        "school": "hide",
+        "relocation_note": "hide"
+      },
+      "expected_answers": {},
+      "fields_by_language": {
+        "en": {
+          "position": "UX designer",
+          "letter": "I have worked independently as a professional UX and interface designer for six years, creating accessible website designs. I would like to work in your Vienna office."
+        },
+        "de": {
+          "position": "UX-Designer",
+          "letter": "Ich arbeite seit sechs Jahren selbstständig als professionelle UX- und Interface-Designerin und gestalte barrierefreie Websites. Ich möchte in Ihrem Wiener Büro arbeiten."
+        },
+        "zh": {
+          "position": "UX设计师",
+          "letter": "我独立从事专业UX和界面设计已有六年，制作无障碍网站设计。我希望在你们的维也纳办公室工作。"
+        },
+        "hu": {
+          "position": "UX-tervező",
+          "letter": "Hat éve dolgozom önállóan hivatásos UX- és felülettervezőként, akadálymentes weboldalakat tervezek. A bécsi irodájukban szeretnék dolgozni."
+        }
+      },
+      "expected_score_ranges": {
+        "seniority": [
+          1.5,
+          2.5
+        ]
+      }
+    },
+    {
+      "id": "11_project",
+      "slug": "job-application",
+      "label": "project",
+      "fields": {
+        "position": "Project manager",
+        "letter": "For six years I have coordinated web projects between clients, designers and developers."
+      },
+      "expected_route": "pm-hiring@webconsulting.at",
+      "expected_actions": {
+        "portfolio": "hide",
+        "leadership": "un_hide",
+        "school": "hide",
+        "relocation_note": "hide"
+      },
+      "expected_answers": {},
+      "fields_by_language": {
+        "en": {
+          "position": "Project manager",
+          "letter": "For six years I have coordinated web projects between clients, designers and developers."
+        },
+        "de": {
+          "position": "Projektmanager",
+          "letter": "Seit sechs Jahren koordiniere ich Webprojekte zwischen Kunden, Design und Entwicklung."
+        },
+        "zh": {
+          "position": "项目经理",
+          "letter": "六年来，我一直在客户、设计师和开发人员之间协调网站项目。"
+        },
+        "hu": {
+          "position": "Projektmenedzser",
+          "letter": "Hat éve koordinálok webprojekteket ügyfelek, tervezők és fejlesztők között."
+        }
+      },
+      "expected_score_ranges": {
+        "seniority": [
+          1.5,
+          2.5
+        ]
+      }
+    },
+    {
+      "id": "11_apprentice",
+      "slug": "job-application",
+      "label": "apprentice",
+      "fields": {
+        "position": "Apprenticeship",
+        "letter": "I am looking for my first apprenticeship after school. I have no professional experience and want to learn a trade in your team."
+      },
+      "expected_route": "apprentice-hiring@webconsulting.at",
+      "expected_actions": {
+        "portfolio": "un_hide",
+        "leadership": "hide",
+        "school": "un_hide",
+        "relocation_note": "hide"
+      },
+      "expected_answers": {},
+      "fields_by_language": {
+        "en": {
+          "position": "Apprenticeship",
+          "letter": "I am looking for my first apprenticeship after school. I have no professional experience and want to learn a trade in your team."
+        },
+        "de": {
+          "position": "Lehrstelle",
+          "letter": "Ich suche nach der Schule meine erste Lehrstelle. Ich habe keine Berufserfahrung und möchte in Ihrem Team einen Beruf erlernen."
+        },
+        "zh": {
+          "position": "学徒岗位",
+          "letter": "毕业后我正在寻找第一个学徒岗位。我没有工作经验，希望在你们的团队学习一门职业。"
+        },
+        "hu": {
+          "position": "Tanulószerződéses hely",
+          "letter": "Az iskola után az első tanulószerződéses helyemet keresem. Nincs szakmai tapasztalatom, és az Önök csapatában szeretnék szakmát tanulni."
+        }
+      },
+      "expected_score_ranges": {
+        "seniority": [
+          0,
+          0.5
+        ]
+      }
+    },
+    {
+      "id": "11_engineering_junior",
+      "slug": "job-application",
+      "label": "engineering_junior",
+      "fields": {
+        "position": "Junior backend developer",
+        "letter": "I completed my training and have worked as a paid TYPO3 backend developer for two years. I write PHP code and fix bugs, but I have not led projects or mentored others."
+      },
+      "expected_route": "engineering-hiring@webconsulting.at",
+      "expected_actions": {
+        "portfolio": "un_hide",
+        "leadership": "hide",
+        "school": "hide",
+        "relocation_note": "hide"
+      },
+      "expected_answers": {},
+      "fields_by_language": {
+        "en": {
+          "position": "Junior backend developer",
+          "letter": "I completed my training and have worked as a paid TYPO3 backend developer for two years. I write PHP code and fix bugs, but I have not led projects or mentored others."
+        },
+        "de": {
+          "position": "Junior-Backend-Entwickler",
+          "letter": "Nach meiner Ausbildung arbeite ich seit zwei Jahren als bezahlter TYPO3-Backend-Entwickler. Ich schreibe PHP-Code und behebe Fehler, habe aber noch keine Projekte geleitet oder andere betreut."
+        },
+        "zh": {
+          "position": "初级后端开发人员",
+          "letter": "完成培训后，我已经作为受薪TYPO3后端开发人员工作两年。我编写PHP代码并修复错误，但尚未领导项目或指导他人。"
+        },
+        "hu": {
+          "position": "Junior backendfejlesztő",
+          "letter": "A képzés után két éve dolgozom fizetett TYPO3-backendfejlesztőként. PHP-kódot írok és hibákat javítok, de még nem vezettem projekteket és nem mentoráltam másokat."
+        }
+      },
+      "expected_score_ranges": {
+        "seniority": [
+          0.5,
+          1.5
+        ]
+      }
+    }
+  ],
+  "condition_urls": {
+    "en": {
+      "contact-routing": "https://typo3-lab.webconsulting.at/desiderio-powermail-jev/contact-routing/condition.json",
+      "support-triage": "https://typo3-lab.webconsulting.at/desiderio-powermail-jev/support-triage/condition.json",
+      "quality-gate": "https://typo3-lab.webconsulting.at/desiderio-powermail-jev/quality-gate/condition.json",
+      "project-enquiry": "https://typo3-lab.webconsulting.at/desiderio-powermail-jev/project-enquiry/condition.json",
+      "job-application": "https://typo3-lab.webconsulting.at/desiderio-powermail-jev/job-application/condition.json"
+    },
+    "de": {
+      "contact-routing": "https://typo3-lab.webconsulting.at/de/desiderio-powermail-jev/contact-routing-de/condition.json",
+      "support-triage": "https://typo3-lab.webconsulting.at/de/desiderio-powermail-jev/support-triage-de/condition.json",
+      "quality-gate": "https://typo3-lab.webconsulting.at/de/desiderio-powermail-jev/quality-gate-de/condition.json",
+      "project-enquiry": "https://typo3-lab.webconsulting.at/de/desiderio-powermail-jev/project-enquiry-de/condition.json",
+      "job-application": "https://typo3-lab.webconsulting.at/de/desiderio-powermail-jev/job-application-de/condition.json"
+    },
+    "zh": {
+      "contact-routing": "https://typo3-lab.webconsulting.at/zh/desiderio-powermail-lab/powermail-07-smart-contact-routing/condition.json",
+      "support-triage": "https://typo3-lab.webconsulting.at/zh/desiderio-powermail-lab/powermail-08-support-triage/condition.json",
+      "quality-gate": "https://typo3-lab.webconsulting.at/zh/desiderio-powermail-lab/powermail-09-spam-and-quality-gate/condition.json",
+      "project-enquiry": "https://typo3-lab.webconsulting.at/zh/desiderio-powermail-lab/powermail-10-project-enquiry-that-branches/condition.json",
+      "job-application": "https://typo3-lab.webconsulting.at/zh/desiderio-powermail-lab/powermail-11-job-application-routed-by-its-text/condition.json"
+    },
+    "hu": {
+      "contact-routing": "https://typo3-lab.webconsulting.at/hu/desiderio-powermail-jev/contact-routing/condition.json",
+      "support-triage": "https://typo3-lab.webconsulting.at/hu/desiderio-powermail-jev/support-triage/condition.json",
+      "quality-gate": "https://typo3-lab.webconsulting.at/hu/desiderio-powermail-jev/quality-gate/condition.json",
+      "project-enquiry": "https://typo3-lab.webconsulting.at/hu/desiderio-powermail-jev/project-enquiry/condition.json",
+      "job-application": "https://typo3-lab.webconsulting.at/hu/desiderio-powermail-jev/job-application/condition.json"
+    }
+  },
+  "manual_option_cases": [
+    {
+      "id": "08_usage_product_website",
+      "slug": "support-triage",
+      "label": "usage",
+      "fields": {
+        "product": "website",
+        "message": "How can I add a new page in TYPO3? Please point me to the documentation. Nothing is broken."
+      },
+      "expected_route": "support@webconsulting.at",
+      "expected_actions": {
+        "reproduction": "hide",
+        "escalation": "hide"
+      },
+      "expected_answers": {},
+      "fields_by_language": {
+        "en": {
+          "product": "website",
+          "message": "How can I add a new page in TYPO3? Please point me to the documentation. Nothing is broken."
+        },
+        "de": {
+          "product": "website",
+          "message": "Wie lege ich in TYPO3 eine neue Seite an? Bitte verweisen Sie mich auf die Dokumentation. Nichts ist kaputt."
+        },
+        "zh": {
+          "product": "website",
+          "message": "如何在TYPO3中添加新页面？请告诉我相关文档在哪里。没有任何故障。"
+        },
+        "hu": {
+          "product": "website",
+          "message": "Hogyan hozhatok létre új oldalt a TYPO3-ban? Kérem, mutassák meg a dokumentációt. Semmi sem hibás."
+        }
+      },
+      "expected_score_ranges": {
+        "severity": [
+          0,
+          0.5
+        ]
+      }
+    },
+    {
+      "id": "08_usage_product_shop",
+      "slug": "support-triage",
+      "label": "usage",
+      "fields": {
+        "product": "shop",
+        "message": "How can I add a new page in TYPO3? Please point me to the documentation. Nothing is broken."
+      },
+      "expected_route": "support@webconsulting.at",
+      "expected_actions": {
+        "reproduction": "hide",
+        "escalation": "hide"
+      },
+      "expected_answers": {},
+      "fields_by_language": {
+        "en": {
+          "product": "shop",
+          "message": "How can I add a new page in TYPO3? Please point me to the documentation. Nothing is broken."
+        },
+        "de": {
+          "product": "shop",
+          "message": "Wie lege ich in TYPO3 eine neue Seite an? Bitte verweisen Sie mich auf die Dokumentation. Nichts ist kaputt."
+        },
+        "zh": {
+          "product": "shop",
+          "message": "如何在TYPO3中添加新页面？请告诉我相关文档在哪里。没有任何故障。"
+        },
+        "hu": {
+          "product": "shop",
+          "message": "Hogyan hozhatok létre új oldalt a TYPO3-ban? Kérem, mutassák meg a dokumentációt. Semmi sem hibás."
+        }
+      },
+      "expected_score_ranges": {
+        "severity": [
+          0,
+          0.5
+        ]
+      }
+    },
+    {
+      "id": "08_usage_product_intranet",
+      "slug": "support-triage",
+      "label": "usage",
+      "fields": {
+        "product": "intranet",
+        "message": "How can I add a new page in TYPO3? Please point me to the documentation. Nothing is broken."
+      },
+      "expected_route": "support@webconsulting.at",
+      "expected_actions": {
+        "reproduction": "hide",
+        "escalation": "hide"
+      },
+      "expected_answers": {},
+      "fields_by_language": {
+        "en": {
+          "product": "intranet",
+          "message": "How can I add a new page in TYPO3? Please point me to the documentation. Nothing is broken."
+        },
+        "de": {
+          "product": "intranet",
+          "message": "Wie lege ich in TYPO3 eine neue Seite an? Bitte verweisen Sie mich auf die Dokumentation. Nichts ist kaputt."
+        },
+        "zh": {
+          "product": "intranet",
+          "message": "如何在TYPO3中添加新页面？请告诉我相关文档在哪里。没有任何故障。"
+        },
+        "hu": {
+          "product": "intranet",
+          "message": "Hogyan hozhatok létre új oldalt a TYPO3-ban? Kérem, mutassák meg a dokumentációt. Semmi sem hibás."
+        }
+      },
+      "expected_score_ranges": {
+        "severity": [
+          0,
+          0.5
+        ]
+      }
+    },
+    {
+      "id": "08_usage_product_other",
+      "slug": "support-triage",
+      "label": "usage",
+      "fields": {
+        "product": "other",
+        "message": "How can I add a new page in TYPO3? Please point me to the documentation. Nothing is broken."
+      },
+      "expected_route": "support@webconsulting.at",
+      "expected_actions": {
+        "reproduction": "hide",
+        "escalation": "hide"
+      },
+      "expected_answers": {},
+      "fields_by_language": {
+        "en": {
+          "product": "other",
+          "message": "How can I add a new page in TYPO3? Please point me to the documentation. Nothing is broken."
+        },
+        "de": {
+          "product": "other",
+          "message": "Wie lege ich in TYPO3 eine neue Seite an? Bitte verweisen Sie mich auf die Dokumentation. Nichts ist kaputt."
+        },
+        "zh": {
+          "product": "other",
+          "message": "如何在TYPO3中添加新页面？请告诉我相关文档在哪里。没有任何故障。"
+        },
+        "hu": {
+          "product": "other",
+          "message": "Hogyan hozhatok létre új oldalt a TYPO3-ban? Kérem, mutassák meg a dokumentációt. Semmi sem hibás."
+        }
+      },
+      "expected_score_ranges": {
+        "severity": [
+          0,
+          0.5
+        ]
+      }
+    },
+    {
+      "id": "10_small_timing_asap",
+      "slug": "project-enquiry",
+      "label": "small",
+      "fields": {
+        "company": "Synthetic QA company",
+        "project": "Please fix one broken link on our existing TYPO3 website. This is a small change, less than a day of work.",
+        "timing": "asap"
+      },
+      "expected_route": "sales@webconsulting.at",
+      "expected_actions": {
+        "tender": "hide",
+        "procurement": "hide",
+        "nda": "hide"
+      },
+      "expected_answers": {
+        "size": "small"
+      },
+      "fields_by_language": {
+        "en": {
+          "company": "Synthetic QA company",
+          "project": "Please fix one broken link on our existing TYPO3 website. This is a small change, less than a day of work.",
+          "timing": "asap"
+        },
+        "de": {
+          "company": "Synthetic QA company",
+          "project": "Bitte reparieren Sie einen kaputten Link auf unserer bestehenden TYPO3-Website. Das ist eine kleine Änderung mit weniger als einem Tag Arbeit.",
+          "timing": "asap"
+        },
+        "zh": {
+          "company": "Synthetic QA company",
+          "project": "请修复我们现有TYPO3网站上的一个失效链接。这是一项不到一天工作量的小修改。",
+          "timing": "asap"
+        },
+        "hu": {
+          "company": "Synthetic QA company",
+          "project": "Kérem, javítsanak ki egy hibás hivatkozást a meglévő TYPO3-weboldalunkon. Ez kis módosítás, kevesebb mint egy napi munka.",
+          "timing": "asap"
+        }
+      },
+      "expected_score_ranges": {
+        "fit": [
+          2.5,
+          3
+        ]
+      }
+    },
+    {
+      "id": "10_small_timing_quarter",
+      "slug": "project-enquiry",
+      "label": "small",
+      "fields": {
+        "company": "Synthetic QA company",
+        "project": "Please fix one broken link on our existing TYPO3 website. This is a small change, less than a day of work.",
+        "timing": "quarter"
+      },
+      "expected_route": "sales@webconsulting.at",
+      "expected_actions": {
+        "tender": "hide",
+        "procurement": "hide",
+        "nda": "hide"
+      },
+      "expected_answers": {
+        "size": "small"
+      },
+      "fields_by_language": {
+        "en": {
+          "company": "Synthetic QA company",
+          "project": "Please fix one broken link on our existing TYPO3 website. This is a small change, less than a day of work.",
+          "timing": "quarter"
+        },
+        "de": {
+          "company": "Synthetic QA company",
+          "project": "Bitte reparieren Sie einen kaputten Link auf unserer bestehenden TYPO3-Website. Das ist eine kleine Änderung mit weniger als einem Tag Arbeit.",
+          "timing": "quarter"
+        },
+        "zh": {
+          "company": "Synthetic QA company",
+          "project": "请修复我们现有TYPO3网站上的一个失效链接。这是一项不到一天工作量的小修改。",
+          "timing": "quarter"
+        },
+        "hu": {
+          "company": "Synthetic QA company",
+          "project": "Kérem, javítsanak ki egy hibás hivatkozást a meglévő TYPO3-weboldalunkon. Ez kis módosítás, kevesebb mint egy napi munka.",
+          "timing": "quarter"
+        }
+      },
+      "expected_score_ranges": {
+        "fit": [
+          2.5,
+          3
+        ]
+      }
+    },
+    {
+      "id": "10_small_timing_year",
+      "slug": "project-enquiry",
+      "label": "small",
+      "fields": {
+        "company": "Synthetic QA company",
+        "project": "Please fix one broken link on our existing TYPO3 website. This is a small change, less than a day of work.",
+        "timing": "year"
+      },
+      "expected_route": "sales@webconsulting.at",
+      "expected_actions": {
+        "tender": "hide",
+        "procurement": "hide",
+        "nda": "hide"
+      },
+      "expected_answers": {
+        "size": "small"
+      },
+      "fields_by_language": {
+        "en": {
+          "company": "Synthetic QA company",
+          "project": "Please fix one broken link on our existing TYPO3 website. This is a small change, less than a day of work.",
+          "timing": "year"
+        },
+        "de": {
+          "company": "Synthetic QA company",
+          "project": "Bitte reparieren Sie einen kaputten Link auf unserer bestehenden TYPO3-Website. Das ist eine kleine Änderung mit weniger als einem Tag Arbeit.",
+          "timing": "year"
+        },
+        "zh": {
+          "company": "Synthetic QA company",
+          "project": "请修复我们现有TYPO3网站上的一个失效链接。这是一项不到一天工作量的小修改。",
+          "timing": "year"
+        },
+        "hu": {
+          "company": "Synthetic QA company",
+          "project": "Kérem, javítsanak ki egy hibás hivatkozást a meglévő TYPO3-weboldalunkon. Ez kis módosítás, kevesebb mint egy napi munka.",
+          "timing": "year"
+        }
+      },
+      "expected_score_ranges": {
+        "fit": [
+          2.5,
+          3
+        ]
+      }
+    },
+    {
+      "id": "10_small_timing_open",
+      "slug": "project-enquiry",
+      "label": "small",
+      "fields": {
+        "company": "Synthetic QA company",
+        "project": "Please fix one broken link on our existing TYPO3 website. This is a small change, less than a day of work.",
+        "timing": "open"
+      },
+      "expected_route": "sales@webconsulting.at",
+      "expected_actions": {
+        "tender": "hide",
+        "procurement": "hide",
+        "nda": "hide"
+      },
+      "expected_answers": {
+        "size": "small"
+      },
+      "fields_by_language": {
+        "en": {
+          "company": "Synthetic QA company",
+          "project": "Please fix one broken link on our existing TYPO3 website. This is a small change, less than a day of work.",
+          "timing": "open"
+        },
+        "de": {
+          "company": "Synthetic QA company",
+          "project": "Bitte reparieren Sie einen kaputten Link auf unserer bestehenden TYPO3-Website. Das ist eine kleine Änderung mit weniger als einem Tag Arbeit.",
+          "timing": "open"
+        },
+        "zh": {
+          "company": "Synthetic QA company",
+          "project": "请修复我们现有TYPO3网站上的一个失效链接。这是一项不到一天工作量的小修改。",
+          "timing": "open"
+        },
+        "hu": {
+          "company": "Synthetic QA company",
+          "project": "Kérem, javítsanak ki egy hibás hivatkozást a meglévő TYPO3-weboldalunkon. Ez kis módosítás, kevesebb mint egy napi munka.",
+          "timing": "open"
+        }
+      },
+      "expected_score_ranges": {
+        "fit": [
+          2.5,
+          3
+        ]
+      }
+    },
+    {
+      "id": "11_engineering_junior_start_asap",
+      "slug": "job-application",
+      "label": "engineering_junior",
+      "fields": {
+        "position": "Junior backend developer",
+        "letter": "I completed my training and have worked as a paid TYPO3 backend developer for two years. I write PHP code and fix bugs, but I have not led projects or mentored others.",
+        "start": "asap"
+      },
+      "expected_route": "engineering-hiring@webconsulting.at",
+      "expected_actions": {
+        "portfolio": "un_hide",
+        "leadership": "hide",
+        "school": "hide",
+        "relocation_note": "hide"
+      },
+      "expected_answers": {},
+      "fields_by_language": {
+        "en": {
+          "position": "Junior backend developer",
+          "letter": "I completed my training and have worked as a paid TYPO3 backend developer for two years. I write PHP code and fix bugs, but I have not led projects or mentored others.",
+          "start": "asap"
+        },
+        "de": {
+          "position": "Junior-Backend-Entwickler",
+          "letter": "Nach meiner Ausbildung arbeite ich seit zwei Jahren als bezahlter TYPO3-Backend-Entwickler. Ich schreibe PHP-Code und behebe Fehler, habe aber noch keine Projekte geleitet oder andere betreut.",
+          "start": "asap"
+        },
+        "zh": {
+          "position": "初级后端开发人员",
+          "letter": "完成培训后，我已经作为受薪TYPO3后端开发人员工作两年。我编写PHP代码并修复错误，但尚未领导项目或指导他人。",
+          "start": "asap"
+        },
+        "hu": {
+          "position": "Junior backendfejlesztő",
+          "letter": "A képzés után két éve dolgozom fizetett TYPO3-backendfejlesztőként. PHP-kódot írok és hibákat javítok, de még nem vezettem projekteket és nem mentoráltam másokat.",
+          "start": "asap"
+        }
+      },
+      "expected_score_ranges": {
+        "seniority": [
+          0.5,
+          1.5
+        ]
+      }
+    },
+    {
+      "id": "11_engineering_junior_start_quarter",
+      "slug": "job-application",
+      "label": "engineering_junior",
+      "fields": {
+        "position": "Junior backend developer",
+        "letter": "I completed my training and have worked as a paid TYPO3 backend developer for two years. I write PHP code and fix bugs, but I have not led projects or mentored others.",
+        "start": "quarter"
+      },
+      "expected_route": "engineering-hiring@webconsulting.at",
+      "expected_actions": {
+        "portfolio": "un_hide",
+        "leadership": "hide",
+        "school": "hide",
+        "relocation_note": "hide"
+      },
+      "expected_answers": {},
+      "fields_by_language": {
+        "en": {
+          "position": "Junior backend developer",
+          "letter": "I completed my training and have worked as a paid TYPO3 backend developer for two years. I write PHP code and fix bugs, but I have not led projects or mentored others.",
+          "start": "quarter"
+        },
+        "de": {
+          "position": "Junior-Backend-Entwickler",
+          "letter": "Nach meiner Ausbildung arbeite ich seit zwei Jahren als bezahlter TYPO3-Backend-Entwickler. Ich schreibe PHP-Code und behebe Fehler, habe aber noch keine Projekte geleitet oder andere betreut.",
+          "start": "quarter"
+        },
+        "zh": {
+          "position": "初级后端开发人员",
+          "letter": "完成培训后，我已经作为受薪TYPO3后端开发人员工作两年。我编写PHP代码并修复错误，但尚未领导项目或指导他人。",
+          "start": "quarter"
+        },
+        "hu": {
+          "position": "Junior backendfejlesztő",
+          "letter": "A képzés után két éve dolgozom fizetett TYPO3-backendfejlesztőként. PHP-kódot írok és hibákat javítok, de még nem vezettem projekteket és nem mentoráltam másokat.",
+          "start": "quarter"
+        }
+      },
+      "expected_score_ranges": {
+        "seniority": [
+          0.5,
+          1.5
+        ]
+      }
+    },
+    {
+      "id": "11_engineering_junior_start_later",
+      "slug": "job-application",
+      "label": "engineering_junior",
+      "fields": {
+        "position": "Junior backend developer",
+        "letter": "I completed my training and have worked as a paid TYPO3 backend developer for two years. I write PHP code and fix bugs, but I have not led projects or mentored others.",
+        "start": "later"
+      },
+      "expected_route": "engineering-hiring@webconsulting.at",
+      "expected_actions": {
+        "portfolio": "un_hide",
+        "leadership": "hide",
+        "school": "hide",
+        "relocation_note": "hide"
+      },
+      "expected_answers": {},
+      "fields_by_language": {
+        "en": {
+          "position": "Junior backend developer",
+          "letter": "I completed my training and have worked as a paid TYPO3 backend developer for two years. I write PHP code and fix bugs, but I have not led projects or mentored others.",
+          "start": "later"
+        },
+        "de": {
+          "position": "Junior-Backend-Entwickler",
+          "letter": "Nach meiner Ausbildung arbeite ich seit zwei Jahren als bezahlter TYPO3-Backend-Entwickler. Ich schreibe PHP-Code und behebe Fehler, habe aber noch keine Projekte geleitet oder andere betreut.",
+          "start": "later"
+        },
+        "zh": {
+          "position": "初级后端开发人员",
+          "letter": "完成培训后，我已经作为受薪TYPO3后端开发人员工作两年。我编写PHP代码并修复错误，但尚未领导项目或指导他人。",
+          "start": "later"
+        },
+        "hu": {
+          "position": "Junior backendfejlesztő",
+          "letter": "A képzés után két éve dolgozom fizetett TYPO3-backendfejlesztőként. PHP-kódot írok és hibákat javítok, de még nem vezettem projekteket és nem mentoráltam másokat.",
+          "start": "later"
+        }
+      },
+      "expected_score_ranges": {
+        "seniority": [
+          0.5,
+          1.5
+        ]
+      }
+    },
+    {
+      "id": "11_engineering_junior_start_open",
+      "slug": "job-application",
+      "label": "engineering_junior",
+      "fields": {
+        "position": "Junior backend developer",
+        "letter": "I completed my training and have worked as a paid TYPO3 backend developer for two years. I write PHP code and fix bugs, but I have not led projects or mentored others.",
+        "start": "open"
+      },
+      "expected_route": "engineering-hiring@webconsulting.at",
+      "expected_actions": {
+        "portfolio": "un_hide",
+        "leadership": "hide",
+        "school": "hide",
+        "relocation_note": "hide"
+      },
+      "expected_answers": {},
+      "fields_by_language": {
+        "en": {
+          "position": "Junior backend developer",
+          "letter": "I completed my training and have worked as a paid TYPO3 backend developer for two years. I write PHP code and fix bugs, but I have not led projects or mentored others.",
+          "start": "open"
+        },
+        "de": {
+          "position": "Junior-Backend-Entwickler",
+          "letter": "Nach meiner Ausbildung arbeite ich seit zwei Jahren als bezahlter TYPO3-Backend-Entwickler. Ich schreibe PHP-Code und behebe Fehler, habe aber noch keine Projekte geleitet oder andere betreut.",
+          "start": "open"
+        },
+        "zh": {
+          "position": "初级后端开发人员",
+          "letter": "完成培训后，我已经作为受薪TYPO3后端开发人员工作两年。我编写PHP代码并修复错误，但尚未领导项目或指导他人。",
+          "start": "open"
+        },
+        "hu": {
+          "position": "Junior backendfejlesztő",
+          "letter": "A képzés után két éve dolgozom fizetett TYPO3-backendfejlesztőként. PHP-kódot írok és hibákat javítok, de még nem vezettem projekteket és nem mentoráltam másokat.",
+          "start": "open"
+        }
+      },
+      "expected_score_ranges": {
+        "seniority": [
+          0.5,
+          1.5
+        ]
+      }
+    },
+    {
+      "id": "11_apprentice_school_university",
+      "slug": "job-application",
+      "label": "apprentice",
+      "fields": {
+        "position": "Apprenticeship",
+        "letter": "I am looking for my first apprenticeship after school. I have no professional experience and want to learn a trade in your team.",
+        "school": "university"
+      },
+      "expected_route": "apprentice-hiring@webconsulting.at",
+      "expected_actions": {
+        "portfolio": "un_hide",
+        "leadership": "hide",
+        "school": "un_hide",
+        "relocation_note": "hide"
+      },
+      "expected_answers": {},
+      "fields_by_language": {
+        "en": {
+          "position": "Apprenticeship",
+          "letter": "I am looking for my first apprenticeship after school. I have no professional experience and want to learn a trade in your team.",
+          "school": "university"
+        },
+        "de": {
+          "position": "Lehrstelle",
+          "letter": "Ich suche nach der Schule meine erste Lehrstelle. Ich habe keine Berufserfahrung und möchte in Ihrem Team einen Beruf erlernen.",
+          "school": "university"
+        },
+        "zh": {
+          "position": "学徒岗位",
+          "letter": "毕业后我正在寻找第一个学徒岗位。我没有工作经验，希望在你们的团队学习一门职业。",
+          "school": "university"
+        },
+        "hu": {
+          "position": "Tanulószerződéses hely",
+          "letter": "Az iskola után az első tanulószerződéses helyemet keresem. Nincs szakmai tapasztalatom, és az Önök csapatában szeretnék szakmát tanulni.",
+          "school": "university"
+        }
+      },
+      "expected_score_ranges": {
+        "seniority": [
+          0,
+          0.5
+        ]
+      }
+    },
+    {
+      "id": "11_apprentice_school_fh",
+      "slug": "job-application",
+      "label": "apprentice",
+      "fields": {
+        "position": "Apprenticeship",
+        "letter": "I am looking for my first apprenticeship after school. I have no professional experience and want to learn a trade in your team.",
+        "school": "fh"
+      },
+      "expected_route": "apprentice-hiring@webconsulting.at",
+      "expected_actions": {
+        "portfolio": "un_hide",
+        "leadership": "hide",
+        "school": "un_hide",
+        "relocation_note": "hide"
+      },
+      "expected_answers": {},
+      "fields_by_language": {
+        "en": {
+          "position": "Apprenticeship",
+          "letter": "I am looking for my first apprenticeship after school. I have no professional experience and want to learn a trade in your team.",
+          "school": "fh"
+        },
+        "de": {
+          "position": "Lehrstelle",
+          "letter": "Ich suche nach der Schule meine erste Lehrstelle. Ich habe keine Berufserfahrung und möchte in Ihrem Team einen Beruf erlernen.",
+          "school": "fh"
+        },
+        "zh": {
+          "position": "学徒岗位",
+          "letter": "毕业后我正在寻找第一个学徒岗位。我没有工作经验，希望在你们的团队学习一门职业。",
+          "school": "fh"
+        },
+        "hu": {
+          "position": "Tanulószerződéses hely",
+          "letter": "Az iskola után az első tanulószerződéses helyemet keresem. Nincs szakmai tapasztalatom, és az Önök csapatában szeretnék szakmát tanulni.",
+          "school": "fh"
+        }
+      },
+      "expected_score_ranges": {
+        "seniority": [
+          0,
+          0.5
+        ]
+      }
+    },
+    {
+      "id": "11_apprentice_school_htl",
+      "slug": "job-application",
+      "label": "apprentice",
+      "fields": {
+        "position": "Apprenticeship",
+        "letter": "I am looking for my first apprenticeship after school. I have no professional experience and want to learn a trade in your team.",
+        "school": "htl"
+      },
+      "expected_route": "apprentice-hiring@webconsulting.at",
+      "expected_actions": {
+        "portfolio": "un_hide",
+        "leadership": "hide",
+        "school": "un_hide",
+        "relocation_note": "hide"
+      },
+      "expected_answers": {},
+      "fields_by_language": {
+        "en": {
+          "position": "Apprenticeship",
+          "letter": "I am looking for my first apprenticeship after school. I have no professional experience and want to learn a trade in your team.",
+          "school": "htl"
+        },
+        "de": {
+          "position": "Lehrstelle",
+          "letter": "Ich suche nach der Schule meine erste Lehrstelle. Ich habe keine Berufserfahrung und möchte in Ihrem Team einen Beruf erlernen.",
+          "school": "htl"
+        },
+        "zh": {
+          "position": "学徒岗位",
+          "letter": "毕业后我正在寻找第一个学徒岗位。我没有工作经验，希望在你们的团队学习一门职业。",
+          "school": "htl"
+        },
+        "hu": {
+          "position": "Tanulószerződéses hely",
+          "letter": "Az iskola után az első tanulószerződéses helyemet keresem. Nincs szakmai tapasztalatom, és az Önök csapatában szeretnék szakmát tanulni.",
+          "school": "htl"
+        }
+      },
+      "expected_score_ranges": {
+        "seniority": [
+          0,
+          0.5
+        ]
+      }
+    },
+    {
+      "id": "11_apprentice_school_self",
+      "slug": "job-application",
+      "label": "apprentice",
+      "fields": {
+        "position": "Apprenticeship",
+        "letter": "I am looking for my first apprenticeship after school. I have no professional experience and want to learn a trade in your team.",
+        "school": "self"
+      },
+      "expected_route": "apprentice-hiring@webconsulting.at",
+      "expected_actions": {
+        "portfolio": "un_hide",
+        "leadership": "hide",
+        "school": "un_hide",
+        "relocation_note": "hide"
+      },
+      "expected_answers": {},
+      "fields_by_language": {
+        "en": {
+          "position": "Apprenticeship",
+          "letter": "I am looking for my first apprenticeship after school. I have no professional experience and want to learn a trade in your team.",
+          "school": "self"
+        },
+        "de": {
+          "position": "Lehrstelle",
+          "letter": "Ich suche nach der Schule meine erste Lehrstelle. Ich habe keine Berufserfahrung und möchte in Ihrem Team einen Beruf erlernen.",
+          "school": "self"
+        },
+        "zh": {
+          "position": "学徒岗位",
+          "letter": "毕业后我正在寻找第一个学徒岗位。我没有工作经验，希望在你们的团队学习一门职业。",
+          "school": "self"
+        },
+        "hu": {
+          "position": "Tanulószerződéses hely",
+          "letter": "Az iskola után az első tanulószerződéses helyemet keresem. Nincs szakmai tapasztalatom, és az Önök csapatában szeretnék szakmát tanulni.",
+          "school": "self"
+        }
+      },
+      "expected_score_ranges": {
+        "seniority": [
+          0,
+          0.5
+        ]
+      }
+    }
+  ],
+  "forms": {
+    "contact-routing": {
+      "form": 1484,
+      "decision": 291,
+      "question": "department"
+    },
+    "support-triage": {
+      "form": 1486,
+      "decision": 293,
+      "question": "queue"
+    },
+    "quality-gate": {
+      "form": 1488,
+      "decision": 295,
+      "question": "handling"
+    },
+    "project-enquiry": {
+      "form": 1490,
+      "decision": 297,
+      "question": "owner"
+    },
+    "job-application": {
+      "form": 1492,
+      "decision": 299,
+      "question": "role"
+    }
+  }
+}

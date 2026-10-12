@@ -5,6 +5,14 @@ The TYPO3 lab is deployed from `docker-compose.coolify.yml` to
 volumes for MariaDB, `public/fileadmin`, TYPO3 runtime data, the TYPO3
 encryption key, and Solr data.
 
+Powermail attachments keep their `uploads/tx_powermail/` paths. At startup,
+`typo3-provision-powermail-uploads` links that directory to
+`var/powermail-uploads` on the persistent runtime volume and makes only that
+storage directory writable by `www-data`. Attachments therefore survive an
+image replacement and stay outside the public Fileadmin download snapshot.
+An existing directory or a link to another destination is preserved and stops
+provisioning with an explicit error instead of replacing uploaded files.
+
 ## Coolify settings
 
 - Build strategy: Docker Compose
