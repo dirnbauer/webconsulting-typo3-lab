@@ -1,9 +1,9 @@
 # syntax=docker/dockerfile:1.10
 
 ARG COMPOSER_VERSION=2.10.2
-FROM composer:${COMPOSER_VERSION} AS composer-runtime
-FROM node:24-bookworm-slim AS node-runtime
-FROM php:8.4-apache-bookworm
+FROM composer:${COMPOSER_VERSION}@sha256:d020706319701a44468968321dccd0fce6620190159a7a9ec195d78e6e971c71 AS composer-runtime
+FROM node:24.22.0-bookworm-slim@sha256:a5f4366e834695d5f363b920c104953a535d3a9864d1bdf74566a0ebe01daee5 AS node-runtime
+FROM php:8.4-apache-bookworm@sha256:9e811795a606ca7f8586dee48d32acf444985c19ac252d70d181cd71a4603898
 
 ENV APACHE_DOCUMENT_ROOT=/var/www/html/public \
     COMPOSER_ALLOW_SUPERUSER=1 \
