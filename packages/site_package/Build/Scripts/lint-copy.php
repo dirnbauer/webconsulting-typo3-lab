@@ -36,7 +36,7 @@ require $root . '/vendor/autoload.php';
 
 $options = ['site' => '', 'lang' => '', 'against' => '', 'warnings' => false, 'php' => []];
 $paths = [];
-foreach (array_slice($argv, 1) as $argument) {
+foreach (array_slice($argv ?? [], 1) as $argument) {
     if (preg_match('/^--(site|lang|against|php)=(.*)$/', $argument, $match) === 1) {
         if ($match[1] === 'php') {
             $options['php'][] = $match[2];
