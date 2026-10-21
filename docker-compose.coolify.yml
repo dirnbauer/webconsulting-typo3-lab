@@ -3,6 +3,8 @@ services:
     build:
       context: .
       dockerfile: Dockerfile.coolify
+      args:
+        PHP_BASE_IMAGE: ${PHP_BASE_IMAGE:-php:8.5.12-apache-bookworm}
     environment:
       BASIC_AUTH_PASSWORD: ${SERVICE_PASSWORD_BASIC}
       BASIC_AUTH_USER: ${BASIC_AUTH_USER:-lab}
@@ -82,7 +84,7 @@ services:
     restart: unless-stopped
 
   database:
-    image: mariadb:11.8.9-noble@sha256:93fc3fe333b6cdfb061425869c2c3a5bb2851c0c74dbebc2c940f024e7482d76
+    image: mariadb:11.8.9-noble@sha256:f16d7a344413e519dff518f27bdb221388f84b0d274c97c4fb5f2cb0dc1b34fa
     command:
       - --character-set-server=utf8mb4
       - --collation-server=utf8mb4_unicode_ci
