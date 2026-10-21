@@ -82,10 +82,12 @@ services:
     restart: unless-stopped
 
   database:
-    image: mariadb:10.11@sha256:7db29378d4fdab73f8123bbc2b48905c90d1a4b00cf848b028f1e81e623257f2
+    image: mariadb:11.8.9-noble@sha256:93fc3fe333b6cdfb061425869c2c3a5bb2851c0c74dbebc2c940f024e7482d76
     command:
       - --character-set-server=utf8mb4
       - --collation-server=utf8mb4_unicode_ci
+      # Preserve the 10.11 default used by SET NAMES utf8mb4 connections.
+      - --character-set-collations=utf8mb4=utf8mb4_general_ci
       - --innodb-file-per-table=1
       # The Content Blocks lab intentionally has a very wide tt_content table.
       # Match the DDEV setting so a complete dump can be restored.
@@ -99,7 +101,7 @@ services:
       MARIADB_ROOT_PASSWORD: ${SERVICE_PASSWORD_ROOT}
       MARIADB_USER: ${SERVICE_USER_DB}
     volumes:
-      - typo3_database:/var/lib/mysql
+      - typo3_database_maria118:/var/lib/mysql
     healthcheck:
       test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
       interval: 10s
@@ -140,6 +142,7 @@ services:
 
 volumes:
   typo3_database:
+  typo3_database_maria118:
   typo3_fileadmin:
   typo3_runtime:
   typo3_secrets:
