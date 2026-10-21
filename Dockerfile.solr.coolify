@@ -33,6 +33,10 @@ RUN chmod 0755 /usr/local/bin/healthcheck.sh /docker-entrypoint-initdb.d/disable
     && mkdir -p /var/solr/data/data \
     && chown -R solr:solr /var/solr/data
 
+COPY docker/security/solr-library-patches.tsv /tmp/solr-library-patches.tsv
+COPY docker/security/patch-solr-libraries.sh /usr/local/sbin/patch-solr-libraries
+RUN sh /usr/local/sbin/patch-solr-libraries
+
 USER solr
 
 HEALTHCHECK --interval=30s --timeout=10s --start-period=60s --retries=5 \
