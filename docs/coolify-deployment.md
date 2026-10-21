@@ -13,6 +13,28 @@ image replacement and stay outside the public Fileadmin download snapshot.
 An existing directory or a link to another destination is preserved and stops
 provisioning with an explicit error instead of replacing uploaded files.
 
+## Production PHP runtime
+
+Production uses PHP 8.5.12. The Dockerfile's `PHP_BASE_IMAGE` build argument
+and the matching Compose build argument allow an immutable base reference.
+PHP 8.5 includes OPcache in its core build, so it is no longer listed in
+`docker-php-ext-install`.
+
+While the official PHP 8.5.12 Docker manifests are being published, Coolify's
+build-only `PHP_BASE_IMAGE` variable points to the verified build in the
+server's existing loopback registry. It was built from docker-library/php commit
+`e3eaff845f7a9f7259c31da54dce0320b47a3bbd`, using the official 8.5 Bookworm Apache
+recipe, with four compiler jobs. The PHP source checksum and GPG signature were
+verified by that recipe. The source SHA256 is
+`08bc2eba2a588654ade1357174aa646b761556c862dda0678345ee29ed481209`.
+The reference is pinned by digest; the registry is bound to 127.0.0.1 and backed
+up with the server. Coolify itself continues to use its official vendor image.
+
+The project's PHP minimum and Composer platform remain 8.4 for local compatibility;
+the production dependencies are also checked against the real 8.5.12 runtime.
+CI runs on PHP 8.5.12. The MariaDB pin matches the 11.8.9 image already running
+on the server, preserving that update during future deployments.
+
 ## Coolify settings
 
 - Build strategy: Docker Compose
