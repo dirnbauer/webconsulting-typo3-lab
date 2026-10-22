@@ -383,3 +383,7 @@ read -rs KEY && printf %s "$KEY" | ssh root@49.13.173.37 'TYPESAFE_API_KEY=$(cat
 without it is ever deployed. `provisioningBeUserUid` in
 `config/system/settings.php.example` names it for nr-vault's own commands;
 webcon_jev finds it by name when that uid goes stale.
+
+## Security image persistence (22 October 2026)
+
+The production Compose default matches the tested PHP 8.5.12 trixie base. MariaDB remains 11.8.9 with the same command, configuration and data volume, pinned to the OS-updated build in the primary host registry. The immutable database image has a successful exact-image scan with no HIGH/CRITICAL findings. A source deployment must retain this pin until a replacement has passed scan, restore, and live database checks; the stock 11.8.9 image reintroduces outdated OS packages. This registry is available on the production Coolify host; another host must mirror the exact image before deploying. Official Coolify images are unchanged.
