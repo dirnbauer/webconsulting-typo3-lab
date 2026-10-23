@@ -28,16 +28,72 @@ ddev import-files --source=.tarballs/fileadmin.tar.gz
 ddev typo3 extension:setup
 ddev vite build
 ddev typo3 cache:flush
-ddev exec Build/Scripts/runTests.sh -s ci -p 8.4
+ddev exec Build/Scripts/runTests.sh -s ci -p 8.5
 ```
 
 Open `https://webconsulting-typo3-lab.ddev.site/typo3/`. The supplied local demo
-account is `admin` / `Demo123*`. PHP 8.4, Node.js 24 and the DDEV services are
+account is `admin` / `Demo123*`. PHP 8.5, Node.js 24 and the DDEV services are
 configured in `.ddev/config.yaml`.
 
 Run npm inside DDEV. Host-installed native dependencies can make the Linux
 build fail with missing Rolldown bindings. `ddev npm ci` reinstalls exactly the
 locked dependencies for the container platform.
+
+## Temporary PHP security runtime
+
+The web image upgrades installed PHP 8.5 packages and requires CLI and FPM
+8.5.12 or newer. PHP 8.5.12 fixes the October security issues; the separate
+`session.upload_progress.enabled=0` setting follows PHP's October 23
+recommendation and needs review after the next regular bugfix release.
+See the [PHP release notes](https://www.php.net/releases/8_5_12.php) and
+[PHP's follow-up notice](https://www.php.net/).
+
+On October 23, Sury's ARM64 repository still offered only PHP 8.5.11, while
+AMD64 had 8.5.12. `.ddev/docker-compose.php-security.yaml` therefore runs only
+this project's web service on `linux/amd64`, with separate Node and Playwright
+binary caches. The database, Solr and other projects keep their platform.
+Emulation can make builds and tests substantially slower on Apple Silicon;
+this project does not change OrbStack or Rosetta settings. DDEV describes the
+[package lag and project image upgrade](https://ddev.com/blog/php2shell-what-ddev-users-need-to-know/).
+
+The October 23 bootstrap image was built on native AMD64 with
+[inline cache](https://docs.docker.com/build/cache/backends/inline/) and used
+to prime DDEV's local default builder. A normal Compose image build then
+reused all 15 `RUN` layers without an explicit cache import and completed in
+3.2 seconds. The local image tag
+`webcon-typo3-lab-php85-inline-cache:8.5.12` retains the exported cache for
+recovery; importing an image alone does not automatically prime BuildKit.
+
+Unchanged image builds can reuse the primed cache. Base image, Dockerfile or
+build argument changes, cache removal, and rebuilds without cache can still
+rerun expensive steps under emulation. A fresh machine needs either cache
+priming or a first local build; the PHP-only upgrade proof took about 18
+minutes. A normal restart stops this project before rebuilding, so plan any
+uncached build before restarting the running site.
+
+Remove the temporary Compose override once the native ARM64 Sury packages or
+DDEV base image provide PHP 8.5.12 or newer. Keep the Dockerfile's minimum
+version check and review the PHP setting against the current advisory. After
+either architecture change, run `ddev npm ci` and install Playwright's Chromium
+for the container platform before running the browser suite.
+
+Run local browser acceptance with one worker while the web runtime is emulated:
+
+```bash
+npm run test:e2e -- --workers=1
+```
+
+Parallel requests can exhaust the Poppy interaction's normal assertion budget
+under emulation. Keep the assertions unchanged and use native production
+acceptance to check the parallel path.
+
+Check both runtimes after rebuilding:
+
+```bash
+ddev exec php --version
+ddev exec php-fpm8.5 --version
+ddev exec php --ri session
+```
 
 ## Credentials and encrypted data
 

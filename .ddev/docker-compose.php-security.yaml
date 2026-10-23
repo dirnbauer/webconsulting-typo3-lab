@@ -1,0 +1,12 @@
+# Temporary until Sury/DDEV provides patched PHP 8.5 packages for ARM64.
+# Only this project's web service uses AMD64; other services keep their platform.
+services:
+  web:
+    platform: linux/amd64
+    build:
+      platforms:
+        - linux/amd64
+    environment:
+      # Browser and Node binaries must not share an ARM64 cache directory.
+      PLAYWRIGHT_BROWSERS_PATH: /mnt/ddev-global-cache/playwright/webconsulting-typo3-lab-linux-amd64
+      N_CACHE_PREFIX: /mnt/ddev-global-cache/n_prefix/webconsulting-typo3-lab-web-linux-amd64

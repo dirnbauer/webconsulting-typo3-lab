@@ -20,20 +20,22 @@ and the matching Compose build argument allow an immutable base reference.
 PHP 8.5 includes OPcache in its core build, so it is no longer listed in
 `docker-php-ext-install`.
 
-While the official PHP 8.5.12 Docker manifests are being published, Coolify's
-build-only `PHP_BASE_IMAGE` variable points to the verified build in the
-server's existing loopback registry. It was built from docker-library/php commit
-`e3eaff845f7a9f7259c31da54dce0320b47a3bbd`, using the official 8.5 Bookworm Apache
-recipe, with four compiler jobs. The PHP source checksum and GPG signature were
-verified by that recipe. The source SHA256 is
-`08bc2eba2a588654ade1357174aa646b761556c862dda0678345ee29ed481209`.
-The reference is pinned by digest; the registry is bound to 127.0.0.1 and backed
-up with the server. Coolify itself continues to use its official vendor image.
+The application uses the official PHP 8.5.12 Apache Trixie image, pinned by
+digest in `Dockerfile.coolify`. Keep any Coolify `PHP_BASE_IMAGE` override
+aligned with that tested reference. Coolify itself uses its official vendor
+image.
 
-The project's PHP minimum and Composer platform remain 8.4 for local compatibility;
+The project's PHP minimum is 8.5 and its Composer platform is 8.5.12;
 the production dependencies are also checked against the real 8.5.12 runtime.
 CI runs on PHP 8.5.12. The MariaDB pin matches the 11.8.9 image already running
 on the server, preserving that update during future deployments.
+
+The startup INI disables `session.upload_progress.enabled` following the
+[PHP advisory of 2026-10-23](https://www.php.net/). This precaution covers the
+remaining upload-progress issue until PHP's next bugfix release. It takes
+effect when the application image starts fresh PHP workers; changing it with
+`ini_set()` or `.user.ini` would be too late for multipart parsing. Normal
+file uploads and their existing size limits remain available.
 
 ## Coolify settings
 
@@ -90,12 +92,6 @@ ssh root@49.13.173.37 'docker exec $(docker ps --format "{{.Names}}" | grep "^we
 
 ## Deploy
 
-Coolify has no webhook and no deploy key on this repository, so it never
-notices a push by itself. The running containers stay on whichever commit was
-last deployed by hand, however green CI was, and nothing reports the gap — the
-live site once sat 37 commits behind `main`. `status` prints the deployed
-commit as the image tag, which is how to check.
-
 Pushes to `main` deploy through the Quality workflow's `deploy` job, after
 both test suites pass, so a red commit that reached `main` never becomes the
 live site. It needs a `COOLIFY_TOKEN` repository secret under
@@ -105,44 +101,19 @@ without an empty commit and without a laptop holding the token file.
 `COOLIFY_URL` and `COOLIFY_APP_UUID` can be set as repository variables if
 either ever changes.
 
-Three states, and only one of them is a deployment:
+Check the deployment job and confirm the running image with `status`:
 
 | `deploy` job | Meaning |
 | --- | --- |
-| skipped | No `COOLIFY_TOKEN`, or the `COOLIFY_CI_DEPLOY` repository variable is not `true` (the current state — see below). Nothing was deployed. |
+| skipped | No `COOLIFY_TOKEN`, or `COOLIFY_CI_DEPLOY` is not `true`. Nothing was deployed. |
 | failed, 403 "not allowed to access the API" | Coolify's **API IP allowlist** rejected the runner. Nothing was deployed. |
 | failed, other 403 | The token lacks the **deploy** permission. Nothing was deployed. |
-| success | Coolify accepted the request. |
+| success | Coolify finished the deployment and the job requested image cleanup. |
 
-**CI deploys are switched off** by the `COOLIFY_CI_DEPLOY` repository variable
-until the allowlist question below is settled; turn them on with
-`gh variable set COOLIFY_CI_DEPLOY --body true`. The reason: as of 2026-09-19
-every CI deploy ends in the allowlist 403. Coolify's API
-only answers one allowlisted address (Settings > Configuration > Allowed IPs on
-coolify.webconsulting.at), and GitHub-hosted runners come from Azure ranges that
-are never on it. The `COOLIFY_TOKEN` secret is set and valid — the identical
-call with the identical token answers 200 from the allowlisted machine. Until
-the allowlist question is decided, deploy with `sync-coolify.sh deploy` from
-that machine. Ways to make CI deploys work, each a security decision rather
-than a code change: widen the allowlist (GitHub publishes its runner ranges,
-thousands of CIDRs that change); run the deploy from a self-hosted runner on an
-allowlisted network; or have CI reach the server over SSH with a key restricted
-to this one call and allowlist the server itself.
-
-Read that job, never the run's overall tick. Until 2026-09-19 the job *exited 0*
-when the secret was missing, which rendered as a green
-"Deploy to typo3-lab.webconsulting.at ✓" on commits that never reached the
-server — indistinguishable from a real deployment, on the one job whose whole
-purpose is to say the live site moved. Confirm with `status` either way: it
-prints the deployed commit as the image tag.
-
-A push to `main` deploys itself: the `deploy` job in the Quality workflow runs
-only after both suites pass, so a red commit never becomes the live site. It
-needs the `COOLIFY_TOKEN` secret, the repository variable
-`COOLIFY_CI_DEPLOY=true`, and Coolify's API allowlist admitting GitHub's
-runners; until 2026-09-20 the allowlist refused them and every deployment was
-manual. `workflow_dispatch` redeploys `main` from the Actions UI without a
-commit.
+CI deployments are enabled with `COOLIFY_CI_DEPLOY=true`; Coolify's API
+allowlist has admitted the runners since 2026-09-20. Coolify itself has no
+repository webhook, so the GitHub workflow supplies the deployment trigger.
+Confirm the deployed commit with `Build/Scripts/sync-coolify.sh status`.
 
 The command below is the manual equivalent. It refuses unless the Quality run
 for `origin/main` is green (`--force` skips that), asks Coolify to build, then
@@ -214,14 +185,48 @@ Additive extension setup and language updates are enabled again for dependency
 refreshes. Data upgrade wizards, chat retention jobs and audit-chain migration
 remain explicit operations.
 
+Desiderio 4.24.3 updates HugeIcons from 4.2.0 to 4.3.5. Its append-only map
+preserves all 6,156 published icon mappings, including the 32 names removed
+upstream. New icons spill into a second BMP font instead of exceeding the
+first font's capacity. Canonical contour ordering makes the two WOFF2 files
+reproducible across macOS and Linux. For geometrically unchanged legacy icons,
+the build retains the published contour order to preserve raster output too;
+changed and new glyphs keep their updated outlines. Strict Linux pixel tests
+cover the published reference samples.
+Skillflow 1.9.4 replaces Fractor's abandoned contracts dependency with a tested
+compatibility package maintained inside Skillflow's development tooling;
+normal Composer auditing remains enabled.
+
 Powermail 14.0.3.8 and the Conditional v14 branch contain every current public
 13.x fix. The nr-llm 0.41.3 / nr-vault 1.1.0 update preserves the existing vault
 schema, secret format and key material. Do not initialize or rotate the vault
-as part of deployment. A passive doctor check before the update reports a
-known bounded-range audit verifier error; the verifier is unchanged in 1.1.0.
-A synthetic chain reproduces the first-row error without using live secrets.
-The historical mixed-epoch audit warning needs separate reconciliation; do not
-re-sign an unexplained audit chain during this dependency update.
+as part of deployment.
+
+Two local Composer patches repair the 1.1.0 diagnostic checks. The bounded
+audit verifier now reads the preceding stored row so that a healthy tail does
+not falsely fail on its first entry. It still checks the selected row's link,
+signature and epoch transition, and does not claim to verify excluded history.
+The inventory check distinguishes an absent current credential from an absent
+identifier whose latest successful lifecycle operation was deletion. The
+latter remains a visible investigation warning: the exact physical purge
+history is unproven, and epoch-1 signatures do not authenticate every field.
+
+The patches are locked by SHA256 in `patches.lock.json` and applied by the
+existing Composer Patches plugin during a fresh image build. They write no
+audit rows, secrets, keys, permissions or schema. The companion regression
+patch is `patches/tests/netresearch-nr-vault-diagnostics-tests.patch`; reproduce
+it in a clean nr-vault 1.1.0 test checkout after applying both runtime patches.
+The four test files cover bounded links and epoch transitions, successful and
+failed deletions, re-created credentials, and a synthetic mixed-epoch migration
+that preserves secret rows. Remove a runtime patch only after an upstream
+release contains the same fix and a fresh install passes the checks.
+
+Full audit-history verification requires an existing authorized reviewer with
+`audit.view`; the configured technical provisioner has no such grant. The
+historical mixed-epoch and key-provider warnings need separate reconciliation.
+Do not re-sign an unexplained audit chain or rotate keys as part of this source
+deployment. Verify the complete chain and anchor first, preserve the original
+evidence, then review any HMAC migration as a separate maintenance action.
 
 The Records List and Blog demos had stale `tx_desiderio_h1_sronly` flags while
 providing no authored H1. Restore only those two page settings, through

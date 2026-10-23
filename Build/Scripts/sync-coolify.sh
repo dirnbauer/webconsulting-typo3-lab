@@ -50,9 +50,9 @@ Usage: Build/Scripts/sync-coolify.sh <status|deploy|publish-snapshot|publish-dow
   pull --confirm    Back up DDEV, then replace its database and fileadmin
                     with exports from Coolify.
 
-Coolify does not deploy when this repository is pushed: there is no webhook
-and no deploy key, so the running image stays on whichever commit was last
-deployed by hand. "deploy" is that hand step, made repeatable.
+Pushes to main deploy through the GitHub Quality workflow after both quality
+jobs pass. "deploy" is the manual equivalent; avoid starting it while CI is
+already deploying the same commit. "status" shows the running image tag.
 
 Environment:
   TYPO3_LAB_REMOTE_HOST     SSH target (default: root@49.13.173.37)

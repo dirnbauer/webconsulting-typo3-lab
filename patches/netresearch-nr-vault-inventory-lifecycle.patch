@@ -1,0 +1,188 @@
+diff --git a/Classes/Service/Doctor/Check/InventoryConsistencyCheck.php b/Classes/Service/Doctor/Check/InventoryConsistencyCheck.php
+index f48f6fb..76903db 100644
+--- a/Classes/Service/Doctor/Check/InventoryConsistencyCheck.php
++++ b/Classes/Service/Doctor/Check/InventoryConsistencyCheck.php
+@@ -16,7 +16,9 @@ use Netresearch\NrVault\Service\Doctor\DocsLink;
+ use Netresearch\NrVault\Service\Doctor\DoctorContext;
+ use Netresearch\NrVault\Service\Doctor\Finding;
+ use Netresearch\NrVault\Service\Doctor\ReadinessCheckInterface;
++use TYPO3\CMS\Core\Database\Connection;
+ use TYPO3\CMS\Core\Database\ConnectionPool;
++use UnexpectedValueException;
+ 
+ /**
+  * Do the vault's tables still agree with each other?
+@@ -32,11 +34,12 @@ use TYPO3\CMS\Core\Database\ConnectionPool;
+  * Two comparisons, chosen because both are zero on a fresh installation and
+  * non-zero only when rows are genuinely missing:
+  *
+- * - **Secrets the audit log remembers.** A delete is a soft delete: the row
+- *   stays with `deleted = 1`, and nothing in this extension removes a secret row
+- *   outright. So an identifier the log records as created, with no row of any
+- *   kind behind it, is a row that was lost rather than deleted. Retention
+- *   pruning cannot produce a false alarm here — it removes the create row too.
++ * - **Secrets the audit log remembers.** A successful create with no row
++ *   behind it needs investigation. A later successful delete can explain the
++ *   absence after external physical cleanup, but does not prove that cleanup
++ *   was intentional. Keep those cases visible as warnings rather than asserting
++ *   that they are lost credentials. A delete before a later create, or a failed
++ *   delete, cannot explain an absent current lifecycle.
+  * - **Access rows pointing at nothing.** An `uid_local` in either permission
+  *   table with no secret behind it means the two were restored from different
+  *   moments. The mirror case, a secret whose permission rows are gone, is not
+@@ -95,7 +98,8 @@ final readonly class InventoryConsistencyCheck implements ReadinessCheckInterfac
+         $id = 'inventory.missing_secrets';
+ 
+         try {
+-            $missing = $this->countCreatedButAbsent();
++            $counts = $this->countCreatedButAbsent();
++            $missing = $counts['missingCount'];
+         } catch (DbalException $throwable) {
+             return $this->unreadable($id, 'the audit log against the secret table', $throwable);
+         }
+@@ -104,27 +108,42 @@ final readonly class InventoryConsistencyCheck implements ReadinessCheckInterfac
+             return Finding::pass(
+                 id: $id,
+                 summary: 'Every secret the audit log records as created is still stored.',
+-                details: ['missingCount' => 0],
++                details: $counts,
++            );
++        }
++
++        if ($counts['unexplainedMissingCount'] === 0) {
++            return Finding::warning(
++                id: $id,
++                summary: \sprintf(
++                    '%d absent secret(s) have a successful delete after their latest successful create.',
++                    $missing,
++                ),
++                risk: 'The audit history can explain these absences, but does not prove that later physical '
++                    . 'cleanup was intentional. Older audit epochs do not authenticate the success field. '
++                    . 'This comparison alone cannot establish either data loss or safe deletion.',
++                remediation: 'Verify the full audit chain with an authorized audit.view identity, then '
++                    . 'compare the lifecycle order with consistent backups and current consumer references. '
++                    . 'Do not restore or recreate credentials solely to clear this diagnostic.',
++                docsUrl: DocsLink::BACKUP_AND_RESTORE,
++                details: $counts,
+             );
+         }
+ 
+         return Finding::critical(
+             id: $id,
+             summary: \sprintf(
+-                '%d secret(s) the audit log records as created have no row in the secret table.',
+-                $missing,
++                '%d secret(s) have no row and no successful delete after their latest successful create.',
++                $counts['unexplainedMissingCount'],
+             ),
+-            risk: 'A delete leaves the row in place with deleted = 1, and nothing else removes one, so '
+-                . 'these rows did not go away through use. The likely cause is a restore that brought '
+-                . 'back the audit log without the secret table, or a table dropped between the two. '
+-                . 'Every consumer reading one of those identifiers now fails, and the plaintext exists '
+-                . 'nowhere else.',
+-            remediation: 'Do not write to the vault until this is resolved — a fresh store under the same '
+-                . 'identifier makes the loss permanent. Restore the secret table from the same dump as '
+-                . 'the audit log, then run vault:doctor again; the count must be zero. The restore '
+-                . 'procedure lists every table that has to travel together.',
++            risk: 'The audit history records a current credential whose row is absent. A mismatched '
++                . 'restore or physical removal may have lost it; a failed delete or a delete before '
++                . 'a later create does not explain the missing row.',
++            remediation: 'Do not write to the vault until this is resolved. Verify the full audit chain '
++                . 'with an authorized audit.view identity and compare consistent backups before restoring '
++                . 'the secret table and its permission relations together.',
+             docsUrl: DocsLink::BACKUP_AND_RESTORE,
+-            details: ['missingCount' => $missing],
++            details: $counts,
+         );
+     }
+ 
+@@ -166,27 +185,30 @@ final readonly class InventoryConsistencyCheck implements ReadinessCheckInterfac
+     }
+ 
+     /**
+-     * Identifiers with a create entry and no row of any kind behind them.
++     * Compare the latest successful create/delete per absent identifier.
++     *
++     * The deleted restriction is removed deliberately: a soft-deleted secret
++     * still has a row. UID order is the append order of the audit chain; a
++     * historic delete must not hide a later successful re-creation. Aggregate
++     * in the database and stream only lifecycle positions, never identifiers.
+      *
+-     * The deleted restriction is removed on purpose: a soft-deleted secret is
+-     * still a row, and the question here is whether the row exists at all.
++     * @return array{missingCount: int, unexplainedMissingCount: int, absentAfterDeleteCount: int}
+      */
+-    private function countCreatedButAbsent(): int
++    private function countCreatedButAbsent(): array
+     {
+         $queryBuilder = $this->connectionPool->getQueryBuilderForTable(self::AUDIT_TABLE);
+         $queryBuilder->getRestrictions()->removeAll();
++        $createAction = $queryBuilder->createNamedParameter(AuditAction::Create->value);
++        $deleteAction = $queryBuilder->createNamedParameter(AuditAction::Delete->value);
++        $actionColumn = $queryBuilder->quoteIdentifier('audit.action');
++        $uidColumn = $queryBuilder->quoteIdentifier('audit.uid');
+ 
+-        // `count()` quotes its whole argument as one identifier, so
+-        // `count('DISTINCT audit.secret_identifier')` asks every platform for a
+-        // column by that name and gets "no such column" — which this check then
+-        // reports as a comparison it could not run. `selectLiteral()` with the
+-        // identifier quoted on its own is the QueryBuilder's way to say
+-        // COUNT(DISTINCT …), and the distinctness is load-bearing: the question
+-        // is how many identifiers lost their row, not how many audit rows name
+-        // one.
+-        $count = $queryBuilder
++        $rows = $queryBuilder
+             ->selectLiteral(
+-                'COUNT(DISTINCT ' . $queryBuilder->quoteIdentifier('audit.secret_identifier') . ')',
++                'MAX(CASE WHEN ' . $actionColumn . ' = ' . $createAction . ' THEN ' . $uidColumn
++                    . ' ELSE 0 END) AS ' . $queryBuilder->quoteIdentifier('last_create_uid'),
++                'MAX(CASE WHEN ' . $actionColumn . ' = ' . $deleteAction . ' THEN ' . $uidColumn
++                    . ' ELSE 0 END) AS ' . $queryBuilder->quoteIdentifier('last_delete_uid'),
+             )
+             ->from(self::AUDIT_TABLE, 'audit')
+             ->leftJoin(
+@@ -197,8 +219,8 @@ final readonly class InventoryConsistencyCheck implements ReadinessCheckInterfac
+             )
+             ->where(
+                 $queryBuilder->expr()->eq(
+-                    'audit.action',
+-                    $queryBuilder->createNamedParameter(AuditAction::Create->value),
++                    'audit.success',
++                    $queryBuilder->createNamedParameter(1, Connection::PARAM_INT),
+                 ),
+                 $queryBuilder->expr()->neq(
+                     'audit.secret_identifier',
+@@ -206,10 +228,31 @@ final readonly class InventoryConsistencyCheck implements ReadinessCheckInterfac
+                 ),
+                 $queryBuilder->expr()->isNull('secret.uid'),
+             )
++            ->groupBy('audit.secret_identifier')
+             ->executeQuery()
+-            ->fetchOne();
++            ->iterateAssociative();
+ 
+-        return is_numeric($count) ? (int) $count : 0;
++        $counts = ['missingCount' => 0, 'unexplainedMissingCount' => 0, 'absentAfterDeleteCount' => 0];
++        foreach ($rows as $row) {
++            $created = $row['last_create_uid'];
++            $deleted = $row['last_delete_uid'];
++            if (!is_numeric($created) || !is_numeric($deleted)) {
++                throw new UnexpectedValueException('Inventory lifecycle query returned nonnumeric positions.');
++            }
++
++            if ((int) $created === 0) {
++                continue;
++            }
++
++            $counts['missingCount']++;
++            if ((int) $deleted > (int) $created) {
++                $counts['absentAfterDeleteCount']++;
++            } else {
++                $counts['unexplainedMissingCount']++;
++            }
++        }
++
++        return $counts;
+     }
+ 
+     private function countOrphanPermissionRows(string $mmTable): int

@@ -1,0 +1,280 @@
+diff --git a/Tests/Functional/Audit/AuditLogServiceTest.php b/Tests/Functional/Audit/AuditLogServiceTest.php
+index 0fa96e5..334b25a 100644
+--- a/Tests/Functional/Audit/AuditLogServiceTest.php
++++ b/Tests/Functional/Audit/AuditLogServiceTest.php
+@@ -616,4 +616,91 @@ final class AuditLogServiceTest extends AbstractVaultFunctionalTestCase
+         // Exactly the one row the range covers — not the whole table.
+         self::assertSame([(int) $tip['hmac_key_epoch'] => 1], $result->epochCounts);
+     }
++
++    #[Test]
++    public function boundedVerificationAcceptsAnUnchangedTailWithAPredecessor(): void
++    {
++        $uids = $this->writeBoundedRangeFixture();
++        $result = $this->get(AuditLogServiceInterface::class)->verifyHashChain($uids[1], $uids[2]);
++
++        self::assertTrue($result->isValid());
++        self::assertSame([], $result->errors);
++        self::assertSame([1 => 2], $result->epochCounts);
++    }
++
++    #[Test]
++    public function boundedVerificationStillRejectsTamperingOfItsFirstRow(): void
++    {
++        $uids = $this->writeBoundedRangeFixture();
++        $this->getConnectionPool()->getConnectionForTable('tx_nrvault_audit_log')->update(
++            'tx_nrvault_audit_log',
++            ['action' => 'delete'],
++            ['uid' => $uids[1]],
++        );
++
++        $result = $this->get(AuditLogServiceInterface::class)->verifyHashChain($uids[1], $uids[2]);
++
++        self::assertFalse($result->isValid());
++        self::assertArrayHasKey($uids[1], $result->errors);
++    }
++
++    #[Test]
++    public function boundedVerificationRejectsADeletedPredecessor(): void
++    {
++        $uids = $this->writeBoundedRangeFixture();
++        $this->getConnectionPool()->getConnectionForTable('tx_nrvault_audit_log')->delete(
++            'tx_nrvault_audit_log',
++            ['uid' => $uids[0]],
++        );
++
++        $result = $this->get(AuditLogServiceInterface::class)->verifyHashChain($uids[1], $uids[2]);
++
++        self::assertFalse($result->isValid());
++    }
++
++    #[Test]
++    public function boundedVerificationRejectsAnEpochDowngradeAtItsFirstRow(): void
++    {
++        $uids = $this->writeBoundedRangeFixture();
++        $connection = $this->getConnectionPool()->getConnectionForTable('tx_nrvault_audit_log');
++        $row = $connection->select(['*'], 'tx_nrvault_audit_log', ['uid' => $uids[1]])->fetchAssociative();
++        self::assertIsArray($row);
++        self::assertIsString($row['previous_hash']);
++        $entry = AuditLogService::extractHashRow($row);
++        $keylessHash = AuditLogService::calculateHash(
++            $entry['uid'],
++            $entry['secretId'],
++            $entry['action'],
++            $entry['actorUid'],
++            $entry['crdate'],
++            $row['previous_hash'],
++        );
++        $connection->update('tx_nrvault_audit_log', [
++            'hmac_key_epoch' => 0,
++            'entry_hash' => $keylessHash,
++        ], ['uid' => $uids[1]]);
++
++        $result = $this->get(AuditLogServiceInterface::class)->verifyHashChain($uids[1], $uids[1]);
++
++        self::assertFalse($result->isValid());
++        self::assertStringContainsString('downgrade', strtolower($result->errors[$uids[1]] ?? ''));
++    }
++
++    /**
++     * @return list<int>
++     */
++    private function writeBoundedRangeFixture(): array
++    {
++        $audit = $this->get(AuditLogServiceInterface::class);
++        foreach (['bounded-one', 'bounded-two', 'bounded-three'] as $identifier) {
++            $audit->log($identifier, 'read', true);
++        }
++
++        return array_map(
++            static fn (mixed $uid): int => (int) $uid,
++            $this->getConnectionPool()->getConnectionForTable('tx_nrvault_audit_log')
++                ->createQueryBuilder()->select('uid')->from('tx_nrvault_audit_log')
++                ->orderBy('uid', 'ASC')->executeQuery()->fetchFirstColumn(),
++        );
++    }
+ }
+diff --git a/Tests/Functional/Service/Doctor/InventoryConsistencyCheckTest.php b/Tests/Functional/Service/Doctor/InventoryConsistencyCheckTest.php
+index 5d65a78..3ceafe5 100644
+--- a/Tests/Functional/Service/Doctor/InventoryConsistencyCheckTest.php
++++ b/Tests/Functional/Service/Doctor/InventoryConsistencyCheckTest.php
+@@ -141,6 +141,56 @@ final class InventoryConsistencyCheckTest extends AbstractVaultFunctionalTestCas
+         self::assertSame(3, $finding->details['orphanCount'] ?? null);
+     }
+ 
++    #[Test]
++    public function anAbsentSecretAfterASuccessfulDeleteIsReportedAsUncertainRatherThanLost(): void
++    {
++        $this->recordCreate('removed');
++        $this->recordLifecycleEvent('removed', AuditAction::Delete, true);
++
++        $finding = $this->finding($this->inventoryFindings(), 'inventory.missing_secrets');
++
++        self::assertSame(FindingSeverity::Warning, $finding->severity);
++        self::assertSame(0, $finding->details['unexplainedMissingCount'] ?? null);
++        self::assertSame(1, $finding->details['absentAfterDeleteCount'] ?? null);
++    }
++
++    #[Test]
++    public function aFailedDeleteDoesNotExplainAnAbsentSecret(): void
++    {
++        $this->recordCreate('lost');
++        $this->recordLifecycleEvent('lost', AuditAction::Delete, false);
++
++        $finding = $this->finding($this->inventoryFindings(), 'inventory.missing_secrets');
++
++        self::assertSame(FindingSeverity::Critical, $finding->severity);
++        self::assertSame(1, $finding->details['unexplainedMissingCount'] ?? null);
++        self::assertSame(0, $finding->details['absentAfterDeleteCount'] ?? null);
++    }
++
++    #[Test]
++    public function aDeleteBeforeTheLatestSuccessfulCreateDoesNotExplainTheAbsence(): void
++    {
++        $this->recordCreate('recreated');
++        $this->recordLifecycleEvent('recreated', AuditAction::Delete, true);
++        $this->recordCreate('recreated');
++
++        $finding = $this->finding($this->inventoryFindings(), 'inventory.missing_secrets');
++
++        self::assertSame(FindingSeverity::Critical, $finding->severity);
++        self::assertSame(1, $finding->details['unexplainedMissingCount'] ?? null);
++    }
++
++    #[Test]
++    public function aFailedCreateDoesNotClaimThatASecretWasStored(): void
++    {
++        $this->recordLifecycleEvent('never-stored', AuditAction::Create, false);
++
++        $finding = $this->finding($this->inventoryFindings(), 'inventory.missing_secrets');
++
++        self::assertSame(FindingSeverity::Pass, $finding->severity);
++        self::assertSame(0, $finding->details['missingCount'] ?? null);
++    }
++
+     /**
+      * @return list<Finding>
+      */
+@@ -181,12 +231,17 @@ final class InventoryConsistencyCheckTest extends AbstractVaultFunctionalTestCas
+     }
+ 
+     private function recordCreate(string $identifier): void
++    {
++        $this->recordLifecycleEvent($identifier, AuditAction::Create, true);
++    }
++
++    private function recordLifecycleEvent(string $identifier, AuditAction $action, bool $success): void
+     {
+         $this->get(ConnectionPool::class)->getConnectionForTable(self::AUDIT_TABLE)->insert(self::AUDIT_TABLE, [
+             'pid' => 0,
+-            'action' => AuditAction::Create->value,
++            'action' => $action->value,
+             'secret_identifier' => $identifier,
+-            'success' => 1,
++            'success' => (int) $success,
+         ]);
+     }
+ 
+diff --git a/Tests/Functional/Upgrades/AuditHmacMigrationTest.php b/Tests/Functional/Upgrades/AuditHmacMigrationTest.php
+index 148a95f..7984686 100644
+--- a/Tests/Functional/Upgrades/AuditHmacMigrationTest.php
++++ b/Tests/Functional/Upgrades/AuditHmacMigrationTest.php
+@@ -10,11 +10,13 @@ declare(strict_types=1);
+ namespace Netresearch\NrVault\Tests\Functional\Upgrades;
+ 
+ use Netresearch\NrVault\Audit\AuditChainAnchorStoreInterface;
++use Netresearch\NrVault\Audit\AuditLogService;
+ use Netresearch\NrVault\Audit\AuditLogServiceInterface;
+ use Netresearch\NrVault\Configuration\ExtensionConfiguration;
+ use Netresearch\NrVault\Configuration\ExtensionConfigurationInterface;
+ use Netresearch\NrVault\Crypto\FileMasterKeyProvider;
+ use Netresearch\NrVault\Crypto\MasterKeyProviderInterface;
++use Netresearch\NrVault\Security\AccessControlServiceInterface;
+ use Netresearch\NrVault\Service\VaultServiceInterface;
+ use Netresearch\NrVault\Tests\Functional\AbstractVaultFunctionalTestCase;
+ use Netresearch\NrVault\Tests\Functional\Traits\LegacyAuditEntryTrait;
+@@ -268,6 +270,48 @@ final class AuditHmacMigrationTest extends AbstractVaultFunctionalTestCase
+         );
+     }
+ 
++    #[Test]
++    public function mixedEpochOneAndThreeHistoryMigratesWithoutChangingSecretRows(): void
++    {
++        $this->configureAuditHmacEpoch(1);
++        $identifier = $this->generateUuidV7();
++        $this->get(VaultServiceInterface::class)->store($identifier, 'synthetic-migration-value');
++
++        $this->configureAuditHmacEpoch(3);
++        $configuration = new ExtensionConfiguration(new Typo3ExtensionConfiguration());
++        $audit = new AuditLogService(
++            $this->get(ConnectionPool::class),
++            $this->get(AccessControlServiceInterface::class),
++            $this->get(MasterKeyProviderInterface::class),
++            $configuration,
++            $this->get(AuditChainAnchorStoreInterface::class),
++        );
++        $audit->log($identifier, 'read', true);
++        $before = $audit->verifyHashChain();
++        self::assertTrue($before->isValid());
++        self::assertTrue($before->hasMixedEpochs());
++
++        $secrets = $this->getConnectionPool()->getConnectionForTable('tx_nrvault_secret');
++        $secretRowsBefore = $secrets->select(['*'], 'tx_nrvault_secret', [])->fetchAllAssociative();
++        $wizard = new AuditHmacMigration(
++            $this->get(ConnectionPool::class),
++            $this->get(MasterKeyProviderInterface::class),
++            $configuration,
++            $audit,
++            $this->get(AuditChainAnchorStoreInterface::class),
++        );
++
++        self::assertTrue($wizard->executeUpdate());
++        $after = $audit->verifyHashChain();
++        self::assertTrue($after->isValid());
++        self::assertSame([3 => array_sum($before->epochCounts)], $after->epochCounts);
++        self::assertTrue(
++            $secretRowsBefore === $secrets->select(['*'], 'tx_nrvault_secret', [])->fetchAllAssociative(),
++            'Audit migration must leave all secret rows unchanged.',
++        );
++        self::assertFalse($wizard->updateNecessary());
++    }
++
+     /**
+      * Switch the configured target epoch mid-test and drop the cached master
+      * key so the next audit write derives its HMAC key afresh.
+diff --git a/Tests/Unit/Service/Doctor/Check/InventoryConsistencyCheckTest.php b/Tests/Unit/Service/Doctor/Check/InventoryConsistencyCheckTest.php
+index 083aaea..10cbb41 100644
+--- a/Tests/Unit/Service/Doctor/Check/InventoryConsistencyCheckTest.php
++++ b/Tests/Unit/Service/Doctor/Check/InventoryConsistencyCheckTest.php
+@@ -9,6 +9,7 @@ declare(strict_types=1);
+ 
+ namespace Netresearch\NrVault\Tests\Unit\Service\Doctor\Check;
+ 
++use ArrayIterator;
+ use Doctrine\DBAL\Driver\Exception as DriverException;
+ use Doctrine\DBAL\Exception\TableNotFoundException;
+ use Doctrine\DBAL\Result;
+@@ -160,7 +161,14 @@ final class InventoryConsistencyCheckTest extends TestCase
+ 
+         return new InventoryConsistencyCheck($this->pool(function () use (&$queue): Result {
+             $result = self::createStub(Result::class);
+-            $result->method('fetchOne')->willReturn(array_shift($queue) ?? 0);
++            $count = array_shift($queue) ?? 0;
++            $result->method('fetchOne')->willReturn($count);
++            $result->method('iterateAssociative')->willReturnCallback(
++                static fn (): ArrayIterator => new ArrayIterator(array_fill(0, $count, [
++                    'last_create_uid' => 1,
++                    'last_delete_uid' => 0,
++                ])),
++            );
+ 
+             return $result;
+         }));
+@@ -196,6 +204,7 @@ final class InventoryConsistencyCheckTest extends TestCase
+         $queryBuilder->method('from')->willReturnSelf();
+         $queryBuilder->method('leftJoin')->willReturnSelf();
+         $queryBuilder->method('where')->willReturnSelf();
++        $queryBuilder->method('groupBy')->willReturnSelf();
+         $queryBuilder->method('executeQuery')->willReturnCallback($execute);
+ 
+         $pool = self::createStub(ConnectionPool::class);

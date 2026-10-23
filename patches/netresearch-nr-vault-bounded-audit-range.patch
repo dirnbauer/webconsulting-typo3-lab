@@ -1,0 +1,48 @@
+diff --git a/Classes/Audit/AuditLogService.php b/Classes/Audit/AuditLogService.php
+index 49cacd2..12e2aef 100644
+--- a/Classes/Audit/AuditLogService.php
++++ b/Classes/Audit/AuditLogService.php
+@@ -292,6 +292,34 @@ final readonly class AuditLogService implements AuditLogServiceInterface
+             );
+         }
+ 
++        $previousHash = '';
++        $previousEpoch = -1;
++        if ($fromUid !== null) {
++            // The first selected row still links to the row immediately before
++            // the range. Read that context from the database, never from the
++            // selected row's own previous_hash (which is what we must verify).
++            // This does not authenticate the excluded prefix; only a full-chain
++            // verification can make that claim. Its epoch also preserves the
++            // downgrade check across the range boundary.
++            $predecessorQuery = $connection->createQueryBuilder();
++            $predecessor = $predecessorQuery
++                ->select('entry_hash', 'hmac_key_epoch')
++                ->from(self::TABLE_NAME)
++                ->where($predecessorQuery->expr()->lt(
++                    'uid',
++                    $predecessorQuery->createNamedParameter($fromUid, Connection::PARAM_INT),
++                ))
++                ->orderBy('uid', 'DESC')
++                ->setMaxResults(1)
++                ->executeQuery()
++                ->fetchAssociative();
++            if (\is_array($predecessor)) {
++                $previousHash = \is_string($predecessor['entry_hash'] ?? null) ? $predecessor['entry_hash'] : '';
++                $predecessorEpoch = $predecessor['hmac_key_epoch'] ?? null;
++                $previousEpoch = is_numeric($predecessorEpoch) ? (int) $predecessorEpoch : 0;
++            }
++        }
++
+         // Stream the rows (single forward pass, read-only): the audit log can
+         // be arbitrarily large, and master-key rotation verifies the full chain
+         // up front — materialising it wholesale would OOM the rotation command.
+@@ -301,8 +329,6 @@ final readonly class AuditLogService implements AuditLogServiceInterface
+         /** @var list<int> $missingUids */
+         $missingUids = [];
+         $missingUidCount = 0;
+-        $previousHash = '';
+-        $previousEpoch = -1;
+         // Highest epoch observed across the chain (the "high-water mark"). Stays
+         // -1 for an empty chain so the epoch-floor check below is skipped.
+         $maxEpoch = -1;

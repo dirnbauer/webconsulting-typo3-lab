@@ -1,5 +1,5 @@
 {
-    "_hash": "9591264654fc78ddd04a5fda93b78ddaefbe070ca50f1d84121e288658c3ac40",
+    "_hash": "fd0802fcd0de3f6d9a062bcc43c167e829390938a5b0173ee38b31e303a33e24",
     "patches": {
         "apache-solr-for-typo3/solr": [
             {
@@ -7,6 +7,28 @@
                 "description": "Align legacy backend styles with TYPO3 v14 design tokens",
                 "url": "patches/apache-solr-for-typo3-solr-typo3-v14-backend-styles.patch",
                 "sha256": "f8aea3239d52ef46163739c0997acf3cbec936cae3ef5b2f12fe37311bed5490",
+                "depth": 1,
+                "extra": {
+                    "provenance": "root"
+                }
+            }
+        ],
+        "netresearch/nr-vault": [
+            {
+                "package": "netresearch/nr-vault",
+                "description": "Preserve predecessor context when verifying bounded audit ranges",
+                "url": "patches/netresearch-nr-vault-bounded-audit-range.patch",
+                "sha256": "3f1a27a1dd5a0fe7baa1527a7a197525a66dbc324bfe5fca1ddd508a18494333",
+                "depth": 1,
+                "extra": {
+                    "provenance": "root"
+                }
+            },
+            {
+                "package": "netresearch/nr-vault",
+                "description": "Distinguish missing current credentials from historical deleted inventory",
+                "url": "patches/netresearch-nr-vault-inventory-lifecycle.patch",
+                "sha256": "cacbda59c929ac73890cb964b76668abcfeee0cb65551d449bf459501c936f89",
                 "depth": 1,
                 "extra": {
                     "provenance": "root"

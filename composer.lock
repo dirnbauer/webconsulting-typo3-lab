@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a208e8b6296a4b99a1f4375f47eeea65",
+    "content-hash": "00798125f25baf153b89a0468535f38d",
     "packages": [
         {
             "name": "apache-solr-for-typo3/solr",
@@ -12455,16 +12455,16 @@
         },
         {
             "name": "webconsulting/desiderio",
-            "version": "v4.24.2",
+            "version": "v4.24.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/desiderio.git",
-                "reference": "58b825d099b6a6db6415a49a372fed045569fb81"
+                "reference": "a4f51f8ca45defdfa931c959a04f0dbdd7f10d9d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/desiderio/zipball/58b825d099b6a6db6415a49a372fed045569fb81",
-                "reference": "58b825d099b6a6db6415a49a372fed045569fb81",
+                "url": "https://api.github.com/repos/dirnbauer/desiderio/zipball/a4f51f8ca45defdfa931c959a04f0dbdd7f10d9d",
+                "reference": "a4f51f8ca45defdfa931c959a04f0dbdd7f10d9d",
                 "shasum": ""
             },
             "require": {
@@ -12507,7 +12507,7 @@
             "extra": {
                 "typo3/cms": {
                     "extension-key": "desiderio",
-                    "version": "4.24.2",
+                    "version": "4.24.3",
                     "Package": {
                         "providesPackages": []
                     }
@@ -12558,7 +12558,7 @@
                 }
             ],
             "description": "Desiderio — shadcn/ui-inspired Fluid 5 component library, 244 Desiderio Content Blocks, and theme layer for TYPO3 14",
-            "time": "2026-10-23T16:02:30+00:00"
+            "time": "2026-10-23T19:06:20+00:00"
         },
         {
             "name": "webconsulting/docx-editor",
@@ -13122,16 +13122,16 @@
         },
         {
             "name": "webconsulting/skillflow",
-            "version": "v1.9.3",
+            "version": "v1.9.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/skillflow.git",
-                "reference": "c1630115f3d63036078aef73bf157eda91237c80"
+                "reference": "e67748f8e3e4e51abd330b9c6b91999775c6c09e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/skillflow/zipball/c1630115f3d63036078aef73bf157eda91237c80",
-                "reference": "c1630115f3d63036078aef73bf157eda91237c80",
+                "url": "https://api.github.com/repos/dirnbauer/skillflow/zipball/e67748f8e3e4e51abd330b9c6b91999775c6c09e",
+                "reference": "e67748f8e3e4e51abd330b9c6b91999775c6c09e",
                 "shasum": ""
             },
             "require": {
@@ -13147,7 +13147,7 @@
                 "typo3/cms-workspaces": "^14.3.7"
             },
             "require-dev": {
-                "a9f/typo3-fractor": "^1.0",
+                "a9f/typo3-fractor": "^1.1",
                 "friendsofphp/php-cs-fixer": "^3.95",
                 "phpstan/phpstan": "^2.2",
                 "phpstan/phpstan-phpunit": "^2.0.18",
@@ -13157,6 +13157,7 @@
                 "typo3/cms-install": "^14.3.7",
                 "typo3/coding-standards": "^0.9",
                 "typo3/testing-framework": "^9.7",
+                "webconsulting/rule-doc-generator-contracts": "^1.0",
                 "webconsulting/typo3-abilities": "^1.3"
             },
             "suggest": {
@@ -13166,7 +13167,7 @@
             "extra": {
                 "typo3/cms": {
                     "extension-key": "skillflow",
-                    "version": "1.9.3"
+                    "version": "1.9.4"
                 }
             },
             "autoload": {
@@ -13232,7 +13233,7 @@
                 "source": "https://github.com/dirnbauer/skillflow",
                 "docs": "https://github.com/dirnbauer/skillflow/tree/main/Documentation"
             },
-            "time": "2026-10-23T15:59:15+00:00"
+            "time": "2026-10-23T17:43:19+00:00"
         },
         {
             "name": "webconsulting/skillspector",
