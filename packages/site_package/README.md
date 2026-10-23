@@ -2,7 +2,7 @@
 
 Local TYPO3 14.3 provider extension for shared lab Site Sets, editor defaults,
 Desiderio integration, Solr defaults and Admin Panel defaults. Package version:
-`14.3.4`; PHP requirement: `^8.4`.
+`14.3.6`; PHP requirement: `^8.4`.
 
 ## Site Sets
 
@@ -65,7 +65,7 @@ elements through TYPO3 DataHandler. Full details are in
 
 ```bash
 ddev composer validate --strict --no-check-publish
-ddev exec Build/Scripts/runTests.sh -s ci -p 8.4
+ddev exec Build/Scripts/runTests.sh -s ci -p 8.5
 ddev vite build
 ddev npm run test:e2e
 ddev typo3 lint:yaml config/sites packages/site_package/Configuration/Sets
@@ -73,9 +73,9 @@ ddev typo3 sitepackage:seed-workos-frontend
 ddev typo3 cache:flush
 ```
 
-PHPStan runs at maximum level for PHP 8.4 with the TYPO3 extension. The root
-quality runner owns linting, static analysis and PHPUnit tests for both local
-packages; `-s unit` runs just the unit tests. This README replaces the duplicated
+PHPStan runs at level 8 for PHP 8.5 with the TYPO3 extension. The root
+quality runner owns linting, static analysis and PHPUnit tests for this local
+package; `-s unit` runs just the unit tests. This README replaces the duplicated
 RST manual.
 
 ## Demo maintenance commands

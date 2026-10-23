@@ -97,7 +97,7 @@ foreach ($cases as $case) {
             $context = stream_context_create(['http' => ['method' => 'POST', 'header' => $headers, 'content' => http_build_query(['tx_powermail_pi1' => ['mail' => ['form' => $config['form']], 'field' => $fields]]), 'timeout' => 40, 'ignore_errors' => true]]);
             $raw = file_get_contents($url, false, $context);
             $data = json_decode($raw === false ? '' : $raw, true);
-            $row['http_status'] = $http_response_header[0] ?? null;
+            $row['http_status'] = http_get_last_response_headers()[0] ?? null;
             $actions = [];
             foreach ($data['todo'] ?? [] as $fieldsets) {
                 foreach ($fieldsets as $formFields) {

@@ -5,7 +5,7 @@ parameters:
     # Level 8 everywhere, not max: the one baseline the user chose for every own
     # extension and this lab (strict nulls and types, without max's mixed-type rules).
     level: 8
-    phpVersion: 80400
+    phpVersion: 80500
     paths:
         - ../../packages/site_package/Classes
         - ../../packages/site_package/Build/Scripts/lint-copy.php

@@ -1,7 +1,7 @@
 name: webconsulting-typo3-lab
 type: typo3
 docroot: public
-php_version: "8.4"
+php_version: "8.5"
 webserver_type: apache-fpm
 xdebug_enabled: false
 performance_mode: mutagen
@@ -23,6 +23,10 @@ corepack_enable: false
 
 hooks:
   post-start:
+    - exec: >-
+        if [ "$(npm --version)" != "12.2.1" ]; then
+          npm install --global npm@12.2.1;
+        fi
     - exec-host: ddev solrctl apply
     - exec: >-
         mkdir -p var/log var/lock;

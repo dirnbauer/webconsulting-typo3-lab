@@ -13,17 +13,18 @@ content editing, search, forms, APIs and governed agent workflows.
 
 | Component | Version or policy |
 |---|---|
-| TYPO3 | `14.3.8` (minimum `^14.3.8`) |
-| PHP | `8.4` minimum |
+| TYPO3 | `14.3.10` (minimum `^14.3.10`) |
+| PHP | `8.5` minimum |
 | DDEV | `>=1.25.3`, Apache FPM, Mutagen |
 | Database | MariaDB `10.11` |
 | Node.js | `24` inside DDEV |
+| npm | `12.2.1`, pinned for DDEV, CI and production builds |
 | Frontend | Vite `8`, official TYPO3 plugin and asset collector |
 | Search | EXT:solr `14.0.2` against Apache Solr `10.0.0` through `ddev/ddev-typo3-solr` |
-| LLM stack | nr-llm `0.35`, nr-vault `0.16` (the newest nr-llm supports) |
+| LLM stack | nr-llm `0.41.3`, nr-vault `1.1.0` |
 | Browser regression | Playwright + axe-core, desktop and mobile Chromium |
 
-The Composer platform is PHP 8.4. Run Composer, npm and Vite inside DDEV so
+The Composer platform is PHP 8.5.12. Run Composer, npm and Vite inside DDEV so
 native Node packages are installed for Linux rather than the host platform.
 
 ## Quick start
@@ -155,7 +156,7 @@ The canonical test entrypoint supports suites through `-s` and validates a
 requested PHP minor through `-p`:
 
 ```bash
-ddev exec Build/Scripts/runTests.sh -s ci -p 8.4
+ddev exec Build/Scripts/runTests.sh -s ci -p 8.5
 ```
 
 Individual checks:
@@ -163,8 +164,8 @@ Individual checks:
 ```bash
 ddev composer validate --strict --no-check-publish
 ddev composer audit
-ddev exec Build/Scripts/runTests.sh -s phpstan -p 8.4
-ddev exec Build/Scripts/runTests.sh -s unit -p 8.4
+ddev exec Build/Scripts/runTests.sh -s phpstan -p 8.5
+ddev exec Build/Scripts/runTests.sh -s unit -p 8.5
 ddev exec Build/Scripts/runTests.sh -s frontend
 ddev exec Build/Scripts/runTests.sh -s deployPins
 ddev exec Build/Scripts/runTests.sh -s siteLanguages
@@ -174,8 +175,8 @@ ddev typo3 site:list
 ddev solrctl list
 ```
 
-The quality suite checks both local PHP packages at PHPStan maximum level on
-PHP 8.4 and runs their PHPUnit tests. It also validates Composer and YAML,
+The quality suite checks the local site package at PHPStan level 8 on
+PHP 8.5 and runs its PHPUnit tests. It also validates Composer and YAML,
 builds the frontend, and audits Composer/npm dependencies.
 
 Two checks cover mistakes that stay invisible until they reach production.
@@ -202,7 +203,7 @@ ddev npm install
 ddev typo3 extension:setup
 ddev vite build
 ddev typo3 cache:flush
-ddev exec Build/Scripts/runTests.sh -s ci -p 8.4
+ddev exec Build/Scripts/runTests.sh -s ci -p 8.5
 ```
 
 Do not use `git clean -fdX` in this project: ignored paths include local DDEV

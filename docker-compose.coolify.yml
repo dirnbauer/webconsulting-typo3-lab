@@ -12,14 +12,14 @@ services:
       # Entrypoint switches. Coolify injects only what this file declares, so
       # without these lines the documented overrides never reached the
       # container and the defaults could not be changed at all.
-      # This security patch needs no schema/wizard or retention work.
-      # Keep those unrelated data changes out of this release.
-      TYPO3_RUN_SETUP: '0'
+      # Dependency updates can add tables and columns. Apply additive schema
+      # setup before serving; data wizards and audit re-signing stay explicit.
+      TYPO3_RUN_SETUP: ${TYPO3_RUN_SETUP:-1}
       TYPO3_FLUSH_PAGE_CACHE: ${TYPO3_FLUSH_PAGE_CACHE:-1}
       TYPO3_CHAT_CLEANUP: '0'
       TYPO3_AGENTNEXUS_CLEANUP: '0'
       TYPO3_RUN_WIZARDS: '0'
-      TYPO3_LANGUAGE_UPDATE: '0'
+      TYPO3_LANGUAGE_UPDATE: ${TYPO3_LANGUAGE_UPDATE:-1}
       TYPO3_LANGUAGE_PACKS: ${TYPO3_LANGUAGE_PACKS:-de}
       TYPO3_LOG_MAX_BYTES: ${TYPO3_LOG_MAX_BYTES:-52428800}
       # Workers x ~700 MB must stay under mem_limit below; see apache-mpm.conf.

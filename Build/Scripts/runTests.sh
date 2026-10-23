@@ -59,6 +59,9 @@ case "${SUITE}" in
     deployPins)
         php Build/Scripts/check-deploy-pins.php
         ;;
+    databaseSchema)
+        php Build/Scripts/check-database-schema.php
+        ;;
     siteLanguages)
         Build/Scripts/check-site-languages.sh
         ;;

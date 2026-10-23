@@ -26,7 +26,7 @@ never push, open pull requests or comment upstream.
 
 | Package | Fork, constraint | Why |
 | --- | --- | --- |
-| `in2code/powermail` | `dirnbauer/powermail`, `~14.0.3.3` | in2code's TYPO3 14 line is a paid early-access programme; the fork is our v14 port (no v14.3 deprecations since 14.0.3.2, lazy form relations again since 14.0.3.3). |
+| `in2code/powermail` | `dirnbauer/powermail`, `~14.0.3.8` | in2code's TYPO3 14 line is a paid early-access programme; the fork is our v14 port (no v14.3 deprecations since 14.0.3.2, lazy form relations again since 14.0.3.3). |
 | `in2code/powermail_cond` | `dirnbauer/powermail_cond`, `dev-typo3-v14` | Same situation; the fork adds the `EvaluateRuleEvent` seam webcon_jev uses. |
 | `studiomitte/friendlycaptcha` | `dirnbauer/friendlycaptcha-typo3`, `~2.3.0.1` | Upstream 2.3.0 declares TYPO3 14.3, but its Powermail validator never resolves the Extbase lazy proxies Powermail 14 returns and reads the plugin FlexForm without a null guard. Since 2026-09-23 the fork is upstream 2.3.0 plus that fix (16 files differ, down from 68). |
 | `studiomitte/solr-numbered-pagination` | `dirnbauer/solr_numbered_pagination`, `dev-main` | Upstream supports TYPO3 14 only on an untagged `main`; the fork carries it with a guard for the pagination type EXT:solr 14 hands to the event. |

@@ -206,6 +206,37 @@ created from the configsets that image serves, so a version change usually means
 recreating and reindexing them. `Build/Scripts/check-deploy-pins.php` guards the
 matching version; it does not reindex.
 
+## Dependency refresh on 2026-10-23
+
+The lab requires PHP 8.5 and TYPO3 14.3.10. Production remains on the tested
+PHP 8.5.12 and MariaDB 11.8.9 images; the Composer build stage now uses 2.10.3.
+Additive extension setup and language updates are enabled again for dependency
+refreshes. Data upgrade wizards, chat retention jobs and audit-chain migration
+remain explicit operations.
+
+Powermail 14.0.3.8 and the Conditional v14 branch contain every current public
+13.x fix. The nr-llm 0.41.3 / nr-vault 1.1.0 update preserves the existing vault
+schema, secret format and key material. Do not initialize or rotate the vault
+as part of deployment. A passive doctor check before the update reports a
+known bounded-range audit verifier error; the verifier is unchanged in 1.1.0.
+A synthetic chain reproduces the first-row error without using live secrets.
+The historical mixed-epoch audit warning needs separate reconciliation; do not
+re-sign an unexplained audit chain during this dependency update.
+
+The Records List and Blog demos had stale `tx_desiderio_h1_sronly` flags while
+providing no authored H1. Restore only those two page settings, through
+DataHandler, after reviewing the preview:
+
+```bash
+vendor/bin/typo3 sitepackage:restore-feature-headings
+vendor/bin/typo3 sitepackage:restore-feature-headings --apply
+php Build/Scripts/check-database-schema.php
+```
+
+The command verifies the site, selected records, DataHandler errors and stored
+values. It leaves authored-hero pages alone. The existing browser regression
+suite checks the visible headings on desktop and mobile.
+
 ## Synchronize data
 
 Inspect both environments without changing data:

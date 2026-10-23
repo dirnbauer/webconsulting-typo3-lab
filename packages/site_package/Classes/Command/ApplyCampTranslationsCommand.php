@@ -206,7 +206,7 @@ final class ApplyCampTranslationsCommand extends Command
                 $source,
                 $lang,
                 $translation,
-                count($data[$childTable] ?? []),
+                $childTable === null ? 0 : count($data[$childTable] ?? []),
                 count($data['sys_file_reference'] ?? [])
             ));
         }
