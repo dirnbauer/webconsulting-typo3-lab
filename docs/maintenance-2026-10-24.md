@@ -16,7 +16,7 @@ kept separately from the release sources.
 | Node.js | 26.12.1 |
 | npm | 12.2.1 |
 | DDEV | 1.25.4 |
-| Desiderio font build Python / pip | 3.15.1 / 26.2.2 |
+| Font build and Nexus lint Python / pip | 3.15.1 / 26.2.2 |
 | Local MariaDB | 10.11.19 |
 | Production MariaDB | 11.8.9, existing patched image |
 | Solr | 10.0.0, paired with EXT:solr 14.0.2 |
@@ -37,7 +37,7 @@ now rejects a mismatch.
 | `in2code/powermail_cond` | dev-typo3-v14 |
 | `studiomitte/friendlycaptcha` | 2.3.0.4 |
 | `studiomitte/solr-numbered-pagination` | dev-main |
-| `webconsulting/agent-nexus` | 4.1.1 |
+| `webconsulting/agent-nexus` | 4.1.2 |
 | `webconsulting/agentation` | 1.5.2 |
 | `webconsulting/astryx-typo3` | 2.6.1 |
 | `webconsulting/desiderio` | 4.24.4 |
@@ -79,8 +79,13 @@ local path package maintained in this repository.
 - HugeIcons is current at 4.3.5: 6,782 mappings span two append-only font shards.
   The 6,156 frozen legacy mappings and raster compatibility checks pass. The
   retained 4.2.0 font is a compatibility test reference, not an active pin.
-- Skillflow's Fractor 1.1 tooling uses a maintained, tested contracts package
-  for the upstream abandoned transitive dependency. Composer audits fail on
+- Agent Nexus 4.1.2 updates Archify to stable 3.2.0 and regenerates all five
+  protocol viewers. Thirty browser embed cases cover both screen sizes and
+  themes; full viewer controls and SVG/PNG downloads pass. The lazy iframe
+  load race has three regression cases. Python lint uses 3.15.1 and current
+  pinned dependencies.
+- Skillflow and MCP Server Fractor 1.1 tooling uses a maintained, tested
+  contracts package for the upstream abandoned transitive dependency. Composer audits fail on
   abandoned packages and pass for both the root and embedded package graph.
 - Root Agentation MCP tools use patched Zod 4.6.7 through an override. A real
   stdio MCP session verifies tool discovery, forwarding and invalid-input
@@ -91,7 +96,24 @@ local path package maintained in this repository.
   frontend build, npm audit and deployment pin checks.
 
 Symfony remains on the latest compatible 7.4 release because TYPO3 Core 14.3
-requires that series. Existing Powermail mock guidance and Solr deprecation
+requires that series. Doctrine DBAL 4.5 is also excluded by Core's `~4.4.4`
+constraint; the latest compatible DBAL 4.4.5 is installed. Existing Powermail
+mock guidance and Solr deprecation
 notices remain visible in passing upstream tests. Vault's historical audit
 records and encryption keys are unchanged; recovering the original historical
 key is a separate task.
+
+## Integration limits
+
+The additional private Templates extension was updated and tested in its source
+repositories and retained in the local 27-extension development graph. Adding
+it to the live 26-extension graph awaits explicit approval to enable the
+existing read-only Composer deploy key on its private GitLab repository.
+
+Live browser acceptance passes 61 cases with one intentional skip. The local
+DDEV full run passes 57 cases, skips three and times out in the two Poppy
+playground cases at their unchanged five-second deadline. Both cases pass on
+live. The local PHP 8.5.12 web container currently uses QEMU because the native
+ARM package repository still offers 8.5.11; concurrent theme seed/import jobs
+from other chats also occupy local PHP. Their processes and test assertions
+were left unchanged.
