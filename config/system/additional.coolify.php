@@ -90,4 +90,15 @@ if (getenv('IS_DDEV_PROJECT') !== 'true') {
     // access on this server. Local installs keep the guard.
     $GLOBALS['TYPO3_CONF_VARS']['EXTENSIONS']['skillflow']['requireLocalEnvironment'] = '0';
     $GLOBALS['TYPO3_CONF_VARS']['EXTENSIONS']['skillflow']['runner'] = 'api';
+
+    // Empty keeps the configured provider unchanged. An explicit file is
+    // validated on every bootstrap, before the native provider can fall back
+    // to an auto-key. Provisioning/copying the exact current Vault master key
+    // and rotating SYS.encryptionKey are separate, approved operations.
+    $configureVaultFile = require __DIR__ . '/vault-file-provider.php';
+    $GLOBALS['TYPO3_CONF_VARS'] = $configureVaultFile(
+        $GLOBALS['TYPO3_CONF_VARS'],
+        (string)getenv('TYPO3_VAULT_MASTER_KEY_FILE'),
+        dirname(__DIR__, 2) . '/public'
+    );
 }

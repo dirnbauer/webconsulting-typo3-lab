@@ -3,6 +3,7 @@
     <testsuites>
         <testsuite name="Local packages">
             <directory>../packages/site_package/Tests/Unit</directory>
+            <directory>../Tests/Unit</directory>
         </testsuite>
     </testsuites>
 </phpunit>

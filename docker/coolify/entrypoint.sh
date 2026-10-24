@@ -1,6 +1,18 @@
 #!/bin/sh
 set -eu
 
+# Opt-in custody validation must fail before startup writes or migrations.
+# Run as Apache's user so a root-readable but runtime-unreadable file fails.
+if [ -n "${TYPO3_VAULT_MASTER_KEY_FILE:-}" ]; then
+    # Custody opt-in must never implicitly rotate TYPO3's signing key either.
+    # Its separate, approved rotation happens only after the Vault file is proven.
+    if [ ! -s /run/typo3-secrets/encryption-key ]; then
+        echo "entrypoint: existing TYPO3 signing key file is required before enabling Vault file custody" >&2
+        exit 1
+    fi
+    su -s /bin/sh -c 'exec php /var/www/html/docker/coolify/validate-vault-master-key.php' www-data
+fi
+
 if [ -z "${BASIC_AUTH_USER:-}" ] || [ -z "${BASIC_AUTH_PASSWORD:-}" ]; then
     echo "BASIC_AUTH_USER and BASIC_AUTH_PASSWORD are required" >&2
     exit 1

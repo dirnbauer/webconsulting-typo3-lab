@@ -9,6 +9,10 @@ services:
       BASIC_AUTH_PASSWORD: ${SERVICE_PASSWORD_BASIC}
       BASIC_AUTH_USER: ${BASIC_AUTH_USER:-lab}
       TYPO3_CONTEXT: Production
+      # Opt-in only: pre-provision the exact current Vault master key in a
+      # runtime-readable 0400 file at /run/typo3-vault-secrets/master-key.
+      # No file is created, and invalid explicit paths stop startup/bootstrap.
+      TYPO3_VAULT_MASTER_KEY_FILE: ${TYPO3_VAULT_MASTER_KEY_FILE:-}
       # Entrypoint switches. Coolify injects only what this file declares, so
       # without these lines the documented overrides never reached the
       # container and the defaults could not be changed at all.
@@ -65,6 +69,9 @@ services:
       - typo3_fileadmin:/var/www/html/public/fileadmin
       - typo3_runtime:/var/www/html/var
       - typo3_secrets:/run/typo3-secrets
+      # Passive while the opt-in flag is empty. Provision through a separate
+      # temporary RW admin mount; the application only ever mounts it read-only.
+      - typo3_vault_keys:/run/typo3-vault-secrets:ro
     # Contain a memory runaway to this container. Without a limit the OOM is
     # global: on 2026-09-19 the kernel killed Solr, swap-thrashed Redmine and
     # Coolify, and the whole host rebooted. With one, the kernel kills a worker
@@ -148,4 +155,5 @@ volumes:
   typo3_fileadmin:
   typo3_runtime:
   typo3_secrets:
+  typo3_vault_keys:
   typo3_solr:
