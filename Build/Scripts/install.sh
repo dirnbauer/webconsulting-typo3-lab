@@ -5,7 +5,7 @@
 #
 # Clones the repository, fetches the sanitised database and Fileadmin pair,
 # and runs the documented DDEV bootstrap. Needs Docker or OrbStack, DDEV
-# >= 1.25.3 and Git.
+# >= 1.25.4 and Git.
 #
 # The lab sits behind HTTP basic auth, so the downloads need the same
 # credentials you used to reach this script. Either export them:

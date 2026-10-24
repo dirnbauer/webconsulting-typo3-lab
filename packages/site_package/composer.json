@@ -23,8 +23,8 @@
         "webconsulting/workos-auth": "Enables the optional Desiderio/shadcn WorkOS frontend plugin Site Set."
     },
     "require-dev": {
-        "phpstan/phpstan": "^2.1",
-        "saschaegerer/phpstan-typo3": "^3.0.1"
+        "phpstan/phpstan": "^2.3.1",
+        "saschaegerer/phpstan-typo3": "^3.1"
     },
     "autoload": {
         "psr-4": {

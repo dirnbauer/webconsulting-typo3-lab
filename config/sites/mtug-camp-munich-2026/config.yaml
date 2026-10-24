@@ -9,7 +9,7 @@ dependencies:
   - webconsulting/desiderio-content-elements
   - webconsulting/desiderio-preset-corporate
   - desiderio/content-blocks-bundle
-friendlycaptcha_js_path: 'EXT:friendlycaptcha_official/Resources/Public/JavaScript/lib/sdk@0.1.26-site.compat.min.js'
+friendlycaptcha_js_path: 'EXT:friendlycaptcha_official/Resources/Public/JavaScript/lib/sdk@1.1.1-site.compat.min.js'
 friendlycaptcha_secret_key: '%env(FRIENDLYCAPTCHA_API_KEY)%'
 friendlycaptcha_site_key: '%env(FRIENDLYCAPTCHA_SITE_KEY)%'
 friendlycaptcha_skip_dev_validation: true

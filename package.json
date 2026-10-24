@@ -9,7 +9,8 @@
     "dev": "vite",
     "test:e2e:install": "PLAYWRIGHT_BROWSERS_PATH=${PLAYWRIGHT_BROWSERS_PATH:-var/playwright/browsers} playwright install chromium",
     "test:e2e": "npm run test:e2e:install && PLAYWRIGHT_BROWSERS_PATH=${PLAYWRIGHT_BROWSERS_PATH:-var/playwright/browsers} playwright test",
-    "test:e2e:headed": "npm run test:e2e:install && PLAYWRIGHT_BROWSERS_PATH=${PLAYWRIGHT_BROWSERS_PATH:-var/playwright/browsers} playwright test --headed"
+    "test:e2e:headed": "npm run test:e2e:install && PLAYWRIGHT_BROWSERS_PATH=${PLAYWRIGHT_BROWSERS_PATH:-var/playwright/browsers} playwright test --headed",
+    "test:tools": "node --test 'Tests/JavaScript/*.test.mjs'"
   },
   "devDependencies": {
     "@axe-core/playwright": "^4.14.0",
@@ -22,5 +23,8 @@
   },
   "allowScripts": {
     "better-sqlite3@12.11.1": true
+  },
+  "overrides": {
+    "zod": "^4.6.6"
   }
 }

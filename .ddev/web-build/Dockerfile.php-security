@@ -1,4 +1,4 @@
-# The DDEV 1.25.3 base image predates PHP's October 2026 security fixes.
+# The DDEV 1.25.4 base image predates PHP's October 2026 security fixes.
 # Fail the image build rather than silently retaining an unpatched runtime.
 RUN set -eux; \
     apt-get update; \

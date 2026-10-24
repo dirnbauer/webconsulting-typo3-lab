@@ -14,8 +14,8 @@ upload_dirs:
 use_dns_when_possible: true
 share_default_provider: cloudflared
 composer_version: "2"
-nodejs_version: "24"
-ddev_version_constraint: ">= v1.25.3"
+nodejs_version: "26.12.1"
+ddev_version_constraint: ">= v1.25.4"
 web_environment:
   - TYPO3_CONTEXT=Development/DDEV
   - PLAYWRIGHT_BROWSERS_PATH=/mnt/ddev-global-cache/playwright

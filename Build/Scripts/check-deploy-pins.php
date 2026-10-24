@@ -21,6 +21,17 @@ $dockerfilePath = $root . '/Dockerfile.solr.coolify';
 
 $problems = [];
 
+// Compose passes this fallback as a build argument, overriding the Dockerfile.
+// A stale fallback silently prevents an updated runtime digest from being used.
+$webDockerfile = (string)file_get_contents($root . '/Dockerfile.coolify');
+$compose = (string)file_get_contents($root . '/docker-compose.coolify.yml');
+if (preg_match('/^ARG PHP_BASE_IMAGE=(\S+)$/m', $webDockerfile, $phpDefault) !== 1
+    || preg_match('/PHP_BASE_IMAGE:\s*\$\{PHP_BASE_IMAGE:-(\S+)\}/', $compose, $phpFallback) !== 1) {
+    $problems[] = 'PHP_BASE_IMAGE defaults must be declared in the web Dockerfile and Compose.';
+} elseif ($phpDefault[1] !== $phpFallback[1]) {
+    $problems[] = 'PHP_BASE_IMAGE defaults differ between Dockerfile.coolify and docker-compose.coolify.yml.';
+}
+
 $lock = json_decode((string)file_get_contents($lockPath), true, 512, JSON_THROW_ON_ERROR);
 $lockedReference = null;
 $lockedVersion = null;

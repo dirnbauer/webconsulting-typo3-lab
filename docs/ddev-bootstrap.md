@@ -32,8 +32,9 @@ ddev exec Build/Scripts/runTests.sh -s ci -p 8.5
 ```
 
 Open `https://webconsulting-typo3-lab.ddev.site/typo3/`. The supplied local demo
-account is `admin` / `Demo123*`. PHP 8.5, Node.js 24 and the DDEV services are
-configured in `.ddev/config.yaml`.
+account is `admin` / `Demo123*`. PHP 8.5, Node.js 26.12.1 and the DDEV services are
+configured in `.ddev/config.yaml`. DDEV 1.25.4 or newer is required.
+The build uses npm 12.2.1 on the host, CI and DDEV.
 
 Run npm inside DDEV. Host-installed native dependencies can make the Linux
 build fail with missing Rolldown bindings. `ddev npm ci` reinstalls exactly the
@@ -56,12 +57,12 @@ Emulation can make builds and tests substantially slower on Apple Silicon;
 this project does not change OrbStack or Rosetta settings. DDEV describes the
 [package lag and project image upgrade](https://ddev.com/blog/php2shell-what-ddev-users-need-to-know/).
 
-The October 23 bootstrap image was built on native AMD64 with
+The October 24 bootstrap image for DDEV 1.25.4 was built on native AMD64 with
 [inline cache](https://docs.docker.com/build/cache/backends/inline/) and used
 to prime DDEV's local default builder. A normal Compose image build then
-reused all 15 `RUN` layers without an explicit cache import and completed in
-3.2 seconds. The local image tag
-`webcon-typo3-lab-php85-inline-cache:8.5.12` retains the exported cache for
+reused all 16 `RUN` layers without an explicit cache import and completed in
+1.0 seconds. The local image tag
+`webcon-typo3-lab-php85-node26-cache:20261024` retains the exported cache for
 recovery; importing an image alone does not automatically prime BuildKit.
 
 Unchanged image builds can reuse the primed cache. Base image, Dockerfile or
