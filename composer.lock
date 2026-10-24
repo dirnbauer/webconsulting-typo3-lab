@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "37e51ac25a0a013ea1e9b2dbb46a62e8",
+    "content-hash": "bc99e715a3a97fc921dc6b6e37c099b5",
     "packages": [
         {
             "name": "apache-solr-for-typo3/solr",
@@ -14154,6 +14154,90 @@
             "time": "2026-10-24T04:07:41+00:00"
         },
         {
+            "name": "webconsulting/webcon-templates",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "git@gitlab.webconsulting.at:extensions/typo3-webcon-templates.git",
+                "reference": "89fe5182210bd422c941bd8cf436540240297e60"
+            },
+            "require": {
+                "friendsoftypo3/content-blocks": "^2.4",
+                "friendsoftypo3/visual-editor": "^1.8",
+                "php": "^8.4",
+                "typo3/cms-core": "^14.3",
+                "typo3/cms-fluid": "^14.3",
+                "typo3/cms-form": "^14.3",
+                "typo3/cms-frontend": "^14.3",
+                "typo3/cms-seo": "^14.3"
+            },
+            "require-dev": {
+                "phpstan/phpstan": "^2",
+                "phpunit/phpunit": "^12.4 || ^13.0",
+                "saschaegerer/phpstan-typo3": "^3.1",
+                "typo3/testing-framework": "^9.5"
+            },
+            "default-branch": true,
+            "type": "typo3-cms-extension",
+            "extra": {
+                "typo3/cms": {
+                    "extension-key": "webcon_templates"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Webconsulting\\WebconTemplates\\": "Classes/"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "Webconsulting\\WebconTemplates\\Tests\\": "Tests/"
+                }
+            },
+            "scripts": {
+                "check": [
+                    "@phpstan",
+                    "@test:unit",
+                    "@check:consistency",
+                    "@check:notices",
+                    "@check:banned"
+                ],
+                "check:banned": [
+                    "@php Build/Scripts/check-banned.php"
+                ],
+                "check:consistency": [
+                    "@php Build/Scripts/check-consistency.php"
+                ],
+                "check:notices": [
+                    "@php Build/Scripts/build-notices.php --check"
+                ],
+                "phpstan": [
+                    "phpstan analyse --memory-limit=2G"
+                ],
+                "test:unit": [
+                    "phpunit -c Build/phpunit/UnitTests.xml"
+                ]
+            },
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "webconsulting studio"
+                }
+            ],
+            "description": "Ten beautiful MIT site templates for TYPO3 14 — Fluid 5.3 components, page templates, re-skinned Content Blocks, XLIFF 2.0 + ICU labels, a mini importer and demo-site seeder. Static HTML, no JS framework.",
+            "keywords": [
+                "Content Blocks",
+                "Fluid",
+                "TYPO3",
+                "components",
+                "templates",
+                "themes"
+            ],
+            "time": "2026-10-24T03:35:51+00:00"
+        },
+        {
             "name": "webconsulting/workos-auth",
             "version": "v2.3.5",
             "source": {
@@ -16501,7 +16585,8 @@
     "minimum-stability": "dev",
     "stability-flags": {
         "in2code/powermail_cond": 20,
-        "studiomitte/solr-numbered-pagination": 20
+        "studiomitte/solr-numbered-pagination": 20,
+        "webconsulting/webcon-templates": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,

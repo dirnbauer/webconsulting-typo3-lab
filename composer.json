@@ -156,6 +156,11 @@
 			"name": "typo3-ai-assistant",
 			"type": "vcs",
 			"url": "https://github.com/dirnbauer/typo3-ai-assistant.git"
+		},
+		{
+			"type": "git",
+			"url": "git@gitlab.webconsulting.at:extensions/typo3-webcon-templates.git",
+			"name": "webcon-templates"
 		}
 	],
 	"require": {
@@ -233,6 +238,7 @@
 		"webconsulting/visual-editor-enhancements": "^1.4.3",
 		"webconsulting/webcon-easy-workspace": "^1.11.2",
 		"webconsulting/webcon-jev": "^0.3.1",
+		"webconsulting/webcon-templates": "dev-main",
 		"webconsulting/workos-auth": "^2.3.5"
 	},
 	"require-dev": {

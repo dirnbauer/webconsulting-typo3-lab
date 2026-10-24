@@ -37,6 +37,7 @@ webconsulting/astryx-typo3 astryx_typo3
 webconsulting/records-list-types records_list_types
 webconsulting/records-list-examples records_list_examples
 webconsulting/webcon-easy-workspace webcon_easy_workspace
+webconsulting/webcon-templates webcon_templates
 webconsulting/skillspector skillspector
 webconsulting/typo3-ai-assistant ai_assistant
 webconsulting/webcon-jev webcon_jev

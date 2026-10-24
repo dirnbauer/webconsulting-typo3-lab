@@ -38,6 +38,7 @@ REPOS=(
   "$LAB"/packages/solr_numbered_pagination
   "$LAB"/packages/visual_editor_enhancements
   "$LAB"/packages/webcon_easy_workspace
+  "$LAB"/packages/webcon_templates
   "$LAB"/packages/webcon_jev
   "$LAB"/packages/workos_auth
   "$LAB"/packages/x402_paywall

@@ -1,8 +1,9 @@
 # Maintenance: 24 October 2026
 
-The deployed project's Composer graph was refreshed, including all 26 own
-extensions and maintained forks already used on live. New releases were pushed
-to their configured GitHub and GitLab remotes; private Poppy stays on GitLab.
+The deployed project's Composer graph was refreshed, including all 27 own
+extensions and maintained forks, with private Templates now included. New
+releases were pushed to their configured GitHub and GitLab remotes; private
+Poppy stays on GitLab.
 CI-only changes do not manufacture new package tags. Local development work is
 kept separately from the release sources.
 
@@ -57,6 +58,7 @@ now rejects a mismatch.
 | `webconsulting/visual-editor-enhancements` | 1.4.3 |
 | `webconsulting/webcon-easy-workspace` | 1.11.2 |
 | `webconsulting/webcon-jev` | 0.3.1 |
+| `webconsulting/webcon-templates` | dev-main (`89fe518`) |
 | `webconsulting/workos-auth` | 2.3.5 |
 
 Branch selections are intentional: Powermail Conditional uses the maintained
@@ -105,10 +107,14 @@ key is a separate task.
 
 ## Integration limits
 
-The additional private Templates extension was updated and tested in its source
-repositories and retained in the local 27-extension development graph. Adding
-it to the live 26-extension graph awaits explicit approval to enable the
-existing read-only Composer deploy key on its private GitLab repository.
+The private Templates extension is included at the tested commit `89fe518`.
+The existing Composer deploy key is enabled on its private GitLab repository
+with read-only access after explicit approval. Installation registers its
+Content Blocks; individual template sites remain opt-in. The local theme work
+and untracked site configurations are preserved separately. The schema rehearsal
+uses a schema-only production copy: two new record tables and the two new
+`tt_content` columns `webcon_items` / `webcon_facts`, with no changes to
+existing field definitions. The deployment applies these additive changes.
 
 Live browser acceptance passes 61 cases with one intentional skip. The local
 DDEV full run passes 57 cases, skips three and times out in the two Poppy
