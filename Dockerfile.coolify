@@ -41,6 +41,7 @@ RUN apt-get update \
         unzip \
     && sed -i \
         -e 's/^# *\(en_US.UTF-8 UTF-8\)/\1/' \
+        -e 's/^# *\(en_GB.UTF-8 UTF-8\)/\1/' \
         -e 's/^# *\(de_AT.UTF-8 UTF-8\)/\1/' \
         -e 's/^# *\(hu_HU.UTF-8 UTF-8\)/\1/' \
         -e 's/^# *\(zh_CN.UTF-8 UTF-8\)/\1/' \
