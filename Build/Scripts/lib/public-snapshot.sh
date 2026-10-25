@@ -22,12 +22,14 @@
 # event queue, browser CSP reports, workspace preview links (each a token),
 # webhook and reaction secrets, queued messages, rate-limit counters keyed by
 # IP address, LLM and agent run logs with their usage and telemetry, MCP server
-# credentials, editor sessions, and the zzz_deleted_ tables TYPO3 leaves
-# behind for removed extensions (old order and run logs among them).
+# credentials, editor sessions, the template sites' stored form submissions
+# (webcon_templates_submission: names, e-mail addresses and messages visitors
+# sent), and the zzz_deleted_ tables TYPO3 leaves behind for removed
+# extensions (old order and run logs among them).
 # sys_refindex goes as well: the reference index repeats the e-mail addresses
 # and links it parsed out of every table, the emptied ones included (commenter
 # addresses, accounts, the scraped shop contacts). install.txt rebuilds it.
-SNAPSHOT_SENSITIVE_PATTERN='vault|secret|token|credential|oauth|identity|payment_log|_provider$|^fe_users$|^be_users$|^be_sessions$|^fe_sessions$|^sys_log$|^sys_history$|^sys_note$|^tx_powermail_domain_model_(mail|answer)$|^tx_blog_domain_model_comment$|^tx_[a-z0-9_]+_(conversation|message|run|audit|audit_log)$|^tx_webconmcpchatbridge_|^tx_agentnexus_(ucp_order|ucp_order_log|a2ui_inquiry|a2a_request|agui_lead|object|traffic)$|^cache_|^sys_file_processedfile$|^tx_docx_editor_revision$|^index_(config|debug|fulltext|grlist|phash|rel|section|stat_word|words)$|^sys_(http_report|preview|reaction|webhook|messenger_messages|lockedrecords)$|^tx_solr_(statistics|last_searches|eventqueue_item)$|_(usage|telemetry|trace|rate_limit)$|_session(_message)?$|^tx_nrllm_(agentrun|agentrun_event|governance_event|call_outcome|eval_result)$|mcp_server$|^zzz_deleted_|^sys_refindex$'
+SNAPSHOT_SENSITIVE_PATTERN='vault|secret|token|credential|oauth|identity|payment_log|_provider$|^fe_users$|^be_users$|^be_sessions$|^fe_sessions$|^sys_log$|^sys_history$|^sys_note$|^tx_powermail_domain_model_(mail|answer)$|^tx_blog_domain_model_comment$|^tx_[a-z0-9_]+_(conversation|message|run|audit|audit_log)$|^tx_webconmcpchatbridge_|^tx_agentnexus_(ucp_order|ucp_order_log|a2ui_inquiry|a2a_request|agui_lead|object|traffic)$|^cache_|^sys_file_processedfile$|^tx_docx_editor_revision$|^webcon_templates_submission$|^index_(config|debug|fulltext|grlist|phash|rel|section|stat_word|words)$|^sys_(http_report|preview|reaction|webhook|messenger_messages|lockedrecords)$|^tx_solr_(statistics|last_searches|eventqueue_item)$|_(usage|telemetry|trace|rate_limit)$|_session(_message)?$|^tx_nrllm_(agentrun|agentrun_event|governance_event|call_outcome|eval_result)$|mcp_server$|^zzz_deleted_|^sys_refindex$'
 
 # Fileadmin paths the published files archive never contains: uploads made
 # through the AI chat, personal documents (invoices, tax reports, a CV) that

@@ -12453,16 +12453,16 @@
         },
         {
             "name": "webconsulting/desiderio",
-            "version": "v4.24.4",
+            "version": "v4.25.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/desiderio.git",
-                "reference": "e0237998ffbc40ea7125a58de358e01de6d0fd2e"
+                "reference": "e43ad00c94ebd49057460bee88ad3e846f10b8bb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/desiderio/zipball/e0237998ffbc40ea7125a58de358e01de6d0fd2e",
-                "reference": "e0237998ffbc40ea7125a58de358e01de6d0fd2e",
+                "url": "https://api.github.com/repos/dirnbauer/desiderio/zipball/e43ad00c94ebd49057460bee88ad3e846f10b8bb",
+                "reference": "e43ad00c94ebd49057460bee88ad3e846f10b8bb",
                 "shasum": ""
             },
             "require": {
@@ -12505,7 +12505,7 @@
             "extra": {
                 "typo3/cms": {
                     "extension-key": "desiderio",
-                    "version": "4.24.4",
+                    "version": "4.25.0",
                     "Package": {
                         "providesPackages": []
                     }
@@ -12556,7 +12556,7 @@
                 }
             ],
             "description": "Desiderio — shadcn/ui-inspired Fluid 5 component library, 244 Desiderio Content Blocks, and theme layer for TYPO3 14",
-            "time": "2026-10-24T04:06:20+00:00"
+            "time": "2026-10-25T10:09:22+00:00"
         },
         {
             "name": "webconsulting/docx-editor",
@@ -14159,7 +14159,7 @@
             "source": {
                 "type": "git",
                 "url": "git@gitlab.webconsulting.at:extensions/typo3-webcon-templates.git",
-                "reference": "e40a7299420c3dcd3e8e456fe5e5615ab9c2adc5"
+                "reference": "5745847e3b4c056b7bb66ecad519968d1e94744c"
             },
             "require": {
                 "friendsoftypo3/content-blocks": "^2.4",
@@ -14175,7 +14175,11 @@
                 "phpstan/phpstan": "^2",
                 "phpunit/phpunit": "^12.4 || ^13.0",
                 "saschaegerer/phpstan-typo3": "^3.1",
+                "typo3/cms-scheduler": "^14.3",
                 "typo3/testing-framework": "^9.5"
+            },
+            "suggest": {
+                "typo3/cms-scheduler": "Runs the \"Delete old form submissions\" task (stored form submissions are deleted after 3 months); without it use webcon-templates:forms:cleanup"
             },
             "default-branch": true,
             "type": "typo3-cms-extension",
@@ -14235,7 +14239,7 @@
                 "templates",
                 "themes"
             ],
-            "time": "2026-10-25T06:21:12+00:00"
+            "time": "2026-10-25T15:51:51+00:00"
         },
         {
             "name": "webconsulting/workos-auth",
