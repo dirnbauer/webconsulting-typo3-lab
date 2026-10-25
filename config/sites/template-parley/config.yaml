@@ -1,0 +1,25 @@
+base: 'https://webconsulting-typo3-lab.ddev.site/templates/parley/'
+baseVariants:
+  -
+    base: 'https://typo3-lab.webconsulting.at/templates/parley/'
+    condition: 'applicationContext == "Production"'
+rootPageId: 7050
+websiteTitle: Parley
+dependencies:
+  - webconsulting/webcon-templates-parley
+errorHandling:
+  -
+    errorCode: 404
+    errorHandler: Page
+    errorContentSource: 't3://page?uid=7051'
+languages:
+  -
+    languageId: 0
+    title: English
+    enabled: true
+    navigationTitle: English
+    locale: en_US.UTF-8
+    hreflang: en-US
+    base: /
+    websiteTitle: Parley
+    flag: us

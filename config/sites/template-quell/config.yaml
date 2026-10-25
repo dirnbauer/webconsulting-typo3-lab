@@ -1,0 +1,25 @@
+base: 'https://webconsulting-typo3-lab.ddev.site/templates/quell/'
+baseVariants:
+  -
+    base: 'https://typo3-lab.webconsulting.at/templates/quell/'
+    condition: 'applicationContext == "Production"'
+rootPageId: 7020
+websiteTitle: 'Mara Quell'
+dependencies:
+  - webconsulting/webcon-templates-quell
+errorHandling:
+  -
+    errorCode: 404
+    errorHandler: Page
+    errorContentSource: 't3://page?uid=7021'
+languages:
+  -
+    languageId: 0
+    title: English
+    enabled: true
+    navigationTitle: English
+    locale: en_GB.UTF-8
+    hreflang: en-GB
+    base: /
+    websiteTitle: 'Mara Quell'
+    flag: gb
