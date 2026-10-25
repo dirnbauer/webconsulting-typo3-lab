@@ -14159,7 +14159,7 @@
             "source": {
                 "type": "git",
                 "url": "git@gitlab.webconsulting.at:extensions/typo3-webcon-templates.git",
-                "reference": "89fe5182210bd422c941bd8cf436540240297e60"
+                "reference": "e40a7299420c3dcd3e8e456fe5e5615ab9c2adc5"
             },
             "require": {
                 "friendsoftypo3/content-blocks": "^2.4",
@@ -14235,7 +14235,7 @@
                 "templates",
                 "themes"
             ],
-            "time": "2026-10-24T03:35:51+00:00"
+            "time": "2026-10-25T06:21:12+00:00"
         },
         {
             "name": "webconsulting/workos-auth",
