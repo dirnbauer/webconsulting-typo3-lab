@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "bc99e715a3a97fc921dc6b6e37c099b5",
+    "content-hash": "b2089c7657f5e8c41516243e58811a26",
     "packages": [
         {
             "name": "apache-solr-for-typo3/solr",
@@ -12453,16 +12453,16 @@
         },
         {
             "name": "webconsulting/desiderio",
-            "version": "v4.25.0",
+            "version": "v4.25.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/desiderio.git",
-                "reference": "e43ad00c94ebd49057460bee88ad3e846f10b8bb"
+                "reference": "55fd63aa5049aab45b054dc5265f545692c42c90"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/desiderio/zipball/e43ad00c94ebd49057460bee88ad3e846f10b8bb",
-                "reference": "e43ad00c94ebd49057460bee88ad3e846f10b8bb",
+                "url": "https://api.github.com/repos/dirnbauer/desiderio/zipball/55fd63aa5049aab45b054dc5265f545692c42c90",
+                "reference": "55fd63aa5049aab45b054dc5265f545692c42c90",
                 "shasum": ""
             },
             "require": {
@@ -12505,7 +12505,7 @@
             "extra": {
                 "typo3/cms": {
                     "extension-key": "desiderio",
-                    "version": "4.25.0",
+                    "version": "4.25.1",
                     "Package": {
                         "providesPackages": []
                     }
@@ -12556,7 +12556,7 @@
                 }
             ],
             "description": "Desiderio — shadcn/ui-inspired Fluid 5 component library, 244 Desiderio Content Blocks, and theme layer for TYPO3 14",
-            "time": "2026-10-25T10:09:22+00:00"
+            "time": "2026-10-25T21:01:38+00:00"
         },
         {
             "name": "webconsulting/docx-editor",
@@ -13829,16 +13829,16 @@
         },
         {
             "name": "webconsulting/visual-editor-enhancements",
-            "version": "v1.4.3",
+            "version": "v1.4.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/typo3-visual-editor-enhancements.git",
-                "reference": "02f3df224179e6023b054966544c2a6bae2df266"
+                "reference": "2874dcd5559593920ee78aaa44fa15d9ee0a2184"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/typo3-visual-editor-enhancements/zipball/02f3df224179e6023b054966544c2a6bae2df266",
-                "reference": "02f3df224179e6023b054966544c2a6bae2df266",
+                "url": "https://api.github.com/repos/dirnbauer/typo3-visual-editor-enhancements/zipball/2874dcd5559593920ee78aaa44fa15d9ee0a2184",
+                "reference": "2874dcd5559593920ee78aaa44fa15d9ee0a2184",
                 "shasum": ""
             },
             "require": {
@@ -13933,7 +13933,7 @@
                 "issues": "https://github.com/dirnbauer/typo3-visual-editor-enhancements/issues",
                 "source": "https://github.com/dirnbauer/typo3-visual-editor-enhancements"
             },
-            "time": "2026-10-23T15:54:04+00:00"
+            "time": "2026-10-25T21:02:31+00:00"
         },
         {
             "name": "webconsulting/webcon-easy-workspace",
@@ -14155,11 +14155,11 @@
         },
         {
             "name": "webconsulting/webcon-templates",
-            "version": "dev-main",
+            "version": "v1.0.0",
             "source": {
                 "type": "git",
                 "url": "git@gitlab.webconsulting.at:extensions/typo3-webcon-templates.git",
-                "reference": "5745847e3b4c056b7bb66ecad519968d1e94744c"
+                "reference": "1fb7906b67fcb0b1bda4b52394204995c6d41e98"
             },
             "require": {
                 "friendsoftypo3/content-blocks": "^2.4",
@@ -14179,9 +14179,9 @@
                 "typo3/testing-framework": "^9.5"
             },
             "suggest": {
-                "typo3/cms-scheduler": "Runs the \"Delete old form submissions\" task (stored form submissions are deleted after 3 months); without it use webcon-templates:forms:cleanup"
+                "typo3/cms-scheduler": "Runs the \"Delete old form submissions\" task (stored form submissions are deleted after 3 months); without it use webcon-templates:forms:cleanup",
+                "webconsulting/desiderio": "^4.25.1 provides the Visual Editor element library; each template site then lists only its own elements, in its own words (elementLibrary.onlySeeded, elementLibrary.labels)"
             },
-            "default-branch": true,
             "type": "typo3-cms-extension",
             "extra": {
                 "typo3/cms": {
@@ -14239,7 +14239,7 @@
                 "templates",
                 "themes"
             ],
-            "time": "2026-10-25T15:51:51+00:00"
+            "time": "2026-10-25T22:21:15+00:00"
         },
         {
             "name": "webconsulting/workos-auth",
@@ -16589,8 +16589,7 @@
     "minimum-stability": "dev",
     "stability-flags": {
         "in2code/powermail_cond": 20,
-        "studiomitte/solr-numbered-pagination": 20,
-        "webconsulting/webcon-templates": 20
+        "studiomitte/solr-numbered-pagination": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,
