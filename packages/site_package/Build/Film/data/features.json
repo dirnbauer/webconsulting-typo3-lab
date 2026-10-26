@@ -2,11 +2,11 @@
     "features": {
         "hub": {
             "title": "Features",
-            "navTitle": "Features",
+            "navTitle": "Website tools",
             "seoTitle": "Website tools for TYPO3 v14",
-            "description": "13 tools for TYPO3 v14 websites: design systems, editing and publishing, search and forms, sign-in, payments and a REST API, with live screenshots.",
-            "abstract": "The website tools built in this lab, with live screenshots: design systems, editing and publishing, search and forms, sign-in, payments and APIs.",
-            "badge": "13 website tools",
+            "description": "17 tools for TYPO3 v14 websites: design systems, news, editing and publishing, search and forms, sign-in, payments and APIs, with live screenshots.",
+            "abstract": "The website tools used in this lab, with live screenshots: design systems, news, editing and publishing, search and forms, sign-in, payments and APIs.",
+            "badge": "17 website tools",
             "header": "Ready-made tools for your client sites",
             "subheadline": "Design systems, editing, publishing, search, forms, sign-in and payments, each shown working in this TYPO3 v14 lab.",
             "primaryButton": {
@@ -36,19 +36,19 @@
             {
                 "label": "Design systems",
                 "header": "Design systems for finished pages",
-                "subheadline": "Two component libraries and a blog template set, all themed at runtime.",
+                "subheadline": "Two component libraries, shadcn/ui components as new elements, and templates for blog and news. All of them follow your theme.",
                 "features": [
                     {
                         "slug": "desiderio",
                         "product": "Desiderio + Innesto",
-                        "badge": "Desiderio + Innesto",
-                        "title": "Desiderio + Innesto: pages without template work",
-                        "navTitle": "Design system",
-                        "description": "244 ready-made content elements for TYPO3 v14.3, 15 theme presets you switch in the site settings, and Innesto for new elements from shadcn registries.",
-                        "abstract": "Desiderio gives editors 244 ready-made content elements in 10 groups, themed from the site settings. Innesto turns shadcn registry components into new elements with one command.",
+                        "badge": "Desiderio design system",
+                        "title": "Desiderio design system: TYPO3 pages without template work",
+                        "navTitle": "Desiderio design system",
+                        "description": "The Desiderio design system for TYPO3 v14.3: 244 ready-made elements, 15 theme presets in the site settings, and Innesto for elements from shadcn registries.",
+                        "abstract": "The Desiderio design system gives editors 244 ready-made elements in 10 groups, themed from the site settings. Innesto turns shadcn registry components into new elements with one command.",
                         "hero": {
-                            "header": "Build finished TYPO3 pages from 244 elements",
-                            "subheadline": "Editors pick heroes, pricing tables, charts and forms from 10 groups. Change the theme in the site settings, and every page follows without a rebuild.",
+                            "header": "Build finished TYPO3 pages from one design system",
+                            "subheadline": "Desiderio brings shadcn/ui to TYPO3 v14 as 244 elements in 10 groups, from heroes to pricing tables, charts and forms. Change the theme in the site settings, and every page follows without a rebuild.",
                             "primaryButton": {
                                 "text": "Get Desiderio",
                                 "link": "https://github.com/dirnbauer/desiderio"
@@ -129,7 +129,7 @@
                             ]
                         },
                         "benefits": {
-                            "header": "What you get with Desiderio + Innesto",
+                            "header": "What you get with the Desiderio design system",
                             "items": [
                                 {
                                     "icon": "rocket",
@@ -158,6 +158,10 @@
                             "subheadline": "Setup, requirements, licence and data.",
                             "items": [
                                 {
+                                    "question": "What makes Desiderio a design system?",
+                                    "answer": "Every part reads the same design tokens for colour, type, corners, spacing and icons: 244 elements, 62 Fluid components, 15 presets and 5 icon libraries. So content, forms, blog and search follow one look. Innesto adds elements that read the same tokens."
+                                },
+                                {
                                     "question": "How much work is the setup?",
                                     "answer": "Add the GitHub repositories to Composer, require the package and run extension:setup. Then enable the Desiderio site sets for your site. One command seeds a demo page tree with every element."
                                 },
@@ -176,14 +180,157 @@
                             ]
                         },
                         "install": {
-                            "header": "Install Desiderio + Innesto",
+                            "header": "Install the Desiderio design system",
                             "code": "# Desiderio and the Visual Editor enhancements it requires are not on Packagist\ncomposer config repositories.desiderio vcs https://github.com/dirnbauer/desiderio.git\ncomposer config repositories.visual-editor-enhancements vcs https://github.com/dirnbauer/typo3-visual-editor-enhancements.git\ncomposer require webconsulting/desiderio\nvendor/bin/typo3 extension:setup\nvendor/bin/typo3 cache:flush\n\n# Optional: a demo page tree with every element below page 1\nvendor/bin/typo3 desiderio:styleguide:seed --parent=1\n\n# Optional: Innesto, then graft a registry component as a new element\ncomposer config repositories.innesto vcs https://github.com/dirnbauer/innesto.git\ncomposer require webconsulting/innesto:^2.3\nvendor/bin/typo3 extension:setup\nvendor/bin/typo3 innesto:add magicui/marquee --key partner-marquee"
                         },
+                        "credits": {
+                            "names": [
+                                "Netresearch DTT GmbH"
+                            ],
+                            "project": "nr-llm",
+                            "link": "https://github.com/netresearch/t3x-nr-llm",
+                            "text": "<p>The agentic features in the Desiderio styleguide run on <a href=\"https://github.com/netresearch/t3x-nr-llm\">nr-llm</a>, the shared AI foundation for TYPO3 by Netresearch DTT GmbH. Thank you very much for building and sharing it.</p>"
+                        },
                         "cta": {
-                            "header": "Start your next TYPO3 site with 244 elements",
+                            "header": "Start your next TYPO3 site on the Desiderio design system",
                             "description": "Install Desiderio, enable its site sets and seed the demo page tree. Then pick a preset and start building pages.",
                             "text": "Get Desiderio",
                             "link": "https://github.com/dirnbauer/desiderio"
+                        }
+                    },
+                    {
+                        "slug": "innesto",
+                        "product": "Innesto",
+                        "badge": "Innesto",
+                        "title": "Innesto: shadcn/ui components as TYPO3 elements",
+                        "navTitle": "New elements with Innesto",
+                        "description": "Innesto turns shadcn/ui and Magic UI registry components into TYPO3 content elements in your Desiderio theme. 19 elements ship ready to use.",
+                        "abstract": "Innesto brings shadcn/ui registry components into TYPO3 as content elements that editors fill in. They use Desiderio’s tokens, so every theme preset and dark mode works.",
+                        "hero": {
+                            "header": "Registry components as elements editors fill in",
+                            "subheadline": "Innesto ships 19 finished elements, from stats cards to a terminal. One command turns a new registry component into a content element.",
+                            "primaryButton": {
+                                "text": "View on GitHub",
+                                "link": "https://github.com/dirnbauer/innesto"
+                            },
+                            "secondaryButton": {
+                                "text": "Open the demo",
+                                "link": "{{page:innesto-demo}}"
+                            },
+                            "image": {
+                                "file": "Resources/Public/Styleguide/Frontend/frontend-feature-innesto-demo-6956bf69.webp",
+                                "title": "A logo marquee and stats cards from Innesto",
+                                "alternative": "Innesto demo page with a logo marquee and three stats cards with sparklines for daily event volume.",
+                                "description": "Live screenshot from the TYPO3 v14 lab.",
+                                "source": "https://github.com/dirnbauer/desiderio",
+                                "path": "vendor/webconsulting/desiderio/Resources/Public/Styleguide/Frontend/frontend-feature-innesto-demo-6956bf69.webp"
+                            }
+                        },
+                        "problem": {
+                            "header": "Good components, written for React",
+                            "content": "<p>shadcn/ui and Magic UI publish hundreds of polished components. They are written for React, so a TYPO3 project rebuilds each one by hand: markup, styles, fields and a backend preview. Then the copy drifts away from your theme.</p>"
+                        },
+                        "tour": {
+                            "header": "From the registry to the page",
+                            "subheadline": "Live screenshots from this TYPO3 v14 lab.",
+                            "shots": [
+                                {
+                                    "tab": "Stats",
+                                    "title": "Fifteen stats elements from blocks.so",
+                                    "description": "The complete <strong>blocks.so stats family</strong> ships as content elements: progress bars, status cards, usage breakdowns and charts.",
+                                    "image": {
+                                        "file": "Resources/Public/Styleguide/Frontend/frontend-feature-innesto-stats-06b8afe7.webp",
+                                        "title": "Fifteen stats elements from blocks.so",
+                                        "alternative": "Innesto stats elements: a segmented bar for 14.2 M of 20 M events and three cards with quarterly goals per region.",
+                                        "description": "Live screenshot from the TYPO3 v14 lab.",
+                                        "source": "https://github.com/dirnbauer/desiderio",
+                                        "path": "vendor/webconsulting/desiderio/Resources/Public/Styleguide/Frontend/frontend-feature-innesto-stats-06b8afe7.webp"
+                                    }
+                                },
+                                {
+                                    "tab": "Content wizard",
+                                    "title": "Editors pick them from the wizard",
+                                    "description": "Each element arrives with an icon, a description and a <strong>backend preview</strong>, grouped next to Desiderio’s own elements.",
+                                    "image": {
+                                        "file": "Resources/Public/Styleguide/Backend/feature-innesto-wizard-0b523dc9.webp",
+                                        "title": "Editors pick them from the wizard",
+                                        "alternative": "TYPO3 content wizard with the Stats group open, listing 15 Innesto stats elements with icons and descriptions.",
+                                        "description": "Live screenshot from the TYPO3 v14 lab.",
+                                        "source": "https://github.com/dirnbauer/desiderio",
+                                        "path": "vendor/webconsulting/desiderio/Resources/Public/Styleguide/Backend/feature-innesto-wizard-0b523dc9.webp"
+                                    }
+                                },
+                                {
+                                    "tab": "Dark mode",
+                                    "title": "Every theme preset, light and dark",
+                                    "description": "The elements paint only with <strong>Desiderio tokens</strong>, so they follow every theme preset and dark mode.",
+                                    "image": {
+                                        "file": "Resources/Public/Styleguide/Frontend/frontend-feature-innesto-dark-af370a04.webp",
+                                        "title": "Every theme preset, light and dark",
+                                        "alternative": "Innesto status cards with quarterly goals and an invoice preview, both in dark mode.",
+                                        "description": "Live screenshot from the TYPO3 v14 lab.",
+                                        "source": "https://github.com/dirnbauer/desiderio",
+                                        "path": "vendor/webconsulting/desiderio/Resources/Public/Styleguide/Frontend/frontend-feature-innesto-dark-af370a04.webp"
+                                    }
+                                }
+                            ]
+                        },
+                        "benefits": {
+                            "header": "What you get with Innesto",
+                            "items": [
+                                {
+                                    "icon": "component",
+                                    "title": "Nineteen finished elements",
+                                    "description": "Marquee, terminal, orbiting circles, case studies and 15 stats elements. Each has fields, a backend preview and demo content."
+                                },
+                                {
+                                    "icon": "terminal",
+                                    "title": "One command per new element",
+                                    "description": "innesto:add fetches a registry item, converts its CSS to Desiderio tokens and writes fields, template, preview, labels and icon."
+                                },
+                                {
+                                    "icon": "sun",
+                                    "title": "Follows your theme",
+                                    "description": "The elements use only Desiderio’s semantic tokens. A new theme preset or dark mode restyles them with no extra work."
+                                },
+                                {
+                                    "icon": "code",
+                                    "title": "No React in the frontend",
+                                    "description": "Templates are Fluid 5, CSS and SVG. Only the area chart needs a small script, and there is no frontend build step."
+                                }
+                            ]
+                        },
+                        "faq": {
+                            "header": "Questions before you install",
+                            "subheadline": "Setup, requirements, licence and data.",
+                            "items": [
+                                {
+                                    "question": "What do I need?",
+                                    "answer": "TYPO3 v14.3 with PHP 8.4, Content Blocks 2.4 and Desiderio 4.3 or newer. Add the Innesto site set to a site, and its elements appear in the content wizard."
+                                },
+                                {
+                                    "question": "Is an added element finished right away?",
+                                    "answer": "It writes everything a content element needs and a first template. Turning React state into Fluid and choosing the fields is a finishing pass, by hand or with the --ai option and the Claude CLI."
+                                },
+                                {
+                                    "question": "Does the site call the registries?",
+                                    "answer": "No. Only innesto:add fetches registry data, on the command line. Pages render from local Fluid templates, CSS and SVG."
+                                },
+                                {
+                                    "question": "How is it licensed?",
+                                    "answer": "Innesto is GPL-2.0-or-later. The grafted components come from Magic UI and blocks.so under the MIT licence, and the repository keeps their upstream source."
+                                }
+                            ]
+                        },
+                        "install": {
+                            "header": "Install Innesto",
+                            "code": "composer config repositories.desiderio vcs https://github.com/dirnbauer/desiderio.git\ncomposer config repositories.visual-editor-enhancements vcs https://github.com/dirnbauer/typo3-visual-editor-enhancements.git\ncomposer config repositories.innesto vcs https://github.com/dirnbauer/innesto.git\ncomposer require webconsulting/innesto:^2.3\nvendor/bin/typo3 extension:setup\n# Add webconsulting/innesto to dependencies in config/sites/<site>/config.yaml.\n# Turn a new registry component into a content element:\nvendor/bin/typo3 innesto:add magicui/marquee --key partner-marquee"
+                        },
+                        "cta": {
+                            "header": "Try the elements on the demo page",
+                            "description": "The demo page shows six of the 19 elements with demo content. Switch to dark mode, and they follow.",
+                            "text": "Open the demo",
+                            "link": "{{page:innesto-demo}}"
                         }
                     },
                     {
@@ -346,7 +493,7 @@
                         "product": "TYPO3 Blog",
                         "badge": "TYPO3 Blog",
                         "title": "TYPO3 Blog: blogging with the tools you know",
-                        "navTitle": "Blog",
+                        "navTitle": "Blogging with TYPO3 Blog",
                         "description": "The TYPO3 Blog extension with Desiderio templates: posts are pages, 20 plugins, moderated comments, RSS feeds and a theme that follows your site.",
                         "abstract": "The TYPO3 Blog extension turns pages into posts, so editors write with the content elements they know. Desiderio’s templates give lists, posts, widgets and comments your site’s theme.",
                         "hero": {
@@ -495,6 +642,148 @@
                             "text": "Get the extension",
                             "link": "https://github.com/TYPO3GmbH/blog"
                         }
+                    },
+                    {
+                        "slug": "news",
+                        "product": "News",
+                        "badge": "News",
+                        "title": "News: articles and releases in your theme",
+                        "navTitle": "Articles with News",
+                        "description": "Georg Ringer’s News extension for TYPO3 v14 with Desiderio templates: the list, the article and the page numbers follow your theme, light and dark.",
+                        "abstract": "EXT:news keeps articles with dates, categories, tags and content elements. Desiderio’s templates give the list, the article and the page numbers your theme.",
+                        "hero": {
+                            "header": "News and releases that look like your site",
+                            "subheadline": "Editors write articles with a teaser, a date and content elements. Desiderio styles the list, the article and the page numbers.",
+                            "primaryButton": {
+                                "text": "Get the templates",
+                                "link": "https://github.com/dirnbauer/desiderio"
+                            },
+                            "secondaryButton": {
+                                "text": "Read the news",
+                                "link": "{{page:news}}"
+                            },
+                            "image": {
+                                "file": "Resources/Public/Styleguide/Frontend/frontend-feature-news-list-0bd7324f.webp",
+                                "title": "The news list in your theme",
+                                "alternative": "Desiderio news list with page numbers and six article cards, each with a date, a title, a teaser and a Read more link.",
+                                "description": "Live screenshot from the TYPO3 v14 lab.",
+                                "source": "https://github.com/dirnbauer/desiderio",
+                                "path": "vendor/webconsulting/desiderio/Resources/Public/Styleguide/Frontend/frontend-feature-news-list-0bd7324f.webp"
+                            }
+                        },
+                        "problem": {
+                            "header": "Every news list gets styled again",
+                            "content": "<p>EXT:news is the standard for articles in TYPO3, but its default templates bring their own look. Someone rebuilds the list, the article and the page numbers on every project, and again after each redesign.</p>"
+                        },
+                        "tour": {
+                            "header": "From the record to the article",
+                            "subheadline": "Live screenshots from this TYPO3 v14 lab.",
+                            "shots": [
+                                {
+                                    "tab": "Article",
+                                    "title": "Articles open with date and teaser",
+                                    "description": "The article shows a <strong>featured badge, the date, the title and the teaser</strong>, followed by its content elements.",
+                                    "image": {
+                                        "file": "Resources/Public/Styleguide/Frontend/frontend-feature-news-article-cbd5d351.webp",
+                                        "title": "Articles open with date and teaser",
+                                        "alternative": "News article “Desiderio 2.6 adds theme presets per page” with a Featured badge, the date, a teaser and an At a glance box.",
+                                        "description": "Live screenshot from the TYPO3 v14 lab.",
+                                        "source": "https://github.com/dirnbauer/desiderio",
+                                        "path": "vendor/webconsulting/desiderio/Resources/Public/Styleguide/Frontend/frontend-feature-news-article-cbd5d351.webp"
+                                    }
+                                },
+                                {
+                                    "tab": "Backend",
+                                    "title": "Editors write in a familiar form",
+                                    "description": "Each article is a record with <strong>tabs for content elements, media, categories and relations</strong>. A switch marks top news.",
+                                    "image": {
+                                        "file": "Resources/Public/Styleguide/Backend/feature-news-record-3d1d82cc.webp",
+                                        "title": "Editors write in a familiar form",
+                                        "alternative": "TYPO3 form of a news article with tabs for content elements, media, categories and relations, and the Top news switch.",
+                                        "description": "Live screenshot from the TYPO3 v14 lab.",
+                                        "source": "https://github.com/dirnbauer/desiderio",
+                                        "path": "vendor/webconsulting/desiderio/Resources/Public/Styleguide/Backend/feature-news-record-3d1d82cc.webp"
+                                    }
+                                },
+                                {
+                                    "tab": "Dark mode",
+                                    "title": "The same list in dark mode",
+                                    "description": "Cards, badges and page numbers use the <strong>theme tokens</strong>, so the list follows every theme preset and dark mode.",
+                                    "image": {
+                                        "file": "Resources/Public/Styleguide/Frontend/frontend-feature-news-dark-a3315d18.webp",
+                                        "title": "The same list in dark mode",
+                                        "alternative": "The Desiderio news list in dark mode with page numbers and six article cards with dates and Featured badges.",
+                                        "description": "Live screenshot from the TYPO3 v14 lab.",
+                                        "source": "https://github.com/dirnbauer/desiderio",
+                                        "path": "vendor/webconsulting/desiderio/Resources/Public/Styleguide/Frontend/frontend-feature-news-dark-a3315d18.webp"
+                                    }
+                                }
+                            ]
+                        },
+                        "benefits": {
+                            "header": "What you get with News",
+                            "items": [
+                                {
+                                    "icon": "file-text",
+                                    "title": "Articles with content elements",
+                                    "description": "An article is more than one text field. Editors add text, images and other content elements, as they do on a page."
+                                },
+                                {
+                                    "icon": "tag",
+                                    "title": "Categories, tags and top news",
+                                    "description": "Sort articles into categories and tags, and mark important ones as top news. Lists can filter by each of them."
+                                },
+                                {
+                                    "icon": "globe",
+                                    "title": "Readable URLs",
+                                    "description": "Articles get speaking URLs such as /news/article/<title>/ through a route enhancer, so links stay short and stable."
+                                },
+                                {
+                                    "icon": "sparkles",
+                                    "title": "Styled by your theme",
+                                    "description": "Desiderio ships templates for the list, the article and the page numbers. A new theme preset restyles them without CSS work."
+                                }
+                            ]
+                        },
+                        "faq": {
+                            "header": "Questions before you install",
+                            "subheadline": "Setup, requirements, licence and data.",
+                            "items": [
+                                {
+                                    "question": "Which versions does the lab run?",
+                                    "answer": "News 14.1.2 on TYPO3 v14.3 and PHP 8.5. The extension supports TYPO3 v13.4 and v14.3 on PHP 8.2 to 8.5."
+                                },
+                                {
+                                    "question": "How do we add the templates?",
+                                    "answer": "Install Desiderio and add the webconsulting/desiderio-news site set to your site. The list and detail pages are site settings."
+                                },
+                                {
+                                    "question": "What does it cost?",
+                                    "answer": "Nothing. EXT:news and Desiderio are free and open source under GPL-2.0-or-later."
+                                },
+                                {
+                                    "question": "Where are the articles stored?",
+                                    "answer": "In your TYPO3 database, as records in a storage folder. Editors manage, translate and stage them in workspaces like other records."
+                                }
+                            ]
+                        },
+                        "install": {
+                            "header": "Install News with the templates",
+                            "code": "composer config repositories.desiderio vcs https://github.com/dirnbauer/desiderio.git\ncomposer require georgringer/news:^14.1 webconsulting/desiderio\nvendor/bin/typo3 extension:setup\n# Add webconsulting/desiderio-news to dependencies in config/sites/<site>/config.yaml,\n# then set news.pages.list and news.pages.detail in the site settings."
+                        },
+                        "credits": {
+                            "names": [
+                                "Georg Ringer"
+                            ],
+                            "project": "EXT:news",
+                            "link": "https://github.com/georgringer/news"
+                        },
+                        "cta": {
+                            "header": "See the templates on real articles",
+                            "description": "The news page lists 22 demo articles with page numbers. Open one, then switch to dark mode.",
+                            "text": "Read the news",
+                            "link": "{{page:news}}"
+                        }
                     }
                 ]
             },
@@ -508,7 +797,7 @@
                         "product": "Visual Editor Enhancements",
                         "badge": "Visual Editor add-on",
                         "title": "Visual Editor Enhancements: edit more on the page",
-                        "navTitle": "Visual editing",
+                        "navTitle": "Visual editing with VE Enhancements",
                         "description": "An element library with live previews and typo-tolerant search, a field chooser, link editing and a one-row text toolbar for the TYPO3 Visual Editor.",
                         "abstract": "Visual Editor Enhancements adds what editors miss on the page: an element library with live previews, a popover for layout options and link editing. Everything saves through the Visual Editor.",
                         "hero": {
@@ -664,7 +953,7 @@
                         "product": "Records List Types",
                         "badge": "Records List Types",
                         "title": "Records List Types: records at a glance",
-                        "navTitle": "Record views",
+                        "navTitle": "Record views with Records List Types",
                         "description": "Grid, compact, teaser and custom views for the TYPO3 v14 Records module. Editors find records faster, with filters, sorting and draft states.",
                         "abstract": "Records List Types shows TYPO3 records as photo cards, dense tables, teasers or your own layouts. Editors pick the view that suits each table.",
                         "hero": {
@@ -808,11 +1097,140 @@
                         }
                     },
                     {
+                        "slug": "context-edit-records",
+                        "product": "Context Edit Records",
+                        "badge": "Context editing",
+                        "title": "Context Edit Records: edit beside the list",
+                        "navTitle": "Quick edits from the list",
+                        "description": "Edit any record in a side panel from the TYPO3 v14 Records module: news, pages or addresses. The list stays open next to the form.",
+                        "abstract": "TYPO3 v14 brought a side panel for editing. Context Edit Records opens it from every record list, so editors keep their place in long lists.",
+                        "hero": {
+                            "header": "Edit records without losing your place",
+                            "subheadline": "Click Edit in the Records module, and the form opens in a side panel. Save, close, and the list is where you left it.",
+                            "primaryButton": {
+                                "text": "View on GitHub",
+                                "link": "https://github.com/georgringer/context_edit_records"
+                            },
+                            "secondaryButton": {
+                                "text": "See record views",
+                                "link": "{{page:features/records-list}}"
+                            },
+                            "image": {
+                                "file": "Resources/Public/Styleguide/Backend/feature-context-edit-records-news-0d9e9c5c.webp",
+                                "title": "A news article open beside the list",
+                                "alternative": "TYPO3 Records module with the news list on the left and a news article open for editing in a side panel.",
+                                "description": "Live screenshot from the TYPO3 v14 lab.",
+                                "source": "https://github.com/dirnbauer/desiderio",
+                                "path": "vendor/webconsulting/desiderio/Resources/Public/Styleguide/Backend/feature-context-edit-records-news-0d9e9c5c.webp"
+                            }
+                        },
+                        "problem": {
+                            "header": "Every edit leaves the list",
+                            "content": "<p>In the Records module, the Edit button opens the full form and the list disappears. After saving, editors go back, scroll down again and look for the next record. In a folder with 300 addresses, that adds up.</p>"
+                        },
+                        "tour": {
+                            "header": "One panel for every record type",
+                            "subheadline": "Live screenshots from this TYPO3 v14 lab.",
+                            "shots": [
+                                {
+                                    "tab": "Pages",
+                                    "title": "Page properties in the same panel",
+                                    "description": "Pages open their <strong>properties</strong> in the panel, with every tab of the full form.",
+                                    "image": {
+                                        "file": "Resources/Public/Styleguide/Backend/feature-context-edit-records-page-8b05fc32.webp",
+                                        "title": "Page properties in the same panel",
+                                        "alternative": "Records module with the subpages of the Desiderio site and the page properties of Product open in a side panel.",
+                                        "description": "Live screenshot from the TYPO3 v14 lab.",
+                                        "source": "https://github.com/dirnbauer/desiderio",
+                                        "path": "vendor/webconsulting/desiderio/Resources/Public/Styleguide/Backend/feature-context-edit-records-page-8b05fc32.webp"
+                                    }
+                                },
+                                {
+                                    "tab": "Addresses",
+                                    "title": "Works for every table",
+                                    "description": "The panel replaces the Edit action for <strong>all record types</strong>, here an address from a folder with 299 entries.",
+                                    "image": {
+                                        "file": "Resources/Public/Styleguide/Backend/feature-context-edit-records-address-61beaa93.webp",
+                                        "title": "Works for every table",
+                                        "alternative": "Records module with a list of 299 addresses and one address open for editing in a side panel.",
+                                        "description": "Live screenshot from the TYPO3 v14 lab.",
+                                        "source": "https://github.com/dirnbauer/desiderio",
+                                        "path": "vendor/webconsulting/desiderio/Resources/Public/Styleguide/Backend/feature-context-edit-records-address-61beaa93.webp"
+                                    }
+                                }
+                            ]
+                        },
+                        "benefits": {
+                            "header": "What you get with Context Edit Records",
+                            "items": [
+                                {
+                                    "icon": "layout-sidebar-right",
+                                    "title": "The list stays open",
+                                    "description": "The form opens next to the list. Close it, and you are back at the same row."
+                                },
+                                {
+                                    "icon": "layout-grid",
+                                    "title": "Every record type",
+                                    "description": "News, pages, addresses and your own tables use the same panel. There is nothing to configure per table."
+                                },
+                                {
+                                    "icon": "settings",
+                                    "title": "Nothing to set up",
+                                    "description": "Install it, and the Edit action changes. It adds no tables, no settings and no TSconfig."
+                                },
+                                {
+                                    "icon": "component",
+                                    "title": "Built on the TYPO3 v14 core",
+                                    "description": "It uses the side panel component that TYPO3 v14 ships. The full form stays one click away."
+                                }
+                            ]
+                        },
+                        "faq": {
+                            "header": "Questions before you install",
+                            "subheadline": "Setup, requirements, licence and data.",
+                            "items": [
+                                {
+                                    "question": "What does it need?",
+                                    "answer": "TYPO3 v14.2 or newer with PHP 8.2 or newer. The side panel it opens is part of the TYPO3 v14 core."
+                                },
+                                {
+                                    "question": "Can editors still use the full form?",
+                                    "answer": "Yes. A button in the panel opens the full form, and the record keeps all its tabs and fields."
+                                },
+                                {
+                                    "question": "Does it change permissions?",
+                                    "answer": "No. The panel loads the normal TYPO3 form, so access rights, field permissions and workspaces apply as before."
+                                },
+                                {
+                                    "question": "How is it licensed?",
+                                    "answer": "It is free and open source under GPL-2.0-or-later, like TYPO3. It stores no data of its own."
+                                }
+                            ]
+                        },
+                        "install": {
+                            "header": "Install Context Edit Records",
+                            "code": "composer require georgringer/context-edit-records\nvendor/bin/typo3 extension:setup"
+                        },
+                        "credits": {
+                            "names": [
+                                "Georg Ringer"
+                            ],
+                            "project": "Context Edit Records",
+                            "link": "https://github.com/georgringer/context_edit_records"
+                        },
+                        "cta": {
+                            "header": "Give editors a faster Records module",
+                            "description": "Install the extension and click Edit on any record. The form opens beside the list.",
+                            "text": "View on GitHub",
+                            "link": "https://github.com/georgringer/context_edit_records"
+                        }
+                    },
+                    {
                         "slug": "easy-workspace",
                         "product": "Easy Workspace",
                         "badge": "Easy Workspace",
                         "title": "Easy Workspace: review and publish in one click",
-                        "navTitle": "One-click publishing",
+                        "navTitle": "One-click publishing with Easy Workspace",
                         "description": "Publish TYPO3 workspace changes from the toolbar: see what changed on the page in every language, pick what goes live and publish in one click.",
                         "abstract": "Easy Workspace adds a publishing dropdown to the TYPO3 toolbar. Editors see the pending changes of the page they are on and publish them in one click.",
                         "hero": {
@@ -960,7 +1378,7 @@
                         "product": "DOCX Editor",
                         "badge": "DOCX Editor",
                         "title": "DOCX Editor: edit Word files inside TYPO3",
-                        "navTitle": "Word documents",
+                        "navTitle": "Word documents with DOCX Editor",
                         "description": "Edit .docx files from the TYPO3 v14 file list with Word’s layout. Send whole pages to Word and back, with a review before anything is saved.",
                         "abstract": "DOCX Editor opens Word files from the file list in a full-page editor and saves them back to the same file. It also turns a page into a Word document and imports the edits after a review.",
                         "hero": {
@@ -1108,7 +1526,7 @@
                         "product": "Image Workbench",
                         "badge": "Image Workbench",
                         "title": "Image Workbench: crop and create images in TYPO3",
-                        "navTitle": "Image editing",
+                        "navTitle": "Image editing with Image Workbench",
                         "description": "Crop, adjust, filter and annotate JPEG, PNG and WebP images in the TYPO3 v14 file list, and generate new images from a prompt through nr-llm.",
                         "abstract": "Image Workbench opens JPEG, PNG and WebP files from the file list in a full-page editor and saves a copy next to the original. A side panel creates new images from a prompt through nr-llm.",
                         "hero": {
@@ -1231,6 +1649,14 @@
                             "header": "Install Image Workbench",
                             "code": "# Not on Packagist: add the Git repository first\ncomposer config repositories.image-workbench vcs https://github.com/dirnbauer/typo3-image-workbench.git\ncomposer require webconsulting/image-workbench\nvendor/bin/typo3 extension:setup"
                         },
+                        "credits": {
+                            "names": [
+                                "Netresearch DTT GmbH"
+                            ],
+                            "project": "nr-llm",
+                            "link": "https://github.com/netresearch/t3x-nr-llm",
+                            "text": "<p>Image generation in Image Workbench runs through <a href=\"https://github.com/netresearch/t3x-nr-llm\">nr-llm</a> by Netresearch DTT GmbH, which keeps models, budgets and costs in one place. Thank you very much for building and maintaining it.</p>"
+                        },
                         "cta": {
                             "header": "Let editors fix images where they find them",
                             "description": "Install Image Workbench and open the file list: Edit image is ready for JPEG, PNG and WebP files. Add an nr-llm image configuration to switch on generation.",
@@ -1250,7 +1676,7 @@
                         "product": "Apache Solr for TYPO3",
                         "badge": "Apache Solr",
                         "title": "Apache Solr: search results in your design",
-                        "navTitle": "Site search",
+                        "navTitle": "Site search with Apache Solr",
                         "description": "Apache Solr search for TYPO3 v14 with ready templates: results, filters, sorting and page numbers follow your theme in light and dark mode.",
                         "abstract": "Apache Solr finds your content fast, and Desiderio’s templates make the results page match the rest of your site, from filters to page numbers.",
                         "hero": {
@@ -1392,7 +1818,7 @@
                         "product": "Powermail",
                         "badge": "Powermail",
                         "title": "Powermail: forms your editors build themselves",
-                        "navTitle": "Forms",
+                        "navTitle": "Forms with Powermail",
                         "description": "Powermail forms for TYPO3 v14 in your theme: multi-step wizards, inline validation and Friendly Captcha, built by editors in the backend.",
                         "abstract": "Powermail lets editors build contact, booking and multi-step forms in the TYPO3 backend. Desiderio styles every field with your theme, and Friendly Captcha stops bots.",
                         "hero": {
@@ -1547,14 +1973,14 @@
             {
                 "label": "Sign-in, payments and APIs",
                 "header": "Sign-in, payments and APIs without custom code",
-                "subheadline": "Single sign-on for frontend and backend, a paywall for people and AI agents, and a REST API.",
+                "subheadline": "Single sign-on, a paywall for people and AI agents, a REST API, and encrypted storage for the API keys they need.",
                 "features": [
                     {
                         "slug": "workos",
                         "product": "WorkOS Auth",
                         "badge": "WorkOS Auth",
                         "title": "WorkOS Auth: one login for frontend and backend",
-                        "navTitle": "Single sign-on",
+                        "navTitle": "Single sign-on with WorkOS",
                         "description": "WorkOS sign-in for TYPO3 v14: passwords, email codes, social login and SSO for site and backend, plus self-service accounts and team invites.",
                         "abstract": "WorkOS Auth adds WorkOS sign-in to the TYPO3 frontend and backend. Customers use their company identity, manage their account and invite their team themselves.",
                         "hero": {
@@ -1689,7 +2115,7 @@
                         "product": "x402 Paywall",
                         "badge": "x402 Paywall",
                         "title": "x402 Paywall: paid content for people and agents",
-                        "navTitle": "Paid content",
+                        "navTitle": "Paid content with x402",
                         "description": "Sell TYPO3 pages and API routes with HTTP 402. People pay from a browser wallet, AI agents pay in headers, and USDC settles in the same request.",
                         "abstract": "x402 Paywall sells TYPO3 pages and API routes for small USDC amounts. Browsers get a wallet paywall, AI agents pay through HTTP headers, with no accounts or card forms.",
                         "hero": {
@@ -1824,7 +2250,7 @@
                         "product": "sg_apicore",
                         "badge": "sg_apicore",
                         "title": "sg_apicore: a documented REST API for TYPO3",
-                        "navTitle": "REST API",
+                        "navTitle": "REST API with sg_apicore",
                         "description": "Build REST APIs in TYPO3 with PHP attributes: live Swagger docs, token or user login, scopes, rate limits, Auto-CRUD for tables and MCP tools.",
                         "abstract": "sg_apicore turns TYPO3 content into a REST API with live Swagger docs, token login, scopes and rate limits. The same endpoints also work as MCP tools.",
                         "hero": {
@@ -1960,6 +2386,135 @@
                             "text": "Get sg_apicore",
                             "link": "https://gitlab.sgalinski.de/typo3/sg_apicore"
                         }
+                    },
+                    {
+                        "slug": "nr-vault",
+                        "product": "nr-vault",
+                        "badge": "nr-vault",
+                        "title": "nr-vault: API keys encrypted inside TYPO3",
+                        "navTitle": "Secrets with nr-vault",
+                        "description": "Keep API keys and passwords encrypted in TYPO3 v14, with access rules per backend group, an audit log and key rotation in the backend.",
+                        "abstract": "nr-vault by Netresearch stores API keys and passwords with envelope encryption. Backend groups decide who reads what, and a tamper-evident audit log records every access.",
+                        "hero": {
+                            "header": "Keep API keys encrypted and on record",
+                            "subheadline": "nr-vault encrypts each secret with its own key. Backend groups decide who may read it, and the audit log records every access.",
+                            "primaryButton": {
+                                "text": "View on GitHub",
+                                "link": "https://github.com/netresearch/t3x-nr-vault"
+                            },
+                            "secondaryButton": {
+                                "text": "See nr-llm",
+                                "link": "{{page:ai/nr-llm-manual}}"
+                            },
+                            "image": {
+                                "file": "Resources/Public/Styleguide/Backend/feature-nr-vault-secrets-3f35dcda.webp",
+                                "title": "Secrets listed without their values",
+                                "alternative": "nr-vault Secrets module listing three API keys with status, owner, read count and last read, without any value.",
+                                "description": "Live screenshot from the TYPO3 v14 lab.",
+                                "source": "https://github.com/dirnbauer/desiderio",
+                                "path": "vendor/webconsulting/desiderio/Resources/Public/Styleguide/Backend/feature-nr-vault-secrets-3f35dcda.webp"
+                            }
+                        },
+                        "problem": {
+                            "header": "API keys sit in plain text",
+                            "content": "<p>Sites connect to AI providers, payment services and mail servers. Their keys often sit in plain text in configuration files or database fields. If the database leaks, the keys leak, and nobody can say who read them.</p>"
+                        },
+                        "tour": {
+                            "header": "Secrets you can check and rotate",
+                            "subheadline": "Live screenshots from this TYPO3 v14 lab.",
+                            "shots": [
+                                {
+                                    "tab": "Readiness",
+                                    "title": "A readiness check that names fixes",
+                                    "description": "The overview confirms that <strong>encryption is active</strong> and lists each failed control with its risk and its fix.",
+                                    "image": {
+                                        "file": "Resources/Public/Styleguide/Backend/feature-nr-vault-readiness-7852949a.webp",
+                                        "title": "A readiness check that names fixes",
+                                        "alternative": "nr-vault overview: encryption active, a readiness check with 23 of 28 controls passed, and findings with risk and fix.",
+                                        "description": "Live screenshot from the TYPO3 v14 lab.",
+                                        "source": "https://github.com/dirnbauer/desiderio",
+                                        "path": "vendor/webconsulting/desiderio/Resources/Public/Styleguide/Backend/feature-nr-vault-readiness-7852949a.webp"
+                                    }
+                                },
+                                {
+                                    "tab": "Audit log",
+                                    "title": "Every access on record",
+                                    "description": "Reads, API calls and <strong>denied attempts</strong> are chained by hash, so a later change to the log shows.",
+                                    "image": {
+                                        "file": "Resources/Public/Styleguide/Backend/feature-nr-vault-audit-50074854.webp",
+                                        "title": "Every access on record",
+                                        "alternative": "nr-vault audit log with 5,012 entries: two denied delete attempts, then reads and API calls of the OpenAI key.",
+                                        "description": "Live screenshot from the TYPO3 v14 lab.",
+                                        "source": "https://github.com/dirnbauer/desiderio",
+                                        "path": "vendor/webconsulting/desiderio/Resources/Public/Styleguide/Backend/feature-nr-vault-audit-50074854.webp"
+                                    }
+                                }
+                            ]
+                        },
+                        "benefits": {
+                            "header": "What you get with nr-vault",
+                            "items": [
+                                {
+                                    "icon": "lock",
+                                    "title": "Envelope encryption",
+                                    "description": "Each secret has its own data key, encrypted with a master key outside the database. libsodium uses XChaCha20-Poly1305 by default."
+                                },
+                                {
+                                    "icon": "users",
+                                    "title": "Access per backend group",
+                                    "description": "Owners and backend groups decide who may read, change or rotate a secret. Denied attempts are logged as well."
+                                },
+                                {
+                                    "icon": "history",
+                                    "title": "A tamper-evident audit log",
+                                    "description": "Every read, change and API call is chained by hash. Export the log for a compliance review."
+                                },
+                                {
+                                    "icon": "key-round",
+                                    "title": "Rotate keys from the backend",
+                                    "description": "Replace a compromised key in the backend or on the command line, without a deployment. The master key rotates too."
+                                }
+                            ]
+                        },
+                        "faq": {
+                            "header": "Questions before you install",
+                            "subheadline": "Setup, requirements, licence and data.",
+                            "items": [
+                                {
+                                    "question": "Which extensions use it in the lab?",
+                                    "answer": "nr-llm reads the OpenAI key from it, and Jev keeps its TypeSafe token there. Your own extensions read secrets through the vault service or a vault field in TCA."
+                                },
+                                {
+                                    "question": "What does it need?",
+                                    "answer": "TYPO3 v13.4 or v14.3 and PHP 8.2 or newer with the sodium extension. The master key comes from a file or an environment variable, or is derived."
+                                },
+                                {
+                                    "question": "Does a value ever reach the browser?",
+                                    "answer": "Only when an authorised user reveals it in the module, and that read is logged. Lists show identifiers and metadata, never values."
+                                },
+                                {
+                                    "question": "How is it licensed?",
+                                    "answer": "nr-vault is free and open source under GPL-2.0-or-later. Netresearch maintains it on GitHub."
+                                }
+                            ]
+                        },
+                        "install": {
+                            "header": "Install nr-vault",
+                            "code": "composer require netresearch/nr-vault:^1.1\nvendor/bin/typo3 extension:setup\n# Generate the master key, then store the first secret\nvendor/bin/typo3 vault:init\nvendor/bin/typo3 vault:store <identifier>"
+                        },
+                        "credits": {
+                            "names": [
+                                "Netresearch DTT GmbH"
+                            ],
+                            "project": "nr-vault",
+                            "link": "https://github.com/netresearch/t3x-nr-vault"
+                        },
+                        "cta": {
+                            "header": "Move your API keys into the vault",
+                            "description": "Install nr-vault, generate a master key and store your first secret. The audit log starts with the first read.",
+                            "text": "View on GitHub",
+                            "link": "https://github.com/netresearch/t3x-nr-vault"
+                        }
                     }
                 ]
             }
@@ -1968,7 +2523,7 @@
     "ai": {
         "hub": {
             "title": "AI",
-            "navTitle": "AI",
+            "navTitle": "AI and agents",
             "seoTitle": "AI for TYPO3 v14, with people in charge",
             "description": "10 AI tools for TYPO3 v14: an assistant that asks before it writes, model setup, AI form logic, agent skills, MCP and agent protocols.",
             "abstract": "The AI tools built in this lab, with live screenshots: an assistant, model setup, AI form logic, skills, MCP, agent protocols and llms.txt.",
@@ -2009,7 +2564,7 @@
                         "product": "AI Assistant",
                         "badge": "AI Assistant",
                         "title": "AI Assistant: ask TYPO3, approve every change",
-                        "navTitle": "AI assistant",
+                        "navTitle": "AI assistant for editors",
                         "description": "A chat in the TYPO3 v14 backend that answers questions about your site with its own MCP tools and asks before it changes anything.",
                         "abstract": "A chat in the TYPO3 backend that answers questions about your installation with its own tools. Every change waits for your approval.",
                         "hero": {
@@ -2145,6 +2700,14 @@
                             "header": "Install AI Assistant",
                             "code": "composer config repositories.typo3-mcp-server vcs https://github.com/dirnbauer/typo3-mcp-server.git\ncomposer config repositories.typo3-abilities vcs https://github.com/dirnbauer/typo3-abilities.git\ncomposer config repositories.typo3-ai-assistant vcs https://github.com/dirnbauer/typo3-ai-assistant.git\ncomposer require webconsulting/typo3-ai-assistant:^2.0\nvendor/bin/typo3 extension:setup\n# Needs one working nr-llm configuration (default identifier: backend-assistant).\n# Then open Administration > AI Assistant > Chat."
                         },
+                        "credits": {
+                            "names": [
+                                "Netresearch DTT GmbH"
+                            ],
+                            "project": "nr-mcp-agent",
+                            "link": "https://github.com/netresearch/t3x-nr-mcp-agent",
+                            "text": "<p>AI Assistant grew out of <a href=\"https://github.com/netresearch/t3x-nr-mcp-agent\">nr-mcp-agent</a>, the backend AI chat that Netresearch DTT GmbH published as open source. Its conversations, toolbar chat and document readers started there, and every answer still runs on their <a href=\"https://github.com/netresearch/t3x-nr-llm\">nr-llm</a>. Thank you very much for this groundwork and for sharing it.</p>"
+                        },
                         "cta": {
                             "header": "Put an assistant into your TYPO3 backend",
                             "description": "Install it with Composer, choose an nr-llm configuration and start asking. Every change still waits for your approval.",
@@ -2157,7 +2720,7 @@
                         "product": "nr-llm",
                         "badge": "nr-llm",
                         "title": "nr-llm: one AI setup for every extension",
-                        "navTitle": "AI models",
+                        "navTitle": "AI model setup with nr-llm",
                         "description": "Set up AI providers, models and named configurations once in TYPO3 with nr-llm. Keys stay encrypted in nr-vault; usage and cost stay visible.",
                         "abstract": "nr-llm keeps AI providers, models and configurations in one place for every extension. Keys stay encrypted in nr-vault, and each feature uses a named configuration you can test.",
                         "hero": {
@@ -2312,7 +2875,7 @@
                         "product": "Jev",
                         "badge": "Jev",
                         "title": "Jev: forms that understand what people write",
-                        "navTitle": "AI form logic",
+                        "navTitle": "AI form logic with Jev",
                         "description": "Jev reads what visitors type into TYPO3 Powermail forms, shows only the fields that apply and routes each message to the right team.",
                         "abstract": "Jev brings TypeSafe AI’s typed decisions into TYPO3. Powermail forms show fields, hold back empty messages and route mail by what people write.",
                         "hero": {
@@ -2448,6 +3011,14 @@
                             "header": "Install Jev",
                             "code": "composer config repositories.webcon-jev vcs https://github.com/dirnbauer/typo3-webcon-jev.git\ncomposer require webconsulting/webcon-jev\nvendor/bin/typo3 extension:setup\n# Put your TypeSafe key into TYPESAFE_API_KEY, then move it into nr-vault:\nvendor/bin/typo3 webcon-jev:token:import\nvendor/bin/typo3 webcon-jev:ping"
                         },
+                        "credits": {
+                            "names": [
+                                "Netresearch DTT GmbH"
+                            ],
+                            "project": "nr-vault",
+                            "link": "https://github.com/netresearch/t3x-nr-vault",
+                            "text": "<p>Jev keeps its TypeSafe API token in <a href=\"https://github.com/netresearch/t3x-nr-vault\">nr-vault</a> by Netresearch DTT GmbH, so the secret never sits in a configuration file. Thank you very much for building and maintaining it.</p>"
+                        },
                         "cta": {
                             "header": "Let your forms read before they route",
                             "description": "Install Jev, store a TypeSafe key and try a decision in the playground before any form uses it.",
@@ -2467,7 +3038,7 @@
                         "product": "Skillflow",
                         "badge": "Skillflow",
                         "title": "Skillflow: agent skills that review your pages",
-                        "navTitle": "Agent skills",
+                        "navTitle": "Agent skills with Skillflow",
                         "description": "Run agent skills on TYPO3 pages and workspace stages, keep every report and publish your skill library as a searchable Solr catalogue.",
                         "abstract": "Skillflow runs agent skills on TYPO3 pages and workspace stages and keeps every report. Your skill library becomes a searchable catalogue with a page per skill.",
                         "hero": {
@@ -2590,6 +3161,14 @@
                             "header": "Install Skillflow",
                             "code": "composer config repositories.skillflow vcs https://github.com/dirnbauer/skillflow.git\ncomposer require webconsulting/skillflow:^1.9\nvendor/bin/typo3 extension:setup\nvendor/bin/typo3 cache:flush\n# Catalogue: add the site set webconsulting/skillflow-solr to your site"
                         },
+                        "credits": {
+                            "names": [
+                                "Netresearch DTT GmbH"
+                            ],
+                            "project": "nr-llm",
+                            "link": "https://github.com/netresearch/t3x-nr-llm",
+                            "text": "<p>Skillflow builds on <a href=\"https://github.com/netresearch/t3x-nr-llm\">nr-llm</a> by Netresearch DTT GmbH: the skills it runs, the providers and the models all live there. Thank you very much for this solid foundation.</p>"
+                        },
                         "cta": {
                             "header": "Give every draft the same review",
                             "description": "Install Skillflow, connect a skill repository in nr_llm and assign your first skill to a workspace stage. It runs on TYPO3 v14.3 with PHP 8.4.",
@@ -2602,7 +3181,7 @@
                         "product": "Skillspector",
                         "badge": "Skillspector",
                         "title": "Skillspector: check skills before agents use them",
-                        "navTitle": "Skill security",
+                        "navTitle": "Skill security with Skillspector",
                         "description": "Check every agent skill for prompt injection, secrets, risky commands and licence problems before your AI follows it, with advisory checks in TYPO3.",
                         "abstract": "Skillspector reads every agent skill before your AI does. It flags prompt injection, secrets, risky commands and licence problems, and an administrator decides what to hide.",
                         "hero": {
@@ -2712,6 +3291,14 @@
                             "header": "Install Skillspector",
                             "code": "composer config repositories.skillspector vcs https://github.com/dirnbauer/typo3-skillspector.git\ncomposer require webconsulting/skillspector:^1.2\nvendor/bin/typo3 extension:setup --extension=skillspector\n# Optional: the NVIDIA scanner\nuv tool install git+https://github.com/NVIDIA/skillspector.git"
                         },
+                        "credits": {
+                            "names": [
+                                "Netresearch DTT GmbH"
+                            ],
+                            "project": "nr-llm",
+                            "link": "https://github.com/netresearch/t3x-nr-llm",
+                            "text": "<p>Skillspector checks the agent skills that <a href=\"https://github.com/netresearch/t3x-nr-llm\">nr-llm</a> by Netresearch DTT GmbH manages, and reviews them with the models configured there. Thank you very much for building and maintaining it.</p>"
+                        },
                         "cta": {
                             "header": "Check your skills before you trust them",
                             "description": "Install Skillspector next to nr_llm and click Check all skills. Nothing is hidden until an administrator decides.",
@@ -2731,7 +3318,7 @@
                         "product": "MCP Server",
                         "badge": "MCP Server",
                         "title": "MCP Server: connect your AI assistant to TYPO3",
-                        "navTitle": "AI connections",
+                        "navTitle": "AI connections via MCP Server",
                         "description": "Connect Claude, Cursor or Codex to TYPO3 v14. 52 built-in MCP tools for pages, records and files, with OAuth login, workspace drafts and a CLI.",
                         "abstract": "Connect Claude, Cursor or Codex to TYPO3. They get structured tools for pages, records and files, and on production every write lands in a workspace.",
                         "hero": {
@@ -2874,7 +3461,7 @@
                         "product": "Abilities Registry",
                         "badge": "Abilities Registry",
                         "title": "Abilities Registry: control what agents may do",
-                        "navTitle": "Agent permissions",
+                        "navTitle": "Agent permissions with Abilities Registry",
                         "description": "One typed registry of what your TYPO3 site can do. MCP, CLI, REST and the backend run each ability under one policy, with scopes and a trace log.",
                         "abstract": "One list of what your installation can do, with scopes, risk tiers and a site-wide policy. Every surface runs it the same way and logs each attempt.",
                         "hero": {
@@ -2997,6 +3584,14 @@
                             "header": "Install Abilities Registry",
                             "code": "composer config repositories.typo3-abilities vcs https://github.com/dirnbauer/typo3-abilities.git\ncomposer require webconsulting/typo3-abilities:^1.3\nvendor/bin/typo3 extension:setup --extension=abilities\nvendor/bin/typo3 abilities:list"
                         },
+                        "credits": {
+                            "names": [
+                                "Netresearch DTT GmbH"
+                            ],
+                            "project": "nr-llm",
+                            "link": "https://github.com/netresearch/t3x-nr-llm",
+                            "text": "<p>The ability catalogue also lists the agent skills of <a href=\"https://github.com/netresearch/t3x-nr-llm\">nr-llm</a> by Netresearch DTT GmbH. Thank you very much for this shared AI foundation for TYPO3.</p>"
+                        },
                         "cta": {
                             "header": "Give agents rules before you give them access",
                             "description": "Register an ability once, and MCP, the CLI, REST and the backend follow the same policy. Every attempt lands in the trace log.",
@@ -3009,7 +3604,7 @@
                         "product": "Agent Nexus",
                         "badge": "Agent Nexus",
                         "title": "Agent Nexus: five agent protocols on your TYPO3",
-                        "navTitle": "Agent protocols",
+                        "navTitle": "Agent protocols with Agent Nexus",
                         "description": "Run A2UI, AG-UI, A2A, UCP and AP2 on your own TYPO3 site. Public endpoints, editor widgets, a traffic log and approval before every write.",
                         "abstract": "Agent Nexus runs five agent protocols on your TYPO3 site, with endpoints, demo widgets and a traffic log. Every write waits for a person, and every payment is simulated.",
                         "hero": {
@@ -3145,6 +3740,14 @@
                             "header": "Install Agent Nexus",
                             "code": "composer config repositories.agent-nexus vcs https://github.com/dirnbauer/typo3-agent-nexus.git\ncomposer require webconsulting/agent-nexus:^4.0\nvendor/bin/typo3 extension:setup\nvendor/bin/typo3 cache:flush\n# Optional: build the demo site\nvendor/bin/typo3 agentnexus:seed-site --base=https://example.com/"
                         },
+                        "credits": {
+                            "names": [
+                                "Netresearch DTT GmbH"
+                            ],
+                            "project": "nr-llm",
+                            "link": "https://github.com/netresearch/t3x-nr-llm",
+                            "text": "<p>When <a href=\"https://github.com/netresearch/t3x-nr-llm\">nr-llm</a> by Netresearch DTT GmbH is installed, the Agent Nexus widgets answer with a real language model. Thank you very much for this shared AI foundation for TYPO3.</p>"
+                        },
                         "cta": {
                             "header": "Show your next client a working agent",
                             "description": "Install Agent Nexus, run the seed command and open the five demos. Every checkout and payment stays simulated.",
@@ -3157,7 +3760,7 @@
                         "product": "Agentation",
                         "badge": "Agentation",
                         "title": "Agentation: show coding agents what to fix",
-                        "navTitle": "Visual feedback",
+                        "navTitle": "Visual feedback with Agentation",
                         "description": "Click an element on a TYPO3 page or backend screen and write a note. Your coding agent gets it over MCP with selector, page and computed styles.",
                         "abstract": "With Agentation, backend users click an element in the TYPO3 frontend or backend and write a note. Claude Code, Cursor or another MCP agent gets it with selector and styles.",
                         "hero": {
@@ -3279,7 +3882,7 @@
                         "product": "llms.txt",
                         "badge": "llms.txt",
                         "title": "llms.txt: your site explained to AI agents",
-                        "navTitle": "AI discovery",
+                        "navTitle": "AI discovery with llms.txt",
                         "description": "Serve /llms.txt and /agents.md for every TYPO3 site and language. Both come from your page tree, so AI agents find your content and interfaces.",
                         "abstract": "Every TYPO3 site and language serves an llms.txt and an agents.md, built from the page tree and site configuration. AI agents learn what the site offers and how to use it.",
                         "hero": {

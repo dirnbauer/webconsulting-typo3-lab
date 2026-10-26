@@ -73,6 +73,7 @@ body { font-family: var(--sans); color: var(--ink); -webkit-font-smoothing: anti
 .frame-bar { height: 40px; display: flex; align-items: center; gap: 9px; padding: 0 18px; border-bottom: 1px solid var(--line); }
 .frame-bar i { width: 12px; height: 12px; border-radius: 99px; background: rgb(255 255 255 / 0.16); }
 .frame-url { margin-left: 20px; height: 26px; padding: 0 14px; border-radius: 8px; background: rgb(255 255 255 / 0.06); color: var(--muted); font-size: 15px; display: flex; align-items: center; font-family: var(--mono); white-space: nowrap; }
+.case { text-transform: none; }
 .frame-tag { margin-left: auto; font-family: var(--mono); font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--soft); }
 .frame-view { position: absolute; left: 0; top: 40px; right: 0; bottom: 0; overflow: hidden; background: #fff; }
 .frame.bare .frame-view { top: 0; }
@@ -181,6 +182,10 @@ if (SPEC.accent) document.documentElement.style.setProperty('--accent', SPEC.acc
 // ---------------------------------------------------------------------------
 // Helpers (the templates film's)
 // ---------------------------------------------------------------------------
+// Labels are set in capitals; version numbers keep their case ("TYPO3 v14", not "V14").
+function caps(text) {
+  return String(text ?? '').replace(/\bv(\d+(?:\.\d+)*)\b/g, '<span class="case">v$1</span>');
+}
 function node(tag, cls, parent, html) {
   const element = document.createElement(tag);
   if (cls) element.className = cls;
@@ -408,7 +413,7 @@ function cameraAt(keys, t) {
  */
 function viewer(parent, scene, { x, y, w, aspect, url, tag, bare = false }) {
   const viewH = Math.round(w / aspect);
-  const box = node('div', `frame${bare ? ' bare' : ''}`, parent, bare ? '<div class="frame-view"></div>' : `<div class="frame-bar"><i></i><i></i><i></i><span class="frame-url">${url ?? ''}</span><span class="frame-tag">${tag ?? ''}</span></div><div class="frame-view"></div>`);
+  const box = node('div', `frame${bare ? ' bare' : ''}`, parent, bare ? '<div class="frame-view"></div>' : `<div class="frame-bar"><i></i><i></i><i></i><span class="frame-url">${url ?? ''}</span><span class="frame-tag">${caps(tag)}</span></div><div class="frame-view"></div>`);
   place(box, x, y, w, viewH + (bare ? 0 : 40));
   const view = box.querySelector('.frame-view');
   const cam = node('div', 'cam', view);
@@ -534,7 +539,7 @@ builders.title = (scene) => {
     Object.assign(img.style, { left: '50%', top: '50%', width: '1500px', height: '937px', marginLeft: '-750px', marginTop: '-468px', opacity: '0.12', filter: 'blur(3px) saturate(0.6)' });
     track(img, [[start, { transform: 'scale(1.08)', opacity: 0 }, OUT], [start + 1200, { transform: 'scale(1.04)', opacity: 0.12 }, 'linear'], [end, { transform: 'scale(1)', opacity: 0 }]]);
   }
-  if (scene.eyebrow) life(node('div', 'eyebrow', layer, scene.eyebrow), start + 150, end, { from: { y: 10 }, blur: 4 });
+  if (scene.eyebrow) life(node('div', 'eyebrow', layer, caps(scene.eyebrow)), start + 150, end, { from: { y: 10 }, blur: 4 });
   const mark = node('h1', 'wordmark', layer);
   mark.style.fontSize = `${Math.round(Math.min(168, 1640 / (scene.name.replace(/<[^>]+>/g, '').length * 0.47)))}px`;
   rise(splitInto(mark, scene.name), start + 300, 120, [end - 500, end - 60], { y: 0.3, blur: 14, duration: 900 });
@@ -565,7 +570,7 @@ builders.shot = (scene) => {
   const step = scene.step ?? '';
   if (wide) {
     if (scene.head) {
-      const label = node('div', 'label', layer, `${scene.eyebrow ? `<span class="step">${scene.eyebrow}</span>` : ''}<b>${scene.head}</b>${scene.text ? `<small>${scene.text}</small>` : ''}`);
+      const label = node('div', 'label', layer, `${scene.eyebrow ? `<span class="step">${caps(scene.eyebrow)}</span>` : ''}<b>${scene.head}</b>${scene.text ? `<small>${scene.text}</small>` : ''}`);
       place(label, parseFloat(v.box.style.left) - 40, parseFloat(v.box.style.top) + parseFloat(v.box.style.height) - 150);
       life(label, start + 500, end, { from: { x: -24 }, exit: { x: -12 }, blur: 6 });
     }
@@ -575,7 +580,7 @@ builders.shot = (scene) => {
     copy.style.top = 'auto';
     copy.style.bottom = '50%';
     copy.style.transform = 'translateY(50%)';
-    if (scene.eyebrow) life(node('div', 'step', copy, `${step ? `<s>${step}</s>` : ''}${scene.eyebrow}`), start + 300, end, { from: { y: 10 }, blur: 4 });
+    if (scene.eyebrow) life(node('div', 'step', copy, `${step ? `<s>${step}</s>` : ''}${caps(scene.eyebrow)}`), start + 300, end, { from: { y: 10 }, blur: 4 });
     if (scene.head) words('h2', '', copy, scene.head, start + 450, 70, [end - 420, end - 40], { y: 0.3, blur: 8, duration: 620 });
     if (scene.text) life(node('p', '', copy, scene.text), start + 1100, end, { from: { y: 12 }, blur: 5 });
   }
@@ -690,7 +695,7 @@ builders.montage = (scene) => {
       nameEl.textContent = item.name ?? '';
       noteEl.textContent = item.note ?? '';
       noteEl.style.display = item.note ? '' : 'none';
-      stepEl.textContent = scene.counter === false ? (scene.eyebrow ?? '') : `${scene.eyebrow ? `${scene.eyebrow} · ` : ''}${pad(i + 1, 2)} / ${pad(n, 2)}`;
+      stepEl.innerHTML = scene.counter === false ? caps(scene.eyebrow) : `${scene.eyebrow ? `${caps(scene.eyebrow)} · ` : ''}${pad(i + 1, 2)} / ${pad(n, 2)}`;
     }
     const p = clamp((t - times[i]) / 300);
     nameEl.style.opacity = String(i === 0 ? 1 : ease(p));
@@ -713,7 +718,7 @@ builders.split = (scene) => {
     const tIn = start + 150 + i * 350;
     life(v.box, tIn, end, { from: { y: 40, z: -160, ry: i ? -10 : 10 }, exit: { y: -16 }, blur: 10, inDur: 900 });
     if (pane.label) {
-      const label = place(node('div', 'eyebrow', layer, pane.label), x + 4, y - 40);
+      const label = place(node('div', 'eyebrow', layer, caps(pane.label)), x + 4, y - 40);
       life(label, tIn + 200, end, { from: { y: 8 }, blur: 4 });
     }
     const states = pane.states ?? [pane];
@@ -759,7 +764,7 @@ builders.end = (scene) => {
 function start(duration) {
   const layer = node('section', 'layer start');
   const title = SPEC.scenes.find((scene) => scene.type === 'title');
-  const eyebrow = node('div', 'eyebrow', layer, SPEC.card?.eyebrow ?? title?.eyebrow ?? 'For TYPO3 v14');
+  const eyebrow = node('div', 'eyebrow', layer, caps(SPEC.card?.eyebrow ?? title?.eyebrow ?? 'For TYPO3 v14'));
   // The name and "in 42 seconds" as two unbreakable halves: one line, or the
   // time on a line of its own.
   const text = header(SPEC, duration).replace(/&/g, '&amp;').replace(/</g, '&lt;');

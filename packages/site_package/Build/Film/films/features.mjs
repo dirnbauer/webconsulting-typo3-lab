@@ -17,11 +17,25 @@ export default Object.fromEntries([
         title: { sub: '244 finished content elements for TYPO3', key: 'webconsulting/desiderio', say: 'Desiderio gives editors 244 finished content elements, in ten groups.' },
         shots: [
             { image: 'Backend/feature-desiderio-content-wizard-f80cbefc.webp', eyebrow: 'Content wizard', head: 'Ten groups, one wizard', say: 'Editors pick heroes, pricing tables, charts and forms from the content wizard.' },
-            { image: 'Backend/feature-desiderio-page-module-9d43bf8e.webp', eyebrow: 'Page module', head: 'A preview card for every element', say: 'In the page module, every element shows a preview card, so nobody opens forms to find content.' },
+            // The tour screenshot shows the German translation; this still is the English element.
+            { image: 'stills/backend/desiderio-page-module.jpg', eyebrow: 'Page module', head: 'A preview card for every element', say: 'In the page module, every element shows a preview card, so nobody opens forms to find content.' },
             { image: 'Frontend/frontend-feature-desiderio-theme-presets-f63d31b0.webp', eyebrow: 'Theme presets', head: 'One setting changes the look', say: 'Pick one of 15 theme presets in the site settings, and every page follows without a rebuild.' },
             { image: 'Frontend/frontend-feature-desiderio-chapter-pricing-c1cd90b1.webp', eyebrow: 'Per page tree', head: 'A preset for each page tree', say: 'Each page tree can have its own preset. This pricing chapter runs in Midnight.' },
         ],
         end: { head: 'Finished pages, <em>without template work.</em>', cta: 'See all elements', url: 'typo3-lab.webconsulting.at/content-types/', install: 'composer require webconsulting/desiderio', note: 'Innesto turns shadcn components into new elements in one command', say: 'Desiderio. Browse all 244 elements in the lab.' },
+    }),
+    film({
+        id: 'innesto', page: 8180, name: 'Innesto', music: 'bright',
+        accent: '#c4b5fd', palette: ['#7c5cff', '#2c5a52', '#e08a36'],
+        hook: { head: 'Great components, <em>written for React.</em>', say: 'The shadcn and Magic UI registries publish hundreds of polished components, all written for React.' },
+        title: { sub: '19 registry components as content elements', key: 'webconsulting/innesto', say: 'Innesto turns them into TYPO3 content elements, in your Desiderio theme.' },
+        shots: [
+            { image: 'Frontend/frontend-feature-innesto-demo-6956bf69.webp', eyebrow: 'Demo page', head: 'A marquee and live stats', say: 'The demo page shows a logo marquee and stats cards with sparklines, filled in by editors.' },
+            { image: 'Frontend/frontend-feature-innesto-stats-06b8afe7.webp', eyebrow: 'Stats', head: 'Fifteen stats elements', say: 'Fifteen stats elements ship as well: progress bars, status cards, usage breakdowns and charts.' },
+            { image: 'Backend/feature-innesto-wizard-0b523dc9.webp', eyebrow: 'Content wizard', head: 'Picked from the wizard', say: 'Editors pick each element from the content wizard, with an icon and a backend preview.' },
+            { image: 'Frontend/frontend-feature-innesto-dark-af370a04.webp', eyebrow: 'Dark mode', head: 'Every preset, light and dark', say: 'The elements paint only with theme tokens, so every preset and dark mode just works.' },
+        ],
+        end: { head: 'New elements, <em>one command each.</em>', cta: 'Open the demo', url: 'typo3-lab.webconsulting.at/innesto-demo/', install: 'composer require webconsulting/innesto', note: 'innesto:add turns a registry component into an element', say: 'With Innesto, one command turns a registry component into a content element.' },
     }),
     film({
         id: 'astryx', page: 2079, name: 'Astryx', music: 'bright',
@@ -50,6 +64,19 @@ export default Object.fromEntries([
         end: { head: 'Blogging with <em>the pages you know.</em>', cta: 'Read the docs', url: 'typo3-lab.webconsulting.at/features/blog/', install: 'composer require t3g/blog', note: 'Two templates, Classic and Modern, in light and dark mode', say: 'TYPO3 Blog, styled by Desiderio.' },
     }),
     film({
+        id: 'news', page: 8181, name: 'News',
+        accent: '#f0c38e', palette: ['#c7863f', '#2c5a52', '#4a57ff'],
+        hook: { head: 'Every news list <em>gets styled again.</em>', say: 'The News extension is the standard for articles in TYPO3, but every project restyles its list and its articles.' },
+        title: { sub: 'Articles and releases in your theme', key: 'georgringer/news', say: 'Desiderio’s templates give News your theme, from the list to the article.' },
+        shots: [
+            { image: 'Frontend/frontend-feature-news-list-0bd7324f.webp', eyebrow: 'List', head: 'Cards with page numbers', say: 'The list shows each article as a card, with its date, a teaser and page numbers below.' },
+            { image: 'Frontend/frontend-feature-news-article-cbd5d351.webp', eyebrow: 'Article', head: 'Date, teaser and content', say: 'Articles open with the date, the title and the teaser, followed by content elements.' },
+            { image: 'Backend/feature-news-record-3d1d82cc.webp', eyebrow: 'Backend', head: 'A familiar form for editors', say: 'Editors write in a record form, with tabs for media, categories and related articles.' },
+            { image: 'Frontend/frontend-feature-news-dark-a3315d18.webp', eyebrow: 'Dark mode', head: 'The same list in dark mode', say: 'Switch to dark mode, and cards, badges and page numbers follow.' },
+        ],
+        end: { head: 'News that looks <em>like your site.</em>', cta: 'Read the news', url: 'typo3-lab.webconsulting.at/news/', install: 'composer require georgringer/news', note: 'EXT:news by Georg Ringer, templates by Desiderio', say: 'News by Georg Ringer, styled by Desiderio.' },
+    }),
+    film({
         id: 'visual-editor', page: 2080, name: 'Visual Editor Enhancements',
         accent: '#a5b4fc', palette: ['#4a57ff', '#c7863f', '#2c5a52'],
         hook: { head: 'Editing on the page <em>stops at the text.</em>', say: 'The Visual Editor lets editors type on the page. Layout options, links and new elements still mean the backend form.' },
@@ -74,6 +101,18 @@ export default Object.fromEntries([
             { image: 'Backend/feature-records-list-catalog-9c116153.webp', eyebrow: 'Catalogue', head: 'Your own layout from TSconfig', say: 'Catalogue is a custom view, built from TSconfig, a Fluid template and a stylesheet.' },
         ],
         end: { head: 'Find any record <em>faster.</em>', cta: 'View on GitHub', url: 'github.com/dirnbauer/typo3-records-list-types', install: 'composer require webconsulting/records-list-types', note: 'New views in Page TSconfig, without PHP', say: 'Records List Types. New views without PHP.' },
+    }),
+    film({
+        id: 'context-edit-records', page: 8182, name: 'Context Edit Records',
+        accent: '#86efac', palette: ['#2c5a52', '#4a57ff', '#c7863f'],
+        hook: { head: 'Every edit <em>leaves the list.</em>', say: 'In the Records module, every edit opens the full form, and the list is gone.' },
+        title: { sub: 'Edit records in a side panel', key: 'georgringer/context-edit-records', say: 'Context Edit Records opens the form in a side panel, right next to the list.' },
+        shots: [
+            { image: 'Backend/feature-context-edit-records-news-0d9e9c5c.webp', eyebrow: 'Records', head: 'The list stays open', say: 'Click edit on a news article, and the form slides in beside the list.' },
+            { image: 'Backend/feature-context-edit-records-page-8b05fc32.webp', eyebrow: 'Pages', head: 'Page properties too', say: 'Pages open their properties in the same panel, with every tab.' },
+            { image: 'Backend/feature-context-edit-records-address-61beaa93.webp', eyebrow: 'Addresses', head: 'Every table, no setup', say: 'It works for every table, here an address from a folder with 299 entries.' },
+        ],
+        end: { head: 'Edit beside <em>the list.</em>', cta: 'View on GitHub', url: 'github.com/georgringer/context_edit_records', install: 'composer require georgringer/context-edit-records', note: 'Built on the side panel of the TYPO3 v14 core', say: 'Context Edit Records by Georg Ringer. Nothing to configure.' },
     }),
     film({
         id: 'easy-workspace', page: 1071, name: 'Easy Workspace',
@@ -160,5 +199,17 @@ export default Object.fromEntries([
             { image: 'Backend/feature-sg-apicore-endpoints-7a010ef7.webp', eyebrow: 'Endpoints', head: 'Every endpoint, also as an MCP tool', say: 'The backend lists each endpoint with its login mode, its scopes and its MCP tool.' },
         ],
         end: { head: 'A TYPO3 API <em>partners can read.</em>', cta: 'Read the docs', url: 'typo3-lab.webconsulting.at/features/sg-apicore/', install: 'composer require sgalinski/sg-apicore', note: 'OpenAPI 3.0 docs, generated from PHP attributes', say: 'sg_apicore by sgalinski. Docs that stay in sync with the code.' },
+    }),
+    film({
+        id: 'nr-vault', page: 8183, name: 'nr-vault',
+        accent: '#a5b4fc', palette: ['#4a57ff', '#2c5a52', '#c7863f'],
+        hook: { head: 'API keys <em>in plain text.</em>', say: 'Sites connect to AI providers and payment services, and their API keys often sit in plain text.' },
+        title: { sub: 'Encrypted secrets with an audit log', key: 'netresearch/nr-vault', say: 'nr-vault keeps them encrypted inside TYPO3, each secret with its own key.' },
+        shots: [
+            { image: 'Backend/feature-nr-vault-secrets-3f35dcda.webp', eyebrow: 'Secrets', head: 'Listed, never shown', say: 'The Secrets module lists each key with its owner and read count, never its value.' },
+            { image: 'Backend/feature-nr-vault-readiness-7852949a.webp', eyebrow: 'Readiness', head: 'A check that names fixes', say: 'A readiness check confirms the encryption and names the fix for each open control.' },
+            { image: 'Backend/feature-nr-vault-audit-50074854.webp', eyebrow: 'Audit log', head: 'Every access on record', say: 'Every read, API call and denied attempt goes into a hash-chained audit log.' },
+        ],
+        end: { head: 'Keys encrypted <em>and on record.</em>', cta: 'View on GitHub', url: 'github.com/netresearch/t3x-nr-vault', install: 'composer require netresearch/nr-vault', note: 'Access per backend group, key rotation in the backend', say: 'nr-vault by Netresearch. Encrypted keys, and a record of every read.' },
     }),
 ]);

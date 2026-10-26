@@ -1,0 +1,455 @@
+{
+  "voice": "George",
+  "delivery": {
+    "stability": 0.62,
+    "similarity_boost": 0.78,
+    "style": 0.18,
+    "speed": 0.9
+  },
+  "lines": [
+    {
+      "say": "In the Records module, every edit opens the full form, and the list is gone.",
+      "show": "In the Records module, every edit opens the full form, and the list is gone.",
+      "file": "voice-01.mp3",
+      "duration": 5669,
+      "words": [
+        {
+          "word": "In",
+          "start": 46,
+          "end": 163
+        },
+        {
+          "word": "the",
+          "start": 197,
+          "end": 267
+        },
+        {
+          "word": "Records",
+          "start": 337,
+          "end": 720
+        },
+        {
+          "word": "module,",
+          "start": 766,
+          "end": 1254
+        },
+        {
+          "word": "every",
+          "start": 1347,
+          "end": 1649
+        },
+        {
+          "word": "edit",
+          "start": 1730,
+          "end": 2020
+        },
+        {
+          "word": "opens",
+          "start": 2090,
+          "end": 2473
+        },
+        {
+          "word": "the",
+          "start": 2519,
+          "end": 2589
+        },
+        {
+          "word": "full",
+          "start": 2659,
+          "end": 2891
+        },
+        {
+          "word": "form,",
+          "start": 2972,
+          "end": 3506
+        },
+        {
+          "word": "and",
+          "start": 3634,
+          "end": 3785
+        },
+        {
+          "word": "the",
+          "start": 3831,
+          "end": 3901
+        },
+        {
+          "word": "list",
+          "start": 3947,
+          "end": 4168
+        },
+        {
+          "word": "is",
+          "start": 4238,
+          "end": 4319
+        },
+        {
+          "word": "gone.",
+          "start": 4400,
+          "end": 4911
+        }
+      ],
+      "heard": "In the records module, every edit opens the full form and the list is gone."
+    },
+    {
+      "say": "Context Edit Records opens the form in a side panel, right next to the list.",
+      "show": "Context Edit Records opens the form in a side panel, right next to the list.",
+      "file": "voice-02.mp3",
+      "duration": 5669,
+      "words": [
+        {
+          "word": "Context",
+          "start": 12,
+          "end": 639
+        },
+        {
+          "word": "Edit",
+          "start": 731,
+          "end": 1022
+        },
+        {
+          "word": "Records",
+          "start": 1091,
+          "end": 1579
+        },
+        {
+          "word": "opens",
+          "start": 1660,
+          "end": 2055
+        },
+        {
+          "word": "the",
+          "start": 2125,
+          "end": 2194
+        },
+        {
+          "word": "form",
+          "start": 2264,
+          "end": 2519
+        },
+        {
+          "word": "in",
+          "start": 2589,
+          "end": 2647
+        },
+        {
+          "word": "a",
+          "start": 2694,
+          "end": 2717
+        },
+        {
+          "word": "side",
+          "start": 2798,
+          "end": 3111
+        },
+        {
+          "word": "panel,",
+          "start": 3146,
+          "end": 3657
+        },
+        {
+          "word": "right",
+          "start": 3855,
+          "end": 4063
+        },
+        {
+          "word": "next",
+          "start": 4110,
+          "end": 4342
+        },
+        {
+          "word": "to",
+          "start": 4365,
+          "end": 4423
+        },
+        {
+          "word": "the",
+          "start": 4493,
+          "end": 4563
+        },
+        {
+          "word": "list.",
+          "start": 4609,
+          "end": 5132
+        }
+      ],
+      "heard": "Context Edit Records opens the form in a side panel, right next to the list."
+    },
+    {
+      "say": "Click edit on a news article, and the form slides in beside the list.",
+      "show": "Click edit on a news article, and the form slides in beside the list.",
+      "file": "voice-03.mp3",
+      "duration": 4833,
+      "words": [
+        {
+          "word": "Click",
+          "start": 23,
+          "end": 302
+        },
+        {
+          "word": "edit",
+          "start": 383,
+          "end": 650
+        },
+        {
+          "word": "on",
+          "start": 720,
+          "end": 789
+        },
+        {
+          "word": "a",
+          "start": 836,
+          "end": 859
+        },
+        {
+          "word": "news",
+          "start": 940,
+          "end": 1173
+        },
+        {
+          "word": "article,",
+          "start": 1219,
+          "end": 1788
+        },
+        {
+          "word": "and",
+          "start": 1916,
+          "end": 2067
+        },
+        {
+          "word": "the",
+          "start": 2101,
+          "end": 2171
+        },
+        {
+          "word": "form",
+          "start": 2241,
+          "end": 2554
+        },
+        {
+          "word": "slides",
+          "start": 2635,
+          "end": 3007
+        },
+        {
+          "word": "in",
+          "start": 3053,
+          "end": 3158
+        },
+        {
+          "word": "beside",
+          "start": 3239,
+          "end": 3634
+        },
+        {
+          "word": "the",
+          "start": 3669,
+          "end": 3738
+        },
+        {
+          "word": "list.",
+          "start": 3785,
+          "end": 4296
+        }
+      ],
+      "heard": "Click Edit on a news article and the form slides in beside the list."
+    },
+    {
+      "say": "Pages open their properties in the same panel, with every tab.",
+      "show": "Pages open their properties in the same panel, with every tab.",
+      "file": "voice-04.mp3",
+      "duration": 4415,
+      "words": [
+        {
+          "word": "Pages",
+          "start": 12,
+          "end": 499
+        },
+        {
+          "word": "open",
+          "start": 580,
+          "end": 859
+        },
+        {
+          "word": "their",
+          "start": 906,
+          "end": 1045
+        },
+        {
+          "word": "properties",
+          "start": 1080,
+          "end": 1567
+        },
+        {
+          "word": "in",
+          "start": 1637,
+          "end": 1718
+        },
+        {
+          "word": "the",
+          "start": 1765,
+          "end": 1834
+        },
+        {
+          "word": "same",
+          "start": 1881,
+          "end": 2171
+        },
+        {
+          "word": "panel,",
+          "start": 2218,
+          "end": 2752
+        },
+        {
+          "word": "with",
+          "start": 2833,
+          "end": 3007
+        },
+        {
+          "word": "every",
+          "start": 3077,
+          "end": 3286
+        },
+        {
+          "word": "tab.",
+          "start": 3332,
+          "end": 3866
+        }
+      ],
+      "heard": "pages open their properties in the same panel, with every tab."
+    },
+    {
+      "say": "It works for every table, here an address from a folder with 299 entries.",
+      "show": "It works for every table, here an address from a folder with 299 entries.",
+      "file": "voice-05.mp3",
+      "duration": 5616,
+      "words": [
+        {
+          "word": "It",
+          "start": 35,
+          "end": 174
+        },
+        {
+          "word": "works",
+          "start": 209,
+          "end": 464
+        },
+        {
+          "word": "for",
+          "start": 499,
+          "end": 580
+        },
+        {
+          "word": "every",
+          "start": 650,
+          "end": 882
+        },
+        {
+          "word": "table,",
+          "start": 929,
+          "end": 1474
+        },
+        {
+          "word": "here",
+          "start": 1707,
+          "end": 1997
+        },
+        {
+          "word": "an",
+          "start": 2043,
+          "end": 2113
+        },
+        {
+          "word": "address",
+          "start": 2148,
+          "end": 2508
+        },
+        {
+          "word": "from",
+          "start": 2531,
+          "end": 2659
+        },
+        {
+          "word": "a",
+          "start": 2705,
+          "end": 2728
+        },
+        {
+          "word": "folder",
+          "start": 2810,
+          "end": 3193
+        },
+        {
+          "word": "with",
+          "start": 3262,
+          "end": 3402
+        },
+        {
+          "word": "299",
+          "start": 3448,
+          "end": 4284
+        },
+        {
+          "word": "entries.",
+          "start": 4365,
+          "end": 5050
+        }
+      ],
+      "heard": "It works for every table, here an address from a folder with 299 entries."
+    },
+    {
+      "say": "Context Edit Records by Georg Ringer. Nothing to configure.",
+      "show": "Context Edit Records by Georg Ringer. Nothing to configure.",
+      "file": "voice-06.mp3",
+      "duration": 4310,
+      "words": [
+        {
+          "word": "Context",
+          "start": 46,
+          "end": 627
+        },
+        {
+          "word": "Edit",
+          "start": 708,
+          "end": 964
+        },
+        {
+          "word": "Records",
+          "start": 1033,
+          "end": 1509
+        },
+        {
+          "word": "by",
+          "start": 1556,
+          "end": 1683
+        },
+        {
+          "word": "Georg",
+          "start": 1776,
+          "end": 2136
+        },
+        {
+          "word": "Ringer.",
+          "start": 2206,
+          "end": 2705
+        },
+        {
+          "word": "Nothing",
+          "start": 2902,
+          "end": 3216
+        },
+        {
+          "word": "to",
+          "start": 3262,
+          "end": 3309
+        },
+        {
+          "word": "configure.",
+          "start": 3379,
+          "end": 4029
+        }
+      ],
+      "heard": "Context edit records by Georg Ringer. Nothing to configure."
+    }
+  ]
+}

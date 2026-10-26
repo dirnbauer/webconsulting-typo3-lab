@@ -1,0 +1,502 @@
+{
+  "voice": "George",
+  "delivery": {
+    "stability": 0.62,
+    "similarity_boost": 0.78,
+    "style": 0.18,
+    "speed": 0.9
+  },
+  "lines": [
+    {
+      "say": "Sites connect to AI providers and payment services, and their API keys often sit in plain text.",
+      "show": "Sites connect to AI providers and payment services, and their API keys often sit in plain text.",
+      "file": "voice-01.mp3",
+      "duration": 7602,
+      "words": [
+        {
+          "word": "Sites",
+          "start": 46,
+          "end": 406
+        },
+        {
+          "word": "connect",
+          "start": 476,
+          "end": 836
+        },
+        {
+          "word": "to",
+          "start": 859,
+          "end": 917
+        },
+        {
+          "word": "AI",
+          "start": 998,
+          "end": 1289
+        },
+        {
+          "word": "providers",
+          "start": 1382,
+          "end": 1927
+        },
+        {
+          "word": "and",
+          "start": 1962,
+          "end": 2032
+        },
+        {
+          "word": "payment",
+          "start": 2101,
+          "end": 2450
+        },
+        {
+          "word": "services,",
+          "start": 2519,
+          "end": 3216
+        },
+        {
+          "word": "and",
+          "start": 3483,
+          "end": 3611
+        },
+        {
+          "word": "their",
+          "start": 3657,
+          "end": 3808
+        },
+        {
+          "word": "API",
+          "start": 3878,
+          "end": 4342
+        },
+        {
+          "word": "keys",
+          "start": 4447,
+          "end": 4795
+        },
+        {
+          "word": "often",
+          "start": 4899,
+          "end": 5236
+        },
+        {
+          "word": "sit",
+          "start": 5317,
+          "end": 5538
+        },
+        {
+          "word": "in",
+          "start": 5608,
+          "end": 5677
+        },
+        {
+          "word": "plain",
+          "start": 5759,
+          "end": 6049
+        },
+        {
+          "word": "text.",
+          "start": 6130,
+          "end": 6757
+        }
+      ],
+      "heard": "Sites connect to AI providers and payment services, and their API keys often sit in plain text.",
+      "end": 6760
+    },
+    {
+      "say": "N R vault keeps them encrypted inside typo three, each secret with its own key.",
+      "show": "nr-vault keeps them encrypted inside TYPO3, each secret with its own key.",
+      "file": "voice-02.mp3",
+      "duration": 6504,
+      "words": [
+        {
+          "word": "N",
+          "start": 23,
+          "end": 221
+        },
+        {
+          "word": "R",
+          "start": 348,
+          "end": 476
+        },
+        {
+          "word": "vault",
+          "start": 546,
+          "end": 824
+        },
+        {
+          "word": "keeps",
+          "start": 906,
+          "end": 1207
+        },
+        {
+          "word": "them",
+          "start": 1254,
+          "end": 1382
+        },
+        {
+          "word": "encrypted",
+          "start": 1428,
+          "end": 2020
+        },
+        {
+          "word": "inside",
+          "start": 2101,
+          "end": 2647
+        },
+        {
+          "word": "typo",
+          "start": 2682,
+          "end": 3077
+        },
+        {
+          "word": "three,",
+          "start": 3158,
+          "end": 3762
+        },
+        {
+          "word": "each",
+          "start": 3959,
+          "end": 4168
+        },
+        {
+          "word": "secret",
+          "start": 4238,
+          "end": 4656
+        },
+        {
+          "word": "with",
+          "start": 4702,
+          "end": 4830
+        },
+        {
+          "word": "its",
+          "start": 4876,
+          "end": 4992
+        },
+        {
+          "word": "own",
+          "start": 5062,
+          "end": 5283
+        },
+        {
+          "word": "key.",
+          "start": 5375,
+          "end": 5944
+        }
+      ],
+      "heard": "NRVault keeps them encrypted inside TYPO3, each secret with its own key."
+    },
+    {
+      "say": "The Secrets module lists each key with its owner and read count, never its value.",
+      "show": "The Secrets module lists each key with its owner and read count, never its value.",
+      "file": "voice-03.mp3",
+      "duration": 5982,
+      "words": [
+        {
+          "word": "The",
+          "start": 23,
+          "end": 139
+        },
+        {
+          "word": "Secrets",
+          "start": 209,
+          "end": 627
+        },
+        {
+          "word": "module",
+          "start": 697,
+          "end": 1184
+        },
+        {
+          "word": "lists",
+          "start": 1231,
+          "end": 1579
+        },
+        {
+          "word": "each",
+          "start": 1672,
+          "end": 1916
+        },
+        {
+          "word": "key",
+          "start": 1985,
+          "end": 2229
+        },
+        {
+          "word": "with",
+          "start": 2299,
+          "end": 2438
+        },
+        {
+          "word": "its",
+          "start": 2473,
+          "end": 2601
+        },
+        {
+          "word": "owner",
+          "start": 2670,
+          "end": 2995
+        },
+        {
+          "word": "and",
+          "start": 3065,
+          "end": 3193
+        },
+        {
+          "word": "read",
+          "start": 3286,
+          "end": 3495
+        },
+        {
+          "word": "count,",
+          "start": 3564,
+          "end": 4087
+        },
+        {
+          "word": "never",
+          "start": 4319,
+          "end": 4586
+        },
+        {
+          "word": "its",
+          "start": 4656,
+          "end": 4772
+        },
+        {
+          "word": "value.",
+          "start": 4818,
+          "end": 5445
+        }
+      ],
+      "heard": "The Secrets module lists each key with its owner and read count, never its value."
+    },
+    {
+      "say": "A readiness check confirms the encryption and names the fix for each open control.",
+      "show": "A readiness check confirms the encryption and names the fix for each open control.",
+      "file": "voice-04.mp3",
+      "duration": 5799,
+      "words": [
+        {
+          "word": "A",
+          "start": 12,
+          "end": 104
+        },
+        {
+          "word": "readiness",
+          "start": 197,
+          "end": 604
+        },
+        {
+          "word": "check",
+          "start": 650,
+          "end": 929
+        },
+        {
+          "word": "confirms",
+          "start": 1033,
+          "end": 1614
+        },
+        {
+          "word": "the",
+          "start": 1649,
+          "end": 1730
+        },
+        {
+          "word": "encryption",
+          "start": 1776,
+          "end": 2368
+        },
+        {
+          "word": "and",
+          "start": 2531,
+          "end": 2740
+        },
+        {
+          "word": "names",
+          "start": 2821,
+          "end": 3100
+        },
+        {
+          "word": "the",
+          "start": 3146,
+          "end": 3216
+        },
+        {
+          "word": "fix",
+          "start": 3297,
+          "end": 3564
+        },
+        {
+          "word": "for",
+          "start": 3634,
+          "end": 3738
+        },
+        {
+          "word": "each",
+          "start": 3808,
+          "end": 4029
+        },
+        {
+          "word": "open",
+          "start": 4110,
+          "end": 4423
+        },
+        {
+          "word": "control.",
+          "start": 4505,
+          "end": 5271
+        }
+      ],
+      "heard": "A readiness check confirms the encryption and names the fix for each open control."
+    },
+    {
+      "say": "Every read, API call and denied attempt goes into a hash-chained audit log.",
+      "show": "Every read, API call and denied attempt goes into a hash-chained audit log.",
+      "file": "voice-05.mp3",
+      "duration": 5878,
+      "words": [
+        {
+          "word": "Every",
+          "start": 23,
+          "end": 337
+        },
+        {
+          "word": "read,",
+          "start": 430,
+          "end": 871
+        },
+        {
+          "word": "API",
+          "start": 964,
+          "end": 1498
+        },
+        {
+          "word": "call",
+          "start": 1625,
+          "end": 1916
+        },
+        {
+          "word": "and",
+          "start": 1997,
+          "end": 2090
+        },
+        {
+          "word": "denied",
+          "start": 2159,
+          "end": 2531
+        },
+        {
+          "word": "attempt",
+          "start": 2566,
+          "end": 2995
+        },
+        {
+          "word": "goes",
+          "start": 3262,
+          "end": 3529
+        },
+        {
+          "word": "into",
+          "start": 3576,
+          "end": 3727
+        },
+        {
+          "word": "a",
+          "start": 3808,
+          "end": 3831
+        },
+        {
+          "word": "hash-chained",
+          "start": 3913,
+          "end": 4493
+        },
+        {
+          "word": "audit",
+          "start": 4563,
+          "end": 4911
+        },
+        {
+          "word": "log.",
+          "start": 4957,
+          "end": 5352
+        }
+      ],
+      "heard": "Every read, API call and denied attempt goes into a hash-chained audit log.",
+      "end": 5380
+    },
+    {
+      "say": "N R vault by Netresearch. Encrypted keys, and a record of every read.",
+      "show": "nr-vault by Netresearch. Encrypted keys, and a record of every read.",
+      "file": "voice-06.mp3",
+      "duration": 5329,
+      "words": [
+        {
+          "word": "N",
+          "start": 12,
+          "end": 209
+        },
+        {
+          "word": "R",
+          "start": 313,
+          "end": 511
+        },
+        {
+          "word": "vault",
+          "start": 604,
+          "end": 871
+        },
+        {
+          "word": "by",
+          "start": 952,
+          "end": 1068
+        },
+        {
+          "word": "Netresearch.",
+          "start": 1149,
+          "end": 2032
+        },
+        {
+          "word": "Encrypted",
+          "start": 2264,
+          "end": 2891
+        },
+        {
+          "word": "keys,",
+          "start": 2961,
+          "end": 3425
+        },
+        {
+          "word": "and",
+          "start": 3460,
+          "end": 3611
+        },
+        {
+          "word": "a",
+          "start": 3657,
+          "end": 3692
+        },
+        {
+          "word": "record",
+          "start": 3762,
+          "end": 4087
+        },
+        {
+          "word": "of",
+          "start": 4122,
+          "end": 4180
+        },
+        {
+          "word": "every",
+          "start": 4226,
+          "end": 4458
+        },
+        {
+          "word": "read.",
+          "start": 4540,
+          "end": 5027
+        }
+      ],
+      "heard": "NR Vault by NetResearch, encrypted keys and a record of every read."
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "id": "nr-vault",
+  "page": 8183,
+  "slug": "/features/nr-vault",
+  "title": "nr-vault: overview film",
+  "header": "nr-vault in 51 seconds",
+  "description": "<p>Encrypted secrets with an audit log. A narrated tour, recorded in this TYPO3 v14 lab, with English captions.</p>",
+  "mp4": "nr-vault-74d2768b.mp4",
+  "poster": "nr-vault-poster-74d2768b.webp",
+  "vtt": "nr-vault-74d2768b.en.vtt",
+  "duration": 50.844,
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "sound": true,
+  "alt": "Overview film, 51 seconds: nr-vault for TYPO3 v14. Listed, never shown; A check that names fixes; Every access on record. Narrated, with English captions.",
+  "transcript": [
+    {
+      "at": "0:02",
+      "text": "Sites connect to AI providers and payment services, and their API keys often sit in plain text."
+    },
+    {
+      "at": "0:11",
+      "text": "nr-vault keeps them encrypted inside TYPO3, each secret with its own key."
+    },
+    {
+      "at": "0:19",
+      "text": "The Secrets module lists each key with its owner and read count, never its value."
+    },
+    {
+      "at": "0:26",
+      "text": "A readiness check confirms the encryption and names the fix for each open control."
+    },
+    {
+      "at": "0:33",
+      "text": "Every read, API call and denied attempt goes into a hash-chained audit log."
+    },
+    {
+      "at": "0:41",
+      "text": "nr-vault by Netresearch. Encrypted keys, and a record of every read."
+    }
+  ],
+  "captions": {
+    "language": "en",
+    "label": "English",
+    "burnedIn": true
+  },
+  "bytes": {
+    "mp4": 3998009,
+    "poster": 32864,
+    "vtt": 717
+  },
+  "generator": "packages/site_package/Build/Film/render-films.mjs"
+}

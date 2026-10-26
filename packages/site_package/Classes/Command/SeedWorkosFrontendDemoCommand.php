@@ -124,7 +124,7 @@ final class SeedWorkosFrontendDemoCommand extends Command
 
             $this->orderRecords('pages', $overviewPageUid, [$loginPageUid, $accountPageUid, $teamPageUid]);
 
-            $this->seedOverviewContent($overviewPageUid);
+            $this->seedOverviewContent($overviewPageUid, $loginPageUid, $accountPageUid, $teamPageUid);
             $this->seedPluginPage(
                 $loginPageUid,
                 'Login and registration',
@@ -213,7 +213,7 @@ final class SeedWorkosFrontendDemoCommand extends Command
         return $this->createRecord('fe_groups', $fields);
     }
 
-    private function seedOverviewContent(int $pageUid): void
+    private function seedOverviewContent(int $pageUid, int $loginPageUid, int $accountPageUid, int $teamPageUid): void
     {
         $headerUid = $this->ensureContent(
             $pageUid,
@@ -237,13 +237,19 @@ final class SeedWorkosFrontendDemoCommand extends Command
         );
         $menuUid = $this->ensureContent(
             $pageUid,
-            'menu_subpages',
+            'desiderio_categorycards',
             'Explore the frontend plugins',
             [
-                'subheader' => 'Each WorkOS frontend plugin has its own page.',
+                'subheadline' => 'Each WorkOS frontend plugin has its own page.',
                 'sorting' => 768,
             ],
+            'menu_subpages',
         );
+        $this->ensureItems($pageUid, $menuUid, 'desiderio_categorycards_items', 'category_cards_items', [
+            ['title' => 'Login and registration', 'count' => 'Sign-in', 'description' => 'Passwords, email codes, social sign-in and self-service registration.', 'link' => 't3://page?uid=' . $loginPageUid],
+            ['title' => 'Account center', 'count' => 'Accounts', 'description' => 'Profile, password, MFA, sessions and organisation memberships.', 'link' => 't3://page?uid=' . $accountPageUid],
+            ['title' => 'Team administration', 'count' => 'Teams', 'description' => 'Invitations and signed Admin Portal sessions for organisation administrators.', 'link' => 't3://page?uid=' . $teamPageUid],
+        ]);
         $this->orderRecords('tt_content', $pageUid, [$headerUid, $textUid, $menuUid]);
     }
 
@@ -251,13 +257,14 @@ final class SeedWorkosFrontendDemoCommand extends Command
     {
         $introUid = $this->ensureContent(
             $pageUid,
-            'text',
+            'desiderio_textmedia',
             $header,
             [
-                'bodytext' => $bodytext,
+                'content' => $bodytext,
                 'header_layout' => 2,
                 'sorting' => 256,
             ],
+            'text',
         );
         $pluginUid = $this->ensureContent(
             $pageUid,
@@ -293,8 +300,10 @@ final class SeedWorkosFrontendDemoCommand extends Command
 
     /**
      * @param array<string, int|string> $fields
+     * @param string|null $replaces An element of this type and header that an
+     *        earlier version of the demo created becomes the $cType element.
      */
-    private function ensureContent(int $pid, string $cType, string $header, array $fields): int
+    private function ensureContent(int $pid, string $cType, string $header, array $fields, ?string $replaces = null): int
     {
         $connection = $this->connectionPool->getConnectionForTable('tt_content');
         $criteria = [
@@ -308,6 +317,9 @@ final class SeedWorkosFrontendDemoCommand extends Command
         }
 
         $uid = $connection->select(['uid'], 'tt_content', $criteria)->fetchOne();
+        if (!is_numeric($uid) && $replaces !== null) {
+            $uid = $connection->select(['uid'], 'tt_content', ['CType' => $replaces] + $criteria)->fetchOne();
+        }
         $contentData = $fields + [
             'pid' => $pid,
             'CType' => $cType,
@@ -324,6 +336,47 @@ final class SeedWorkosFrontendDemoCommand extends Command
         }
 
         return $this->createRecord('tt_content', $contentData);
+    }
+
+    /**
+     * A collection's items by position: updated, created when missing,
+     * surplus ones deleted.
+     *
+     * @param list<array<string, string>> $items
+     */
+    private function ensureItems(int $pid, int $parentUid, string $field, string $table, array $items): void
+    {
+        $existing = array_map('intval', $this->connectionPool->getConnectionForTable($table)->select(
+            ['uid'],
+            $table,
+            ['foreign_table_parent_uid' => $parentUid, 'sys_language_uid' => 0, 'deleted' => 0],
+            [],
+            ['sorting' => 'ASC', 'uid' => 'ASC'],
+        )->fetchFirstColumn());
+        $ids = [];
+        $dataMap = [];
+        foreach ($items as $position => $item) {
+            $uid = $existing[$position] ?? null;
+            if ($uid !== null) {
+                $this->applyData($table, $uid, $item);
+                $ids[] = $uid;
+                continue;
+            }
+            $id = 'NEW' . bin2hex(random_bytes(8));
+            $dataMap[$table][$id] = $item + ['pid' => $pid, 'sys_language_uid' => 0];
+            $ids[] = $id;
+        }
+        $surplus = array_slice($existing, count($items));
+        if ($dataMap === [] && $surplus === []) {
+            return;
+        }
+        $dataMap['tt_content'][$parentUid][$field] = implode(',', $ids);
+        $this->runDataHandler($dataMap);
+        if ($surplus !== []) {
+            $dataHandler = GeneralUtility::makeInstance(DataHandler::class);
+            $dataHandler->start([], [$table => array_fill_keys($surplus, ['delete' => 1])]);
+            $dataHandler->process_cmdmap();
+        }
     }
 
     private function findPageBySlug(string $slug): ?int

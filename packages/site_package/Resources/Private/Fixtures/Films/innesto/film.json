@@ -1,0 +1,58 @@
+{
+  "id": "innesto",
+  "page": 8180,
+  "slug": "/features/innesto",
+  "title": "Innesto: overview film",
+  "header": "Innesto in 61 seconds",
+  "description": "<p>19 registry components as content elements. A narrated tour, recorded in this TYPO3 v14 lab, with English captions.</p>",
+  "mp4": "innesto-4dee6880.mp4",
+  "poster": "innesto-poster-4dee6880.webp",
+  "vtt": "innesto-4dee6880.en.vtt",
+  "duration": 61.388,
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "sound": true,
+  "alt": "Overview film, 61 seconds: Innesto for TYPO3 v14. A marquee and live stats; Fifteen stats elements; Picked from the wizard; Every preset, light and dark. Narrated, with English captions.",
+  "transcript": [
+    {
+      "at": "0:02",
+      "text": "The shadcn and Magic UI registries publish hundreds of polished components, all written for React."
+    },
+    {
+      "at": "0:11",
+      "text": "Innesto turns them into TYPO3 content elements, in your Desiderio theme."
+    },
+    {
+      "at": "0:18",
+      "text": "The demo page shows a logo marquee and stats cards with sparklines, filled in by editors."
+    },
+    {
+      "at": "0:27",
+      "text": "Fifteen stats elements ship as well: progress bars, status cards, usage breakdowns and charts."
+    },
+    {
+      "at": "0:36",
+      "text": "Editors pick each element from the content wizard, with an icon and a backend preview."
+    },
+    {
+      "at": "0:44",
+      "text": "The elements paint only with theme tokens, so every preset and dark mode just works."
+    },
+    {
+      "at": "0:51",
+      "text": "With Innesto, one command turns a registry component into a content element."
+    }
+  ],
+  "captions": {
+    "language": "en",
+    "label": "English",
+    "burnedIn": true
+  },
+  "bytes": {
+    "mp4": 4980507,
+    "poster": 33240,
+    "vtt": 875
+  },
+  "generator": "packages/site_package/Build/Film/render-films.mjs"
+}

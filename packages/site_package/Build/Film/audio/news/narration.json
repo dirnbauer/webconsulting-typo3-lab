@@ -1,0 +1,552 @@
+{
+  "voice": "George",
+  "delivery": {
+    "stability": 0.62,
+    "similarity_boost": 0.78,
+    "style": 0.18,
+    "speed": 0.9
+  },
+  "lines": [
+    {
+      "say": "The News extension is the standard for articles in typo three, but every project restyles its list and its articles.",
+      "show": "The News extension is the standard for articles in TYPO3, but every project restyles its list and its articles.",
+      "file": "voice-01.mp3",
+      "duration": 8490,
+      "words": [
+        {
+          "word": "The",
+          "start": 81,
+          "end": 174
+        },
+        {
+          "word": "News",
+          "start": 255,
+          "end": 488
+        },
+        {
+          "word": "extension",
+          "start": 557,
+          "end": 1115
+        },
+        {
+          "word": "is",
+          "start": 1196,
+          "end": 1312
+        },
+        {
+          "word": "the",
+          "start": 1358,
+          "end": 1428
+        },
+        {
+          "word": "standard",
+          "start": 1474,
+          "end": 1904
+        },
+        {
+          "word": "for",
+          "start": 1939,
+          "end": 2032
+        },
+        {
+          "word": "articles",
+          "start": 2101,
+          "end": 2670
+        },
+        {
+          "word": "in",
+          "start": 2740,
+          "end": 2810
+        },
+        {
+          "word": "typo",
+          "start": 2891,
+          "end": 3332
+        },
+        {
+          "word": "three,",
+          "start": 3402,
+          "end": 3971
+        },
+        {
+          "word": "but",
+          "start": 4203,
+          "end": 4365
+        },
+        {
+          "word": "every",
+          "start": 4435,
+          "end": 4702
+        },
+        {
+          "word": "project",
+          "start": 4772,
+          "end": 5248
+        },
+        {
+          "word": "restyles",
+          "start": 5352,
+          "end": 5991
+        },
+        {
+          "word": "its",
+          "start": 6060,
+          "end": 6200
+        },
+        {
+          "word": "list",
+          "start": 6281,
+          "end": 6606
+        },
+        {
+          "word": "and",
+          "start": 6687,
+          "end": 6803
+        },
+        {
+          "word": "its",
+          "start": 6873,
+          "end": 6989
+        },
+        {
+          "word": "articles.",
+          "start": 7036,
+          "end": 7883
+        }
+      ],
+      "heard": "The News extension is the standard for articles in TYPO3, but every project restyles its list and its articles.",
+      "end": 7920
+    },
+    {
+      "say": "Desiderio’s templates give News your theme, from the list to the article.",
+      "show": "Desiderio’s templates give News your theme, from the list to the article.",
+      "file": "voice-02.mp3",
+      "duration": 5146,
+      "words": [
+        {
+          "word": "Desiderio's",
+          "start": 12,
+          "end": 917
+        },
+        {
+          "word": "templates",
+          "start": 964,
+          "end": 1498
+        },
+        {
+          "word": "give",
+          "start": 1579,
+          "end": 1788
+        },
+        {
+          "word": "News",
+          "start": 1834,
+          "end": 2113
+        },
+        {
+          "word": "your",
+          "start": 2159,
+          "end": 2310
+        },
+        {
+          "word": "theme,",
+          "start": 2380,
+          "end": 2868
+        },
+        {
+          "word": "from",
+          "start": 2995,
+          "end": 3158
+        },
+        {
+          "word": "the",
+          "start": 3193,
+          "end": 3262
+        },
+        {
+          "word": "list",
+          "start": 3309,
+          "end": 3576
+        },
+        {
+          "word": "to",
+          "start": 3611,
+          "end": 3680
+        },
+        {
+          "word": "the",
+          "start": 3750,
+          "end": 3820
+        },
+        {
+          "word": "article.",
+          "start": 3889,
+          "end": 4586
+        }
+      ],
+      "heard": "Desiderio's templates give news your theme, from the list to the article."
+    },
+    {
+      "say": "The list shows each article as a card, with its date, a teaser and page numbers below.",
+      "show": "The list shows each article as a card, with its date, a teaser and page numbers below.",
+      "file": "voice-03.mp3",
+      "duration": 6452,
+      "words": [
+        {
+          "word": "The",
+          "start": 23,
+          "end": 139
+        },
+        {
+          "word": "list",
+          "start": 209,
+          "end": 441
+        },
+        {
+          "word": "shows",
+          "start": 488,
+          "end": 836
+        },
+        {
+          "word": "each",
+          "start": 929,
+          "end": 1138
+        },
+        {
+          "word": "article",
+          "start": 1219,
+          "end": 1683
+        },
+        {
+          "word": "as",
+          "start": 1730,
+          "end": 1846
+        },
+        {
+          "word": "a",
+          "start": 1892,
+          "end": 1927
+        },
+        {
+          "word": "card,",
+          "start": 1997,
+          "end": 2531
+        },
+        {
+          "word": "with",
+          "start": 2728,
+          "end": 2914
+        },
+        {
+          "word": "its",
+          "start": 2961,
+          "end": 3088
+        },
+        {
+          "word": "date,",
+          "start": 3158,
+          "end": 3611
+        },
+        {
+          "word": "a",
+          "start": 3773,
+          "end": 3855
+        },
+        {
+          "word": "teaser",
+          "start": 3947,
+          "end": 4342
+        },
+        {
+          "word": "and",
+          "start": 4412,
+          "end": 4505
+        },
+        {
+          "word": "page",
+          "start": 4586,
+          "end": 4888
+        },
+        {
+          "word": "numbers",
+          "start": 4934,
+          "end": 5213
+        },
+        {
+          "word": "below.",
+          "start": 5283,
+          "end": 5898
+        }
+      ],
+      "heard": "The list shows each article as a card, with its date, a teaser and page numbers below."
+    },
+    {
+      "say": "Articles open with the date, the title and the teaser, followed by content elements.",
+      "show": "Articles open with the date, the title and the teaser, followed by content elements.",
+      "file": "voice-04.mp3",
+      "duration": 5982,
+      "words": [
+        {
+          "word": "Articles",
+          "start": 23,
+          "end": 615
+        },
+        {
+          "word": "open",
+          "start": 708,
+          "end": 1022
+        },
+        {
+          "word": "with",
+          "start": 1068,
+          "end": 1184
+        },
+        {
+          "word": "the",
+          "start": 1219,
+          "end": 1289
+        },
+        {
+          "word": "date,",
+          "start": 1335,
+          "end": 1730
+        },
+        {
+          "word": "the",
+          "start": 1811,
+          "end": 1916
+        },
+        {
+          "word": "title",
+          "start": 1985,
+          "end": 2380
+        },
+        {
+          "word": "and",
+          "start": 2426,
+          "end": 2543
+        },
+        {
+          "word": "the",
+          "start": 2612,
+          "end": 2682
+        },
+        {
+          "word": "teaser,",
+          "start": 2717,
+          "end": 3437
+        },
+        {
+          "word": "followed",
+          "start": 3750,
+          "end": 4110
+        },
+        {
+          "word": "by",
+          "start": 4145,
+          "end": 4261
+        },
+        {
+          "word": "content",
+          "start": 4354,
+          "end": 4795
+        },
+        {
+          "word": "elements.",
+          "start": 4865,
+          "end": 5457
+        }
+      ],
+      "heard": "Articles open with the date, the title and the teaser, followed by content elements."
+    },
+    {
+      "say": "Editors write in a record form, with tabs for media, categories and related articles.",
+      "show": "Editors write in a record form, with tabs for media, categories and related articles.",
+      "file": "voice-05.mp3",
+      "duration": 6870,
+      "words": [
+        {
+          "word": "Editors",
+          "start": 23,
+          "end": 522
+        },
+        {
+          "word": "write",
+          "start": 569,
+          "end": 917
+        },
+        {
+          "word": "in",
+          "start": 952,
+          "end": 1010
+        },
+        {
+          "word": "a",
+          "start": 1045,
+          "end": 1068
+        },
+        {
+          "word": "record",
+          "start": 1161,
+          "end": 1521
+        },
+        {
+          "word": "form,",
+          "start": 1591,
+          "end": 2067
+        },
+        {
+          "word": "with",
+          "start": 2148,
+          "end": 2345
+        },
+        {
+          "word": "tabs",
+          "start": 2392,
+          "end": 2775
+        },
+        {
+          "word": "for",
+          "start": 2821,
+          "end": 2926
+        },
+        {
+          "word": "media,",
+          "start": 3007,
+          "end": 3611
+        },
+        {
+          "word": "categories",
+          "start": 3738,
+          "end": 4412
+        },
+        {
+          "word": "and",
+          "start": 4481,
+          "end": 4598
+        },
+        {
+          "word": "related",
+          "start": 4679,
+          "end": 5085
+        },
+        {
+          "word": "articles.",
+          "start": 5155,
+          "end": 6049
+        }
+      ],
+      "heard": "Editors write in a record form, with tabs for media, categories and related articles.",
+      "end": 6020
+    },
+    {
+      "say": "Switch to dark mode, and cards, badges and page numbers follow.",
+      "show": "Switch to dark mode, and cards, badges and page numbers follow.",
+      "file": "voice-06.mp3",
+      "duration": 4780,
+      "words": [
+        {
+          "word": "Switch",
+          "start": 23,
+          "end": 372
+        },
+        {
+          "word": "to",
+          "start": 418,
+          "end": 488
+        },
+        {
+          "word": "dark",
+          "start": 557,
+          "end": 836
+        },
+        {
+          "word": "mode,",
+          "start": 917,
+          "end": 1358
+        },
+        {
+          "word": "and",
+          "start": 1486,
+          "end": 1637
+        },
+        {
+          "word": "cards,",
+          "start": 1730,
+          "end": 2241
+        },
+        {
+          "word": "badges",
+          "start": 2287,
+          "end": 2775
+        },
+        {
+          "word": "and",
+          "start": 2844,
+          "end": 2961
+        },
+        {
+          "word": "page",
+          "start": 3030,
+          "end": 3320
+        },
+        {
+          "word": "numbers",
+          "start": 3367,
+          "end": 3634
+        },
+        {
+          "word": "follow.",
+          "start": 3680,
+          "end": 4249
+        }
+      ],
+      "heard": "Switch to dark mode and cards, badges and page numbers follow.",
+      "end": 4270
+    },
+    {
+      "say": "News by Georg Ringer, styled by Desiderio.",
+      "show": "News by Georg Ringer, styled by Desiderio.",
+      "file": "voice-07.mp3",
+      "duration": 3762,
+      "words": [
+        {
+          "word": "News",
+          "start": 12,
+          "end": 360
+        },
+        {
+          "word": "by",
+          "start": 430,
+          "end": 580
+        },
+        {
+          "word": "Georg",
+          "start": 685,
+          "end": 1103
+        },
+        {
+          "word": "Ringer,",
+          "start": 1184,
+          "end": 1637
+        },
+        {
+          "word": "styled",
+          "start": 1765,
+          "end": 2229
+        },
+        {
+          "word": "by",
+          "start": 2276,
+          "end": 2392
+        },
+        {
+          "word": "Desiderio.",
+          "start": 2485,
+          "end": 3448
+        }
+      ],
+      "heard": "News by Georg Ringer, styled by Desiderio."
+    }
+  ]
+}

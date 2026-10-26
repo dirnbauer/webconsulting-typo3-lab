@@ -1,0 +1,25 @@
+WEBVTT - nr-vault (narration, English)
+
+1
+00:00:02.040 --> 00:00:09.942
+Sites connect to AI providers and payment services, and their API keys often sit in plain text.
+
+2
+00:00:11.042 --> 00:00:17.846
+nr-vault keeps them encrypted inside TYPO3, each secret with its own key.
+
+3
+00:00:19.096 --> 00:00:25.378
+The Secrets module lists each key with its owner and read count, never its value.
+
+4
+00:00:26.428 --> 00:00:32.527
+A readiness check confirms the encryption and names the fix for each open control.
+
+5
+00:00:33.577 --> 00:00:39.755
+Every read, API call and denied attempt goes into a hash-chained audit log.
+
+6
+00:00:41.055 --> 00:00:46.684
+nr-vault by Netresearch. Encrypted keys, and a record of every read.

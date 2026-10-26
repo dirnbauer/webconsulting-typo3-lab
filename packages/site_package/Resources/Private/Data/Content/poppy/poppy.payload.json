@@ -1540,13 +1540,15 @@
         "sys_language_uid": 0
       },
       "set": {
-        "CType": "text",
+        "CType": "desiderio_contenthighlight",
         "header": "Poppy: connect personal agents to TYPO3",
         "header_layout": 2,
         "colPos": 0,
         "hidden": 0,
         "sys_language_uid": 0,
-        "bodytext": "<p>Explore Poppy in <a href=\"/agent-nexus/\">Agent Nexus</a>, the lab’s home for agent protocols. Poppy adds identity and limited access for personal agents. <a href=\"/agent-nexus/poppy/\">Read the explanation</a>, <a href=\"/poppy/demo\">try a verified guest session</a> or follow the <a href=\"/agent-nexus/poppy/pi-durable/\">Pi Durable example</a>.</p>"
+        "variant": "bordered",
+        "alignment": "left",
+        "content": "<p>Explore Poppy in <a href=\"/agent-nexus/\">Agent Nexus</a>, the lab’s home for agent protocols. Poppy adds identity and limited access for personal agents. <a href=\"/agent-nexus/poppy/\">Read the explanation</a>, <a href=\"/poppy/demo\">try a verified guest session</a> or follow the <a href=\"/agent-nexus/poppy/pi-durable/\">Pi Durable example</a>.</p>"
       }
     },
     {
@@ -1715,13 +1717,15 @@
         "sys_language_uid": 0
       },
       "set": {
-        "CType": "text",
+        "CType": "desiderio_contenthighlight",
         "header": "Six protocols, one field guide",
         "header_layout": 2,
         "colPos": 0,
         "hidden": 0,
         "sys_language_uid": 0,
-        "bodytext": "<p><a href=\"/agent-nexus/\">Open Agent Nexus</a> to explore A2UI, AG-UI, A2A, UCP, AP2 and Poppy. The Agent Nexus extension provides the five interface, interaction, delegation, checkout and payment demos. The lab also installs the independent <code>webconsulting/typo3-poppy</code> extension for personal-agent identity and verified guest sessions.</p><p><a href=\"/agent-nexus/poppy/\">Understand Poppy</a> · <a href=\"/poppy/demo\">Try the live protocol</a> · <a href=\"/agent-nexus/poppy/pi-durable/\">See the Pi Durable example</a> · <a href=\"/agent-nexus/poppy/help/\">Install and get help</a>.</p>"
+        "variant": "bordered",
+        "alignment": "left",
+        "content": "<p><a href=\"/agent-nexus/\">Open Agent Nexus</a> to explore A2UI, AG-UI, A2A, UCP, AP2 and Poppy. The Agent Nexus extension provides the five interface, interaction, delegation, checkout and payment demos. The lab also installs the independent <code>webconsulting/typo3-poppy</code> extension for personal-agent identity and verified guest sessions.</p><p><a href=\"/agent-nexus/poppy/\">Understand Poppy</a> · <a href=\"/poppy/demo\">Try the live protocol</a> · <a href=\"/agent-nexus/poppy/pi-durable/\">See the Pi Durable example</a> · <a href=\"/agent-nexus/poppy/help/\">Install and get help</a>.</p>"
       }
     },
     {

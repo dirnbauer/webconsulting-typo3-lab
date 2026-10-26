@@ -1,0 +1,58 @@
+{
+  "id": "news",
+  "page": 8181,
+  "slug": "/features/news",
+  "title": "News: overview film",
+  "header": "News in 57 seconds",
+  "description": "<p>Articles and releases in your theme. A narrated tour, recorded in this TYPO3 v14 lab, with English captions.</p>",
+  "mp4": "news-b87524e4.mp4",
+  "poster": "news-poster-b87524e4.webp",
+  "vtt": "news-b87524e4.en.vtt",
+  "duration": 56.582,
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "sound": true,
+  "alt": "Overview film, 57 seconds: News for TYPO3 v14. Cards with page numbers; Date, teaser and content; A familiar form for editors; The same list in dark mode. Narrated, with English captions.",
+  "transcript": [
+    {
+      "at": "0:02",
+      "text": "The News extension is the standard for articles in TYPO3, but every project restyles its list and its articles."
+    },
+    {
+      "at": "0:11",
+      "text": "Desiderio’s templates give News your theme, from the list to the article."
+    },
+    {
+      "at": "0:18",
+      "text": "The list shows each article as a card, with its date, a teaser and page numbers below."
+    },
+    {
+      "at": "0:26",
+      "text": "Articles open with the date, the title and the teaser, followed by content elements."
+    },
+    {
+      "at": "0:33",
+      "text": "Editors write in a record form, with tabs for media, categories and related articles."
+    },
+    {
+      "at": "0:42",
+      "text": "Switch to dark mode, and cards, badges and page numbers follow."
+    },
+    {
+      "at": "0:48",
+      "text": "News by Georg Ringer, styled by Desiderio."
+    }
+  ],
+  "captions": {
+    "language": "en",
+    "label": "English",
+    "burnedIn": true
+  },
+  "bytes": {
+    "mp4": 4318357,
+    "poster": 47844,
+    "vtt": 819
+  },
+  "generator": "packages/site_package/Build/Film/render-films.mjs"
+}

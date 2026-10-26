@@ -1,0 +1,54 @@
+{
+  "id": "context-edit-records",
+  "page": 8182,
+  "slug": "/features/context-edit-records",
+  "title": "Context Edit Records: overview film",
+  "header": "Context Edit Records in 44 seconds",
+  "description": "<p>Edit records in a side panel. A narrated tour, recorded in this TYPO3 v14 lab, with English captions.</p>",
+  "mp4": "context-edit-records-0d5a3076.mp4",
+  "poster": "context-edit-records-poster-0d5a3076.webp",
+  "vtt": "context-edit-records-0d5a3076.en.vtt",
+  "duration": 44.262,
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "sound": true,
+  "alt": "Overview film, 44 seconds: Context Edit Records for TYPO3 v14. The list stays open; Page properties too; Every table, no setup. Narrated, with English captions.",
+  "transcript": [
+    {
+      "at": "0:02",
+      "text": "In the Records module, every edit opens the full form, and the list is gone."
+    },
+    {
+      "at": "0:09",
+      "text": "Context Edit Records opens the form in a side panel, right next to the list."
+    },
+    {
+      "at": "0:16",
+      "text": "Click edit on a news article, and the form slides in beside the list."
+    },
+    {
+      "at": "0:22",
+      "text": "Pages open their properties in the same panel, with every tab."
+    },
+    {
+      "at": "0:28",
+      "text": "It works for every table, here an address from a folder with 299 entries."
+    },
+    {
+      "at": "0:35",
+      "text": "Context Edit Records by Georg Ringer. Nothing to configure."
+    }
+  ],
+  "captions": {
+    "language": "en",
+    "label": "English",
+    "burnedIn": true
+  },
+  "bytes": {
+    "mp4": 2673414,
+    "poster": 42976,
+    "vtt": 670
+  },
+  "generator": "packages/site_package/Build/Film/render-films.mjs"
+}

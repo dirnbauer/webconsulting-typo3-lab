@@ -1,0 +1,40 @@
+<html
+    xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+    xmlns:d="http://typo3.org/ns/Webconsulting/Desiderio/Components/ComponentCollection"
+    data-namespace-typo3-fluid="true"
+>
+
+<f:layout name="Pages/Default"/>
+
+<f:comment>
+    Desiderio's theme-preset overview (EXT:desiderio Templates/Pages/
+    DesiderioThemes.fluid.html), with one addition: when the page starts with a
+    Video Feature Section, it and the accordion directly after it (the film's
+    transcript) render above the preset overview instead of below it.
+</f:comment>
+
+<f:section name="Main">
+    <d:organism.pageHeader page="{page}" newsDetailUid="{newsDetailUid}" headingOwnedByContent="{pageHeadingOwnedByContent}"/>
+    <!--TYPO3SEARCH_begin-->
+    <f:variable name="filmUid" value="0"/>
+    <f:variable name="transcriptUid" value="0"/>
+    <f:if condition="{content.main.records.0.recordType} == 'desiderio_featurevideo'">
+        <f:variable name="filmUid" value="{content.main.records.0.uid}"/>
+        <f:render.record record="{content.main.records.0}"/>
+        <f:if condition="{content.main.records.1.recordType} == 'desiderio_accordion'">
+            <f:variable name="transcriptUid" value="{content.main.records.1.uid}"/>
+            <f:render.record record="{content.main.records.1}"/>
+        </f:if>
+    </f:if>
+    <f:render partial="Pages/PresetOverview" arguments="{_all}"/>
+    <f:if condition="{content.main}">
+        <f:render.contentArea contentArea="{content.main}" recordAs="record">
+            <f:if condition="{record.uid} != {filmUid} && {record.uid} != {transcriptUid}">
+                <f:render.record record="{record}"/>
+            </f:if>
+        </f:render.contentArea>
+    </f:if>
+    <!--TYPO3SEARCH_end-->
+</f:section>
+
+</html>

@@ -56,6 +56,9 @@ def main() -> None:
     # Group pages as a visitor sees them (capture-frontend.mjs): below the 88 px header.
     for path in sorted((FOOTAGE / 'stills/elements').glob('*/*.jpg')):
         focus[str(path.relative_to(FOOTAGE))] = box(path, top=0.085)
+    # Backend stills that stand in for a tour screenshot (capture-backend.mjs).
+    for path in sorted((FOOTAGE / 'stills/backend').glob('*.jpg')):
+        focus[str(path.relative_to(FOOTAGE))] = box(path)
     target = FILM / 'data/focus.json'
     target.write_text(json.dumps(focus, indent=1) + '\n')
     print(f'{len(focus)} screenshots → {target.relative_to(LAB)}')
