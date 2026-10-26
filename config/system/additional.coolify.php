@@ -12,6 +12,13 @@ if (getenv('IS_DDEV_PROJECT') !== 'true') {
         throw new RuntimeException('TYPO3 encryption key is not configured.');
     }
 
+    // Unset keeps the standalone Install Tool locked; system maintainers still
+    // reach the Admin Tools through the backend.
+    $installToolPasswordFile = '/run/typo3-secrets/install-tool-password';
+    $installToolPassword = is_readable($installToolPasswordFile)
+        ? trim((string)file_get_contents($installToolPasswordFile))
+        : trim((string)getenv('TYPO3_INSTALL_TOOL_PASSWORD_HASH'));
+
     // Mail leaves the server only through SMTP. The account comes from Coolify's
     // variables, never from this repository. Without a server, mail is written to
     // var/log/mail.mbox: forms still save their submissions, but nobody gets an email.
@@ -43,7 +50,14 @@ if (getenv('IS_DDEV_PROJECT') !== 'true') {
         [
             'BE' => [
                 'debug' => false,
+                'installToolPassword' => $installToolPassword,
                 'lockSSL' => true,
+                // Admins only: editors created by WorkOS sign-in keep a one-step login.
+                'requireMfa' => 3,
+                'passwordHashing' => [
+                    'className' => \TYPO3\CMS\Core\Crypto\PasswordHashing\Argon2idPasswordHash::class,
+                    'options' => [],
+                ],
             ],
             'DB' => [
                 'Connections' => [
@@ -64,6 +78,10 @@ if (getenv('IS_DDEV_PROJECT') !== 'true') {
             ],
             'FE' => [
                 'debug' => false,
+                'passwordHashing' => [
+                    'className' => \TYPO3\CMS\Core\Crypto\PasswordHashing\Argon2idPasswordHash::class,
+                    'options' => [],
+                ],
             ],
             'GFX' => [
                 'processor' => 'GraphicsMagick',
@@ -75,6 +93,11 @@ if (getenv('IS_DDEV_PROJECT') !== 'true') {
                 'devIPmask' => '',
                 'displayErrors' => 0,
                 'encryptionKey' => $encryptionKey,
+                // Report-only until the reports (Admin Tools > Content Security
+                // Policy) show which inline scripts and sources need a policy.
+                'features' => [
+                    'security.frontend.reportContentSecurityPolicy' => true,
+                ],
                 'reverseProxyHeaderMultiValue' => 'first',
                 'reverseProxyIP' => '10.0.0.0/8,172.16.0.0/12,192.168.0.0/16',
                 'reverseProxySSL' => '10.0.0.0/8,172.16.0.0/12,192.168.0.0/16',

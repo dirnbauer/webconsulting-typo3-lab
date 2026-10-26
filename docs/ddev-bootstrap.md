@@ -26,6 +26,7 @@ ddev npm ci
 ddev import-db --file=dump.sql.gz
 ddev import-files --source=.tarballs/fileadmin.tar.gz
 ddev typo3 extension:setup
+ddev typo3 install:password:set --no-interaction   # prints this install's Install Tool password once
 ddev vite build
 ddev typo3 cache:flush
 ddev exec Build/Scripts/runTests.sh -s ci -p 8.5

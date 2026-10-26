@@ -69,6 +69,8 @@ ddev import-db --file=db-public.zip
 ddev import-files --source=.tarballs/fileadmin-public.zip
 
 ddev typo3 extension:setup
+echo "==> generating this installation's Install Tool password (shown once)"
+ddev typo3 install:password:set --no-interaction
 # The snapshot ships without a reference index (it repeated addresses from the
 # emptied tables); TYPO3 rebuilds it from the records.
 ddev typo3 referenceindex:update

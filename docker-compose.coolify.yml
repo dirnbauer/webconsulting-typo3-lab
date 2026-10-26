@@ -9,6 +9,10 @@ services:
       BASIC_AUTH_PASSWORD: ${SERVICE_PASSWORD_BASIC}
       BASIC_AUTH_USER: ${BASIC_AUTH_USER:-lab}
       TYPO3_CONTEXT: Production
+      # Argon2id hash from `typo3 install:password:set --dry-run`. Empty keeps the
+      # standalone Install Tool locked; a hash in the secrets volume
+      # (/run/typo3-secrets/install-tool-password) takes precedence.
+      TYPO3_INSTALL_TOOL_PASSWORD_HASH: ${TYPO3_INSTALL_TOOL_PASSWORD_HASH:-}
       # Opt-in only: pre-provision the exact current Vault master key in a
       # runtime-readable 0400 file at /run/typo3-vault-secrets/master-key.
       # No file is created, and invalid explicit paths stop startup/bootstrap.

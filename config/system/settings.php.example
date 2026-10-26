@@ -6,9 +6,12 @@ $workosFrontendAutoCreateUsers = $workosFrontendStoragePid > 0 && $workosFronten
 return [
     'BE' => [
         'debug' => true,
-        'installToolPassword' => '$argon2i$v=19$m=65536,t=16,p=1$Y1hWL2hOc0xXTzloNmhObQ$uMdLjoUrVQjKRKwfyM3uwCt8uRwavpjZg4AMDRGOrYU',
+        // Empty locks the standalone Install Tool. Set one per installation with
+        // `ddev typo3 install:password:set`; production reads its hash from a secret
+        // (additional.coolify.php). This repository is public: never commit a hash.
+        'installToolPassword' => '',
         'passwordHashing' => [
-            'className' => 'TYPO3\\CMS\\Core\\Crypto\\PasswordHashing\\Argon2iPasswordHash',
+            'className' => 'TYPO3\\CMS\\Core\\Crypto\\PasswordHashing\\Argon2idPasswordHash',
             'options' => [],
         ],
     ],
@@ -232,7 +235,7 @@ return [
         'debug' => true,
         'disableNoCacheParameter' => true,
         'passwordHashing' => [
-            'className' => 'TYPO3\\CMS\\Core\\Crypto\\PasswordHashing\\Argon2iPasswordHash',
+            'className' => 'TYPO3\\CMS\\Core\\Crypto\\PasswordHashing\\Argon2idPasswordHash',
             'options' => [],
         ],
     ],
@@ -300,6 +303,7 @@ return [
         'exceptionalErrors' => 12290,
         'features' => [
             'frontend.cache.autoTagging' => true,
+            'security.frontend.reportContentSecurityPolicy' => true,
             'security.system.enforceAllowedFileExtensions' => true,
         ],
         'sitename' => 'My TYPO3 site',

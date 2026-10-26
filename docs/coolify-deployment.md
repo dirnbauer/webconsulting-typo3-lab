@@ -56,6 +56,19 @@ model credentials from nr-llm's vault, not from environment variables.
 These credentials belong in Coolify's production environment configuration;
 deploying the repository does not copy ignored local TYPO3 settings.
 
+The standalone Install Tool (`/typo3/install.php`) stays locked until it gets a
+password hash of its own. The committed `settings.php.example` carries none,
+because this repository is public. System maintainers reach the same Admin Tools
+through the backend without it. To open the standalone tool, generate a hash
+anywhere TYPO3 runs and store it in Coolify as `TYPO3_INSTALL_TOOL_PASSWORD_HASH`
+(or write it to `/run/typo3-secrets/install-tool-password`, which wins), then
+redeploy. Mark the variable as literal in Coolify: the hash is full of `$`, which
+Compose would otherwise read as variable references.
+
+```bash
+ddev typo3 install:password:set --dry-run   # prints the password and its hash; nothing is saved
+```
+
 Friendly Captcha takes `FRIENDLYCAPTCHA_SITE_KEY` (the application's sitekey)
 and `FRIENDLYCAPTCHA_API_KEY` from the Friendly Captcha dashboard, where the
 application must allow the domain `typo3-lab.webconsulting.at`. The site
