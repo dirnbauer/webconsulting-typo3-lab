@@ -14155,11 +14155,11 @@
         },
         {
             "name": "webconsulting/webcon-templates",
-            "version": "v1.0.0",
+            "version": "v1.0.1",
             "source": {
                 "type": "git",
                 "url": "git@gitlab.webconsulting.at:extensions/typo3-webcon-templates.git",
-                "reference": "1fb7906b67fcb0b1bda4b52394204995c6d41e98"
+                "reference": "1fced7f0ada380e4dafbdd4db8cf1b4e88af270a"
             },
             "require": {
                 "friendsoftypo3/content-blocks": "^2.4",
@@ -14239,7 +14239,7 @@
                 "templates",
                 "themes"
             ],
-            "time": "2026-10-25T22:21:15+00:00"
+            "time": "2026-10-26T07:16:01+00:00"
         },
         {
             "name": "webconsulting/workos-auth",
