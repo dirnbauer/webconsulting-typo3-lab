@@ -125,6 +125,13 @@ return [
                     'apiKeyIdentifier' => '',
                 ],
             ],
+            'skills' => [
+                'instructionTrustLevel' => 'verified',
+                'maxBytes' => '24000',
+                // The default, untrusted, admits every enabled skill; the lab
+                // also keeps a deliberately malicious demo skill for SkillSpector.
+                'minTrustLevel' => 'verified',
+            ],
         ],
         'news' => [
             'advancedMediaPreview' => '1',

@@ -115,6 +115,12 @@ if (getenv('IS_DDEV_PROJECT') !== 'true') {
     $GLOBALS['TYPO3_CONF_VARS']['EXTENSIONS']['skillflow']['requireLocalEnvironment'] = '0';
     $GLOBALS['TYPO3_CONF_VARS']['EXTENSIONS']['skillflow']['runner'] = 'api';
 
+    // The demo APIs publish every content element's bodytext without
+    // authentication, paywalled pages included. The public API and its docs
+    // stay registered without them.
+    $GLOBALS['TYPO3_CONF_VARS']['EXTENSIONS']['sg_apicore']['activateDemoApis'] = '0';
+    $GLOBALS['TYPO3_CONF_VARS']['EXTENSIONS']['extensionmanager']['automaticInstallation'] = '0';
+
     // Empty keeps the configured provider unchanged. An explicit file is
     // validated on every bootstrap, before the native provider can fall back
     // to an auto-key. Provisioning/copying the exact current Vault master key
