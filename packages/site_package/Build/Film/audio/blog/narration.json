@@ -1,0 +1,515 @@
+{
+  "voice": "George",
+  "delivery": {
+    "stability": 0.62,
+    "similarity_boost": 0.78,
+    "style": 0.18,
+    "speed": 0.9
+  },
+  "lines": [
+    {
+      "say": "Many blog add-ons keep posts in their own tables, with their own editor and their own rules.",
+      "show": "Many blog add-ons keep posts in their own tables, with their own editor and their own rules.",
+      "file": "voice-01.mp3",
+      "duration": 6713,
+      "words": [
+        {
+          "word": "Many",
+          "start": 46,
+          "end": 325
+        },
+        {
+          "word": "blog",
+          "start": 395,
+          "end": 697
+        },
+        {
+          "word": "add-ons",
+          "start": 778,
+          "end": 1254
+        },
+        {
+          "word": "keep",
+          "start": 1347,
+          "end": 1556
+        },
+        {
+          "word": "posts",
+          "start": 1637,
+          "end": 2043
+        },
+        {
+          "word": "in",
+          "start": 2090,
+          "end": 2159
+        },
+        {
+          "word": "their",
+          "start": 2206,
+          "end": 2368
+        },
+        {
+          "word": "own",
+          "start": 2415,
+          "end": 2612
+        },
+        {
+          "word": "tables,",
+          "start": 2682,
+          "end": 3355
+        },
+        {
+          "word": "with",
+          "start": 3553,
+          "end": 3727
+        },
+        {
+          "word": "their",
+          "start": 3762,
+          "end": 3913
+        },
+        {
+          "word": "own",
+          "start": 3982,
+          "end": 4191
+        },
+        {
+          "word": "editor",
+          "start": 4272,
+          "end": 4714
+        },
+        {
+          "word": "and",
+          "start": 4795,
+          "end": 4899
+        },
+        {
+          "word": "their",
+          "start": 4946,
+          "end": 5097
+        },
+        {
+          "word": "own",
+          "start": 5166,
+          "end": 5364
+        },
+        {
+          "word": "rules.",
+          "start": 5445,
+          "end": 6084
+        }
+      ],
+      "heard": "Many blog add-ons keep posts in their own tables, with their own editor and their own rules."
+    },
+    {
+      "say": "The typo three Blog extension turns pages into posts, and Desiderio gives them your theme.",
+      "show": "The TYPO3 Blog extension turns pages into posts, and Desiderio gives them your theme.",
+      "file": "voice-02.mp3",
+      "duration": 7367,
+      "words": [
+        {
+          "word": "The",
+          "start": 12,
+          "end": 151
+        },
+        {
+          "word": "typo",
+          "start": 221,
+          "end": 627
+        },
+        {
+          "word": "three",
+          "start": 708,
+          "end": 1010
+        },
+        {
+          "word": "Blog",
+          "start": 1057,
+          "end": 1347
+        },
+        {
+          "word": "extension",
+          "start": 1416,
+          "end": 2101
+        },
+        {
+          "word": "turns",
+          "start": 2334,
+          "end": 2705
+        },
+        {
+          "word": "pages",
+          "start": 2775,
+          "end": 3204
+        },
+        {
+          "word": "into",
+          "start": 3251,
+          "end": 3413
+        },
+        {
+          "word": "posts,",
+          "start": 3495,
+          "end": 4249
+        },
+        {
+          "word": "and",
+          "start": 4516,
+          "end": 4679
+        },
+        {
+          "word": "Desiderio",
+          "start": 4748,
+          "end": 5550
+        },
+        {
+          "word": "gives",
+          "start": 5631,
+          "end": 5828
+        },
+        {
+          "word": "them",
+          "start": 5863,
+          "end": 5979
+        },
+        {
+          "word": "your",
+          "start": 6049,
+          "end": 6188
+        },
+        {
+          "word": "theme.",
+          "start": 6258,
+          "end": 6838
+        }
+      ],
+      "heard": "The TYPO3 blog extension turns pages into posts and Desiderio gives them your theme."
+    },
+    {
+      "say": "Editors write posts in the page module, with the content elements they know.",
+      "show": "Editors write posts in the page module, with the content elements they know.",
+      "file": "voice-03.mp3",
+      "duration": 5198,
+      "words": [
+        {
+          "word": "Editors",
+          "start": 12,
+          "end": 488
+        },
+        {
+          "word": "write",
+          "start": 522,
+          "end": 778
+        },
+        {
+          "word": "posts",
+          "start": 824,
+          "end": 1277
+        },
+        {
+          "word": "in",
+          "start": 1324,
+          "end": 1393
+        },
+        {
+          "word": "the",
+          "start": 1440,
+          "end": 1509
+        },
+        {
+          "word": "page",
+          "start": 1544,
+          "end": 1869
+        },
+        {
+          "word": "module,",
+          "start": 1904,
+          "end": 2461
+        },
+        {
+          "word": "with",
+          "start": 2589,
+          "end": 2775
+        },
+        {
+          "word": "the",
+          "start": 2798,
+          "end": 2868
+        },
+        {
+          "word": "content",
+          "start": 2914,
+          "end": 3355
+        },
+        {
+          "word": "elements",
+          "start": 3437,
+          "end": 3866
+        },
+        {
+          "word": "they",
+          "start": 3913,
+          "end": 4052
+        },
+        {
+          "word": "know.",
+          "start": 4098,
+          "end": 4632
+        }
+      ],
+      "heard": "Editors write posts in the page module with the content elements they know."
+    },
+    {
+      "say": "The Posts module lists every post with author, categories, tags and date.",
+      "show": "The Posts module lists every post with author, categories, tags and date.",
+      "file": "voice-04.mp3",
+      "duration": 6165,
+      "words": [
+        {
+          "word": "The",
+          "start": 23,
+          "end": 139
+        },
+        {
+          "word": "Posts",
+          "start": 209,
+          "end": 580
+        },
+        {
+          "word": "module",
+          "start": 650,
+          "end": 1184
+        },
+        {
+          "word": "lists",
+          "start": 1312,
+          "end": 1683
+        },
+        {
+          "word": "every",
+          "start": 1776,
+          "end": 2067
+        },
+        {
+          "word": "post",
+          "start": 2148,
+          "end": 2508
+        },
+        {
+          "word": "with",
+          "start": 2554,
+          "end": 2694
+        },
+        {
+          "word": "author,",
+          "start": 2775,
+          "end": 3355
+        },
+        {
+          "word": "categories,",
+          "start": 3518,
+          "end": 4331
+        },
+        {
+          "word": "tags",
+          "start": 4412,
+          "end": 4876
+        },
+        {
+          "word": "and",
+          "start": 4923,
+          "end": 5039
+        },
+        {
+          "word": "date.",
+          "start": 5120,
+          "end": 5608
+        }
+      ],
+      "heard": "The Posts module lists every post with author, categories, tags and date."
+    },
+    {
+      "say": "Posts open with the date, the title, a teaser and the reading time.",
+      "show": "Posts open with the date, the title, a teaser and the reading time.",
+      "file": "voice-05.mp3",
+      "duration": 5381,
+      "words": [
+        {
+          "word": "Posts",
+          "start": 23,
+          "end": 522
+        },
+        {
+          "word": "open",
+          "start": 604,
+          "end": 906
+        },
+        {
+          "word": "with",
+          "start": 952,
+          "end": 1068
+        },
+        {
+          "word": "the",
+          "start": 1103,
+          "end": 1173
+        },
+        {
+          "word": "date,",
+          "start": 1219,
+          "end": 1637
+        },
+        {
+          "word": "the",
+          "start": 1718,
+          "end": 1834
+        },
+        {
+          "word": "title,",
+          "start": 1904,
+          "end": 2531
+        },
+        {
+          "word": "a",
+          "start": 2601,
+          "end": 2694
+        },
+        {
+          "word": "teaser",
+          "start": 2786,
+          "end": 3239
+        },
+        {
+          "word": "and",
+          "start": 3320,
+          "end": 3425
+        },
+        {
+          "word": "the",
+          "start": 3471,
+          "end": 3541
+        },
+        {
+          "word": "reading",
+          "start": 3611,
+          "end": 3913
+        },
+        {
+          "word": "time.",
+          "start": 3982,
+          "end": 4540
+        }
+      ],
+      "heard": "Posts open with the date, the title, a teaser and the reading time.",
+      "end": 4530
+    },
+    {
+      "say": "Readers comment under the post, and editors can approve each comment first.",
+      "show": "Readers comment under the post, and editors can approve each comment first.",
+      "file": "voice-06.mp3",
+      "duration": 5433,
+      "words": [
+        {
+          "word": "Readers",
+          "start": 23,
+          "end": 418
+        },
+        {
+          "word": "comment",
+          "start": 499,
+          "end": 917
+        },
+        {
+          "word": "under",
+          "start": 998,
+          "end": 1184
+        },
+        {
+          "word": "the",
+          "start": 1219,
+          "end": 1289
+        },
+        {
+          "word": "post,",
+          "start": 1358,
+          "end": 1904
+        },
+        {
+          "word": "and",
+          "start": 2032,
+          "end": 2183
+        },
+        {
+          "word": "editors",
+          "start": 2276,
+          "end": 2740
+        },
+        {
+          "word": "can",
+          "start": 2786,
+          "end": 2902
+        },
+        {
+          "word": "approve",
+          "start": 2937,
+          "end": 3344
+        },
+        {
+          "word": "each",
+          "start": 3390,
+          "end": 3553
+        },
+        {
+          "word": "comment",
+          "start": 3622,
+          "end": 3971
+        },
+        {
+          "word": "first.",
+          "start": 4052,
+          "end": 4690
+        }
+      ],
+      "heard": "Readers comment under the post and editors can approve each comment first."
+    },
+    {
+      "say": "typo three Blog, styled by Desiderio.",
+      "show": "TYPO3 Blog, styled by Desiderio.",
+      "file": "voice-07.mp3",
+      "duration": 3422,
+      "words": [
+        {
+          "word": "typo",
+          "start": 23,
+          "end": 430
+        },
+        {
+          "word": "three",
+          "start": 511,
+          "end": 789
+        },
+        {
+          "word": "Blog,",
+          "start": 836,
+          "end": 1300
+        },
+        {
+          "word": "styled",
+          "start": 1428,
+          "end": 1869
+        },
+        {
+          "word": "by",
+          "start": 1916,
+          "end": 2032
+        },
+        {
+          "word": "Desiderio.",
+          "start": 2113,
+          "end": 3088
+        }
+      ],
+      "heard": "Typo3 blog, styled by Desiderio."
+    }
+  ]
+}

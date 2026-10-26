@@ -1,0 +1,46 @@
+{
+  "id": "content-types-people-team",
+  "page": 673,
+  "slug": "/content-types/people-team",
+  "title": "People & Team: overview film",
+  "header": "People & Team in 31 seconds",
+  "description": "<p>Introduce the people behind the work. A narrated tour, recorded in this TYPO3 v14 lab, with English captions.</p>",
+  "mp4": "content-types-people-team-98abece6.mp4",
+  "poster": "content-types-people-team-poster-98abece6.webp",
+  "vtt": "content-types-people-team-98abece6.en.vtt",
+  "duration": 30.832,
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "sound": true,
+  "alt": "Overview film, 31 seconds: the 24 People & Team elements of Desiderio for TYPO3 v14, including team grid, org chart, company history, office locations, career listing, founder quote. Narrated, with English captions.",
+  "transcript": [
+    {
+      "at": "0:02",
+      "text": "An about page without faces or history tells visitors nothing about who does the work."
+    },
+    {
+      "at": "0:09",
+      "text": "People and Team has 24 elements for the people behind the work."
+    },
+    {
+      "at": "0:14",
+      "text": "Team grids, an org chart, company history, offices, open roles and a founder quote."
+    },
+    {
+      "at": "0:23",
+      "text": "Show who does the work, and where to find them."
+    }
+  ],
+  "captions": {
+    "language": "en",
+    "label": "English",
+    "burnedIn": true
+  },
+  "bytes": {
+    "mp4": 2180981,
+    "poster": 43742,
+    "vtt": 459
+  },
+  "generator": "packages/site_package/Build/Film/render-films.mjs"
+}

@@ -30,3 +30,6 @@ desiderio.footer.aiNotice: true
 desiderio.header.ctaSlug: /downloads
 # Compact footer tagline with the framework and design inspiration.
 desiderio.brand.tagline: 'shadcn/ui · TYPO3 v14 · inspired by Camino'
+
+# The home page shows the mega menu in the header instead of the main menu.
+desiderio.navigation.megaMenu: home

@@ -1,0 +1,54 @@
+{
+  "id": "agentation",
+  "page": 1079,
+  "slug": "/ai/agentation",
+  "title": "Agentation: overview film",
+  "header": "Agentation in 50 seconds",
+  "description": "<p>Show coding agents what to fix. A narrated tour, recorded in this TYPO3 v14 lab, with English captions.</p>",
+  "mp4": "agentation-daf3e151.mp4",
+  "poster": "agentation-poster-daf3e151.webp",
+  "vtt": "agentation-daf3e151.en.vtt",
+  "duration": 49.795,
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "sound": true,
+  "alt": "Overview film, 50 seconds: Agentation for TYPO3 v14. Notes on backend screens; Connect your agent in one step. Narrated, with English captions.",
+  "transcript": [
+    {
+      "at": "0:02",
+      "text": "Clients describe problems in words, like the button on the right, and your coding agent has to guess the element."
+    },
+    {
+      "at": "0:10",
+      "text": "With Agentation, you click an element and write a note for your coding agent."
+    },
+    {
+      "at": "0:17",
+      "text": "It works on backend screens too, so editors can mark up any module."
+    },
+    {
+      "at": "0:23",
+      "text": "Copy the MCP configuration, check the status and manage the notes in one module."
+    },
+    {
+      "at": "0:31",
+      "text": "Each note carries the selector, the page and the computed styles to Claude Code or Cursor. Visitors never see the toolbar."
+    },
+    {
+      "at": "0:42",
+      "text": "Agentation for TYPO3."
+    }
+  ],
+  "captions": {
+    "language": "en",
+    "label": "English",
+    "burnedIn": true
+  },
+  "bytes": {
+    "mp4": 3500504,
+    "poster": 47698,
+    "vtt": 725
+  },
+  "generator": "packages/site_package/Build/Film/render-films.mjs"
+}

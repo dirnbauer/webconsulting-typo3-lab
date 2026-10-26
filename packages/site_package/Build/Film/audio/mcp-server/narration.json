@@ -1,0 +1,471 @@
+{
+  "voice": "George",
+  "delivery": {
+    "stability": 0.62,
+    "similarity_boost": 0.78,
+    "style": 0.18,
+    "speed": 0.9
+  },
+  "lines": [
+    {
+      "say": "Your team works in Claude or Cursor, but typo three content reaches them by copy and paste.",
+      "show": "Your team works in Claude or Cursor, but TYPO3 content reaches them by copy and paste.",
+      "file": "voice-01.mp3",
+      "duration": 6400,
+      "words": [
+        {
+          "word": "Your",
+          "start": 70,
+          "end": 244
+        },
+        {
+          "word": "team",
+          "start": 290,
+          "end": 522
+        },
+        {
+          "word": "works",
+          "start": 592,
+          "end": 894
+        },
+        {
+          "word": "in",
+          "start": 940,
+          "end": 1010
+        },
+        {
+          "word": "Claude",
+          "start": 1091,
+          "end": 1498
+        },
+        {
+          "word": "or",
+          "start": 1533,
+          "end": 1614
+        },
+        {
+          "word": "Cursor,",
+          "start": 1695,
+          "end": 2299
+        },
+        {
+          "word": "but",
+          "start": 2438,
+          "end": 2612
+        },
+        {
+          "word": "typo",
+          "start": 2647,
+          "end": 3007
+        },
+        {
+          "word": "three",
+          "start": 3077,
+          "end": 3355
+        },
+        {
+          "word": "content",
+          "start": 3425,
+          "end": 3936
+        },
+        {
+          "word": "reaches",
+          "start": 4029,
+          "end": 4377
+        },
+        {
+          "word": "them",
+          "start": 4412,
+          "end": 4540
+        },
+        {
+          "word": "by",
+          "start": 4609,
+          "end": 4737
+        },
+        {
+          "word": "copy",
+          "start": 4830,
+          "end": 5132
+        },
+        {
+          "word": "and",
+          "start": 5166,
+          "end": 5236
+        },
+        {
+          "word": "paste.",
+          "start": 5306,
+          "end": 5875
+        }
+      ],
+      "heard": "Your team works in Clawed or Cursor, but TYPO3 content reaches them by copy and paste."
+    },
+    {
+      "say": "The M C P Server gives Claude, Cursor and Codex structured tools for typo three.",
+      "show": "The MCP Server gives Claude, Cursor and Codex structured tools for TYPO3.",
+      "file": "voice-02.mp3",
+      "duration": 6452,
+      "words": [
+        {
+          "word": "The",
+          "start": 12,
+          "end": 139
+        },
+        {
+          "word": "M",
+          "start": 221,
+          "end": 348
+        },
+        {
+          "word": "C",
+          "start": 430,
+          "end": 499
+        },
+        {
+          "word": "P",
+          "start": 662,
+          "end": 743
+        },
+        {
+          "word": "Server",
+          "start": 940,
+          "end": 1312
+        },
+        {
+          "word": "gives",
+          "start": 1382,
+          "end": 1579
+        },
+        {
+          "word": "Claude,",
+          "start": 1649,
+          "end": 2113
+        },
+        {
+          "word": "Cursor",
+          "start": 2206,
+          "end": 2670
+        },
+        {
+          "word": "and",
+          "start": 2740,
+          "end": 2844
+        },
+        {
+          "word": "Codex",
+          "start": 2937,
+          "end": 3460
+        },
+        {
+          "word": "structured",
+          "start": 3657,
+          "end": 4191
+        },
+        {
+          "word": "tools",
+          "start": 4226,
+          "end": 4586
+        },
+        {
+          "word": "for",
+          "start": 4632,
+          "end": 4737
+        },
+        {
+          "word": "typo",
+          "start": 4807,
+          "end": 5166
+        },
+        {
+          "word": "three.",
+          "start": 5248,
+          "end": 5886
+        }
+      ],
+      "heard": "The MCP server gives Claude, Cursor and Codex structured tools for TYPO3."
+    },
+    {
+      "say": "Every tool is listed, with badges for reading, writing and administrator-only.",
+      "show": "Every tool is listed, with badges for reading, writing and administrator-only.",
+      "file": "voice-03.mp3",
+      "duration": 5616,
+      "words": [
+        {
+          "word": "Every",
+          "start": 12,
+          "end": 313
+        },
+        {
+          "word": "tool",
+          "start": 360,
+          "end": 604
+        },
+        {
+          "word": "is",
+          "start": 673,
+          "end": 743
+        },
+        {
+          "word": "listed,",
+          "start": 824,
+          "end": 1393
+        },
+        {
+          "word": "with",
+          "start": 1498,
+          "end": 1683
+        },
+        {
+          "word": "badges",
+          "start": 1730,
+          "end": 2159
+        },
+        {
+          "word": "for",
+          "start": 2206,
+          "end": 2310
+        },
+        {
+          "word": "reading,",
+          "start": 2380,
+          "end": 2891
+        },
+        {
+          "word": "writing",
+          "start": 2972,
+          "end": 3483
+        },
+        {
+          "word": "and",
+          "start": 3564,
+          "end": 3680
+        },
+        {
+          "word": "administrator-only.",
+          "start": 3715,
+          "end": 5085
+        }
+      ],
+      "heard": "Every tool is listed with badges for reading, writing and administrator only."
+    },
+    {
+      "say": "Connection checks test the endpoint, OAuth and workspaces, and say what to do next.",
+      "show": "Connection checks test the endpoint, OAuth and workspaces, and say what to do next.",
+      "file": "voice-04.mp3",
+      "duration": 6269,
+      "words": [
+        {
+          "word": "Connection",
+          "start": 12,
+          "end": 476
+        },
+        {
+          "word": "checks",
+          "start": 546,
+          "end": 871
+        },
+        {
+          "word": "test",
+          "start": 917,
+          "end": 1231
+        },
+        {
+          "word": "the",
+          "start": 1265,
+          "end": 1347
+        },
+        {
+          "word": "endpoint,",
+          "start": 1428,
+          "end": 2101
+        },
+        {
+          "word": "OAuth",
+          "start": 2334,
+          "end": 2810
+        },
+        {
+          "word": "and",
+          "start": 2856,
+          "end": 2926
+        },
+        {
+          "word": "workspaces,",
+          "start": 2995,
+          "end": 3889
+        },
+        {
+          "word": "and",
+          "start": 4052,
+          "end": 4214
+        },
+        {
+          "word": "say",
+          "start": 4284,
+          "end": 4447
+        },
+        {
+          "word": "what",
+          "start": 4493,
+          "end": 4621
+        },
+        {
+          "word": "to",
+          "start": 4667,
+          "end": 4714
+        },
+        {
+          "word": "do",
+          "start": 4783,
+          "end": 4899
+        },
+        {
+          "word": "next.",
+          "start": 4981,
+          "end": 5526
+        }
+      ],
+      "heard": "Connection checks test the endpoint, OAuth and workspaces, and say what to do next."
+    },
+    {
+      "say": "On production, every write lands in a workspace, until an editor publishes it.",
+      "show": "On production, every write lands in a workspace, until an editor publishes it.",
+      "file": "voice-05.mp3",
+      "duration": 5512,
+      "words": [
+        {
+          "word": "On",
+          "start": 12,
+          "end": 186
+        },
+        {
+          "word": "production,",
+          "start": 255,
+          "end": 894
+        },
+        {
+          "word": "every",
+          "start": 987,
+          "end": 1265
+        },
+        {
+          "word": "write",
+          "start": 1300,
+          "end": 1591
+        },
+        {
+          "word": "lands",
+          "start": 1637,
+          "end": 1916
+        },
+        {
+          "word": "in",
+          "start": 1950,
+          "end": 2009
+        },
+        {
+          "word": "a",
+          "start": 2043,
+          "end": 2067
+        },
+        {
+          "word": "workspace,",
+          "start": 2113,
+          "end": 2937
+        },
+        {
+          "word": "until",
+          "start": 3135,
+          "end": 3413
+        },
+        {
+          "word": "an",
+          "start": 3460,
+          "end": 3506
+        },
+        {
+          "word": "editor",
+          "start": 3576,
+          "end": 3913
+        },
+        {
+          "word": "publishes",
+          "start": 3959,
+          "end": 4423
+        },
+        {
+          "word": "it.",
+          "start": 4505,
+          "end": 4807
+        }
+      ],
+      "heard": "On production, every right lands in a workspace until an editor publishes it.",
+      "end": 4800
+    },
+    {
+      "say": "M C P Server for typo three. Drafts before live content.",
+      "show": "MCP Server for TYPO3. Drafts before live content.",
+      "file": "voice-06.mp3",
+      "duration": 5016,
+      "words": [
+        {
+          "word": "M",
+          "start": 23,
+          "end": 221
+        },
+        {
+          "word": "C",
+          "start": 302,
+          "end": 395
+        },
+        {
+          "word": "P",
+          "start": 557,
+          "end": 662
+        },
+        {
+          "word": "Server",
+          "start": 859,
+          "end": 1277
+        },
+        {
+          "word": "for",
+          "start": 1358,
+          "end": 1474
+        },
+        {
+          "word": "typo",
+          "start": 1509,
+          "end": 1869
+        },
+        {
+          "word": "three.",
+          "start": 1950,
+          "end": 2473
+        },
+        {
+          "word": "Drafts",
+          "start": 2740,
+          "end": 3251
+        },
+        {
+          "word": "before",
+          "start": 3297,
+          "end": 3646
+        },
+        {
+          "word": "live",
+          "start": 3715,
+          "end": 3994
+        },
+        {
+          "word": "content.",
+          "start": 4040,
+          "end": 4679
+        }
+      ],
+      "heard": "MCP server for TYPO3. Drafts before live content."
+    }
+  ]
+}

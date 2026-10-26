@@ -1,0 +1,572 @@
+{
+  "voice": "George",
+  "delivery": {
+    "stability": 0.62,
+    "similarity_boost": 0.78,
+    "style": 0.18,
+    "speed": 0.9
+  },
+  "lines": [
+    {
+      "say": "AI agents read your site without a map, and a hand-written L L M S dot text goes stale with the next new page.",
+      "show": "AI agents read your site without a map, and a hand-written llms.txt goes stale with the next new page.",
+      "file": "voice-01.mp3",
+      "duration": 8908,
+      "words": [
+        {
+          "word": "AI",
+          "start": 35,
+          "end": 383
+        },
+        {
+          "word": "agents",
+          "start": 430,
+          "end": 824
+        },
+        {
+          "word": "read",
+          "start": 917,
+          "end": 1103
+        },
+        {
+          "word": "your",
+          "start": 1149,
+          "end": 1277
+        },
+        {
+          "word": "site",
+          "start": 1347,
+          "end": 1625
+        },
+        {
+          "word": "without",
+          "start": 1649,
+          "end": 1974
+        },
+        {
+          "word": "a",
+          "start": 2020,
+          "end": 2043
+        },
+        {
+          "word": "map,",
+          "start": 2125,
+          "end": 2554
+        },
+        {
+          "word": "and",
+          "start": 2786,
+          "end": 2949
+        },
+        {
+          "word": "a",
+          "start": 3019,
+          "end": 3042
+        },
+        {
+          "word": "hand-written",
+          "start": 3111,
+          "end": 3646
+        },
+        {
+          "word": "L",
+          "start": 3738,
+          "end": 3971
+        },
+        {
+          "word": "L",
+          "start": 4098,
+          "end": 4296
+        },
+        {
+          "word": "M",
+          "start": 4389,
+          "end": 4551
+        },
+        {
+          "word": "S",
+          "start": 4679,
+          "end": 4911
+        },
+        {
+          "word": "dot",
+          "start": 5039,
+          "end": 5306
+        },
+        {
+          "word": "text",
+          "start": 5375,
+          "end": 5875
+        },
+        {
+          "word": "goes",
+          "start": 6142,
+          "end": 6397
+        },
+        {
+          "word": "stale",
+          "start": 6432,
+          "end": 6827
+        },
+        {
+          "word": "with",
+          "start": 6861,
+          "end": 6966
+        },
+        {
+          "word": "the",
+          "start": 7001,
+          "end": 7070
+        },
+        {
+          "word": "next",
+          "start": 7105,
+          "end": 7349
+        },
+        {
+          "word": "new",
+          "start": 7430,
+          "end": 7593
+        },
+        {
+          "word": "page.",
+          "start": 7663,
+          "end": 8301
+        }
+      ],
+      "heard": "AI agents read your site without a map and a handwritten llms.txt goes stale with the next new page."
+    },
+    {
+      "say": "Every typo three site and language serves an L L M S dot text and an agents dot M D, built from the page tree.",
+      "show": "Every TYPO3 site and language serves an llms.txt and an agents.md, built from the page tree.",
+      "file": "voice-02.mp3",
+      "duration": 10057,
+      "words": [
+        {
+          "word": "Every",
+          "start": 23,
+          "end": 348
+        },
+        {
+          "word": "typo",
+          "start": 418,
+          "end": 813
+        },
+        {
+          "word": "three",
+          "start": 906,
+          "end": 1196
+        },
+        {
+          "word": "site",
+          "start": 1242,
+          "end": 1567
+        },
+        {
+          "word": "and",
+          "start": 1591,
+          "end": 1672
+        },
+        {
+          "word": "language",
+          "start": 1753,
+          "end": 2276
+        },
+        {
+          "word": "serves",
+          "start": 2473,
+          "end": 2844
+        },
+        {
+          "word": "an",
+          "start": 2879,
+          "end": 2961
+        },
+        {
+          "word": "L",
+          "start": 3088,
+          "end": 3286
+        },
+        {
+          "word": "L",
+          "start": 3413,
+          "end": 3576
+        },
+        {
+          "word": "M",
+          "start": 3680,
+          "end": 3808
+        },
+        {
+          "word": "S",
+          "start": 3913,
+          "end": 4110
+        },
+        {
+          "word": "dot",
+          "start": 4214,
+          "end": 4458
+        },
+        {
+          "word": "text",
+          "start": 4528,
+          "end": 5027
+        },
+        {
+          "word": "and",
+          "start": 5387,
+          "end": 5596
+        },
+        {
+          "word": "an",
+          "start": 5666,
+          "end": 5724
+        },
+        {
+          "word": "agents",
+          "start": 5805,
+          "end": 6269
+        },
+        {
+          "word": "dot",
+          "start": 6339,
+          "end": 6594
+        },
+        {
+          "word": "M",
+          "start": 6687,
+          "end": 6850
+        },
+        {
+          "word": "D,",
+          "start": 6954,
+          "end": 7488
+        },
+        {
+          "word": "built",
+          "start": 7686,
+          "end": 7964
+        },
+        {
+          "word": "from",
+          "start": 8011,
+          "end": 8127
+        },
+        {
+          "word": "the",
+          "start": 8173,
+          "end": 8243
+        },
+        {
+          "word": "page",
+          "start": 8278,
+          "end": 8638
+        },
+        {
+          "word": "tree.",
+          "start": 8684,
+          "end": 9242
+        }
+      ],
+      "heard": "Every TYPO3 site and language serves an llms.txt and an agents.md built from the page tree."
+    },
+    {
+      "say": "agents dot M D lists the machine interfaces your site really has.",
+      "show": "agents.md lists the machine interfaces your site really has.",
+      "file": "voice-03.mp3",
+      "duration": 5695,
+      "words": [
+        {
+          "word": "agents",
+          "start": 12,
+          "end": 464
+        },
+        {
+          "word": "dot",
+          "start": 511,
+          "end": 755
+        },
+        {
+          "word": "M",
+          "start": 836,
+          "end": 998
+        },
+        {
+          "word": "D",
+          "start": 1091,
+          "end": 1219
+        },
+        {
+          "word": "lists",
+          "start": 1707,
+          "end": 2125
+        },
+        {
+          "word": "the",
+          "start": 2194,
+          "end": 2264
+        },
+        {
+          "word": "machine",
+          "start": 2310,
+          "end": 2682
+        },
+        {
+          "word": "interfaces",
+          "start": 2728,
+          "end": 3379
+        },
+        {
+          "word": "your",
+          "start": 3460,
+          "end": 3622
+        },
+        {
+          "word": "site",
+          "start": 3704,
+          "end": 4063
+        },
+        {
+          "word": "really",
+          "start": 4110,
+          "end": 4389
+        },
+        {
+          "word": "has.",
+          "start": 4458,
+          "end": 5062
+        }
+      ],
+      "heard": "Agents.md lists the machine interfaces your site really has.",
+      "end": 5040
+    },
+    {
+      "say": "Each language gets its own file, with translated titles and U R Ls.",
+      "show": "Each language gets its own file, with translated titles and URLs.",
+      "file": "voice-04.mp3",
+      "duration": 5277,
+      "words": [
+        {
+          "word": "Each",
+          "start": 23,
+          "end": 244
+        },
+        {
+          "word": "language",
+          "start": 325,
+          "end": 720
+        },
+        {
+          "word": "gets",
+          "start": 755,
+          "end": 964
+        },
+        {
+          "word": "its",
+          "start": 1010,
+          "end": 1126
+        },
+        {
+          "word": "own",
+          "start": 1173,
+          "end": 1358
+        },
+        {
+          "word": "file,",
+          "start": 1451,
+          "end": 1927
+        },
+        {
+          "word": "with",
+          "start": 2020,
+          "end": 2206
+        },
+        {
+          "word": "translated",
+          "start": 2241,
+          "end": 2879
+        },
+        {
+          "word": "titles",
+          "start": 2926,
+          "end": 3413
+        },
+        {
+          "word": "and",
+          "start": 3460,
+          "end": 3553
+        },
+        {
+          "word": "U",
+          "start": 3657,
+          "end": 3785
+        },
+        {
+          "word": "R",
+          "start": 3913,
+          "end": 4040
+        },
+        {
+          "word": "Ls.",
+          "start": 4203,
+          "end": 4760
+        }
+      ],
+      "heard": "Each language gets its own file with translated titles and URLEs."
+    },
+    {
+      "say": "Page titles and descriptions become the links, so there is nothing extra to maintain.",
+      "show": "Page titles and descriptions become the links, so there is nothing extra to maintain.",
+      "file": "voice-05.mp3",
+      "duration": 6504,
+      "words": [
+        {
+          "word": "Page",
+          "start": 23,
+          "end": 441
+        },
+        {
+          "word": "titles",
+          "start": 476,
+          "end": 929
+        },
+        {
+          "word": "and",
+          "start": 975,
+          "end": 1057
+        },
+        {
+          "word": "descriptions",
+          "start": 1126,
+          "end": 1869
+        },
+        {
+          "word": "become",
+          "start": 1997,
+          "end": 2357
+        },
+        {
+          "word": "the",
+          "start": 2392,
+          "end": 2461
+        },
+        {
+          "word": "links,",
+          "start": 2508,
+          "end": 3123
+        },
+        {
+          "word": "so",
+          "start": 3437,
+          "end": 3576
+        },
+        {
+          "word": "there",
+          "start": 3646,
+          "end": 3785
+        },
+        {
+          "word": "is",
+          "start": 3820,
+          "end": 3889
+        },
+        {
+          "word": "nothing",
+          "start": 3959,
+          "end": 4203
+        },
+        {
+          "word": "extra",
+          "start": 4296,
+          "end": 4690
+        },
+        {
+          "word": "to",
+          "start": 4737,
+          "end": 4783
+        },
+        {
+          "word": "maintain.",
+          "start": 4853,
+          "end": 5654
+        }
+      ],
+      "heard": "Page titles and descriptions become the links, so there is nothing extra to maintain.",
+      "end": 5650
+    },
+    {
+      "say": "L L M S dot text for typo three. Always up to date.",
+      "show": "llms.txt for TYPO3. Always up to date.",
+      "file": "voice-06.mp3",
+      "duration": 5094,
+      "words": [
+        {
+          "word": "L",
+          "start": 12,
+          "end": 279
+        },
+        {
+          "word": "L",
+          "start": 383,
+          "end": 580
+        },
+        {
+          "word": "M",
+          "start": 685,
+          "end": 882
+        },
+        {
+          "word": "S",
+          "start": 1010,
+          "end": 1242
+        },
+        {
+          "word": "dot",
+          "start": 1509,
+          "end": 1788
+        },
+        {
+          "word": "text",
+          "start": 1858,
+          "end": 2252
+        },
+        {
+          "word": "for",
+          "start": 2299,
+          "end": 2403
+        },
+        {
+          "word": "typo",
+          "start": 2450,
+          "end": 2844
+        },
+        {
+          "word": "three.",
+          "start": 2926,
+          "end": 3495
+        },
+        {
+          "word": "Always",
+          "start": 3692,
+          "end": 4040
+        },
+        {
+          "word": "up",
+          "start": 4087,
+          "end": 4180
+        },
+        {
+          "word": "to",
+          "start": 4226,
+          "end": 4284
+        },
+        {
+          "word": "date.",
+          "start": 4354,
+          "end": 4795
+        }
+      ],
+      "heard": "llms.text for TYPO3, always up to date."
+    }
+  ]
+}

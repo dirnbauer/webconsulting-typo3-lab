@@ -1,0 +1,58 @@
+{
+  "id": "agent-nexus",
+  "page": 2086,
+  "slug": "/ai/agent-nexus",
+  "title": "Agent Nexus: overview film",
+  "header": "Agent Nexus in 60 seconds",
+  "description": "<p>Five agent protocols on your own TYPO3. A narrated tour, recorded in this TYPO3 v14 lab, with English captions.</p>",
+  "mp4": "agent-nexus-1eee0814.mp4",
+  "poster": "agent-nexus-poster-1eee0814.webp",
+  "vtt": "agent-nexus-1eee0814.en.vtt",
+  "duration": 60.082,
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "sound": true,
+  "alt": "Overview film, 60 seconds: Agent Nexus for TYPO3 v14. One sentence, a working form; Watch the run, then approve; A cart that waits for your OK; Every request on record. Narrated, with English captions.",
+  "transcript": [
+    {
+      "at": "0:02",
+      "text": "Clients ask what A2A, AG-UI or UCP would mean for their site, and a slide cannot show a real request."
+    },
+    {
+      "at": "0:13",
+      "text": "Agent Nexus runs five agent protocols on TYPO3, with endpoints, widgets and a traffic log."
+    },
+    {
+      "at": "0:22",
+      "text": "With A2UI, one sentence becomes a form, drawn from TYPO3’s trusted components."
+    },
+    {
+      "at": "0:30",
+      "text": "With AG-UI, the run streams as typed events and stops for your approval."
+    },
+    {
+      "at": "0:37",
+      "text": "A shopping agent builds a priced cart. Nothing is ordered until a person approves."
+    },
+    {
+      "at": "0:44",
+      "text": "The traffic log keeps every request and event, with personal data masked."
+    },
+    {
+      "at": "0:52",
+      "text": "Agent Nexus. Every write waits for a person."
+    }
+  ],
+  "captions": {
+    "language": "en",
+    "label": "English",
+    "burnedIn": true
+  },
+  "bytes": {
+    "mp4": 4429437,
+    "poster": 32724,
+    "vtt": 822
+  },
+  "generator": "packages/site_package/Build/Film/render-films.mjs"
+}

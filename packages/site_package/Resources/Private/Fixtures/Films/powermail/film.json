@@ -1,0 +1,58 @@
+{
+  "id": "powermail",
+  "page": 1076,
+  "slug": "/features/powermail",
+  "title": "Powermail: overview film",
+  "header": "Powermail in 51 seconds",
+  "description": "<p>Forms your editors build, in your theme. A narrated tour, recorded in this TYPO3 v14 lab, with English captions.</p>",
+  "mp4": "powermail-e33fe765.mp4",
+  "poster": "powermail-poster-e33fe765.webp",
+  "vtt": "powermail-e33fe765.en.vtt",
+  "duration": 51.419,
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "sound": true,
+  "alt": "Overview film, 51 seconds: Powermail for TYPO3 v14. Every form in one overview; Each error at its field; Consent and spam protection; Every field in your theme. Narrated, with English captions.",
+  "transcript": [
+    {
+      "at": "0:02",
+      "text": "Long forms put people off, spam fills the inbox, and many captchas make visitors solve puzzles."
+    },
+    {
+      "at": "0:10",
+      "text": "Powermail lets editors build forms in the backend, and Desiderio styles every field."
+    },
+    {
+      "at": "0:19",
+      "text": "Editors manage every form, and see the pages that use it."
+    },
+    {
+      "at": "0:24",
+      "text": "Each error shows at its field, and the server checks everything again."
+    },
+    {
+      "at": "0:31",
+      "text": "Long forms split into steps, and Friendly Captcha guards the last one."
+    },
+    {
+      "at": "0:37",
+      "text": "Every field follows the theme preset, in light and dark mode."
+    },
+    {
+      "at": "0:44",
+      "text": "Powermail, styled by Desiderio."
+    }
+  ],
+  "captions": {
+    "language": "en",
+    "label": "English",
+    "burnedIn": true
+  },
+  "bytes": {
+    "mp4": 3432891,
+    "poster": 39014,
+    "vtt": 746
+  },
+  "generator": "packages/site_package/Build/Film/render-films.mjs"
+}

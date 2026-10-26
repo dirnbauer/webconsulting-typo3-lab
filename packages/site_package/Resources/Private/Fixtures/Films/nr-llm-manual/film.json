@@ -1,0 +1,58 @@
+{
+  "id": "nr-llm-manual",
+  "page": 1309,
+  "slug": "/ai/nr-llm-manual",
+  "title": "nr-llm: overview film",
+  "header": "nr-llm in 58 seconds",
+  "description": "<p>One AI setup for every TYPO3 extension. A narrated tour, recorded in this TYPO3 v14 lab, with English captions.</p>",
+  "mp4": "nr-llm-manual-9f3176c9.mp4",
+  "poster": "nr-llm-manual-poster-9f3176c9.webp",
+  "vtt": "nr-llm-manual-9f3176c9.en.vtt",
+  "duration": 58.332,
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "sound": true,
+  "alt": "Overview film, 58 seconds: nr-llm for TYPO3 v14. Keys stay in the vault; Capabilities and usage; Named configurations; Test before you assign. Narrated, with English captions.",
+  "transcript": [
+    {
+      "at": "0:02",
+      "text": "Each AI extension wants its own provider settings, its own API key and its own bill."
+    },
+    {
+      "at": "0:10",
+      "text": "nr-llm keeps AI providers, models and configurations in one place."
+    },
+    {
+      "at": "0:19",
+      "text": "Keys sit encrypted in nr-vault. The backend shows Configured, never the key."
+    },
+    {
+      "at": "0:26",
+      "text": "Each model lists its capabilities, its context size and its usage over 30 days."
+    },
+    {
+      "at": "0:34",
+      "text": "Features ask for a named configuration. Change its model, and every feature follows."
+    },
+    {
+      "at": "0:42",
+      "text": "One click tests a configuration before any task uses it."
+    },
+    {
+      "at": "0:48",
+      "text": "nr-llm by Netresearch. Usage and cost in one view."
+    }
+  ],
+  "captions": {
+    "language": "en",
+    "label": "English",
+    "burnedIn": true
+  },
+  "bytes": {
+    "mp4": 3767038,
+    "poster": 27498,
+    "vtt": 770
+  },
+  "generator": "packages/site_package/Build/Film/render-films.mjs"
+}

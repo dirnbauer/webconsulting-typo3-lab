@@ -1,0 +1,46 @@
+{
+  "id": "content-types-navigation-wayfinding",
+  "page": 670,
+  "slug": "/content-types/navigation-wayfinding",
+  "title": "Navigation & Wayfinding: overview film",
+  "header": "Navigation & Wayfinding in 34 seconds",
+  "description": "<p>Menus, breadcrumbs and pagination. A narrated tour, recorded in this TYPO3 v14 lab, with English captions.</p>",
+  "mp4": "content-types-navigation-wayfinding-9844252e.mp4",
+  "poster": "content-types-navigation-wayfinding-poster-9844252e.webp",
+  "vtt": "content-types-navigation-wayfinding-9844252e.en.vtt",
+  "duration": 33.599,
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "sound": true,
+  "alt": "Overview film, 34 seconds: the 24 Navigation & Wayfinding elements of Desiderio for TYPO3 v14, including navbar with dropdowns, breadcrumb, map embed, profile header, search header, tabs. Narrated, with English captions.",
+  "transcript": [
+    {
+      "at": "0:02",
+      "text": "In a deep page tree, visitors get lost when menus and breadcrumbs disagree."
+    },
+    {
+      "at": "0:09",
+      "text": "Navigation and Wayfinding has 24 elements for menus, headers and paths through a site."
+    },
+    {
+      "at": "0:17",
+      "text": "Dropdown menus, breadcrumbs, maps, profile headers, a search header and tabs."
+    },
+    {
+      "at": "0:25",
+      "text": "Every element uses the same design tokens as the rest of the site."
+    }
+  ],
+  "captions": {
+    "language": "en",
+    "label": "English",
+    "burnedIn": true
+  },
+  "bytes": {
+    "mp4": 2371712,
+    "poster": 38544,
+    "vtt": 494
+  },
+  "generator": "packages/site_package/Build/Film/render-films.mjs"
+}

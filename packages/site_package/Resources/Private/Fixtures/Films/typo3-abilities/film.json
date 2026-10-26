@@ -1,0 +1,54 @@
+{
+  "id": "typo3-abilities",
+  "page": 1240,
+  "slug": "/ai/typo3-abilities",
+  "title": "Abilities Registry: overview film",
+  "header": "Abilities Registry in 47 seconds",
+  "description": "<p>Decide what AI agents may do in TYPO3. A narrated tour, recorded in this TYPO3 v14 lab, with English captions.</p>",
+  "mp4": "typo3-abilities-655f9a40.mp4",
+  "poster": "typo3-abilities-poster-655f9a40.webp",
+  "vtt": "typo3-abilities-655f9a40.en.vtt",
+  "duration": 47.38,
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "sound": true,
+  "alt": "Overview film, 47 seconds: Abilities Registry for TYPO3 v14. Everything the site can do; People approve risky actions; Every attempt on record. Narrated, with English captions.",
+  "transcript": [
+    {
+      "at": "0:02",
+      "text": "MCP, REST, webhooks and the CLI each get their own checks, and nobody can say which agent did what."
+    },
+    {
+      "at": "0:12",
+      "text": "The Abilities Registry describes each action once, with its scopes and its risk."
+    },
+    {
+      "at": "0:19",
+      "text": "One catalogue lists everything the site can do, and how to call it on every surface."
+    },
+    {
+      "at": "0:26",
+      "text": "High-risk abilities need a person’s approval. Tokens and agents can never approve."
+    },
+    {
+      "at": "0:34",
+      "text": "Every attempt is traced, denials included."
+    },
+    {
+      "at": "0:39",
+      "text": "Abilities Registry. A trace for every attempt."
+    }
+  ],
+  "captions": {
+    "language": "en",
+    "label": "English",
+    "burnedIn": true
+  },
+  "bytes": {
+    "mp4": 3121927,
+    "poster": 52562,
+    "vtt": 688
+  },
+  "generator": "packages/site_package/Build/Film/render-films.mjs"
+}

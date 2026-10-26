@@ -40,7 +40,10 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
  * its NEW placeholder in the run that creates it. So a post and its content
  * elements can live in one payload and a second run still changes nothing.
  * Relations to a created record (a post's new tags) are written in a second
- * DataHandler pass, once that record has its uid.
+ * DataHandler pass, once that record has its uid. A Content Blocks
+ * Collection works the same way: the parent sets its collection field to
+ * the `@<key>` list of its items, which links them in that order, and is
+ * compared by the related uids, not by the count the row stores.
  * `files: {field: [{source, folder, alternative, title, description}]}`
  * replaces the file references of a field; images are imported into
  * `folder` by file name.
@@ -312,9 +315,10 @@ final class ContentApplyCommand extends Command
 
         $changes = [];
         foreach ($this->validFields($table, $set, $io) as $field => $value) {
-            // An MM relation (categories, tags, authors) keeps only a count in
+            // An MM relation (categories, tags, authors) and an inline
+            // collection (a Content Blocks Collection) keep only a count in
             // the row; compare the related uids instead.
-            $currentValue = $this->isMmField($table, $field) ? $this->mmValue($table, $uid, $field) : ($current[$field] ?? null);
+            $currentValue = $this->isRelationListField($table, $field) ? $this->relationValue($table, $uid, $field) : ($current[$field] ?? null);
             if ($this->normalise($currentValue) !== $this->normalise($value)) {
                 $changes[$field] = $value;
             }
@@ -478,17 +482,28 @@ final class ContentApplyCommand extends Command
         ], array_values($rows));
     }
 
-    private function isMmField(string $table, string $field): bool
+    /**
+     * An MM field, or an inline field whose children point at their parent
+     * (`foreign_field`). Setting either to a uid list relates those records;
+     * the row itself only stores how many there are.
+     */
+    private function isRelationListField(string $table, string $field): bool
     {
         $schema = $this->tcaSchemaFactory->get($table);
+        if (!$schema->hasField($field)) {
+            return false;
+        }
+        $config = $schema->getField($field)->getConfiguration();
 
-        return $schema->hasField($field) && is_string($schema->getField($field)->getConfiguration()['MM'] ?? null);
+        return is_string($config['MM'] ?? null)
+            || (($config['type'] ?? '') === 'inline' && is_string($config['foreign_field'] ?? null));
     }
 
     /**
-     * The uids an MM field relates to, in their stored order, as a comma list.
+     * The uids an MM or inline field relates to, in their stored order, as a
+     * comma list.
      */
-    private function mmValue(string $table, int $uid, string $field): string
+    private function relationValue(string $table, int $uid, string $field): string
     {
         $config = $this->tcaSchemaFactory->get($table)->getField($field)->getConfiguration();
         $relationHandler = GeneralUtility::makeInstance(RelationHandler::class);

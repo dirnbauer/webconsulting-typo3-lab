@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Overrides EXT:backend/Resources/Private/Language/locallang.xlf for German (site_package ext_localconf.php): the login labels, because the lab installs no TYPO3 language packs and the login otherwise mixes the German lab and WorkOS labels with English Core labels. -->
+<xliff version="2.0" xmlns="urn:oasis:names:tc:xliff:document:2.0" srcLang="en" trgLang="de">
+  <file id="backend-login-overrides">
+    <unit id="login.header">
+      <segment state="final">
+        <source>Login</source>
+        <target>Anmeldung</target>
+      </segment>
+    </unit>
+    <unit id="login.region.footnote">
+      <segment state="final">
+        <source>Footnote</source>
+        <target>Fußnote</target>
+      </segment>
+    </unit>
+    <unit id="login.link">
+      <segment state="final">
+        <source>Login with username and password</source>
+        <target>Mit Benutzername und Passwort anmelden</target>
+      </segment>
+    </unit>
+    <unit id="login.username">
+      <segment state="final">
+        <source>Username</source>
+        <target>Benutzername</target>
+      </segment>
+    </unit>
+    <unit id="login.password">
+      <segment state="final">
+        <source>Password</source>
+        <target>Passwort</target>
+      </segment>
+    </unit>
+    <unit id="login.togglePassword">
+      <segment state="final">
+        <source>Toggle password visibility</source>
+        <target>Passwort anzeigen oder verbergen</target>
+      </segment>
+    </unit>
+    <unit id="login.password_forget">
+      <segment state="final">
+        <source>Forgot your password?</source>
+        <target>Passwort vergessen?</target>
+      </segment>
+    </unit>
+    <unit id="login.error.capslock">
+      <segment state="final">
+        <source>Attention: Caps lock enabled</source>
+        <target>Achtung: Die Feststelltaste ist aktiv</target>
+      </segment>
+    </unit>
+    <unit id="login.error.capslockStatus">
+      <segment state="final">
+        <source>Caps lock enabled</source>
+        <target>Feststelltaste aktiv</target>
+      </segment>
+    </unit>
+    <unit id="login.warning.whitespace-around-password">
+      <segment state="final">
+        <source>The password you just pasted has leading and / or trailing whitespace.</source>
+        <target>Das eingefügte Passwort beginnt oder endet mit Leerzeichen.</target>
+      </segment>
+    </unit>
+    <unit id="login.warning.whitespace-around-password.action-link">
+      <segment state="final">
+        <source>Remove whitespace</source>
+        <target>Leerzeichen entfernen</target>
+      </segment>
+    </unit>
+    <unit id="login.news.header">
+      <segment state="final">
+        <source>System News</source>
+        <target>Systemnachrichten</target>
+      </segment>
+    </unit>
+    <unit id="login.news.date">
+      <segment state="final">
+        <source>Date</source>
+        <target>Datum</target>
+      </segment>
+    </unit>
+    <unit id="login.news.previous">
+      <segment state="final">
+        <source>Previous</source>
+        <target>Zurück</target>
+      </segment>
+    </unit>
+    <unit id="login.news.next">
+      <segment state="final">
+        <source>Next</source>
+        <target>Weiter</target>
+      </segment>
+    </unit>
+    <unit id="login.navigation.loginProvider">
+      <segment state="final">
+        <source>Login Provider</source>
+        <target>Anmeldeverfahren</target>
+      </segment>
+    </unit>
+    <unit id="login.navigation.typo3">
+      <segment state="final">
+        <source>Further information about TYPO3</source>
+        <target>Weitere Informationen über TYPO3</target>
+      </segment>
+    </unit>
+    <unit id="login.error.message">
+      <segment state="final">
+        <source>Your login attempt did not succeed</source>
+        <target>Die Anmeldung war nicht erfolgreich</target>
+      </segment>
+    </unit>
+    <unit id="login.error.description">
+      <segment state="final">
+        <source>Make sure to spell your username and password correctly, including upper/lowercase characters.</source>
+        <target>Bitte prüfen Sie Benutzername und Passwort, auch die Groß- und Kleinschreibung.</target>
+      </segment>
+    </unit>
+    <unit id="login.error.javascript">
+      <segment state="final">
+        <source>Please activate JavaScript</source>
+        <target>Bitte aktivieren Sie JavaScript</target>
+      </segment>
+    </unit>
+    <unit id="login.error.cookies">
+      <segment state="final">
+        <source>Please activate Cookies</source>
+        <target>Bitte aktivieren Sie Cookies</target>
+      </segment>
+    </unit>
+    <unit id="login.error.referrer">
+      <segment state="final">
+        <source>TYPO3 relies on HTTP referrers for security reasons in the backend. It looks like your browser was not able to send this information, which may be due to privacy or security settings.</source>
+        <target>TYPO3 braucht im Backend aus Sicherheitsgründen den HTTP-Referrer. Ihr Browser hat ihn nicht gesendet, vermutlich wegen seiner Datenschutz- oder Sicherheitseinstellungen.</target>
+      </segment>
+    </unit>
+    <unit id="login.process">
+      <segment state="final">
+        <source>Verifying Login Data ...</source>
+        <target>Anmeldedaten werden geprüft …</target>
+      </segment>
+    </unit>
+    <unit id="login.submit">
+      <segment state="final">
+        <source>Login</source>
+        <target>Anmelden</target>
+      </segment>
+    </unit>
+    <unit id="login.copyrightLink">
+      <segment state="final">
+        <source>More about TYPO3</source>
+        <target>Mehr über TYPO3</target>
+      </segment>
+    </unit>
+    <unit id="login.typo3Logo">
+      <segment state="final">
+        <source>TYPO3 logo</source>
+        <target>TYPO3-Logo</target>
+      </segment>
+    </unit>
+    <unit id="login.donate">
+      <segment state="final">
+        <source>Donate</source>
+        <target>Spenden</target>
+      </segment>
+    </unit>
+  </file>
+</xliff>

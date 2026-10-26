@@ -1,0 +1,54 @@
+{
+  "id": "x402",
+  "page": 1077,
+  "slug": "/features/x402-paywall",
+  "title": "x402 Paywall: overview film",
+  "header": "x402 Paywall in 55 seconds",
+  "description": "<p>Paid content for people and AI agents. A narrated tour, recorded in this TYPO3 v14 lab, with English captions.</p>",
+  "mp4": "x402-6f10786a.mp4",
+  "poster": "x402-poster-6f10786a.webp",
+  "vtt": "x402-6f10786a.en.vtt",
+  "duration": 54.735,
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "sound": true,
+  "alt": "Overview film, 55 seconds: x402 Paywall for TYPO3 v14. A price in the page properties; Test without spending money; Revenue and a setup check. Narrated, with English captions.",
+  "transcript": [
+    {
+      "at": "0:02",
+      "text": "Selling one article or one API call means accounts, card forms and fees. AI agents cannot fill in a checkout at all."
+    },
+    {
+      "at": "0:13",
+      "text": "x402 Paywall sells TYPO3 pages and API routes for small USDC amounts."
+    },
+    {
+      "at": "0:23",
+      "text": "Switch the paywall on in the page properties, and set a price."
+    },
+    {
+      "at": "0:28",
+      "text": "The simulator requests a paid page and decodes the HTTP 402 answer."
+    },
+    {
+      "at": "0:37",
+      "text": "The dashboard shows settled revenue and checks the setup of each site."
+    },
+    {
+      "at": "0:44",
+      "text": "x402 Paywall. People pay from their wallet, agents through HTTP headers."
+    }
+  ],
+  "captions": {
+    "language": "en",
+    "label": "English",
+    "burnedIn": true
+  },
+  "bytes": {
+    "mp4": 4053536,
+    "poster": 42616,
+    "vtt": 703
+  },
+  "generator": "packages/site_package/Build/Film/render-films.mjs"
+}

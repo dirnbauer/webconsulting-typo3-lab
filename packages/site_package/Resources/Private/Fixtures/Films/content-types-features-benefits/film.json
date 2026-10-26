@@ -1,0 +1,46 @@
+{
+  "id": "content-types-features-benefits",
+  "page": 667,
+  "slug": "/content-types/features-benefits",
+  "title": "Features & Benefits: overview film",
+  "header": "Features & Benefits in 32 seconds",
+  "description": "<p>Ways to explain what you offer. A narrated tour, recorded in this TYPO3 v14 lab, with English captions.</p>",
+  "mp4": "content-types-features-benefits-feece9d4.mp4",
+  "poster": "content-types-features-benefits-poster-feece9d4.webp",
+  "vtt": "content-types-features-benefits-feece9d4.en.vtt",
+  "duration": 31.982,
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "sound": true,
+  "alt": "Overview film, 32 seconds: the 25 Features & Benefits elements of Desiderio for TYPO3 v14, including bento grid, alternating rows, feature tabs, feature stats, feature cards, comparison. Narrated, with English captions.",
+  "transcript": [
+    {
+      "at": "0:02",
+      "text": "A feature list in plain bullet points makes every product sound the same."
+    },
+    {
+      "at": "0:08",
+      "text": "Features and Benefits has 25 ways to explain what you offer."
+    },
+    {
+      "at": "0:14",
+      "text": "Bento grids, alternating rows, tabs, numbers, cards and comparisons."
+    },
+    {
+      "at": "0:22",
+      "text": "Every layout has a backend preview, so editors see the result before they save."
+    }
+  ],
+  "captions": {
+    "language": "en",
+    "label": "English",
+    "burnedIn": true
+  },
+  "bytes": {
+    "mp4": 2125319,
+    "poster": 62530,
+    "vtt": 466
+  },
+  "generator": "packages/site_package/Build/Film/render-films.mjs"
+}

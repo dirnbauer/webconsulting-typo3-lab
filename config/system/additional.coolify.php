@@ -78,7 +78,8 @@ if (getenv('IS_DDEV_PROJECT') !== 'true') {
                 'reverseProxyHeaderMultiValue' => 'first',
                 'reverseProxyIP' => '10.0.0.0/8,172.16.0.0/12,192.168.0.0/16',
                 'reverseProxySSL' => '10.0.0.0/8,172.16.0.0/12,192.168.0.0/16',
-                'sitename' => 'Webconsulting TYPO3 Lab',
+                // SYS.sitename ("webconsulting TYPO3 Lab · Live") comes from
+                // packages/site_package/ext_localconf.php, the same on DDEV and here.
                 'trustedHostsPattern' => '^typo3-lab\\.webconsulting\\.at$',
             ],
         ]

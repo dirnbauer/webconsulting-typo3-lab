@@ -1,0 +1,46 @@
+{
+  "id": "content-types-footers-utility-areas",
+  "page": 668,
+  "slug": "/content-types/footers-utility-areas",
+  "title": "Footers & Utility Areas: overview film",
+  "header": "Footers & Utility Areas in 34 seconds",
+  "description": "<p>The parts every site needs. A narrated tour, recorded in this TYPO3 v14 lab, with English captions.</p>",
+  "mp4": "content-types-footers-utility-areas-f90c423b.mp4",
+  "poster": "content-types-footers-utility-areas-poster-f90c423b.webp",
+  "vtt": "content-types-footers-utility-areas-f90c423b.en.vtt",
+  "duration": 33.601,
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "sound": true,
+  "alt": "Overview film, 34 seconds: the 23 Footers & Utility Areas elements of Desiderio for TYPO3 v14, including mega footer, dark footer, cookie banner, newsletter footer, compliance badges, sitemap grid. Narrated, with English captions.",
+  "transcript": [
+    {
+      "at": "0:02",
+      "text": "Footers, cookie notices and legal pages get built last, in a hurry, before launch."
+    },
+    {
+      "at": "0:09",
+      "text": "Footers and Utility Areas has 23 elements for the parts every site needs."
+    },
+    {
+      "at": "0:16",
+      "text": "Mega and dark footers, a cookie banner, a newsletter footer, compliance badges and a sitemap."
+    },
+    {
+      "at": "0:25",
+      "text": "The parts every site needs, ready from the first day."
+    }
+  ],
+  "captions": {
+    "language": "en",
+    "label": "English",
+    "burnedIn": true
+  },
+  "bytes": {
+    "mp4": 2282820,
+    "poster": 53096,
+    "vtt": 491
+  },
+  "generator": "packages/site_package/Build/Film/render-films.mjs"
+}

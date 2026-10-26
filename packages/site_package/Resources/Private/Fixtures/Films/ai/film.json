@@ -1,0 +1,54 @@
+{
+  "id": "ai",
+  "page": 2229,
+  "slug": "/ai",
+  "title": "AI tools: overview film",
+  "header": "AI tools in 59 seconds",
+  "description": "<p>10 tools, with people in charge. A narrated tour, recorded in this TYPO3 v14 lab, with English captions.</p>",
+  "mp4": "ai-b63e068a.mp4",
+  "poster": "ai-poster-b63e068a.webp",
+  "vtt": "ai-b63e068a.en.vtt",
+  "duration": 59.04,
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "sound": true,
+  "alt": "Overview film, 59 seconds: 10 AI tools for TYPO3 v14, in three groups: AI editors control, checked skills, and agents within limits. Narrated, with English captions.",
+  "transcript": [
+    {
+      "at": "0:02",
+      "text": "An AI tool that writes straight to live pages leaves nobody to approve the change."
+    },
+    {
+      "at": "0:09",
+      "text": "This lab runs 10 AI tools for TYPO3 v14, and people approve what they change."
+    },
+    {
+      "at": "0:17",
+      "text": "The assistant asks before it writes, nr-llm keeps one model setup, and Jev sorts form messages."
+    },
+    {
+      "at": "0:27",
+      "text": "Skillflow runs review skills on drafts, and Skillspector checks each skill first."
+    },
+    {
+      "at": "0:34",
+      "text": "The MCP Server and the Abilities Registry let agents work within your rules. Agent Nexus shows five protocols, Agentation points at elements, and llms.txt maps the site."
+    },
+    {
+      "at": "0:50",
+      "text": "Try the AI tools on your own copy, with people in charge."
+    }
+  ],
+  "captions": {
+    "language": "en",
+    "label": "English",
+    "burnedIn": true
+  },
+  "bytes": {
+    "mp4": 4861935,
+    "poster": 32180,
+    "vtt": 804
+  },
+  "generator": "packages/site_package/Build/Film/render-films.mjs"
+}

@@ -1,0 +1,54 @@
+{
+  "id": "workos",
+  "page": 1075,
+  "slug": "/features/workos",
+  "title": "WorkOS Auth: overview film",
+  "header": "WorkOS Auth in 49 seconds",
+  "description": "<p>One login for your site and the TYPO3 backend. A narrated tour, recorded in this TYPO3 v14 lab, with English captions.</p>",
+  "mp4": "workos-ed420c4d.mp4",
+  "poster": "workos-poster-ed420c4d.webp",
+  "vtt": "workos-ed420c4d.en.vtt",
+  "duration": 49.381,
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "sound": true,
+  "alt": "Overview film, 49 seconds: WorkOS Auth for TYPO3 v14. Self-service registration; The same identity for editors; Redirect URIs, ready to copy. Narrated, with English captions.",
+  "transcript": [
+    {
+      "at": "0:02",
+      "text": "Customers expect to sign in with their company identity. Building single sign-on yourself takes months."
+    },
+    {
+      "at": "0:11",
+      "text": "WorkOS Auth adds WorkOS sign-in to the TYPO3 frontend and backend."
+    },
+    {
+      "at": "0:19",
+      "text": "New customers create an account with a password, an email code, Google or Microsoft."
+    },
+    {
+      "at": "0:27",
+      "text": "Editors use the same identity in the backend. The classic form stays one click away."
+    },
+    {
+      "at": "0:34",
+      "text": "The setup assistant lists every redirect URI, each with a copy button."
+    },
+    {
+      "at": "0:42",
+      "text": "WorkOS Auth for TYPO3."
+    }
+  ],
+  "captions": {
+    "language": "en",
+    "label": "English",
+    "burnedIn": true
+  },
+  "bytes": {
+    "mp4": 2965103,
+    "poster": 29150,
+    "vtt": 675
+  },
+  "generator": "packages/site_package/Build/Film/render-films.mjs"
+}

@@ -12453,16 +12453,16 @@
         },
         {
             "name": "webconsulting/desiderio",
-            "version": "v4.25.1",
+            "version": "v4.26.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/desiderio.git",
-                "reference": "55fd63aa5049aab45b054dc5265f545692c42c90"
+                "reference": "1149225e7718ec6da6004a6111100f11c0ff8d42"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/desiderio/zipball/55fd63aa5049aab45b054dc5265f545692c42c90",
-                "reference": "55fd63aa5049aab45b054dc5265f545692c42c90",
+                "url": "https://api.github.com/repos/dirnbauer/desiderio/zipball/1149225e7718ec6da6004a6111100f11c0ff8d42",
+                "reference": "1149225e7718ec6da6004a6111100f11c0ff8d42",
                 "shasum": ""
             },
             "require": {
@@ -12505,7 +12505,7 @@
             "extra": {
                 "typo3/cms": {
                     "extension-key": "desiderio",
-                    "version": "4.25.1",
+                    "version": "4.26.1",
                     "Package": {
                         "providesPackages": []
                     }
@@ -12556,7 +12556,7 @@
                 }
             ],
             "description": "Desiderio — shadcn/ui-inspired Fluid 5 component library, 244 Desiderio Content Blocks, and theme layer for TYPO3 14",
-            "time": "2026-10-25T21:01:38+00:00"
+            "time": "2026-10-26T11:55:35+00:00"
         },
         {
             "name": "webconsulting/docx-editor",
@@ -13454,16 +13454,16 @@
         },
         {
             "name": "webconsulting/typo3-ai-assistant",
-            "version": "v2.0.5",
+            "version": "v2.0.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/typo3-ai-assistant.git",
-                "reference": "a761fb577c30652cb6c6f01b4eede723fbca8c6a"
+                "reference": "561b732b5b5986118ebae4b618eceb267601d764"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/typo3-ai-assistant/zipball/a761fb577c30652cb6c6f01b4eede723fbca8c6a",
-                "reference": "a761fb577c30652cb6c6f01b4eede723fbca8c6a",
+                "url": "https://api.github.com/repos/dirnbauer/typo3-ai-assistant/zipball/561b732b5b5986118ebae4b618eceb267601d764",
+                "reference": "561b732b5b5986118ebae4b618eceb267601d764",
                 "shasum": ""
             },
             "require": {
@@ -13492,7 +13492,7 @@
             "extra": {
                 "typo3/cms": {
                     "extension-key": "webcon_ai_assistant",
-                    "version": "2.0.5",
+                    "version": "2.0.6",
                     "Package": {
                         "providesPackages": []
                     },
@@ -13547,6 +13547,11 @@
                     "name": "Webconsulting",
                     "homepage": "https://github.com/dirnbauer",
                     "role": "Maintainer"
+                },
+                {
+                    "name": "Netresearch DTT GmbH",
+                    "homepage": "https://www.netresearch.de/",
+                    "role": "Original author (nr-mcp-agent)"
                 }
             ],
             "description": "Native AI assistant for the TYPO3 v14 backend: chat with your installation through in-process MCP tools, with human approval for every write",
@@ -13565,7 +13570,7 @@
                 "issues": "https://github.com/dirnbauer/typo3-ai-assistant/issues",
                 "source": "https://github.com/dirnbauer/typo3-ai-assistant"
             },
-            "time": "2026-10-24T03:39:07+00:00"
+            "time": "2026-10-26T09:21:31+00:00"
         },
         {
             "name": "webconsulting/typo3-llms-txt",
@@ -14155,11 +14160,11 @@
         },
         {
             "name": "webconsulting/webcon-templates",
-            "version": "v1.0.1",
+            "version": "v1.0.3",
             "source": {
                 "type": "git",
                 "url": "git@gitlab.webconsulting.at:extensions/typo3-webcon-templates.git",
-                "reference": "1fced7f0ada380e4dafbdd4db8cf1b4e88af270a"
+                "reference": "6121c52ae2906ab852ac66f203b35ed707ab9bdf"
             },
             "require": {
                 "friendsoftypo3/content-blocks": "^2.4",
@@ -14239,7 +14244,7 @@
                 "templates",
                 "themes"
             ],
-            "time": "2026-10-26T07:16:01+00:00"
+            "time": "2026-10-26T11:29:53+00:00"
         },
         {
             "name": "webconsulting/workos-auth",

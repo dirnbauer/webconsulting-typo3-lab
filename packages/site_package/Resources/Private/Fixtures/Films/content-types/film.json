@@ -1,0 +1,54 @@
+{
+  "id": "content-types",
+  "page": 1093,
+  "slug": "/content-types",
+  "title": "Content types: overview film",
+  "header": "Content types in 53 seconds",
+  "description": "<p>All 244 elements, sorted into 10 groups. A narrated tour, recorded in this TYPO3 v14 lab, with English captions.</p>",
+  "mp4": "content-types-572c28f6.mp4",
+  "poster": "content-types-poster-572c28f6.webp",
+  "vtt": "content-types-572c28f6.en.vtt",
+  "duration": 53.34,
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "sound": true,
+  "alt": "Overview film, 53 seconds: the 244 content elements of Desiderio for TYPO3 v14 in 10 groups, from heroes and navigation to dashboards, forms and footers. Narrated, with English captions.",
+  "transcript": [
+    {
+      "at": "0:02",
+      "text": "A new client page often starts as a design file, and someone rebuilds it as templates."
+    },
+    {
+      "at": "0:09",
+      "text": "Desiderio ships 244 content elements for TYPO3 v14, sorted into 10 groups by what a page needs."
+    },
+    {
+      "at": "0:21",
+      "text": "Heroes, navigation, editorial layouts, features, pricing, trust, people, dashboards, leads and footers."
+    },
+    {
+      "at": "0:32",
+      "text": "Each group page shows its elements live, in its own theme preset."
+    },
+    {
+      "at": "0:37",
+      "text": "Every element has a backend preview, a dark mode and the colours of the chosen preset."
+    },
+    {
+      "at": "0:45",
+      "text": "All 244 elements are in the free package."
+    }
+  ],
+  "captions": {
+    "language": "en",
+    "label": "English",
+    "burnedIn": true
+  },
+  "bytes": {
+    "mp4": 3685726,
+    "poster": 57678,
+    "vtt": 724
+  },
+  "generator": "packages/site_package/Build/Film/render-films.mjs"
+}

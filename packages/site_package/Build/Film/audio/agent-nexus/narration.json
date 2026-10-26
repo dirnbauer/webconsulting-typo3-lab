@@ -1,0 +1,619 @@
+{
+  "voice": "George",
+  "delivery": {
+    "stability": 0.62,
+    "similarity_boost": 0.78,
+    "style": 0.18,
+    "speed": 0.9
+  },
+  "lines": [
+    {
+      "say": "Clients ask what A two A, A G U I or U C P would mean for their site, and a slide cannot show a real request.",
+      "show": "Clients ask what A2A, AG-UI or UCP would mean for their site, and a slide cannot show a real request.",
+      "file": "voice-01.mp3",
+      "duration": 9639,
+      "words": [
+        {
+          "word": "Clients",
+          "start": 81,
+          "end": 522
+        },
+        {
+          "word": "ask",
+          "start": 592,
+          "end": 894
+        },
+        {
+          "word": "what",
+          "start": 940,
+          "end": 1080
+        },
+        {
+          "word": "A",
+          "start": 1161,
+          "end": 1265
+        },
+        {
+          "word": "two",
+          "start": 1393,
+          "end": 1591
+        },
+        {
+          "word": "A,",
+          "start": 1683,
+          "end": 2078
+        },
+        {
+          "word": "A",
+          "start": 2392,
+          "end": 2519
+        },
+        {
+          "word": "G",
+          "start": 2647,
+          "end": 2844
+        },
+        {
+          "word": "U",
+          "start": 3007,
+          "end": 3146
+        },
+        {
+          "word": "I",
+          "start": 3309,
+          "end": 3448
+        },
+        {
+          "word": "or",
+          "start": 3611,
+          "end": 3773
+        },
+        {
+          "word": "U",
+          "start": 3866,
+          "end": 4005
+        },
+        {
+          "word": "C",
+          "start": 4087,
+          "end": 4168
+        },
+        {
+          "word": "P",
+          "start": 4365,
+          "end": 4493
+        },
+        {
+          "word": "would",
+          "start": 4981,
+          "end": 5190
+        },
+        {
+          "word": "mean",
+          "start": 5224,
+          "end": 5352
+        },
+        {
+          "word": "for",
+          "start": 5399,
+          "end": 5480
+        },
+        {
+          "word": "their",
+          "start": 5515,
+          "end": 5666
+        },
+        {
+          "word": "site,",
+          "start": 5712,
+          "end": 6235
+        },
+        {
+          "word": "and",
+          "start": 6467,
+          "end": 6594
+        },
+        {
+          "word": "a",
+          "start": 6664,
+          "end": 6687
+        },
+        {
+          "word": "slide",
+          "start": 6734,
+          "end": 7152
+        },
+        {
+          "word": "cannot",
+          "start": 7187,
+          "end": 7430
+        },
+        {
+          "word": "show",
+          "start": 7477,
+          "end": 7686
+        },
+        {
+          "word": "a",
+          "start": 7767,
+          "end": 7790
+        },
+        {
+          "word": "real",
+          "start": 7872,
+          "end": 8092
+        },
+        {
+          "word": "request.",
+          "start": 8173,
+          "end": 8905
+        }
+      ],
+      "heard": "Clients ask what A2A, AGUI or UCP would mean for their site and a slide cannot show a real request."
+    },
+    {
+      "say": "Agent Nexus runs five agent protocols on typo three, with endpoints, widgets and a traffic log.",
+      "show": "Agent Nexus runs five agent protocols on TYPO3, with endpoints, widgets and a traffic log.",
+      "file": "voice-02.mp3",
+      "duration": 7340,
+      "words": [
+        {
+          "word": "Agent",
+          "start": 23,
+          "end": 418
+        },
+        {
+          "word": "Nexus",
+          "start": 499,
+          "end": 917
+        },
+        {
+          "word": "runs",
+          "start": 998,
+          "end": 1300
+        },
+        {
+          "word": "five",
+          "start": 1382,
+          "end": 1683
+        },
+        {
+          "word": "agent",
+          "start": 1753,
+          "end": 2101
+        },
+        {
+          "word": "protocols",
+          "start": 2171,
+          "end": 2821
+        },
+        {
+          "word": "on",
+          "start": 2891,
+          "end": 2972
+        },
+        {
+          "word": "typo",
+          "start": 3053,
+          "end": 3437
+        },
+        {
+          "word": "three,",
+          "start": 3506,
+          "end": 4052
+        },
+        {
+          "word": "with",
+          "start": 4214,
+          "end": 4400
+        },
+        {
+          "word": "endpoints,",
+          "start": 4481,
+          "end": 5201
+        },
+        {
+          "word": "widgets",
+          "start": 5283,
+          "end": 5747
+        },
+        {
+          "word": "and",
+          "start": 5793,
+          "end": 5909
+        },
+        {
+          "word": "a",
+          "start": 5979,
+          "end": 6002
+        },
+        {
+          "word": "traffic",
+          "start": 6049,
+          "end": 6397
+        },
+        {
+          "word": "log.",
+          "start": 6467,
+          "end": 6861
+        }
+      ],
+      "heard": "Agent Nexus runs five agent protocols on TYPO3 with endpoints, widgets and a traffic log."
+    },
+    {
+      "say": "With A two U I, one sentence becomes a form, drawn from typo three’s trusted components.",
+      "show": "With A2UI, one sentence becomes a form, drawn from TYPO3’s trusted components.",
+      "file": "voice-03.mp3",
+      "duration": 7184,
+      "words": [
+        {
+          "word": "With",
+          "start": 23,
+          "end": 209
+        },
+        {
+          "word": "A",
+          "start": 290,
+          "end": 453
+        },
+        {
+          "word": "two",
+          "start": 546,
+          "end": 824
+        },
+        {
+          "word": "U",
+          "start": 929,
+          "end": 1091
+        },
+        {
+          "word": "I,",
+          "start": 1219,
+          "end": 1683
+        },
+        {
+          "word": "one",
+          "start": 1846,
+          "end": 2078
+        },
+        {
+          "word": "sentence",
+          "start": 2125,
+          "end": 2554
+        },
+        {
+          "word": "becomes",
+          "start": 2589,
+          "end": 2902
+        },
+        {
+          "word": "a",
+          "start": 2937,
+          "end": 2961
+        },
+        {
+          "word": "form,",
+          "start": 3042,
+          "end": 3564
+        },
+        {
+          "word": "drawn",
+          "start": 3727,
+          "end": 4087
+        },
+        {
+          "word": "from",
+          "start": 4133,
+          "end": 4272
+        },
+        {
+          "word": "typo",
+          "start": 4342,
+          "end": 4725
+        },
+        {
+          "word": "three's",
+          "start": 4807,
+          "end": 5213
+        },
+        {
+          "word": "trusted",
+          "start": 5259,
+          "end": 5724
+        },
+        {
+          "word": "components.",
+          "start": 5793,
+          "end": 6653
+        }
+      ],
+      "heard": "With A2UI, one sentence becomes a form drawn from TYPO3's trusted components."
+    },
+    {
+      "say": "With A G U I, the run streams as typed events and stops for your approval.",
+      "show": "With AG-UI, the run streams as typed events and stops for your approval.",
+      "file": "voice-04.mp3",
+      "duration": 5433,
+      "words": [
+        {
+          "word": "With",
+          "start": 12,
+          "end": 209
+        },
+        {
+          "word": "A",
+          "start": 279,
+          "end": 383
+        },
+        {
+          "word": "G",
+          "start": 511,
+          "end": 650
+        },
+        {
+          "word": "U",
+          "start": 848,
+          "end": 975
+        },
+        {
+          "word": "I,",
+          "start": 1103,
+          "end": 1428
+        },
+        {
+          "word": "the",
+          "start": 1521,
+          "end": 1625
+        },
+        {
+          "word": "run",
+          "start": 1707,
+          "end": 1904
+        },
+        {
+          "word": "streams",
+          "start": 1985,
+          "end": 2380
+        },
+        {
+          "word": "as",
+          "start": 2415,
+          "end": 2496
+        },
+        {
+          "word": "typed",
+          "start": 2566,
+          "end": 2868
+        },
+        {
+          "word": "events",
+          "start": 2902,
+          "end": 3320
+        },
+        {
+          "word": "and",
+          "start": 3367,
+          "end": 3471
+        },
+        {
+          "word": "stops",
+          "start": 3553,
+          "end": 3889
+        },
+        {
+          "word": "for",
+          "start": 3924,
+          "end": 4005
+        },
+        {
+          "word": "your",
+          "start": 4052,
+          "end": 4180
+        },
+        {
+          "word": "approval.",
+          "start": 4226,
+          "end": 4876
+        }
+      ],
+      "heard": "With AGUI, the run streams as typed events and stops for your approval."
+    },
+    {
+      "say": "A shopping agent builds a priced cart. Nothing is ordered until a person approves.",
+      "show": "A shopping agent builds a priced cart. Nothing is ordered until a person approves.",
+      "file": "voice-05.mp3",
+      "duration": 5930,
+      "words": [
+        {
+          "word": "A",
+          "start": 46,
+          "end": 139
+        },
+        {
+          "word": "shopping",
+          "start": 232,
+          "end": 569
+        },
+        {
+          "word": "agent",
+          "start": 639,
+          "end": 940
+        },
+        {
+          "word": "builds",
+          "start": 1010,
+          "end": 1324
+        },
+        {
+          "word": "a",
+          "start": 1358,
+          "end": 1382
+        },
+        {
+          "word": "priced",
+          "start": 1428,
+          "end": 1776
+        },
+        {
+          "word": "cart.",
+          "start": 1846,
+          "end": 2403
+        },
+        {
+          "word": "Nothing",
+          "start": 2891,
+          "end": 3251
+        },
+        {
+          "word": "is",
+          "start": 3297,
+          "end": 3390
+        },
+        {
+          "word": "ordered",
+          "start": 3460,
+          "end": 3796
+        },
+        {
+          "word": "until",
+          "start": 3831,
+          "end": 4075
+        },
+        {
+          "word": "a",
+          "start": 4110,
+          "end": 4133
+        },
+        {
+          "word": "person",
+          "start": 4203,
+          "end": 4574
+        },
+        {
+          "word": "approves.",
+          "start": 4609,
+          "end": 5375
+        }
+      ],
+      "heard": "A shopping agent builds a priced cart. Nothing is ordered until a person approves."
+    },
+    {
+      "say": "The traffic log keeps every request and event, with personal data masked.",
+      "show": "The traffic log keeps every request and event, with personal data masked.",
+      "file": "voice-06.mp3",
+      "duration": 5851,
+      "words": [
+        {
+          "word": "The",
+          "start": 35,
+          "end": 151
+        },
+        {
+          "word": "traffic",
+          "start": 197,
+          "end": 546
+        },
+        {
+          "word": "log",
+          "start": 615,
+          "end": 871
+        },
+        {
+          "word": "keeps",
+          "start": 975,
+          "end": 1265
+        },
+        {
+          "word": "every",
+          "start": 1347,
+          "end": 1625
+        },
+        {
+          "word": "request",
+          "start": 1707,
+          "end": 2159
+        },
+        {
+          "word": "and",
+          "start": 2206,
+          "end": 2287
+        },
+        {
+          "word": "event,",
+          "start": 2334,
+          "end": 2914
+        },
+        {
+          "word": "with",
+          "start": 3146,
+          "end": 3332
+        },
+        {
+          "word": "personal",
+          "start": 3379,
+          "end": 3866
+        },
+        {
+          "word": "data",
+          "start": 3947,
+          "end": 4284
+        },
+        {
+          "word": "masked.",
+          "start": 4365,
+          "end": 5027
+        }
+      ],
+      "heard": "The traffic log keeps every request and event with personal data masked."
+    },
+    {
+      "say": "Agent Nexus. Every write waits for a person.",
+      "show": "Agent Nexus. Every write waits for a person.",
+      "file": "voice-07.mp3",
+      "duration": 3605,
+      "words": [
+        {
+          "word": "Agent",
+          "start": 12,
+          "end": 441
+        },
+        {
+          "word": "Nexus.",
+          "start": 511,
+          "end": 1219
+        },
+        {
+          "word": "Every",
+          "start": 1451,
+          "end": 1765
+        },
+        {
+          "word": "write",
+          "start": 1811,
+          "end": 2136
+        },
+        {
+          "word": "waits",
+          "start": 2183,
+          "end": 2450
+        },
+        {
+          "word": "for",
+          "start": 2485,
+          "end": 2589
+        },
+        {
+          "word": "a",
+          "start": 2635,
+          "end": 2659
+        },
+        {
+          "word": "person.",
+          "start": 2705,
+          "end": 3309
+        }
+      ],
+      "heard": "Agent Nexus. Every right waits for a person."
+    }
+  ]
+}

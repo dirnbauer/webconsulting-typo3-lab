@@ -1,0 +1,452 @@
+{
+  "voice": "George",
+  "delivery": {
+    "stability": 0.62,
+    "similarity_boost": 0.78,
+    "style": 0.18,
+    "speed": 0.9
+  },
+  "lines": [
+    {
+      "say": "M C P, rest, webhooks and the C L I each get their own checks, and nobody can say which agent did what.",
+      "show": "MCP, REST, webhooks and the CLI each get their own checks, and nobody can say which agent did what.",
+      "file": "voice-01.mp3",
+      "duration": 8725,
+      "words": [
+        {
+          "word": "M",
+          "start": 46,
+          "end": 174
+        },
+        {
+          "word": "C",
+          "start": 255,
+          "end": 348
+        },
+        {
+          "word": "P,",
+          "start": 546,
+          "end": 1033
+        },
+        {
+          "word": "rest,",
+          "start": 1265,
+          "end": 1800
+        },
+        {
+          "word": "webhooks",
+          "start": 1927,
+          "end": 2519
+        },
+        {
+          "word": "and",
+          "start": 2554,
+          "end": 2682
+        },
+        {
+          "word": "the",
+          "start": 2728,
+          "end": 2798
+        },
+        {
+          "word": "C",
+          "start": 2833,
+          "end": 2937
+        },
+        {
+          "word": "L",
+          "start": 3135,
+          "end": 3262
+        },
+        {
+          "word": "I",
+          "start": 3367,
+          "end": 3448
+        },
+        {
+          "word": "each",
+          "start": 4017,
+          "end": 4238
+        },
+        {
+          "word": "get",
+          "start": 4307,
+          "end": 4458
+        },
+        {
+          "word": "their",
+          "start": 4493,
+          "end": 4656
+        },
+        {
+          "word": "own",
+          "start": 4702,
+          "end": 4830
+        },
+        {
+          "word": "checks,",
+          "start": 4899,
+          "end": 5526
+        },
+        {
+          "word": "and",
+          "start": 5689,
+          "end": 5851
+        },
+        {
+          "word": "nobody",
+          "start": 5933,
+          "end": 6258
+        },
+        {
+          "word": "can",
+          "start": 6304,
+          "end": 6420
+        },
+        {
+          "word": "say",
+          "start": 6490,
+          "end": 6653
+        },
+        {
+          "word": "which",
+          "start": 6734,
+          "end": 6954
+        },
+        {
+          "word": "agent",
+          "start": 7024,
+          "end": 7396
+        },
+        {
+          "word": "did",
+          "start": 7442,
+          "end": 7616
+        },
+        {
+          "word": "what.",
+          "start": 7663,
+          "end": 8173
+        }
+      ],
+      "heard": "MCP, REST, Webhooks and the CLI each get their own checks and nobody can say which agent did what."
+    },
+    {
+      "say": "The Abilities Registry describes each action once, with its scopes and its risk.",
+      "show": "The Abilities Registry describes each action once, with its scopes and its risk.",
+      "file": "voice-02.mp3",
+      "duration": 6087,
+      "words": [
+        {
+          "word": "The",
+          "start": 23,
+          "end": 151
+        },
+        {
+          "word": "Abilities",
+          "start": 221,
+          "end": 731
+        },
+        {
+          "word": "Registry",
+          "start": 813,
+          "end": 1370
+        },
+        {
+          "word": "describes",
+          "start": 1440,
+          "end": 2009
+        },
+        {
+          "word": "each",
+          "start": 2090,
+          "end": 2322
+        },
+        {
+          "word": "action",
+          "start": 2392,
+          "end": 2775
+        },
+        {
+          "word": "once,",
+          "start": 2879,
+          "end": 3437
+        },
+        {
+          "word": "with",
+          "start": 3634,
+          "end": 3820
+        },
+        {
+          "word": "its",
+          "start": 3855,
+          "end": 3971
+        },
+        {
+          "word": "scopes",
+          "start": 4005,
+          "end": 4470
+        },
+        {
+          "word": "and",
+          "start": 4516,
+          "end": 4632
+        },
+        {
+          "word": "its",
+          "start": 4702,
+          "end": 4818
+        },
+        {
+          "word": "risk.",
+          "start": 4899,
+          "end": 5445
+        }
+      ],
+      "heard": "The Abilities Registry describes each action once, with its scopes and its risk.",
+      "end": 5460
+    },
+    {
+      "say": "One catalogue lists everything the site can do, and how to call it on every surface.",
+      "show": "One catalogue lists everything the site can do, and how to call it on every surface.",
+      "file": "voice-03.mp3",
+      "duration": 5564,
+      "words": [
+        {
+          "word": "One",
+          "start": 12,
+          "end": 267
+        },
+        {
+          "word": "catalogue",
+          "start": 313,
+          "end": 836
+        },
+        {
+          "word": "lists",
+          "start": 871,
+          "end": 1219
+        },
+        {
+          "word": "everything",
+          "start": 1300,
+          "end": 1718
+        },
+        {
+          "word": "the",
+          "start": 1765,
+          "end": 1834
+        },
+        {
+          "word": "site",
+          "start": 1904,
+          "end": 2194
+        },
+        {
+          "word": "can",
+          "start": 2218,
+          "end": 2357
+        },
+        {
+          "word": "do,",
+          "start": 2426,
+          "end": 2833
+        },
+        {
+          "word": "and",
+          "start": 2995,
+          "end": 3146
+        },
+        {
+          "word": "how",
+          "start": 3216,
+          "end": 3309
+        },
+        {
+          "word": "to",
+          "start": 3355,
+          "end": 3413
+        },
+        {
+          "word": "call",
+          "start": 3495,
+          "end": 3704
+        },
+        {
+          "word": "it",
+          "start": 3773,
+          "end": 3843
+        },
+        {
+          "word": "on",
+          "start": 3889,
+          "end": 3959
+        },
+        {
+          "word": "every",
+          "start": 4005,
+          "end": 4214
+        },
+        {
+          "word": "surface.",
+          "start": 4261,
+          "end": 5004
+        }
+      ],
+      "heard": "One catalogue lists everything the site can do and how to call it on every surface.",
+      "end": 5020
+    },
+    {
+      "say": "High-risk abilities need a person’s approval. Tokens and agents can never approve.",
+      "show": "High-risk abilities need a person’s approval. Tokens and agents can never approve.",
+      "file": "voice-04.mp3",
+      "duration": 5982,
+      "words": [
+        {
+          "word": "High-risk",
+          "start": 12,
+          "end": 604
+        },
+        {
+          "word": "abilities",
+          "start": 650,
+          "end": 1196
+        },
+        {
+          "word": "need",
+          "start": 1277,
+          "end": 1498
+        },
+        {
+          "word": "a",
+          "start": 1533,
+          "end": 1556
+        },
+        {
+          "word": "person's",
+          "start": 1625,
+          "end": 2067
+        },
+        {
+          "word": "approval.",
+          "start": 2101,
+          "end": 2844
+        },
+        {
+          "word": "Tokens",
+          "start": 3332,
+          "end": 3820
+        },
+        {
+          "word": "and",
+          "start": 3855,
+          "end": 3936
+        },
+        {
+          "word": "agents",
+          "start": 4017,
+          "end": 4412
+        },
+        {
+          "word": "can",
+          "start": 4481,
+          "end": 4598
+        },
+        {
+          "word": "never",
+          "start": 4667,
+          "end": 4899
+        },
+        {
+          "word": "approve.",
+          "start": 4969,
+          "end": 5654
+        }
+      ],
+      "heard": "High risk abilities need a person's approval. Tokens and agents can never approve."
+    },
+    {
+      "say": "Every attempt is traced, denials included.",
+      "show": "Every attempt is traced, denials included.",
+      "file": "voice-05.mp3",
+      "duration": 3422,
+      "words": [
+        {
+          "word": "Every",
+          "start": 35,
+          "end": 337
+        },
+        {
+          "word": "attempt",
+          "start": 383,
+          "end": 720
+        },
+        {
+          "word": "is",
+          "start": 766,
+          "end": 848
+        },
+        {
+          "word": "traced,",
+          "start": 917,
+          "end": 1498
+        },
+        {
+          "word": "denials",
+          "start": 1625,
+          "end": 2194
+        },
+        {
+          "word": "included.",
+          "start": 2264,
+          "end": 2961
+        }
+      ],
+      "heard": "Every attempt is traced, denials included."
+    },
+    {
+      "say": "Abilities Registry. A trace for every attempt.",
+      "show": "Abilities Registry. A trace for every attempt.",
+      "file": "voice-06.mp3",
+      "duration": 3422,
+      "words": [
+        {
+          "word": "Abilities",
+          "start": 23,
+          "end": 615
+        },
+        {
+          "word": "Registry.",
+          "start": 685,
+          "end": 1416
+        },
+        {
+          "word": "A",
+          "start": 1579,
+          "end": 1672
+        },
+        {
+          "word": "trace",
+          "start": 1753,
+          "end": 2090
+        },
+        {
+          "word": "for",
+          "start": 2113,
+          "end": 2218
+        },
+        {
+          "word": "every",
+          "start": 2287,
+          "end": 2543
+        },
+        {
+          "word": "attempt.",
+          "start": 2589,
+          "end": 3111
+        }
+      ],
+      "heard": "Abilities Registry, a trace for every attempt."
+    }
+  ]
+}

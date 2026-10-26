@@ -1,0 +1,58 @@
+{
+  "id": "ai-assistant",
+  "page": 2084,
+  "slug": "/ai/ai-assistant",
+  "title": "AI Assistant: overview film",
+  "header": "AI Assistant in 52 seconds",
+  "description": "<p>Ask TYPO3. Approve every change. A narrated tour, recorded in this TYPO3 v14 lab, with English captions.</p>",
+  "mp4": "ai-assistant-0d927738.mp4",
+  "poster": "ai-assistant-poster-0d927738.webp",
+  "vtt": "ai-assistant-0d927738.en.vtt",
+  "duration": 52.429,
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "sound": true,
+  "alt": "Overview film, 52 seconds: AI Assistant for TYPO3 v14. Answers from the site’s own tools; Every write waits for you; Drafts, linked to the editor; The chat follows you. Narrated, with English captions.",
+  "transcript": [
+    {
+      "at": "0:02",
+      "text": "Finding which pages sit below Features, or what the log recorded last night, takes a dozen clicks."
+    },
+    {
+      "at": "0:10",
+      "text": "The AI Assistant answers questions about your site, inside the TYPO3 backend."
+    },
+    {
+      "at": "0:17",
+      "text": "It calls the site’s own tools with your permissions, shows the result, then answers in plain words."
+    },
+    {
+      "at": "0:25",
+      "text": "Every write stops and waits. Nothing changes until you approve it."
+    },
+    {
+      "at": "0:31",
+      "text": "Approved changes land as drafts in a workspace, listed with the conversation."
+    },
+    {
+      "at": "0:38",
+      "text": "The chat stays open across modules, and knows the page you are on."
+    },
+    {
+      "at": "0:44",
+      "text": "AI Assistant. You approve every change."
+    }
+  ],
+  "captions": {
+    "language": "en",
+    "label": "English",
+    "burnedIn": true
+  },
+  "bytes": {
+    "mp4": 4672020,
+    "poster": 57798,
+    "vtt": 805
+  },
+  "generator": "packages/site_package/Build/Film/render-films.mjs"
+}

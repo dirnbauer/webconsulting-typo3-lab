@@ -1,0 +1,58 @@
+{
+  "id": "visual-editor",
+  "page": 2080,
+  "slug": "/features/visual-editor",
+  "title": "Visual Editor Enhancements: overview film",
+  "header": "Visual Editor Enhancements in 51 seconds",
+  "description": "<p>An element library, a popover and link editing. A narrated tour, recorded in this TYPO3 v14 lab, with English captions.</p>",
+  "mp4": "visual-editor-67b54c24.mp4",
+  "poster": "visual-editor-poster-67b54c24.webp",
+  "vtt": "visual-editor-67b54c24.en.vtt",
+  "duration": 51.368,
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "sound": true,
+  "alt": "Overview film, 51 seconds: Visual Editor Enhancements for TYPO3 v14. Search that forgives typos; Layout options in a popover; A toolbar that stays on screen; Edit a link where it sits. Narrated, with English captions.",
+  "transcript": [
+    {
+      "at": "0:02",
+      "text": "The Visual Editor lets editors type on the page. Layout options, links and new elements still mean the backend form."
+    },
+    {
+      "at": "0:12",
+      "text": "Visual Editor Enhancements adds what editors miss on the page."
+    },
+    {
+      "at": "0:18",
+      "text": "The element library shows live previews, and a typo like testimonal still finds testimonials."
+    },
+    {
+      "at": "0:26",
+      "text": "Layout options open in a popover, grouped like the backend form."
+    },
+    {
+      "at": "0:33",
+      "text": "The rich-text toolbar sits in one row above the text."
+    },
+    {
+      "at": "0:38",
+      "text": "Hover a button, and a chain icon opens the link browser."
+    },
+    {
+      "at": "0:44",
+      "text": "Everything saves through the Visual Editor."
+    }
+  ],
+  "captions": {
+    "language": "en",
+    "label": "English",
+    "burnedIn": true
+  },
+  "bytes": {
+    "mp4": 4406335,
+    "poster": 53594,
+    "vtt": 782
+  },
+  "generator": "packages/site_package/Build/Film/render-films.mjs"
+}

@@ -1,0 +1,888 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Lab film</title>
+<!--
+  One page plays every overview film of the lab: film.html?film=docx-editor.
+  The film is a spec in films/ (scenes, copy, images, footage) and its
+  narration in audio/<id>/narration.json; lib/timeline.mjs turns both into
+  times, so picture, voice and captions share one clock.
+
+  Every motion is a paused Web Animation or a pure function of the time, so
+  `seek(ms)` shows an exact frame: render-films.mjs steps through the film at
+  30 fps in headless Chromium. #play plays it in real time, #t=12000 holds a
+  frame. The look follows the templates film (packages/webcon_templates).
+
+  The film opens on its start card (eyebrow, header, the lab's address),
+  complete in the very first frame, because muted autoplay and a paused
+  player show that frame; the scenes' own clock starts LEAD ms later
+  (lib/timeline.mjs), so `seek(t)` shows scene time t - LEAD and every scene,
+  line and caption keeps its timing. At the end the closing card stays on
+  screen for TAIL ms more instead of fading to black: the last frame is the
+  card.
+
+  Paths: render-films.mjs serves the lab root at / and the film cache
+  (~/.cache/lab-films) at /cache/. Images under vendor/ or packages/ come
+  from the lab, everything else from /cache/footage/.
+-->
+<style>
+@font-face { font-family: "Geist"; font-weight: 100 900; font-display: block; src: url(/packages/webcon_templates/Resources/Public/Themes/QuietPages/Fonts/Geist-Variable.woff2) format("woff2"); }
+@font-face { font-family: "Geist Mono"; font-weight: 100 900; font-display: block; src: url(/packages/webcon_templates/Resources/Public/Themes/QuietPages/Fonts/GeistMono-Variable.woff2) format("woff2"); }
+@font-face { font-family: "Newsreader"; font-weight: 200 800; font-style: normal; font-display: block; src: url(/packages/webcon_templates/Resources/Public/Themes/QuietPages/Fonts/newsreader-latin.woff2) format("woff2"); }
+@font-face { font-family: "Newsreader"; font-weight: 200 800; font-style: italic; font-display: block; src: url(/packages/webcon_templates/Resources/Public/Themes/QuietPages/Fonts/newsreader-latin-italic.woff2) format("woff2"); }
+:root {
+  --stage: #070709;
+  --ink: #f4f1ec;
+  --muted: #aaa39b;
+  --soft: #7a746d;
+  --line: rgb(255 255 255 / 0.1);
+  --accent: #f0c38e;
+  --ok: #86efac;
+  --frame: #141417;
+  --sans: "Geist", system-ui, sans-serif;
+  --serif: "Newsreader", Georgia, serif;
+  --mono: "Geist Mono", ui-monospace, Menlo, monospace;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { width: 1920px; height: 1080px; overflow: hidden; background: var(--stage); }
+body { font-family: var(--sans); color: var(--ink); -webkit-font-smoothing: antialiased; }
+.stage { position: relative; width: 1920px; height: 1080px; overflow: hidden; background: var(--stage); }
+.layer { position: absolute; inset: 0; }
+.persp { perspective: 2200px; perspective-origin: 50% 40%; }
+#aura { position: absolute; inset: 0; }
+.grain { position: absolute; inset: 0; pointer-events: none; z-index: 40; }
+.vignette { position: absolute; inset: 0; z-index: 41; pointer-events: none; background: radial-gradient(120% 95% at 50% 45%, transparent 60%, rgb(0 0 0 / 0.45) 100%); }
+
+.eyebrow { font-family: var(--mono); font-size: 17px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent); }
+.headline { position: absolute; inset-inline: 160px; text-align: center; font-family: var(--serif); font-size: 92px; font-weight: 400; letter-spacing: -0.025em; line-height: 1.04; text-wrap: balance; }
+.headline em, .serif em, .wordmark em, .end-head em, .copy h2 em, .points-head em, .grid-head em, .start-head em { font-style: italic; color: var(--accent); }
+/* On the start card the accent is a shade lighter: 4.5 : 1 or more on every film's light. */
+.start .eyebrow, .start-head em { color: color-mix(in oklab, var(--accent) 80%, #fff); }
+.headline span, .end-head span, .copy h2 span, .points-head span, .grid-head span { display: inline-block; }
+.lead { font-size: 30px; color: var(--muted); letter-spacing: -0.01em; line-height: 1.4; }
+
+.glass { background: linear-gradient(180deg, rgb(255 255 255 / 0.08), rgb(255 255 255 / 0.03)); border: 1px solid rgb(255 255 255 / 0.12); box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.09), 0 40px 90px -50px rgb(0 0 0 / 0.9); backdrop-filter: blur(22px) saturate(1.35); border-radius: 24px; }
+.chip { display: inline-flex; align-items: center; gap: 12px; height: 50px; padding: 0 22px; border-radius: 999px; font-size: 21px; font-weight: 500; color: var(--ink); white-space: nowrap; }
+.chip b { font-family: var(--mono); font-weight: 500; color: var(--accent); font-size: 18px; }
+
+.subtitle { position: absolute; inset-inline: 0; bottom: 26px; margin-inline: auto; width: max-content; max-width: min(1560px, calc(100% - 140px)); padding: 9px 22px 10px; border-radius: 14px; background: rgb(7 7 9 / 0.72); backdrop-filter: blur(10px); color: #f6f3ee; font-size: 28px; font-weight: 450; line-height: 1.32; letter-spacing: -0.005em; text-align: center; text-wrap: balance; opacity: 0; z-index: 50; }
+
+/* Browser frame with a camera inside */
+.frame { position: absolute; border-radius: 18px; background: var(--frame); border: 1px solid var(--line); overflow: hidden; box-shadow: 0 60px 140px -50px rgb(0 0 0 / 0.9), 0 0 0 1px rgb(0 0 0 / 0.4); }
+.frame-bar { height: 40px; display: flex; align-items: center; gap: 9px; padding: 0 18px; border-bottom: 1px solid var(--line); }
+.frame-bar i { width: 12px; height: 12px; border-radius: 99px; background: rgb(255 255 255 / 0.16); }
+.frame-url { margin-left: 20px; height: 26px; padding: 0 14px; border-radius: 8px; background: rgb(255 255 255 / 0.06); color: var(--muted); font-size: 15px; display: flex; align-items: center; font-family: var(--mono); white-space: nowrap; }
+.frame-tag { margin-left: auto; font-family: var(--mono); font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--soft); }
+.frame-view { position: absolute; left: 0; top: 40px; right: 0; bottom: 0; overflow: hidden; background: #fff; }
+.frame.bare .frame-view { top: 0; }
+.cam { position: absolute; left: 0; top: 0; transform-origin: 0 0; will-change: transform; }
+.cam img { position: absolute; left: 0; top: 0; width: 100%; height: 100%; object-fit: cover; object-position: top left; }
+.cursor { position: absolute; left: 0; top: 0; width: 26px; height: 32px; z-index: 3; filter: drop-shadow(0 4px 8px rgb(0 0 0 / 0.45)); opacity: 0; transform-origin: 2px 2px; }
+.cursor svg { width: 26px; height: 32px; display: block; }
+.ripple { position: absolute; width: 64px; height: 64px; margin: -32px 0 0 -32px; border-radius: 99px; border: 2px solid var(--accent); background: color-mix(in srgb, var(--accent) 22%, transparent); opacity: 0; z-index: 2; }
+
+/* Start card */
+.start { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 34px; text-align: center; padding-bottom: 40px; background: radial-gradient(52% 40% at 50% 47%, rgb(7 7 9 / 0.62), rgb(7 7 9 / 0.3) 60%, rgb(7 7 9 / 0) 100%); }
+.start .eyebrow { font-size: 19px; }
+.start-head { max-width: 1560px; font-family: var(--serif); font-size: 124px; font-weight: 400; letter-spacing: -0.03em; line-height: 1.04; }
+.start-head > span { display: inline-block; white-space: nowrap; }
+.start-mark { position: absolute; inset-inline: 0; bottom: 96px; display: flex; align-items: center; justify-content: center; gap: 14px; font-family: var(--mono); font-size: 20px; letter-spacing: 0.04em; color: #d6d3d1; }
+.start-mark i { width: 12px; height: 12px; border-radius: 3px; background: var(--accent); }
+
+/* Title */
+.title { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 28px; text-align: center; }
+.wordmark { font-family: var(--serif); font-size: 168px; font-weight: 400; letter-spacing: -0.035em; line-height: 1; }
+.wordmark span { display: inline-block; }
+.subline { max-width: 1300px; font-size: 36px; font-weight: 400; color: var(--muted); letter-spacing: -0.01em; line-height: 1.3; text-wrap: balance; }
+.key { font-family: var(--mono); font-size: 21px; letter-spacing: 0.06em; color: var(--muted); padding: 10px 18px; border-radius: 12px; }
+.backdrop { position: absolute; inset: 0; overflow: hidden; }
+.backdrop img { position: absolute; width: 760px; height: 475px; object-fit: cover; object-position: top left; border-radius: 14px; opacity: 0.16; filter: blur(1.5px) saturate(0.7); box-shadow: 0 40px 90px -40px #000; }
+
+/* Shot copy */
+.copy { position: absolute; width: 420px; display: flex; flex-direction: column; gap: 22px; }
+.copy .step { font-family: var(--mono); font-size: 17px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent); display: flex; gap: 12px; align-items: center; }
+.copy .step s { text-decoration: none; color: var(--soft); }
+.copy h2 { font-family: var(--serif); font-size: 58px; font-weight: 400; line-height: 1.04; letter-spacing: -0.022em; text-wrap: balance; }
+.copy p { font-size: 25px; line-height: 1.42; color: var(--muted); letter-spacing: -0.005em; }
+.label { position: absolute; z-index: 6; display: flex; flex-direction: column; gap: 8px; padding: 18px 26px 20px; border-radius: 20px; background: rgb(10 10 12 / 0.7); backdrop-filter: blur(18px) saturate(1.3); border: 1px solid rgb(255 255 255 / 0.12); box-shadow: 0 30px 60px -30px rgb(0 0 0 / 0.8); max-width: 760px; }
+.label .step { font-family: var(--mono); font-size: 15px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); }
+.label b { font-family: var(--serif); font-size: 40px; font-weight: 400; line-height: 1.05; letter-spacing: -0.02em; }
+.label small { font-size: 20px; color: var(--muted); line-height: 1.35; }
+.counter { font-family: var(--mono); font-size: 15px; color: var(--soft); letter-spacing: 0.1em; }
+
+/* Points */
+.points-head { position: absolute; left: 150px; top: 170px; width: 1620px; font-family: var(--serif); font-size: 72px; font-weight: 400; letter-spacing: -0.024em; line-height: 1.04; text-wrap: balance; }
+.points { position: absolute; left: 150px; top: 400px; width: 1620px; display: grid; grid-template-columns: repeat(2, 1fr); gap: 26px; }
+.point { display: flex; gap: 22px; align-items: flex-start; padding: 30px 32px; }
+.point .tick { flex: none; width: 40px; height: 40px; border-radius: 99px; display: grid; place-items: center; color: #0a0a0c; background: var(--accent); }
+.point .tick svg { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+.point p { font-size: 33px; font-weight: 560; letter-spacing: -0.02em; line-height: 1.15; }
+.point p small { display: block; margin-top: 10px; font-size: 22px; font-weight: 400; letter-spacing: -0.005em; color: var(--muted); line-height: 1.4; }
+
+/* Grid */
+.grid-head { position: absolute; inset-inline: 0; top: 96px; text-align: center; font-family: var(--serif); font-size: 64px; font-weight: 400; letter-spacing: -0.022em; line-height: 1.05; }
+.tile { position: absolute; border-radius: 12px; overflow: hidden; background: #1a1a1d; border: 1px solid rgb(255 255 255 / 0.12); box-shadow: 0 30px 70px -36px rgb(0 0 0 / 0.9); }
+.tile img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: top left; }
+.tile-ring { position: absolute; inset: 0; border-radius: 12px; box-shadow: inset 0 0 0 3px var(--accent); opacity: 0; }
+.tile-name { position: absolute; font-size: 21px; font-weight: 520; letter-spacing: -0.01em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.tile-name small { display: block; font-size: 16px; font-weight: 400; color: var(--muted); margin-top: 3px; }
+
+/* End */
+.end-copy { position: absolute; inset-inline: 0; top: 0; bottom: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 30px; text-align: center; }
+.end-head { max-width: 1500px; font-family: var(--serif); font-size: 92px; font-weight: 400; letter-spacing: -0.03em; line-height: 1.04; text-wrap: balance; }
+.end-row { display: flex; align-items: center; gap: 34px; }
+.button { font-size: 27px; font-weight: 600; letter-spacing: -0.01em; padding: 18px 34px; border-radius: 999px; background: var(--ink); color: #0b0b0d; }
+.cta { position: relative; font-family: var(--mono); font-size: 26px; color: var(--ink); letter-spacing: 0.01em; }
+.cta i { position: absolute; left: 0; right: 0; bottom: -10px; height: 2px; background: var(--accent); transform-origin: 0 50%; transform: scaleX(0); }
+.end-note { font-size: 24px; color: var(--muted); }
+.install { font-family: var(--mono); font-size: 20px; color: #d6d3d1; padding: 14px 22px; border-radius: 14px; white-space: pre; }
+.install span { color: var(--soft); }
+
+/* HUD */
+.hud { position: absolute; left: 150px; top: 24px; z-index: 45; display: flex; align-items: center; gap: 22px; }
+.hud-line { display: flex; align-items: baseline; gap: 12px; font-family: var(--mono); font-size: 15px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--soft); }
+.hud-line b { color: var(--accent); font-weight: 600; }
+.hud-line em { font-style: normal; color: var(--ink); display: inline-block; }
+.hud-bars { display: flex; gap: 6px; }
+.hud-bars i { position: relative; width: 40px; height: 3px; border-radius: 3px; background: rgb(255 255 255 / 0.14); overflow: hidden; }
+.hud-bars s { position: absolute; inset: 0; background: var(--ink); transform-origin: 0 50%; transform: scaleX(0); }
+.hud-brand { position: absolute; right: 150px; top: 19px; z-index: 45; display: flex; align-items: center; gap: 12px; font-family: var(--serif); font-size: 25px; letter-spacing: -0.01em; }
+.hud-brand i { width: 11px; height: 11px; border-radius: 3px; background: var(--accent); }
+</style>
+</head>
+<body>
+<div class="stage" id="stage">
+  <canvas id="aura" width="1920" height="1080"></canvas>
+</div>
+<script type="module">
+import { films } from './films/index.mjs';
+import { HOST } from './films/feature-film.mjs';
+import { LEAD, TAIL, cue, header, timeline } from './lib/timeline.mjs';
+
+const params = new URLSearchParams(location.search);
+const ID = params.get('film') ?? 'docx-editor';
+const SPEC = films[ID];
+if (!SPEC) throw new Error(`No film ${ID}`);
+const FOOT = '/cache/footage/';
+const src = (path) => (/^(vendor|packages|public)\//.test(path) ? `/${path}` : `${FOOT}${path}`);
+
+const OUT = 'cubic-bezier(0.23, 1, 0.32, 1)';
+const INOUT = 'cubic-bezier(0.77, 0, 0.175, 1)';
+const SOFT = 'cubic-bezier(0.45, 0, 0.25, 1)';
+const $ = (id) => document.getElementById(id);
+const stage = $('stage');
+const custom = [];
+const clips = [];
+const check = '<svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>';
+const arrow = '<svg viewBox="0 0 26 32"><path d="M2 2 L2 26 L8.5 20 L13 30 L17 28 L12.6 18.4 L21 18.4 Z" fill="#fff" stroke="#111" stroke-width="1.6" stroke-linejoin="round"/></svg>';
+if (SPEC.accent) document.documentElement.style.setProperty('--accent', SPEC.accent);
+
+// ---------------------------------------------------------------------------
+// Helpers (the templates film's)
+// ---------------------------------------------------------------------------
+function node(tag, cls, parent, html) {
+  const element = document.createElement(tag);
+  if (cls) element.className = cls;
+  if (html != null) element.innerHTML = html;
+  (parent ?? stage).append(element);
+  return element;
+}
+function place(element, x, y, w, h) {
+  Object.assign(element.style, { left: `${x}px`, top: `${y}px` });
+  if (w != null) element.style.width = `${w}px`;
+  if (h != null) element.style.height = `${h}px`;
+  return element;
+}
+function track(element, steps) {
+  const t0 = steps[0][0];
+  const t1 = steps[steps.length - 1][0];
+  const span = Math.max(1, t1 - t0);
+  const frames = steps.map(([t, style, easing]) => ({ ...style, offset: (t - t0) / span, easing: easing ?? 'linear' }));
+  element.animate(frames, { duration: span, delay: t0, fill: 'both' }).pause();
+}
+const pose = ({ x = 0, y = 0, z = 0, rx = 0, ry = 0, rz = 0, s = 1 } = {}) => `translate3d(${x}px, ${y}px, ${z}px) rotateX(${rx}deg) rotateY(${ry}deg) rotateZ(${rz}deg) scale(${s})`;
+function life(element, tIn, tOut, { from = { y: 30 }, rest = {}, exit = { y: -16 }, blur = 9, inDur = 700, outDur = 420, ease = OUT, opacity = 1 } = {}) {
+  const at = (p, b, o) => ({ opacity: o, transform: pose({ ...rest, ...p }), filter: `blur(${b}px)` });
+  const steps = [[tIn, at(from, blur, 0), ease], [tIn + inDur, at({}, 0, opacity)]];
+  if (tOut != null) steps.push([Math.max(tIn + inDur + 1, tOut - outDur), at({}, 0, opacity), INOUT], [Math.max(tIn + inDur + 2, tOut), at(exit, blur / 2, 0)]);
+  track(element, steps);
+}
+function splitInto(element, html) {
+  element.innerHTML = '';
+  const holder = document.createElement('div');
+  holder.innerHTML = html;
+  const spans = [];
+  const walk = (source, target, italic) => {
+    for (const child of [...source.childNodes]) {
+      if (child.nodeType === 3) {
+        for (const part of child.textContent.split(/(\s+)/)) {
+          if (part === '') continue;
+          if (/^\s+$/.test(part)) { target.append(' '); continue; }
+          const span = document.createElement(italic ? 'em' : 'span');
+          span.style.display = 'inline-block';
+          span.textContent = part;
+          target.append(span);
+          spans.push(span);
+        }
+      } else if (child.tagName === 'BR') {
+        target.append(document.createElement('br'));
+      } else {
+        walk(child, target, child.tagName === 'EM' || italic);
+      }
+    }
+  };
+  walk(holder, element, false);
+  return spans;
+}
+function rise(spans, start, step, until, { y = 0.36, blur = 9, duration = 680 } = {}) {
+  spans.forEach((span, i) => {
+    const t = start + i * step;
+    const steps = [[t, { opacity: 0, transform: `translateY(${y}em)`, filter: `blur(${blur}px)` }, OUT], [t + duration, { opacity: 1, transform: 'translateY(0em)', filter: 'blur(0px)' }]];
+    if (until) steps.push([Math.max(t + duration + 1, until[0] + i * 12), { opacity: 1, transform: 'translateY(0em)', filter: 'blur(0px)' }, INOUT], [Math.max(t + duration + 2, until[1] + i * 12), { opacity: 0, transform: `translateY(${-y / 2}em)`, filter: `blur(${blur / 2}px)` }]);
+    track(span, steps);
+  });
+}
+function words(tag, cls, parent, html, start, step, until, options) {
+  const element = node(tag, cls, parent);
+  rise(splitInto(element, html), start, step, until, options);
+  return element;
+}
+function picture(path, parent, cls) {
+  const img = document.createElement('img');
+  if (path) img.src = src(path);
+  img.alt = '';
+  img.decoding = 'sync';
+  if (cls) img.className = cls;
+  parent.append(img);
+  return img;
+}
+const clamp = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v));
+const ease = (p) => 1 - Math.pow(1 - clamp(p), 4);
+const smooth = (p) => { p = clamp(p); return p * p * (3 - 2 * p); };
+const smoother = (p) => { p = clamp(p); return p * p * p * (p * (p * 6 - 15) + 10); };
+const lerp = (a, b, p) => a + (b - a) * p;
+const pad = (n, w = 4) => String(n).padStart(w, '0');
+function rng(seed) {
+  return () => {
+    seed = (seed + 0x6d2b79f5) | 0;
+    let t = Math.imul(seed ^ (seed >>> 15), 1 | seed);
+    t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+}
+const hex = (h) => [1, 3, 5].map((i) => parseInt(h.slice(i, i + 2), 16));
+
+// ---------------------------------------------------------------------------
+// Footage clips: an <img> showing the clip frame that belongs to the film time.
+// ---------------------------------------------------------------------------
+let FOOTAGE = {};
+class Clip {
+  constructor(parent, name) {
+    this.name = name;
+    this.meta = FOOTAGE[name] ?? { frames: 1 };
+    this.windows = [];
+    this.img = picture(null, parent);
+    this.current = -1;
+    clips.push(this);
+  }
+  /** Plays from film time `from` to `to`, starting at clip time `at` (ms). */
+  play(from, to, at = 0, speed = 1) {
+    this.windows.push([from, to, at, speed]);
+    return this;
+  }
+  timeAt(t) {
+    if (!this.windows.length) return 0;
+    let best = this.windows[0];
+    for (const w of this.windows) {
+      if (t >= w[0] && t < w[1]) { best = w; break; }
+      if (t >= w[1]) best = w;
+    }
+    const [from, to, at, speed] = best;
+    return at + (clamp(t, from, to - 1) - from) * speed;
+  }
+  update(t) {
+    const f = clamp(Math.floor((this.timeAt(t) * 30) / 1000 + 1e-6), 0, this.meta.frames - 1);
+    if (f === this.current) return null;
+    this.current = f;
+    this.img.src = `${FOOT}${this.name}/${pad(f)}.jpg`;
+    return this.img.decode().catch(() => {});
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Aura and grain
+// ---------------------------------------------------------------------------
+const PALETTE = SPEC.palette ?? ['#c7863f', '#4a57ff', '#2c5a52'];
+const auraCtx = $('aura').getContext('2d');
+let AURA = [];
+function auraAt(t) {
+  let i = 0;
+  while (i < AURA.length - 2 && t >= AURA[i + 1][0]) i++;
+  const [t0, k0] = AURA[i];
+  const [t1, k1] = AURA[Math.min(i + 1, AURA.length - 1)];
+  return lerp(k0, k1, smooth((t - t0) / Math.max(1, t1 - t0)));
+}
+custom.push((t) => {
+  const strength = auraAt(t);
+  const s = t / 1000;
+  auraCtx.globalCompositeOperation = 'source-over';
+  auraCtx.fillStyle = '#070709';
+  auraCtx.fillRect(0, 0, 1920, 1080);
+  auraCtx.globalCompositeOperation = 'lighter';
+  [
+    [0.28 + 0.1 * Math.sin(s * 0.21), 0.36 + 0.1 * Math.cos(s * 0.17), 940],
+    [0.74 + 0.09 * Math.cos(s * 0.19 + 1), 0.3 + 0.12 * Math.sin(s * 0.15 + 2), 840],
+    [0.55 + 0.14 * Math.sin(s * 0.13 + 4), 0.82 + 0.08 * Math.cos(s * 0.23 + 1), 1030],
+  ].forEach(([x, y, r], i) => {
+    const [R, G, B] = hex(PALETTE[i % PALETTE.length]);
+    const gradient = auraCtx.createRadialGradient(x * 1920, y * 1080, 0, x * 1920, y * 1080, r);
+    gradient.addColorStop(0, `rgba(${R},${G},${B},${0.5 * strength})`);
+    gradient.addColorStop(0.45, `rgba(${R},${G},${B},${0.2 * strength})`);
+    gradient.addColorStop(1, `rgba(${R},${G},${B},0)`);
+    auraCtx.fillStyle = gradient;
+    auraCtx.fillRect(0, 0, 1920, 1080);
+  });
+  auraCtx.globalCompositeOperation = 'source-over';
+});
+// Light grain: it costs bits in every frame, so it stays faint.
+const grain = node('div', 'grain');
+grain.style.opacity = String(0.22 * Number(params.get('grain') ?? 1));
+{
+  const canvas = document.createElement('canvas');
+  canvas.width = canvas.height = 256;
+  const ctx = canvas.getContext('2d');
+  const image = ctx.createImageData(256, 256);
+  const random = rng(7);
+  for (let i = 0; i < image.data.length; i += 4) {
+    const v = random() * 255;
+    image.data[i] = image.data[i + 1] = image.data[i + 2] = v;
+    image.data[i + 3] = Math.round(random() * 20);
+  }
+  ctx.putImageData(image, 0, 0);
+  grain.style.backgroundImage = `url(${canvas.toDataURL()})`;
+}
+custom.push((t) => {
+  const random = rng(Math.floor(t / 100) + 1);
+  grain.style.backgroundPosition = `${Math.floor(random() * 256)}px ${Math.floor(random() * 256)}px`;
+});
+
+// ---------------------------------------------------------------------------
+// The camera: a view of W × H showing a source of the same aspect, scaled by
+// s around (cx, cy) in source fractions, clamped so it never shows an edge.
+// A rect [x, y, w, h] becomes the camera that frames it, height first.
+// ---------------------------------------------------------------------------
+let FOCUS = {};
+const FULL = { s: 1, cx: 0.5, cy: 0 };
+/**
+ * The source is W wide and CH tall (CH > H for a portrait page in a landscape
+ * view); rect fractions are of the source.
+ */
+function cameraFor(rect, max = 1.6, H = 1, CH = 1, crop = 1) {
+  if (!rect || rect === 'full') return FULL;
+  const [x, y, w, h] = rect;
+  return { s: clamp(0.95 / Math.max((h * CH) / H, w * crop), 1, max), cx: x + w / 2, cy: y + h / 2 };
+}
+function applyCamera(cam, W, H, { s, cx, cy }, CH = H) {
+  const tx = clamp(W / 2 - cx * W * s, W - W * s, 0);
+  const ty = clamp(H / 2 - cy * CH * s, H - CH * s, 0);
+  cam.style.transform = `translate(${tx.toFixed(2)}px, ${ty.toFixed(2)}px) scale(${s.toFixed(4)})`;
+}
+/** keys: [[filmTime, camera]], eased between neighbours. */
+function cameraAt(keys, t) {
+  if (t <= keys[0][0]) return keys[0][1];
+  for (let i = 0; i < keys.length - 1; i++) {
+    const [t0, a] = keys[i];
+    const [t1, b] = keys[i + 1];
+    if (t < t1) {
+      const p = smoother((t - t0) / Math.max(1, t1 - t0));
+      return { s: lerp(a.s, b.s, p), cx: lerp(a.cx, b.cx, p), cy: lerp(a.cy, b.cy, p) };
+    }
+  }
+  return keys[keys.length - 1][1];
+}
+
+/**
+ * A browser frame with a still or a clip, a camera and (for clips with a
+ * recorded pointer) a cursor. Returns the frame box.
+ */
+function viewer(parent, scene, { x, y, w, aspect, url, tag, bare = false }) {
+  const viewH = Math.round(w / aspect);
+  const box = node('div', `frame${bare ? ' bare' : ''}`, parent, bare ? '<div class="frame-view"></div>' : `<div class="frame-bar"><i></i><i></i><i></i><span class="frame-url">${url ?? ''}</span><span class="frame-tag">${tag ?? ''}</span></div><div class="frame-view"></div>`);
+  place(box, x, y, w, viewH + (bare ? 0 : 40));
+  const view = box.querySelector('.frame-view');
+  const cam = node('div', 'cam', view);
+  place(cam, 0, 0, w, viewH);
+  return { box, view, cam, W: w, H: viewH };
+}
+
+/** Puts a still or a clip with its camera into a viewer, for film time [a, b]. */
+function film(v, source, a, b) {
+  const CH = source.aspect ? v.W / source.aspect : v.H;
+  v.cam.style.height = `${CH}px`;
+  const frame = (rect, max) => cameraFor(rect, max, v.H, CH);
+  if (source.clip) {
+    const clip = new Clip(v.cam, source.clip);
+    // segments: [[clipFrom, clipTo, speed]] played back to back from film time a.
+    const segments = source.segments ?? [[source.from ?? 0, Infinity, source.speed ?? 1]];
+    const map = [];
+    let t = a;
+    for (const [c0, c1, speed] of segments) {
+      const length = c1 === Infinity ? Math.max(1, b - t) : (c1 - c0) / speed;
+      map.push([t, c0, speed, length]);
+      clip.play(t, t + length, c0, speed);
+      t += length;
+    }
+    const toFilm = (ms) => {
+      let seg = map[0];
+      for (const s of map) if (ms >= s[1]) seg = s;
+      return seg[0] + Math.min((ms - seg[1]) / seg[2], seg[3]);
+    };
+    const keys = (source.camera ?? [[segments[0][0], source.focus ?? 'full']]).map(([ms, rect]) => [toFilm(ms), frame(rect, source.max ?? 2.2)]);
+    custom.push((t) => applyCamera(v.cam, v.W, v.H, cameraAt(keys, t), CH));
+    const meta = FOOTAGE[source.clip];
+    if (meta?.pointer?.length && source.cursor !== false) pointer(v, meta, clip, a, b);
+    return clip;
+  }
+  const img = picture(source.image, v.cam);
+  // A measured focus box may be cropped at the sides; a hand-set one is framed whole.
+  const rect = source.focus ?? FOCUS[source.image];
+  const end = source.focus ? frame(rect, source.max ?? 1.6) : cameraFor(rect, source.max ?? 1.6, v.H, CH, 0.8);
+  const begin = source.pull ? end : { s: 1, cx: end.cx, cy: source.aspect ? end.cy : 0 };
+  (source.marks ?? []).forEach(([x, y, w, h], i) => {
+    const mark = node('div', '', v.cam);
+    Object.assign(mark.style, { position: 'absolute', left: `${x * v.W}px`, top: `${y * CH}px`, width: `${w * v.W}px`, height: `${h * CH}px`, borderRadius: '6px', boxShadow: '0 0 0 3px var(--accent)', background: 'color-mix(in srgb, var(--accent) 20%, transparent)' });
+    const at = a + (source.marksAt ?? 1500) + i * 350;
+    track(mark, [[at, { opacity: 0, transform: 'scale(1.06)' }, OUT], [at + 450, { opacity: 1, transform: 'scale(1)' }]]);
+  });
+  const keys = source.camera
+    ? source.camera.map(([p, r]) => [lerp(a, b, p), frame(r, source.max ?? 1.6)])
+    : [[a + 200, source.pull ? end : begin], [b - 150, source.pull ? FULL : end]];
+  custom.push((t) => applyCamera(v.cam, v.W, v.H, cameraAt(keys, t), CH));
+  return img;
+}
+
+/** The recorded mouse path of a clip, drawn in the camera's coordinates. */
+function pointer(v, meta, clip, a, b) {
+  const k = v.W / meta.width;
+  const cursor = node('div', 'cursor', v.cam, arrow);
+  const ripples = (meta.clicks ?? []).map((at) => ({ at, el: node('div', 'ripple', v.cam) }));
+  const path = meta.pointer;
+  const posAt = (ms) => {
+    let i = 0;
+    while (i < path.length - 1 && path[i + 1][0] <= ms) i++;
+    const [t0, x0, y0] = path[i];
+    const [t1, x1, y1] = path[Math.min(i + 1, path.length - 1)];
+    const p = t1 > t0 ? clamp((ms - t0) / (t1 - t0)) : 0;
+    return [lerp(x0, x1, p) * k, lerp(y0, y1, p) * k];
+  };
+  custom.push((t) => {
+    const ms = clip.timeAt(t);
+    const visible = t > a + 150 && t < b - 150;
+    const [x, y] = posAt(ms);
+    const press = (meta.clicks ?? []).some((c) => ms >= c && ms < c + 160);
+    cursor.style.opacity = visible ? '1' : '0';
+    cursor.style.transform = `translate(${x.toFixed(1)}px, ${y.toFixed(1)}px) scale(${press ? 0.86 : 1})`;
+    for (const { at, el } of ripples) {
+      const p = (ms - at) / 520;
+      const on = visible && p >= 0 && p <= 1;
+      el.style.opacity = on ? String(1 - p) : '0';
+      if (on) {
+        const [cx, cy] = posAt(at);
+        el.style.left = `${cx}px`;
+        el.style.top = `${cy}px`;
+        el.style.transform = `scale(${0.4 + 0.9 * ease(p)})`;
+      }
+    }
+  });
+}
+
+// ---------------------------------------------------------------------------
+// Scenes
+// ---------------------------------------------------------------------------
+let TL;
+const builders = {};
+
+builders.hook = (scene) => {
+  const { start, end } = scene;
+  const layer = node('section', 'layer persp');
+  if (scene.images?.length) {
+    const back = node('div', 'backdrop', layer);
+    scene.images.forEach((path, i) => {
+      const img = picture(path, back);
+      const x = [-140, 640, 1320, 260, 1040][i % 5];
+      const y = [120, 40, 160, 610, 640][i % 5];
+      place(img, x, y);
+      track(img, [[start, { transform: pose({ x: -30, y: 20, rz: [-4, 2, 5, 3, -3][i % 5] }), opacity: 0 }, OUT], [start + 900, { transform: pose({ x: -15, y: 10, rz: [-4, 2, 5, 3, -3][i % 5] }), opacity: 0.16 }, 'linear'], [end - 300, { transform: pose({ x: 30, y: -20, rz: [-4, 2, 5, 3, -3][i % 5] }), opacity: 0.16 }, INOUT], [end, { transform: pose({ x: 40, y: -30, rz: [-4, 2, 5, 3, -3][i % 5] }), opacity: 0 }]]);
+    });
+  }
+  const head = words('h1', 'headline', layer, scene.head, start + 350, 90, [end - 520, end - 80]);
+  head.style.top = scene.sub ? '330px' : '390px';
+  if (scene.sub) {
+    const sub = node('p', 'lead', layer, scene.sub);
+    Object.assign(sub.style, { position: 'absolute', insetInline: '300px', top: '640px', textAlign: 'center', textWrap: 'balance' });
+    life(sub, start + 1300, end, { from: { y: 14 }, blur: 6 });
+  }
+};
+
+builders.title = (scene) => {
+  const { start, end } = scene;
+  const layer = node('section', 'layer title');
+  if (scene.image) {
+    const back = node('div', 'backdrop', layer);
+    const img = picture(scene.image, back);
+    Object.assign(img.style, { left: '50%', top: '50%', width: '1500px', height: '937px', marginLeft: '-750px', marginTop: '-468px', opacity: '0.12', filter: 'blur(3px) saturate(0.6)' });
+    track(img, [[start, { transform: 'scale(1.08)', opacity: 0 }, OUT], [start + 1200, { transform: 'scale(1.04)', opacity: 0.12 }, 'linear'], [end, { transform: 'scale(1)', opacity: 0 }]]);
+  }
+  if (scene.eyebrow) life(node('div', 'eyebrow', layer, scene.eyebrow), start + 150, end, { from: { y: 10 }, blur: 4 });
+  const mark = node('h1', 'wordmark', layer);
+  mark.style.fontSize = `${Math.round(Math.min(168, 1640 / (scene.name.replace(/<[^>]+>/g, '').length * 0.47)))}px`;
+  rise(splitInto(mark, scene.name), start + 300, 120, [end - 500, end - 60], { y: 0.3, blur: 14, duration: 900 });
+  if (scene.sub) life(node('p', 'subline', layer, scene.sub), start + 1100, end, { from: { y: 16 }, blur: 8 });
+  if (scene.key) life(node('div', 'key glass', layer, scene.key), start + 1600, end, { from: { y: 12 }, blur: 6 });
+};
+
+let shotCount = 0;
+builders.shot = (scene) => {
+  const { start, end } = scene;
+  const layer = node('section', 'layer persp');
+  const aspect = scene.aspect ?? (scene.clip ? 16 / 9 : 1.6);
+  const index = shotCount++;
+  const wide = scene.layout === 'wide';
+  const side = scene.side ?? (index % 2 === 0 ? 'left' : 'right');
+  let v;
+  if (wide) {
+    const w = aspect < 1.7 ? 1360 : 1500;
+    const h = w / aspect + 40;
+    v = viewer(layer, scene, { x: (1920 - w) / 2, y: Math.max(84, (1000 - h) / 2), w, aspect, url: scene.url ?? SPEC.url, tag: scene.tag });
+  } else {
+    const w = 1160;
+    const h = w / aspect + 40;
+    v = viewer(layer, scene, { x: side === 'left' ? 610 : 150, y: Math.round((1040 - h) / 2) + 10, w, aspect, url: scene.url ?? SPEC.url, tag: scene.tag });
+  }
+  film(v, scene, start, end);
+  life(v.box, start, end, { from: { y: 50, z: -180, rx: 8 }, exit: { y: -20, z: -60 }, blur: 12, inDur: 900, outDur: 480 });
+  const step = scene.step ?? '';
+  if (wide) {
+    if (scene.head) {
+      const label = node('div', 'label', layer, `${scene.eyebrow ? `<span class="step">${scene.eyebrow}</span>` : ''}<b>${scene.head}</b>${scene.text ? `<small>${scene.text}</small>` : ''}`);
+      place(label, parseFloat(v.box.style.left) - 40, parseFloat(v.box.style.top) + parseFloat(v.box.style.height) - 150);
+      life(label, start + 500, end, { from: { x: -24 }, exit: { x: -12 }, blur: 6 });
+    }
+  } else {
+    const copy = node('div', 'copy', layer);
+    place(copy, side === 'left' ? 150 : 1370, 0);
+    copy.style.top = 'auto';
+    copy.style.bottom = '50%';
+    copy.style.transform = 'translateY(50%)';
+    if (scene.eyebrow) life(node('div', 'step', copy, `${step ? `<s>${step}</s>` : ''}${scene.eyebrow}`), start + 300, end, { from: { y: 10 }, blur: 4 });
+    if (scene.head) words('h2', '', copy, scene.head, start + 450, 70, [end - 420, end - 40], { y: 0.3, blur: 8, duration: 620 });
+    if (scene.text) life(node('p', '', copy, scene.text), start + 1100, end, { from: { y: 12 }, blur: 5 });
+  }
+};
+
+builders.points = (scene) => {
+  const { start, end } = scene;
+  const layer = node('section', 'layer persp');
+  words('h2', 'points-head', layer, scene.head, start + 250, 70, [end - 420, end - 40], { y: 0.3, blur: 8 });
+  const grid = node('div', 'points', layer);
+  if (scene.items.length > 4) grid.style.gridTemplateColumns = 'repeat(3, 1fr)';
+  const spoken = scene.lines.length ? scene.lines[0].at : start + 600;
+  const last = scene.lines.length ? scene.lines[scene.lines.length - 1].at + scene.lines[scene.lines.length - 1].duration : end - 1500;
+  let after = -1;
+  scene.items.forEach(([title, small, needle], i) => {
+    const evenly = spoken + ((last - spoken) * i) / scene.items.length;
+    const t = needle ? cue(scene, needle, evenly, after) : evenly;
+    after = t;
+    const card = node('div', 'point glass', grid, `<span class="tick">${check}</span><p>${title}${small ? `<small>${small}</small>` : ''}</p>`);
+    life(card, Math.max(start + 500, t - 250), end, { from: { y: 26, rx: -10 }, exit: { y: -12 }, blur: 8, inDur: 650 });
+  });
+};
+
+builders.grid = (scene) => {
+  const { start, end } = scene;
+  const layer = node('section', 'layer persp');
+  if (scene.head) words('h2', 'grid-head', layer, scene.head, start + 200, 70, [end - 420, end - 40], { y: 0.3, blur: 8 });
+  const n = scene.items.length;
+  const cols = scene.cols ?? (n <= 4 ? n : n <= 6 ? 3 : n <= 10 ? 5 : n <= 12 ? 4 : 5);
+  const rows = Math.ceil(n / cols);
+  const gap = 26;
+  const labelH = scene.names === false ? 0 : 58;
+  const areaTop = scene.head ? 250 : 120;
+  const areaH = 1000 - areaTop - 40;
+  let w = Math.min((1620 - gap * (cols - 1)) / cols, ((areaH - (rows - 1) * gap) / rows - labelH) * 1.6);
+  const h = w / 1.6;
+  const totalW = cols * w + (cols - 1) * gap;
+  const x0 = (1920 - totalW) / 2;
+  const y0 = areaTop + (areaH - rows * (h + labelH) - (rows - 1) * gap) / 2;
+  const spoken = scene.lines.length ? scene.lines[0].at : start + 600;
+  let after = -1;
+  const cues = scene.items.map((item) => {
+    if (!item.cue) return null;
+    const t = cue(scene, item.cue, null, after);
+    if (t != null) after = t;
+    return t;
+  });
+  scene.items.forEach((item, i) => {
+    const col = i % cols;
+    const row = Math.floor(i / cols);
+    const lastRow = row === rows - 1 ? n - row * cols : cols;
+    const shift = row === rows - 1 ? ((cols - lastRow) * (w + gap)) / 2 : 0;
+    const x = x0 + col * (w + gap) + shift;
+    const y = y0 + row * (h + labelH + gap);
+    const tile = place(node('div', 'tile', layer), x, y, w, h);
+    picture(item.image, tile);
+    const ring = node('div', 'tile-ring', tile);
+    const tIn = start + 250 + i * 80;
+    life(tile, tIn, end, { from: { y: 40, z: -200, rx: -12 }, exit: { y: -16 }, blur: 8, inDur: 850 });
+    if (labelH) {
+      const name = place(node('div', 'tile-name', layer, `${item.name}${item.note ? `<small>${item.note}</small>` : ''}`), x + 2, y + h + 10, w - 4);
+      life(name, tIn + 250, end, { from: { y: 8 }, blur: 4 });
+    }
+    if (cues[i] != null) {
+      const next = cues.slice(i + 1).find((c) => c != null) ?? end - 300;
+      track(ring, [[cues[i] - 80, { opacity: 0 }, OUT], [cues[i] + 160, { opacity: 1 }, 'linear'], [Math.max(cues[i] + 161, next - 60), { opacity: 1 }, OUT], [Math.max(cues[i] + 162, next + 160), { opacity: 0 }]]);
+      track(tile, [[cues[i] - 80, { boxShadow: '0 30px 70px -36px rgb(0 0 0 / 0.9)' }, OUT], [cues[i] + 200, { boxShadow: '0 40px 90px -30px rgb(0 0 0 / 0.95)' }]]);
+    }
+  });
+};
+
+builders.montage = (scene) => {
+  const { start, end } = scene;
+  const layer = node('section', 'layer persp');
+  const aspect = scene.aspect ?? 16 / 9;
+  const w = scene.width ?? (scene.head ? 1300 : 1440);
+  const v = viewer(layer, scene, { x: (1920 - w) / 2, y: scene.head ? 190 : 100, w, aspect, url: scene.url ?? SPEC.url, tag: scene.tag });
+  life(v.box, start, end, { from: { y: 50, z: -180, rx: 8 }, exit: { y: -20, z: -60 }, blur: 12, inDur: 900, outDur: 480 });
+  if (scene.head) words('h2', 'grid-head', layer, scene.head, start + 150, 60, [end - 420, end - 40], { y: 0.3, blur: 8 }).style.top = '70px';
+  const n = scene.items.length;
+  const first = start + 200;
+  let after = -1;
+  const times = scene.items.map((item, i) => {
+    const even = lerp(first, end - 700, i / n);
+    if (i === 0) return first;
+    const t = item.cue ? cue(scene, item.cue, even, after) - 120 : even;
+    after = t;
+    return t;
+  });
+  const label = node('div', 'label', layer, '<span class="step"></span><b></b><small></small>');
+  place(label, (1920 - w) / 2 - 40, (scene.head ? 190 : 100) + w / aspect + 40 - 170);
+  life(label, start + 600, end, { from: { x: -24 }, exit: { x: -12 }, blur: 6 });
+  const [stepEl, nameEl, noteEl] = label.children;
+  scene.items.forEach((item, i) => {
+    const a = times[i];
+    const b = i + 1 < n ? times[i + 1] : end;
+    const holder = node('div', 'cam', v.cam);
+    place(holder, 0, 0, v.W, v.H);
+    const img = picture(item.image, holder);
+    const fade = i === 0 ? 0 : 260;
+    track(holder, [[a - fade, { opacity: i === 0 ? 1 : 0 }, OUT], [a, { opacity: 1 }], [b + 300, { opacity: 1 }]]);
+    const camera = item.focus ? cameraFor(item.focus, 1.35) : cameraFor(FOCUS[item.image], 1.35, 1, 1, 0.8);
+    const keys = [[a - fade, { ...camera, s: camera.s * 1.04 }], [b + 300, camera]];
+    custom.push((t) => { if (t >= a - fade - 50 && t <= b + 350) applyCamera(holder, v.W, v.H, cameraAt(keys, t)); });
+  });
+  custom.push((t) => {
+    let i = 0;
+    while (i < n - 1 && t >= times[i + 1]) i++;
+    const item = scene.items[i];
+    if (nameEl.dataset.i !== String(i)) {
+      nameEl.dataset.i = String(i);
+      nameEl.textContent = item.name ?? '';
+      noteEl.textContent = item.note ?? '';
+      noteEl.style.display = item.note ? '' : 'none';
+      stepEl.textContent = scene.counter === false ? (scene.eyebrow ?? '') : `${scene.eyebrow ? `${scene.eyebrow} · ` : ''}${pad(i + 1, 2)} / ${pad(n, 2)}`;
+    }
+    const p = clamp((t - times[i]) / 300);
+    nameEl.style.opacity = String(i === 0 ? 1 : ease(p));
+    nameEl.style.transform = `translateY(${i === 0 ? 0 : (1 - ease(p)) * 8}px)`;
+  });
+};
+
+builders.split = (scene) => {
+  const { start, end } = scene;
+  const layer = node('section', 'layer persp');
+  if (scene.head) words('h2', 'grid-head', layer, scene.head, start + 150, 60, [end - 420, end - 40], { y: 0.3, blur: 8 }).style.top = '70px';
+  const panes = scene.panes;
+  const gap = 60;
+  const w = (1680 - gap * (panes.length - 1)) / panes.length;
+  panes.forEach((pane, i) => {
+    const aspect = pane.view ?? (pane.clip ? 16 / 9 : 1.6);
+    const x = 120 + i * (w + gap);
+    const y = scene.head ? 250 : 170;
+    const v = viewer(layer, scene, { x, y, w, aspect, url: pane.url ?? '', tag: pane.tag ?? '', bare: pane.bare });
+    const tIn = start + 150 + i * 350;
+    life(v.box, tIn, end, { from: { y: 40, z: -160, ry: i ? -10 : 10 }, exit: { y: -16 }, blur: 10, inDur: 900 });
+    if (pane.label) {
+      const label = place(node('div', 'eyebrow', layer, pane.label), x + 4, y - 40);
+      life(label, tIn + 200, end, { from: { y: 8 }, blur: 4 });
+    }
+    const states = pane.states ?? [pane];
+    let after = -1;
+    states.forEach((state, k) => {
+      const a = k === 0 ? start : (state.cue ? cue(scene, state.cue, lerp(start, end, k / states.length), after) : lerp(start, end, k / states.length)) - 150;
+      after = a;
+      const b = end;
+      const holder = node('div', 'cam', v.cam);
+      place(holder, 0, 0, v.W, v.H);
+      const sub = { ...v, cam: holder };
+      film(sub, state, a, b);
+      if (k > 0) track(holder, [[a, { opacity: 0, filter: 'blur(6px)' }, OUT], [a + 420, { opacity: 1, filter: 'blur(0px)' }]]);
+    });
+  });
+};
+
+builders.end = (scene) => {
+  const { start, end } = scene;
+  const layer = node('section', 'layer persp');
+  const copy = node('div', 'end-copy', layer);
+  const head = node('h1', 'end-head', copy);
+  rise(splitInto(head, scene.head), start + 250, 100, null, { y: 0.42, blur: 12, duration: 760 });
+  const row = node('div', 'end-row', copy);
+  if (scene.cta) life(node('div', 'button', row, scene.cta), start + 1500, null, { from: { y: 14 }, blur: 6 });
+  const url = node('div', 'cta', row, `${scene.url ?? SPEC.url}<i></i>`);
+  life(url, start + 1800, null, { from: { y: 12 }, blur: 6 });
+  track(url.querySelector('i'), [[start + 2200, { transform: 'scaleX(0)' }, OUT], [start + 3200, { transform: 'scaleX(1)' }]]);
+  if (scene.install) {
+    const install = node('div', 'install glass', copy, scene.install);
+    life(install, start + 2500, null, { from: { y: 12 }, blur: 6 });
+  }
+  if (scene.note) life(node('div', 'end-note', copy, scene.note), start + 2800, null, { from: { y: 10 }, blur: 4 });
+  // No fade to black: the card stays to the last frame (TAIL).
+};
+
+// ---------------------------------------------------------------------------
+// Start card, before the scenes' clock starts (scene time -LEAD to 0): there
+// complete in the first frame, then it leaves the way the scenes hand over,
+// while the first scene comes in. Eyebrow and header as the page shows them,
+// the lab's address as a small mark.
+// ---------------------------------------------------------------------------
+function start(duration) {
+  const layer = node('section', 'layer start');
+  const title = SPEC.scenes.find((scene) => scene.type === 'title');
+  const eyebrow = node('div', 'eyebrow', layer, SPEC.card?.eyebrow ?? title?.eyebrow ?? 'For TYPO3 v14');
+  // The name and "in 42 seconds" as two unbreakable halves: one line, or the
+  // time on a line of its own.
+  const text = header(SPEC, duration).replace(/&/g, '&amp;').replace(/</g, '&lt;');
+  const [, name, time] = text.match(/^(.*?)\s+(in\s.+)$/) ?? [null, text, ''];
+  const head = node('h1', 'start-head', layer);
+  const spans = splitInto(node('span', '', head), name);
+  if (time) {
+    head.append(' ');
+    spans.push(...splitInto(node('span', '', head), `<em>${time}</em>`));
+  }
+  for (let size = 124; size > 72 && Math.max(...[...head.children].map((half) => half.offsetWidth)) > 1560; size -= 4) head.style.fontSize = `${size - 4}px`;
+  const mark = node('div', 'start-mark', layer, `<i></i>${HOST}`);
+  const leave = (element, t, y, blur) => track(element, [
+    [-LEAD, { opacity: 1, transform: 'translateY(0px)', filter: 'blur(0px)' }],
+    [t, { opacity: 1, transform: 'translateY(0px)', filter: 'blur(0px)' }, INOUT],
+    [t + 460, { opacity: 0, transform: `translateY(${y}px)`, filter: `blur(${blur}px)` }],
+  ]);
+  leave(eyebrow, -300, -10, 4);
+  spans.forEach((span, i) => leave(span, -280 + i * 30, -18, 8));
+  leave(mark, -300, 8, 4);
+  // The shade behind the type goes with it.
+  track(layer, [[-LEAD, { opacity: 1 }], [-200, { opacity: 1 }, SOFT], [400, { opacity: 0 }]]);
+}
+
+// ---------------------------------------------------------------------------
+// HUD, aura keys, captions
+// ---------------------------------------------------------------------------
+function hud() {
+  const chapters = TL.scenes.filter((scene) => scene.chapter);
+  if (!chapters.length) return;
+  const names = [...new Set(chapters.map((scene) => scene.chapter))];
+  const spans = names.map((name) => {
+    const own = chapters.filter((scene) => scene.chapter === name);
+    return [own[0].start, own[own.length - 1].end];
+  });
+  const element = node('div', 'hud', stage, '<div class="hud-bars"></div><div class="hud-line"><b>01</b><span></span><em></em></div>');
+  const bars = element.querySelector('.hud-bars');
+  names.forEach(() => node('i', '', bars, '<s></s>'));
+  element.querySelector('.hud-line span').textContent = `/ ${pad(names.length, 2)}`;
+  const brand = node('div', 'hud-brand', stage, `<i></i>${SPEC.brand ?? SPEC.name}`);
+  const tIn = spans[0][0];
+  const tOut = spans[spans.length - 1][1];
+  life(element, tIn + 300, tOut, { from: { y: -10 }, exit: { y: -10 }, blur: 4 });
+  life(brand, tIn + 300, tOut, { from: { y: -10 }, exit: { y: -10 }, blur: 4 });
+  const number = element.querySelector('b');
+  const title = element.querySelector('em');
+  custom.push((t) => {
+    let index = spans.findIndex(([a, b]) => t >= a && t < b);
+    if (index < 0) index = t < tIn ? 0 : spans.findLastIndex(([a]) => t >= a);
+    if (index < 0) index = 0;
+    const [a, b] = spans[index];
+    number.textContent = pad(index + 1, 2);
+    title.textContent = names[index];
+    const p = clamp((t - a - 150) / 450);
+    title.style.opacity = String(index === 0 ? 1 : ease(p));
+    [...bars.children].forEach((bar, i) => {
+      bar.firstChild.style.transform = `scaleX(${i < index ? 1 : i > index ? 0 : clamp((t - a) / (b - a))})`;
+    });
+  });
+}
+
+function aura() {
+  const strength = { hook: 0.35, title: 0.85, shot: 0.55, points: 0.6, grid: 0.6, montage: 0.55, split: 0.55, end: 0.9 };
+  // The start card in the title's light, which gives way to the first scene's.
+  AURA = [[-LEAD, 0.85], [-400, 0.85]];
+  for (const scene of TL.scenes) AURA.push([scene.start + 600, strength[scene.type] ?? 0.55]);
+  AURA.push([TL.duration - 1200, 0.8]);
+}
+
+function subtitles() {
+  for (const line of TL.lines) {
+    const caption = node('div', 'subtitle', stage, line.show);
+    const t0 = Math.max(0, line.at - 60);
+    const t1 = Math.min(TL.duration, line.at + line.duration + 240);
+    track(caption, [[t0, { opacity: 0 }, OUT], [t0 + 180, { opacity: 1 }], [t1 - 180, { opacity: 1 }, INOUT], [t1, { opacity: 0 }]]);
+  }
+}
+
+/** Film time t: the scenes' clock runs LEAD ms behind it. */
+window.seek = async (t) => {
+  const scene = t - LEAD;
+  for (const animation of document.getAnimations()) animation.currentTime = scene;
+  for (const update of custom) update(scene);
+  await Promise.all(clips.map((clip) => clip.update(scene)).filter(Boolean));
+};
+window.ready = (async () => {
+  const json = async (url, fallback) => { try { const r = await fetch(url); return r.ok ? await r.json() : fallback; } catch { return fallback; } };
+  const narration = await json(`audio/${ID}/narration.json`, null);
+  FOOTAGE = await json(`${FOOT}footage.json`, {});
+  FOCUS = await json('data/focus.json', {});
+  TL = timeline(SPEC, narration);
+  const DURATION = LEAD + TL.duration + TAIL;
+  await Promise.all(['400 168px "Newsreader"', 'italic 400 168px "Newsreader"', '500 22px "Geist"', '500 17px "Geist Mono"'].map((font) => document.fonts.load(font)));
+  for (const scene of TL.scenes) builders[scene.type](scene);
+  start(DURATION);
+  hud();
+  aura();
+  node('div', 'vignette');
+  subtitles();
+  // Film time throughout: lines and scenes LEAD later than on the scenes' clock.
+  window.TIMELINE = {
+    id: ID,
+    duration: DURATION,
+    lead: LEAD,
+    content: TL.duration,
+    lines: TL.lines.map(({ at, duration, end, file, show, say, measured }) => ({ at: at + LEAD, duration, end, file, show, say, measured })),
+    scenes: TL.scenes.map(({ type, start, end, chapter }) => ({ type, start: start + LEAD, end: end + LEAD, chapter })),
+  };
+  window.POSTER_AT = LEAD + (SPEC.poster ?? (() => { const shot = TL.scenes.find((s) => s.type === 'shot' || s.type === 'montage') ?? TL.scenes[1] ?? TL.scenes[0]; return Math.round(shot.start + Math.min(3200, (shot.end - shot.start) * 0.6)); })());
+  await document.fonts.ready;
+  await Promise.all([...document.images].filter((img) => img.src).map((img) => img.decode().catch(() => {})));
+  await window.seek(0);
+  return DURATION;
+})();
+const hold = location.hash.match(/^#t=(\d+)/);
+if (hold) window.ready.then(() => window.seek(Number(hold[1])));
+if (location.hash === '#play') {
+  window.ready.then((duration) => {
+    const begin = performance.now();
+    const tick = async () => { await window.seek((performance.now() - begin) % duration); requestAnimationFrame(tick); };
+    requestAnimationFrame(tick);
+  });
+}
+</script>
+</body>
+</html>

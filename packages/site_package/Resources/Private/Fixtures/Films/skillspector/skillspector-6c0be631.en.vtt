@@ -1,0 +1,25 @@
+WEBVTT - Skillspector (narration, English)
+
+1
+00:00:02.040 --> 00:00:09.759
+A skill is text your AI agent follows. One hidden line can leak a key or pipe a script into a shell.
+
+2
+00:00:10.859 --> 00:00:15.652
+Skillspector reads every agent skill before your AI does.
+
+3
+00:00:16.902 --> 00:00:23.080
+Each finding shows its severity, its location, the matched text and what to check.
+
+4
+00:00:24.130 --> 00:00:29.341
+Checks never change a skill. An administrator decides what to hide.
+
+5
+00:00:30.391 --> 00:00:38.058
+Fifteen built-in rules look for prompt injection, exposed keys, risky commands and licence problems.
+
+6
+00:00:39.658 --> 00:00:43.720
+Skillspector. An administrator always decides.

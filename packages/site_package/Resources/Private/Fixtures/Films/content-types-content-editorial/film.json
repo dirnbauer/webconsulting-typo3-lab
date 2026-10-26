@@ -1,0 +1,46 @@
+{
+  "id": "content-types-content-editorial",
+  "page": 664,
+  "slug": "/content-types/content-editorial",
+  "title": "Content & Editorial: overview film",
+  "header": "Content & Editorial in 33 seconds",
+  "description": "<p>Layouts for articles and text pages. A narrated tour, recorded in this TYPO3 v14 lab, with English captions.</p>",
+  "mp4": "content-types-content-editorial-775f1962.mp4",
+  "poster": "content-types-content-editorial-poster-775f1962.webp",
+  "vtt": "content-types-content-editorial-775f1962.en.vtt",
+  "duration": 33.495,
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "sound": true,
+  "alt": "Overview film, 33 seconds: the 24 Content & Editorial elements of Desiderio for TYPO3 v14, including article hero, gallery, timeline, tabs, blog teasers, quote. Narrated, with English captions.",
+  "transcript": [
+    {
+      "at": "0:02",
+      "text": "Articles and guides turn into walls of text when every block looks the same."
+    },
+    {
+      "at": "0:08",
+      "text": "Content and Editorial has 24 layouts for articles and text pages."
+    },
+    {
+      "at": "0:15",
+      "text": "Article heroes, galleries, timelines, tabs, blog teasers and quotes break a long page into parts."
+    },
+    {
+      "at": "0:25",
+      "text": "Editors pick a layout, and the text stays readable."
+    }
+  ],
+  "captions": {
+    "language": "en",
+    "label": "English",
+    "burnedIn": true
+  },
+  "bytes": {
+    "mp4": 2313630,
+    "poster": 36080,
+    "vtt": 475
+  },
+  "generator": "packages/site_package/Build/Film/render-films.mjs"
+}

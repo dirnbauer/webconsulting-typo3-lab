@@ -1,0 +1,58 @@
+{
+  "id": "desiderio",
+  "page": 1073,
+  "slug": "/features/desiderio",
+  "title": "Desiderio: overview film",
+  "header": "Desiderio in 59 seconds",
+  "description": "<p>244 finished content elements for TYPO3. A narrated tour, recorded in this TYPO3 v14 lab, with English captions.</p>",
+  "mp4": "desiderio-ad2c369e.mp4",
+  "poster": "desiderio-poster-ad2c369e.webp",
+  "vtt": "desiderio-ad2c369e.en.vtt",
+  "duration": 58.7,
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "sound": true,
+  "alt": "Overview film, 59 seconds: Desiderio for TYPO3 v14. Ten groups, one wizard; A preview card for every element; One setting changes the look; A preset for each page tree. Narrated, with English captions.",
+  "transcript": [
+    {
+      "at": "0:02",
+      "text": "Every relaunch, you build the same heroes, pricing tables and footers again. A new brand colour means another deployment."
+    },
+    {
+      "at": "0:11",
+      "text": "Desiderio gives editors 244 finished content elements, in ten groups."
+    },
+    {
+      "at": "0:19",
+      "text": "Editors pick heroes, pricing tables, charts and forms from the content wizard."
+    },
+    {
+      "at": "0:26",
+      "text": "In the page module, every element shows a preview card, so nobody opens forms to find content."
+    },
+    {
+      "at": "0:35",
+      "text": "Pick one of 15 theme presets in the site settings, and every page follows without a rebuild."
+    },
+    {
+      "at": "0:42",
+      "text": "Each page tree can have its own preset. This pricing chapter runs in Midnight."
+    },
+    {
+      "at": "0:49",
+      "text": "Desiderio. Browse all 244 elements in the lab."
+    }
+  ],
+  "captions": {
+    "language": "en",
+    "label": "English",
+    "burnedIn": true
+  },
+  "bytes": {
+    "mp4": 5082794,
+    "poster": 88896,
+    "vtt": 856
+  },
+  "generator": "packages/site_package/Build/Film/render-films.mjs"
+}

@@ -1,0 +1,694 @@
+/*
+ * Backend login of the webconsulting TYPO3 Lab in the webconsulting design
+ * (track.webconsulting.at, Ledger): a deep teal brand column and a pale canvas
+ * with one white form surface. Square, borderless, Hanken Grotesk; a 3px focus
+ * outline everywhere. Loaded by the login layout only
+ * (Resources/Private/TemplateOverrides/typo3/cms-backend/Layouts/Login.fluid.html).
+ *
+ * Light and dark come from Core: :root has color-scheme "light dark", and
+ * [data-color-scheme] (set by the login's switch) forces one of them, so the
+ * tokens below use light-dark() and need no media queries.
+ *
+ * Contrast (WCAG 2.2 AA), measured: panel text #d7e9ef on #0f4555 8.4:1,
+ * eyebrow and panel focus #66c4e1 5.3:1, button text 4.9:1 (light) and 8.6:1
+ * (dark), muted text 5.3:1 on the canvas, links 6.9:1 and more, badges 5.6:1
+ * to 7.2:1, focus outline 4.4:1 against the field fill and 4.9:1 against the
+ * surface.
+ */
+
+/* Hanken Grotesk (SIL OFL 1.1, OFL-HankenGrotesk.txt), variable weight, served locally. */
+@font-face {
+    font-family: "Hanken Grotesk";
+    font-style: normal;
+    font-weight: 100 900;
+    font-display: swap;
+    src: url("../Fonts/hanken-grotesk-latin-ext.woff2") format("woff2");
+    unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+@font-face {
+    font-family: "Hanken Grotesk";
+    font-style: normal;
+    font-weight: 100 900;
+    font-display: swap;
+    src: url("../Fonts/hanken-grotesk-latin.woff2") format("woff2");
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+.webcon-login {
+    /* webconsulting tokens */
+    --webcon-font: "Hanken Grotesk", ui-sans-serif, system-ui, sans-serif;
+    --webcon-panel: #0f4555;
+    --webcon-panel-text: #d7e9ef;
+    --webcon-panel-heading: #ffffff;
+    --webcon-panel-accent: #66c4e1;
+    --webcon-panel-tile: #155d73;
+    --webcon-panel-tile-icon: #c5e8f2;
+    --webcon-panel-hover: rgb(255 255 255 / 0.08);
+    --webcon-canvas: light-dark(#f5f8f9, #071f26);
+    --webcon-surface: light-dark(#ffffff, #0f252c);
+    --webcon-field: light-dark(#eef2f3, #16343d);
+    --webcon-field-hover: light-dark(#e4ebed, #1d414c);
+    --webcon-ink: light-dark(#171a1d, #f8fafb);
+    --webcon-muted: light-dark(#5e6870, #b8c5ca);
+    --webcon-link: light-dark(#155d73, #9dd8eb);
+    --webcon-primary: light-dark(#1b7a95, #66c4e1);
+    --webcon-primary-hover: light-dark(#155d73, #9dd8eb);
+    --webcon-on-primary: light-dark(#ffffff, #071f26);
+    --webcon-focus: light-dark(#1b7a95, #66c4e1);
+    /* TYPO3 brand guidelines: word mark black on light, white on dark surfaces; the mark stays #FF8700. */
+    --webcon-typo3-wordmark: light-dark(#000000, #ffffff);
+    --webcon-gutter: 16px;
+    --webcon-panel-padding: clamp(48px, 5vw, 64px);
+
+    /* TYPO3 Core tokens inside the login: square, borderless fields, the webconsulting font. */
+    --typo3-component-border-radius: 0;
+    --typo3-input-border-radius: 0;
+    --typo3-alert-border-radius: 0;
+    --typo3-callout-border-radius: 0;
+    --typo3-badge-border-radius: 0;
+    --typo3-input-font-size: 1rem;
+    --typo3-input-color: var(--webcon-ink);
+    --typo3-input-bg: var(--webcon-field);
+    --typo3-input-border-color: transparent;
+    --typo3-input-hover-color: var(--webcon-ink);
+    --typo3-input-hover-bg: var(--webcon-field);
+    --typo3-input-hover-border-color: transparent;
+    --typo3-input-focus-color: var(--webcon-ink);
+    --typo3-input-focus-bg: var(--webcon-field);
+    --typo3-input-focus-border-color: transparent;
+
+    display: grid;
+    grid-template-areas: "brand" "main" "about" "footnote";
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto auto auto 1fr;
+    position: relative;
+    min-height: 100dvh;
+    background-color: var(--webcon-canvas);
+    background-image: none;
+    color: var(--webcon-ink);
+    font-family: var(--webcon-font);
+    font-size: 1rem;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+}
+
+.webcon-login :where(h1, h2, h3, p, ul) {
+    margin: 0;
+}
+
+.webcon-login :is(h1, h2, h3, input, button, select, textarea, .btn, .form-control) {
+    font-family: inherit;
+}
+
+.webcon-login :is(a, button, input, select, textarea, summary, [tabindex]:not([tabindex="-1"])):focus-visible {
+    outline: 3px solid var(--webcon-focus);
+    outline-offset: 2px;
+    box-shadow: none;
+}
+
+.webcon-login [tabindex="-1"]:focus {
+    outline: none;
+}
+
+.webcon-login a:not(.btn) {
+    color: var(--webcon-link);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+}
+
+.webcon-login a:not(.btn):hover {
+    text-decoration-thickness: 2px;
+}
+
+/* Skip link: first stop for keyboard users, visible on focus. */
+.webcon-login-skip {
+    position: absolute;
+    inset-block-start: 12px;
+    inset-inline-start: 12px;
+    z-index: 20;
+    padding: 12px 16px;
+    background-color: var(--webcon-surface);
+    color: var(--webcon-link);
+    font-weight: 600;
+}
+
+.webcon-login-skip:not(:focus) {
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+}
+
+/* Brand column: logo, product, environment. */
+.webcon-login-brand {
+    grid-area: brand;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px var(--webcon-gutter);
+    background-color: var(--webcon-panel);
+    color: var(--webcon-panel-text);
+}
+
+.webcon-login-brand-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px 16px;
+    min-width: 0;
+}
+
+.webcon-login-lockup {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 2px 8px;
+    color: var(--webcon-panel-heading);
+    font-size: 1.0625rem;
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+}
+
+.webcon-login-logo {
+    display: block;
+    width: auto;
+    height: 22px;
+}
+
+.webcon-login-product {
+    color: var(--webcon-panel-accent);
+    white-space: nowrap;
+}
+
+.webcon-login-dot {
+    margin-inline-end: 4px;
+    color: var(--webcon-panel-heading);
+}
+
+/* Environment badge: the text says it, the colour repeats it (WCAG 1.4.1). */
+.webcon-login-badge {
+    display: inline-flex;
+    align-items: center;
+    min-height: 24px;
+    padding: 2px 8px;
+    border: 1px solid transparent;
+    font-size: 0.75rem;
+    font-weight: 700;
+    line-height: 1.3;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    background-color: #eef2f3;
+    color: #171a1d;
+}
+
+.webcon-login-badge--ddev {
+    background-color: #dbeafe;
+    color: #1e40af;
+}
+
+.webcon-login-badge--staging {
+    background-color: #fef3c7;
+    color: #9a4a00;
+}
+
+.webcon-login-badge--live {
+    background-color: #dcfce7;
+    color: #166534;
+}
+
+/* Light/dark switch: in the brand bar on small screens, top right of the canvas on wide ones. */
+.webcon-login-scheme {
+    display: inline-flex;
+    flex: none;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    margin-inline-start: auto;
+    padding: 0;
+    border: 0;
+    background-color: transparent;
+    color: var(--webcon-panel-text);
+    cursor: pointer;
+}
+
+.webcon-login-scheme[hidden] {
+    display: none;
+}
+
+.webcon-login-scheme:hover {
+    background-color: var(--webcon-panel-hover);
+    color: var(--webcon-panel-heading);
+}
+
+.webcon-login-scheme[data-current="dark"] .webcon-login-scheme-moon,
+.webcon-login-scheme:not([data-current="dark"]) .webcon-login-scheme-sun {
+    display: none;
+}
+
+.webcon-login :is(.webcon-login-brand, .webcon-login-about, .webcon-login-footnote) :focus-visible {
+    outline-color: var(--webcon-panel-accent);
+}
+
+/* Form column */
+.webcon-login-main {
+    grid-area: main;
+    display: flex;
+    justify-content: center;
+    padding: 32px var(--webcon-gutter) 40px;
+}
+
+.webcon-login-column {
+    width: 100%;
+    max-width: 420px;
+}
+
+.webcon-login-surface {
+    padding: 24px;
+    background-color: var(--webcon-surface);
+    color: var(--webcon-ink);
+}
+
+.webcon-login-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    line-height: 1.25;
+    letter-spacing: -0.025em;
+    color: var(--webcon-ink);
+}
+
+.webcon-login-intro {
+    margin-block: 8px 24px;
+    color: var(--webcon-muted);
+    font-size: 0.875rem;
+    line-height: 1.6;
+}
+
+.webcon-login-surface :is(h2, .h2) {
+    margin-block: 0 16px;
+    font-size: 1.25rem;
+    font-weight: 600;
+    line-height: 1.3;
+    letter-spacing: -0.02em;
+}
+
+.webcon-login-surface :is(p, .form-text) {
+    font-size: 0.875rem;
+    line-height: 1.6;
+}
+
+/* Paragraphs of the password-reset forms and the WorkOS code steps. */
+.webcon-login :is(.typo3-login-form, .workos-login) > p {
+    margin-block-end: 16px;
+}
+
+.webcon-login .form-group {
+    margin-block-end: 18px;
+}
+
+.webcon-login .form-label {
+    display: block;
+    margin-block-end: 6px;
+    color: var(--webcon-ink);
+    font-size: 0.875rem;
+    font-weight: 600;
+    line-height: 1.4;
+}
+
+.webcon-login .form-control {
+    min-height: 44px;
+    font-size: 1rem;
+}
+
+.webcon-login .form-control:focus {
+    outline: 3px solid var(--webcon-focus);
+    outline-offset: 2px;
+}
+
+.webcon-login .form-control::placeholder {
+    color: var(--webcon-muted);
+    opacity: 1;
+}
+
+.webcon-login .input-group-text {
+    border-color: transparent;
+    background-color: var(--webcon-field);
+    color: var(--webcon-ink);
+}
+
+/* Buttons: filled teal primary, filled neutral secondary, never outlined. */
+.webcon-login .btn {
+    --typo3-btn-border-width: 0;
+    min-height: 44px;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    line-height: 1.3;
+}
+
+.webcon-login .btn-login {
+    --typo3-btn-color: var(--webcon-on-primary);
+    --typo3-btn-bg: var(--webcon-primary);
+    --typo3-btn-border-color: var(--webcon-primary);
+    --typo3-btn-hover-color: var(--webcon-on-primary);
+    --typo3-btn-hover-bg: var(--webcon-primary-hover);
+    --typo3-btn-hover-border-color: var(--webcon-primary-hover);
+    --typo3-btn-focus-color: var(--webcon-on-primary);
+    --typo3-btn-focus-bg: var(--webcon-primary-hover);
+    --typo3-btn-focus-border-color: var(--webcon-primary-hover);
+    --typo3-btn-disabled-color: var(--webcon-on-primary);
+    --typo3-btn-disabled-bg: var(--webcon-primary);
+    --typo3-btn-disabled-border-color: var(--webcon-primary);
+    margin-block-start: 6px;
+}
+
+.webcon-login .btn-default {
+    --typo3-btn-color: var(--webcon-ink);
+    --typo3-btn-bg: var(--webcon-field);
+    --typo3-btn-border-color: var(--webcon-field);
+    --typo3-btn-hover-color: var(--webcon-ink);
+    --typo3-btn-hover-bg: var(--webcon-field-hover);
+    --typo3-btn-hover-border-color: var(--webcon-field-hover);
+    --typo3-btn-focus-color: var(--webcon-ink);
+    --typo3-btn-focus-bg: var(--webcon-field-hover);
+    --typo3-btn-focus-border-color: var(--webcon-field-hover);
+    --typo3-btn-disabled-color: var(--webcon-ink);
+    --typo3-btn-disabled-bg: var(--webcon-field);
+    --typo3-btn-disabled-border-color: var(--webcon-field);
+}
+
+.webcon-login .input-group > .btn {
+    min-height: 44px;
+}
+
+.webcon-login .btn-link {
+    color: var(--webcon-link);
+}
+
+.webcon-login .forgot-password {
+    margin-block: 16px 0 !important;
+    font-size: 0.875rem;
+}
+
+.webcon-login .forgot-password a,
+.webcon-login .webcon-login-providers a {
+    font-weight: 600;
+}
+
+/* Other login providers (WorkOS, username and password). */
+.webcon-login-providers {
+    margin-block-start: 24px;
+}
+
+.webcon-login-providers .typo3-login-links {
+    display: grid;
+    gap: 8px;
+    margin: 0;
+    padding: 0;
+}
+
+.webcon-login-providers .typo3-login-links a {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    min-height: 24px;
+    font-size: 0.875rem;
+}
+
+.webcon-login-access {
+    margin: 20px 12px 0;
+    color: var(--webcon-muted);
+    font-size: 0.8125rem;
+    line-height: 1.6;
+    text-align: center;
+    text-wrap: pretty;
+}
+
+/* System news (sys_news), when there is any. */
+.webcon-login .typo3-login-news {
+    position: relative;
+    margin-block-start: 24px;
+    background-color: var(--webcon-surface);
+    font-size: 0.875rem;
+}
+
+/* "Built on TYPO3", the trademark notice and Core's copyright notice. */
+.webcon-login-credits {
+    margin-block-start: 32px;
+    color: var(--webcon-muted);
+    font-size: 0.75rem;
+    line-height: 1.6;
+    text-align: center;
+}
+
+.webcon-login-builton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    font-size: 0.8125rem;
+}
+
+/* Clear space of the TYPO3 logo: at least half its height (2 × a quarter of the height) on every side. */
+.webcon-login-typo3-logo {
+    display: block;
+    width: 80px;
+    height: auto;
+    margin-block: 12px;
+    color: var(--webcon-typo3-wordmark);
+}
+
+.webcon-login-legal {
+    max-width: 380px;
+    margin-inline: auto;
+    text-wrap: pretty;
+}
+
+.webcon-login .typo3-login-copyright-wrap {
+    margin-block-start: 8px;
+}
+
+.webcon-login .typo3-login-copyright-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    width: auto;
+    min-height: 24px;
+    padding: 0 4px;
+    border: 0;
+    background-color: transparent;
+    color: var(--webcon-link);
+    font-size: 0.75rem;
+    font-weight: 600 !important;
+}
+
+.webcon-login .typo3-login-copyright-link:hover {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.webcon-login .typo3-login-copyright-link[aria-expanded="true"] .webcon-login-chevron {
+    transform: rotate(180deg);
+}
+
+.webcon-login .typo3-login-copyright-text {
+    padding-block-start: 8px;
+    color: var(--webcon-muted);
+    font-size: 0.75rem;
+}
+
+.webcon-login .typo3-login-copyright-text p {
+    margin-block-end: 8px;
+}
+
+.webcon-login .typo3-login-copyright-text .list-unstyled {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 4px 16px;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+.webcon-login .typo3-login-copyright-text li a {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    min-height: 24px;
+}
+
+/* What the backend is for */
+.webcon-login-about {
+    grid-area: about;
+    padding: 40px var(--webcon-gutter) 32px;
+    background-color: var(--webcon-panel);
+    color: var(--webcon-panel-text);
+}
+
+.webcon-login-about-inner {
+    max-width: 480px;
+}
+
+.webcon-login-eyebrow {
+    color: var(--webcon-panel-accent);
+    font-size: 0.6875rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    line-height: 1.5;
+    text-transform: uppercase;
+}
+
+.webcon-login-headline {
+    margin-block-start: 12px;
+    color: var(--webcon-panel-heading);
+    font-size: clamp(1.5rem, 2.2vw, 1.875rem);
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: -0.03em;
+    text-wrap: balance;
+}
+
+.webcon-login-description {
+    margin-block-start: 16px;
+    font-size: 0.9375rem;
+    line-height: 1.65;
+    text-wrap: pretty;
+}
+
+.webcon-login-features {
+    display: grid;
+    gap: 24px;
+    margin-block-start: 36px;
+    padding: 0;
+    list-style: none;
+}
+
+.webcon-login-features li {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+}
+
+.webcon-login-feature-icon {
+    display: flex;
+    flex: none;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: var(--webcon-panel-tile);
+    color: var(--webcon-panel-tile-icon);
+}
+
+.webcon-login-features h3 {
+    color: var(--webcon-panel-heading);
+    font-size: 0.9375rem;
+    font-weight: 600;
+    line-height: 1.5rem;
+    letter-spacing: 0;
+}
+
+.webcon-login-features p {
+    margin-block-start: 2px;
+    font-size: 0.875rem;
+    line-height: 1.6;
+}
+
+/* Project, environment, "Website by webconsulting.at" */
+.webcon-login-footnote {
+    grid-area: footnote;
+    padding: 0 var(--webcon-gutter) 32px;
+    background-color: var(--webcon-panel);
+    color: var(--webcon-panel-text);
+    font-size: 0.8125rem;
+    line-height: 1.6;
+}
+
+.webcon-login .webcon-login-footnote a {
+    color: var(--webcon-panel-heading);
+}
+
+@media (min-width: 640px) {
+    .webcon-login {
+        --webcon-gutter: 32px;
+    }
+
+    .webcon-login-surface {
+        padding: 32px;
+    }
+
+    .webcon-login-logo {
+        height: 26px;
+    }
+
+    .webcon-login-lockup {
+        font-size: 1.25rem;
+    }
+}
+
+/* Two columns from 1024px: brand column 5/11, form column 6/11, as on Track and Ledger. */
+@media (min-width: 1024px) {
+    .webcon-login {
+        grid-template-areas:
+            "brand main"
+            "about main"
+            "footnote main";
+        grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
+        grid-template-rows: auto 1fr auto;
+    }
+
+    .webcon-login-brand {
+        padding: var(--webcon-panel-padding) var(--webcon-panel-padding) 0;
+    }
+
+    .webcon-login-about {
+        display: flex;
+        align-items: center;
+        padding: 48px var(--webcon-panel-padding);
+    }
+
+    .webcon-login-footnote {
+        padding: 0 var(--webcon-panel-padding) clamp(40px, 4vw, 56px);
+    }
+
+    .webcon-login-main {
+        align-items: center;
+        padding: 72px 32px;
+    }
+
+    .webcon-login-scheme {
+        position: absolute;
+        inset-block-start: 12px;
+        inset-inline-end: 12px;
+        color: var(--webcon-muted);
+    }
+
+    .webcon-login-scheme:hover {
+        background-color: var(--webcon-field);
+        color: var(--webcon-ink);
+    }
+
+    .webcon-login .webcon-login-scheme:focus-visible {
+        outline-color: var(--webcon-focus);
+    }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .webcon-login .btn,
+    .webcon-login-scheme,
+    .webcon-login-chevron {
+        transition: background-color 150ms cubic-bezier(0.23, 1, 0.32, 1), color 150ms cubic-bezier(0.23, 1, 0.32, 1), transform 150ms cubic-bezier(0.23, 1, 0.32, 1);
+    }
+}
+
+/* Windows high contrast: the surfaces have no borders, so give the form surface an edge. */
+@media (forced-colors: active) {
+    .webcon-login-surface {
+        outline: 1px solid CanvasText;
+    }
+}

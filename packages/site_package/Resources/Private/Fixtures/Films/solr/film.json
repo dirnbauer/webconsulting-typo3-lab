@@ -1,0 +1,54 @@
+{
+  "id": "solr",
+  "page": 1074,
+  "slug": "/features/solr",
+  "title": "Apache Solr: overview film",
+  "header": "Apache Solr in 44 seconds",
+  "description": "<p>Search results in your design, with Desiderio. A narrated tour, recorded in this TYPO3 v14 lab, with English captions.</p>",
+  "mp4": "solr-db1e393b.mp4",
+  "poster": "solr-poster-db1e393b.webp",
+  "vtt": "solr-db1e393b.en.vtt",
+  "duration": 43.921,
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "sound": true,
+  "alt": "Overview film, 44 seconds: Apache Solr for TYPO3 v14. Top results while you type; One click narrows the results; The same page in dark mode. Narrated, with English captions.",
+  "transcript": [
+    {
+      "at": "0:02",
+      "text": "Solr finds your content, but its default templates look like another site."
+    },
+    {
+      "at": "0:08",
+      "text": "Desiderio’s templates give Solr’s results, filters and page numbers your theme."
+    },
+    {
+      "at": "0:15",
+      "text": "After three letters, suggestions and top results appear, usable with the keyboard."
+    },
+    {
+      "at": "0:22",
+      "text": "Active filters show as chips, and every option keeps its own count."
+    },
+    {
+      "at": "0:29",
+      "text": "Switch the preset or dark mode, and search follows, with no CSS of its own."
+    },
+    {
+      "at": "0:36",
+      "text": "Apache Solr, styled by Desiderio."
+    }
+  ],
+  "captions": {
+    "language": "en",
+    "label": "English",
+    "burnedIn": true
+  },
+  "bytes": {
+    "mp4": 2755071,
+    "poster": 40124,
+    "vtt": 660
+  },
+  "generator": "packages/site_package/Build/Film/render-films.mjs"
+}

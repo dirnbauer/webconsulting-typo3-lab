@@ -1,0 +1,46 @@
+{
+  "id": "content-types-plans-pricing",
+  "page": 671,
+  "slug": "/content-types/plans-pricing",
+  "title": "Plans & Pricing: overview film",
+  "header": "Plans & Pricing in 33 seconds",
+  "description": "<p>Pricing tables, toggles and calculators. A narrated tour, recorded in this TYPO3 v14 lab, with English captions.</p>",
+  "mp4": "content-types-plans-pricing-a89f2cbe.mp4",
+  "poster": "content-types-plans-pricing-poster-a89f2cbe.webp",
+  "vtt": "content-types-plans-pricing-a89f2cbe.en.vtt",
+  "duration": 33.234,
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "sound": true,
+  "alt": "Overview film, 33 seconds: the 25 Plans & Pricing elements of Desiderio for TYPO3 v14, including three tiers, calculator, slider, product gallery, order summary, comparison. Narrated, with English captions.",
+  "transcript": [
+    {
+      "at": "0:02",
+      "text": "On a hand-built pricing table, every price change means a ticket for a developer."
+    },
+    {
+      "at": "0:08",
+      "text": "Plans and Pricing has 25 elements for prices, products and orders."
+    },
+    {
+      "at": "0:15",
+      "text": "Three-tier tables, a calculator, a slider, product galleries, an order summary and a full comparison."
+    },
+    {
+      "at": "0:24",
+      "text": "Editors change prices in the backend, without a developer."
+    }
+  ],
+  "captions": {
+    "language": "en",
+    "label": "English",
+    "burnedIn": true
+  },
+  "bytes": {
+    "mp4": 2229904,
+    "poster": 33786,
+    "vtt": 488
+  },
+  "generator": "packages/site_package/Build/Film/render-films.mjs"
+}

@@ -1,0 +1,304 @@
+{
+  "voice": "George",
+  "delivery": {
+    "stability": 0.62,
+    "similarity_boost": 0.78,
+    "style": 0.18,
+    "speed": 0.9
+  },
+  "lines": [
+    {
+      "say": "In a deep page tree, visitors get lost when menus and breadcrumbs disagree.",
+      "show": "In a deep page tree, visitors get lost when menus and breadcrumbs disagree.",
+      "file": "voice-01.mp3",
+      "duration": 5851,
+      "words": [
+        {
+          "word": "In",
+          "start": 70,
+          "end": 174
+        },
+        {
+          "word": "a",
+          "start": 221,
+          "end": 244
+        },
+        {
+          "word": "deep",
+          "start": 313,
+          "end": 534
+        },
+        {
+          "word": "page",
+          "start": 627,
+          "end": 1033
+        },
+        {
+          "word": "tree,",
+          "start": 1080,
+          "end": 1591
+        },
+        {
+          "word": "visitors",
+          "start": 1823,
+          "end": 2287
+        },
+        {
+          "word": "get",
+          "start": 2334,
+          "end": 2496
+        },
+        {
+          "word": "lost",
+          "start": 2577,
+          "end": 2879
+        },
+        {
+          "word": "when",
+          "start": 2926,
+          "end": 3100
+        },
+        {
+          "word": "menus",
+          "start": 3181,
+          "end": 3622
+        },
+        {
+          "word": "and",
+          "start": 3657,
+          "end": 3738
+        },
+        {
+          "word": "breadcrumbs",
+          "start": 3785,
+          "end": 4377
+        },
+        {
+          "word": "disagree.",
+          "start": 4423,
+          "end": 5283
+        }
+      ],
+      "heard": "In a deep page tree, visitors get lost when menus and breadcrumbs disagree.",
+      "end": 5290
+    },
+    {
+      "say": "Navigation and Wayfinding has 24 elements for menus, headers and paths through a site.",
+      "show": "Navigation and Wayfinding has 24 elements for menus, headers and paths through a site.",
+      "file": "voice-02.mp3",
+      "duration": 6504,
+      "words": [
+        {
+          "word": "Navigation",
+          "start": 12,
+          "end": 673
+        },
+        {
+          "word": "and",
+          "start": 720,
+          "end": 789
+        },
+        {
+          "word": "Wayfinding",
+          "start": 859,
+          "end": 1521
+        },
+        {
+          "word": "has",
+          "start": 1753,
+          "end": 1939
+        },
+        {
+          "word": "24",
+          "start": 2009,
+          "end": 2508
+        },
+        {
+          "word": "elements",
+          "start": 2577,
+          "end": 2984
+        },
+        {
+          "word": "for",
+          "start": 3030,
+          "end": 3135
+        },
+        {
+          "word": "menus,",
+          "start": 3204,
+          "end": 3808
+        },
+        {
+          "word": "headers",
+          "start": 3913,
+          "end": 4272
+        },
+        {
+          "word": "and",
+          "start": 4307,
+          "end": 4400
+        },
+        {
+          "word": "paths",
+          "start": 4481,
+          "end": 4888
+        },
+        {
+          "word": "through",
+          "start": 4923,
+          "end": 5143
+        },
+        {
+          "word": "a",
+          "start": 5178,
+          "end": 5201
+        },
+        {
+          "word": "site.",
+          "start": 5248,
+          "end": 5886
+        }
+      ],
+      "heard": "Navigation and wayfinding has 24 elements for menus, headers and paths through a site.",
+      "end": 5760
+    },
+    {
+      "say": "Dropdown menus, breadcrumbs, maps, profile headers, a search header and tabs.",
+      "show": "Dropdown menus, breadcrumbs, maps, profile headers, a search header and tabs.",
+      "file": "voice-03.mp3",
+      "duration": 6269,
+      "words": [
+        {
+          "word": "Dropdown",
+          "start": 12,
+          "end": 569
+        },
+        {
+          "word": "menus,",
+          "start": 639,
+          "end": 1115
+        },
+        {
+          "word": "breadcrumbs,",
+          "start": 1161,
+          "end": 1939
+        },
+        {
+          "word": "maps,",
+          "start": 2032,
+          "end": 2612
+        },
+        {
+          "word": "profile",
+          "start": 2844,
+          "end": 3413
+        },
+        {
+          "word": "headers,",
+          "start": 3448,
+          "end": 3901
+        },
+        {
+          "word": "a",
+          "start": 4063,
+          "end": 4145
+        },
+        {
+          "word": "search",
+          "start": 4238,
+          "end": 4540
+        },
+        {
+          "word": "header",
+          "start": 4586,
+          "end": 4830
+        },
+        {
+          "word": "and",
+          "start": 4899,
+          "end": 5004
+        },
+        {
+          "word": "tabs.",
+          "start": 5074,
+          "end": 5700
+        }
+      ],
+      "heard": "drop-down menus, breadcrumbs, maps, profile headers, a search header and tabs."
+    },
+    {
+      "say": "Every element uses the same design tokens as the rest of the site.",
+      "show": "Every element uses the same design tokens as the rest of the site.",
+      "file": "voice-04.mp3",
+      "duration": 4075,
+      "words": [
+        {
+          "word": "Every",
+          "start": 23,
+          "end": 325
+        },
+        {
+          "word": "element",
+          "start": 406,
+          "end": 755
+        },
+        {
+          "word": "uses",
+          "start": 836,
+          "end": 1173
+        },
+        {
+          "word": "the",
+          "start": 1242,
+          "end": 1312
+        },
+        {
+          "word": "same",
+          "start": 1358,
+          "end": 1614
+        },
+        {
+          "word": "design",
+          "start": 1649,
+          "end": 2020
+        },
+        {
+          "word": "tokens",
+          "start": 2067,
+          "end": 2485
+        },
+        {
+          "word": "as",
+          "start": 2531,
+          "end": 2612
+        },
+        {
+          "word": "the",
+          "start": 2659,
+          "end": 2728
+        },
+        {
+          "word": "rest",
+          "start": 2798,
+          "end": 3019
+        },
+        {
+          "word": "of",
+          "start": 3065,
+          "end": 3123
+        },
+        {
+          "word": "the",
+          "start": 3170,
+          "end": 3239
+        },
+        {
+          "word": "site.",
+          "start": 3286,
+          "end": 3762
+        }
+      ],
+      "heard": "Every element uses the same design tokens as the rest of the site."
+    }
+  ]
+}

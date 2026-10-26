@@ -1,0 +1,291 @@
+<html
+    xmlns:core="http://typo3.org/ns/TYPO3/CMS/Core/ViewHelpers"
+    xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+    xmlns:sp="http://typo3.org/ns/Webconsulting/SitePackage/ViewHelpers"
+    data-namespace-typo3-fluid="true"
+>
+
+<f:comment>
+    The lab's backend login in the webconsulting design of track.webconsulting.at and Ledger:
+    a deep teal brand column (logo, environment, what the backend is for) and a pale canvas with
+    one white form surface. It replaces the Core layout EXT:backend Layouts/Login.fluid.html for
+    the login (EventListener/UseLabBackendLoginLayout) and the password-reset pages (page TSconfig
+    templates.typo3/cms-backend). Everything the Core layout does is kept: the login providers
+    render their "loginFormFields" and "ResetPassword" sections here, with the Core form, its hidden
+    fields, ids, error and cookie notices, the provider switch, the system news, the copyright
+    notice and the referrer-check link.
+
+    Asset sources:
+    - webconsulting logo: https://webconsulting.at/logo-dark.svg, byte-identical
+      (EXT:site_package/Resources/Public/Backend/Images/webconsulting-logo-dark.svg).
+    - TYPO3 logo: the inline SVG of the Core login layout (EXT:backend Layouts/Login.fluid.html),
+      unchanged: mark in #FF8700, word mark black on light and white on dark surfaces
+      (TYPO3 brand guidelines, https://typo3.com/typo3-cms/the-brand/brand-guidelines).
+    - Hanken Grotesk: SIL OFL 1.1, served from EXT:site_package/Resources/Public/Backend/Fonts.
+    - Feature and switch icons: Lucide (ISC licence), inline.
+</f:comment>
+
+<f:asset.module identifier="bootstrap" />
+<f:asset.module identifier="@typo3/backend/login.js" />
+<f:asset.module identifier="@webconsulting/site-package/login-color-scheme.js" />
+<f:asset.css identifier="site-package-backend-login" href="EXT:site_package/Resources/Public/Backend/Css/login.css" />
+
+<f:variable name="environment" value="{sp:backend.loginEnvironment()}" />
+<f:variable name="environmentLabel"><f:translate key="LLL:EXT:site_package/Resources/Private/Language/backend_login.xlf:environment.{environment.key}" default="{environment.label}" /></f:variable>
+<f:variable name="year"><f:format.date format="Y">now</f:format.date></f:variable>
+
+<div class="typo3-login webcon-login" data-environment="{environment.key}">
+    <a class="webcon-login-skip" href="#webcon-login-title"><f:translate key="LLL:EXT:site_package/Resources/Private/Language/backend_login.xlf:skip" /></a>
+
+    <header class="webcon-login-brand">
+        <div class="webcon-login-brand-row">
+            <p class="webcon-login-lockup">
+                <img
+                    class="webcon-login-logo"
+                    src="{f:uri.resource(path: 'EXT:site_package/Resources/Public/Backend/Images/webconsulting-logo-dark.svg')}"
+                    alt="webconsulting"
+                    width="237"
+                    height="32"
+                />
+                <span class="webcon-login-product"><span class="webcon-login-dot" aria-hidden="true">·</span> TYPO3 Lab</span>
+            </p>
+            <p class="webcon-login-environment">
+                <span class="webcon-login-badge webcon-login-badge--{environment.key}">
+                    <span class="visually-hidden"><f:translate key="LLL:EXT:site_package/Resources/Private/Language/backend_login.xlf:environment" />: </span>{environmentLabel}
+                </span>
+            </p>
+        </div>
+        <button
+            type="button"
+            class="webcon-login-scheme"
+            data-webcon-login-color-scheme
+            data-label-dark="{f:translate(key: 'LLL:EXT:site_package/Resources/Private/Language/backend_login.xlf:colorScheme.dark')}"
+            data-label-light="{f:translate(key: 'LLL:EXT:site_package/Resources/Private/Language/backend_login.xlf:colorScheme.light')}"
+            aria-label="{f:translate(key: 'LLL:EXT:site_package/Resources/Private/Language/backend_login.xlf:colorScheme.dark')}"
+            hidden
+        >
+            <svg class="webcon-login-scheme-moon" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+            <svg class="webcon-login-scheme-sun" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+        </button>
+    </header>
+
+    <main class="webcon-login-main">
+        <div class="webcon-login-column">
+            <div class="webcon-login-surface">
+                <f:if condition="{action} == 'login'">
+                    <f:then>
+                        <h1 id="webcon-login-title" class="webcon-login-title" tabindex="-1"><f:translate key="LLL:EXT:site_package/Resources/Private/Language/backend_login.xlf:title" /></h1>
+                        <p class="webcon-login-intro"><f:translate key="LLL:EXT:site_package/Resources/Private/Language/backend_login.xlf:intro" /></p>
+                    </f:then>
+                    <f:else>
+                        <h1 id="webcon-login-title" class="visually-hidden" tabindex="-1"><f:translate key="LLL:EXT:backend/Resources/Private/Language/locallang.xlf:login.header" /></h1>
+                    </f:else>
+                </f:if>
+                <f:if condition="{action} == 'login'">
+                    <f:then>
+                        <f:if condition="{hasLoginError}">
+                            <div class="t3js-login-error mb-2" id="t3-login-error">
+                                <div class="alert alert-danger" role="alert">
+                                    <div class="alert-title"><f:translate key="LLL:EXT:backend/Resources/Private/Language/locallang.xlf:login.error.message" /></div>
+                                    <div class="alert-message"><f:translate key="LLL:EXT:backend/Resources/Private/Language/locallang.xlf:login.error.description" /></div>
+                                </div>
+                            </div>
+                        </f:if>
+                        <noscript>
+                            <f:be.infobox message="{f:translate(key: 'LLL:EXT:backend/Resources/Private/Language/locallang.xlf:login.error.javascript')}" state="{f:constant(name: 'TYPO3\CMS\Core\Type\ContextualFeedbackSeverity::ERROR')}" />
+                        </noscript>
+                        <div class="hidden t3js-login-error-nocookies">
+                            <f:be.infobox message="{f:translate(key: 'LLL:EXT:backend/Resources/Private/Language/locallang.xlf:login.error.cookies')}" state="{f:constant(name: 'TYPO3\CMS\Core\Type\ContextualFeedbackSeverity::ERROR')}" />
+                        </div>
+                        <div class="hidden t3js-login-error-noreferrer">
+                            <f:be.infobox message="{f:translate(key: 'LLL:EXT:backend/Resources/Private/Language/locallang.xlf:login.error.referrer')}" state="{f:constant(name: 'TYPO3\CMS\Core\Type\ContextualFeedbackSeverity::ERROR')}" />
+                        </div>
+                        <div class="hidden t3js-login-warning-password-whitespace">
+                            <f:be.infobox state="{f:constant(name: 'TYPO3\CMS\Core\Type\ContextualFeedbackSeverity::WARNING')}">
+                                <f:translate key="LLL:EXT:backend/Resources/Private/Language/locallang.xlf:login.warning.whitespace-around-password" />
+                                <button class="btn btn-link text-decoration-underline t3js-login-warning-password-whitespace-action" role="button">
+                                    <f:translate key="LLL:EXT:backend/Resources/Private/Language/locallang.xlf:login.warning.whitespace-around-password.action-link" />
+                                </button>
+                            </f:be.infobox>
+                        </div>
+                        <div class="typo3-login-form t3js-login-formfields">
+                            <form action="{formActionUrl}" method="post" name="loginform" id="typo3-login-form" spellcheck="false">
+                                <input type="hidden" name="login_status" value="login" />
+                                <input type="hidden" name="userident" id="t3-field-userident" class="t3js-login-userident-field" value="" />
+                                <input type="hidden" name="loginRefresh" value="{loginRefresh}" />
+                                <input type="hidden" name="{requestTokenName}" value="{requestTokenValue}" />
+
+                                <f:render section="loginFormFields" />
+
+                                <div class="form-group d-grid mb-2" id="t3-login-submit-section">
+                                    <button
+                                        class="btn btn-login d-block t3js-login-submit"
+                                        id="t3-login-submit"
+                                        type="submit"
+                                        name="commandLI"
+                                        data-loading-text="{core:icon(identifier: 'spinner-circle', size: 'small')->f:format.htmlspecialchars()} {f:translate(key: 'LLL:EXT:backend/Resources/Private/Language/locallang.xlf:login.process')}"
+                                        autocomplete="off"
+                                    >
+                                        <f:translate key="LLL:EXT:backend/Resources/Private/Language/locallang.xlf:login.submit" />
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                        <f:if condition="{enablePasswordReset}">
+                            <f:render section="ResetPassword" arguments="{_all}" optional="true" />
+                        </f:if>
+                        <f:if condition="{loginProviders->f:count()} > 1">
+                            <nav class="webcon-login-providers" aria-label="{f:translate(key: 'LLL:EXT:backend/Resources/Private/Language/locallang.xlf:login.navigation.loginProvider')}">
+                                <f:comment>role is for VoiceOver</f:comment>
+                                <ul class="list-unstyled typo3-login-links" role="list">
+                                    <f:for each="{loginProviders}" as="provider" key="providerKey">
+                                        <f:if condition="{provider.label}">
+                                            <f:if condition="{loginProviderIdentifier} != {providerKey}">
+                                                <li class="t3js-loginprovider-switch" data-providerkey="{providerKey}">
+                                                    <a href="?loginProvider={providerKey}">
+                                                        <core:icon identifier="{provider.iconIdentifier}" size="small" />
+                                                        <span><f:translate key="{provider.label}" default="{provider.label}" /></span>
+                                                    </a>
+                                                </li>
+                                            </f:if>
+                                        </f:if>
+                                    </f:for>
+                                </ul>
+                            </nav>
+                        </f:if>
+                    </f:then>
+                    <f:else if="{enablePasswordReset}">
+                        <f:render section="ResetPassword" arguments="{_all}" />
+                    </f:else>
+                    <f:else>
+                        <form action="{formActionUrl}" method="post" name="loginform">
+                            <input type="hidden" name="login_status" value="logout" />
+                            <div class="t3-login-box-body">
+                                <div class="t3-login-logout-form">
+                                    <div class="t3-login-username">
+                                        <div class="t3-login-label t3-username">
+                                            <f:translate key="LLL:EXT:backend/Resources/Private/Language/locallang.xlf:login.username" />
+                                        </div>
+                                        <div class="t3-username-current">
+                                            {backendUser.username}
+                                        </div>
+                                    </div>
+                                    <input type="hidden" name="p_field" value="" />
+                                    <div class="d-grid">
+                                        <input
+                                            class="btn d-block btn-lg"
+                                            type="submit"
+                                            name="commandLO"
+                                            value="{f:translate(key: 'LLL:EXT:backend/Resources/Private/Language/locallang.xlf:login.submit')}"
+                                            id="t3-login-submit"
+                                        />
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </f:else>
+                </f:if>
+            </div>
+
+            <p class="webcon-login-access"><f:translate key="LLL:EXT:site_package/Resources/Private/Language/backend_login.xlf:access" /></p>
+
+            <f:render partial="Login/LoginNews" arguments="{_all}" />
+
+            <footer class="webcon-login-credits">
+                <p class="webcon-login-builton">
+                    <span><f:translate key="LLL:EXT:site_package/Resources/Private/Language/backend_login.xlf:credits.builtOn" /></span>
+                    <f:comment>The Core login's TYPO3 logo, unchanged; it carries the name, so it is an image with a title.</f:comment>
+                    <svg class="webcon-login-typo3-logo" viewBox="0 0 150 42" width="80" height="22" role="img" aria-labelledby="webcon-login-typo3-logo-title" focusable="false">
+                        <title id="webcon-login-typo3-logo-title">TYPO3</title>
+                        <path fill="currentColor" d="M60.2,14.4v27h-3.8v-27h-6.7v-3.3h17.1v3.3H60.2z M80.4,27.3v14h-3.9v-14l-7.7-16.2h4.1l5.7,12.2l5.7-12.2h3.9L80.4,27.3z   M99.9,29.9h-3.6v11.4h-3.8V11.1c0,0,3.7-0.3,7.3-0.3c6.6,0,8.5,4.1,8.5,9.4C108.3,26.7,106,29.9,99.9,29.9 M100.3,13.9  c-2.4,0-4.1,0.3-4.1,0.3v12.6h4.1c2.4,0,4.1-1.6,4.1-6.3C104.4,16.1,103.4,13.9,100.3,13.9 M121.8,41.6c-7.1,0-9-5.2-9-15.8  c0-10.2,1.9-15.1,9-15.1s9,4.9,9,15.1C130.9,36.4,129,41.6,121.8,41.6 M121.8,13.9c-3.9,0-5.2,2.6-5.2,12.1c0,9.3,1.3,12.4,5.2,12.4  c3.9,0,5.2-3.1,5.2-12.4C127,16.6,125.7,13.9,121.8,13.9 M141.7,41.6c-2.1,0-5.3-0.6-5.7-0.7v-3.1c1,0.2,3.7,0.7,5.6,0.7  c2.2,0,3.6-1.9,3.6-5.2c0-3.9-0.6-6-3.7-6H138V24h3.1c3.5,0,3.7-3.6,3.7-5.3c0-3.4-1.1-4.8-3.2-4.8c-1.9,0-4.1,0.5-5.3,0.7v-3.2  c0.5-0.1,3-0.7,5.2-0.7c4.4,0,7,1.9,7,8.3c0,2.9-1,5.5-3.3,6.3c2.6,0.2,3.8,3.1,3.8,7.3C149,39.2,146.5,41.6,141.7,41.6"></path>
+                        <path fill="#FF8700" d="M31.7,28.8c-0.6,0.2-1.1,0.2-1.7,0.2c-5.2,0-12.9-18.2-12.9-24.3c0-2.2,0.5-3,1.3-3.6  C12,1.9,4.3,4.2,1.9,7.2C1.3,8,1,9.1,1,10.6c0,9.5,10.1,31,17.3,31C21.6,41.6,27.1,36.2,31.7,28.8"></path>
+                        <path fill="#FF8700" d="M28.4,0.5c6.6,0,13.2,1.1,13.2,4.8c0,7.6-4.8,16.7-7.2,16.7C30,22,24.5,9.9,24.5,3.8  C24.5,1,25.6,0.5,28.4,0.5"></path>
+                    </svg>
+                </p>
+                <p class="webcon-login-legal"><f:translate key="LLL:EXT:site_package/Resources/Private/Language/backend_login.xlf:credits.trademark" /></p>
+                <p class="webcon-login-legal"><f:translate key="LLL:EXT:site_package/Resources/Private/Language/backend_login.xlf:credits.copyright" arguments="{0: year}" /></p>
+                <div class="typo3-login-copyright-wrap">
+                    <button
+                        type="button"
+                        class="typo3-login-copyright-link t3js-login-copyright-link collapsed"
+                        data-bs-target="#loginCopyright"
+                        data-bs-toggle="collapse"
+                        aria-expanded="false"
+                        aria-controls="loginCopyright"
+                    >
+                        <span><f:translate key="LLL:EXT:backend/Resources/Private/Language/locallang.xlf:login.copyrightLink" /></span>
+                        <svg class="webcon-login-chevron" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                    </button>
+                    <div id="loginCopyright" class="collapse">
+                        <div class="typo3-login-copyright-text">
+                            <p>
+                                <f:format.raw>{copyright}</f:format.raw>
+                            </p>
+                            <nav aria-label="{f:translate(key: 'LLL:EXT:backend/Resources/Private/Language/locallang.xlf:login.navigation.typo3')}">
+                                <f:comment>role is for VoiceOver</f:comment>
+                                <ul class="list-unstyled" role="list">
+                                    <li><a href="https://typo3.org" target="_blank" rel="noreferrer" class="t3-login-link-typo3"><core:icon identifier="actions-window-open" size="small" /> TYPO3.org</a></li>
+                                    <li>
+                                        <a href="https://typo3.org/donate/online-donation/" target="_blank" rel="noreferrer" class="t3-login-link-donate">
+                                            <core:icon identifier="actions-window-open" size="small" /> <f:translate key="LLL:EXT:backend/Resources/Private/Language/locallang.xlf:login.donate" />
+                                        </a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </main>
+
+    <section class="webcon-login-about" aria-labelledby="webcon-login-about-title">
+        <div class="webcon-login-about-inner">
+            <p class="webcon-login-eyebrow"><f:translate key="LLL:EXT:site_package/Resources/Private/Language/backend_login.xlf:about.eyebrow" /></p>
+            <h2 id="webcon-login-about-title" class="webcon-login-headline"><f:translate key="LLL:EXT:site_package/Resources/Private/Language/backend_login.xlf:about.headline" /></h2>
+            <p class="webcon-login-description"><f:translate key="LLL:EXT:site_package/Resources/Private/Language/backend_login.xlf:about.description" /></p>
+            <ul class="webcon-login-features" role="list">
+                <li>
+                    <span class="webcon-login-feature-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" width="20" height="20" focusable="false" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
+                    </span>
+                    <div>
+                        <h3><f:translate key="LLL:EXT:site_package/Resources/Private/Language/backend_login.xlf:about.content.title" /></h3>
+                        <p><f:translate key="LLL:EXT:site_package/Resources/Private/Language/backend_login.xlf:about.content.text" /></p>
+                    </div>
+                </li>
+                <li>
+                    <span class="webcon-login-feature-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" width="20" height="20" focusable="false" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z"/></svg>
+                    </span>
+                    <div>
+                        <h3><f:translate key="LLL:EXT:site_package/Resources/Private/Language/backend_login.xlf:about.records.title" /></h3>
+                        <p><f:translate key="LLL:EXT:site_package/Resources/Private/Language/backend_login.xlf:about.records.text" /></p>
+                    </div>
+                </li>
+                <li>
+                    <span class="webcon-login-feature-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" width="20" height="20" focusable="false" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><line x1="6" x2="6" y1="3" y2="15"/><circle cx="18" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M18 9a9 9 0 0 1-9 9"/></svg>
+                    </span>
+                    <div>
+                        <h3><f:translate key="LLL:EXT:site_package/Resources/Private/Language/backend_login.xlf:about.workspaces.title" /></h3>
+                        <p><f:translate key="LLL:EXT:site_package/Resources/Private/Language/backend_login.xlf:about.workspaces.text" /></p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <aside class="webcon-login-footnote" aria-label="{f:translate(key: 'LLL:EXT:site_package/Resources/Private/Language/backend_login.xlf:footnote.region')}">
+        <p>
+            {environment.project} <span aria-hidden="true">·</span> {environmentLabel} <span aria-hidden="true">·</span>
+            <f:translate key="LLL:EXT:site_package/Resources/Private/Language/backend_login.xlf:footnote.websiteBy" />
+            <a href="{environment.websiteByUrl}">{environment.websiteBy}</a>
+        </p>
+    </aside>
+
+    <f:comment>This link is only used for protection of the backend.</f:comment>
+    <a href="{loginUrl}" id="t3js-login-url" data-referrer-check-enabled="{f:if(condition: '{referrerCheckEnabled}', then: '1', else: '0')}" aria-hidden="true" tabindex="-1"></a>
+</div>
+
+</html>

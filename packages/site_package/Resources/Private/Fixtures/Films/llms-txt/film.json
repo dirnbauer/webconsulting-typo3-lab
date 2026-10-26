@@ -1,0 +1,54 @@
+{
+  "id": "llms-txt",
+  "page": 2087,
+  "slug": "/ai/llms-txt",
+  "title": "llms.txt: overview film",
+  "header": "llms.txt in 55 seconds",
+  "description": "<p>Your site, explained to AI agents. A narrated tour, recorded in this TYPO3 v14 lab, with English captions.</p>",
+  "mp4": "llms-txt-6806a26e.mp4",
+  "poster": "llms-txt-poster-6806a26e.webp",
+  "vtt": "llms-txt-6806a26e.en.vtt",
+  "duration": 55.285,
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "sound": true,
+  "alt": "Overview film, 55 seconds: llms.txt for TYPO3 v14. An operating guide for agents; One file per language; No extra fields to fill. Narrated, with English captions.",
+  "transcript": [
+    {
+      "at": "0:02",
+      "text": "AI agents read your site without a map, and a hand-written llms.txt goes stale with the next new page."
+    },
+    {
+      "at": "0:12",
+      "text": "Every TYPO3 site and language serves an llms.txt and an agents.md, built from the page tree."
+    },
+    {
+      "at": "0:24",
+      "text": "agents.md lists the machine interfaces your site really has."
+    },
+    {
+      "at": "0:31",
+      "text": "Each language gets its own file, with translated titles and URLs."
+    },
+    {
+      "at": "0:37",
+      "text": "Page titles and descriptions become the links, so there is nothing extra to maintain."
+    },
+    {
+      "at": "0:45",
+      "text": "llms.txt for TYPO3. Always up to date."
+    }
+  ],
+  "captions": {
+    "language": "en",
+    "label": "English",
+    "burnedIn": true
+  },
+  "bytes": {
+    "mp4": 5053958,
+    "poster": 93626,
+    "vtt": 685
+  },
+  "generator": "packages/site_package/Build/Film/render-films.mjs"
+}

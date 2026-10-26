@@ -1,0 +1,471 @@
+{
+  "voice": "George",
+  "delivery": {
+    "stability": 0.62,
+    "similarity_boost": 0.78,
+    "style": 0.18,
+    "speed": 0.9
+  },
+  "lines": [
+    {
+      "say": "Customers expect to sign in with their company identity. Building single sign-on yourself takes months.",
+      "show": "Customers expect to sign in with their company identity. Building single sign-on yourself takes months.",
+      "file": "voice-01.mp3",
+      "duration": 7602,
+      "words": [
+        {
+          "word": "Customers",
+          "start": 81,
+          "end": 627
+        },
+        {
+          "word": "expect",
+          "start": 697,
+          "end": 1149
+        },
+        {
+          "word": "to",
+          "start": 1184,
+          "end": 1242
+        },
+        {
+          "word": "sign",
+          "start": 1312,
+          "end": 1602
+        },
+        {
+          "word": "in",
+          "start": 1649,
+          "end": 1718
+        },
+        {
+          "word": "with",
+          "start": 1765,
+          "end": 1881
+        },
+        {
+          "word": "their",
+          "start": 1916,
+          "end": 2055
+        },
+        {
+          "word": "company",
+          "start": 2125,
+          "end": 2531
+        },
+        {
+          "word": "identity.",
+          "start": 2612,
+          "end": 3460
+        },
+        {
+          "word": "Building",
+          "start": 3947,
+          "end": 4423
+        },
+        {
+          "word": "single",
+          "start": 4528,
+          "end": 4899
+        },
+        {
+          "word": "sign-on",
+          "start": 4946,
+          "end": 5329
+        },
+        {
+          "word": "yourself",
+          "start": 5399,
+          "end": 5921
+        },
+        {
+          "word": "takes",
+          "start": 6049,
+          "end": 6351
+        },
+        {
+          "word": "months.",
+          "start": 6432,
+          "end": 7001
+        }
+      ],
+      "heard": "Customers expect to sign in with their company identity. Building single sign-on yourself takes months."
+    },
+    {
+      "say": "Work O S Auth adds Work O S sign-in to the typo three frontend and backend.",
+      "show": "WorkOS Auth adds WorkOS sign-in to the TYPO3 frontend and backend.",
+      "file": "voice-02.mp3",
+      "duration": 6400,
+      "words": [
+        {
+          "word": "Work",
+          "start": 23,
+          "end": 383
+        },
+        {
+          "word": "O",
+          "start": 488,
+          "end": 592
+        },
+        {
+          "word": "S",
+          "start": 720,
+          "end": 848
+        },
+        {
+          "word": "Auth",
+          "start": 952,
+          "end": 1254
+        },
+        {
+          "word": "adds",
+          "start": 1335,
+          "end": 1660
+        },
+        {
+          "word": "Work",
+          "start": 1730,
+          "end": 2020
+        },
+        {
+          "word": "O",
+          "start": 2113,
+          "end": 2241
+        },
+        {
+          "word": "S",
+          "start": 2368,
+          "end": 2566
+        },
+        {
+          "word": "sign-in",
+          "start": 2728,
+          "end": 3216
+        },
+        {
+          "word": "to",
+          "start": 3286,
+          "end": 3355
+        },
+        {
+          "word": "the",
+          "start": 3425,
+          "end": 3495
+        },
+        {
+          "word": "typo",
+          "start": 3541,
+          "end": 3913
+        },
+        {
+          "word": "three",
+          "start": 3994,
+          "end": 4261
+        },
+        {
+          "word": "frontend",
+          "start": 4331,
+          "end": 4865
+        },
+        {
+          "word": "and",
+          "start": 4911,
+          "end": 4992
+        },
+        {
+          "word": "backend.",
+          "start": 5062,
+          "end": 5759
+        }
+      ],
+      "heard": "WorkOS Auth adds WorkOS sign-in to the TYPO3 frontend and backend.",
+      "end": 5750
+    },
+    {
+      "say": "New customers create an account with a password, an email code, Google or Microsoft.",
+      "show": "New customers create an account with a password, an email code, Google or Microsoft.",
+      "file": "voice-03.mp3",
+      "duration": 6687,
+      "words": [
+        {
+          "word": "New",
+          "start": 12,
+          "end": 255
+        },
+        {
+          "word": "customers",
+          "start": 325,
+          "end": 813
+        },
+        {
+          "word": "create",
+          "start": 882,
+          "end": 1277
+        },
+        {
+          "word": "an",
+          "start": 1300,
+          "end": 1347
+        },
+        {
+          "word": "account",
+          "start": 1382,
+          "end": 1753
+        },
+        {
+          "word": "with",
+          "start": 1823,
+          "end": 1939
+        },
+        {
+          "word": "a",
+          "start": 1974,
+          "end": 2009
+        },
+        {
+          "word": "password,",
+          "start": 2055,
+          "end": 2798
+        },
+        {
+          "word": "an",
+          "start": 2926,
+          "end": 3065
+        },
+        {
+          "word": "email",
+          "start": 3135,
+          "end": 3471
+        },
+        {
+          "word": "code,",
+          "start": 3564,
+          "end": 4029
+        },
+        {
+          "word": "Google",
+          "start": 4261,
+          "end": 4714
+        },
+        {
+          "word": "or",
+          "start": 4783,
+          "end": 4923
+        },
+        {
+          "word": "Microsoft.",
+          "start": 5004,
+          "end": 5863
+        }
+      ],
+      "heard": "New customers create an account with a password, an email code, Google or Microsoft."
+    },
+    {
+      "say": "Editors use the same identity in the backend. The classic form stays one click away.",
+      "show": "Editors use the same identity in the backend. The classic form stays one click away.",
+      "file": "voice-04.mp3",
+      "duration": 6348,
+      "words": [
+        {
+          "word": "Editors",
+          "start": 23,
+          "end": 557
+        },
+        {
+          "word": "use",
+          "start": 639,
+          "end": 882
+        },
+        {
+          "word": "the",
+          "start": 929,
+          "end": 998
+        },
+        {
+          "word": "same",
+          "start": 1045,
+          "end": 1300
+        },
+        {
+          "word": "identity",
+          "start": 1335,
+          "end": 1892
+        },
+        {
+          "word": "in",
+          "start": 1927,
+          "end": 1985
+        },
+        {
+          "word": "the",
+          "start": 2020,
+          "end": 2090
+        },
+        {
+          "word": "backend.",
+          "start": 2125,
+          "end": 2798
+        },
+        {
+          "word": "The",
+          "start": 3286,
+          "end": 3402
+        },
+        {
+          "word": "classic",
+          "start": 3471,
+          "end": 3855
+        },
+        {
+          "word": "form",
+          "start": 3936,
+          "end": 4272
+        },
+        {
+          "word": "stays",
+          "start": 4354,
+          "end": 4725
+        },
+        {
+          "word": "one",
+          "start": 4807,
+          "end": 5039
+        },
+        {
+          "word": "click",
+          "start": 5085,
+          "end": 5294
+        },
+        {
+          "word": "away.",
+          "start": 5341,
+          "end": 5921
+        }
+      ],
+      "heard": "Editors use the same identity in the backend. The classic form stays one click away."
+    },
+    {
+      "say": "The setup assistant lists every redirect U R I, each with a copy button.",
+      "show": "The setup assistant lists every redirect URI, each with a copy button.",
+      "file": "voice-05.mp3",
+      "duration": 5851,
+      "words": [
+        {
+          "word": "The",
+          "start": 35,
+          "end": 151
+        },
+        {
+          "word": "setup",
+          "start": 221,
+          "end": 580
+        },
+        {
+          "word": "assistant",
+          "start": 627,
+          "end": 1126
+        },
+        {
+          "word": "lists",
+          "start": 1196,
+          "end": 1521
+        },
+        {
+          "word": "every",
+          "start": 1614,
+          "end": 1916
+        },
+        {
+          "word": "redirect",
+          "start": 1997,
+          "end": 2589
+        },
+        {
+          "word": "U",
+          "start": 2717,
+          "end": 2844
+        },
+        {
+          "word": "R",
+          "start": 2949,
+          "end": 3088
+        },
+        {
+          "word": "I,",
+          "start": 3216,
+          "end": 3646
+        },
+        {
+          "word": "each",
+          "start": 3959,
+          "end": 4191
+        },
+        {
+          "word": "with",
+          "start": 4238,
+          "end": 4354
+        },
+        {
+          "word": "a",
+          "start": 4389,
+          "end": 4423
+        },
+        {
+          "word": "copy",
+          "start": 4470,
+          "end": 4748
+        },
+        {
+          "word": "button.",
+          "start": 4795,
+          "end": 5294
+        }
+      ],
+      "heard": "The Setup Assistant lists every redirect URI, each with a copy button."
+    },
+    {
+      "say": "Work O S Auth for typo three.",
+      "show": "WorkOS Auth for TYPO3.",
+      "file": "voice-06.mp3",
+      "duration": 2743,
+      "words": [
+        {
+          "word": "Work",
+          "start": 23,
+          "end": 360
+        },
+        {
+          "word": "O",
+          "start": 453,
+          "end": 580
+        },
+        {
+          "word": "S",
+          "start": 708,
+          "end": 848
+        },
+        {
+          "word": "Auth",
+          "start": 975,
+          "end": 1265
+        },
+        {
+          "word": "for",
+          "start": 1312,
+          "end": 1428
+        },
+        {
+          "word": "typo",
+          "start": 1463,
+          "end": 1823
+        },
+        {
+          "word": "three.",
+          "start": 1904,
+          "end": 2438
+        }
+      ],
+      "heard": "Work OS Auth for TYPO3"
+    }
+  ]
+}

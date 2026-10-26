@@ -1,0 +1,54 @@
+{
+  "id": "skillspector",
+  "page": 2085,
+  "slug": "/ai/skillspector",
+  "title": "Skillspector: overview film",
+  "header": "Skillspector in 48 seconds",
+  "description": "<p>Check skills before agents use them. A narrated tour, recorded in this TYPO3 v14 lab, with English captions.</p>",
+  "mp4": "skillspector-6c0be631.mp4",
+  "poster": "skillspector-poster-6c0be631.webp",
+  "vtt": "skillspector-6c0be631.en.vtt",
+  "duration": 47.88,
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "sound": true,
+  "alt": "Overview film, 48 seconds: Skillspector for TYPO3 v14. Evidence, line by line; Hiding a skill is your call. Narrated, with English captions.",
+  "transcript": [
+    {
+      "at": "0:02",
+      "text": "A skill is text your AI agent follows. One hidden line can leak a key or pipe a script into a shell."
+    },
+    {
+      "at": "0:10",
+      "text": "Skillspector reads every agent skill before your AI does."
+    },
+    {
+      "at": "0:16",
+      "text": "Each finding shows its severity, its location, the matched text and what to check."
+    },
+    {
+      "at": "0:24",
+      "text": "Checks never change a skill. An administrator decides what to hide."
+    },
+    {
+      "at": "0:30",
+      "text": "Fifteen built-in rules look for prompt injection, exposed keys, risky commands and licence problems."
+    },
+    {
+      "at": "0:39",
+      "text": "Skillspector. An administrator always decides."
+    }
+  ],
+  "captions": {
+    "language": "en",
+    "label": "English",
+    "burnedIn": true
+  },
+  "bytes": {
+    "mp4": 2976361,
+    "poster": 42804,
+    "vtt": 699
+  },
+  "generator": "packages/site_package/Build/Film/render-films.mjs"
+}

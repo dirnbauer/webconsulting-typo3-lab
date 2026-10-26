@@ -1,0 +1,519 @@
+{
+  "voice": "George",
+  "delivery": {
+    "stability": 0.62,
+    "similarity_boost": 0.78,
+    "style": 0.18,
+    "speed": 0.9
+  },
+  "lines": [
+    {
+      "say": "Finding which pages sit below Features, or what the log recorded last night, takes a dozen clicks.",
+      "show": "Finding which pages sit below Features, or what the log recorded last night, takes a dozen clicks.",
+      "file": "voice-01.mp3",
+      "duration": 6635,
+      "words": [
+        {
+          "word": "Finding",
+          "start": 46,
+          "end": 441
+        },
+        {
+          "word": "which",
+          "start": 488,
+          "end": 662
+        },
+        {
+          "word": "pages",
+          "start": 708,
+          "end": 1161
+        },
+        {
+          "word": "sit",
+          "start": 1207,
+          "end": 1393
+        },
+        {
+          "word": "below",
+          "start": 1440,
+          "end": 1683
+        },
+        {
+          "word": "Features,",
+          "start": 1776,
+          "end": 2415
+        },
+        {
+          "word": "or",
+          "start": 2612,
+          "end": 2740
+        },
+        {
+          "word": "what",
+          "start": 2786,
+          "end": 2937
+        },
+        {
+          "word": "the",
+          "start": 2984,
+          "end": 3053
+        },
+        {
+          "word": "log",
+          "start": 3123,
+          "end": 3332
+        },
+        {
+          "word": "recorded",
+          "start": 3413,
+          "end": 3878
+        },
+        {
+          "word": "last",
+          "start": 3924,
+          "end": 4133
+        },
+        {
+          "word": "night,",
+          "start": 4214,
+          "end": 4586
+        },
+        {
+          "word": "takes",
+          "start": 4679,
+          "end": 4969
+        },
+        {
+          "word": "a",
+          "start": 5004,
+          "end": 5039
+        },
+        {
+          "word": "dozen",
+          "start": 5108,
+          "end": 5422
+        },
+        {
+          "word": "clicks.",
+          "start": 5503,
+          "end": 6107
+        }
+      ],
+      "heard": "Finding which pages sit below features or what the log recorded last night takes a dozen clicks."
+    },
+    {
+      "say": "The AI Assistant answers questions about your site, inside the typo three backend.",
+      "show": "The AI Assistant answers questions about your site, inside the TYPO3 backend.",
+      "file": "voice-02.mp3",
+      "duration": 5851,
+      "words": [
+        {
+          "word": "The",
+          "start": 35,
+          "end": 163
+        },
+        {
+          "word": "AI",
+          "start": 244,
+          "end": 557
+        },
+        {
+          "word": "Assistant",
+          "start": 627,
+          "end": 1091
+        },
+        {
+          "word": "answers",
+          "start": 1173,
+          "end": 1567
+        },
+        {
+          "word": "questions",
+          "start": 1614,
+          "end": 2043
+        },
+        {
+          "word": "about",
+          "start": 2078,
+          "end": 2287
+        },
+        {
+          "word": "your",
+          "start": 2334,
+          "end": 2450
+        },
+        {
+          "word": "site,",
+          "start": 2519,
+          "end": 3007
+        },
+        {
+          "word": "inside",
+          "start": 3135,
+          "end": 3622
+        },
+        {
+          "word": "the",
+          "start": 3646,
+          "end": 3715
+        },
+        {
+          "word": "typo",
+          "start": 3762,
+          "end": 4122
+        },
+        {
+          "word": "three",
+          "start": 4191,
+          "end": 4423
+        },
+        {
+          "word": "backend.",
+          "start": 4493,
+          "end": 5201
+        }
+      ],
+      "heard": "The AI Assistant answers questions about your site inside the TYPO3 backend"
+    },
+    {
+      "say": "It calls the site’s own tools with your permissions, shows the result, then answers in plain words.",
+      "show": "It calls the site’s own tools with your permissions, shows the result, then answers in plain words.",
+      "file": "voice-03.mp3",
+      "duration": 6766,
+      "words": [
+        {
+          "word": "It",
+          "start": 23,
+          "end": 197
+        },
+        {
+          "word": "calls",
+          "start": 267,
+          "end": 580
+        },
+        {
+          "word": "the",
+          "start": 650,
+          "end": 720
+        },
+        {
+          "word": "site's",
+          "start": 789,
+          "end": 1126
+        },
+        {
+          "word": "own",
+          "start": 1196,
+          "end": 1440
+        },
+        {
+          "word": "tools",
+          "start": 1509,
+          "end": 1869
+        },
+        {
+          "word": "with",
+          "start": 1916,
+          "end": 2043
+        },
+        {
+          "word": "your",
+          "start": 2090,
+          "end": 2206
+        },
+        {
+          "word": "permissions,",
+          "start": 2252,
+          "end": 2949
+        },
+        {
+          "word": "shows",
+          "start": 3111,
+          "end": 3448
+        },
+        {
+          "word": "the",
+          "start": 3495,
+          "end": 3564
+        },
+        {
+          "word": "result,",
+          "start": 3634,
+          "end": 4168
+        },
+        {
+          "word": "then",
+          "start": 4272,
+          "end": 4458
+        },
+        {
+          "word": "answers",
+          "start": 4528,
+          "end": 4876
+        },
+        {
+          "word": "in",
+          "start": 4923,
+          "end": 4992
+        },
+        {
+          "word": "plain",
+          "start": 5074,
+          "end": 5364
+        },
+        {
+          "word": "words.",
+          "start": 5445,
+          "end": 6060
+        }
+      ],
+      "heard": "It calls the site's own tools with your permissions, shows the result, then answers in plain words."
+    },
+    {
+      "say": "Every write stops and waits. Nothing changes until you approve it.",
+      "show": "Every write stops and waits. Nothing changes until you approve it.",
+      "file": "voice-04.mp3",
+      "duration": 4624,
+      "words": [
+        {
+          "word": "Every",
+          "start": 35,
+          "end": 337
+        },
+        {
+          "word": "write",
+          "start": 383,
+          "end": 673
+        },
+        {
+          "word": "stops",
+          "start": 708,
+          "end": 1115
+        },
+        {
+          "word": "and",
+          "start": 1149,
+          "end": 1231
+        },
+        {
+          "word": "waits.",
+          "start": 1312,
+          "end": 1834
+        },
+        {
+          "word": "Nothing",
+          "start": 2194,
+          "end": 2531
+        },
+        {
+          "word": "changes",
+          "start": 2601,
+          "end": 3100
+        },
+        {
+          "word": "until",
+          "start": 3181,
+          "end": 3437
+        },
+        {
+          "word": "you",
+          "start": 3483,
+          "end": 3564
+        },
+        {
+          "word": "approve",
+          "start": 3634,
+          "end": 4005
+        },
+        {
+          "word": "it.",
+          "start": 4040,
+          "end": 4272
+        }
+      ],
+      "heard": "Every right stops and waits. Nothing changes until you approve it."
+    },
+    {
+      "say": "Approved changes land as drafts in a workspace, listed with the conversation.",
+      "show": "Approved changes land as drafts in a workspace, listed with the conversation.",
+      "file": "voice-05.mp3",
+      "duration": 5433,
+      "words": [
+        {
+          "word": "Approved",
+          "start": 12,
+          "end": 511
+        },
+        {
+          "word": "changes",
+          "start": 557,
+          "end": 1022
+        },
+        {
+          "word": "land",
+          "start": 1149,
+          "end": 1405
+        },
+        {
+          "word": "as",
+          "start": 1474,
+          "end": 1544
+        },
+        {
+          "word": "drafts",
+          "start": 1614,
+          "end": 2032
+        },
+        {
+          "word": "in",
+          "start": 2067,
+          "end": 2136
+        },
+        {
+          "word": "a",
+          "start": 2171,
+          "end": 2194
+        },
+        {
+          "word": "workspace,",
+          "start": 2241,
+          "end": 3053
+        },
+        {
+          "word": "listed",
+          "start": 3251,
+          "end": 3657
+        },
+        {
+          "word": "with",
+          "start": 3692,
+          "end": 3796
+        },
+        {
+          "word": "the",
+          "start": 3820,
+          "end": 3889
+        },
+        {
+          "word": "conversation.",
+          "start": 3924,
+          "end": 4807
+        }
+      ],
+      "heard": "Approved changes land as drafts in a workspace, listed with the conversation,"
+    },
+    {
+      "say": "The chat stays open across modules, and knows the page you are on.",
+      "show": "The chat stays open across modules, and knows the page you are on.",
+      "file": "voice-06.mp3",
+      "duration": 4676,
+      "words": [
+        {
+          "word": "The",
+          "start": 12,
+          "end": 128
+        },
+        {
+          "word": "chat",
+          "start": 197,
+          "end": 453
+        },
+        {
+          "word": "stays",
+          "start": 534,
+          "end": 824
+        },
+        {
+          "word": "open",
+          "start": 906,
+          "end": 1231
+        },
+        {
+          "word": "across",
+          "start": 1277,
+          "end": 1544
+        },
+        {
+          "word": "modules,",
+          "start": 1625,
+          "end": 2264
+        },
+        {
+          "word": "and",
+          "start": 2392,
+          "end": 2566
+        },
+        {
+          "word": "knows",
+          "start": 2635,
+          "end": 2868
+        },
+        {
+          "word": "the",
+          "start": 2914,
+          "end": 2984
+        },
+        {
+          "word": "page",
+          "start": 3053,
+          "end": 3379
+        },
+        {
+          "word": "you",
+          "start": 3413,
+          "end": 3483
+        },
+        {
+          "word": "are",
+          "start": 3553,
+          "end": 3669
+        },
+        {
+          "word": "on.",
+          "start": 3715,
+          "end": 4133
+        }
+      ],
+      "heard": "The chat stays open across modules and knows the page you are on."
+    },
+    {
+      "say": "AI Assistant. You approve every change.",
+      "show": "AI Assistant. You approve every change.",
+      "file": "voice-07.mp3",
+      "duration": 3344,
+      "words": [
+        {
+          "word": "AI",
+          "start": 23,
+          "end": 464
+        },
+        {
+          "word": "Assistant.",
+          "start": 511,
+          "end": 1242
+        },
+        {
+          "word": "You",
+          "start": 1440,
+          "end": 1579
+        },
+        {
+          "word": "approve",
+          "start": 1649,
+          "end": 2078
+        },
+        {
+          "word": "every",
+          "start": 2125,
+          "end": 2334
+        },
+        {
+          "word": "change.",
+          "start": 2403,
+          "end": 3007
+        }
+      ],
+      "heard": "AI Assistant, you approve every change."
+    }
+  ]
+}

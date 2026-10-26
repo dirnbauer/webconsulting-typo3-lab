@@ -1,0 +1,54 @@
+{
+  "id": "sg-apicore",
+  "page": 1080,
+  "slug": "/features/sg-apicore",
+  "title": "sg_apicore: overview film",
+  "header": "sg_apicore in 56 seconds",
+  "description": "<p>A documented REST API for TYPO3. A narrated tour, recorded in this TYPO3 v14 lab, with English captions.</p>",
+  "mp4": "sg-apicore-c2b519eb.mp4",
+  "poster": "sg-apicore-poster-c2b519eb.webp",
+  "vtt": "sg-apicore-c2b519eb.en.vtt",
+  "duration": 56.226,
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "sound": true,
+  "alt": "Overview film, 56 seconds: sg_apicore for TYPO3 v14. A request in the browser; A table, behind a token; Every endpoint, also as an MCP tool. Narrated, with English captions.",
+  "transcript": [
+    {
+      "at": "0:02",
+      "text": "A mobile app, a partner portal or an AI agent needs clean JSON. Every hand-built endpoint needs login, limits and docs."
+    },
+    {
+      "at": "0:13",
+      "text": "sg_apicore turns TYPO3 content into a REST API, with live Swagger docs."
+    },
+    {
+      "at": "0:22",
+      "text": "Try a request in the browser, and get JSON with pagination and rate-limit headers."
+    },
+    {
+      "at": "0:28",
+      "text": "One registration exposes a table for list, read, create, update and delete, behind a token."
+    },
+    {
+      "at": "0:37",
+      "text": "The backend lists each endpoint with its login mode, its scopes and its MCP tool."
+    },
+    {
+      "at": "0:46",
+      "text": "sg_apicore by sgalinski. Docs that stay in sync with the code."
+    }
+  ],
+  "captions": {
+    "language": "en",
+    "label": "English",
+    "burnedIn": true
+  },
+  "bytes": {
+    "mp4": 3564681,
+    "poster": 41660,
+    "vtt": 751
+  },
+  "generator": "packages/site_package/Build/Film/render-films.mjs"
+}

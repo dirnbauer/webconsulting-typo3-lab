@@ -1,0 +1,46 @@
+{
+  "id": "content-types-leads-conversion",
+  "page": 665,
+  "slug": "/content-types/leads-conversion",
+  "title": "Leads & Conversion: overview film",
+  "header": "Leads & Conversion in 37 seconds",
+  "description": "<p>Turn visits into leads without a developer. A narrated tour, recorded in this TYPO3 v14 lab, with English captions.</p>",
+  "mp4": "content-types-leads-conversion-5be33100.mp4",
+  "poster": "content-types-leads-conversion-poster-5be33100.webp",
+  "vtt": "content-types-leads-conversion-5be33100.en.vtt",
+  "duration": 36.525,
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "sound": true,
+  "alt": "Overview film, 37 seconds: the 24 Leads & Conversion elements of Desiderio for TYPO3 v14, including contact split, booking form, demo request, newsletter sign-up, cta with image, office hours. Narrated, with English captions.",
+  "transcript": [
+    {
+      "at": "0:02",
+      "text": "A bare email address gives visitors no reason to write, and gives sales nothing to sort."
+    },
+    {
+      "at": "0:09",
+      "text": "Leads and Conversion has 24 elements that turn visits into enquiries. Every form is a real TYPO3 form."
+    },
+    {
+      "at": "0:19",
+      "text": "Contact forms, bookings, demo requests, newsletter sign-ups, calls to action and office hours."
+    },
+    {
+      "at": "0:29",
+      "text": "Every page can end with a clear next step."
+    }
+  ],
+  "captions": {
+    "language": "en",
+    "label": "English",
+    "burnedIn": true
+  },
+  "bytes": {
+    "mp4": 2509615,
+    "poster": 53538,
+    "vtt": 511
+  },
+  "generator": "packages/site_package/Build/Film/render-films.mjs"
+}

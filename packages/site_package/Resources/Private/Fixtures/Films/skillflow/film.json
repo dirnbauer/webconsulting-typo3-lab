@@ -1,0 +1,54 @@
+{
+  "id": "skillflow",
+  "page": 1081,
+  "slug": "/ai/skillflow",
+  "title": "Skillflow: overview film",
+  "header": "Skillflow in 47 seconds",
+  "description": "<p>Agent skills that review your pages. A narrated tour, recorded in this TYPO3 v14 lab, with English captions.</p>",
+  "mp4": "skillflow-9b944b64.mp4",
+  "poster": "skillflow-poster-9b944b64.webp",
+  "vtt": "skillflow-9b944b64.en.vtt",
+  "duration": 46.846,
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "sound": true,
+  "alt": "Overview film, 47 seconds: Skillflow for TYPO3 v14. Reviews in your workflow; A report for every run; A page for every skill. Narrated, with English captions.",
+  "transcript": [
+    {
+      "at": "0:02",
+      "text": "SEO, accessibility and tone rules live in one person’s head, so every draft gets a different check."
+    },
+    {
+      "at": "0:11",
+      "text": "Skillflow runs agent skills on pages and workspace stages, and keeps every report."
+    },
+    {
+      "at": "0:19",
+      "text": "Assign skills to a workspace stage, and every record sent there gets reviewed."
+    },
+    {
+      "at": "0:26",
+      "text": "Each run keeps its status, its engine and a Markdown report."
+    },
+    {
+      "at": "0:32",
+      "text": "Active skills become a searchable catalogue, with a page for each skill."
+    },
+    {
+      "at": "0:39",
+      "text": "Skillflow. Reports your team can check."
+    }
+  ],
+  "captions": {
+    "language": "en",
+    "label": "English",
+    "burnedIn": true
+  },
+  "bytes": {
+    "mp4": 3020523,
+    "poster": 39660,
+    "vtt": 676
+  },
+  "generator": "packages/site_package/Build/Film/render-films.mjs"
+}

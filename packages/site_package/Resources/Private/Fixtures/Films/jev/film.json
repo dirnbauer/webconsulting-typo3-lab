@@ -1,0 +1,58 @@
+{
+  "id": "jev",
+  "page": 2083,
+  "slug": "/ai/jev",
+  "title": "Jev: overview film",
+  "header": "Jev in 52 seconds",
+  "description": "<p>Forms that understand what people write. A narrated tour, recorded in this TYPO3 v14 lab, with English captions.</p>",
+  "mp4": "jev-cff37187.mp4",
+  "poster": "jev-poster-cff37187.webp",
+  "vtt": "jev-cff37187.en.vtt",
+  "duration": 52.195,
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "sound": true,
+  "alt": "Overview film, 52 seconds: Jev for TYPO3 v14. Empty messages stay unsent; Mail finds its team; Try a decision first; Every call on record. Narrated, with English captions.",
+  "transcript": [
+    {
+      "at": "0:02",
+      "text": "Every form message lands in one inbox, and a person forwards it to sales, support or accounting."
+    },
+    {
+      "at": "0:10",
+      "text": "Jev brings TypeSafe AI’s typed decisions into TYPO3 forms."
+    },
+    {
+      "at": "0:17",
+      "text": "Messages with nothing to answer cannot be sent. Borderline ones go through."
+    },
+    {
+      "at": "0:24",
+      "text": "A decision picks the receiver, so each message reaches the right team."
+    },
+    {
+      "at": "0:30",
+      "text": "Try a decision on sample text, and see each answer with its confidence."
+    },
+    {
+      "at": "0:36",
+      "text": "The run log records every call, with its latency and its cost."
+    },
+    {
+      "at": "0:43",
+      "text": "Jev. When the AI is unsure, the form still works."
+    }
+  ],
+  "captions": {
+    "language": "en",
+    "label": "English",
+    "burnedIn": true
+  },
+  "bytes": {
+    "mp4": 4153244,
+    "poster": 29984,
+    "vtt": 755
+  },
+  "generator": "packages/site_package/Build/Film/render-films.mjs"
+}

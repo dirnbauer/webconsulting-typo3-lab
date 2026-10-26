@@ -1,0 +1,469 @@
+{
+  "voice": "George",
+  "delivery": {
+    "stability": 0.62,
+    "similarity_boost": 0.78,
+    "style": 0.18,
+    "speed": 0.9
+  },
+  "lines": [
+    {
+      "say": "The Workspaces module lists changes for whole page trees, so editors leave publishing to an admin.",
+      "show": "The Workspaces module lists changes for whole page trees, so editors leave publishing to an admin.",
+      "file": "voice-01.mp3",
+      "duration": 7001,
+      "words": [
+        {
+          "word": "The",
+          "start": 81,
+          "end": 163
+        },
+        {
+          "word": "Workspaces",
+          "start": 209,
+          "end": 906
+        },
+        {
+          "word": "module",
+          "start": 987,
+          "end": 1393
+        },
+        {
+          "word": "lists",
+          "start": 1428,
+          "end": 1788
+        },
+        {
+          "word": "changes",
+          "start": 1869,
+          "end": 2368
+        },
+        {
+          "word": "for",
+          "start": 2415,
+          "end": 2519
+        },
+        {
+          "word": "whole",
+          "start": 2566,
+          "end": 2775
+        },
+        {
+          "word": "page",
+          "start": 2798,
+          "end": 3123
+        },
+        {
+          "word": "trees,",
+          "start": 3158,
+          "end": 3750
+        },
+        {
+          "word": "so",
+          "start": 4017,
+          "end": 4168
+        },
+        {
+          "word": "editors",
+          "start": 4261,
+          "end": 4725
+        },
+        {
+          "word": "leave",
+          "start": 4795,
+          "end": 5016
+        },
+        {
+          "word": "publishing",
+          "start": 5050,
+          "end": 5550
+        },
+        {
+          "word": "to",
+          "start": 5619,
+          "end": 5689
+        },
+        {
+          "word": "an",
+          "start": 5770,
+          "end": 5828
+        },
+        {
+          "word": "admin.",
+          "start": 5875,
+          "end": 6467
+        }
+      ],
+      "heard": "The Workspace's module lists changes for whole page trees, so editors leave publishing to an admin,"
+    },
+    {
+      "say": "Easy Workspace adds a publishing dropdown to the typo three toolbar.",
+      "show": "Easy Workspace adds a publishing dropdown to the TYPO3 toolbar.",
+      "file": "voice-02.mp3",
+      "duration": 4911,
+      "words": [
+        {
+          "word": "Easy",
+          "start": 23,
+          "end": 383
+        },
+        {
+          "word": "Workspace",
+          "start": 453,
+          "end": 1091
+        },
+        {
+          "word": "adds",
+          "start": 1138,
+          "end": 1405
+        },
+        {
+          "word": "a",
+          "start": 1440,
+          "end": 1463
+        },
+        {
+          "word": "publishing",
+          "start": 1509,
+          "end": 1950
+        },
+        {
+          "word": "dropdown",
+          "start": 2020,
+          "end": 2519
+        },
+        {
+          "word": "to",
+          "start": 2566,
+          "end": 2635
+        },
+        {
+          "word": "the",
+          "start": 2717,
+          "end": 2786
+        },
+        {
+          "word": "typo",
+          "start": 2833,
+          "end": 3228
+        },
+        {
+          "word": "three",
+          "start": 3297,
+          "end": 3599
+        },
+        {
+          "word": "toolbar.",
+          "start": 3646,
+          "end": 4377
+        }
+      ],
+      "heard": "Easy Workspace adds a publishing dropdown to the TYPO3 toolbar."
+    },
+    {
+      "say": "The toolbar counts the pending changes of the page you are on.",
+      "show": "The toolbar counts the pending changes of the page you are on.",
+      "file": "voice-03.mp3",
+      "duration": 4206,
+      "words": [
+        {
+          "word": "The",
+          "start": 12,
+          "end": 128
+        },
+        {
+          "word": "toolbar",
+          "start": 197,
+          "end": 650
+        },
+        {
+          "word": "counts",
+          "start": 743,
+          "end": 1080
+        },
+        {
+          "word": "the",
+          "start": 1149,
+          "end": 1219
+        },
+        {
+          "word": "pending",
+          "start": 1265,
+          "end": 1649
+        },
+        {
+          "word": "changes",
+          "start": 1718,
+          "end": 2183
+        },
+        {
+          "word": "of",
+          "start": 2229,
+          "end": 2287
+        },
+        {
+          "word": "the",
+          "start": 2334,
+          "end": 2403
+        },
+        {
+          "word": "page",
+          "start": 2450,
+          "end": 2798
+        },
+        {
+          "word": "you",
+          "start": 2833,
+          "end": 2914
+        },
+        {
+          "word": "are",
+          "start": 2984,
+          "end": 3100
+        },
+        {
+          "word": "on.",
+          "start": 3146,
+          "end": 3576
+        }
+      ],
+      "heard": "The toolbar counts the pending changes of the page you are on."
+    },
+    {
+      "say": "Every change starts selected. Untick what is not ready yet.",
+      "show": "Every change starts selected. Untick what is not ready yet.",
+      "file": "voice-04.mp3",
+      "duration": 4545,
+      "words": [
+        {
+          "word": "Every",
+          "start": 12,
+          "end": 325
+        },
+        {
+          "word": "change",
+          "start": 395,
+          "end": 766
+        },
+        {
+          "word": "starts",
+          "start": 801,
+          "end": 1184
+        },
+        {
+          "word": "selected.",
+          "start": 1219,
+          "end": 1950
+        },
+        {
+          "word": "Untick",
+          "start": 2218,
+          "end": 2694
+        },
+        {
+          "word": "what",
+          "start": 2740,
+          "end": 2879
+        },
+        {
+          "word": "is",
+          "start": 2926,
+          "end": 3007
+        },
+        {
+          "word": "not",
+          "start": 3088,
+          "end": 3228
+        },
+        {
+          "word": "ready",
+          "start": 3297,
+          "end": 3506
+        },
+        {
+          "word": "yet.",
+          "start": 3553,
+          "end": 3994
+        }
+      ],
+      "heard": "Every change starts selected. Untick what is not ready yet."
+    },
+    {
+      "say": "Changes in other languages get their own section, and publish with the rest.",
+      "show": "Changes in other languages get their own section, and publish with the rest.",
+      "file": "voice-05.mp3",
+      "duration": 5198,
+      "words": [
+        {
+          "word": "Changes",
+          "start": 35,
+          "end": 534
+        },
+        {
+          "word": "in",
+          "start": 580,
+          "end": 650
+        },
+        {
+          "word": "other",
+          "start": 731,
+          "end": 940
+        },
+        {
+          "word": "languages",
+          "start": 987,
+          "end": 1544
+        },
+        {
+          "word": "get",
+          "start": 1625,
+          "end": 1811
+        },
+        {
+          "word": "their",
+          "start": 1846,
+          "end": 2009
+        },
+        {
+          "word": "own",
+          "start": 2078,
+          "end": 2299
+        },
+        {
+          "word": "section,",
+          "start": 2380,
+          "end": 3007
+        },
+        {
+          "word": "and",
+          "start": 3146,
+          "end": 3309
+        },
+        {
+          "word": "publish",
+          "start": 3390,
+          "end": 3750
+        },
+        {
+          "word": "with",
+          "start": 3796,
+          "end": 3913
+        },
+        {
+          "word": "the",
+          "start": 3947,
+          "end": 4017
+        },
+        {
+          "word": "rest.",
+          "start": 4087,
+          "end": 4632
+        }
+      ],
+      "heard": "Changes in other languages get their own section and publish with the rest."
+    },
+    {
+      "say": "Publish, and the unselected changes stay in the workspace.",
+      "show": "Publish, and the unselected changes stay in the workspace.",
+      "file": "voice-06.mp3",
+      "duration": 4310,
+      "words": [
+        {
+          "word": "Publish,",
+          "start": 23,
+          "end": 604
+        },
+        {
+          "word": "and",
+          "start": 627,
+          "end": 778
+        },
+        {
+          "word": "the",
+          "start": 813,
+          "end": 882
+        },
+        {
+          "word": "unselected",
+          "start": 964,
+          "end": 1625
+        },
+        {
+          "word": "changes",
+          "start": 1672,
+          "end": 2136
+        },
+        {
+          "word": "stay",
+          "start": 2183,
+          "end": 2426
+        },
+        {
+          "word": "in",
+          "start": 2473,
+          "end": 2531
+        },
+        {
+          "word": "the",
+          "start": 2566,
+          "end": 2635
+        },
+        {
+          "word": "workspace.",
+          "start": 2670,
+          "end": 3576
+        }
+      ],
+      "heard": "Publish and the unselected changes stay in the workspace."
+    },
+    {
+      "say": "Easy Workspace, built on typo three’s own workspaces.",
+      "show": "Easy Workspace, built on TYPO3’s own workspaces.",
+      "file": "voice-07.mp3",
+      "duration": 4310,
+      "words": [
+        {
+          "word": "Easy",
+          "start": 23,
+          "end": 360
+        },
+        {
+          "word": "Workspace,",
+          "start": 430,
+          "end": 1231
+        },
+        {
+          "word": "built",
+          "start": 1370,
+          "end": 1649
+        },
+        {
+          "word": "on",
+          "start": 1718,
+          "end": 1811
+        },
+        {
+          "word": "typo",
+          "start": 1881,
+          "end": 2264
+        },
+        {
+          "word": "three's",
+          "start": 2334,
+          "end": 2705
+        },
+        {
+          "word": "own",
+          "start": 2786,
+          "end": 2995
+        },
+        {
+          "word": "workspaces.",
+          "start": 3065,
+          "end": 4040
+        }
+      ],
+      "heard": "Easy Workspace, built on TYPO3's own workspaces."
+    }
+  ]
+}

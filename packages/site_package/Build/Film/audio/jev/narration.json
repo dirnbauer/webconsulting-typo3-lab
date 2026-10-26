@@ -1,0 +1,507 @@
+{
+  "voice": "George",
+  "delivery": {
+    "stability": 0.62,
+    "similarity_boost": 0.78,
+    "style": 0.18,
+    "speed": 0.9
+  },
+  "lines": [
+    {
+      "say": "Every form message lands in one inbox, and a person forwards it to sales, support or accounting.",
+      "show": "Every form message lands in one inbox, and a person forwards it to sales, support or accounting.",
+      "file": "voice-01.mp3",
+      "duration": 7184,
+      "words": [
+        {
+          "word": "Every",
+          "start": 35,
+          "end": 325
+        },
+        {
+          "word": "form",
+          "start": 406,
+          "end": 685
+        },
+        {
+          "word": "message",
+          "start": 755,
+          "end": 1207
+        },
+        {
+          "word": "lands",
+          "start": 1289,
+          "end": 1637
+        },
+        {
+          "word": "in",
+          "start": 1683,
+          "end": 1753
+        },
+        {
+          "word": "one",
+          "start": 1846,
+          "end": 2043
+        },
+        {
+          "word": "inbox,",
+          "start": 2113,
+          "end": 2763
+        },
+        {
+          "word": "and",
+          "start": 2926,
+          "end": 3077
+        },
+        {
+          "word": "a",
+          "start": 3146,
+          "end": 3170
+        },
+        {
+          "word": "person",
+          "start": 3239,
+          "end": 3587
+        },
+        {
+          "word": "forwards",
+          "start": 3680,
+          "end": 4063
+        },
+        {
+          "word": "it",
+          "start": 4098,
+          "end": 4180
+        },
+        {
+          "word": "to",
+          "start": 4214,
+          "end": 4284
+        },
+        {
+          "word": "sales,",
+          "start": 4365,
+          "end": 4957
+        },
+        {
+          "word": "support",
+          "start": 5085,
+          "end": 5584
+        },
+        {
+          "word": "or",
+          "start": 5666,
+          "end": 5793
+        },
+        {
+          "word": "accounting.",
+          "start": 5863,
+          "end": 6571
+        }
+      ],
+      "heard": "Every form message lands in one inbox and a person forwards it to sales, support or accounting.",
+      "end": 6620
+    },
+    {
+      "say": "Jev brings TypeSafe AI’s typed decisions into typo three forms.",
+      "show": "Jev brings TypeSafe AI’s typed decisions into TYPO3 forms.",
+      "file": "voice-02.mp3",
+      "duration": 5329,
+      "words": [
+        {
+          "word": "Jev",
+          "start": 12,
+          "end": 302
+        },
+        {
+          "word": "brings",
+          "start": 383,
+          "end": 708
+        },
+        {
+          "word": "TypeSafe",
+          "start": 778,
+          "end": 1335
+        },
+        {
+          "word": "AI's",
+          "start": 1382,
+          "end": 1800
+        },
+        {
+          "word": "typed",
+          "start": 1869,
+          "end": 2194
+        },
+        {
+          "word": "decisions",
+          "start": 2218,
+          "end": 2763
+        },
+        {
+          "word": "into",
+          "start": 2844,
+          "end": 3042
+        },
+        {
+          "word": "typo",
+          "start": 3123,
+          "end": 3495
+        },
+        {
+          "word": "three",
+          "start": 3576,
+          "end": 3878
+        },
+        {
+          "word": "forms.",
+          "start": 3947,
+          "end": 4586
+        }
+      ],
+      "heard": "JEV brings TypeSafe AI's type decisions into TYPO3 forms.",
+      "end": 4600
+    },
+    {
+      "say": "Messages with nothing to answer cannot be sent. Borderline ones go through.",
+      "show": "Messages with nothing to answer cannot be sent. Borderline ones go through.",
+      "file": "voice-03.mp3",
+      "duration": 5251,
+      "words": [
+        {
+          "word": "Messages",
+          "start": 23,
+          "end": 557
+        },
+        {
+          "word": "with",
+          "start": 604,
+          "end": 743
+        },
+        {
+          "word": "nothing",
+          "start": 813,
+          "end": 1080
+        },
+        {
+          "word": "to",
+          "start": 1126,
+          "end": 1173
+        },
+        {
+          "word": "answer",
+          "start": 1277,
+          "end": 1637
+        },
+        {
+          "word": "cannot",
+          "start": 1707,
+          "end": 1997
+        },
+        {
+          "word": "be",
+          "start": 2043,
+          "end": 2148
+        },
+        {
+          "word": "sent.",
+          "start": 2194,
+          "end": 2705
+        },
+        {
+          "word": "Borderline",
+          "start": 3274,
+          "end": 3855
+        },
+        {
+          "word": "ones",
+          "start": 3901,
+          "end": 4133
+        },
+        {
+          "word": "go",
+          "start": 4203,
+          "end": 4354
+        },
+        {
+          "word": "through.",
+          "start": 4435,
+          "end": 4981
+        }
+      ],
+      "heard": "Messages with nothing to answer cannot be sent. Borderline ones go through."
+    },
+    {
+      "say": "A decision picks the receiver, so each message reaches the right team.",
+      "show": "A decision picks the receiver, so each message reaches the right team.",
+      "file": "voice-04.mp3",
+      "duration": 5016,
+      "words": [
+        {
+          "word": "A",
+          "start": 35,
+          "end": 128
+        },
+        {
+          "word": "decision",
+          "start": 209,
+          "end": 627
+        },
+        {
+          "word": "picks",
+          "start": 708,
+          "end": 975
+        },
+        {
+          "word": "the",
+          "start": 1022,
+          "end": 1091
+        },
+        {
+          "word": "receiver,",
+          "start": 1161,
+          "end": 1858
+        },
+        {
+          "word": "so",
+          "start": 1985,
+          "end": 2148
+        },
+        {
+          "word": "each",
+          "start": 2241,
+          "end": 2438
+        },
+        {
+          "word": "message",
+          "start": 2508,
+          "end": 2995
+        },
+        {
+          "word": "reaches",
+          "start": 3123,
+          "end": 3483
+        },
+        {
+          "word": "the",
+          "start": 3529,
+          "end": 3599
+        },
+        {
+          "word": "right",
+          "start": 3669,
+          "end": 3878
+        },
+        {
+          "word": "team.",
+          "start": 3913,
+          "end": 4458
+        }
+      ],
+      "heard": "A decision picks the receiver, so each message reaches the right team."
+    },
+    {
+      "say": "Try a decision on sample text, and see each answer with its confidence.",
+      "show": "Try a decision on sample text, and see each answer with its confidence.",
+      "file": "voice-05.mp3",
+      "duration": 4963,
+      "words": [
+        {
+          "word": "Try",
+          "start": 12,
+          "end": 302
+        },
+        {
+          "word": "a",
+          "start": 348,
+          "end": 372
+        },
+        {
+          "word": "decision",
+          "start": 441,
+          "end": 859
+        },
+        {
+          "word": "on",
+          "start": 929,
+          "end": 998
+        },
+        {
+          "word": "sample",
+          "start": 1091,
+          "end": 1498
+        },
+        {
+          "word": "text,",
+          "start": 1533,
+          "end": 2043
+        },
+        {
+          "word": "and",
+          "start": 2148,
+          "end": 2299
+        },
+        {
+          "word": "see",
+          "start": 2380,
+          "end": 2612
+        },
+        {
+          "word": "each",
+          "start": 2682,
+          "end": 2856
+        },
+        {
+          "word": "answer",
+          "start": 2926,
+          "end": 3274
+        },
+        {
+          "word": "with",
+          "start": 3320,
+          "end": 3437
+        },
+        {
+          "word": "its",
+          "start": 3483,
+          "end": 3587
+        },
+        {
+          "word": "confidence.",
+          "start": 3634,
+          "end": 4435
+        }
+      ],
+      "heard": "Try a decision on sample text and see each answer with its confidence."
+    },
+    {
+      "say": "The run log records every call, with its latency and its cost.",
+      "show": "The run log records every call, with its latency and its cost.",
+      "file": "voice-06.mp3",
+      "duration": 5146,
+      "words": [
+        {
+          "word": "The",
+          "start": 46,
+          "end": 163
+        },
+        {
+          "word": "run",
+          "start": 244,
+          "end": 418
+        },
+        {
+          "word": "log",
+          "start": 499,
+          "end": 708
+        },
+        {
+          "word": "records",
+          "start": 789,
+          "end": 1231
+        },
+        {
+          "word": "every",
+          "start": 1300,
+          "end": 1579
+        },
+        {
+          "word": "call,",
+          "start": 1649,
+          "end": 2055
+        },
+        {
+          "word": "with",
+          "start": 2125,
+          "end": 2310
+        },
+        {
+          "word": "its",
+          "start": 2357,
+          "end": 2461
+        },
+        {
+          "word": "latency",
+          "start": 2531,
+          "end": 3088
+        },
+        {
+          "word": "and",
+          "start": 3170,
+          "end": 3286
+        },
+        {
+          "word": "its",
+          "start": 3355,
+          "end": 3471
+        },
+        {
+          "word": "cost.",
+          "start": 3541,
+          "end": 4180
+        }
+      ],
+      "heard": "The run log records every call with its latency and its cost.",
+      "end": 4140
+    },
+    {
+      "say": "Jev. When the AI is unsure, the form still works.",
+      "show": "Jev. When the AI is unsure, the form still works.",
+      "file": "voice-07.mp3",
+      "duration": 4206,
+      "words": [
+        {
+          "word": "Jev.",
+          "start": 12,
+          "end": 522
+        },
+        {
+          "word": "When",
+          "start": 755,
+          "end": 952
+        },
+        {
+          "word": "the",
+          "start": 987,
+          "end": 1057
+        },
+        {
+          "word": "AI",
+          "start": 1138,
+          "end": 1521
+        },
+        {
+          "word": "is",
+          "start": 1567,
+          "end": 1672
+        },
+        {
+          "word": "unsure,",
+          "start": 1753,
+          "end": 2392
+        },
+        {
+          "word": "the",
+          "start": 2496,
+          "end": 2589
+        },
+        {
+          "word": "form",
+          "start": 2670,
+          "end": 2949
+        },
+        {
+          "word": "still",
+          "start": 3019,
+          "end": 3274
+        },
+        {
+          "word": "works.",
+          "start": 3344,
+          "end": 3924
+        }
+      ],
+      "heard": "Jev, when the AI is unsure, the form still works."
+    }
+  ]
+}

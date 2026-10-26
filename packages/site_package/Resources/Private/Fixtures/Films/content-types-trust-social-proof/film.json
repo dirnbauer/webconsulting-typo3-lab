@@ -1,0 +1,46 @@
+{
+  "id": "content-types-trust-social-proof",
+  "page": 672,
+  "slug": "/content-types/trust-social-proof",
+  "title": "Trust & Social Proof: overview film",
+  "header": "Trust & Social Proof in 33 seconds",
+  "description": "<p>Testimonials, logos and case studies. A narrated tour, recorded in this TYPO3 v14 lab, with English captions.</p>",
+  "mp4": "content-types-trust-social-proof-f4a199f2.mp4",
+  "poster": "content-types-trust-social-proof-poster-f4a199f2.webp",
+  "vtt": "content-types-trust-social-proof-f4a199f2.en.vtt",
+  "duration": 32.843,
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "sound": true,
+  "alt": "Overview film, 33 seconds: the 25 Trust & Social Proof elements of Desiderio for TYPO3 v14, including testimonial wall, featured case study, logo cloud, ratings, stats counter, awards. Narrated, with English captions.",
+  "transcript": [
+    {
+      "at": "0:02",
+      "text": "Visitors trust what other customers say more than what a site says about itself."
+    },
+    {
+      "at": "0:08",
+      "text": "Trust and Social Proof has 25 elements for testimonials, logos and results."
+    },
+    {
+      "at": "0:16",
+      "text": "A testimonial wall, case studies, logo clouds, ratings, counters and awards."
+    },
+    {
+      "at": "0:25",
+      "text": "Add the proof you have, and the layout does the rest."
+    }
+  ],
+  "captions": {
+    "language": "en",
+    "label": "English",
+    "burnedIn": true
+  },
+  "bytes": {
+    "mp4": 2321355,
+    "poster": 37082,
+    "vtt": 471
+  },
+  "generator": "packages/site_package/Build/Film/render-films.mjs"
+}

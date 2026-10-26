@@ -66,7 +66,8 @@ final class SeedWorkosFrontendDemoCommand extends Command
                 self::OVERVIEW_SLUG,
                 [
                     'title' => 'WorkOS frontend plugins',
-                    'nav_title' => 'Frontend plugins',
+                    'nav_title' => 'WorkOS login and account pages',
+                    'abstract' => 'Live demos of the WorkOS Auth frontend plugins: login and registration, account settings and team administration for signed-in visitors.',
                     'doktype' => 1,
                     'hidden' => 0,
                     'nav_hide' => 0,

@@ -47,6 +47,10 @@ ddev exec vendor/bin/typo3 sitepackage:seed-utility-translations --no-interactio
 # again, together with the forms, decisions and conditions it lists.
 echo "==> Refreshing the Jev Powermail examples"
 ddev exec vendor/bin/typo3 webcon-jev:examples:seed --no-interaction
+# The styleguide seed deletes every Desiderio element on its pages, the
+# overview films and their transcripts too.
+echo "==> Putting the overview films back on their pages"
+ddev exec vendor/bin/typo3 sitepackage:films:seed --no-interaction
 # The seeders above create the site in English. Its German, Chinese and
 # Hungarian pages come from the translation memories in site_package, keyed by
 # the English text, so they survive the new uids of a reseed.

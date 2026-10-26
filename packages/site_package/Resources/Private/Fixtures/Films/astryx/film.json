@@ -1,0 +1,58 @@
+{
+  "id": "astryx",
+  "page": 2079,
+  "slug": "/features/astryx",
+  "title": "Astryx: overview film",
+  "header": "Astryx in 58 seconds",
+  "description": "<p>Meta’s open-source design system, rendered by Fluid. A narrated tour, recorded in this TYPO3 v14 lab, with English captions.</p>",
+  "mp4": "astryx-4651ee68.mp4",
+  "poster": "astryx-poster-4651ee68.webp",
+  "vtt": "astryx-4651ee68.en.vtt",
+  "duration": 58.238,
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "sound": true,
+  "alt": "Overview film, 58 seconds: Astryx for TYPO3 v14. Six of 25 themes; A theme for a page and its subpages; Pricing in Matcha; Every theme, light and dark. Narrated, with English captions.",
+  "transcript": [
+    {
+      "at": "0:02",
+      "text": "Most design systems ship as React components, with a Node build and JavaScript on every page."
+    },
+    {
+      "at": "0:10",
+      "text": "Astryx brings Meta’s open-source design system to TYPO3, with 250 elements and 25 themes."
+    },
+    {
+      "at": "0:21",
+      "text": "Each theme changes fonts, colours and corners. Matcha even sets headings in handwriting."
+    },
+    {
+      "at": "0:29",
+      "text": "A field in the page properties sets the theme for a page and everything below it."
+    },
+    {
+      "at": "0:35",
+      "text": "Here, the Plans and Pricing chapter runs in Matcha."
+    },
+    {
+      "at": "0:40",
+      "text": "Colour scheme and theme switch independently, so every theme also works in dark mode."
+    },
+    {
+      "at": "0:49",
+      "text": "Astryx for TYPO3. Fluid on the server, with no build step."
+    }
+  ],
+  "captions": {
+    "language": "en",
+    "label": "English",
+    "burnedIn": true
+  },
+  "bytes": {
+    "mp4": 4548930,
+    "poster": 43620,
+    "vtt": 822
+  },
+  "generator": "packages/site_package/Build/Film/render-films.mjs"
+}

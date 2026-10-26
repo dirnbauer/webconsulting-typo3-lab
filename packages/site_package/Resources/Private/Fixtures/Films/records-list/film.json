@@ -1,0 +1,58 @@
+{
+  "id": "records-list",
+  "page": 1069,
+  "slug": "/features/records-list",
+  "title": "Records List Types: overview film",
+  "header": "Records List Types in 53 seconds",
+  "description": "<p>Cards, tables and teasers in the Records module. A narrated tour, recorded in this TYPO3 v14 lab, with English captions.</p>",
+  "mp4": "records-list-18780114.mp4",
+  "poster": "records-list-poster-18780114.webp",
+  "vtt": "records-list-18780114.en.vtt",
+  "duration": 53.344,
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "sound": true,
+  "alt": "Overview film, 53 seconds: Records List Types for TYPO3 v14. The core list, one click away; Long lists on one screen; Title, date and summary; Your own layout from TSconfig. Narrated, with English captions.",
+  "transcript": [
+    {
+      "at": "0:02",
+      "text": "The Records module shows news, contacts and products as the same rows of text."
+    },
+    {
+      "at": "0:09",
+      "text": "Records List Types lets editors pick the view that suits each table."
+    },
+    {
+      "at": "0:16",
+      "text": "The standard list stays one click away, with the columns you choose."
+    },
+    {
+      "at": "0:22",
+      "text": "Compact view keeps long lists on one screen, with sortable columns."
+    },
+    {
+      "at": "0:29",
+      "text": "Teaser view reads like a news list, with title, date and a short excerpt."
+    },
+    {
+      "at": "0:36",
+      "text": "Catalogue is a custom view, built from TSconfig, a Fluid template and a stylesheet."
+    },
+    {
+      "at": "0:45",
+      "text": "Records List Types. New views without PHP."
+    }
+  ],
+  "captions": {
+    "language": "en",
+    "label": "English",
+    "burnedIn": true
+  },
+  "bytes": {
+    "mp4": 4722757,
+    "poster": 41866,
+    "vtt": 766
+  },
+  "generator": "packages/site_package/Build/Film/render-films.mjs"
+}

@@ -1,0 +1,54 @@
+{
+  "id": "image-workbench",
+  "page": 2082,
+  "slug": "/features/image-workbench",
+  "title": "Image Workbench: overview film",
+  "header": "Image Workbench in 44 seconds",
+  "description": "<p>Crop, adjust and generate images inside TYPO3. A narrated tour, recorded in this TYPO3 v14 lab, with English captions.</p>",
+  "mp4": "image-workbench-87e4964f.mp4",
+  "poster": "image-workbench-poster-87e4964f.webp",
+  "vtt": "image-workbench-87e4964f.en.vtt",
+  "duration": 44.087,
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "sound": true,
+  "alt": "Overview film, 44 seconds: Image Workbench for TYPO3 v14. Filters, crop and resize; Describe an image, get a PNG; The original stays safe. Narrated, with English captions.",
+  "transcript": [
+    {
+      "at": "0:02",
+      "text": "Editors download an image, crop it in a desktop tool and upload it again."
+    },
+    {
+      "at": "0:08",
+      "text": "Image Workbench opens images from the file list in a full-page editor."
+    },
+    {
+      "at": "0:15",
+      "text": "Adjust, filter, annotate, crop and resize, right next to the photo."
+    },
+    {
+      "at": "0:22",
+      "text": "Describe a new image, and a PNG arrives in the same folder, through nr-llm."
+    },
+    {
+      "at": "0:30",
+      "text": "Save as copy is the default, so the original is never replaced."
+    },
+    {
+      "at": "0:36",
+      "text": "Image Workbench for TYPO3."
+    }
+  ],
+  "captions": {
+    "language": "en",
+    "label": "English",
+    "burnedIn": true
+  },
+  "bytes": {
+    "mp4": 3568790,
+    "poster": 56064,
+    "vtt": 624
+  },
+  "generator": "packages/site_package/Build/Film/render-films.mjs"
+}

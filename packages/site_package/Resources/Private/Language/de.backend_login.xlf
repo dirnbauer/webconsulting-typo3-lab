@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="2.0" xmlns="urn:oasis:names:tc:xliff:document:2.0" srcLang="en" trgLang="de">
+    <file id="backend_login">
+        <unit id="skip">
+            <segment state="final">
+                <source>Skip to sign-in</source>
+                <target>Zur Anmeldung springen</target>
+            </segment>
+        </unit>
+        <unit id="environment">
+            <segment state="final">
+                <source>Environment</source>
+                <target>Umgebung</target>
+            </segment>
+        </unit>
+        <unit id="environment.ddev">
+            <segment state="final">
+                <source>DDEV</source>
+                <target>DDEV</target>
+            </segment>
+        </unit>
+        <unit id="environment.staging">
+            <segment state="final">
+                <source>Staging</source>
+                <target>Staging</target>
+            </segment>
+        </unit>
+        <unit id="environment.live">
+            <segment state="final">
+                <source>Live</source>
+                <target>Live</target>
+            </segment>
+        </unit>
+        <unit id="environment.development">
+            <segment state="final">
+                <source>Development</source>
+                <target>Entwicklung</target>
+            </segment>
+        </unit>
+        <unit id="environment.testing">
+            <segment state="final">
+                <source>Testing</source>
+                <target>Test</target>
+            </segment>
+        </unit>
+        <unit id="colorScheme.dark">
+            <segment state="final">
+                <source>Switch to dark mode</source>
+                <target>Dunkles Design aktivieren</target>
+            </segment>
+        </unit>
+        <unit id="colorScheme.light">
+            <segment state="final">
+                <source>Switch to light mode</source>
+                <target>Helles Design aktivieren</target>
+            </segment>
+        </unit>
+        <unit id="title">
+            <segment state="final">
+                <source>Sign in to the backend</source>
+                <target>Am Backend anmelden</target>
+            </segment>
+        </unit>
+        <unit id="intro">
+            <segment state="final">
+                <source>Continue to pages, content and workspaces.</source>
+                <target>Weiter zu Seiten, Inhalten und Arbeitsbereichen.</target>
+            </segment>
+        </unit>
+        <unit id="access">
+            <segment state="final">
+                <source>Access is managed by the administration.</source>
+                <target>Der Zugang wird von der Administration verwaltet.</target>
+            </segment>
+        </unit>
+        <unit id="about.eyebrow">
+            <segment state="final">
+                <source>Content &amp; publishing</source>
+                <target>Inhalte &amp; Veröffentlichung</target>
+            </segment>
+        </unit>
+        <unit id="about.headline">
+            <segment state="final">
+                <source>Edit · Review · Publish</source>
+                <target>Bearbeiten · Prüfen · Veröffentlichen</target>
+            </segment>
+        </unit>
+        <unit id="about.description">
+            <segment state="final">
+                <source>The TYPO3 backend is where the lab's websites are maintained. The AI assistant helps and asks before it writes.</source>
+                <target>Im TYPO3-Backend werden die Websites des Labs gepflegt. Der KI-Assistent hilft und fragt, bevor er schreibt.</target>
+            </segment>
+        </unit>
+        <unit id="about.content.title">
+            <segment state="final">
+                <source>Pages &amp; content</source>
+                <target>Seiten &amp; Inhalte</target>
+            </segment>
+        </unit>
+        <unit id="about.content.text">
+            <segment state="final">
+                <source>Page tree, content elements and the Visual Editor on the page.</source>
+                <target>Seitenbaum, Inhaltselemente und der Visual Editor auf der Seite.</target>
+            </segment>
+        </unit>
+        <unit id="about.records.title">
+            <segment state="final">
+                <source>Files &amp; records</source>
+                <target>Dateien &amp; Datensätze</target>
+            </segment>
+        </unit>
+        <unit id="about.records.text">
+            <segment state="final">
+                <source>Images, documents, news, blog posts and addresses.</source>
+                <target>Bilder, Dokumente, News, Blogbeiträge und Adressen.</target>
+            </segment>
+        </unit>
+        <unit id="about.workspaces.title">
+            <segment state="final">
+                <source>Workspaces &amp; review</source>
+                <target>Arbeitsbereiche &amp; Freigabe</target>
+            </segment>
+        </unit>
+        <unit id="about.workspaces.text">
+            <segment state="final">
+                <source>Drafts stay in a workspace until review and one-click publishing.</source>
+                <target>Entwürfe bleiben im Arbeitsbereich, bis sie geprüft und mit einem Klick freigegeben sind.</target>
+            </segment>
+        </unit>
+        <unit id="footnote.region">
+            <segment state="final">
+                <source>About this installation</source>
+                <target>Über diese Installation</target>
+            </segment>
+        </unit>
+        <unit id="footnote.websiteBy">
+            <segment state="final">
+                <source>Website by</source>
+                <target>Website von</target>
+            </segment>
+        </unit>
+        <unit id="credits.builtOn">
+            <segment state="final">
+                <source>Built on</source>
+                <target>Basiert auf</target>
+            </segment>
+        </unit>
+        <unit id="credits.trademark">
+            <segment state="final">
+                <source>TYPO3 is a registered trademark of the TYPO3 Association. This website is not affiliated with or endorsed by the TYPO3 Association.</source>
+                <target>TYPO3 ist eine eingetragene Marke der TYPO3 Association. Diese Website ist weder mit der TYPO3 Association verbunden noch von ihr empfohlen.</target>
+            </segment>
+        </unit>
+        <unit id="credits.copyright">
+            <segment state="final">
+                <source>TYPO3 CMS © 1998–%s Kasper Skårhøj, licensed under the GNU GPL, version 2 or later.</source>
+                <target>TYPO3 CMS © 1998–%s Kasper Skårhøj, lizenziert unter der GNU GPL, Version 2 oder später.</target>
+            </segment>
+        </unit>
+    </file>
+</xliff>

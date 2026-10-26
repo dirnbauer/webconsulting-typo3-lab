@@ -1,0 +1,334 @@
+{
+  "voice": "George",
+  "delivery": {
+    "stability": 0.62,
+    "similarity_boost": 0.78,
+    "style": 0.18,
+    "speed": 0.9
+  },
+  "lines": [
+    {
+      "say": "Charts pasted in as screenshots go stale, and screen readers skip them.",
+      "show": "Charts pasted in as screenshots go stale, and screen readers skip them.",
+      "file": "voice-01.mp3",
+      "duration": 5198,
+      "words": [
+        {
+          "word": "Charts",
+          "start": 70,
+          "end": 441
+        },
+        {
+          "word": "pasted",
+          "start": 511,
+          "end": 964
+        },
+        {
+          "word": "in",
+          "start": 1033,
+          "end": 1149
+        },
+        {
+          "word": "as",
+          "start": 1219,
+          "end": 1300
+        },
+        {
+          "word": "screenshots",
+          "start": 1347,
+          "end": 2020
+        },
+        {
+          "word": "go",
+          "start": 2067,
+          "end": 2218
+        },
+        {
+          "word": "stale,",
+          "start": 2310,
+          "end": 2856
+        },
+        {
+          "word": "and",
+          "start": 3053,
+          "end": 3204
+        },
+        {
+          "word": "screen",
+          "start": 3286,
+          "end": 3622
+        },
+        {
+          "word": "readers",
+          "start": 3692,
+          "end": 3971
+        },
+        {
+          "word": "skip",
+          "start": 4005,
+          "end": 4284
+        },
+        {
+          "word": "them.",
+          "start": 4365,
+          "end": 4667
+        }
+      ],
+      "heard": "Charts pasted in as screenshots go stale and screen readers skip them.",
+      "end": 4710
+    },
+    {
+      "say": "Data and Dashboards has 29 elements, and the charts render on the server.",
+      "show": "Data and Dashboards has 29 elements, and the charts render on the server.",
+      "file": "voice-02.mp3",
+      "duration": 5381,
+      "words": [
+        {
+          "word": "Data",
+          "start": 12,
+          "end": 406
+        },
+        {
+          "word": "and",
+          "start": 453,
+          "end": 534
+        },
+        {
+          "word": "Dashboards",
+          "start": 604,
+          "end": 1207
+        },
+        {
+          "word": "has",
+          "start": 1242,
+          "end": 1370
+        },
+        {
+          "word": "29",
+          "start": 1440,
+          "end": 2032
+        },
+        {
+          "word": "elements,",
+          "start": 2125,
+          "end": 2682
+        },
+        {
+          "word": "and",
+          "start": 2810,
+          "end": 2937
+        },
+        {
+          "word": "the",
+          "start": 2972,
+          "end": 3042
+        },
+        {
+          "word": "charts",
+          "start": 3088,
+          "end": 3460
+        },
+        {
+          "word": "render",
+          "start": 3541,
+          "end": 3831
+        },
+        {
+          "word": "on",
+          "start": 3901,
+          "end": 3982
+        },
+        {
+          "word": "the",
+          "start": 4017,
+          "end": 4087
+        },
+        {
+          "word": "server.",
+          "start": 4133,
+          "end": 4748
+        }
+      ],
+      "heard": "Data and Dashboards has 29 elements and the charts render on the server.",
+      "end": 4730
+    },
+    {
+      "say": "Metric dashboards, heatmaps, leaderboards, K P I cards, bar charts and donuts, from numbers editors type in.",
+      "show": "Metric dashboards, heatmaps, leaderboards, KPI cards, bar charts and donuts, from numbers editors type in.",
+      "file": "voice-03.mp3",
+      "duration": 9874,
+      "words": [
+        {
+          "word": "Metric",
+          "start": 12,
+          "end": 464
+        },
+        {
+          "word": "dashboards,",
+          "start": 546,
+          "end": 1370
+        },
+        {
+          "word": "heatmaps,",
+          "start": 1498,
+          "end": 2345
+        },
+        {
+          "word": "leaderboards,",
+          "start": 2543,
+          "end": 3390
+        },
+        {
+          "word": "K",
+          "start": 3587,
+          "end": 3715
+        },
+        {
+          "word": "P",
+          "start": 3878,
+          "end": 3947
+        },
+        {
+          "word": "I",
+          "start": 4087,
+          "end": 4168
+        },
+        {
+          "word": "cards,",
+          "start": 4296,
+          "end": 4911
+        },
+        {
+          "word": "bar",
+          "start": 5108,
+          "end": 5387
+        },
+        {
+          "word": "charts",
+          "start": 5468,
+          "end": 5863
+        },
+        {
+          "word": "and",
+          "start": 5898,
+          "end": 5979
+        },
+        {
+          "word": "donuts,",
+          "start": 6049,
+          "end": 6873
+        },
+        {
+          "word": "from",
+          "start": 7651,
+          "end": 7848
+        },
+        {
+          "word": "numbers",
+          "start": 7930,
+          "end": 8231
+        },
+        {
+          "word": "editors",
+          "start": 8301,
+          "end": 8754
+        },
+        {
+          "word": "type",
+          "start": 8824,
+          "end": 9125
+        },
+        {
+          "word": "in.",
+          "start": 9172,
+          "end": 9543
+        }
+      ],
+      "heard": "metric dashboards, heat maps, leaderboards, KPI cards, bar charts and donuts. From numbers editors type in"
+    },
+    {
+      "say": "Change a number in the backend, and the chart follows on the next page load.",
+      "show": "Change a number in the backend, and the chart follows on the next page load.",
+      "file": "voice-04.mp3",
+      "duration": 4441,
+      "words": [
+        {
+          "word": "Change",
+          "start": 23,
+          "end": 395
+        },
+        {
+          "word": "a",
+          "start": 430,
+          "end": 453
+        },
+        {
+          "word": "number",
+          "start": 522,
+          "end": 743
+        },
+        {
+          "word": "in",
+          "start": 789,
+          "end": 848
+        },
+        {
+          "word": "the",
+          "start": 882,
+          "end": 952
+        },
+        {
+          "word": "backend,",
+          "start": 998,
+          "end": 1614
+        },
+        {
+          "word": "and",
+          "start": 1707,
+          "end": 1834
+        },
+        {
+          "word": "the",
+          "start": 1881,
+          "end": 1950
+        },
+        {
+          "word": "chart",
+          "start": 1997,
+          "end": 2345
+        },
+        {
+          "word": "follows",
+          "start": 2426,
+          "end": 2821
+        },
+        {
+          "word": "on",
+          "start": 2902,
+          "end": 3007
+        },
+        {
+          "word": "the",
+          "start": 3042,
+          "end": 3111
+        },
+        {
+          "word": "next",
+          "start": 3146,
+          "end": 3379
+        },
+        {
+          "word": "page",
+          "start": 3425,
+          "end": 3738
+        },
+        {
+          "word": "load.",
+          "start": 3785,
+          "end": 4180
+        }
+      ],
+      "heard": "Change a number in the back end and the chart follows on the next page load."
+    }
+  ]
+}

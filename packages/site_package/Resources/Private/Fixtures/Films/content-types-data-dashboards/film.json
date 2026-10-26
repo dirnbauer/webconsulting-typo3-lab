@@ -1,0 +1,46 @@
+{
+  "id": "content-types-data-dashboards",
+  "page": 666,
+  "slug": "/content-types/data-dashboards",
+  "title": "Data & Dashboards: overview film",
+  "header": "Data & Dashboards in 36 seconds",
+  "description": "<p>Charts that render on the server. A narrated tour, recorded in this TYPO3 v14 lab, with English captions.</p>",
+  "mp4": "content-types-data-dashboards-ac19d117.mp4",
+  "poster": "content-types-data-dashboards-poster-ac19d117.webp",
+  "vtt": "content-types-data-dashboards-ac19d117.en.vtt",
+  "duration": 35.794,
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "sound": true,
+  "alt": "Overview film, 36 seconds: the 29 Data & Dashboards elements of Desiderio for TYPO3 v14, including metric dashboard, heatmap, leaderboard, kpi cards, bar chart, donut chart. Narrated, with English captions.",
+  "transcript": [
+    {
+      "at": "0:02",
+      "text": "Charts pasted in as screenshots go stale, and screen readers skip them."
+    },
+    {
+      "at": "0:08",
+      "text": "Data and Dashboards has 29 elements, and the charts render on the server."
+    },
+    {
+      "at": "0:15",
+      "text": "Metric dashboards, heatmaps, leaderboards, KPI cards, bar charts and donuts, from numbers editors type in."
+    },
+    {
+      "at": "0:26",
+      "text": "Change a number in the backend, and the chart follows on the next page load."
+    }
+  ],
+  "captions": {
+    "language": "en",
+    "label": "English",
+    "burnedIn": true
+  },
+  "bytes": {
+    "mp4": 2271353,
+    "poster": 38188,
+    "vtt": 510
+  },
+  "generator": "packages/site_package/Build/Film/render-films.mjs"
+}

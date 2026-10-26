@@ -1,0 +1,58 @@
+{
+  "id": "easy-workspace",
+  "page": 1071,
+  "slug": "/features/easy-workspace",
+  "title": "Easy Workspace: overview film",
+  "header": "Easy Workspace in 50 seconds",
+  "description": "<p>Review and publish a page in one click. A narrated tour, recorded in this TYPO3 v14 lab, with English captions.</p>",
+  "mp4": "easy-workspace-2d0dde10.mp4",
+  "poster": "easy-workspace-poster-2d0dde10.webp",
+  "vtt": "easy-workspace-2d0dde10.en.vtt",
+  "duration": 49.581,
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "sound": true,
+  "alt": "Overview film, 50 seconds: Easy Workspace for TYPO3 v14. Pending changes, per page; Publish what is ready; No translation left behind; The rest waits for later. Narrated, with English captions.",
+  "transcript": [
+    {
+      "at": "0:02",
+      "text": "The Workspaces module lists changes for whole page trees, so editors leave publishing to an admin."
+    },
+    {
+      "at": "0:10",
+      "text": "Easy Workspace adds a publishing dropdown to the TYPO3 toolbar."
+    },
+    {
+      "at": "0:16",
+      "text": "The toolbar counts the pending changes of the page you are on."
+    },
+    {
+      "at": "0:22",
+      "text": "Every change starts selected. Untick what is not ready yet."
+    },
+    {
+      "at": "0:28",
+      "text": "Changes in other languages get their own section, and publish with the rest."
+    },
+    {
+      "at": "0:34",
+      "text": "Publish, and the unselected changes stay in the workspace."
+    },
+    {
+      "at": "0:40",
+      "text": "Easy Workspace, built on TYPO3’s own workspaces."
+    }
+  ],
+  "captions": {
+    "language": "en",
+    "label": "English",
+    "burnedIn": true
+  },
+  "bytes": {
+    "mp4": 4051823,
+    "poster": 38774,
+    "vtt": 749
+  },
+  "generator": "packages/site_package/Build/Film/render-films.mjs"
+}

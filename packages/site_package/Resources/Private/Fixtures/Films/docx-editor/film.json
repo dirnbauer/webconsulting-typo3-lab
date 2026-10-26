@@ -1,0 +1,110 @@
+{
+  "id": "docx-editor",
+  "page": 2081,
+  "slug": "/features/docx-editor",
+  "title": "DOCX Editor: edit Word files inside TYPO3",
+  "header": "DOCX Editor in two minutes",
+  "description": "<p>Edit a Word file where it is stored, open any page as a Word document, or keep your own word processor: download the page, change it in Word or LibreOffice, upload it and review every change before the import. Recorded in this TYPO3 v14 lab, with English captions.</p>",
+  "mp4": "docx-editor-ff00a0f2.mp4",
+  "poster": "docx-editor-poster-ff00a0f2.webp",
+  "vtt": "docx-editor-ff00a0f2.en.vtt",
+  "duration": 125.306,
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "sound": true,
+  "alt": "Product film, 125 seconds: DOCX Editor for TYPO3 v14. A Word file opens from the file list, is edited and saved back; a second editor causes a warning instead of an overwrite; a page opens as a Word document, is edited and reviewed before import; the page is downloaded, edited in Microsoft Word and uploaded again with a review of the Word changes; a long document becomes new pages. Narrated, with English captions.",
+  "transcript": [
+    {
+      "at": "0:02",
+      "text": "One fix in a Word file means download, edit, upload, and hoping nobody changed it."
+    },
+    {
+      "at": "0:09",
+      "text": "Between Word and TYPO3, copy and paste breaks the formatting."
+    },
+    {
+      "at": "0:16",
+      "text": "DOCX Editor brings Word into TYPO3, in both directions."
+    },
+    {
+      "at": "0:23",
+      "text": "Click Edit DOCX next to any Word file in the file list."
+    },
+    {
+      "at": "0:29",
+      "text": "It opens full page, in Word’s own layout."
+    },
+    {
+      "at": "0:33",
+      "text": "Type, save, and the change lands in the same file."
+    },
+    {
+      "at": "0:38",
+      "text": "Tracked changes and comments survive the save."
+    },
+    {
+      "at": "0:43",
+      "text": "A badge shows how many editors have the file open."
+    },
+    {
+      "at": "0:50",
+      "text": "If someone saved first, your save stops and offers a reload."
+    },
+    {
+      "at": "0:56",
+      "text": "Any page opens as a Word document."
+    },
+    {
+      "at": "1:01",
+      "text": "Each element becomes a framed block you can edit."
+    },
+    {
+      "at": "1:06",
+      "text": "Edit the text in the browser."
+    },
+    {
+      "at": "1:10",
+      "text": "A review lists every change before anything reaches the page."
+    },
+    {
+      "at": "1:15",
+      "text": "Or download the page, and keep your own word processor."
+    },
+    {
+      "at": "1:21",
+      "text": "Edit it in Word, LibreOffice or any other editor. Here, two sentences changed in Microsoft Word."
+    },
+    {
+      "at": "1:31",
+      "text": "Upload it again, and the review shows what changed in Word."
+    },
+    {
+      "at": "1:38",
+      "text": "Import, and the page is up to date."
+    },
+    {
+      "at": "1:42",
+      "text": "A long document can become new pages, one per Heading 1."
+    },
+    {
+      "at": "1:48",
+      "text": "Each part gets a suggested content type, and new pages start hidden."
+    },
+    {
+      "at": "1:56",
+      "text": "DOCX Editor. Open source, for TYPO3 v14."
+    }
+  ],
+  "captions": {
+    "language": "en",
+    "label": "English",
+    "burnedIn": true
+  },
+  "bytes": {
+    "mp4": 8154748,
+    "poster": 39304,
+    "vtt": 1817
+  },
+  "generator": "packages/site_package/Build/Film/render-films.mjs"
+}

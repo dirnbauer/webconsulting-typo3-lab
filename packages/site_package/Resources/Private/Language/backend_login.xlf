@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Labels of the lab's backend login layout (Resources/Private/TemplateOverrides/typo3/cms-backend/Layouts/Login.fluid.html). The login picks the language from the browser (Accept-Language). -->
+<xliff version="2.0" xmlns="urn:oasis:names:tc:xliff:document:2.0" srcLang="en">
+    <file id="backend_login">
+        <unit id="skip">
+            <segment>
+                <source>Skip to sign-in</source>
+            </segment>
+        </unit>
+        <unit id="environment">
+            <segment>
+                <source>Environment</source>
+            </segment>
+        </unit>
+        <unit id="environment.ddev">
+            <segment>
+                <source>DDEV</source>
+            </segment>
+        </unit>
+        <unit id="environment.staging">
+            <segment>
+                <source>Staging</source>
+            </segment>
+        </unit>
+        <unit id="environment.live">
+            <segment>
+                <source>Live</source>
+            </segment>
+        </unit>
+        <unit id="environment.development">
+            <segment>
+                <source>Development</source>
+            </segment>
+        </unit>
+        <unit id="environment.testing">
+            <segment>
+                <source>Testing</source>
+            </segment>
+        </unit>
+        <unit id="colorScheme.dark">
+            <segment>
+                <source>Switch to dark mode</source>
+            </segment>
+        </unit>
+        <unit id="colorScheme.light">
+            <segment>
+                <source>Switch to light mode</source>
+            </segment>
+        </unit>
+        <unit id="title">
+            <segment>
+                <source>Sign in to the backend</source>
+            </segment>
+        </unit>
+        <unit id="intro">
+            <segment>
+                <source>Continue to pages, content and workspaces.</source>
+            </segment>
+        </unit>
+        <unit id="access">
+            <segment>
+                <source>Access is managed by the administration.</source>
+            </segment>
+        </unit>
+        <unit id="about.eyebrow">
+            <segment>
+                <source>Content &amp; publishing</source>
+            </segment>
+        </unit>
+        <unit id="about.headline">
+            <segment>
+                <source>Edit · Review · Publish</source>
+            </segment>
+        </unit>
+        <unit id="about.description">
+            <segment>
+                <source>The TYPO3 backend is where the lab's websites are maintained. The AI assistant helps and asks before it writes.</source>
+            </segment>
+        </unit>
+        <unit id="about.content.title">
+            <segment>
+                <source>Pages &amp; content</source>
+            </segment>
+        </unit>
+        <unit id="about.content.text">
+            <segment>
+                <source>Page tree, content elements and the Visual Editor on the page.</source>
+            </segment>
+        </unit>
+        <unit id="about.records.title">
+            <segment>
+                <source>Files &amp; records</source>
+            </segment>
+        </unit>
+        <unit id="about.records.text">
+            <segment>
+                <source>Images, documents, news, blog posts and addresses.</source>
+            </segment>
+        </unit>
+        <unit id="about.workspaces.title">
+            <segment>
+                <source>Workspaces &amp; review</source>
+            </segment>
+        </unit>
+        <unit id="about.workspaces.text">
+            <segment>
+                <source>Drafts stay in a workspace until review and one-click publishing.</source>
+            </segment>
+        </unit>
+        <unit id="footnote.region">
+            <segment>
+                <source>About this installation</source>
+            </segment>
+        </unit>
+        <unit id="footnote.websiteBy">
+            <segment>
+                <source>Website by</source>
+            </segment>
+        </unit>
+        <unit id="credits.builtOn">
+            <segment>
+                <source>Built on</source>
+            </segment>
+        </unit>
+        <unit id="credits.trademark">
+            <segment>
+                <source>TYPO3 is a registered trademark of the TYPO3 Association. This website is not affiliated with or endorsed by the TYPO3 Association.</source>
+            </segment>
+        </unit>
+        <unit id="credits.copyright">
+            <segment>
+                <source>TYPO3 CMS © 1998–%s Kasper Skårhøj, licensed under the GNU GPL, version 2 or later.</source>
+            </segment>
+        </unit>
+    </file>
+</xliff>

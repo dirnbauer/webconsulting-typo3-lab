@@ -1,0 +1,443 @@
+{
+  "voice": "George",
+  "delivery": {
+    "stability": 0.62,
+    "similarity_boost": 0.78,
+    "style": 0.18,
+    "speed": 0.9
+  },
+  "lines": [
+    {
+      "say": "A skill is text your AI agent follows. One hidden line can leak a key or pipe a script into a shell.",
+      "show": "A skill is text your AI agent follows. One hidden line can leak a key or pipe a script into a shell.",
+      "file": "voice-01.mp3",
+      "duration": 7419,
+      "words": [
+        {
+          "word": "A",
+          "start": 35,
+          "end": 81
+        },
+        {
+          "word": "skill",
+          "start": 174,
+          "end": 511
+        },
+        {
+          "word": "is",
+          "start": 604,
+          "end": 708
+        },
+        {
+          "word": "text",
+          "start": 778,
+          "end": 1115
+        },
+        {
+          "word": "your",
+          "start": 1149,
+          "end": 1289
+        },
+        {
+          "word": "AI",
+          "start": 1370,
+          "end": 1765
+        },
+        {
+          "word": "agent",
+          "start": 1811,
+          "end": 2171
+        },
+        {
+          "word": "follows.",
+          "start": 2241,
+          "end": 2844
+        },
+        {
+          "word": "One",
+          "start": 3077,
+          "end": 3297
+        },
+        {
+          "word": "hidden",
+          "start": 3344,
+          "end": 3599
+        },
+        {
+          "word": "line",
+          "start": 3680,
+          "end": 3959
+        },
+        {
+          "word": "can",
+          "start": 4005,
+          "end": 4122
+        },
+        {
+          "word": "leak",
+          "start": 4203,
+          "end": 4400
+        },
+        {
+          "word": "a",
+          "start": 4447,
+          "end": 4470
+        },
+        {
+          "word": "key",
+          "start": 4551,
+          "end": 4876
+        },
+        {
+          "word": "or",
+          "start": 5004,
+          "end": 5166
+        },
+        {
+          "word": "pipe",
+          "start": 5236,
+          "end": 5492
+        },
+        {
+          "word": "a",
+          "start": 5526,
+          "end": 5550
+        },
+        {
+          "word": "script",
+          "start": 5596,
+          "end": 5956
+        },
+        {
+          "word": "into",
+          "start": 5991,
+          "end": 6153
+        },
+        {
+          "word": "a",
+          "start": 6235,
+          "end": 6258
+        },
+        {
+          "word": "shell.",
+          "start": 6327,
+          "end": 6873
+        }
+      ],
+      "heard": "A skill is text your AI agent follows. One hidden line can leak a key or pipe a script into a shell.",
+      "end": 6910
+    },
+    {
+      "say": "Skillspector reads every agent skill before your AI does.",
+      "show": "Skillspector reads every agent skill before your AI does.",
+      "file": "voice-02.mp3",
+      "duration": 4493,
+      "words": [
+        {
+          "word": "Skillspector",
+          "start": 23,
+          "end": 813
+        },
+        {
+          "word": "reads",
+          "start": 894,
+          "end": 1173
+        },
+        {
+          "word": "every",
+          "start": 1254,
+          "end": 1556
+        },
+        {
+          "word": "agent",
+          "start": 1637,
+          "end": 1997
+        },
+        {
+          "word": "skill",
+          "start": 2067,
+          "end": 2357
+        },
+        {
+          "word": "before",
+          "start": 2438,
+          "end": 2740
+        },
+        {
+          "word": "your",
+          "start": 2775,
+          "end": 2891
+        },
+        {
+          "word": "AI",
+          "start": 2961,
+          "end": 3297
+        },
+        {
+          "word": "does.",
+          "start": 3367,
+          "end": 3878
+        }
+      ],
+      "heard": "Skill Spectre reads every agent skill before your AI does."
+    },
+    {
+      "say": "Each finding shows its severity, its location, the matched text and what to check.",
+      "show": "Each finding shows its severity, its location, the matched text and what to check.",
+      "file": "voice-03.mp3",
+      "duration": 5878,
+      "words": [
+        {
+          "word": "Each",
+          "start": 23,
+          "end": 267
+        },
+        {
+          "word": "finding",
+          "start": 337,
+          "end": 755
+        },
+        {
+          "word": "shows",
+          "start": 824,
+          "end": 1115
+        },
+        {
+          "word": "its",
+          "start": 1161,
+          "end": 1277
+        },
+        {
+          "word": "severity,",
+          "start": 1312,
+          "end": 2090
+        },
+        {
+          "word": "its",
+          "start": 2218,
+          "end": 2403
+        },
+        {
+          "word": "location,",
+          "start": 2473,
+          "end": 3216
+        },
+        {
+          "word": "the",
+          "start": 3344,
+          "end": 3448
+        },
+        {
+          "word": "matched",
+          "start": 3529,
+          "end": 3820
+        },
+        {
+          "word": "text",
+          "start": 3855,
+          "end": 4307
+        },
+        {
+          "word": "and",
+          "start": 4354,
+          "end": 4458
+        },
+        {
+          "word": "what",
+          "start": 4505,
+          "end": 4644
+        },
+        {
+          "word": "to",
+          "start": 4679,
+          "end": 4737
+        },
+        {
+          "word": "check.",
+          "start": 4818,
+          "end": 5341
+        }
+      ],
+      "heard": "Each finding shows its severity, its location, the matched text and what to check."
+    },
+    {
+      "say": "Checks never change a skill. An administrator decides what to hide.",
+      "show": "Checks never change a skill. An administrator decides what to hide.",
+      "file": "voice-04.mp3",
+      "duration": 4911,
+      "words": [
+        {
+          "word": "Checks",
+          "start": 23,
+          "end": 406
+        },
+        {
+          "word": "never",
+          "start": 534,
+          "end": 778
+        },
+        {
+          "word": "change",
+          "start": 848,
+          "end": 1184
+        },
+        {
+          "word": "a",
+          "start": 1207,
+          "end": 1242
+        },
+        {
+          "word": "skill.",
+          "start": 1312,
+          "end": 1846
+        },
+        {
+          "word": "An",
+          "start": 2009,
+          "end": 2171
+        },
+        {
+          "word": "administrator",
+          "start": 2218,
+          "end": 2914
+        },
+        {
+          "word": "decides",
+          "start": 2984,
+          "end": 3448
+        },
+        {
+          "word": "what",
+          "start": 3471,
+          "end": 3611
+        },
+        {
+          "word": "to",
+          "start": 3646,
+          "end": 3704
+        },
+        {
+          "word": "hide.",
+          "start": 3796,
+          "end": 4354
+        }
+      ],
+      "heard": "Checks never change a skill, an administrator decides what to hide.",
+      "end": 4320
+    },
+    {
+      "say": "Fifteen built-in rules look for prompt injection, exposed keys, risky commands and licence problems.",
+      "show": "Fifteen built-in rules look for prompt injection, exposed keys, risky commands and licence problems.",
+      "file": "voice-05.mp3",
+      "duration": 7367,
+      "words": [
+        {
+          "word": "Fifteen",
+          "start": 35,
+          "end": 557
+        },
+        {
+          "word": "built-in",
+          "start": 639,
+          "end": 1045
+        },
+        {
+          "word": "rules",
+          "start": 1138,
+          "end": 1486
+        },
+        {
+          "word": "look",
+          "start": 1567,
+          "end": 1741
+        },
+        {
+          "word": "for",
+          "start": 1788,
+          "end": 1881
+        },
+        {
+          "word": "prompt",
+          "start": 1927,
+          "end": 2206
+        },
+        {
+          "word": "injection,",
+          "start": 2241,
+          "end": 3007
+        },
+        {
+          "word": "exposed",
+          "start": 3135,
+          "end": 3715
+        },
+        {
+          "word": "keys,",
+          "start": 3785,
+          "end": 4342
+        },
+        {
+          "word": "risky",
+          "start": 4574,
+          "end": 4957
+        },
+        {
+          "word": "commands",
+          "start": 5027,
+          "end": 5492
+        },
+        {
+          "word": "and",
+          "start": 5538,
+          "end": 5642
+        },
+        {
+          "word": "licence",
+          "start": 5724,
+          "end": 6130
+        },
+        {
+          "word": "problems.",
+          "start": 6165,
+          "end": 6850
+        }
+      ],
+      "heard": "15 built-in rules look for prompt injection, exposed keys, risky commands and license problems.",
+      "end": 6840
+    },
+    {
+      "say": "Skillspector. An administrator always decides.",
+      "show": "Skillspector. An administrator always decides.",
+      "file": "voice-06.mp3",
+      "duration": 3762,
+      "words": [
+        {
+          "word": "Skillspector.",
+          "start": 23,
+          "end": 1080
+        },
+        {
+          "word": "An",
+          "start": 1277,
+          "end": 1440
+        },
+        {
+          "word": "administrator",
+          "start": 1486,
+          "end": 2218
+        },
+        {
+          "word": "always",
+          "start": 2287,
+          "end": 2647
+        },
+        {
+          "word": "decides.",
+          "start": 2694,
+          "end": 3471
+        }
+      ],
+      "heard": "Skill Spectre, an administrator always decides"
+    }
+  ]
+}

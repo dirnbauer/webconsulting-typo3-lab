@@ -1,0 +1,376 @@
+{
+    "version": 1,
+    "site": "desiderio",
+    "root": 505,
+    "language": 0,
+    "languageCode": "en",
+    "_note": "Innesto demo (/innesto-demo/, page 1032): keeps the 6 Innesto elements that read well (marquee, stats-area-chart, stats-segmented-progress, stats-status, stats-usage-breakdown, terminal), deletes the other 13 from the page (the element types stay installed and in the element library), renames the page and adds the sources section with a thank-you note at the bottom. Translations: sitepackage:content:translate --site=desiderio --pages=1032.",
+    "records": [
+        {
+            "table": "pages",
+            "uid": 1032,
+            "expect": {
+                "title": "Innesto demo (all elements)"
+            },
+            "set": {
+                "title": "Innesto demo"
+            },
+            "_context": {
+                "page": 1032,
+                "why": "the page now shows 6 of the 19 Innesto elements"
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 77252,
+            "action": "delete",
+            "expect": {
+                "pid": 1032,
+                "CType": "innesto_casestudies",
+                "sys_language_uid": 0
+            },
+            "_context": {
+                "page": 1032,
+                "why": "case-studies: 1,929 px tall at 1440 px, mostly empty columns",
+                "note": "DataHandler deletes the de/zh/hu translations and the collection items with it"
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 77254,
+            "action": "delete",
+            "expect": {
+                "pid": 1032,
+                "CType": "innesto_orbitingcircles",
+                "sys_language_uid": 0
+            },
+            "_context": {
+                "page": 1032,
+                "why": "orbiting-circles: 656 px, an empty orbit around nothing",
+                "note": "DataHandler deletes the de/zh/hu translations and the collection items with it"
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 77256,
+            "action": "delete",
+            "expect": {
+                "pid": 1032,
+                "CType": "innesto_statsbadges",
+                "sys_language_uid": 0
+            },
+            "_context": {
+                "page": 1032,
+                "why": "stats-badges: near-duplicate of the kept three-metric rows",
+                "note": "DataHandler deletes the de/zh/hu translations and the collection items with it"
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 77257,
+            "action": "delete",
+            "expect": {
+                "pid": 1032,
+                "CType": "innesto_statsborders",
+                "sys_language_uid": 0
+            },
+            "_context": {
+                "page": 1032,
+                "why": "stats-borders: near-duplicate of the kept three-metric rows",
+                "note": "DataHandler deletes the de/zh/hu translations and the collection items with it"
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 77258,
+            "action": "delete",
+            "expect": {
+                "pid": 1032,
+                "CType": "innesto_statscards",
+                "sys_language_uid": 0
+            },
+            "_context": {
+                "page": 1032,
+                "why": "stats-cards: three cards in a four-column grid, empty slot",
+                "note": "DataHandler deletes the de/zh/hu translations and the collection items with it"
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 77259,
+            "action": "delete",
+            "expect": {
+                "pid": 1032,
+                "CType": "innesto_statscircularlinks",
+                "sys_language_uid": 0
+            },
+            "_context": {
+                "page": 1032,
+                "why": "stats-circular-links: footer links touch the card edge, empty slot",
+                "note": "DataHandler deletes the de/zh/hu translations and the collection items with it"
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 77260,
+            "action": "delete",
+            "expect": {
+                "pid": 1032,
+                "CType": "innesto_statscircularprogress",
+                "sys_language_uid": 0
+            },
+            "_context": {
+                "page": 1032,
+                "why": "stats-circular-progress: broken lead link wrap, empty slot",
+                "note": "DataHandler deletes the de/zh/hu translations and the collection items with it"
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 77261,
+            "action": "delete",
+            "expect": {
+                "pid": 1032,
+                "CType": "innesto_statsdashboard",
+                "sys_language_uid": 0
+            },
+            "_context": {
+                "page": 1032,
+                "why": "stats-dashboard: three cards in a four-column grid, empty slot",
+                "note": "DataHandler deletes the de/zh/hu translations and the collection items with it"
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 77262,
+            "action": "delete",
+            "expect": {
+                "pid": 1032,
+                "CType": "innesto_statslinks",
+                "sys_language_uid": 0
+            },
+            "_context": {
+                "page": 1032,
+                "why": "stats-links: footer links touch the card edge",
+                "note": "DataHandler deletes the de/zh/hu translations and the collection items with it"
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 77263,
+            "action": "delete",
+            "expect": {
+                "pid": 1032,
+                "CType": "innesto_statsprogress",
+                "sys_language_uid": 0
+            },
+            "_context": {
+                "page": 1032,
+                "why": "stats-progress: three cards in a four-column grid, empty slot",
+                "note": "DataHandler deletes the de/zh/hu translations and the collection items with it"
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 77266,
+            "action": "delete",
+            "expect": {
+                "pid": 1032,
+                "CType": "innesto_statstrending",
+                "sys_language_uid": 0
+            },
+            "_context": {
+                "page": 1032,
+                "why": "stats-trending: near-duplicate of the kept three-metric rows",
+                "note": "DataHandler deletes the de/zh/hu translations and the collection items with it"
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 77268,
+            "action": "delete",
+            "expect": {
+                "pid": 1032,
+                "CType": "innesto_statsusagedashboard",
+                "sys_language_uid": 0
+            },
+            "_context": {
+                "page": 1032,
+                "why": "stats-usage-dashboard: one narrow card, two thirds of the band empty",
+                "note": "DataHandler deletes the de/zh/hu translations and the collection items with it"
+            }
+        },
+        {
+            "table": "tt_content",
+            "uid": 77269,
+            "action": "delete",
+            "expect": {
+                "pid": 1032,
+                "CType": "innesto_statsvaluebreakdown",
+                "sys_language_uid": 0
+            },
+            "_context": {
+                "page": 1032,
+                "why": "stats-value-breakdown: small list, most of the band empty",
+                "note": "DataHandler deletes the de/zh/hu translations and the collection items with it"
+            }
+        },
+        {
+            "table": "category_cards_items",
+            "action": "create",
+            "key": "innesto_source_marquee",
+            "pid": 1032,
+            "match": {
+                "pid": 1032,
+                "title": "Marquee",
+                "sys_language_uid": 0
+            },
+            "set": {
+                "title": "Marquee",
+                "count": "Magic UI",
+                "description": "<p>A row of short text pills that scrolls endlessly, for example customer or partner names.</p><p><code>marquee</code> · <a href=\"https://github.com/magicuidesign/magicui/blob/bca54ab2730216c91e3a732f2af08e49c7ddebd4/LICENSE.md\">MIT licence</a> · <a href=\"https://magicui.design/r/marquee.json\">Registry JSON</a></p>",
+                "link": "https://magicui.design/docs/components/marquee",
+                "sys_language_uid": 0,
+                "hidden": 0
+            }
+        },
+        {
+            "table": "category_cards_items",
+            "action": "create",
+            "key": "innesto_source_areachart",
+            "pid": 1032,
+            "match": {
+                "pid": 1032,
+                "title": "Stats with Area Chart",
+                "sys_language_uid": 0
+            },
+            "set": {
+                "title": "Stats with Area Chart",
+                "count": "blocks.so",
+                "description": "<p>Stat cards with a value, its change and a small area chart drawn from data points you enter.</p><p><code>stats-10</code> · <a href=\"https://github.com/ephraimduncan/blocks/blob/4cdae3646030c51679ddc243ec5d070c4a41eed3/LICENSE.md\">MIT licence</a> · <a href=\"https://blocks.so/r/stats-10.json\">Registry JSON</a></p>",
+                "link": "https://blocks.so/stats/stats-10",
+                "sys_language_uid": 0,
+                "hidden": 0
+            }
+        },
+        {
+            "table": "category_cards_items",
+            "action": "create",
+            "key": "innesto_source_segmented",
+            "pid": 1032,
+            "match": {
+                "pid": 1032,
+                "title": "Stats with Segmented Progress",
+                "sys_language_uid": 0
+            },
+            "set": {
+                "title": "Stats with Segmented Progress",
+                "count": "blocks.so",
+                "description": "<p>One bar split into coloured segments that shows how a quota is used, with a legend below.</p><p><code>stats-13</code> · <a href=\"https://github.com/ephraimduncan/blocks/blob/4cdae3646030c51679ddc243ec5d070c4a41eed3/LICENSE.md\">MIT licence</a> · <a href=\"https://blocks.so/r/stats-13.json\">Registry JSON</a></p>",
+                "link": "https://blocks.so/stats/stats-13",
+                "sys_language_uid": 0,
+                "hidden": 0
+            }
+        },
+        {
+            "table": "category_cards_items",
+            "action": "create",
+            "key": "innesto_source_status",
+            "pid": 1032,
+            "match": {
+                "pid": 1032,
+                "title": "Stats with Status",
+                "sys_language_uid": 0
+            },
+            "set": {
+                "title": "Stats with Status",
+                "count": "blocks.so",
+                "description": "<p>Cards with a key figure, goal progress and a colour-coded status such as within target or critical.</p><p><code>stats-06</code> · <a href=\"https://github.com/ephraimduncan/blocks/blob/4cdae3646030c51679ddc243ec5d070c4a41eed3/LICENSE.md\">MIT licence</a> · <a href=\"https://blocks.so/r/stats-06.json\">Registry JSON</a></p>",
+                "link": "https://blocks.so/stats/stats-06",
+                "sys_language_uid": 0,
+                "hidden": 0
+            }
+        },
+        {
+            "table": "category_cards_items",
+            "action": "create",
+            "key": "innesto_source_usage",
+            "pid": 1032,
+            "match": {
+                "pid": 1032,
+                "title": "Stats with Usage Breakdown",
+                "sys_language_uid": 0
+            },
+            "set": {
+                "title": "Stats with Usage Breakdown",
+                "count": "blocks.so",
+                "description": "<p>One card with a total, a stacked breakdown bar and a legend, for example the parts of an invoice.</p><p><code>stats-14</code> · <a href=\"https://github.com/ephraimduncan/blocks/blob/4cdae3646030c51679ddc243ec5d070c4a41eed3/LICENSE.md\">MIT licence</a> · <a href=\"https://blocks.so/r/stats-14.json\">Registry JSON</a></p>",
+                "link": "https://blocks.so/stats/stats-14",
+                "sys_language_uid": 0,
+                "hidden": 0
+            }
+        },
+        {
+            "table": "category_cards_items",
+            "action": "create",
+            "key": "innesto_source_terminal",
+            "pid": 1032,
+            "match": {
+                "pid": 1032,
+                "title": "Terminal",
+                "sys_language_uid": 0
+            },
+            "set": {
+                "title": "Terminal",
+                "count": "Magic UI",
+                "description": "<p>A terminal window that types out commands and their output line by line, without JavaScript.</p><p><code>terminal</code> · <a href=\"https://github.com/magicuidesign/magicui/blob/bca54ab2730216c91e3a732f2af08e49c7ddebd4/LICENSE.md\">MIT licence</a> · <a href=\"https://magicui.design/r/terminal.json\">Registry JSON</a></p>",
+                "link": "https://magicui.design/docs/components/terminal",
+                "sys_language_uid": 0,
+                "hidden": 0
+            }
+        },
+        {
+            "table": "tt_content",
+            "action": "create",
+            "key": "innesto_sources",
+            "pid": "-77270",
+            "match": {
+                "pid": 1032,
+                "CType": "desiderio_categorycards",
+                "sys_language_uid": 0
+            },
+            "set": {
+                "CType": "desiderio_categorycards",
+                "colPos": 0,
+                "sys_language_uid": 0,
+                "hidden": 0,
+                "eyebrow": "Sources",
+                "header": "Where these elements come from",
+                "subheadline": "Innesto grafts shadcn registry components onto TYPO3 as Desiderio content elements. This page shows 6 of its 19; the other 13 remain available in the content wizard and element library.",
+                "columns": "3",
+                "desiderio_categorycards_items": "@innesto_source_marquee,@innesto_source_areachart,@innesto_source_segmented,@innesto_source_status,@innesto_source_usage,@innesto_source_terminal"
+            }
+        },
+        {
+            "table": "tt_content",
+            "action": "create",
+            "key": "innesto_sources_thanks",
+            "pid": "-@innesto_sources",
+            "match": {
+                "pid": 1032,
+                "CType": "desiderio_contenthighlight",
+                "sys_language_uid": 0
+            },
+            "set": {
+                "CType": "desiderio_contenthighlight",
+                "colPos": 0,
+                "sys_language_uid": 0,
+                "hidden": 0,
+                "header": "Thank you",
+                "content": "<p>Thank you, <a href=\"https://magicui.design\">Magic UI</a> team and <a href=\"https://ephraimduncan.com\">Ephraim Duncan</a> (<a href=\"https://blocks.so\">blocks.so</a>), for sharing these components under the MIT licence. Thanks to <a href=\"https://ui.shadcn.com\">shadcn</a> for the registry format.</p>",
+                "variant": "muted",
+                "alignment": "center"
+            }
+        }
+    ]
+}

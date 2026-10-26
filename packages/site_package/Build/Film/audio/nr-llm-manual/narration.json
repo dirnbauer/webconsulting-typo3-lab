@@ -1,0 +1,549 @@
+{
+  "voice": "George",
+  "delivery": {
+    "stability": 0.62,
+    "similarity_boost": 0.78,
+    "style": 0.18,
+    "speed": 0.9
+  },
+  "lines": [
+    {
+      "say": "Each AI extension wants its own provider settings, its own API key and its own bill.",
+      "show": "Each AI extension wants its own provider settings, its own API key and its own bill.",
+      "file": "voice-01.mp3",
+      "duration": 7184,
+      "words": [
+        {
+          "word": "Each",
+          "start": 70,
+          "end": 325
+        },
+        {
+          "word": "AI",
+          "start": 406,
+          "end": 731
+        },
+        {
+          "word": "extension",
+          "start": 801,
+          "end": 1474
+        },
+        {
+          "word": "wants",
+          "start": 1707,
+          "end": 1997
+        },
+        {
+          "word": "its",
+          "start": 2043,
+          "end": 2159
+        },
+        {
+          "word": "own",
+          "start": 2229,
+          "end": 2438
+        },
+        {
+          "word": "provider",
+          "start": 2508,
+          "end": 2972
+        },
+        {
+          "word": "settings,",
+          "start": 3019,
+          "end": 3646
+        },
+        {
+          "word": "its",
+          "start": 3843,
+          "end": 4040
+        },
+        {
+          "word": "own",
+          "start": 4087,
+          "end": 4284
+        },
+        {
+          "word": "API",
+          "start": 4365,
+          "end": 4853
+        },
+        {
+          "word": "key",
+          "start": 4981,
+          "end": 5306
+        },
+        {
+          "word": "and",
+          "start": 5503,
+          "end": 5689
+        },
+        {
+          "word": "its",
+          "start": 5759,
+          "end": 5875
+        },
+        {
+          "word": "own",
+          "start": 5921,
+          "end": 6084
+        },
+        {
+          "word": "bill.",
+          "start": 6153,
+          "end": 6653
+        }
+      ],
+      "heard": "Each AI extension wants its own provider settings, its own API key, and its own bill.",
+      "end": 6710
+    },
+    {
+      "say": "N R L L M keeps AI providers, models and configurations in one place.",
+      "show": "nr-llm keeps AI providers, models and configurations in one place.",
+      "file": "voice-02.mp3",
+      "duration": 6818,
+      "words": [
+        {
+          "word": "N",
+          "start": 12,
+          "end": 244
+        },
+        {
+          "word": "R",
+          "start": 372,
+          "end": 569
+        },
+        {
+          "word": "L",
+          "start": 673,
+          "end": 836
+        },
+        {
+          "word": "L",
+          "start": 964,
+          "end": 1103
+        },
+        {
+          "word": "M",
+          "start": 1184,
+          "end": 1416
+        },
+        {
+          "word": "keeps",
+          "start": 1776,
+          "end": 2090
+        },
+        {
+          "word": "AI",
+          "start": 2159,
+          "end": 2485
+        },
+        {
+          "word": "providers,",
+          "start": 2566,
+          "end": 3262
+        },
+        {
+          "word": "models",
+          "start": 3390,
+          "end": 3855
+        },
+        {
+          "word": "and",
+          "start": 3901,
+          "end": 3982
+        },
+        {
+          "word": "configurations",
+          "start": 4052,
+          "end": 4969
+        },
+        {
+          "word": "in",
+          "start": 5050,
+          "end": 5166
+        },
+        {
+          "word": "one",
+          "start": 5259,
+          "end": 5457
+        },
+        {
+          "word": "place.",
+          "start": 5503,
+          "end": 6095
+        }
+      ],
+      "heard": "NRLLM keeps AI providers, models and configurations in one place."
+    },
+    {
+      "say": "Keys sit encrypted in N R vault. The backend shows Configured, never the key.",
+      "show": "Keys sit encrypted in nr-vault. The backend shows Configured, never the key.",
+      "file": "voice-03.mp3",
+      "duration": 6400,
+      "words": [
+        {
+          "word": "Keys",
+          "start": 12,
+          "end": 406
+        },
+        {
+          "word": "sit",
+          "start": 441,
+          "end": 639
+        },
+        {
+          "word": "encrypted",
+          "start": 685,
+          "end": 1254
+        },
+        {
+          "word": "in",
+          "start": 1324,
+          "end": 1405
+        },
+        {
+          "word": "N",
+          "start": 1509,
+          "end": 1741
+        },
+        {
+          "word": "R",
+          "start": 1811,
+          "end": 1939
+        },
+        {
+          "word": "vault.",
+          "start": 2032,
+          "end": 2554
+        },
+        {
+          "word": "The",
+          "start": 3042,
+          "end": 3158
+        },
+        {
+          "word": "backend",
+          "start": 3228,
+          "end": 3657
+        },
+        {
+          "word": "shows",
+          "start": 3727,
+          "end": 4040
+        },
+        {
+          "word": "Configured,",
+          "start": 4087,
+          "end": 4772
+        },
+        {
+          "word": "never",
+          "start": 4934,
+          "end": 5155
+        },
+        {
+          "word": "the",
+          "start": 5201,
+          "end": 5271
+        },
+        {
+          "word": "key.",
+          "start": 5341,
+          "end": 5875
+        }
+      ],
+      "heard": "Keys sit encrypted in NRVault. The backend shows configured, never the key.",
+      "end": 5840
+    },
+    {
+      "say": "Each model lists its capabilities, its context size and its usage over 30 days.",
+      "show": "Each model lists its capabilities, its context size and its usage over 30 days.",
+      "file": "voice-04.mp3",
+      "duration": 6504,
+      "words": [
+        {
+          "word": "Each",
+          "start": 12,
+          "end": 255
+        },
+        {
+          "word": "model",
+          "start": 325,
+          "end": 604
+        },
+        {
+          "word": "lists",
+          "start": 697,
+          "end": 1033
+        },
+        {
+          "word": "its",
+          "start": 1080,
+          "end": 1196
+        },
+        {
+          "word": "capabilities,",
+          "start": 1242,
+          "end": 2229
+        },
+        {
+          "word": "its",
+          "start": 2392,
+          "end": 2589
+        },
+        {
+          "word": "context",
+          "start": 2635,
+          "end": 3204
+        },
+        {
+          "word": "size",
+          "start": 3274,
+          "end": 3727
+        },
+        {
+          "word": "and",
+          "start": 3773,
+          "end": 3901
+        },
+        {
+          "word": "its",
+          "start": 3971,
+          "end": 4087
+        },
+        {
+          "word": "usage",
+          "start": 4168,
+          "end": 4574
+        },
+        {
+          "word": "over",
+          "start": 4621,
+          "end": 4830
+        },
+        {
+          "word": "30",
+          "start": 4899,
+          "end": 5224
+        },
+        {
+          "word": "days.",
+          "start": 5306,
+          "end": 5933
+        }
+      ],
+      "heard": "Each model lists its capabilities, its context size and its usage over 30 days.",
+      "end": 5920
+    },
+    {
+      "say": "Features ask for a named configuration. Change its model, and every feature follows.",
+      "show": "Features ask for a named configuration. Change its model, and every feature follows.",
+      "file": "voice-05.mp3",
+      "duration": 6034,
+      "words": [
+        {
+          "word": "Features",
+          "start": 12,
+          "end": 488
+        },
+        {
+          "word": "ask",
+          "start": 569,
+          "end": 894
+        },
+        {
+          "word": "for",
+          "start": 964,
+          "end": 1080
+        },
+        {
+          "word": "a",
+          "start": 1126,
+          "end": 1149
+        },
+        {
+          "word": "named",
+          "start": 1242,
+          "end": 1544
+        },
+        {
+          "word": "configuration.",
+          "start": 1591,
+          "end": 2659
+        },
+        {
+          "word": "Change",
+          "start": 2926,
+          "end": 3309
+        },
+        {
+          "word": "its",
+          "start": 3344,
+          "end": 3471
+        },
+        {
+          "word": "model,",
+          "start": 3518,
+          "end": 3913
+        },
+        {
+          "word": "and",
+          "start": 3947,
+          "end": 4098
+        },
+        {
+          "word": "every",
+          "start": 4180,
+          "end": 4377
+        },
+        {
+          "word": "feature",
+          "start": 4423,
+          "end": 4748
+        },
+        {
+          "word": "follows.",
+          "start": 4795,
+          "end": 5492
+        }
+      ],
+      "heard": "Features ask for a named configuration, change its model and every feature follows.",
+      "end": 5490
+    },
+    {
+      "say": "One click tests a configuration before any task uses it.",
+      "show": "One click tests a configuration before any task uses it.",
+      "file": "voice-06.mp3",
+      "duration": 4545,
+      "words": [
+        {
+          "word": "One",
+          "start": 23,
+          "end": 279
+        },
+        {
+          "word": "click",
+          "start": 325,
+          "end": 604
+        },
+        {
+          "word": "tests",
+          "start": 685,
+          "end": 1115
+        },
+        {
+          "word": "a",
+          "start": 1149,
+          "end": 1184
+        },
+        {
+          "word": "configuration",
+          "start": 1231,
+          "end": 2020
+        },
+        {
+          "word": "before",
+          "start": 2067,
+          "end": 2357
+        },
+        {
+          "word": "any",
+          "start": 2403,
+          "end": 2589
+        },
+        {
+          "word": "task",
+          "start": 2659,
+          "end": 3042
+        },
+        {
+          "word": "uses",
+          "start": 3123,
+          "end": 3448
+        },
+        {
+          "word": "it.",
+          "start": 3529,
+          "end": 3831
+        }
+      ],
+      "heard": "One click tests a configuration before any task uses it.",
+      "end": 3820
+    },
+    {
+      "say": "N R L L M by Netresearch. Usage and cost in one view.",
+      "show": "nr-llm by Netresearch. Usage and cost in one view.",
+      "file": "voice-07.mp3",
+      "duration": 5747,
+      "words": [
+        {
+          "word": "N",
+          "start": 23,
+          "end": 221
+        },
+        {
+          "word": "R",
+          "start": 348,
+          "end": 546
+        },
+        {
+          "word": "L",
+          "start": 650,
+          "end": 813
+        },
+        {
+          "word": "L",
+          "start": 940,
+          "end": 1138
+        },
+        {
+          "word": "M",
+          "start": 1231,
+          "end": 1463
+        },
+        {
+          "word": "by",
+          "start": 1730,
+          "end": 1892
+        },
+        {
+          "word": "Netresearch.",
+          "start": 1985,
+          "end": 2926
+        },
+        {
+          "word": "Usage",
+          "start": 3495,
+          "end": 3936
+        },
+        {
+          "word": "and",
+          "start": 3959,
+          "end": 4040
+        },
+        {
+          "word": "cost",
+          "start": 4122,
+          "end": 4505
+        },
+        {
+          "word": "in",
+          "start": 4586,
+          "end": 4702
+        },
+        {
+          "word": "one",
+          "start": 4795,
+          "end": 4969
+        },
+        {
+          "word": "view.",
+          "start": 5016,
+          "end": 5468
+        }
+      ],
+      "heard": "NRLLM by NetResearch. Usage and cost in one view."
+    }
+  ]
+}

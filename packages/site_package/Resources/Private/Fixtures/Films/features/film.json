@@ -1,0 +1,58 @@
+{
+  "id": "features",
+  "page": 1068,
+  "slug": "/features",
+  "title": "Website tools: overview film",
+  "header": "Website tools in 68 seconds",
+  "description": "<p>13 tools, each one running in this lab. A narrated tour, recorded in this TYPO3 v14 lab, with English captions.</p>",
+  "mp4": "features-aef3eb05.mp4",
+  "poster": "features-poster-aef3eb05.webp",
+  "vtt": "features-aef3eb05.en.vtt",
+  "duration": 67.502,
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "sound": true,
+  "alt": "Overview film, 68 seconds: 13 website tools for TYPO3 v14, in four groups: design systems, editing, search and forms, sign-in, payments and APIs. Narrated, with English captions.",
+  "transcript": [
+    {
+      "at": "0:02",
+      "text": "Every client site needs pages, editing, search, forms and sign-in, and each project builds them again."
+    },
+    {
+      "at": "0:11",
+      "text": "This lab runs 13 website tools for TYPO3 v14, each with live screenshots."
+    },
+    {
+      "at": "0:20",
+      "text": "Desiderio and Astryx bring complete design systems. The Blog adds articles, authors and comments."
+    },
+    {
+      "at": "0:29",
+      "text": "Editors type on the page itself, see records as cards, publish in one click, edit pages in Word and crop images in the browser."
+    },
+    {
+      "at": "0:40",
+      "text": "Solr finds the right page, and Powermail builds the forms."
+    },
+    {
+      "at": "0:45",
+      "text": "WorkOS adds sign-in, x402 charges per page, and sg_apicore opens a documented REST API."
+    },
+    {
+      "at": "0:56",
+      "text": "Every tool runs on TYPO3 v14. Start with the free design system."
+    }
+  ],
+  "captions": {
+    "language": "en",
+    "label": "English",
+    "burnedIn": true
+  },
+  "bytes": {
+    "mp4": 5318993,
+    "poster": 55836,
+    "vtt": 890
+  },
+  "generator": "packages/site_package/Build/Film/render-films.mjs"
+}

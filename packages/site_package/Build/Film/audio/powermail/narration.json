@@ -1,0 +1,471 @@
+{
+  "voice": "George",
+  "delivery": {
+    "stability": 0.62,
+    "similarity_boost": 0.78,
+    "style": 0.18,
+    "speed": 0.9
+  },
+  "lines": [
+    {
+      "say": "Long forms put people off, spam fills the inbox, and many captchas make visitors solve puzzles.",
+      "show": "Long forms put people off, spam fills the inbox, and many captchas make visitors solve puzzles.",
+      "file": "voice-01.mp3",
+      "duration": 7419,
+      "words": [
+        {
+          "word": "Long",
+          "start": 46,
+          "end": 325
+        },
+        {
+          "word": "forms",
+          "start": 418,
+          "end": 801
+        },
+        {
+          "word": "put",
+          "start": 871,
+          "end": 1045
+        },
+        {
+          "word": "people",
+          "start": 1091,
+          "end": 1382
+        },
+        {
+          "word": "off,",
+          "start": 1428,
+          "end": 1881
+        },
+        {
+          "word": "spam",
+          "start": 2113,
+          "end": 2566
+        },
+        {
+          "word": "fills",
+          "start": 2647,
+          "end": 2949
+        },
+        {
+          "word": "the",
+          "start": 2995,
+          "end": 3065
+        },
+        {
+          "word": "inbox,",
+          "start": 3146,
+          "end": 3796
+        },
+        {
+          "word": "and",
+          "start": 3924,
+          "end": 4052
+        },
+        {
+          "word": "many",
+          "start": 4122,
+          "end": 4342
+        },
+        {
+          "word": "captchas",
+          "start": 4423,
+          "end": 4876
+        },
+        {
+          "word": "make",
+          "start": 4969,
+          "end": 5166
+        },
+        {
+          "word": "visitors",
+          "start": 5213,
+          "end": 5666
+        },
+        {
+          "word": "solve",
+          "start": 5712,
+          "end": 6037
+        },
+        {
+          "word": "puzzles.",
+          "start": 6084,
+          "end": 6861
+        }
+      ],
+      "heard": "Long forms put people off, spam fills the inbox, and many captures make visitors solve puzzles."
+    },
+    {
+      "say": "Powermail lets editors build forms in the backend, and Desiderio styles every field.",
+      "show": "Powermail lets editors build forms in the backend, and Desiderio styles every field.",
+      "file": "voice-02.mp3",
+      "duration": 6687,
+      "words": [
+        {
+          "word": "Powermail",
+          "start": 23,
+          "end": 639
+        },
+        {
+          "word": "lets",
+          "start": 720,
+          "end": 940
+        },
+        {
+          "word": "editors",
+          "start": 1022,
+          "end": 1463
+        },
+        {
+          "word": "build",
+          "start": 1509,
+          "end": 1753
+        },
+        {
+          "word": "forms",
+          "start": 1834,
+          "end": 2229
+        },
+        {
+          "word": "in",
+          "start": 2264,
+          "end": 2334
+        },
+        {
+          "word": "the",
+          "start": 2368,
+          "end": 2438
+        },
+        {
+          "word": "backend,",
+          "start": 2473,
+          "end": 3170
+        },
+        {
+          "word": "and",
+          "start": 3483,
+          "end": 3634
+        },
+        {
+          "word": "Desiderio",
+          "start": 3704,
+          "end": 4470
+        },
+        {
+          "word": "styles",
+          "start": 4551,
+          "end": 4981
+        },
+        {
+          "word": "every",
+          "start": 5062,
+          "end": 5387
+        },
+        {
+          "word": "field.",
+          "start": 5457,
+          "end": 6060
+        }
+      ],
+      "heard": "Power Mail lets editors build forms in the back end, and Desiderio styles every field."
+    },
+    {
+      "say": "Editors manage every form, and see the pages that use it.",
+      "show": "Editors manage every form, and see the pages that use it.",
+      "file": "voice-03.mp3",
+      "duration": 4362,
+      "words": [
+        {
+          "word": "Editors",
+          "start": 12,
+          "end": 522
+        },
+        {
+          "word": "manage",
+          "start": 615,
+          "end": 1033
+        },
+        {
+          "word": "every",
+          "start": 1080,
+          "end": 1335
+        },
+        {
+          "word": "form,",
+          "start": 1428,
+          "end": 1962
+        },
+        {
+          "word": "and",
+          "start": 2043,
+          "end": 2206
+        },
+        {
+          "word": "see",
+          "start": 2276,
+          "end": 2473
+        },
+        {
+          "word": "the",
+          "start": 2519,
+          "end": 2589
+        },
+        {
+          "word": "pages",
+          "start": 2635,
+          "end": 3030
+        },
+        {
+          "word": "that",
+          "start": 3077,
+          "end": 3193
+        },
+        {
+          "word": "use",
+          "start": 3274,
+          "end": 3518
+        },
+        {
+          "word": "it.",
+          "start": 3564,
+          "end": 3866
+        }
+      ],
+      "heard": "Editors manage every form and see the pages that use it.",
+      "end": 3850
+    },
+    {
+      "say": "Each error shows at its field, and the server checks everything again.",
+      "show": "Each error shows at its field, and the server checks everything again.",
+      "file": "voice-04.mp3",
+      "duration": 5042,
+      "words": [
+        {
+          "word": "Each",
+          "start": 12,
+          "end": 267
+        },
+        {
+          "word": "error",
+          "start": 348,
+          "end": 650
+        },
+        {
+          "word": "shows",
+          "start": 720,
+          "end": 1103
+        },
+        {
+          "word": "at",
+          "start": 1173,
+          "end": 1300
+        },
+        {
+          "word": "its",
+          "start": 1347,
+          "end": 1474
+        },
+        {
+          "word": "field,",
+          "start": 1544,
+          "end": 2090
+        },
+        {
+          "word": "and",
+          "start": 2218,
+          "end": 2345
+        },
+        {
+          "word": "the",
+          "start": 2392,
+          "end": 2461
+        },
+        {
+          "word": "server",
+          "start": 2531,
+          "end": 2879
+        },
+        {
+          "word": "checks",
+          "start": 2949,
+          "end": 3332
+        },
+        {
+          "word": "everything",
+          "start": 3437,
+          "end": 3855
+        },
+        {
+          "word": "again.",
+          "start": 3924,
+          "end": 4505
+        }
+      ],
+      "heard": "Each error shows at its field and the server checks everything again.",
+      "end": 4540
+    },
+    {
+      "say": "Long forms split into steps, and Friendly Captcha guards the last one.",
+      "show": "Long forms split into steps, and Friendly Captcha guards the last one.",
+      "file": "voice-05.mp3",
+      "duration": 5329,
+      "words": [
+        {
+          "word": "Long",
+          "start": 23,
+          "end": 290
+        },
+        {
+          "word": "forms",
+          "start": 383,
+          "end": 720
+        },
+        {
+          "word": "split",
+          "start": 755,
+          "end": 1045
+        },
+        {
+          "word": "into",
+          "start": 1091,
+          "end": 1265
+        },
+        {
+          "word": "steps,",
+          "start": 1347,
+          "end": 1950
+        },
+        {
+          "word": "and",
+          "start": 2078,
+          "end": 2229
+        },
+        {
+          "word": "Friendly",
+          "start": 2310,
+          "end": 2647
+        },
+        {
+          "word": "Captcha",
+          "start": 2717,
+          "end": 3135
+        },
+        {
+          "word": "guards",
+          "start": 3228,
+          "end": 3611
+        },
+        {
+          "word": "the",
+          "start": 3680,
+          "end": 3750
+        },
+        {
+          "word": "last",
+          "start": 3820,
+          "end": 4098
+        },
+        {
+          "word": "one.",
+          "start": 4180,
+          "end": 4598
+        }
+      ],
+      "heard": "Longform split into steps and Friendly Capture guards the last one."
+    },
+    {
+      "say": "Every field follows the theme preset, in light and dark mode.",
+      "show": "Every field follows the theme preset, in light and dark mode.",
+      "file": "voice-06.mp3",
+      "duration": 4780,
+      "words": [
+        {
+          "word": "Every",
+          "start": 35,
+          "end": 337
+        },
+        {
+          "word": "field",
+          "start": 406,
+          "end": 731
+        },
+        {
+          "word": "follows",
+          "start": 813,
+          "end": 1196
+        },
+        {
+          "word": "the",
+          "start": 1265,
+          "end": 1335
+        },
+        {
+          "word": "theme",
+          "start": 1416,
+          "end": 1695
+        },
+        {
+          "word": "preset,",
+          "start": 1730,
+          "end": 2392
+        },
+        {
+          "word": "in",
+          "start": 2438,
+          "end": 2589
+        },
+        {
+          "word": "light",
+          "start": 2682,
+          "end": 2926
+        },
+        {
+          "word": "and",
+          "start": 2961,
+          "end": 3042
+        },
+        {
+          "word": "dark",
+          "start": 3123,
+          "end": 3413
+        },
+        {
+          "word": "mode.",
+          "start": 3495,
+          "end": 4063
+        }
+      ],
+      "heard": "Every field follows the theme preset in light and dark mode"
+    },
+    {
+      "say": "Powermail, styled by Desiderio.",
+      "show": "Powermail, styled by Desiderio.",
+      "file": "voice-07.mp3",
+      "duration": 2691,
+      "words": [
+        {
+          "word": "Powermail,",
+          "start": 12,
+          "end": 743
+        },
+        {
+          "word": "styled",
+          "start": 778,
+          "end": 1207
+        },
+        {
+          "word": "by",
+          "start": 1254,
+          "end": 1370
+        },
+        {
+          "word": "Desiderio.",
+          "start": 1451,
+          "end": 2380
+        }
+      ],
+      "heard": "Power Mail, styled by Desiderio."
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "id": "blog",
+  "page": 1072,
+  "slug": "/features/blog",
+  "title": "TYPO3 Blog: overview film",
+  "header": "TYPO3 Blog in 55 seconds",
+  "description": "<p>Posts are pages, styled by Desiderio. A narrated tour, recorded in this TYPO3 v14 lab, with English captions.</p>",
+  "mp4": "blog-0e746159.mp4",
+  "poster": "blog-poster-0e746159.webp",
+  "vtt": "blog-0e746159.en.vtt",
+  "duration": 54.779,
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "sound": true,
+  "alt": "Overview film, 55 seconds: TYPO3 Blog for TYPO3 v14. Posts are pages; All posts in one list; Metadata and a featured image; Comments you approve. Narrated, with English captions.",
+  "transcript": [
+    {
+      "at": "0:02",
+      "text": "Many blog add-ons keep posts in their own tables, with their own editor and their own rules."
+    },
+    {
+      "at": "0:10",
+      "text": "The TYPO3 Blog extension turns pages into posts, and Desiderio gives them your theme."
+    },
+    {
+      "at": "0:19",
+      "text": "Editors write posts in the page module, with the content elements they know."
+    },
+    {
+      "at": "0:25",
+      "text": "The Posts module lists every post with author, categories, tags and date."
+    },
+    {
+      "at": "0:33",
+      "text": "Posts open with the date, the title, a teaser and the reading time."
+    },
+    {
+      "at": "0:39",
+      "text": "Readers comment under the post, and editors can approve each comment first."
+    },
+    {
+      "at": "0:46",
+      "text": "TYPO3 Blog, styled by Desiderio."
+    }
+  ],
+  "captions": {
+    "language": "en",
+    "label": "English",
+    "burnedIn": true
+  },
+  "bytes": {
+    "mp4": 3871154,
+    "poster": 40016,
+    "vtt": 779
+  },
+  "generator": "packages/site_package/Build/Film/render-films.mjs"
+}

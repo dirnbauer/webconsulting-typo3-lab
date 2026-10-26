@@ -1,0 +1,486 @@
+{
+  "voice": "George",
+  "delivery": {
+    "stability": 0.62,
+    "similarity_boost": 0.78,
+    "style": 0.18,
+    "speed": 0.9
+  },
+  "lines": [
+    {
+      "say": "The Visual Editor lets editors type on the page. Layout options, links and new elements still mean the backend form.",
+      "show": "The Visual Editor lets editors type on the page. Layout options, links and new elements still mean the backend form.",
+      "file": "voice-01.mp3",
+      "duration": 8673,
+      "words": [
+        {
+          "word": "The",
+          "start": 81,
+          "end": 163
+        },
+        {
+          "word": "Visual",
+          "start": 232,
+          "end": 580
+        },
+        {
+          "word": "Editor",
+          "start": 673,
+          "end": 1103
+        },
+        {
+          "word": "lets",
+          "start": 1173,
+          "end": 1393
+        },
+        {
+          "word": "editors",
+          "start": 1486,
+          "end": 1950
+        },
+        {
+          "word": "type",
+          "start": 2020,
+          "end": 2299
+        },
+        {
+          "word": "on",
+          "start": 2334,
+          "end": 2403
+        },
+        {
+          "word": "the",
+          "start": 2438,
+          "end": 2508
+        },
+        {
+          "word": "page.",
+          "start": 2554,
+          "end": 3146
+        },
+        {
+          "word": "Layout",
+          "start": 3715,
+          "end": 4156
+        },
+        {
+          "word": "options,",
+          "start": 4226,
+          "end": 4830
+        },
+        {
+          "word": "links",
+          "start": 4992,
+          "end": 5352
+        },
+        {
+          "word": "and",
+          "start": 5387,
+          "end": 5457
+        },
+        {
+          "word": "new",
+          "start": 5538,
+          "end": 5677
+        },
+        {
+          "word": "elements",
+          "start": 5747,
+          "end": 6200
+        },
+        {
+          "word": "still",
+          "start": 6432,
+          "end": 6711
+        },
+        {
+          "word": "mean",
+          "start": 6757,
+          "end": 6908
+        },
+        {
+          "word": "the",
+          "start": 6943,
+          "end": 7012
+        },
+        {
+          "word": "backend",
+          "start": 7059,
+          "end": 7465
+        },
+        {
+          "word": "form.",
+          "start": 7546,
+          "end": 8046
+        }
+      ],
+      "heard": "The visual editor lets editors type on the page. Layout options, links and new elements still mean the back-end form.",
+      "end": 8070
+    },
+    {
+      "say": "Visual Editor Enhancements adds what editors miss on the page.",
+      "show": "Visual Editor Enhancements adds what editors miss on the page.",
+      "file": "voice-02.mp3",
+      "duration": 4676,
+      "words": [
+        {
+          "word": "Visual",
+          "start": 12,
+          "end": 430
+        },
+        {
+          "word": "Editor",
+          "start": 511,
+          "end": 882
+        },
+        {
+          "word": "Enhancements",
+          "start": 929,
+          "end": 1683
+        },
+        {
+          "word": "adds",
+          "start": 1881,
+          "end": 2194
+        },
+        {
+          "word": "what",
+          "start": 2229,
+          "end": 2368
+        },
+        {
+          "word": "editors",
+          "start": 2450,
+          "end": 2879
+        },
+        {
+          "word": "miss",
+          "start": 2961,
+          "end": 3216
+        },
+        {
+          "word": "on",
+          "start": 3286,
+          "end": 3355
+        },
+        {
+          "word": "the",
+          "start": 3390,
+          "end": 3460
+        },
+        {
+          "word": "page.",
+          "start": 3506,
+          "end": 4122
+        }
+      ],
+      "heard": "Visual Editor enhancements adds what editors miss on the page."
+    },
+    {
+      "say": "The element library shows live previews, and a typo like testimonal still finds testimonials.",
+      "show": "The element library shows live previews, and a typo like testimonal still finds testimonials.",
+      "file": "voice-03.mp3",
+      "duration": 7001,
+      "words": [
+        {
+          "word": "The",
+          "start": 35,
+          "end": 151
+        },
+        {
+          "word": "element",
+          "start": 244,
+          "end": 580
+        },
+        {
+          "word": "library",
+          "start": 650,
+          "end": 1057
+        },
+        {
+          "word": "shows",
+          "start": 1126,
+          "end": 1428
+        },
+        {
+          "word": "live",
+          "start": 1521,
+          "end": 1823
+        },
+        {
+          "word": "previews,",
+          "start": 1869,
+          "end": 2624
+        },
+        {
+          "word": "and",
+          "start": 2786,
+          "end": 2949
+        },
+        {
+          "word": "a",
+          "start": 3019,
+          "end": 3042
+        },
+        {
+          "word": "typo",
+          "start": 3111,
+          "end": 3495
+        },
+        {
+          "word": "like",
+          "start": 3587,
+          "end": 3785
+        },
+        {
+          "word": "testimonal",
+          "start": 3820,
+          "end": 4447
+        },
+        {
+          "word": "still",
+          "start": 4540,
+          "end": 4807
+        },
+        {
+          "word": "finds",
+          "start": 4899,
+          "end": 5317
+        },
+        {
+          "word": "testimonials.",
+          "start": 5364,
+          "end": 6455
+        }
+      ],
+      "heard": "The element library shows live previews, and a typo like Testimonyl still finds testimonials.",
+      "end": 6460
+    },
+    {
+      "say": "Layout options open in a popover, grouped like the backend form.",
+      "show": "Layout options open in a popover, grouped like the backend form.",
+      "file": "voice-04.mp3",
+      "duration": 4963,
+      "words": [
+        {
+          "word": "Layout",
+          "start": 23,
+          "end": 476
+        },
+        {
+          "word": "options",
+          "start": 546,
+          "end": 975
+        },
+        {
+          "word": "open",
+          "start": 1068,
+          "end": 1382
+        },
+        {
+          "word": "in",
+          "start": 1428,
+          "end": 1498
+        },
+        {
+          "word": "a",
+          "start": 1544,
+          "end": 1567
+        },
+        {
+          "word": "popover,",
+          "start": 1637,
+          "end": 2392
+        },
+        {
+          "word": "grouped",
+          "start": 2589,
+          "end": 2926
+        },
+        {
+          "word": "like",
+          "start": 2995,
+          "end": 3170
+        },
+        {
+          "word": "the",
+          "start": 3193,
+          "end": 3262
+        },
+        {
+          "word": "backend",
+          "start": 3309,
+          "end": 3738
+        },
+        {
+          "word": "form.",
+          "start": 3820,
+          "end": 4354
+        }
+      ],
+      "heard": "Layout options open in a popover, grouped like the backend form."
+    },
+    {
+      "say": "The rich-text toolbar sits in one row above the text.",
+      "show": "The rich-text toolbar sits in one row above the text.",
+      "file": "voice-05.mp3",
+      "duration": 4075,
+      "words": [
+        {
+          "word": "The",
+          "start": 23,
+          "end": 139
+        },
+        {
+          "word": "rich-text",
+          "start": 221,
+          "end": 859
+        },
+        {
+          "word": "toolbar",
+          "start": 882,
+          "end": 1405
+        },
+        {
+          "word": "sits",
+          "start": 1486,
+          "end": 1753
+        },
+        {
+          "word": "in",
+          "start": 1800,
+          "end": 1869
+        },
+        {
+          "word": "one",
+          "start": 1962,
+          "end": 2159
+        },
+        {
+          "word": "row",
+          "start": 2206,
+          "end": 2415
+        },
+        {
+          "word": "above",
+          "start": 2485,
+          "end": 2763
+        },
+        {
+          "word": "the",
+          "start": 2798,
+          "end": 2868
+        },
+        {
+          "word": "text.",
+          "start": 2937,
+          "end": 3518
+        }
+      ],
+      "heard": "The Rich Text toolbar sits in one row above the text."
+    },
+    {
+      "say": "Hover a button, and a chain icon opens the link browser.",
+      "show": "Hover a button, and a chain icon opens the link browser.",
+      "file": "voice-06.mp3",
+      "duration": 4180,
+      "words": [
+        {
+          "word": "Hover",
+          "start": 46,
+          "end": 360
+        },
+        {
+          "word": "a",
+          "start": 430,
+          "end": 453
+        },
+        {
+          "word": "button,",
+          "start": 499,
+          "end": 940
+        },
+        {
+          "word": "and",
+          "start": 987,
+          "end": 1138
+        },
+        {
+          "word": "a",
+          "start": 1207,
+          "end": 1231
+        },
+        {
+          "word": "chain",
+          "start": 1300,
+          "end": 1591
+        },
+        {
+          "word": "icon",
+          "start": 1683,
+          "end": 2009
+        },
+        {
+          "word": "opens",
+          "start": 2113,
+          "end": 2496
+        },
+        {
+          "word": "the",
+          "start": 2543,
+          "end": 2612
+        },
+        {
+          "word": "link",
+          "start": 2659,
+          "end": 2856
+        },
+        {
+          "word": "browser.",
+          "start": 2902,
+          "end": 3541
+        }
+      ],
+      "heard": "Hover a button and a chain icon opens the link browser."
+    },
+    {
+      "say": "Everything saves through the Visual Editor.",
+      "show": "Everything saves through the Visual Editor.",
+      "file": "voice-07.mp3",
+      "duration": 2638,
+      "words": [
+        {
+          "word": "Everything",
+          "start": 23,
+          "end": 441
+        },
+        {
+          "word": "saves",
+          "start": 534,
+          "end": 906
+        },
+        {
+          "word": "through",
+          "start": 940,
+          "end": 1161
+        },
+        {
+          "word": "the",
+          "start": 1184,
+          "end": 1254
+        },
+        {
+          "word": "Visual",
+          "start": 1300,
+          "end": 1625
+        },
+        {
+          "word": "Editor.",
+          "start": 1718,
+          "end": 2310
+        }
+      ],
+      "heard": "Everything saves through the visual editor."
+    }
+  ]
+}

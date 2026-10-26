@@ -1,0 +1,58 @@
+{
+  "id": "themes",
+  "page": 1311,
+  "slug": "/themes",
+  "title": "Themes: overview film",
+  "header": "Themes in 53 seconds",
+  "description": "<p>15 presets, switched in the site settings. A narrated tour, recorded in this TYPO3 v14 lab, with English captions.</p>",
+  "mp4": "themes-d4b76b30.mp4",
+  "poster": "themes-poster-d4b76b30.webp",
+  "vtt": "themes-d4b76b30.en.vtt",
+  "duration": 53.124,
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "sound": true,
+  "alt": "Overview film, 53 seconds: the 15 theme presets of Desiderio for TYPO3 v14 on the same pages, in light and dark mode. Narrated, with English captions.",
+  "transcript": [
+    {
+      "at": "0:02",
+      "text": "On most sites, a new brand colour means new templates, new CSS and a round of testing."
+    },
+    {
+      "at": "0:10",
+      "text": "Desiderio ships 15 theme presets. One setting changes the look of every page."
+    },
+    {
+      "at": "0:17",
+      "text": "Aurora, Marine, Forest, Ember, Bloom."
+    },
+    {
+      "at": "0:22",
+      "text": "Each preset sets colours, fonts and corner radius together, on the same content."
+    },
+    {
+      "at": "0:30",
+      "text": "Every preset has a dark mode, and visitors switch it from the header."
+    },
+    {
+      "at": "0:35",
+      "text": "Pricing tables, dashboards and forms follow the same design tokens, with no template change."
+    },
+    {
+      "at": "0:44",
+      "text": "Start with one of the 15 presets, or design your own."
+    }
+  ],
+  "captions": {
+    "language": "en",
+    "label": "English",
+    "burnedIn": true
+  },
+  "bytes": {
+    "mp4": 4273072,
+    "poster": 47992,
+    "vtt": 769
+  },
+  "generator": "packages/site_package/Build/Film/render-films.mjs"
+}

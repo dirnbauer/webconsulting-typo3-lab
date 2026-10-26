@@ -1,0 +1,46 @@
+{
+  "id": "content-types-hero-landing-intros",
+  "page": 669,
+  "slug": "/content-types/hero-landing-intros",
+  "title": "Hero & Landing Intros: overview film",
+  "header": "Hero & Landing Intros in 31 seconds",
+  "description": "<p>Heroes for the first screen of a page. A narrated tour, recorded in this TYPO3 v14 lab, with English captions.</p>",
+  "mp4": "content-types-hero-landing-intros-e2eb59a5.mp4",
+  "poster": "content-types-hero-landing-intros-poster-e2eb59a5.webp",
+  "vtt": "content-types-hero-landing-intros-e2eb59a5.en.vtt",
+  "duration": 30.911,
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "sound": true,
+  "alt": "Overview film, 31 seconds: the 21 Hero & Landing Intros elements of Desiderio for TYPO3 v14, including hero, product hero, hero with stats, hero with testimonial, hero with form, countdown hero. Narrated, with English captions.",
+  "transcript": [
+    {
+      "at": "0:02",
+      "text": "Visitors decide on the first screen whether a page is for them."
+    },
+    {
+      "at": "0:07",
+      "text": "Hero and Landing Intros has 21 heroes for the first screen of a page."
+    },
+    {
+      "at": "0:14",
+      "text": "Pick a hero with a product shot, key numbers, a quote, a sign-up form or a countdown."
+    },
+    {
+      "at": "0:23",
+      "text": "Editors fill in the fields, and the layout holds."
+    }
+  ],
+  "captions": {
+    "language": "en",
+    "label": "English",
+    "burnedIn": true
+  },
+  "bytes": {
+    "mp4": 2143133,
+    "poster": 35594,
+    "vtt": 454
+  },
+  "generator": "packages/site_package/Build/Film/render-films.mjs"
+}

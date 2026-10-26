@@ -1,0 +1,54 @@
+{
+  "id": "mcp-server",
+  "page": 1070,
+  "slug": "/ai/mcp-server",
+  "title": "MCP Server: overview film",
+  "header": "MCP Server in 49 seconds",
+  "description": "<p>Connect your AI assistant to TYPO3. A narrated tour, recorded in this TYPO3 v14 lab, with English captions.</p>",
+  "mp4": "mcp-server-6f6d1e21.mp4",
+  "poster": "mcp-server-poster-6f6d1e21.webp",
+  "vtt": "mcp-server-6f6d1e21.en.vtt",
+  "duration": 49.015,
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "sound": true,
+  "alt": "Overview film, 49 seconds: MCP Server for TYPO3 v14. Every tool, with its rights; Checks that say what to fix; Agent edits wait in a workspace. Narrated, with English captions.",
+  "transcript": [
+    {
+      "at": "0:02",
+      "text": "Your team works in Claude or Cursor, but TYPO3 content reaches them by copy and paste."
+    },
+    {
+      "at": "0:09",
+      "text": "The MCP Server gives Claude, Cursor and Codex structured tools for TYPO3."
+    },
+    {
+      "at": "0:17",
+      "text": "Every tool is listed, with badges for reading, writing and administrator-only."
+    },
+    {
+      "at": "0:24",
+      "text": "Connection checks test the endpoint, OAuth and workspaces, and say what to do next."
+    },
+    {
+      "at": "0:32",
+      "text": "On production, every write lands in a workspace, until an editor publishes it."
+    },
+    {
+      "at": "0:39",
+      "text": "MCP Server for TYPO3. Drafts before live content."
+    }
+  ],
+  "captions": {
+    "language": "en",
+    "label": "English",
+    "burnedIn": true
+  },
+  "bytes": {
+    "mp4": 3139777,
+    "poster": 47702,
+    "vtt": 692
+  },
+  "generator": "packages/site_package/Build/Film/render-films.mjs"
+}

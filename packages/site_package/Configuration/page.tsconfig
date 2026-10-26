@@ -9,3 +9,10 @@ tx_visualeditorenhancements.toolbar {
   viewModeSelector = 0
   autoSave = 0
 }
+
+# Backend login: the password-reset pages render through BackendViewFactory and
+# pick up the lab's login layout (two columns, environment badge) from here. The
+# login itself adds the same folder through
+# Classes/EventListener/UseLabBackendLoginLayout.php. Only Layouts/Login.fluid.html
+# lives in that folder; all other backend templates stay Core's.
+templates.typo3/cms-backend.1761480000 = webconsulting/site-package:Resources/Private/TemplateOverrides/typo3/cms-backend
