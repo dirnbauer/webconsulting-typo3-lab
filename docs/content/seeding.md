@@ -70,7 +70,7 @@ Then, after a `ddev snapshot`:
 13. `ddev exec vendor/bin/typo3 sitepackage:seed-poppy` (after Desiderio reseeding: applies the lab-owned feature/help payload, imports its native FAL images and orders content through DataHandler move commands).
 14. `ddev exec vendor/bin/typo3 cache:flush`, then `ddev exec vendor/bin/typo3 sitepackage:solr:reindex --index` (clears each Solr site's documents, queues every indexing configuration again and indexes it; on production run the same command in the web container after a database push)
 
-`ddev lab-update <package>` runs steps 1–3, 4a and 5 and the legacy redirects after a
+`ddev lab-update <package>` runs steps 1–3, 4a, 5 and 14 and the legacy redirects after a
 Composer update. It refuses to run while development clones are linked. The
 styleguide seed leaves the Templates overview (step 4) alone, so run step 4
 only after its source changed, then step 5.
@@ -110,4 +110,7 @@ ddev exec php packages/site_package/Build/Scripts/lint-copy.php --site=desiderio
   page and field it belongs to. Add the translations to the memories and run
   the command again. `--fail-on-missing` makes that check fail a script.
 - **Solr doesn't notice seeders.** They write through SQL, so run
-  `sitepackage:solr:reindex --index` afterwards.
+  `sitepackage:solr:reindex --index` afterwards. The same goes for
+  `sitepackage:content:translate`: it switches off Solr's record monitor while
+  it runs, which otherwise builds the page's TypoScript for every translated
+  record and kept a full run busy for hours.

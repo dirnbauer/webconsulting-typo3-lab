@@ -40,6 +40,9 @@ use Webconsulting\SitePackage\Translation\TranslationScope;
  * `copied`, texts that were kept because their field name marks an
  * identifier but that read like copy: add those fields to `translateFields`
  * in the scope.
+ *
+ * The run does not update the Solr index queue record by record; reindex the
+ * site afterwards (sitepackage:solr:reindex --index).
  */
 #[AsCommand(
     name: 'sitepackage:content:translate',
@@ -133,6 +136,10 @@ final class ContentTranslateCommand extends Command
             $backendUser->setWorkspace(0);
             // A translation of a visible record is visible, as in the source.
             $backendUser->uc['neverHideAtCopy'] = true;
+            // EXT:solr's record monitor builds the page's frontend TypoScript for
+            // every written record: thousands of translations took hours. The
+            // index is rebuilt after the run instead (see the message below).
+            $GLOBALS['TYPO3_CONF_VARS']['EXTENSIONS']['solr']['monitoringType'] = 2;
         }
 
         $missingReport = ['site' => $siteKey, 'root' => $root, 'languages' => []];

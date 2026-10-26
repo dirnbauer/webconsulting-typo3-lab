@@ -119,6 +119,11 @@ done
 echo "==> Flushing TYPO3 caches"
 ddev exec vendor/bin/typo3 cache:flush --no-interaction
 
+# Neither the seeders (SQL) nor the translation (Solr's record monitor is off
+# while it runs) update the search index, so it is rebuilt from the pages.
+echo "==> Reindexing Solr"
+ddev exec vendor/bin/typo3 sitepackage:solr:reindex --index --no-interaction
+
 echo "==> Installed Webconsulting extension versions"
 ddev exec composer show --direct --no-interaction \
   | awk '/^(webconsulting|dirnbauer|sgalinski|studiomitte|hn|in2code|georgringer|t3g|apache-solr-for-typo3)\// { print }'
