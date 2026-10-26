@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2065c52d9fa87b44144a7b174e196d02",
+    "content-hash": "1b9e8340e98fcd2d580593ea61171abb",
     "packages": [
         {
             "name": "apache-solr-for-typo3/solr",
@@ -12564,16 +12564,16 @@
         },
         {
             "name": "webconsulting/docx-editor",
-            "version": "v2.5.3",
+            "version": "v2.5.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/typo3-docx.git",
-                "reference": "5caaf08e3de949c6da14c5fc342db246eb4aaa6d"
+                "reference": "b99269c7218fefb24a4f93796c1b2982c433d363"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/typo3-docx/zipball/5caaf08e3de949c6da14c5fc342db246eb4aaa6d",
-                "reference": "5caaf08e3de949c6da14c5fc342db246eb4aaa6d",
+                "url": "https://api.github.com/repos/dirnbauer/typo3-docx/zipball/b99269c7218fefb24a4f93796c1b2982c433d363",
+                "reference": "b99269c7218fefb24a4f93796c1b2982c433d363",
                 "shasum": ""
             },
             "require": {
@@ -12605,7 +12605,7 @@
             "extra": {
                 "typo3/cms": {
                     "extension-key": "docx_editor",
-                    "version": "2.5.3"
+                    "version": "2.5.4"
                 }
             },
             "autoload": {
@@ -12680,7 +12680,7 @@
                 "issues": "https://github.com/dirnbauer/typo3-docx/issues",
                 "source": "https://github.com/dirnbauer/typo3-docx"
             },
-            "time": "2026-10-24T03:39:10+00:00"
+            "time": "2026-10-26T22:47:03+00:00"
         },
         {
             "name": "webconsulting/image-workbench",
