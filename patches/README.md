@@ -14,8 +14,7 @@ and reinstall the affected dependency instead.
 | --- | --- |
 | `apache-solr-for-typo3/solr` | Align legacy backend typography, spacing, borders, and colors with TYPO3 v14 design tokens. This patch contains CSS only and adds no behavior. |
 | `t3g/blog` | Replace the 28 legacy extension, module, plugin, record, and action icons with theme-aware TYPO3 v14 SVGs. |
-| `webconsulting/desiderio` | Use the selected frontend language for missing required checkbox/radio selections instead of the browser's native language. |
-| `webconsulting/desiderio` | Keep server validation errors visible when the client-side summary is disabled; otherwise a rejected CAPTCHA returns to the form without an explanation. |
+| `webconsulting/desiderio` | Keep server validation errors visible when the client-side summary is disabled; otherwise a rejected CAPTCHA returns to the form without an explanation. The required checkbox/radio message is upstream since Desiderio 4.27.2, so that patch is gone. |
 
 ## Forked dependencies
 
