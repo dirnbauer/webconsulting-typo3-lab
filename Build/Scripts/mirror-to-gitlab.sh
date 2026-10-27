@@ -12,7 +12,7 @@ LOG="${MIRROR_LOG:-/tmp/mirror-to-gitlab.log}"
 LAB=~/projects/webconsulting-typo3-lab
 REPOS=(
   # Repos that are not installed in the lab
-  ~/projects/typo3-ai-chat ~/projects/typo3-camino-vercel ~/projects/typo3-skills ~/projects/pw_teaser
+  ~/projects/typo3-camino-vercel ~/projects/typo3-skills ~/projects/pw_teaser
   # The lab itself
   "$LAB"
   # Every extension the lab installs: the clone under packages/ is the canonical one

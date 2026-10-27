@@ -5,7 +5,7 @@ set -u
 cd "$(dirname "$0")/../.."
 DEFAULT=(
   packages/abilities packages/agent_nexus packages/llms_txt packages/skillflow packages/skillspector packages/site_package packages/visual_editor_enhancements
-  ~/projects/desiderio ~/projects/innesto ~/projects/astryx-typo3 ~/projects/typo3-ai-chat ~/projects/typo3-records-list-types ~/projects/typo3-records-list-examples
+  ~/projects/desiderio ~/projects/innesto ~/projects/astryx-typo3 ~/projects/typo3-records-list-types ~/projects/typo3-records-list-examples
   ~/projects/typo3-webcon-easy-workspace ~/projects/workos ~/projects/typo3-x402-paywall ~/projects/agentation ~/projects/typo3-camino-vercel
   ~/projects/typo3-docx ~/projects/typo3-image-workbench ~/projects/typo3-mcp-server ~/projects/pw_teaser ~/projects/powermail
 )
