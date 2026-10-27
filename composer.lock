@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6c972c1c19700c4ed7b6cb221a7e4be7",
+    "content-hash": "256362c2383e7438f0adec39d2c015c4",
     "packages": [
         {
             "name": "apache-solr-for-typo3/solr",
@@ -1672,16 +1672,16 @@
         },
         {
             "name": "guzzlehttp/guzzle",
-            "version": "8.3.0",
+            "version": "8.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/guzzle.git",
-                "reference": "b920e5fcaf81d761b8fabe600ca90999beaefdb7"
+                "reference": "7d9b1f430bb65ac664e120af227bf9a795ad6333"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/b920e5fcaf81d761b8fabe600ca90999beaefdb7",
-                "reference": "b920e5fcaf81d761b8fabe600ca90999beaefdb7",
+                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/7d9b1f430bb65ac664e120af227bf9a795ad6333",
+                "reference": "7d9b1f430bb65ac664e120af227bf9a795ad6333",
                 "shasum": ""
             },
             "require": {
@@ -1778,7 +1778,7 @@
             ],
             "support": {
                 "issues": "https://github.com/guzzle/guzzle/issues",
-                "source": "https://github.com/guzzle/guzzle/tree/8.3.0"
+                "source": "https://github.com/guzzle/guzzle/tree/8.3.1"
             },
             "funding": [
                 {
@@ -1794,7 +1794,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2026-10-18T13:38:43+00:00"
+            "time": "2026-10-25T21:35:34+00:00"
         },
         {
             "name": "guzzlehttp/promises",
@@ -2350,7 +2350,7 @@
         },
         {
             "name": "in2code/powermail_cond",
-            "version": "dev-typo3-v14",
+            "version": "14.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/powermail_cond.git",
@@ -2383,7 +2383,6 @@
                 "phpstan/phpstan": "^2.3.1",
                 "saschaegerer/phpstan-typo3": "^3.1"
             },
-            "default-branch": true,
             "type": "typo3-cms-extension",
             "extra": {
                 "typo3/cms": {
@@ -3018,20 +3017,21 @@
         },
         {
             "name": "masterminds/html5",
-            "version": "2.11.0",
+            "version": "2.12.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Masterminds/html5-php.git",
-                "reference": "a1e7a2f88ee13635d86fc61cfbdf2306a76ddfc7"
+                "reference": "15e16663bd6f512352209d0e3a789c0a691c0d9b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Masterminds/html5-php/zipball/a1e7a2f88ee13635d86fc61cfbdf2306a76ddfc7",
-                "reference": "a1e7a2f88ee13635d86fc61cfbdf2306a76ddfc7",
+                "url": "https://api.github.com/repos/Masterminds/html5-php/zipball/15e16663bd6f512352209d0e3a789c0a691c0d9b",
+                "reference": "15e16663bd6f512352209d0e3a789c0a691c0d9b",
                 "shasum": ""
             },
             "require": {
                 "ext-dom": "*",
+                "ext-mbstring": "*",
                 "php": ">=7.4"
             },
             "require-dev": {
@@ -3079,9 +3079,9 @@
             ],
             "support": {
                 "issues": "https://github.com/Masterminds/html5-php/issues",
-                "source": "https://github.com/Masterminds/html5-php/tree/2.11.0"
+                "source": "https://github.com/Masterminds/html5-php/tree/2.12.0"
             },
-            "time": "2026-08-18T06:18:41+00:00"
+            "time": "2026-10-25T08:57:58+00:00"
         },
         {
             "name": "netresearch/nr-llm",
@@ -4673,16 +4673,16 @@
         },
         {
             "name": "phpstan/phpdoc-parser",
-            "version": "2.3.6",
+            "version": "2.3.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpdoc-parser.git",
-                "reference": "1427af4647235b4a73b13940b1f1258d3584f36e"
+                "reference": "ec4293f7caf9936acce286b589ccb84faf1aa88d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpdoc-parser/zipball/1427af4647235b4a73b13940b1f1258d3584f36e",
-                "reference": "1427af4647235b4a73b13940b1f1258d3584f36e",
+                "url": "https://api.github.com/repos/phpstan/phpdoc-parser/zipball/ec4293f7caf9936acce286b589ccb84faf1aa88d",
+                "reference": "ec4293f7caf9936acce286b589ccb84faf1aa88d",
                 "shasum": ""
             },
             "require": {
@@ -4714,9 +4714,9 @@
             "description": "PHPDoc parser with support for nullable, intersection and generic types",
             "support": {
                 "issues": "https://github.com/phpstan/phpdoc-parser/issues",
-                "source": "https://github.com/phpstan/phpdoc-parser/tree/2.3.6"
+                "source": "https://github.com/phpstan/phpdoc-parser/tree/2.3.8"
             },
-            "time": "2026-09-27T20:07:45+00:00"
+            "time": "2026-10-26T20:24:50+00:00"
         },
         {
             "name": "praetorius/vite-asset-collector",
@@ -5625,7 +5625,7 @@
         },
         {
             "name": "studiomitte/solr-numbered-pagination",
-            "version": "dev-main",
+            "version": "1.0.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/solr_numbered_pagination.git",
@@ -5642,7 +5642,6 @@
                 "georgringer/numbered-pagination": "^1 || ^2",
                 "typo3/cms-core": "^10 || ^11.5 || ^12.4.2 || ^13.4 || ^14"
             },
-            "default-branch": true,
             "type": "typo3-cms-extension",
             "extra": {
                 "typo3/cms": {
@@ -13076,7 +13075,7 @@
             "dist": {
                 "type": "path",
                 "url": "packages/site_package",
-                "reference": "dccdefb756e998f351cbf490dfd540c979e1f392"
+                "reference": "a20572dd1699a6f6ba157bf1c9f228e7be15ebf8"
             },
             "require": {
                 "apache-solr-for-typo3/solr": "^14.0.1",
@@ -13086,7 +13085,7 @@
                 "netresearch/nr-llm": "^0.35 || ^0.41.3",
                 "php": "^8.4",
                 "praetorius/vite-asset-collector": "^1.18",
-                "studiomitte/solr-numbered-pagination": "dev-main",
+                "studiomitte/solr-numbered-pagination": "^1.0.5",
                 "t3g/blog": "^14.0.1",
                 "typo3/cms-adminpanel": "^14.3",
                 "typo3/cms-core": "^14.3",
@@ -16595,11 +16594,8 @@
         }
     ],
     "aliases": [],
-    "minimum-stability": "dev",
-    "stability-flags": {
-        "in2code/powermail_cond": 20,
-        "studiomitte/solr-numbered-pagination": 20
-    },
+    "minimum-stability": "stable",
+    "stability-flags": {},
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
