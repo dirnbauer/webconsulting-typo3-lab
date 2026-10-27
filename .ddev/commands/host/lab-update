@@ -51,6 +51,11 @@ ddev exec vendor/bin/typo3 webcon-jev:examples:seed --no-interaction
 # overview films and their transcripts too.
 echo "==> Putting the overview films back on their pages"
 ddev exec vendor/bin/typo3 sitepackage:films:seed --no-interaction
+# It also rebuilds the breadcrumb demo and the RTE regression page with the
+# core Text element. They are Desiderio pages, so the HTML moves into Split
+# Text & Media before the translations are made.
+echo "==> Using Desiderio elements on the remaining subpages"
+ddev exec vendor/bin/typo3 sitepackage:classic-text:convert --no-interaction
 # The seeders above create the site in English. Its German, Chinese and
 # Hungarian pages come from the translation memories in site_package, keyed by
 # the English text, so they survive the new uids of a reseed.
