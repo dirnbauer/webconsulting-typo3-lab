@@ -164,6 +164,7 @@
 		}
 	],
 	"require": {
+		"php": "^8.5",
 		"apache-solr-for-typo3/solr": "^14.0.2",
 		"cweagans/composer-patches": "^2.0",
 		"friendsoftypo3/tt-address": "^10.0.1",
@@ -178,7 +179,6 @@
 		"netresearch/nr-llm": "^0.41.4",
 		"netresearch/nr-vault": "^1.1",
 		"paragonie/sodium_compat": "^2.5.2",
-		"php": "^8.5",
 		"praetorius/vite-asset-collector": "^1.18.4",
 		"sgalinski/sg-apicore": "^3.1.7",
 		"studiomitte/friendlycaptcha": "~2.3.0.4",
@@ -239,7 +239,7 @@
 		"webconsulting/webcon-easy-workspace": "^1.11.2",
 		"webconsulting/webcon-jev": "^0.3.1",
 		"webconsulting/webcon-templates": "^1.0",
-		"webconsulting/workos-auth": "^2.3.5"
+		"webconsulting/workos-auth": "^2.4.0"
 	},
 	"require-dev": {
 		"phpstan/phpstan": "^2.3.1",

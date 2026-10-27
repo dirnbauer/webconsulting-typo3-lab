@@ -59,6 +59,19 @@ Run the seeder first, copy its two numeric values into the local environment,
 and restart DDEV after changing environment variables. Never commit these
 values.
 
+## Backend email login
+
+The lab sets `EXTENSIONS.workos_auth.backendRequireMfa = false` in production
+so a successful WorkOS email-code login opens the backend without an additional
+TYPO3 authenticator enrollment or challenge. The global `BE.requireMfa = 3`
+remains in force for classic administrator password logins. WorkOS keeps its
+own authentication policy, and existing authenticators are preserved.
+
+The WorkOS login tab presents an email field and send-code button first.
+Password login expands separately and has its own email field. Start a fresh
+WorkOS login after deploying this change; an old MFA setup URL belongs to the
+previous session and does not restart authentication.
+
 ## Redirect URIs
 
 WorkOS rejects any authorization request whose `redirect_uri` is not

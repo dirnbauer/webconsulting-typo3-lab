@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "256362c2383e7438f0adec39d2c015c4",
+    "content-hash": "10d89f7e60b9a74ce0d38916d69a845c",
     "packages": [
         {
             "name": "apache-solr-for-typo3/solr",
@@ -14251,16 +14251,16 @@
         },
         {
             "name": "webconsulting/workos-auth",
-            "version": "v2.3.5",
+            "version": "v2.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/workos.git",
-                "reference": "63fe5d6806046fb8464ee4d6561dcbf864911083"
+                "reference": "0dca1ec675451b1c08eb4e005ebee8b9cee823d6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/workos/zipball/63fe5d6806046fb8464ee4d6561dcbf864911083",
-                "reference": "63fe5d6806046fb8464ee4d6561dcbf864911083",
+                "url": "https://api.github.com/repos/dirnbauer/workos/zipball/0dca1ec675451b1c08eb4e005ebee8b9cee823d6",
+                "reference": "0dca1ec675451b1c08eb4e005ebee8b9cee823d6",
                 "shasum": ""
             },
             "require": {
@@ -14293,7 +14293,7 @@
                 "typo3/cms": {
                     "app-dir": ".Build",
                     "extension-key": "workos_auth",
-                    "version": "2.3.5",
+                    "version": "2.4.0",
                     "web-dir": ".Build/public"
                 }
             },
@@ -14362,7 +14362,7 @@
                 "issues": "https://github.com/dirnbauer/workos/issues",
                 "source": "https://github.com/dirnbauer/workos"
             },
-            "time": "2026-10-24T03:39:26+00:00"
+            "time": "2026-10-27T08:48:03+00:00"
         },
         {
             "name": "webmozart/assert",

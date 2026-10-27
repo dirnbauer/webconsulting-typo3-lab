@@ -52,7 +52,8 @@ if (getenv('IS_DDEV_PROJECT') !== 'true') {
                 'debug' => false,
                 'installToolPassword' => $installToolPassword,
                 'lockSSL' => true,
-                // Admins only: editors created by WorkOS sign-in keep a one-step login.
+                // Classic administrator logins require TYPO3 MFA. WorkOS
+                // sessions use the explicit extension policy below.
                 'requireMfa' => 3,
                 'passwordHashing' => [
                     'className' => \TYPO3\CMS\Core\Crypto\PasswordHashing\Argon2idPasswordHash::class,
@@ -81,6 +82,14 @@ if (getenv('IS_DDEV_PROJECT') !== 'true') {
                 'passwordHashing' => [
                     'className' => \TYPO3\CMS\Core\Crypto\PasswordHashing\Argon2idPasswordHash::class,
                     'options' => [],
+                ],
+            ],
+            'EXTENSIONS' => [
+                'workos_auth' => [
+                    // WorkOS owns authentication for its sessions, including
+                    // email-code sign-in. Classic administrator logins keep
+                    // the TYPO3 MFA requirement above.
+                    'backendRequireMfa' => false,
                 ],
             ],
             'GFX' => [

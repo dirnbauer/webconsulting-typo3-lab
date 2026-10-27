@@ -211,6 +211,7 @@ return [
             'authkitOrganizationId' => '',
             'backendAllowedDomains' => 'gmail.com,webconsulting.at',
             'backendAutoCreateUsers' => true,
+            'backendRequireMfa' => false,
             'backendCallbackPath' => '/workos-auth/backend/callback',
             'backendDefaultGroupUids' => '1',
             'backendEnabled' => true,
