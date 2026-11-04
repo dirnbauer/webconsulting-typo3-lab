@@ -38,8 +38,10 @@ All notable changes to Webconsulting TYPO3 Lab are documented in this file.
 
 - TYPO3 core stays on 14.3.10, EXT:solr on 14.0.2 (the Solr image pins are
   unchanged) and Desiderio on 4.27.4.
-- Extensions: nr-llm 0.41.18 (was 0.41.7), nr-vault 1.2.0 (was 1.1.0),
-  sg-apicore 3.1.10 (was 3.1.7). nr-llm 0.43 stays out: the lab, the site
+- Extensions: nr-llm 0.41.18 (was 0.41.7), sg-apicore 3.1.10 (was 3.1.7).
+  nr-vault stays on 1.1.0: the lab's two audit patches (bounded range
+  verification, inventory lifecycle) do not apply to 1.2.0, which still lacks
+  the predecessor context; rebasing them is a separate follow-up. nr-llm 0.43 stays out: the lab, the site
   package, typo3-ai-assistant, skillflow, skillspector and image-workbench
   all allow only up to 0.41.
 - Libraries: Symfony 7.4.23 and 8.1.10–8.1.11 patch releases, the Symfony

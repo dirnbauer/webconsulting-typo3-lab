@@ -3281,16 +3281,16 @@
         },
         {
             "name": "netresearch/nr-vault",
-            "version": "v1.2.0",
+            "version": "v1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/netresearch/t3x-nr-vault.git",
-                "reference": "3df1442855469b5fe08c6358b207137362e15243"
+                "reference": "4273018c17f1812ad50337fccd03afc63f859890"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/netresearch/t3x-nr-vault/zipball/3df1442855469b5fe08c6358b207137362e15243",
-                "reference": "3df1442855469b5fe08c6358b207137362e15243",
+                "url": "https://api.github.com/repos/netresearch/t3x-nr-vault/zipball/4273018c17f1812ad50337fccd03afc63f859890",
+                "reference": "4273018c17f1812ad50337fccd03afc63f859890",
                 "shasum": ""
             },
             "require": {
@@ -3305,7 +3305,7 @@
             },
             "require-dev": {
                 "mikey179/vfsstream": "^1.6.11",
-                "netresearch/typo3-ci-workflows": "^2.0.3",
+                "netresearch/typo3-ci-workflows": "^1.3",
                 "roave/security-advisories": "dev-latest",
                 "typo3/cms-dashboard": "^13.4 || ^14.3",
                 "typo3/cms-install": "^13.4 || ^14.3",
@@ -3324,7 +3324,7 @@
                         "providesPackages": []
                     },
                     "extension-key": "nr_vault",
-                    "version": "1.2.0",
+                    "version": "1.1.0",
                     "web-dir": ".Build/web"
                 },
                 "branch-alias": {
@@ -3362,14 +3362,7 @@
                     "@ci:test:php:arch",
                     "@ci:test:php:doc-cli",
                     "@ci:test:php:doc-cli:self-test",
-                    "@ci:test:evidence",
-                    "@ci:test:changelog"
-                ],
-                "ci:test:changelog": [
-                    "@php Build/Scripts/changelog-fragments.php check"
-                ],
-                "changelog:collect": [
-                    "@php Build/Scripts/changelog-fragments.php collect"
+                    "@ci:test:evidence"
                 ],
                 "ci:test:evidence": [
                     "@php Build/Scripts/collect-evidence.php --self-test"
@@ -3447,7 +3440,7 @@
                     "role": "Developer"
                 }
             ],
-            "description": "Secrets Vault - Central, secure storage for API keys, credentials and other secrets with envelope encryption, access control, audit logging and a secure HTTP client.",
+            "description": "Secure secrets management for TYPO3 with envelope encryption, access control, and audit logging",
             "homepage": "https://github.com/netresearch/t3x-nr-vault",
             "keywords": [
                 "TYPO3",
@@ -3468,7 +3461,7 @@
                 "issues": "https://github.com/netresearch/t3x-nr-vault/issues",
                 "source": "https://github.com/netresearch/t3x-nr-vault"
             },
-            "time": "2026-10-31T21:55:36+00:00"
+            "time": "2026-09-29T20:42:00+00:00"
         },
         {
             "name": "nette/schema",
