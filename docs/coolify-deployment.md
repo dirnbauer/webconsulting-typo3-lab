@@ -30,6 +30,14 @@ the production dependencies are also checked against the real 8.5.12 runtime.
 CI runs on PHP 8.5.12. The MariaDB pin matches the 11.8.9 image already running
 on the server, preserving that update during future deployments.
 
+Since 2026-10-27, the GitHub Powermail and Powermail Conditional forks are
+private. Composer installs their existing release commits from the private
+GitLab mirrors `extensions/powermail` and `extensions/powermail_cond` over SSH.
+Both mirrors allow the existing **TYPO3 Lab read-only Composer deploy** key
+(`GITLAB_EXTENSIONS_READ_KEY`), already used by CI and the BuildKit secret
+mount. Keep that key read-only and available only during the build. The
+Conditional `14.0.0` tag is present on both remotes at the same commit.
+
 The startup INI disables `session.upload_progress.enabled` following the
 [PHP advisory of 2026-10-23](https://www.php.net/). This precaution covers the
 remaining upload-progress issue until PHP's next bugfix release. It takes

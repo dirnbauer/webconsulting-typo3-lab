@@ -100,8 +100,10 @@
 			"url": "https://github.com/dirnbauer/typo3-mcp-server.git"
 		},
 		{
-			"type": "vcs",
-			"url": "https://github.com/dirnbauer/powermail.git"
+			"name": "powermail",
+			"type": "git",
+			"url": "git@gitlab.webconsulting.at:extensions/powermail.git",
+			"only": ["in2code/powermail"]
 		},
 		{
 			"type": "vcs",
@@ -144,8 +146,9 @@
 		},
 		{
 			"name": "powermail-cond",
-			"type": "vcs",
-			"url": "https://github.com/dirnbauer/powermail_cond.git"
+			"type": "git",
+			"url": "git@gitlab.webconsulting.at:extensions/powermail_cond.git",
+			"only": ["in2code/powermail_cond"]
 		},
 		{
 			"name": "webcon-jev",

@@ -4,6 +4,15 @@ All notable changes to Webconsulting TYPO3 Lab are documented in this file.
 
 ## Unreleased
 
+### Powermail from the GitLab mirrors — 2026-11-04
+
+- Powermail and Powermail Conditional install from our GitLab mirrors
+  `extensions/powermail` and `extensions/powermail_cond` over SSH, because
+  the GitHub forks are private since 2026-10-27. The release commits are
+  the same as before (14.0.3.9 and 14.0.0); CI and the image build read them
+  with the read-only `GITLAB_EXTENSIONS_READ_KEY` (see
+  [Coolify deployment](docs/coolify-deployment.md)).
+
 ### Two blog templates and 20 new posts on the TYPO3 v14 blog — 2026-09-27
 
 - Desiderio's blog comes in two page templates now. "Blog – Classic" is a

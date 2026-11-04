@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "10d89f7e60b9a74ce0d38916d69a845c",
+    "content-hash": "42f43cbf54bd1fa3330b175f957af9e6",
     "packages": [
         {
             "name": "apache-solr-for-typo3/solr",
@@ -2198,14 +2198,8 @@
             "version": "14.0.3.9",
             "source": {
                 "type": "git",
-                "url": "https://github.com/dirnbauer/powermail.git",
+                "url": "git@gitlab.webconsulting.at:extensions/powermail.git",
                 "reference": "74fd2b60e582edd63213806e60f0c6faad6d8473"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/powermail/zipball/74fd2b60e582edd63213806e60f0c6faad6d8473",
-                "reference": "74fd2b60e582edd63213806e60f0c6faad6d8473",
-                "shasum": ""
             },
             "require": {
                 "ext-curl": "*",
@@ -2353,14 +2347,8 @@
             "version": "14.0.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/dirnbauer/powermail_cond.git",
+                "url": "git@gitlab.webconsulting.at:extensions/powermail_cond.git",
                 "reference": "004f0bfefbafe2334eb9ef3453e36db52233c4d5"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/powermail_cond/zipball/004f0bfefbafe2334eb9ef3453e36db52233c4d5",
-                "reference": "004f0bfefbafe2334eb9ef3453e36db52233c4d5",
-                "shasum": ""
             },
             "require": {
                 "ext-json": "*",
