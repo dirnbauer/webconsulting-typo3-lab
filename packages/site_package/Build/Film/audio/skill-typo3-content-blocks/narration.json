@@ -1,0 +1,361 @@
+{
+  "voice": "George",
+  "delivery": {
+    "stability": 0.62,
+    "similarity_boost": 0.78,
+    "style": 0.18,
+    "speed": 0.9
+  },
+  "lines": [
+    {
+      "say": "A new element once meant TCA, SQL, TypoScript and a template.",
+      "show": "A new element once meant TCA, SQL, TypoScript and a template.",
+      "file": "voice-01.mp3",
+      "duration": 5564,
+      "words": [
+        {
+          "word": "A",
+          "start": 70,
+          "end": 116
+        },
+        {
+          "word": "new",
+          "start": 221,
+          "end": 348
+        },
+        {
+          "word": "element",
+          "start": 430,
+          "end": 755
+        },
+        {
+          "word": "once",
+          "start": 848,
+          "end": 1080
+        },
+        {
+          "word": "meant",
+          "start": 1126,
+          "end": 1312
+        },
+        {
+          "word": "TCA,",
+          "start": 1382,
+          "end": 2171
+        },
+        {
+          "word": "SQL,",
+          "start": 2299,
+          "end": 3053
+        },
+        {
+          "word": "TypoScript",
+          "start": 3181,
+          "end": 4017
+        },
+        {
+          "word": "and",
+          "start": 4063,
+          "end": 4180
+        },
+        {
+          "word": "a",
+          "start": 4249,
+          "end": 4272
+        },
+        {
+          "word": "template.",
+          "start": 4319,
+          "end": 5074
+        }
+      ],
+      "heard": "A new element once meant TCA, SQL, typoscript and a template."
+    },
+    {
+      "say": "You ask for a teaser: headline, image, link.",
+      "show": "You ask for a teaser: headline, image, link.",
+      "file": "voice-02.mp3",
+      "duration": 4075,
+      "words": [
+        {
+          "word": "You",
+          "start": 23,
+          "end": 163
+        },
+        {
+          "word": "ask",
+          "start": 255,
+          "end": 488
+        },
+        {
+          "word": "for",
+          "start": 534,
+          "end": 639
+        },
+        {
+          "word": "a",
+          "start": 685,
+          "end": 708
+        },
+        {
+          "word": "teaser:",
+          "start": 755,
+          "end": 1347
+        },
+        {
+          "word": "headline,",
+          "start": 1509,
+          "end": 2113
+        },
+        {
+          "word": "image,",
+          "start": 2183,
+          "end": 2728
+        },
+        {
+          "word": "link.",
+          "start": 2856,
+          "end": 3355
+        }
+      ],
+      "heard": "You ask for a teaser, headline, image, link.",
+      "end": 3360
+    },
+    {
+      "say": "make content block creates the block; the skill writes fields, template and preview.",
+      "show": "make:content-block creates the block; the skill writes fields, template and preview.",
+      "file": "voice-03.mp3",
+      "duration": 6504,
+      "words": [
+        {
+          "word": "make",
+          "start": 23,
+          "end": 302
+        },
+        {
+          "word": "content",
+          "start": 383,
+          "end": 848
+        },
+        {
+          "word": "block",
+          "start": 917,
+          "end": 1184
+        },
+        {
+          "word": "creates",
+          "start": 1312,
+          "end": 1753
+        },
+        {
+          "word": "the",
+          "start": 1800,
+          "end": 1869
+        },
+        {
+          "word": "block;",
+          "start": 1916,
+          "end": 2426
+        },
+        {
+          "word": "the",
+          "start": 2786,
+          "end": 2891
+        },
+        {
+          "word": "skill",
+          "start": 2961,
+          "end": 3297
+        },
+        {
+          "word": "writes",
+          "start": 3379,
+          "end": 3680
+        },
+        {
+          "word": "fields,",
+          "start": 3750,
+          "end": 4354
+        },
+        {
+          "word": "template",
+          "start": 4447,
+          "end": 5004
+        },
+        {
+          "word": "and",
+          "start": 5039,
+          "end": 5155
+        },
+        {
+          "word": "preview.",
+          "start": 5236,
+          "end": 5968
+        }
+      ],
+      "heard": "Make Content Block creates the block. The skill writes fields, template and preview."
+    },
+    {
+      "say": "The teaser shows up in the wizard. An editor fills it in and saves.",
+      "show": "The teaser shows up in the wizard. An editor fills it in and saves.",
+      "file": "voice-04.mp3",
+      "duration": 4833,
+      "words": [
+        {
+          "word": "The",
+          "start": 23,
+          "end": 139
+        },
+        {
+          "word": "teaser",
+          "start": 209,
+          "end": 557
+        },
+        {
+          "word": "shows",
+          "start": 604,
+          "end": 848
+        },
+        {
+          "word": "up",
+          "start": 894,
+          "end": 987
+        },
+        {
+          "word": "in",
+          "start": 1057,
+          "end": 1115
+        },
+        {
+          "word": "the",
+          "start": 1149,
+          "end": 1219
+        },
+        {
+          "word": "wizard.",
+          "start": 1254,
+          "end": 1776
+        },
+        {
+          "word": "An",
+          "start": 2043,
+          "end": 2206
+        },
+        {
+          "word": "editor",
+          "start": 2287,
+          "end": 2670
+        },
+        {
+          "word": "fills",
+          "start": 2717,
+          "end": 2972
+        },
+        {
+          "word": "it",
+          "start": 3019,
+          "end": 3088
+        },
+        {
+          "word": "in",
+          "start": 3158,
+          "end": 3297
+        },
+        {
+          "word": "and",
+          "start": 3379,
+          "end": 3483
+        },
+        {
+          "word": "saves.",
+          "start": 3564,
+          "end": 4272
+        }
+      ],
+      "heard": "The teaser shows up in the wizard, an editor fills it in and saves."
+    },
+    {
+      "say": "A renamed field leaves records that look empty.",
+      "show": "A renamed field leaves records that look empty.",
+      "file": "voice-05.mp3",
+      "duration": 3709,
+      "words": [
+        {
+          "word": "A",
+          "start": 35,
+          "end": 128
+        },
+        {
+          "word": "renamed",
+          "start": 255,
+          "end": 801
+        },
+        {
+          "word": "field",
+          "start": 871,
+          "end": 1231
+        },
+        {
+          "word": "leaves",
+          "start": 1312,
+          "end": 1556
+        },
+        {
+          "word": "records",
+          "start": 1649,
+          "end": 2113
+        },
+        {
+          "word": "that",
+          "start": 2148,
+          "end": 2264
+        },
+        {
+          "word": "look",
+          "start": 2299,
+          "end": 2450
+        },
+        {
+          "word": "empty.",
+          "start": 2519,
+          "end": 3146
+        }
+      ],
+      "heard": "A renamed field leaves records that look empty."
+    },
+    {
+      "say": "Open source. Clone the skills.",
+      "show": "Open source. Clone the skills.",
+      "file": "voice-06.mp3",
+      "duration": 2769,
+      "words": [
+        {
+          "word": "Open",
+          "start": 35,
+          "end": 383
+        },
+        {
+          "word": "source.",
+          "start": 464,
+          "end": 1033
+        },
+        {
+          "word": "Clone",
+          "start": 1300,
+          "end": 1672
+        },
+        {
+          "word": "the",
+          "start": 1707,
+          "end": 1776
+        },
+        {
+          "word": "skills.",
+          "start": 1811,
+          "end": 2473
+        }
+      ],
+      "heard": "Open source. Clone the skills."
+    }
+  ]
+}

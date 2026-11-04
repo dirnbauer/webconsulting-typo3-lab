@@ -1,0 +1,58 @@
+{
+  "id": "skill-typo3-webmcp",
+  "slug": "/ai/agentic-skills/typo3-webmcp",
+  "placements": [
+    {
+      "slug": "/ai/agentic-skills/typo3-webmcp"
+    }
+  ],
+  "title": "typo3-webmcp: the skill at work",
+  "header": "typo3-webmcp in 46 seconds",
+  "description": "<p>Search, navigation and forms as typed browser tools. Recorded on a TYPO3 14.3 site in DDEV, in Chrome with WebMCP testing switched on. Nothing was sent. Narrated, with English captions.</p>",
+  "mp4": "skill-typo3-webmcp-9daddd02.mp4",
+  "poster": "skill-typo3-webmcp-poster-9daddd02.webp",
+  "vtt": "skill-typo3-webmcp-9daddd02.en.vtt",
+  "duration": 46.282,
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "sound": true,
+  "alt": "Film, 46 seconds: the typo3-webmcp agent skill. Chrome with WebMCP testing lists four browser tools on a TYPO3 14 site, and the form tool fills an error report while the consent box stays empty and nothing is sent. Narrated, with English captions.",
+  "transcript": [
+    {
+      "at": "0:02",
+      "text": "Browser agents now shop and book. Most sites give them nothing to hold."
+    },
+    {
+      "at": "0:12",
+      "text": "You ask for search and contact as browser tools."
+    },
+    {
+      "at": "0:18",
+      "text": "Chrome now sees four tools: navigation, FAQ search, language and a form helper."
+    },
+    {
+      "at": "0:27",
+      "text": "An agent fills the form. The consent box stays empty; a person sends it."
+    },
+    {
+      "at": "0:34",
+      "text": "A schema is not consent. People stay in charge."
+    },
+    {
+      "at": "0:40",
+      "text": "Open source. Clone the skills."
+    }
+  ],
+  "captions": {
+    "language": "en",
+    "label": "English",
+    "burnedIn": true
+  },
+  "bytes": {
+    "mp4": 2352664,
+    "poster": 38114,
+    "vtt": 594
+  },
+  "generator": "packages/site_package/Build/Film/render-films.mjs"
+}

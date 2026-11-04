@@ -1,0 +1,330 @@
+{
+  "voice": "George",
+  "delivery": {
+    "stability": 0.62,
+    "similarity_boost": 0.78,
+    "style": 0.18,
+    "speed": 0.9
+  },
+  "lines": [
+    {
+      "say": "Your agent knows typo three, but not your project.",
+      "show": "Your agent knows TYPO3, but not your project.",
+      "file": "voice-01.mp3",
+      "duration": 3997,
+      "words": [
+        {
+          "word": "Your",
+          "start": 70,
+          "end": 302
+        },
+        {
+          "word": "agent",
+          "start": 383,
+          "end": 755
+        },
+        {
+          "word": "knows",
+          "start": 801,
+          "end": 1045
+        },
+        {
+          "word": "typo",
+          "start": 1091,
+          "end": 1463
+        },
+        {
+          "word": "three,",
+          "start": 1544,
+          "end": 2067
+        },
+        {
+          "word": "but",
+          "start": 2194,
+          "end": 2345
+        },
+        {
+          "word": "not",
+          "start": 2380,
+          "end": 2496
+        },
+        {
+          "word": "your",
+          "start": 2543,
+          "end": 2659
+        },
+        {
+          "word": "project.",
+          "start": 2705,
+          "end": 3437
+        }
+      ],
+      "heard": "Your agent knows typo 3, but not your project."
+    },
+    {
+      "say": "typo three skills: 61 skills for coding agents.",
+      "show": "typo3-skills: 61 skills for coding agents.",
+      "file": "voice-02.mp3",
+      "duration": 4310,
+      "words": [
+        {
+          "word": "typo",
+          "start": 23,
+          "end": 406
+        },
+        {
+          "word": "three",
+          "start": 476,
+          "end": 708
+        },
+        {
+          "word": "skills:",
+          "start": 743,
+          "end": 1393
+        },
+        {
+          "word": "61",
+          "start": 1625,
+          "end": 2206
+        },
+        {
+          "word": "skills",
+          "start": 2334,
+          "end": 2775
+        },
+        {
+          "word": "for",
+          "start": 2821,
+          "end": 2926
+        },
+        {
+          "word": "coding",
+          "start": 2972,
+          "end": 3309
+        },
+        {
+          "word": "agents.",
+          "start": 3379,
+          "end": 3982
+        }
+      ],
+      "heard": "TYPO3 Skills 61 Skills for Coding Agents",
+      "end": 4010
+    },
+    {
+      "say": "One clone, one install script, every client.",
+      "show": "One clone, one install script, every client.",
+      "file": "voice-03.mp3",
+      "duration": 4258,
+      "words": [
+        {
+          "word": "One",
+          "start": 23,
+          "end": 302
+        },
+        {
+          "word": "clone,",
+          "start": 348,
+          "end": 871
+        },
+        {
+          "word": "one",
+          "start": 1033,
+          "end": 1265
+        },
+        {
+          "word": "install",
+          "start": 1300,
+          "end": 1718
+        },
+        {
+          "word": "script,",
+          "start": 1800,
+          "end": 2357
+        },
+        {
+          "word": "every",
+          "start": 2496,
+          "end": 2752
+        },
+        {
+          "word": "client.",
+          "start": 2798,
+          "end": 3437
+        }
+      ],
+      "heard": "One clone, one install script, every client."
+    },
+    {
+      "say": "Upgrades, accessibility, Solar, structured data.",
+      "show": "Upgrades, accessibility, Solr, structured data.",
+      "file": "voice-04.mp3",
+      "duration": 4310,
+      "words": [
+        {
+          "word": "Upgrades,",
+          "start": 12,
+          "end": 697
+        },
+        {
+          "word": "accessibility,",
+          "start": 720,
+          "end": 1811
+        },
+        {
+          "word": "Solar,",
+          "start": 1939,
+          "end": 2485
+        },
+        {
+          "word": "structured",
+          "start": 2566,
+          "end": 3088
+        },
+        {
+          "word": "data.",
+          "start": 3123,
+          "end": 3762
+        }
+      ],
+      "heard": "Upgrades, accessibility, solar, structured data."
+    },
+    {
+      "say": "Upgrades follow a sealed graph: 72 nodes, 206 edges.",
+      "show": "Upgrades follow a sealed graph: 72 nodes, 206 edges.",
+      "file": "voice-05.mp3",
+      "duration": 5433,
+      "words": [
+        {
+          "word": "Upgrades",
+          "start": 23,
+          "end": 592
+        },
+        {
+          "word": "follow",
+          "start": 639,
+          "end": 882
+        },
+        {
+          "word": "a",
+          "start": 952,
+          "end": 975
+        },
+        {
+          "word": "sealed",
+          "start": 1045,
+          "end": 1382
+        },
+        {
+          "word": "graph:",
+          "start": 1428,
+          "end": 1927
+        },
+        {
+          "word": "72",
+          "start": 2194,
+          "end": 2775
+        },
+        {
+          "word": "nodes,",
+          "start": 2868,
+          "end": 3297
+        },
+        {
+          "word": "206",
+          "start": 3379,
+          "end": 4133
+        },
+        {
+          "word": "edges.",
+          "start": 4238,
+          "end": 4818
+        }
+      ],
+      "heard": "Upgrades follow a sealed graph, 72 nodes, 206 edges."
+    },
+    {
+      "say": "Twenty-two rules, such as: no claim without evidence.",
+      "show": "Twenty-two rules, such as: no claim without evidence.",
+      "file": "voice-06.mp3",
+      "duration": 4075,
+      "words": [
+        {
+          "word": "Twenty-two",
+          "start": 23,
+          "end": 604
+        },
+        {
+          "word": "rules,",
+          "start": 697,
+          "end": 1254
+        },
+        {
+          "word": "such",
+          "start": 1324,
+          "end": 1579
+        },
+        {
+          "word": "as:",
+          "start": 1649,
+          "end": 2020
+        },
+        {
+          "word": "no",
+          "start": 2287,
+          "end": 2461
+        },
+        {
+          "word": "claim",
+          "start": 2543,
+          "end": 2810
+        },
+        {
+          "word": "without",
+          "start": 2856,
+          "end": 3146
+        },
+        {
+          "word": "evidence.",
+          "start": 3216,
+          "end": 3889
+        }
+      ],
+      "heard": "22 rules such as no claim without evidence"
+    },
+    {
+      "say": "Open source. Clone it today.",
+      "show": "Open source. Clone it today.",
+      "file": "voice-07.mp3",
+      "duration": 2508,
+      "words": [
+        {
+          "word": "Open",
+          "start": 35,
+          "end": 383
+        },
+        {
+          "word": "source.",
+          "start": 476,
+          "end": 987
+        },
+        {
+          "word": "Clone",
+          "start": 1184,
+          "end": 1509
+        },
+        {
+          "word": "it",
+          "start": 1533,
+          "end": 1614
+        },
+        {
+          "word": "today.",
+          "start": 1660,
+          "end": 2194
+        }
+      ],
+      "heard": "Open source. Clone it today."
+    }
+  ]
+}

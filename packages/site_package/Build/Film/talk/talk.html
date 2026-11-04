@@ -1,0 +1,356 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Talk overlay stage</title>
+<!--
+  Portrait overlay stage of the talk films (1080 × 1920). Transparent: the
+  presenter video is composited underneath by render-talk.mjs. Every frame is
+  a pure function of t (window.seek(ms)); nothing waits on real time.
+
+  ?timeline=<url of <cut>.timeline.json>   (written by render-talk.mjs)
+  ?bg=1                                    a grey checker under the stage, for looking at stills
+
+  window.layout() lists every visible text box and cover with its effective
+  opacity, for the face-safe check.
+-->
+<style>
+@font-face { font-family: "Hanken Grotesk"; font-weight: 100 900; font-display: block; src: url(/packages/site_package/Resources/Public/Backend/Fonts/hanken-grotesk-latin.woff2) format("woff2"); }
+@font-face { font-family: "Hanken Grotesk"; font-weight: 100 900; font-display: block; src: url(/packages/site_package/Resources/Public/Backend/Fonts/hanken-grotesk-latin-ext.woff2) format("woff2"); unicode-range: U+0100-024F, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+:root {
+  --ink: #f8fafb;
+  --muted: #b8c5ca;
+  --soft: #7f949b;
+  --accent: #66c4e1;
+  --deep: #061a20;
+  --panel: rgb(5 22 28 / 0.9);
+  --x: 72px;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; border-radius: 0; }
+html, body { width: 1080px; height: 1920px; overflow: hidden; background: transparent; }
+body { font-family: "Hanken Grotesk", ui-sans-serif, system-ui, sans-serif; color: var(--ink); -webkit-font-smoothing: antialiased; font-kerning: normal; font-feature-settings: "kern", "liga"; }
+body.checker { background: repeating-conic-gradient(#8a8f93 0 25%, #6f7478 0 50%) 0 0 / 60px 60px; }
+#stage { position: absolute; inset: 0; }
+.layer { position: absolute; opacity: 0; will-change: opacity, transform; }
+
+/* Full-screen cutaway: one slogan. */
+.cover { position: absolute; inset: 0; background: linear-gradient(180deg, #0a2a33 0%, #061a20 52%, #04141a 100%); }
+.card-text { position: absolute; left: 96px; right: 96px; top: 0; bottom: 0; opacity: 0; }
+/* One locked layout for all ten cards: the eyebrow and the headline's first line never move,
+   whatever the number of lines (optical centre, a little above the middle of the frame). */
+.card-eyebrow { position: absolute; left: 0; right: 0; top: 700px; font-size: 30px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent); display: flex; gap: 18px; align-items: baseline; line-height: 1.2; }
+.card-eyebrow span { color: var(--soft); letter-spacing: 0.16em; }
+.card-title { position: absolute; left: 0; right: 0; top: 770px; font-size: 112px; font-weight: 600; line-height: 1.0; letter-spacing: -0.035em; text-wrap: balance; }
+.card-title .w { display: inline-block; }
+.progress { position: absolute; left: 96px; right: 96px; top: 1500px; display: grid; grid-template-columns: repeat(10, 1fr); gap: 10px; opacity: 0; }
+.progress i { display: block; height: 6px; background: rgb(255 255 255 / 0.14); position: relative; overflow: hidden; }
+.progress i b { position: absolute; inset: 0; background: var(--accent); transform-origin: left; transform: scaleX(0); }
+.progress i.past b { transform: scaleX(1); background: rgb(102 196 225 / 0.45); }
+.card-source { position: absolute; left: 96px; right: 96px; top: 1540px; font-size: 26px; font-weight: 450; color: var(--soft); letter-spacing: 0.01em; opacity: 0; }
+
+/* Lower band panels: square, filled, borderless; anchored above the bottom safe area. */
+.panel { left: var(--x); right: var(--x); bottom: 270px; background: var(--panel); padding: 36px 44px 40px; }
+.eyebrow { font-size: 28px; font-weight: 600; letter-spacing: 0.02em; color: var(--muted); display: flex; gap: 16px; align-items: baseline; margin-bottom: 14px; line-height: 1.25; }
+.eyebrow b { color: var(--accent); font-weight: 700; letter-spacing: 0.08em; white-space: nowrap; }
+.item { overflow: hidden; }
+.item-in { font-size: 56px; font-weight: 600; line-height: 1.1; letter-spacing: -0.025em; padding-top: 8px; text-wrap: balance; }
+.closing .item-in { font-size: 66px; letter-spacing: -0.03em; }
+.closing .item:nth-child(2) .item-in { color: var(--accent); }
+.intro-logo { display: block; width: 300px; height: auto; margin-bottom: 30px; }
+.intro-title { font-size: 66px; font-weight: 600; line-height: 1.04; letter-spacing: -0.032em; text-wrap: balance; }
+.intro-by { margin-top: 20px; font-size: 30px; font-weight: 500; color: var(--muted); }
+.src-name { font-size: 54px; font-weight: 600; line-height: 1.08; letter-spacing: -0.025em; }
+.src-book { font-size: 40px; font-weight: 500; line-height: 1.15; letter-spacing: -0.015em; margin-top: 6px; }
+.src-book em { font-style: italic; }
+.src-detail { margin-top: 18px; font-size: 27px; color: var(--muted); line-height: 1.35; }
+.src-url { margin-top: 6px; font-size: 27px; color: var(--accent); font-weight: 600; }
+.steps { display: flex; flex-wrap: wrap; gap: 6px 34px; padding-top: 8px; }
+.steps span { font-size: 56px; font-weight: 600; letter-spacing: -0.025em; line-height: 1.12; color: var(--ink); }
+
+/* Short cut: the slogan deck, one persistent lower-band card; its top edge is locked. */
+.deck { left: var(--x); right: var(--x); top: 1140px; }
+.deck-bg { position: absolute; left: 0; right: 0; top: 0; background: var(--panel); }
+.deck-progress { position: absolute; right: 44px; top: 46px; width: 330px; display: grid; grid-template-columns: repeat(10, 1fr); gap: 7px; }
+.deck-progress i { display: block; height: 6px; background: rgb(255 255 255 / 0.16); position: relative; overflow: hidden; }
+.deck-progress i b { position: absolute; inset: 0; background: var(--accent); transform-origin: left; transform: scaleX(0); }
+.slide { position: absolute; left: 44px; right: 44px; top: 32px; opacity: 0; }
+.slide-eyebrow { font-size: 28px; font-weight: 700; letter-spacing: 0.08em; color: var(--accent); line-height: 1.25; }
+.slide-title { margin-top: 12px; font-size: 92px; font-weight: 600; line-height: 1.02; letter-spacing: -0.035em; text-wrap: balance; }
+.slide-phrase { padding-top: 20px; font-size: 46px; font-weight: 550; line-height: 1.12; letter-spacing: -0.02em; color: #dbe6ea; text-wrap: balance; opacity: 0; }
+.slide-phrase.steps { display: flex; flex-wrap: wrap; gap: 4px 28px; }
+.slide-phrase.steps span { color: var(--ink); }
+
+/* End card. */
+.end { inset: 0; }
+.end .cover { opacity: 1; }
+.end-in { position: absolute; left: 96px; right: 96px; top: 0; bottom: 0; }
+.end-logo { position: absolute; top: 330px; width: 330px; height: auto; }
+.end-eyebrow { position: absolute; top: 640px; font-size: 30px; font-weight: 600; letter-spacing: 0.02em; color: var(--muted); }
+.end-head { position: absolute; top: 710px; font-size: 118px; font-weight: 600; line-height: 1.0; letter-spacing: -0.04em; }
+.end-head span { display: block; text-wrap: balance; }
+.end-head span + span { color: var(--accent); }
+.end-by { position: absolute; top: 1210px; font-size: 34px; font-weight: 500; color: var(--ink); }
+.end-by span { color: var(--muted); }
+.end-source { position: absolute; top: 1470px; font-size: 26px; line-height: 1.45; color: var(--soft); max-width: 888px; }
+.end-source b { display: block; color: var(--muted); font-weight: 500; }
+.fade { opacity: 0; }
+</style>
+</head>
+<body>
+<div id="stage"></div>
+<script type="module">
+const query = new URLSearchParams(location.search);
+if (query.get('bg')) document.body.classList.add('checker');
+const { SLOGANS, TITLE, BYLINE, SOURCE, CLOSING } = await import('./cuts/slogans.mjs');
+const timeline = await (await fetch(query.get('timeline'), { cache: 'no-store' })).json();
+const LOGO = '/packages/site_package/Resources/Public/Backend/Images/webconsulting-logo-dark.svg';
+
+const stage = document.getElementById('stage');
+const clamp = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v));
+const out = (p) => 1 - Math.pow(1 - clamp(p), 3);
+const inOut = (p) => { p = clamp(p); return p < 0.5 ? 4 * p * p * p : 1 - Math.pow(-2 * p + 2, 3) / 2; };
+/** 0 → 1 over [a, a + fin], 1 → 0 over [b - fout, b]. */
+const windowed = (t, a, b, fin, fout) => Math.min(clamp((t - a) / fin), clamp((b - t) / fout));
+const html = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;');
+const el = (tag, cls, inner = '') => { const e = document.createElement(tag); if (cls) e.className = cls; e.innerHTML = inner; return e; };
+
+const FIN = 0.22;   // cover fade in (≤ 350 ms: no long half-dimmed frames)
+const FOUT = 0.25;  // cover fade out
+const PIN = 0.34;   // panel fade in
+const POUT = 0.3;   // panel fade out
+
+const renderers = [];
+
+function card(event) {
+    const root = el('div', 'layer', '');
+    root.style.inset = '0';
+    const cover = el('div', 'cover');
+    cover.dataset.kind = 'cover';
+    const text = el('div', 'card-text', `
+        <div class="card-eyebrow" data-kind="text">Slogan ${event.n}<span>/ 10</span></div>
+        <div class="card-title" data-kind="text">${SLOGANS[event.n].split(' ').map((w) => `<span class="w">${html(w)}</span>`).join(' ')}</div>`);
+    const progress = el('div', 'progress', Array.from({ length: 10 }, (_, i) => `<i class="${i + 1 < event.n ? 'past' : ''}"><b></b></i>`).join(''));
+    progress.dataset.kind = 'text';
+    const source = el('div', 'card-source', `${html(SOURCE.author)} · ${html(SOURCE.book)}, ${SOURCE.year}`);
+    source.dataset.kind = 'text';
+    root.append(cover, text, progress, source);
+    stage.append(root);
+    const words = [...text.querySelectorAll('.w')];
+    const bar = progress.children[event.n - 1].firstElementChild;
+    renderers.push((t) => {
+        const a = event.start;
+        const b = event.end;
+        const on = windowed(t, a, b, FIN, FOUT);
+        root.style.opacity = on;
+        // Text only while the cover is fully opaque: it never shows over Kurt.
+        const textIn = a + FIN;
+        const textOut = b - FOUT;
+        const tv = t >= textIn && t <= textOut ? Math.min(clamp((t - textIn) / 0.22), clamp((textOut - t) / 0.18)) : 0;
+        text.style.opacity = tv;
+        progress.style.opacity = tv;
+        source.style.opacity = tv * 0.9;
+        words.forEach((w, i) => {
+            const p = out((t - textIn - 0.04 * i) / 0.62);
+            w.style.transform = `translateY(${(1 - p) * 34}px)`;
+            w.style.opacity = clamp((t - textIn - 0.04 * i) / 0.3);
+        });
+        bar.style.transform = `scaleX(${inOut((t - textIn - 0.1) / 0.7)})`;
+    });
+}
+
+function panel(event, inner, items) {
+    const root = el('div', `layer panel ${event.type}`, inner);
+    root.dataset.kind = 'text';
+    const list = el('div', 'items');
+    root.append(list);
+    stage.append(root);
+    const rows = (items ?? []).map((item) => {
+        const row = el('div', 'item', `<div class="item-in">${html(item.text)}</div>`);
+        list.append(row);
+        return { row, inner: row.firstElementChild, at: item.at };
+    });
+    return { root, rows };
+}
+
+/** The panel's eyebrow: the slogan it belongs to, or a label of its own. */
+const head = (event) => (event.label
+    ? `<div class="eyebrow"><b>${html(event.label)}</b></div>`
+    : `<div class="eyebrow"><b>${event.n} / 10</b><span>${html(SLOGANS[event.n])}</span></div>`);
+
+function lower(event) {
+    const eyebrow = event.type === 'closing' ? '' : head(event);
+    const { root, rows } = panel(event, eyebrow, event.items);
+    // In the short cut the closing line takes the deck's place (same top edge) and arrives as quickly.
+    if (event.anchor === 'deck') { root.style.top = '1140px'; root.style.bottom = 'auto'; }
+    const fin = event.fadeIn ?? PIN;
+    renderers.push((t) => {
+        const on = windowed(t, event.start, event.end, fin, POUT);
+        root.style.opacity = on;
+        root.style.transform = `translateY(${(1 - out((t - event.start) / 0.5)) * 24}px)`;
+        rows.forEach(({ row, inner, at }, i) => {
+            const first = i === 0;
+            // The first line arrives with the panel; later lines grow it upward.
+            const p = first ? 1 : out((t - at + 0.05) / 0.42);
+            row.style.height = `${(row.natural ?? 0) * p}px`;
+            const newer = rows[i + 1];
+            const dim = newer ? 1 - 0.42 * out((t - newer.at) / 0.35) : 1;
+            inner.style.opacity = (first ? 1 : clamp((t - at) / 0.3)) * dim;
+            inner.style.transform = `translateY(${first ? 0 : (1 - out((t - at) / 0.45)) * 18}px)`;
+        });
+    });
+    return rows;
+}
+
+function steps(event) {
+    const words = event.items.map((item) => `<span>${html(item.text)}</span>`).join('');
+    const root = el('div', 'layer panel', `${head(event)}<div class="steps">${words}</div>`);
+    root.dataset.kind = 'text';
+    stage.append(root);
+    const spans = [...root.querySelectorAll('.steps span')];
+    renderers.push((t) => {
+        root.style.opacity = windowed(t, event.start, event.end, PIN, POUT);
+        root.style.transform = `translateY(${(1 - out((t - event.start) / 0.5)) * 24}px)`;
+        spans.forEach((span, i) => {
+            const lit = out((t - event.items[i].at + 0.04) / 0.3);
+            span.style.opacity = 0.26 + 0.74 * lit;
+            span.style.color = lit > 0.5 && i === spans.findLastIndex((_, k) => t >= event.items[k].at - 0.04) ? 'var(--accent)' : 'var(--ink)';
+        });
+    });
+}
+
+/**
+ * The short cut's slogan deck: Kurt stays on screen; each slogan replaces the
+ * last inside one card (250 ms slide and fade), its key phrase grows the card
+ * when he says it, and the progress bar fills step by step.
+ */
+function deck(event) {
+    const root = el('div', 'layer deck', `<div class="deck-bg" data-kind="text"></div>
+        <div class="deck-progress" data-kind="text">${Array.from({ length: 10 }, () => '<i><b></b></i>').join('')}</div>`);
+    stage.append(root);
+    const bg = root.firstElementChild;
+    const bars = [...root.querySelectorAll('.deck-progress b')];
+    const slides = event.slides.map((slide) => {
+        const phrase = slide.phrase?.steps
+            ? `<div class="slide-phrase steps" data-kind="text">${slide.phrase.steps.map((step) => `<span>${html(step.text)}</span>`).join('')}</div>`
+            : slide.phrase ? `<div class="slide-phrase" data-kind="text">${html(slide.phrase.text)}</div>` : '';
+        const node = el('div', 'slide', `<div class="slide-eyebrow" data-kind="text">${slide.n} / 10</div><div class="slide-title" data-kind="text">${html(SLOGANS[slide.n])}</div>${phrase}`);
+        root.append(node);
+        return { ...slide, node, phraseNode: node.querySelector('.slide-phrase'), spans: [...node.querySelectorAll('.slide-phrase.steps span')] };
+    });
+    const SWAP = 0.25;
+    deck.measure = () => slides.forEach((slide) => {
+        const phrase = slide.phraseNode?.getBoundingClientRect().height ?? 0;
+        slide.full = slide.node.getBoundingClientRect().height + 32 + 40;
+        slide.head = slide.full - phrase;
+    });
+    renderers.push((t) => {
+        root.style.opacity = windowed(t, event.start, event.end, 0.3, SWAP);
+        root.style.transform = `translateY(${(1 - out((t - event.start) / 0.4)) * 20}px)`;
+        // The slide on screen: the last that has started; the one before it is leaving.
+        let current = slides.findLastIndex((slide) => t >= slide.at);
+        if (current < 0) current = 0;
+        const height = (slide) => slide.head + (slide.full - slide.head) * (slide.phrase ? out((t - slide.phrase.at + 0.05) / 0.3) : 0);
+        slides.forEach((slide, i) => {
+            // A clean hand-over within 300 ms: the old slogan leaves in 120 ms, the new one arrives from 100 ms.
+            const p = out((t - slide.at - 0.1) / 0.2);
+            if (i === current) {
+                slide.node.style.opacity = i === 0 ? 1 : p;
+                slide.node.style.transform = `translateY(${i === 0 ? 0 : (1 - p) * 26}px)`;
+            } else if (i === current - 1) {
+                const q = clamp((t - slides[current].at) / 0.12);
+                slide.node.style.opacity = 1 - q;
+                slide.node.style.transform = `translateY(${-out(q) * 20}px)`;
+            } else slide.node.style.opacity = 0;
+            if (slide.phraseNode) slide.phraseNode.style.opacity = clamp((t - slide.phrase.at + 0.05) / 0.25);
+            slide.spans.forEach((span, k) => {
+                const lit = out((t - slide.phrase.steps[k].at + 0.04) / 0.3);
+                span.style.opacity = 0.26 + 0.74 * lit;
+                span.style.color = lit > 0.5 && k === slide.phrase.steps.findLastIndex((step) => t >= step.at - 0.04) ? 'var(--accent)' : 'var(--ink)';
+            });
+        });
+        const now = slides[current];
+        const before = slides[current - 1];
+        const swap = out((t - now.at) / SWAP);
+        const h = before && swap < 1 ? height(before) + (height(now) - height(before)) * swap : height(now);
+        bg.style.height = `${h}px`;
+        bars.forEach((bar, i) => {
+            const slide = slides.find((s) => s.n === i + 1);
+            bar.style.transform = `scaleX(${slide ? inOut((t - slide.at) / 0.4) : t >= now.at && i + 1 < now.n ? 1 : 0})`;
+            bar.style.opacity = i + 1 < now.n ? 0.55 : 1;
+        });
+    });
+}
+
+function intro(event) {
+    const root = el('div', 'layer panel', `<img class="intro-logo" src="${LOGO}" alt=""><div class="intro-title">${html(TITLE)}</div><div class="intro-by">${html(BYLINE)}</div>`);
+    root.dataset.kind = 'text';
+    stage.append(root);
+    renderers.push((t) => {
+        root.style.opacity = windowed(t, event.start + 0.12, event.end, 0.5, POUT);
+        root.style.transform = `translateY(${(1 - out((t - event.start - 0.12) / 0.8)) * 26}px)`;
+    });
+}
+
+function source(event) {
+    const root = el('div', 'layer panel', `<div class="eyebrow"><b>Source</b></div><div class="src-name">${html(SOURCE.author)}</div><div class="src-book"><em>${html(SOURCE.book)}</em> (${SOURCE.year})</div><div class="src-detail">${html(SOURCE.detail)}</div><div class="src-url">${html(SOURCE.url)}</div>`);
+    root.dataset.kind = 'text';
+    stage.append(root);
+    renderers.push((t) => {
+        root.style.opacity = windowed(t, event.start, event.end, PIN, POUT);
+        root.style.transform = `translateY(${(1 - out((t - event.start) / 0.5)) * 24}px)`;
+    });
+}
+
+function ending(event) {
+    const root = el('div', 'layer end', `<div class="cover" data-kind="cover"></div><div class="end-in">
+        <img class="end-logo fade" src="${LOGO}" alt="" data-kind="text">
+        <div class="end-eyebrow fade" data-kind="text">${html(TITLE)}</div>
+        <div class="end-head"><span class="fade" data-kind="text">${html(CLOSING[0])}</span><span class="fade" data-kind="text">${html(CLOSING[1])}</span></div>
+        <div class="end-by fade" data-kind="text">Kurt Dirnbauer <span>· webconsulting.at</span></div>
+        <div class="end-source fade" data-kind="text">${SOURCE.lines.map((line) => `<b>${html(line)}</b>`).join('')}${html(SOURCE.url)}</div></div>`);
+    stage.append(root);
+    const parts = [...root.querySelectorAll('.fade')];
+    renderers.push((t) => {
+        const a = event.start;
+        // Kurt cross-fades into the card; the text builds once the card is opaque, then holds to the last frame.
+        root.style.opacity = inOut((t - a) / event.fade);
+        const built = a + event.fade;
+        parts.forEach((part, i) => {
+            const p = (t - built - 0.12 * i) / 0.7;
+            part.style.opacity = t >= built ? clamp(p / 0.6) : 0;
+            part.style.transform = `translateY(${(1 - out(p)) * 22}px)`;
+        });
+    });
+}
+
+for (const event of timeline.events) {
+    if (event.type === 'card') card(event);
+    else if (event.type === 'lower' || event.type === 'closing') lower(event);
+    else if (event.type === 'steps') steps(event);
+    else if (event.type === 'intro') intro(event);
+    else if (event.type === 'source') source(event);
+    else if (event.type === 'end') ending(event);
+    else if (event.type === 'deck') deck(event);
+}
+
+await document.fonts.ready;
+await Promise.all([...document.images].map((img) => img.decode().catch(() => {})));
+// Natural heights of the growing lines, measured once with the fonts in place.
+document.querySelectorAll('.item').forEach((row) => { row.natural = row.firstElementChild.getBoundingClientRect().height; });
+deck.measure?.();
+
+window.TIMELINE = timeline;
+window.FADES = { FIN, FOUT };
+window.seek = (ms) => { const t = ms / 1000; for (const render of renderers) render(t); };
+window.seek(0);
+
+const opacityOf = (node) => { let o = 1; for (let n = node; n && n !== document.body; n = n.parentElement) o *= Number(getComputedStyle(n).opacity); return o; };
+/** Visible text boxes and covers (CSS px = frame px) with effective opacity. */
+window.layout = () => [...document.querySelectorAll('[data-kind]')].map((node) => {
+    const r = node.getBoundingClientRect();
+    return { kind: node.dataset.kind, cls: node.className, opacity: opacityOf(node), box: [Math.round(r.left), Math.round(r.top), Math.round(r.right), Math.round(r.bottom)] };
+}).filter((item) => item.opacity > 0.004);
+window.ready = timeline.duration * 1000;
+</script>
+</body>
+</html>

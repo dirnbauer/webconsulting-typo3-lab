@@ -1,0 +1,62 @@
+{
+  "id": "agentic-skills",
+  "slug": "/ai/agentic-skills",
+  "placements": [
+    {
+      "slug": "/ai/agentic-skills"
+    }
+  ],
+  "title": "Agentic skills: overview film",
+  "header": "Agentic skills in 44 seconds",
+  "description": "<p>61 skills for coding agents. A narrated tour, recorded in this TYPO3 v14 lab, with English captions.</p>",
+  "mp4": "agentic-skills-72e85ca2.mp4",
+  "poster": "agentic-skills-poster-72e85ca2.webp",
+  "vtt": "agentic-skills-72e85ca2.en.vtt",
+  "duration": 44.183,
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "sound": true,
+  "alt": "Overview film, 44 seconds: typo3-skills, 61 open-source skills that teach coding agents how we work with TYPO3. The install script, the skill catalogue in this lab, the upgrade graph with 72 nodes and 206 edges, and 22 always-on rules. Narrated, with English captions.",
+  "transcript": [
+    {
+      "at": "0:02",
+      "text": "Your agent knows TYPO3, but not your project."
+    },
+    {
+      "at": "0:07",
+      "text": "typo3-skills: 61 skills for coding agents."
+    },
+    {
+      "at": "0:13",
+      "text": "One clone, one install script, every client."
+    },
+    {
+      "at": "0:18",
+      "text": "Upgrades, accessibility, Solr, structured data."
+    },
+    {
+      "at": "0:24",
+      "text": "Upgrades follow a sealed graph: 72 nodes, 206 edges."
+    },
+    {
+      "at": "0:31",
+      "text": "Twenty-two rules, such as: no claim without evidence."
+    },
+    {
+      "at": "0:37",
+      "text": "Open source. Clone it today."
+    }
+  ],
+  "captions": {
+    "language": "en",
+    "label": "English",
+    "burnedIn": true
+  },
+  "bytes": {
+    "mp4": 3381917,
+    "poster": 48668,
+    "vtt": 594
+  },
+  "generator": "packages/site_package/Build/Film/render-films.mjs"
+}

@@ -1,0 +1,58 @@
+{
+  "id": "skill-typo3-visual-editor",
+  "slug": "/ai/agentic-skills/typo3-visual-editor",
+  "placements": [
+    {
+      "slug": "/ai/agentic-skills/typo3-visual-editor"
+    }
+  ],
+  "title": "typo3-visual-editor: the skill at work",
+  "header": "typo3-visual-editor in 47 seconds",
+  "description": "<p>Templates ready for editing on the page. Recorded in this TYPO3 v14 lab: a real Desiderio template, then the Visual Editor on a test page, saved for real and removed afterwards. Narrated, with English captions.</p>",
+  "mp4": "skill-typo3-visual-editor-18c41f19.mp4",
+  "poster": "skill-typo3-visual-editor-poster-18c41f19.webp",
+  "vtt": "skill-typo3-visual-editor-18c41f19.en.vtt",
+  "duration": 47.08,
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "sound": true,
+  "alt": "Film, 47 seconds: the typo3-visual-editor agent skill. A Desiderio Fluid template renders three fields with f:render.text, and in the TYPO3 Visual Editor a headline is typed into on the page and saved. Narrated, with English captions.",
+  "transcript": [
+    {
+      "at": "0:02",
+      "text": "A typo on the page meant finding the record in the backend, opening its form and saving."
+    },
+    {
+      "at": "0:12",
+      "text": "You ask for editing on the page."
+    },
+    {
+      "at": "0:19",
+      "text": "The skill traces each output to its record and field; f:render.text makes it editable."
+    },
+    {
+      "at": "0:27",
+      "text": "In the Visual Editor: click the headline, type, save. The record is updated."
+    },
+    {
+      "at": "0:35",
+      "text": "Readiness is tested as an editor, never only as admin."
+    },
+    {
+      "at": "0:41",
+      "text": "Open source. Clone the skills."
+    }
+  ],
+  "captions": {
+    "language": "en",
+    "label": "English",
+    "burnedIn": true
+  },
+  "bytes": {
+    "mp4": 2494117,
+    "poster": 60812,
+    "vtt": 620
+  },
+  "generator": "packages/site_package/Build/Film/render-films.mjs"
+}

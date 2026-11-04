@@ -3,6 +3,16 @@ import contentTypes from './content-types.mjs';
 import docx from './docx-editor.mjs';
 import features from './features.mjs';
 import hubs from './hubs.mjs';
+import labOverview from './lab-overview.mjs';
+import skillFilmsA from './skill-films-a.mjs';
+import skillFilmsB from './skill-films-b.mjs';
+import skills from './skills.mjs';
+import softwareFinance from './software-finance.mjs';
+import softwareOps from './software-ops.mjs';
+import strategy from './strategy.mjs';
 import themes from './themes.mjs';
 
-export const films = { ...docx, ...features, ...ai, ...hubs, ...contentTypes, ...themes };
+export const films = {
+    ...docx, ...features, ...ai, ...hubs, ...contentTypes, ...themes,
+    ...softwareOps, ...softwareFinance, ...skills, ...skillFilmsA, ...skillFilmsB, ...strategy, ...labOverview,
+};

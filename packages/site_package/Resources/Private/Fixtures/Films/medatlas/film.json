@@ -1,0 +1,71 @@
+{
+  "id": "medatlas",
+  "page": 8231,
+  "slug": "/software/medatlas",
+  "placements": [
+    {
+      "slug": "/software/medatlas"
+    }
+  ],
+  "title": "MedAtlas Austria: overview film",
+  "header": "MedAtlas Austria in 64 seconds",
+  "description": "<p>Medicines and shortages, from the public registers. A narrated tour of the MedAtlas Austria demo, figures as of 4 November 2026, with English captions. Not medical advice.</p>",
+  "mp4": "medatlas-578ad487.mp4",
+  "poster": "medatlas-poster-578ad487.webp",
+  "vtt": "medatlas-578ad487.en.vtt",
+  "duration": 63.596,
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "sound": true,
+  "alt": "Overview film, 64 seconds: MedAtlas Austria, independent research on medicine shortages in Austria. Substance finder, next steps, the nightly data report with 622 active shortages as of 4 November 2026, the 24-month chart, the top reasons and alerts. Narrated, with English captions.",
+  "transcript": [
+    {
+      "at": "0:02",
+      "text": "A child has a fever. The pharmacy says: not available."
+    },
+    {
+      "at": "0:07",
+      "text": "MedAtlas shows what is short, and what has the same substance."
+    },
+    {
+      "at": "0:14",
+      "text": "Search a substance, grouped by availability."
+    },
+    {
+      "at": "0:19",
+      "text": "Then call a pharmacy, and let doctor or pharmacist decide."
+    },
+    {
+      "at": "0:25",
+      "text": "622 shortages, 287 substances, one package in three not deliverable."
+    },
+    {
+      "at": "0:34",
+      "text": "Counted every night: 133 new reports in October alone."
+    },
+    {
+      "at": "0:41",
+      "text": "Top reason: manufacturing delays. Median planned outage: 272 days."
+    },
+    {
+      "at": "0:49",
+      "text": "Alerts tell you when it is back."
+    },
+    {
+      "at": "0:55",
+      "text": "MedAtlas. Open data, no medical advice."
+    }
+  ],
+  "captions": {
+    "language": "en",
+    "label": "English",
+    "burnedIn": true
+  },
+  "bytes": {
+    "mp4": 5784128,
+    "poster": 52714,
+    "vtt": 830
+  },
+  "generator": "packages/site_package/Build/Film/render-films.mjs"
+}

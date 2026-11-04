@@ -1,0 +1,58 @@
+{
+  "id": "skill-typo3-backend-rights",
+  "slug": "/ai/agentic-skills/typo3-backend-rights",
+  "placements": [
+    {
+      "slug": "/ai/agentic-skills/typo3-backend-rights"
+    }
+  ],
+  "title": "typo3-backend-rights: the skill at work",
+  "header": "typo3-backend-rights in 48 seconds",
+  "description": "<p>Editor groups you can verify. Recorded from a read-only audit of this TYPO3 v14 lab and its Backend Users module. Narrated, with English captions.</p>",
+  "mp4": "skill-typo3-backend-rights-8a399c15.mp4",
+  "poster": "skill-typo3-backend-rights-poster-8a399c15.webp",
+  "vtt": "skill-typo3-backend-rights-8a399c15.en.vtt",
+  "duration": 48.423,
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "sound": true,
+  "alt": "Film, 48 seconds: the typo3-backend-rights agent skill. A read-only audit of the TYPO3 lab prints its editor model as JSON: three groups, four administrators and 56 findings, and the Backend Users module shows the groups. Narrated, with English captions.",
+  "transcript": [
+    {
+      "at": "0:02",
+      "text": "Editor rights grow for years. One wrong click, and the admin is locked out."
+    },
+    {
+      "at": "0:12",
+      "text": "You ask for one main editor role with subgroups."
+    },
+    {
+      "at": "0:19",
+      "text": "A read-only audit reads every group, module and page permission, and prints JSON."
+    },
+    {
+      "at": "0:27",
+      "text": "The lab fails: three groups, no leaves, 56 findings."
+    },
+    {
+      "at": "0:34",
+      "text": "A working administrator always stays. A lockout costs more than any permission gain."
+    },
+    {
+      "at": "0:42",
+      "text": "Open source. Clone the skills."
+    }
+  ],
+  "captions": {
+    "language": "en",
+    "label": "English",
+    "burnedIn": true
+  },
+  "bytes": {
+    "mp4": 2425850,
+    "poster": 26256,
+    "vtt": 625
+  },
+  "generator": "packages/site_package/Build/Film/render-films.mjs"
+}

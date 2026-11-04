@@ -1,0 +1,81 @@
+{
+  "id": "typo3-v14-strategy",
+  "page": 1121,
+  "slug": "/typo3-v14-strategy",
+  "placements": [
+    {
+      "slug": "/typo3-v14-strategy"
+    },
+    {
+      "slug": "/",
+      "after": {
+        "header": "Five points for all our software"
+      }
+    }
+  ],
+  "title": "TYPO3 v14 and AI agents: strategy film",
+  "header": "Our TYPO3 v14 strategy in 65 seconds",
+  "description": "<p>Our strategy for TYPO3 v14 and AI agents, 2026 to 2030: five points that are the standard for everything we build. Narrated, with English captions.</p>",
+  "mp4": "typo3-v14-strategy-29bffd67.mp4",
+  "poster": "typo3-v14-strategy-poster-29bffd67.webp",
+  "vtt": "typo3-v14-strategy-29bffd67.en.vtt",
+  "duration": 64.994,
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "sound": true,
+  "alt": "Strategy film, 65 seconds: our strategy for TYPO3 v14 and AI agents, 2026 to 2030. Five points: governed tools, people approve, one registry, your choice of model, governance. What runs in the lab today, and why the five points are the standard for all our software. Narrated, with English captions.",
+  "transcript": [
+    {
+      "at": "0:02",
+      "text": "Agents now read, edit and buy on websites. Tenders ask how a CMS handles that."
+    },
+    {
+      "at": "0:10",
+      "text": "Our strategy for TYPO3 v14 and AI agents."
+    },
+    {
+      "at": "0:16",
+      "text": "One: agents use governed tools, never a shared admin login."
+    },
+    {
+      "at": "0:22",
+      "text": "Two: people approve what goes live."
+    },
+    {
+      "at": "0:26",
+      "text": "Three: one registry defines each action and its risk."
+    },
+    {
+      "at": "0:32",
+      "text": "Four: you choose the model and where it runs."
+    },
+    {
+      "at": "0:36",
+      "text": "Five: governance is what clients buy."
+    },
+    {
+      "at": "0:41",
+      "text": "Much of it runs here today: an MCP server, an abilities registry, agent protocols."
+    },
+    {
+      "at": "0:49",
+      "text": "These five points are our standard for everything we build. Not only TYPO3."
+    },
+    {
+      "at": "0:57",
+      "text": "Read the strategy, then start with one workflow."
+    }
+  ],
+  "captions": {
+    "language": "en",
+    "label": "English",
+    "burnedIn": true
+  },
+  "bytes": {
+    "mp4": 3230166,
+    "poster": 43344,
+    "vtt": 947
+  },
+  "generator": "packages/site_package/Build/Film/render-films.mjs"
+}

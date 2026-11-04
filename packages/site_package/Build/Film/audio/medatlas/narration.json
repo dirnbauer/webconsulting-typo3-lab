@@ -1,0 +1,535 @@
+{
+  "voice": "George",
+  "delivery": {
+    "stability": 0.62,
+    "similarity_boost": 0.78,
+    "style": 0.18,
+    "speed": 0.9
+  },
+  "lines": [
+    {
+      "say": "A child has a fever. The pharmacy says: not available.",
+      "show": "A child has a fever. The pharmacy says: not available.",
+      "file": "voice-01.mp3",
+      "duration": 4441,
+      "words": [
+        {
+          "word": "A",
+          "start": 46,
+          "end": 116
+        },
+        {
+          "word": "child",
+          "start": 197,
+          "end": 534
+        },
+        {
+          "word": "has",
+          "start": 580,
+          "end": 685
+        },
+        {
+          "word": "a",
+          "start": 731,
+          "end": 755
+        },
+        {
+          "word": "fever.",
+          "start": 824,
+          "end": 1358
+        },
+        {
+          "word": "The",
+          "start": 1672,
+          "end": 1788
+        },
+        {
+          "word": "pharmacy",
+          "start": 1834,
+          "end": 2310
+        },
+        {
+          "word": "says:",
+          "start": 2380,
+          "end": 2798
+        },
+        {
+          "word": "not",
+          "start": 2961,
+          "end": 3146
+        },
+        {
+          "word": "available.",
+          "start": 3193,
+          "end": 3913
+        }
+      ],
+      "heard": "A child has a fever. The pharmacy says not available.",
+      "end": 3960
+    },
+    {
+      "say": "Med Atlas shows what is short, and what has the same substance.",
+      "show": "MedAtlas shows what is short, and what has the same substance.",
+      "file": "voice-02.mp3",
+      "duration": 4728,
+      "words": [
+        {
+          "word": "Med",
+          "start": 12,
+          "end": 267
+        },
+        {
+          "word": "Atlas",
+          "start": 313,
+          "end": 685
+        },
+        {
+          "word": "shows",
+          "start": 755,
+          "end": 1126
+        },
+        {
+          "word": "what",
+          "start": 1161,
+          "end": 1300
+        },
+        {
+          "word": "is",
+          "start": 1370,
+          "end": 1440
+        },
+        {
+          "word": "short,",
+          "start": 1486,
+          "end": 2020
+        },
+        {
+          "word": "and",
+          "start": 2252,
+          "end": 2403
+        },
+        {
+          "word": "what",
+          "start": 2473,
+          "end": 2612
+        },
+        {
+          "word": "has",
+          "start": 2659,
+          "end": 2775
+        },
+        {
+          "word": "the",
+          "start": 2844,
+          "end": 2914
+        },
+        {
+          "word": "same",
+          "start": 2961,
+          "end": 3251
+        },
+        {
+          "word": "substance.",
+          "start": 3297,
+          "end": 4122
+        }
+      ],
+      "heard": "MedAtlas shows what is short and what has the same substance.",
+      "end": 4130
+    },
+    {
+      "say": "Search a substance, grouped by availability.",
+      "show": "Search a substance, grouped by availability.",
+      "file": "voice-03.mp3",
+      "duration": 3422,
+      "words": [
+        {
+          "word": "Search",
+          "start": 35,
+          "end": 372
+        },
+        {
+          "word": "a",
+          "start": 406,
+          "end": 430
+        },
+        {
+          "word": "substance,",
+          "start": 499,
+          "end": 1173
+        },
+        {
+          "word": "grouped",
+          "start": 1265,
+          "end": 1602
+        },
+        {
+          "word": "by",
+          "start": 1649,
+          "end": 1800
+        },
+        {
+          "word": "availability.",
+          "start": 1869,
+          "end": 2868
+        }
+      ],
+      "heard": "Search a substance grouped by availability."
+    },
+    {
+      "say": "Then call a pharmacy, and let doctor or pharmacist decide.",
+      "show": "Then call a pharmacy, and let doctor or pharmacist decide.",
+      "file": "voice-04.mp3",
+      "duration": 4598,
+      "words": [
+        {
+          "word": "Then",
+          "start": 23,
+          "end": 232
+        },
+        {
+          "word": "call",
+          "start": 325,
+          "end": 546
+        },
+        {
+          "word": "a",
+          "start": 592,
+          "end": 627
+        },
+        {
+          "word": "pharmacy,",
+          "start": 662,
+          "end": 1405
+        },
+        {
+          "word": "and",
+          "start": 1533,
+          "end": 1683
+        },
+        {
+          "word": "let",
+          "start": 1753,
+          "end": 1904
+        },
+        {
+          "word": "doctor",
+          "start": 1974,
+          "end": 2345
+        },
+        {
+          "word": "or",
+          "start": 2415,
+          "end": 2519
+        },
+        {
+          "word": "pharmacist",
+          "start": 2566,
+          "end": 3216
+        },
+        {
+          "word": "decide.",
+          "start": 3262,
+          "end": 4029
+        }
+      ],
+      "heard": "Then call a pharmacy and let doctor or pharmacist decide."
+    },
+    {
+      "say": "Six hundred twenty-two shortages, two hundred eighty-seven substances, one package in three not deliverable.",
+      "show": "622 shortages, 287 substances, one package in three not deliverable.",
+      "file": "voice-05.mp3",
+      "duration": 7523,
+      "words": [
+        {
+          "word": "Six",
+          "start": 35,
+          "end": 313
+        },
+        {
+          "word": "hundred",
+          "start": 360,
+          "end": 673
+        },
+        {
+          "word": "twenty-two",
+          "start": 708,
+          "end": 1242
+        },
+        {
+          "word": "shortages,",
+          "start": 1335,
+          "end": 2136
+        },
+        {
+          "word": "two",
+          "start": 2334,
+          "end": 2508
+        },
+        {
+          "word": "hundred",
+          "start": 2577,
+          "end": 2833
+        },
+        {
+          "word": "eighty-seven",
+          "start": 2902,
+          "end": 3495
+        },
+        {
+          "word": "substances,",
+          "start": 3576,
+          "end": 4516
+        },
+        {
+          "word": "one",
+          "start": 4783,
+          "end": 5027
+        },
+        {
+          "word": "package",
+          "start": 5074,
+          "end": 5515
+        },
+        {
+          "word": "in",
+          "start": 5561,
+          "end": 5689
+        },
+        {
+          "word": "three",
+          "start": 5770,
+          "end": 6095
+        },
+        {
+          "word": "not",
+          "start": 6177,
+          "end": 6339
+        },
+        {
+          "word": "deliverable.",
+          "start": 6385,
+          "end": 7140
+        }
+      ],
+      "heard": "622 shortages 287 substances 1 package in 3 not deliverable"
+    },
+    {
+      "say": "Counted every night: one hundred thirty-three new reports in October alone.",
+      "show": "Counted every night: 133 new reports in October alone.",
+      "file": "voice-06.mp3",
+      "duration": 5460,
+      "words": [
+        {
+          "word": "Counted",
+          "start": 12,
+          "end": 430
+        },
+        {
+          "word": "every",
+          "start": 499,
+          "end": 755
+        },
+        {
+          "word": "night:",
+          "start": 824,
+          "end": 1289
+        },
+        {
+          "word": "one",
+          "start": 1556,
+          "end": 1741
+        },
+        {
+          "word": "hundred",
+          "start": 1776,
+          "end": 2032
+        },
+        {
+          "word": "thirty-three",
+          "start": 2078,
+          "end": 2705
+        },
+        {
+          "word": "new",
+          "start": 2786,
+          "end": 2937
+        },
+        {
+          "word": "reports",
+          "start": 3007,
+          "end": 3460
+        },
+        {
+          "word": "in",
+          "start": 3506,
+          "end": 3576
+        },
+        {
+          "word": "October",
+          "start": 3646,
+          "end": 4133
+        },
+        {
+          "word": "alone.",
+          "start": 4203,
+          "end": 4841
+        }
+      ],
+      "heard": "counted every night, 133 new reports in October alone."
+    },
+    {
+      "say": "Top reason: manufacturing delays. Median planned outage: two hundred seventy-two days.",
+      "show": "Top reason: manufacturing delays. Median planned outage: 272 days.",
+      "file": "voice-07.mp3",
+      "duration": 7184,
+      "words": [
+        {
+          "word": "Top",
+          "start": 23,
+          "end": 313
+        },
+        {
+          "word": "reason:",
+          "start": 406,
+          "end": 906
+        },
+        {
+          "word": "manufacturing",
+          "start": 1103,
+          "end": 1916
+        },
+        {
+          "word": "delays.",
+          "start": 1962,
+          "end": 2635
+        },
+        {
+          "word": "Median",
+          "start": 3123,
+          "end": 3599
+        },
+        {
+          "word": "planned",
+          "start": 3680,
+          "end": 4029
+        },
+        {
+          "word": "outage:",
+          "start": 4098,
+          "end": 4737
+        },
+        {
+          "word": "two",
+          "start": 4969,
+          "end": 5166
+        },
+        {
+          "word": "hundred",
+          "start": 5248,
+          "end": 5538
+        },
+        {
+          "word": "seventy-two",
+          "start": 5584,
+          "end": 6177
+        },
+        {
+          "word": "days.",
+          "start": 6258,
+          "end": 6850
+        }
+      ],
+      "heard": "Top reason, manufacturing delays. Median planned outage, 272 days."
+    },
+    {
+      "say": "Alerts tell you when it is back.",
+      "show": "Alerts tell you when it is back.",
+      "file": "voice-08.mp3",
+      "duration": 2220,
+      "words": [
+        {
+          "word": "Alerts",
+          "start": 35,
+          "end": 499
+        },
+        {
+          "word": "tell",
+          "start": 534,
+          "end": 697
+        },
+        {
+          "word": "you",
+          "start": 743,
+          "end": 813
+        },
+        {
+          "word": "when",
+          "start": 848,
+          "end": 975
+        },
+        {
+          "word": "it",
+          "start": 1022,
+          "end": 1091
+        },
+        {
+          "word": "is",
+          "start": 1138,
+          "end": 1242
+        },
+        {
+          "word": "back.",
+          "start": 1312,
+          "end": 1788
+        }
+      ],
+      "heard": "Alerts tell you when it is back.",
+      "end": 1820
+    },
+    {
+      "say": "Med Atlas. Open data, no medical advice.",
+      "show": "MedAtlas. Open data, no medical advice.",
+      "file": "voice-09.mp3",
+      "duration": 3762,
+      "words": [
+        {
+          "word": "Med",
+          "start": 12,
+          "end": 255
+        },
+        {
+          "word": "Atlas.",
+          "start": 325,
+          "end": 906
+        },
+        {
+          "word": "Open",
+          "start": 1138,
+          "end": 1498
+        },
+        {
+          "word": "data,",
+          "start": 1579,
+          "end": 2113
+        },
+        {
+          "word": "no",
+          "start": 2241,
+          "end": 2380
+        },
+        {
+          "word": "medical",
+          "start": 2473,
+          "end": 2821
+        },
+        {
+          "word": "advice.",
+          "start": 2868,
+          "end": 3460
+        }
+      ],
+      "heard": "Med Atlas. Open data. No medical advice."
+    }
+  ]
+}

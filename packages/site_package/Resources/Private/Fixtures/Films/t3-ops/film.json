@@ -1,0 +1,67 @@
+{
+  "id": "t3-ops",
+  "page": 8229,
+  "slug": "/software/t3-ops",
+  "placements": [
+    {
+      "slug": "/software/t3-ops"
+    }
+  ],
+  "title": "T3 Ops: overview film",
+  "header": "T3 Ops in 63 seconds",
+  "description": "<p>One screen for the whole fleet. A narrated tour of T3 Ops on demo data, with English captions.</p>",
+  "mp4": "t3-ops-e27ae329.mp4",
+  "poster": "t3-ops-poster-e27ae329.webp",
+  "vtt": "t3-ops-e27ae329.en.vtt",
+  "duration": 63.458,
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "sound": true,
+  "alt": "Overview film, 63 seconds: T3 Ops. Core, extensions and advisories; Staging first, release second; Before and after, pixel by pixel; A checklist with 64 items. Narrated, with English captions.",
+  "transcript": [
+    {
+      "at": "0:02",
+      "text": "Twenty-two TYPO3 sites, one security advisory, and every update done by hand."
+    },
+    {
+      "at": "0:09",
+      "text": "T3 Ops runs the whole fleet from one screen."
+    },
+    {
+      "at": "0:15",
+      "text": "Four times a day it checks core, extensions and advisories."
+    },
+    {
+      "at": "0:20",
+      "text": "An update runs on a staging copy first: backup, Composer, deploy, screenshots."
+    },
+    {
+      "at": "0:29",
+      "text": "Before and after shots of every sampled page, compared pixel by pixel."
+    },
+    {
+      "at": "0:35",
+      "text": "A 64-point hardening checklist, from the Install Tool to security headers."
+    },
+    {
+      "at": "0:43",
+      "text": "Monitoring with Prometheus, Grafana and Uptime Kuma. Nightly encrypted backups, verified every morning. Cloudflare cache purged after each release."
+    },
+    {
+      "at": "0:56",
+      "text": "T3 Ops. Updates you can prove."
+    }
+  ],
+  "captions": {
+    "language": "en",
+    "label": "English",
+    "burnedIn": true
+  },
+  "bytes": {
+    "mp4": 3796442,
+    "poster": 49758,
+    "vtt": 888
+  },
+  "generator": "packages/site_package/Build/Film/render-films.mjs"
+}

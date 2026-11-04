@@ -1,0 +1,550 @@
+{
+  "voice": "George",
+  "delivery": {
+    "stability": 0.62,
+    "similarity_boost": 0.78,
+    "style": 0.18,
+    "speed": 0.9
+  },
+  "lines": [
+    {
+      "say": "One typo three installation shows everything we build.",
+      "show": "One TYPO3 installation shows everything we build.",
+      "file": "voice-01.mp3",
+      "duration": 3944,
+      "words": [
+        {
+          "word": "One",
+          "start": 35,
+          "end": 209
+        },
+        {
+          "word": "typo",
+          "start": 255,
+          "end": 662
+        },
+        {
+          "word": "three",
+          "start": 743,
+          "end": 998
+        },
+        {
+          "word": "installation",
+          "start": 1045,
+          "end": 1776
+        },
+        {
+          "word": "shows",
+          "start": 2009,
+          "end": 2299
+        },
+        {
+          "word": "everything",
+          "start": 2368,
+          "end": 2705
+        },
+        {
+          "word": "we",
+          "start": 2752,
+          "end": 2856
+        },
+        {
+          "word": "build.",
+          "start": 2926,
+          "end": 3413
+        }
+      ],
+      "heard": "One TYPO3 installation shows everything we build."
+    },
+    {
+      "say": "The webconsulting lab in one film.",
+      "show": "The webconsulting lab in one film.",
+      "file": "voice-02.mp3",
+      "duration": 2586,
+      "words": [
+        {
+          "word": "The",
+          "start": 12,
+          "end": 128
+        },
+        {
+          "word": "webconsulting",
+          "start": 197,
+          "end": 1057
+        },
+        {
+          "word": "lab",
+          "start": 1126,
+          "end": 1324
+        },
+        {
+          "word": "in",
+          "start": 1370,
+          "end": 1440
+        },
+        {
+          "word": "one",
+          "start": 1521,
+          "end": 1741
+        },
+        {
+          "word": "film.",
+          "start": 1788,
+          "end": 2264
+        }
+      ],
+      "heard": "The web consulting lab in one film",
+      "end": 2340
+    },
+    {
+      "say": "Seventeen website tools: design systems, blog and news, editing on the page, search, forms and sign-in.",
+      "show": "Seventeen website tools: design systems, blog and news, editing on the page, search, forms and sign-in.",
+      "file": "voice-03.mp3",
+      "duration": 8490,
+      "words": [
+        {
+          "word": "Seventeen",
+          "start": 35,
+          "end": 592
+        },
+        {
+          "word": "website",
+          "start": 673,
+          "end": 1184
+        },
+        {
+          "word": "tools:",
+          "start": 1219,
+          "end": 1741
+        },
+        {
+          "word": "design",
+          "start": 1974,
+          "end": 2438
+        },
+        {
+          "word": "systems,",
+          "start": 2508,
+          "end": 3158
+        },
+        {
+          "word": "blog",
+          "start": 3286,
+          "end": 3634
+        },
+        {
+          "word": "and",
+          "start": 3704,
+          "end": 3773
+        },
+        {
+          "word": "news,",
+          "start": 3855,
+          "end": 4354
+        },
+        {
+          "word": "editing",
+          "start": 4551,
+          "end": 5004
+        },
+        {
+          "word": "on",
+          "start": 5050,
+          "end": 5120
+        },
+        {
+          "word": "the",
+          "start": 5166,
+          "end": 5236
+        },
+        {
+          "word": "page,",
+          "start": 5283,
+          "end": 5817
+        },
+        {
+          "word": "search,",
+          "start": 6014,
+          "end": 6502
+        },
+        {
+          "word": "forms",
+          "start": 6583,
+          "end": 7059
+        },
+        {
+          "word": "and",
+          "start": 7105,
+          "end": 7198
+        },
+        {
+          "word": "sign-in.",
+          "start": 7279,
+          "end": 7930
+        }
+      ],
+      "heard": "17 website tools, design systems, blog and news, editing on the page, search, forms and sign-in."
+    },
+    {
+      "say": "Eleven AI tools, with people in charge: an assistant, skills, M C P and agent protocols.",
+      "show": "Eleven AI tools, with people in charge: an assistant, skills, MCP and agent protocols.",
+      "file": "voice-04.mp3",
+      "duration": 7602,
+      "words": [
+        {
+          "word": "Eleven",
+          "start": 23,
+          "end": 441
+        },
+        {
+          "word": "AI",
+          "start": 534,
+          "end": 859
+        },
+        {
+          "word": "tools,",
+          "start": 940,
+          "end": 1335
+        },
+        {
+          "word": "with",
+          "start": 1358,
+          "end": 1498
+        },
+        {
+          "word": "people",
+          "start": 1544,
+          "end": 1800
+        },
+        {
+          "word": "in",
+          "start": 1834,
+          "end": 1904
+        },
+        {
+          "word": "charge:",
+          "start": 1985,
+          "end": 2635
+        },
+        {
+          "word": "an",
+          "start": 2949,
+          "end": 3077
+        },
+        {
+          "word": "assistant,",
+          "start": 3123,
+          "end": 3796
+        },
+        {
+          "word": "skills,",
+          "start": 3924,
+          "end": 4656
+        },
+        {
+          "word": "M",
+          "start": 4725,
+          "end": 4888
+        },
+        {
+          "word": "C",
+          "start": 4969,
+          "end": 5050
+        },
+        {
+          "word": "P",
+          "start": 5213,
+          "end": 5341
+        },
+        {
+          "word": "and",
+          "start": 5573,
+          "end": 5677
+        },
+        {
+          "word": "agent",
+          "start": 5747,
+          "end": 6060
+        },
+        {
+          "word": "protocols.",
+          "start": 6107,
+          "end": 7047
+        }
+      ],
+      "heard": "11 AI tools with people in charge, an assistant, skills, MCP and agent protocols.",
+      "end": 7030
+    },
+    {
+      "say": "T three ops runs the fleet, Ledger closes the month, Med Atlas tracks medicine shortages, Capex One Plus governs capital projects.",
+      "show": "T3 Ops runs the fleet, Ledger closes the month, MedAtlas tracks medicine shortages, CapexOne Plus governs capital projects.",
+      "file": "voice-05.mp3",
+      "duration": 10475,
+      "words": [
+        {
+          "word": "T",
+          "start": 23,
+          "end": 186
+        },
+        {
+          "word": "three",
+          "start": 325,
+          "end": 650
+        },
+        {
+          "word": "ops",
+          "start": 720,
+          "end": 1022
+        },
+        {
+          "word": "runs",
+          "start": 1091,
+          "end": 1393
+        },
+        {
+          "word": "the",
+          "start": 1463,
+          "end": 1533
+        },
+        {
+          "word": "fleet,",
+          "start": 1602,
+          "end": 2136
+        },
+        {
+          "word": "Ledger",
+          "start": 2334,
+          "end": 2694
+        },
+        {
+          "word": "closes",
+          "start": 2763,
+          "end": 3216
+        },
+        {
+          "word": "the",
+          "start": 3262,
+          "end": 3332
+        },
+        {
+          "word": "month,",
+          "start": 3379,
+          "end": 3889
+        },
+        {
+          "word": "Med",
+          "start": 4203,
+          "end": 4447
+        },
+        {
+          "word": "Atlas",
+          "start": 4516,
+          "end": 4899
+        },
+        {
+          "word": "tracks",
+          "start": 4969,
+          "end": 5317
+        },
+        {
+          "word": "medicine",
+          "start": 5399,
+          "end": 5886
+        },
+        {
+          "word": "shortages,",
+          "start": 5921,
+          "end": 6722
+        },
+        {
+          "word": "Capex",
+          "start": 6954,
+          "end": 7477
+        },
+        {
+          "word": "One",
+          "start": 7581,
+          "end": 7802
+        },
+        {
+          "word": "Plus",
+          "start": 7848,
+          "end": 8197
+        },
+        {
+          "word": "governs",
+          "start": 8278,
+          "end": 8661
+        },
+        {
+          "word": "capital",
+          "start": 8731,
+          "end": 9079
+        },
+        {
+          "word": "projects.",
+          "start": 9149,
+          "end": 9950
+        }
+      ],
+      "heard": "T3 Ops runs the fleet. Ledger closes the month. Med Atlas tracks medicine shortages. CapEx One Plus governs capital projects."
+    },
+    {
+      "say": "Ten website templates, each a live demo site.",
+      "show": "Ten website templates, each a live demo site.",
+      "file": "voice-06.mp3",
+      "duration": 3657,
+      "words": [
+        {
+          "word": "Ten",
+          "start": 23,
+          "end": 302
+        },
+        {
+          "word": "website",
+          "start": 395,
+          "end": 882
+        },
+        {
+          "word": "templates,",
+          "start": 917,
+          "end": 1660
+        },
+        {
+          "word": "each",
+          "start": 1823,
+          "end": 2032
+        },
+        {
+          "word": "a",
+          "start": 2078,
+          "end": 2101
+        },
+        {
+          "word": "live",
+          "start": 2183,
+          "end": 2485
+        },
+        {
+          "word": "demo",
+          "start": 2531,
+          "end": 2821
+        },
+        {
+          "word": "site.",
+          "start": 2902,
+          "end": 3355
+        }
+      ],
+      "heard": "10 website templates, each a live demo site."
+    },
+    {
+      "say": "And a strategy for agents on the web.",
+      "show": "And a strategy for agents on the web.",
+      "file": "voice-07.mp3",
+      "duration": 2534,
+      "words": [
+        {
+          "word": "And",
+          "start": 23,
+          "end": 174
+        },
+        {
+          "word": "a",
+          "start": 244,
+          "end": 267
+        },
+        {
+          "word": "strategy",
+          "start": 313,
+          "end": 848
+        },
+        {
+          "word": "for",
+          "start": 917,
+          "end": 1022
+        },
+        {
+          "word": "agents",
+          "start": 1091,
+          "end": 1474
+        },
+        {
+          "word": "on",
+          "start": 1521,
+          "end": 1591
+        },
+        {
+          "word": "the",
+          "start": 1637,
+          "end": 1707
+        },
+        {
+          "word": "web.",
+          "start": 1753,
+          "end": 2171
+        }
+      ],
+      "heard": "and a strategy for agents on the web."
+    },
+    {
+      "say": "Download the whole lab and run it on your laptop.",
+      "show": "Download the whole lab and run it on your laptop.",
+      "file": "voice-08.mp3",
+      "duration": 3004,
+      "words": [
+        {
+          "word": "Download",
+          "start": 23,
+          "end": 580
+        },
+        {
+          "word": "the",
+          "start": 615,
+          "end": 685
+        },
+        {
+          "word": "whole",
+          "start": 731,
+          "end": 917
+        },
+        {
+          "word": "lab",
+          "start": 952,
+          "end": 1231
+        },
+        {
+          "word": "and",
+          "start": 1312,
+          "end": 1428
+        },
+        {
+          "word": "run",
+          "start": 1474,
+          "end": 1602
+        },
+        {
+          "word": "it",
+          "start": 1649,
+          "end": 1718
+        },
+        {
+          "word": "on",
+          "start": 1765,
+          "end": 1834
+        },
+        {
+          "word": "your",
+          "start": 1869,
+          "end": 1985
+        },
+        {
+          "word": "laptop.",
+          "start": 2032,
+          "end": 2682
+        }
+      ],
+      "heard": "Download the whole lab and run it on your laptop."
+    }
+  ]
+}

@@ -15,15 +15,20 @@ const backend = (image) => image.startsWith('Backend/') || image.startsWith('sti
 
 /**
  * @param {object} film
- * @param {string} film.section 'features' or 'ai': the lab path of the page.
+ * @param {string} film.section 'features', 'ai' or 'software': the lab path of the page.
+ * @param {string} [film.eyebrow] the title's (and start card's) eyebrow; default 'For TYPO3 v14',
+ *   'AI for TYPO3 v14' for section 'ai'. Software films use 'Software by webconsulting'.
+ * @param {string} [film.background] lib/backgrounds.mjs style ('aurora' when absent).
+ * @param {string} [film.alt] the video's alt text ({duration} is replaced), when the default does not fit.
  * @param {{head: string, say: string}} film.hook
  * @param {{sub: string, key: string, say: string}} film.title
  * @param {Array<{image: string, eyebrow: string, head: string, text?: string, say: string, focus?: number[]}>} film.shots
  * @param {{head: string, items: string[][], say: string}} [film.points]
  * @param {{head: string, cta: string, url: string, install?: string, note?: string, say: string}} film.end
  */
-export function featureFilm({ id, page, name, section, slug = id, accent, palette, music, hook, title, shots, points, end }) {
+export function featureFilm({ id, page, name, section, slug = id, eyebrow, background, alt, accent, palette, music, hook, title, shots, points, end }) {
     const path = `/${section}/${slug}/`;
+    const forTypo3 = section !== 'software';
     return [id, {
         name,
         page,
@@ -33,11 +38,12 @@ export function featureFilm({ id, page, name, section, slug = id, accent, palett
         accent,
         palette,
         music,
-        alt: `Overview film, {duration} seconds: ${name} for TYPO3 v14. `
+        ...(background ? { background } : {}),
+        alt: alt ?? `Overview film, {duration} seconds: ${name}${forTypo3 ? ' for TYPO3 v14' : ''}. `
             + `${shots.map((shot) => shot.head).join('; ')}. Narrated, with English captions.`,
         scenes: [
             { type: 'hook', head: hook.head, images: shots.slice(0, 3).map((shot) => source(shot.image)), say: hook.say },
-            { type: 'title', eyebrow: section === 'ai' ? 'AI for TYPO3 v14' : 'For TYPO3 v14', name, sub: title.sub, key: title.key, image: source(shots[0].image), say: title.say },
+            { type: 'title', eyebrow: eyebrow ?? (section === 'ai' ? 'AI for TYPO3 v14' : 'For TYPO3 v14'), name, sub: title.sub, key: title.key, image: source(shots[0].image), say: title.say },
             ...shots.map((shot, index) => ({
                 type: 'shot',
                 chapter: shot.eyebrow,

@@ -1,0 +1,33 @@
+WEBVTT - T3 Ops (narration, English)
+
+1
+00:00:02.040 --> 00:00:08.636
+Twenty-two TYPO3 sites, one security advisory, and every update done by hand.
+
+2
+00:00:09.736 --> 00:00:13.693
+T3 Ops runs the whole fleet from one screen.
+
+3
+00:00:14.943 --> 00:00:19.736
+Four times a day it checks core, extensions and advisories.
+
+4
+00:00:20.786 --> 00:00:28.087
+An update runs on a staging copy first: backup, Composer, deploy, screenshots.
+
+5
+00:00:29.137 --> 00:00:34.766
+Before and after shots of every sampled page, compared pixel by pixel.
+
+6
+00:00:35.816 --> 00:00:42.046
+A 64-point hardening checklist, from the Install Tool to security headers.
+
+7
+00:00:43.096 --> 00:00:54.446
+Monitoring with Prometheus, Grafana and Uptime Kuma. Nightly encrypted backups, verified every morning. Cloudflare cache purged after each release.
+
+8
+00:00:56.046 --> 00:00:59.298
+T3 Ops. Updates you can prove.

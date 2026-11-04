@@ -1,0 +1,58 @@
+{
+  "id": "skill-typo3-rector",
+  "slug": "/ai/agentic-skills/typo3-rector",
+  "placements": [
+    {
+      "slug": "/ai/agentic-skills/typo3-rector"
+    }
+  ],
+  "title": "typo3-rector: the skill at work",
+  "header": "typo3-rector in 49 seconds",
+  "description": "<p>Deprecated calls fixed by tools, twice checked. Recorded from real Rector and Fractor runs on a throwaway copy of a TYPO3 12 revision of powermail_cond; nothing was applied to any repository. Narrated, with English captions.</p>",
+  "mp4": "skill-typo3-rector-f1330c6d.mp4",
+  "poster": "skill-typo3-rector-poster-f1330c6d.webp",
+  "vtt": "skill-typo3-rector-f1330c6d.en.vtt",
+  "duration": 49.259,
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "sound": true,
+  "alt": "Film, 49 seconds: the typo3-rector agent skill with typo3-fractor. A dry run on a TYPO3 12 extension lists 13 files with their Rector rules, Fractor reformats two label files, and after applying, a second dry run finds one generated file and a third reports Rector is done. Narrated, with English captions.",
+  "transcript": [
+    {
+      "at": "0:02",
+      "text": "TYPO3 12 code calls APIs that version 14 removed."
+    },
+    {
+      "at": "0:12",
+      "text": "You ask for the deprecated PHP calls to be fixed."
+    },
+    {
+      "at": "0:19",
+      "text": "The dry run lists 13 files and the rule for each change. Fractor tidies two label files."
+    },
+    {
+      "at": "0:28",
+      "text": "Apply, dry-run again: one generated file left. Once more: Rector is done."
+    },
+    {
+      "at": "0:36",
+      "text": "One applied pass is not completion. The clean dry run is."
+    },
+    {
+      "at": "0:43",
+      "text": "Open source. Clone the skills."
+    }
+  ],
+  "captions": {
+    "language": "en",
+    "label": "English",
+    "burnedIn": true
+  },
+  "bytes": {
+    "mp4": 2892180,
+    "poster": 58160,
+    "vtt": 593
+  },
+  "generator": "packages/site_package/Build/Film/render-films.mjs"
+}

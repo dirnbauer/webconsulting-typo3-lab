@@ -1,0 +1,41 @@
+WEBVTT - Our TYPO3 v14 strategy (narration, English)
+
+1
+00:00:02.040 --> 00:00:08.844
+Agents now read, edit and buy on websites. Tenders ask how a CMS handles that.
+
+2
+00:00:09.944 --> 00:00:15.495
+Our strategy for TYPO3 v14 and AI agents.
+
+3
+00:00:16.745 --> 00:00:22.191
+One: agents use governed tools, never a shared admin login.
+
+4
+00:00:22.271 --> 00:00:25.915
+Two: people approve what goes live.
+
+5
+00:00:25.995 --> 00:00:30.840
+Three: one registry defines each action and its risk.
+
+6
+00:00:32.190 --> 00:00:36.252
+Four: you choose the model and where it runs.
+
+7
+00:00:36.332 --> 00:00:39.819
+Five: governance is what clients buy.
+
+8
+00:00:41.219 --> 00:00:48.441
+Much of it runs here today: an MCP server, an abilities registry, agent protocols.
+
+9
+00:00:49.791 --> 00:00:55.890
+These five points are our standard for everything we build. Not only TYPO3.
+
+10
+00:00:57.190 --> 00:01:00.834
+Read the strategy, then start with one workflow.

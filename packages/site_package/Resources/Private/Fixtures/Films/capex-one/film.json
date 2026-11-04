@@ -1,0 +1,75 @@
+{
+  "id": "capex-one",
+  "page": 8232,
+  "slug": "/software/capex-one",
+  "placements": [
+    {
+      "slug": "/software/capex-one"
+    }
+  ],
+  "title": "CapexOne Plus: overview film",
+  "header": "CapexOne Plus in 72 seconds",
+  "description": "<p>Capital projects, checked live. A narrated tour of the CapexOne Plus demo with fictional data, with English captions.</p>",
+  "mp4": "capex-one-a2c681bf.mp4",
+  "poster": "capex-one-poster-a2c681bf.webp",
+  "vtt": "capex-one-a2c681bf.en.vtt",
+  "duration": 71.712,
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "sound": true,
+  "alt": "Overview film, 72 seconds: CapexOne Plus checks capital projects against their business case. Planner, gate pack, project value, invoice approval and the CFO portfolio view; the shared-savings model (a 3 % saving goal, one third our fee, two thirds stay with the client: a target, not a guarantee); and an API built for agents. Narrated, with English captions.",
+  "transcript": [
+    {
+      "at": "0:02",
+      "text": "Last month’s slides and forty hours per gate review."
+    },
+    {
+      "at": "0:07",
+      "text": "CapexOne Plus checks every capital project against its business case, live."
+    },
+    {
+      "at": "0:14",
+      "text": "Describe the investment; a rule engine builds the stage-gate plan."
+    },
+    {
+      "at": "0:20",
+      "text": "Before every review, the gate pack builds itself."
+    },
+    {
+      "at": "0:25",
+      "text": "NPV and IRR, against the approved case."
+    },
+    {
+      "at": "0:31",
+      "text": "Every invoice passes the approval matrix before it reaches the ERP."
+    },
+    {
+      "at": "0:38",
+      "text": "The CFO sees value at risk across the portfolio."
+    },
+    {
+      "at": "0:43",
+      "text": "We aim to save you three percent: a third is our fee, two thirds stay with you. A goal, not a guarantee."
+    },
+    {
+      "at": "0:53",
+      "text": "Guillermo Rauch: focus on the API. So we did: 173 documented endpoints."
+    },
+    {
+      "at": "1:03",
+      "text": "CapexOne Plus. Decide on live numbers."
+    }
+  ],
+  "captions": {
+    "language": "en",
+    "label": "English",
+    "burnedIn": true
+  },
+  "bytes": {
+    "mp4": 6683209,
+    "poster": 48390,
+    "vtt": 996
+  },
+  "generator": "packages/site_package/Build/Film/render-films.mjs"
+}

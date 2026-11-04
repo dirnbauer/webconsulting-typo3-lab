@@ -1,0 +1,401 @@
+{
+  "voice": "George",
+  "delivery": {
+    "stability": 0.62,
+    "similarity_boost": 0.78,
+    "style": 0.18,
+    "speed": 0.9
+  },
+  "lines": [
+    {
+      "say": "A typo on the page meant finding the record in the backend, opening its form and saving.",
+      "show": "A typo on the page meant finding the record in the backend, opening its form and saving.",
+      "file": "voice-01.mp3",
+      "duration": 5851,
+      "words": [
+        {
+          "word": "A",
+          "start": 35,
+          "end": 104
+        },
+        {
+          "word": "typo",
+          "start": 186,
+          "end": 534
+        },
+        {
+          "word": "on",
+          "start": 604,
+          "end": 685
+        },
+        {
+          "word": "the",
+          "start": 720,
+          "end": 789
+        },
+        {
+          "word": "page",
+          "start": 836,
+          "end": 1196
+        },
+        {
+          "word": "meant",
+          "start": 1242,
+          "end": 1405
+        },
+        {
+          "word": "finding",
+          "start": 1486,
+          "end": 1846
+        },
+        {
+          "word": "the",
+          "start": 1892,
+          "end": 1962
+        },
+        {
+          "word": "record",
+          "start": 2032,
+          "end": 2368
+        },
+        {
+          "word": "in",
+          "start": 2403,
+          "end": 2473
+        },
+        {
+          "word": "the",
+          "start": 2508,
+          "end": 2577
+        },
+        {
+          "word": "backend,",
+          "start": 2612,
+          "end": 3332
+        },
+        {
+          "word": "opening",
+          "start": 3564,
+          "end": 3947
+        },
+        {
+          "word": "its",
+          "start": 4017,
+          "end": 4145
+        },
+        {
+          "word": "form",
+          "start": 4214,
+          "end": 4493
+        },
+        {
+          "word": "and",
+          "start": 4540,
+          "end": 4621
+        },
+        {
+          "word": "saving.",
+          "start": 4702,
+          "end": 5306
+        }
+      ],
+      "heard": "A typo on the page meant finding the record in the backend, opening its form and saving."
+    },
+    {
+      "say": "You ask for editing on the page.",
+      "show": "You ask for editing on the page.",
+      "file": "voice-02.mp3",
+      "duration": 2273,
+      "words": [
+        {
+          "word": "You",
+          "start": 23,
+          "end": 163
+        },
+        {
+          "word": "ask",
+          "start": 255,
+          "end": 499
+        },
+        {
+          "word": "for",
+          "start": 569,
+          "end": 662
+        },
+        {
+          "word": "editing",
+          "start": 731,
+          "end": 1149
+        },
+        {
+          "word": "on",
+          "start": 1219,
+          "end": 1289
+        },
+        {
+          "word": "the",
+          "start": 1324,
+          "end": 1393
+        },
+        {
+          "word": "page.",
+          "start": 1440,
+          "end": 2009
+        }
+      ],
+      "heard": "You ask for editing on the page."
+    },
+    {
+      "say": "The skill traces each output to its record and field; render text makes it editable.",
+      "show": "The skill traces each output to its record and field; f:render.text makes it editable.",
+      "file": "voice-03.mp3",
+      "duration": 6635,
+      "words": [
+        {
+          "word": "The",
+          "start": 35,
+          "end": 151
+        },
+        {
+          "word": "skill",
+          "start": 221,
+          "end": 522
+        },
+        {
+          "word": "traces",
+          "start": 604,
+          "end": 1057
+        },
+        {
+          "word": "each",
+          "start": 1149,
+          "end": 1358
+        },
+        {
+          "word": "output",
+          "start": 1428,
+          "end": 1881
+        },
+        {
+          "word": "to",
+          "start": 1927,
+          "end": 1997
+        },
+        {
+          "word": "its",
+          "start": 2090,
+          "end": 2206
+        },
+        {
+          "word": "record",
+          "start": 2287,
+          "end": 2659
+        },
+        {
+          "word": "and",
+          "start": 2705,
+          "end": 2786
+        },
+        {
+          "word": "field;",
+          "start": 2879,
+          "end": 3460
+        },
+        {
+          "word": "render",
+          "start": 4029,
+          "end": 4342
+        },
+        {
+          "word": "text",
+          "start": 4412,
+          "end": 4807
+        },
+        {
+          "word": "makes",
+          "start": 4899,
+          "end": 5166
+        },
+        {
+          "word": "it",
+          "start": 5213,
+          "end": 5283
+        },
+        {
+          "word": "editable.",
+          "start": 5352,
+          "end": 6095
+        }
+      ],
+      "heard": "The skill traces each output to its record and field. Render Text makes it editable."
+    },
+    {
+      "say": "In the Visual Editor: click the headline, type, save. The record is updated.",
+      "show": "In the Visual Editor: click the headline, type, save. The record is updated.",
+      "file": "voice-04.mp3",
+      "duration": 6400,
+      "words": [
+        {
+          "word": "In",
+          "start": 23,
+          "end": 174
+        },
+        {
+          "word": "the",
+          "start": 209,
+          "end": 279
+        },
+        {
+          "word": "Visual",
+          "start": 325,
+          "end": 685
+        },
+        {
+          "word": "Editor:",
+          "start": 778,
+          "end": 1370
+        },
+        {
+          "word": "click",
+          "start": 1533,
+          "end": 1776
+        },
+        {
+          "word": "the",
+          "start": 1846,
+          "end": 1916
+        },
+        {
+          "word": "headline,",
+          "start": 1985,
+          "end": 2589
+        },
+        {
+          "word": "type,",
+          "start": 2717,
+          "end": 3216
+        },
+        {
+          "word": "save.",
+          "start": 3413,
+          "end": 4040
+        },
+        {
+          "word": "The",
+          "start": 4609,
+          "end": 4725
+        },
+        {
+          "word": "record",
+          "start": 4807,
+          "end": 5120
+        },
+        {
+          "word": "is",
+          "start": 5166,
+          "end": 5236
+        },
+        {
+          "word": "updated.",
+          "start": 5306,
+          "end": 6060
+        }
+      ],
+      "heard": "In the visual editor, click the headline, type, save. The record is updated.",
+      "end": 6050
+    },
+    {
+      "say": "Readiness is tested as an editor, never only as admin.",
+      "show": "Readiness is tested as an editor, never only as admin.",
+      "file": "voice-05.mp3",
+      "duration": 4258,
+      "words": [
+        {
+          "word": "Readiness",
+          "start": 35,
+          "end": 522
+        },
+        {
+          "word": "is",
+          "start": 569,
+          "end": 639
+        },
+        {
+          "word": "tested",
+          "start": 708,
+          "end": 1149
+        },
+        {
+          "word": "as",
+          "start": 1196,
+          "end": 1277
+        },
+        {
+          "word": "an",
+          "start": 1324,
+          "end": 1382
+        },
+        {
+          "word": "editor,",
+          "start": 1428,
+          "end": 1985
+        },
+        {
+          "word": "never",
+          "start": 2148,
+          "end": 2426
+        },
+        {
+          "word": "only",
+          "start": 2508,
+          "end": 2775
+        },
+        {
+          "word": "as",
+          "start": 2844,
+          "end": 2926
+        },
+        {
+          "word": "admin.",
+          "start": 2995,
+          "end": 3646
+        }
+      ],
+      "heard": "Readiness is tested as an editor, never only as admin."
+    },
+    {
+      "say": "Open source. Clone the skills.",
+      "show": "Open source. Clone the skills.",
+      "file": "voice-06.mp3",
+      "duration": 2586,
+      "words": [
+        {
+          "word": "Open",
+          "start": 12,
+          "end": 372
+        },
+        {
+          "word": "source.",
+          "start": 464,
+          "end": 1010
+        },
+        {
+          "word": "Clone",
+          "start": 1173,
+          "end": 1544
+        },
+        {
+          "word": "the",
+          "start": 1567,
+          "end": 1637
+        },
+        {
+          "word": "skills.",
+          "start": 1672,
+          "end": 2322
+        }
+      ],
+      "heard": "Open Source. Clone the skills."
+    }
+  ]
+}

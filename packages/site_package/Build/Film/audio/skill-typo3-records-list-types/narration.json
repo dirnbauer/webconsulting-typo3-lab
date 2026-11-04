@@ -1,0 +1,377 @@
+{
+  "voice": "George",
+  "delivery": {
+    "stability": 0.62,
+    "similarity_boost": 0.78,
+    "style": 0.18,
+    "speed": 0.9
+  },
+  "lines": [
+    {
+      "say": "The Records module shows a plain table, even for news with photos.",
+      "show": "The Records module shows a plain table, even for news with photos.",
+      "file": "voice-01.mp3",
+      "duration": 5094,
+      "words": [
+        {
+          "word": "The",
+          "start": 81,
+          "end": 174
+        },
+        {
+          "word": "Records",
+          "start": 255,
+          "end": 685
+        },
+        {
+          "word": "module",
+          "start": 731,
+          "end": 1161
+        },
+        {
+          "word": "shows",
+          "start": 1196,
+          "end": 1486
+        },
+        {
+          "word": "a",
+          "start": 1521,
+          "end": 1556
+        },
+        {
+          "word": "plain",
+          "start": 1602,
+          "end": 1904
+        },
+        {
+          "word": "table,",
+          "start": 1974,
+          "end": 2531
+        },
+        {
+          "word": "even",
+          "start": 2763,
+          "end": 3030
+        },
+        {
+          "word": "for",
+          "start": 3077,
+          "end": 3170
+        },
+        {
+          "word": "news",
+          "start": 3251,
+          "end": 3541
+        },
+        {
+          "word": "with",
+          "start": 3587,
+          "end": 3727
+        },
+        {
+          "word": "photos.",
+          "start": 3762,
+          "end": 4493
+        }
+      ],
+      "heard": "The records module shows a plain table, even for news with photos."
+    },
+    {
+      "say": "You ask for cards with thumbnails instead of the table.",
+      "show": "You ask for cards with thumbnails instead of the table.",
+      "file": "voice-02.mp3",
+      "duration": 4075,
+      "words": [
+        {
+          "word": "You",
+          "start": 23,
+          "end": 163
+        },
+        {
+          "word": "ask",
+          "start": 267,
+          "end": 511
+        },
+        {
+          "word": "for",
+          "start": 580,
+          "end": 673
+        },
+        {
+          "word": "cards",
+          "start": 743,
+          "end": 1091
+        },
+        {
+          "word": "with",
+          "start": 1126,
+          "end": 1254
+        },
+        {
+          "word": "thumbnails",
+          "start": 1300,
+          "end": 1892
+        },
+        {
+          "word": "instead",
+          "start": 1962,
+          "end": 2299
+        },
+        {
+          "word": "of",
+          "start": 2334,
+          "end": 2392
+        },
+        {
+          "word": "the",
+          "start": 2438,
+          "end": 2508
+        },
+        {
+          "word": "table.",
+          "start": 2543,
+          "end": 3135
+        }
+      ],
+      "heard": "You ask for cards with thumbnails instead of the table.",
+      "end": 3160
+    },
+    {
+      "say": "The extension adds the views. T S config decides which ones each page allows.",
+      "show": "The extension adds the views. TSconfig decides which ones each page allows.",
+      "file": "voice-03.mp3",
+      "duration": 6452,
+      "words": [
+        {
+          "word": "The",
+          "start": 35,
+          "end": 163
+        },
+        {
+          "word": "extension",
+          "start": 232,
+          "end": 801
+        },
+        {
+          "word": "adds",
+          "start": 882,
+          "end": 1173
+        },
+        {
+          "word": "the",
+          "start": 1242,
+          "end": 1312
+        },
+        {
+          "word": "views.",
+          "start": 1382,
+          "end": 1997
+        },
+        {
+          "word": "T",
+          "start": 2357,
+          "end": 2519
+        },
+        {
+          "word": "S",
+          "start": 2647,
+          "end": 2775
+        },
+        {
+          "word": "config",
+          "start": 2868,
+          "end": 3390
+        },
+        {
+          "word": "decides",
+          "start": 3471,
+          "end": 3936
+        },
+        {
+          "word": "which",
+          "start": 3982,
+          "end": 4180
+        },
+        {
+          "word": "ones",
+          "start": 4261,
+          "end": 4528
+        },
+        {
+          "word": "each",
+          "start": 4609,
+          "end": 4818
+        },
+        {
+          "word": "page",
+          "start": 4888,
+          "end": 5213
+        },
+        {
+          "word": "allows.",
+          "start": 5236,
+          "end": 5909
+        }
+      ],
+      "heard": "The extension adds the views. tsconfig decides which ones each page allows.",
+      "end": 5900
+    },
+    {
+      "say": "Grid, timeline, catalogue: editors switch views, and nothing in core is patched.",
+      "show": "Grid, timeline, catalogue: editors switch views, and nothing in core is patched.",
+      "file": "voice-04.mp3",
+      "duration": 6034,
+      "words": [
+        {
+          "word": "Grid,",
+          "start": 35,
+          "end": 476
+        },
+        {
+          "word": "timeline,",
+          "start": 557,
+          "end": 1265
+        },
+        {
+          "word": "catalogue:",
+          "start": 1312,
+          "end": 2055
+        },
+        {
+          "word": "editors",
+          "start": 2322,
+          "end": 2833
+        },
+        {
+          "word": "switch",
+          "start": 2868,
+          "end": 3170
+        },
+        {
+          "word": "views,",
+          "start": 3239,
+          "end": 3785
+        },
+        {
+          "word": "and",
+          "start": 3913,
+          "end": 4075
+        },
+        {
+          "word": "nothing",
+          "start": 4156,
+          "end": 4423
+        },
+        {
+          "word": "in",
+          "start": 4470,
+          "end": 4540
+        },
+        {
+          "word": "core",
+          "start": 4632,
+          "end": 4934
+        },
+        {
+          "word": "is",
+          "start": 4969,
+          "end": 5050
+        },
+        {
+          "word": "patched.",
+          "start": 5120,
+          "end": 5724
+        }
+      ],
+      "heard": "Grid, timeline, catalog, editors switch views and nothing in core is patched."
+    },
+    {
+      "say": "Configure, do not patch. Accessibility is evidenced, not assumed.",
+      "show": "Configure, do not patch. Accessibility is evidenced, not assumed.",
+      "file": "voice-05.mp3",
+      "duration": 5329,
+      "words": [
+        {
+          "word": "Configure,",
+          "start": 12,
+          "end": 673
+        },
+        {
+          "word": "do",
+          "start": 755,
+          "end": 871
+        },
+        {
+          "word": "not",
+          "start": 952,
+          "end": 1080
+        },
+        {
+          "word": "patch.",
+          "start": 1149,
+          "end": 1707
+        },
+        {
+          "word": "Accessibility",
+          "start": 1974,
+          "end": 2879
+        },
+        {
+          "word": "is",
+          "start": 2949,
+          "end": 3030
+        },
+        {
+          "word": "evidenced,",
+          "start": 3111,
+          "end": 3762
+        },
+        {
+          "word": "not",
+          "start": 3831,
+          "end": 4017
+        },
+        {
+          "word": "assumed.",
+          "start": 4063,
+          "end": 4772
+        }
+      ],
+      "heard": "Configure, do not patch. Accessibility is evidenced, not assumed."
+    },
+    {
+      "say": "Open source. Clone the skills.",
+      "show": "Open source. Clone the skills.",
+      "file": "voice-06.mp3",
+      "duration": 2926,
+      "words": [
+        {
+          "word": "Open",
+          "start": 23,
+          "end": 383
+        },
+        {
+          "word": "source.",
+          "start": 476,
+          "end": 1033
+        },
+        {
+          "word": "Clone",
+          "start": 1393,
+          "end": 1811
+        },
+        {
+          "word": "the",
+          "start": 1846,
+          "end": 1916
+        },
+        {
+          "word": "skills.",
+          "start": 1962,
+          "end": 2601
+        }
+      ],
+      "heard": "Open source. Clone the skills."
+    }
+  ]
+}

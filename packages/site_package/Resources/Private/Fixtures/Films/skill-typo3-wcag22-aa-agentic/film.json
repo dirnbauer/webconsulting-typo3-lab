@@ -1,0 +1,58 @@
+{
+  "id": "skill-typo3-wcag22-aa-agentic",
+  "slug": "/ai/agentic-skills/typo3-wcag22-aa-agentic",
+  "placements": [
+    {
+      "slug": "/ai/agentic-skills/typo3-wcag22-aa-agentic"
+    }
+  ],
+  "title": "typo3-wcag22-aa-agentic: the skill at work",
+  "header": "typo3-wcag22-aa-agentic in 47 seconds",
+  "description": "<p>WCAG 2.2 AA scans, a report and a statement draft. Recorded from a real scan of nine pages of this lab’s Odera template site. Narrated, with English captions.</p>",
+  "mp4": "skill-typo3-wcag22-aa-agentic-b5e7c7a1.mp4",
+  "poster": "skill-typo3-wcag22-aa-agentic-poster-b5e7c7a1.webp",
+  "vtt": "skill-typo3-wcag22-aa-agentic-b5e7c7a1.en.vtt",
+  "duration": 47.489,
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "sound": true,
+  "alt": "Film, 47 seconds: the typo3-wcag22-aa-agentic agent skill. Playwright and axe-core scan nine pages of a TYPO3 template site in 29 states; the generated report lists each violation by page and the theme files, with a draft accessibility statement. Narrated, with English captions.",
+  "transcript": [
+    {
+      "at": "0:02",
+      "text": "The European Accessibility Act is law. Checking every page by hand is slow."
+    },
+    {
+      "at": "0:13",
+      "text": "You ask for every WCAG failure, page by page."
+    },
+    {
+      "at": "0:19",
+      "text": "Playwright and axe-core scan nine pages in twenty-nine states, in under a minute."
+    },
+    {
+      "at": "0:27",
+      "text": "The report lists each violation by page and drafts the accessibility statement."
+    },
+    {
+      "at": "0:34",
+      "text": "Scans are evidence, not a conformance claim. A person reviews the rest."
+    },
+    {
+      "at": "0:41",
+      "text": "Open source. Clone the skills."
+    }
+  ],
+  "captions": {
+    "language": "en",
+    "label": "English",
+    "burnedIn": true
+  },
+  "bytes": {
+    "mp4": 2772230,
+    "poster": 44344,
+    "vtt": 639
+  },
+  "generator": "packages/site_package/Build/Film/render-films.mjs"
+}

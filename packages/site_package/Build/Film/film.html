@@ -150,6 +150,46 @@ body { font-family: var(--sans); color: var(--ink); -webkit-font-smoothing: anti
 .hud-bars s { position: absolute; inset: 0; background: var(--ink); transform-origin: 0 50%; transform: scaleX(0); }
 .hud-brand { position: absolute; right: 150px; top: 19px; z-index: 45; display: flex; align-items: center; gap: 12px; font-family: var(--serif); font-size: 25px; letter-spacing: -0.01em; }
 .hud-brand i { width: 11px; height: 11px; border-radius: 3px; background: var(--accent); }
+
+/* Stats: glass tiles with numbers that count up */
+.stats-head { position: absolute; inset-inline: 160px; top: 236px; text-align: center; font-family: var(--serif); font-size: 64px; font-weight: 400; letter-spacing: -0.022em; line-height: 1.05; text-wrap: balance; }
+.stats-head em { font-style: italic; color: var(--accent); }
+.stats-eyebrow { position: absolute; inset-inline: 0; top: 180px; text-align: center; }
+.stat-glow { position: absolute; border-radius: 50%; pointer-events: none; opacity: 0; }
+.stat { position: absolute; display: flex; flex-direction: column; justify-content: center; gap: 12px; padding: 34px 38px 36px; }
+.stat-num { font-family: var(--sans); font-size: 112px; font-weight: 600; letter-spacing: -0.045em; line-height: 1; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.stat-num small { font-size: 0.48em; font-weight: 500; letter-spacing: -0.02em; color: var(--accent); margin-left: 0.08em; }
+.stat-num small.pre { margin: 0 0.06em 0 0; }
+.stat-label { font-size: 28px; font-weight: 560; letter-spacing: -0.015em; line-height: 1.2; }
+.stat-note { font-size: 20px; color: var(--muted); line-height: 1.38; }
+.stat-bar { height: 3px; border-radius: 3px; background: rgb(255 255 255 / 0.1); overflow: hidden; margin-top: 6px; }
+.stat-bar i { display: block; height: 100%; background: var(--accent); transform-origin: 0 50%; transform: scaleX(0); }
+
+/* Terminal: a dark agent session with typed prompt and real output */
+.term { position: absolute; border-radius: 16px; background: #0b0c0f; border: 1px solid rgb(255 255 255 / 0.12); overflow: hidden; box-shadow: 0 60px 140px -50px rgb(0 0 0 / 0.9), 0 0 0 1px rgb(0 0 0 / 0.4); }
+.term-bar { position: relative; height: 46px; display: flex; align-items: center; gap: 9px; padding: 0 18px; border-bottom: 1px solid var(--line); background: rgb(255 255 255 / 0.035); }
+.term-bar i { width: 12px; height: 12px; border-radius: 99px; background: rgb(255 255 255 / 0.16); }
+.term-title { position: absolute; inset-inline: 120px; text-align: center; font-family: var(--mono); font-size: 16px; color: var(--muted); letter-spacing: 0.02em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.term-view { position: absolute; left: 0; right: 0; top: 46px; bottom: 0; overflow: hidden; }
+.term-body { position: absolute; left: 0; right: 0; top: 0; padding: 26px 34px 30px; font-family: var(--mono); font-size: 23px; line-height: 1.5; color: #d6d3cf; will-change: transform; }
+.term-line { white-space: pre-wrap; overflow-wrap: anywhere; min-height: 1.5em; }
+.term-prompt { color: var(--ink); }
+.term-prompt .ps { color: var(--accent); margin-right: 0.6em; }
+.term-caret { display: inline-block; width: 0.62em; height: 1.2em; vertical-align: -0.22em; margin-left: 1px; background: var(--ink); }
+.term .t-success { color: #86efac; }
+.term .t-warning { color: #fcd34d; }
+.term .t-error { color: #fca5a5; }
+.term .t-muted { color: #7f7a74; }
+.term mark { background: color-mix(in srgb, var(--accent) 15%, transparent); color: var(--accent); border-radius: 4px; text-shadow: 0 0 16px color-mix(in srgb, var(--accent) 75%, transparent); }
+.term-dim { position: absolute; inset: 0; background: rgb(7 7 9 / 0.5); opacity: 0; pointer-events: none; z-index: 6; }
+
+/* Finish (films that choose a background): a light sweep over every frame and a
+   second, softer shadow under it. Off for films without `background`, so they
+   render exactly as before. --sheen runs 0 → 1 every 9 s (one WAAPI track). */
+@property --sheen { syntax: '<number>'; inherits: true; initial-value: 0; }
+.finish .frame, .finish .term { box-shadow: 0 60px 140px -50px rgb(0 0 0 / 0.9), 0 0 0 1px rgb(0 0 0 / 0.4), 0 110px 220px -70px rgb(0 0 0 / 0.55); }
+.finish .frame::after, .finish .term::after { content: ''; position: absolute; inset: 0; z-index: 8; pointer-events: none; border-radius: inherit;
+  background: linear-gradient(112deg, transparent calc(var(--sheen) * 170% - 75%), rgb(255 255 255 / 0.075) calc(var(--sheen) * 170% - 58%), transparent calc(var(--sheen) * 170% - 41%)); }
 </style>
 </head>
 <body>
@@ -157,11 +197,15 @@ body { font-family: var(--sans); color: var(--ink); -webkit-font-smoothing: anti
   <canvas id="aura" width="1920" height="1080"></canvas>
 </div>
 <script type="module">
-import { films } from './films/index.mjs';
+import { films as registry } from './films/index.mjs';
 import { HOST } from './films/feature-film.mjs';
+import { createBackground } from './lib/backgrounds.mjs';
 import { LEAD, TAIL, cue, header, timeline } from './lib/timeline.mjs';
 
 const params = new URLSearchParams(location.search);
+// ?spec=/cache/specs/draft.mjs adds the films of an unregistered spec module
+// (render-films.mjs --spec=…): a draft or a test scene, previewed without films/index.mjs.
+const films = params.get('spec') ? { ...registry, ...(await import(params.get('spec'))).default } : registry;
 const ID = params.get('film') ?? 'docx-editor';
 const SPEC = films[ID];
 if (!SPEC) throw new Error(`No film ${ID}`);
@@ -316,10 +360,17 @@ class Clip {
 }
 
 // ---------------------------------------------------------------------------
-// Aura and grain
+// Background (lib/backgrounds.mjs) and grain. SPEC.background picks the style
+// (default 'aurora', the original three lights); auraAt(t) is its strength,
+// eased between the scenes. FOCI are the frames on screen, which the `grid`
+// style lights up under. A film with a background of its own also gets the
+// finish (frame sheen, second shadow); SPEC.finish overrides that.
 // ---------------------------------------------------------------------------
 const PALETTE = SPEC.palette ?? ['#c7863f', '#4a57ff', '#2c5a52'];
-const auraCtx = $('aura').getContext('2d');
+const BACKGROUND = SPEC.background ?? 'aurora';
+const FINISH = SPEC.finish ?? BACKGROUND !== 'aurora';
+if (FINISH) stage.classList.add('finish');
+const paint = createBackground($('aura'), { style: BACKGROUND, palette: PALETTE, seed: SPEC.seed ?? 1 });
 let AURA = [];
 function auraAt(t) {
   let i = 0;
@@ -328,28 +379,17 @@ function auraAt(t) {
   const [t1, k1] = AURA[Math.min(i + 1, AURA.length - 1)];
   return lerp(k0, k1, smooth((t - t0) / Math.max(1, t1 - t0)));
 }
-custom.push((t) => {
-  const strength = auraAt(t);
-  const s = t / 1000;
-  auraCtx.globalCompositeOperation = 'source-over';
-  auraCtx.fillStyle = '#070709';
-  auraCtx.fillRect(0, 0, 1920, 1080);
-  auraCtx.globalCompositeOperation = 'lighter';
-  [
-    [0.28 + 0.1 * Math.sin(s * 0.21), 0.36 + 0.1 * Math.cos(s * 0.17), 940],
-    [0.74 + 0.09 * Math.cos(s * 0.19 + 1), 0.3 + 0.12 * Math.sin(s * 0.15 + 2), 840],
-    [0.55 + 0.14 * Math.sin(s * 0.13 + 4), 0.82 + 0.08 * Math.cos(s * 0.23 + 1), 1030],
-  ].forEach(([x, y, r], i) => {
-    const [R, G, B] = hex(PALETTE[i % PALETTE.length]);
-    const gradient = auraCtx.createRadialGradient(x * 1920, y * 1080, 0, x * 1920, y * 1080, r);
-    gradient.addColorStop(0, `rgba(${R},${G},${B},${0.5 * strength})`);
-    gradient.addColorStop(0.45, `rgba(${R},${G},${B},${0.2 * strength})`);
-    gradient.addColorStop(1, `rgba(${R},${G},${B},0)`);
-    auraCtx.fillStyle = gradient;
-    auraCtx.fillRect(0, 0, 1920, 1080);
-  });
-  auraCtx.globalCompositeOperation = 'source-over';
-});
+const FOCI = [];
+/** Remembers where a frame sits during [a, b], for the background. */
+function focusOn(box, a, b) {
+  const [x, y, w, h] = ['left', 'top', 'width', 'height'].map((key) => parseFloat(box.style[key]) || 0);
+  FOCI.push({ a, b, x: (x + w / 2) / 1920, y: (y + h / 2) / 1080 });
+}
+function focusAt(t) {
+  const f = FOCI.findLast(({ a, b }) => t >= a && t < b);
+  return f ? { x: f.x, y: f.y, k: smooth((t - f.a) / 700) * (1 - smooth((t - f.b + 500) / 500)) } : null;
+}
+custom.push((t) => paint(t, auraAt(t), { focus: focusAt(t) }));
 // Light grain: it costs bits in every frame, so it stays faint.
 const grain = node('div', 'grain');
 grain.style.opacity = String(0.22 * Number(params.get('grain') ?? 1));
@@ -566,6 +606,7 @@ builders.shot = (scene) => {
     v = viewer(layer, scene, { x: side === 'left' ? 610 : 150, y: Math.round((1040 - h) / 2) + 10, w, aspect, url: scene.url ?? SPEC.url, tag: scene.tag });
   }
   film(v, scene, start, end);
+  focusOn(v.box, start, end);
   life(v.box, start, end, { from: { y: 50, z: -180, rx: 8 }, exit: { y: -20, z: -60 }, blur: 12, inDur: 900, outDur: 480 });
   const step = scene.step ?? '';
   if (wide) {
@@ -658,6 +699,7 @@ builders.montage = (scene) => {
   const aspect = scene.aspect ?? 16 / 9;
   const w = scene.width ?? (scene.head ? 1300 : 1440);
   const v = viewer(layer, scene, { x: (1920 - w) / 2, y: scene.head ? 190 : 100, w, aspect, url: scene.url ?? SPEC.url, tag: scene.tag });
+  focusOn(v.box, start, end);
   life(v.box, start, end, { from: { y: 50, z: -180, rx: 8 }, exit: { y: -20, z: -60 }, blur: 12, inDur: 900, outDur: 480 });
   if (scene.head) words('h2', 'grid-head', layer, scene.head, start + 150, 60, [end - 420, end - 40], { y: 0.3, blur: 8 }).style.top = '70px';
   const n = scene.items.length;
@@ -734,6 +776,183 @@ builders.split = (scene) => {
       if (k > 0) track(holder, [[a, { opacity: 0, filter: 'blur(6px)' }, OUT], [a + 420, { opacity: 1, filter: 'blur(0px)' }]]);
     });
   });
+};
+
+/**
+ * stats: 2 to 4 glass tiles, each a number that counts up from 0 (eased over
+ * 1.2 s, tabular digits), a label and a note. Tiles rise in 120 ms apart; the
+ * palette's first colour glows behind the tile the narration is on (a tile's
+ * `cue` word, else the tiles in turn over the scene's lines).
+ *   { type: 'stats', eyebrow?, head?, say, tiles: [{ value: 622, decimals?: 0,
+ *     prefix?: '€', unit?: '%', label: 'active shortages', note?: '…', cue?: 'six' }] }
+ * A `value` that is not a number ('30–50') is shown as it is.
+ */
+builders.stats = (scene) => {
+  const { start, end } = scene;
+  const layer = node('section', 'layer persp');
+  const tiles = scene.tiles ?? [];
+  const n = tiles.length;
+  if (scene.eyebrow) life(node('div', 'eyebrow stats-eyebrow', layer, caps(scene.eyebrow)), start + 150, end, { from: { y: 10 }, blur: 4 });
+  if (scene.head) words('h2', 'stats-head', layer, scene.head, start + 250, 70, [end - 420, end - 40], { y: 0.3, blur: 8 });
+  const gap = 30;
+  const w = Math.min(440, (1620 - gap * (n - 1)) / n);
+  const h = 330;
+  const x0 = (1920 - (n * w + (n - 1) * gap)) / 2;
+  const y = scene.head ? 460 : (scene.eyebrow ? 380 : 360);
+  const spoken = scene.lines.length ? scene.lines[0].at : start + 600;
+  const last = scene.lines.length ? scene.lines[scene.lines.length - 1].at + scene.lines[scene.lines.length - 1].duration : end - 1500;
+  let after = -1;
+  const times = tiles.map((tile, i) => {
+    const evenly = spoken + ((last - spoken) * i) / n;
+    const t = tile.cue ? cue(scene, tile.cue, evenly, after) : evenly;
+    after = t;
+    return t;
+  });
+  const [R, G, B] = hex(PALETTE[0]);
+  const glows = tiles.map((_, i) => {
+    const g = place(node('div', 'stat-glow', layer), x0 + i * (w + gap) + w / 2 - w, y + h / 2 - w, w * 2, w * 2);
+    g.style.background = `radial-gradient(closest-side, rgba(${R},${G},${B},0.42), rgba(${R},${G},${B},0.12) 55%, rgba(${R},${G},${B},0))`;
+    return g;
+  });
+  const format = (tile, v) => new Intl.NumberFormat('en-GB', { minimumFractionDigits: tile.decimals ?? 0, maximumFractionDigits: tile.decimals ?? 0 }).format(v);
+  tiles.forEach((tile, i) => {
+    const x = x0 + i * (w + gap);
+    const box = place(node('div', 'stat glass', layer), x, y, w, h);
+    const counting = typeof tile.value === 'number';
+    box.innerHTML = `<div class="stat-num">${tile.prefix ? `<small class="pre">${tile.prefix}</small>` : ''}<b>${counting ? format(tile, 0) : tile.value}</b>${tile.unit ? `<small>${tile.unit}</small>` : ''}</div>`
+      + `<div class="stat-bar"><i></i></div><div class="stat-label">${tile.label ?? ''}</div>${tile.note ? `<div class="stat-note">${tile.note}</div>` : ''}`;
+    const tIn = start + 400 + i * 120;
+    life(box, tIn, end, { from: { y: 36, z: -160, rx: -10 }, exit: { y: -14 }, blur: 8, inDur: 800 });
+    const count = tIn + 150;
+    track(box.querySelector('.stat-bar i'), [[count, { transform: 'scaleX(0)' }, OUT], [count + 1200, { transform: 'scaleX(1)' }]]);
+    const number = box.querySelector('.stat-num b');
+    // The number keeps its final width while it counts, so the unit never moves.
+    number.style.display = 'inline-block';
+    if (counting) {
+      number.textContent = format(tile, tile.value);
+      number.style.minWidth = `${number.offsetWidth + 1}px`;
+    }
+    if (counting) custom.push((t) => { number.textContent = format(tile, tile.value * ease((t - count) / 1200)); });
+    const next = i + 1 < n ? times[i + 1] : end - 200;
+    custom.push((t) => {
+      glows[i].style.opacity = String(smooth((t - times[i] + 150) / 450) * (1 - smooth((t - next + 150) / 450)));
+    });
+  });
+};
+
+/**
+ * terminal: a dark agent session. The prompt is typed character by character
+ * (30 to 45 ms each, a blinking block cursor), then the output lines appear one
+ * by one and the view scrolls when they outgrow it; the final prompt waits with
+ * the cursor. `then` (an image or a clip, as a shot takes it) slides in over
+ * the terminal, or beside it (place: 'beside'), for the result.
+ *   { type: 'terminal', eyebrow?, title: 'Claude Code · ~/projects/acme', prompt: '…',
+ *     lines: ['plain', ['success', '✓ done'], { text, kind, highlight }, '\x1b[33mwarn\x1b[0m'],
+ *     highlight?: ['substring', [lineIndex, from, to]], typeMs?: 38, typeAt?: 900,
+ *     then?: { image | clip, aspect?, focus?, url?, tag?, at?, place? }, say }
+ * Kinds: default, success, warning, error, muted (ANSI 32/33/31/2,90 map to them).
+ * The output lines are the spec's own `lines`: on the timeline `scene.lines` are
+ * the narration lines, so they are read from SPEC.scenes[scene.index].
+ */
+const ANSI = { 31: 'error', 91: 'error', 32: 'success', 92: 'success', 33: 'warning', 93: 'warning', 2: 'muted', 90: 'muted' };
+const escape = (text) => text.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+function terminalLine(line, index, needles) {
+  const entry = typeof line === 'string' ? { text: line } : Array.isArray(line) ? { kind: line[0], text: line[1] } : line;
+  // Per character: its colour class (ANSI codes or the line's kind) and whether it glows.
+  const chars = [];
+  let kind = entry.kind ?? 'default';
+  for (const part of String(entry.text ?? '').split(/(\x1b\[[\d;]*m)/)) {
+    const code = part.match(/^\x1b\[([\d;]*)m$/);
+    if (code) {
+      for (const c of (code[1] || '0').split(';').map(Number)) kind = ANSI[c] ?? (c === 0 || c === 39 || c === 22 ? (entry.kind ?? 'default') : kind);
+      continue;
+    }
+    for (const ch of part) chars.push({ ch, kind, mark: false });
+  }
+  const plain = chars.map((c) => c.ch).join('');
+  const ranges = [...(entry.highlight ?? []), ...needles.filter((h) => typeof h === 'string' || h[0] === index).map((h) => (typeof h === 'string' ? h : [h[1], h[2]]))];
+  for (const range of ranges) {
+    if (typeof range === 'string') {
+      for (let at = plain.indexOf(range); range && at >= 0; at = plain.indexOf(range, at + range.length)) for (let k = at; k < at + range.length; k++) chars[k].mark = true;
+    } else {
+      for (let k = Math.max(0, range[0]); k < Math.min(chars.length, range[1]); k++) chars[k].mark = true;
+    }
+  }
+  let html = '';
+  for (let k = 0; k < chars.length;) {
+    let j = k;
+    while (j < chars.length && chars[j].kind === chars[k].kind && chars[j].mark === chars[k].mark) j++;
+    const text = escape(chars.slice(k, j).map((c) => c.ch).join(''));
+    const coloured = chars[k].kind === 'default' ? text : `<span class="t-${chars[k].kind}">${text}</span>`;
+    html += chars[k].mark ? `<mark>${coloured}</mark>` : coloured;
+    k = j;
+  }
+  return html;
+}
+builders.terminal = (scene) => {
+  const { start, end } = scene;
+  const own = SPEC.scenes[scene.index] ?? {};
+  const output = own.lines ?? own.output ?? [];
+  const then = scene.then;
+  const beside = then?.place === 'beside';
+  const layer = node('section', 'layer persp');
+  const [x, y, w, h] = beside ? [120, 170, 880, 700] : [280, 160, 1360, 720];
+  const box = place(node('div', 'term', layer, `<div class="term-bar"><i></i><i></i><i></i><span class="term-title">${escape(scene.title ?? 'Claude Code')}</span></div><div class="term-view"><div class="term-body"></div></div><div class="term-dim"></div>`), x, y, w, h);
+  life(box, start, end, { from: { y: 50, z: -180, rx: 8 }, exit: { y: -20, z: -60 }, blur: 12, inDur: 900, outDur: 480 });
+  focusOn(box, start, end);
+  if (scene.eyebrow) {
+    const eyebrow = place(node('div', 'eyebrow', layer, caps(scene.eyebrow)), x + 4, y - 44);
+    eyebrow.style.position = 'absolute';
+    life(eyebrow, start + 300, end, { from: { y: 10 }, blur: 4 });
+  }
+  const body = box.querySelector('.term-body');
+  const view = box.querySelector('.term-view');
+  const promptText = scene.prompt ?? '';
+  const first = node('div', 'term-line term-prompt', body, `<span class="ps">${scene.ps ?? '›'}</span><span class="typed"></span><span class="term-caret"></span>`);
+  const typed = first.querySelector('.typed');
+  const caret = first.querySelector('.term-caret');
+  const lines = output.map((line, i) => node('div', 'term-line', body, terminalLine(line, i, scene.highlight ?? [])));
+  const final = output.length ? node('div', 'term-line term-prompt', body, `<span class="ps">${scene.ps ?? '›'}</span><span class="term-caret"></span>`) : null;
+  const shown = final ? [...lines, final] : lines;
+  const per = clamp(scene.typeMs ?? 38, 30, 45);
+  const chars = [...promptText];
+  const typeAt = start + (scene.typeAt ?? 900);
+  const typedEnd = typeAt + chars.length * per;
+  const outAt = typedEnd + 450;
+  const thenAt = then ? start + (then.at ?? Math.max((end - start) * 0.58, outAt - start + 500 + output.length * 140)) : end;
+  const until = then ? thenAt - 450 : end - 1400;
+  const step = output.length ? clamp((until - outAt) / output.length, 60, 420) : 0;
+  const reveal = shown.map((_, i) => outAt + i * step);
+  const blink = (t) => Math.floor((t - start) / 530) % 2 === 0;
+  let offsets = null;
+  custom.push((t) => {
+    const count = clamp(Math.floor((t - typeAt) / per) + 1, 0, chars.length);
+    typed.textContent = t < typeAt ? '' : chars.slice(0, count).join('');
+    const typing = t >= typeAt && t < typedEnd;
+    caret.style.opacity = (output.length && t >= outAt) ? '0' : (typing || blink(t) ? '1' : '0');
+    shown.forEach((el, i) => { el.style.opacity = String(clamp((t - reveal[i]) / 90)); });
+    if (final) final.querySelector('.term-caret').style.opacity = t >= reveal[reveal.length - 1] && blink(t) ? '1' : '0';
+    // Scroll: each revealed line that ends below the view moves the body up, eased over 220 ms.
+    offsets ??= shown.map((el) => Math.max(0, el.offsetTop + el.offsetHeight + 30 - view.clientHeight));
+    let scroll = 0;
+    let previous = 0;
+    offsets.forEach((target, i) => {
+      scroll += (target - previous) * smooth((t - reveal[i]) / 220);
+      previous = Math.max(previous, target);
+    });
+    body.style.transform = `translateY(${(-scroll).toFixed(2)}px)`;
+  });
+  if (then) {
+    const aspect = then.aspect ?? (then.clip ? 16 / 9 : 1.6);
+    // Beside: right of the terminal; over: lower right, clear of the captions.
+    const tw = Math.min(beside ? 800 : 1100, Math.round(((beside ? 660 : 700) - 40) * aspect));
+    const th = tw / aspect + 40;
+    const v = viewer(layer, then, { x: beside ? 1000 + (840 - tw) / 2 : 1920 - 170 - tw, y: Math.round(beside ? 170 + (700 - th) / 2 : 935 - th), w: tw, aspect, url: then.url ?? SPEC.url, tag: then.tag });
+    film(v, then, thenAt, end);
+    life(v.box, thenAt, end, { from: { x: 180, z: -140, ry: -10 }, exit: { y: -20, z: -60 }, blur: 12, inDur: 900, outDur: 480 });
+    FOCI.push({ a: thenAt, b: end, x: (parseFloat(v.box.style.left) + tw / 2) / 1920, y: (parseFloat(v.box.style.top) + parseFloat(v.box.style.height) / 2) / 1080 });
+    if (!beside) track(box.querySelector('.term-dim'), [[thenAt, { opacity: 0 }, OUT], [thenAt + 700, { opacity: 1 }]]);
+  }
 };
 
 builders.end = (scene) => {
@@ -827,7 +1046,7 @@ function hud() {
 }
 
 function aura() {
-  const strength = { hook: 0.35, title: 0.85, shot: 0.55, points: 0.6, grid: 0.6, montage: 0.55, split: 0.55, end: 0.9 };
+  const strength = { hook: 0.35, title: 0.85, shot: 0.55, points: 0.6, grid: 0.6, montage: 0.55, split: 0.55, stats: 0.6, terminal: 0.5, end: 0.9 };
   // The start card in the title's light, which gives way to the first scene's.
   AURA = [[-LEAD, 0.85], [-400, 0.85]];
   for (const scene of TL.scenes) AURA.push([scene.start + 600, strength[scene.type] ?? 0.55]);
@@ -864,6 +1083,8 @@ window.ready = (async () => {
   aura();
   node('div', 'vignette');
   subtitles();
+  // The frame sheen: one 9 s cycle of --sheen on the stage, inherited by every frame.
+  if (FINISH) stage.animate([{ '--sheen': 0 }, { '--sheen': 1 }], { duration: 9000, iterations: Infinity, easing: SOFT }).pause();
   // Film time throughout: lines and scenes LEAD later than on the scenes' clock.
   window.TIMELINE = {
     id: ID,

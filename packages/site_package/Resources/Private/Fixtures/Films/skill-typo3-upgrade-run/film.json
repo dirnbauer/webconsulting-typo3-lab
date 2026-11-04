@@ -1,0 +1,58 @@
+{
+  "id": "skill-typo3-upgrade-run",
+  "slug": "/ai/agentic-skills/typo3-upgrade-run",
+  "placements": [
+    {
+      "slug": "/ai/agentic-skills/typo3-upgrade-run"
+    }
+  ],
+  "title": "typo3-upgrade-run: the skill at work",
+  "header": "typo3-upgrade-run in 47 seconds",
+  "description": "<p>The upgrade as a sealed evidence graph. Recorded from real runs: the t3u harness on a scratch run and the final proof of a real TYPO3 12.4 to 14.3 update. Narrated, with English captions.</p>",
+  "mp4": "skill-typo3-upgrade-run-31987950.mp4",
+  "poster": "skill-typo3-upgrade-run-poster-31987950.webp",
+  "vtt": "skill-typo3-upgrade-run-31987950.en.vtt",
+  "duration": 47.485,
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "sound": true,
+  "alt": "Film, 47 seconds: the typo3-upgrade-run agent skill. The t3u harness seals a 72-node upgrade graph for a DDEV project and hands out the first node; the final proof of a real 12.4 to 14.3 run compares 60 URLs and 360 screenshots. Narrated, with English captions.",
+  "transcript": [
+    {
+      "at": "0:02",
+      "text": "A TYPO3 update succeeds when nobody notices. Proving that by hand is slow."
+    },
+    {
+      "at": "0:13",
+      "text": "You ask for the update, with nothing visibly changed."
+    },
+    {
+      "at": "0:19",
+      "text": "t3u seals a 72-node graph and hands out one node at a time."
+    },
+    {
+      "at": "0:27",
+      "text": "The final proof of a real run: 360 screenshots, no undeclared difference."
+    },
+    {
+      "at": "0:35",
+      "text": "A person accepts the result. Nothing deploys to live."
+    },
+    {
+      "at": "0:41",
+      "text": "Open source. Clone the skills."
+    }
+  ],
+  "captions": {
+    "language": "en",
+    "label": "English",
+    "burnedIn": true
+  },
+  "bytes": {
+    "mp4": 2655926,
+    "poster": 43534,
+    "vtt": 594
+  },
+  "generator": "packages/site_package/Build/Film/render-films.mjs"
+}

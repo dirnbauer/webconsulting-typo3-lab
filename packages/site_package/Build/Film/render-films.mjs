@@ -7,7 +7,14 @@
  *   node render-films.mjs --film=docx-editor --stills=1500,9000   # PNG stills into <cache>/stills/
  *   node render-films.mjs --film=docx-editor --range=0,8000  # a quick test render into <cache>/out/
  *   node render-films.mjs --film=docx-editor --remix         # new soundtrack on the current picture
- *   node render-films.mjs --list                             # ids, pages and lengths
+ *   node render-films.mjs --list                             # ids, pages and lengths (warns over a film's `cap`)
+ *   node render-films.mjs --spec=~/.cache/lab-films/specs/draft.mjs --film=draft --stills=3000
+ *                                                            # a spec module not in films/index.mjs
+ *
+ * --spec: a module whose default export is { id: spec } (standalone: it is
+ * imported by node and by film.html, so it cannot import the films/ helpers by
+ * relative path); it must sit under the lab root or the film cache, which the
+ * page server serves. Drafts and test scenes, never a film that ships.
  *
  * Every motion in film.html is a paused animation or a function of the time,
  * so a frame is rendered by seeking, never by waiting: the output is the same
@@ -29,7 +36,8 @@ import { spawn, spawnSync } from 'node:child_process';
 import { createHash } from 'node:crypto';
 import { createReadStream, existsSync, mkdirSync, readFileSync, readdirSync, renameSync, statSync, unlinkSync, writeFileSync } from 'node:fs';
 import { createServer } from 'node:http';
-import { extname, join, normalize } from 'node:path';
+import { extname, join, normalize, resolve } from 'node:path';
+import { pathToFileURL } from 'node:url';
 import { CACHE, FILM, LAB, argument, chromium } from './lib/capture.mjs';
 import { films } from './films/index.mjs';
 import { header } from './lib/timeline.mjs';
@@ -61,7 +69,16 @@ const server = createServer((request, response) => {
 });
 await new Promise((done) => server.listen(Number(process.env.FILM_PORT ?? 0), '127.0.0.1', done));
 const base = `http://127.0.0.1:${server.address().port}`;
-const filmUrl = (id) => `${base}/packages/site_package/Build/Film/film.html?film=${id}${argument('query') ? `&${argument('query')}` : ''}`;
+// An unregistered spec module (--spec), served from the lab or the cache.
+const specFile = argument('spec') ? resolve(argument('spec').replace(/^~(?=\/)/, process.env.HOME)) : null;
+let specUrl = '';
+if (specFile) {
+    const servedFrom = [[CACHE, '/cache'], [LAB, '']].find(([root]) => specFile.startsWith(root + '/'));
+    if (!servedFrom) throw new Error(`--spec must sit under ${LAB} or ${CACHE}`);
+    specUrl = servedFrom[1] + specFile.slice(servedFrom[0].length);
+    Object.assign(films, (await import(pathToFileURL(specFile).href)).default);
+}
+const filmUrl = (id) => `${base}/packages/site_package/Build/Film/film.html?film=${id}${specUrl ? `&spec=${encodeURIComponent(specUrl)}` : ''}${argument('query') ? `&${argument('query')}` : ''}`;
 
 function lufs(file) {
     const report = spawnSync('ffmpeg', ['-hide_banner', '-nostats', '-i', file, '-af', 'ebur128=framelog=quiet', '-f', 'null', '-'], { encoding: 'utf8' }).stderr;
@@ -165,6 +182,8 @@ async function finish(id, spec, mp4, posterPng, timeline) {
         id,
         page: spec.page,
         slug: spec.slug,
+        // Where sitepackage:films:seed puts the film (plan 6.3); without it, the page of `slug`.
+        ...(spec.placements ? { placements: spec.placements } : {}),
         title: spec.title ?? spec.name,
         header: header(spec, timeline.duration),
         description: spec.video?.description
@@ -192,6 +211,8 @@ async function open(browser, id) {
     page.on('pageerror', (error) => console.error(`film.html (${id}): ${error.message}`));
     page.on('console', (message) => { if (message.type() === 'error') console.error(`film.html (${id}): ${message.text()}`); });
     await page.goto(filmUrl(id), { waitUntil: 'load' });
+    // film.html may still be importing (a --spec module): wait for its promise to exist.
+    await page.waitForFunction(() => window.ready !== undefined);
     const duration = await page.evaluate(() => window.ready);
     return { page, duration };
 }
@@ -236,7 +257,9 @@ try {
         for (const id of Object.keys(films)) {
             const { page } = await open(browser, id);
             const timeline = await page.evaluate(() => window.TIMELINE);
-            console.log(`${id.padEnd(28)} page ${String(films[id].page).padEnd(6)} ${(timeline.duration / 1000).toFixed(1)} s, ${timeline.lines.length} lines, ${timeline.lines.filter((l) => l.measured).length} recorded`);
+            console.log(`${id.padEnd(28)} page ${String(films[id].page ?? '-').padEnd(6)} ${(timeline.duration / 1000).toFixed(1)} s, ${timeline.lines.length} lines, ${timeline.lines.filter((l) => l.measured).length} recorded`);
+            // `cap`: the longest the film may run, start card and end hold included (skill films: 50 s).
+            if (films[id].cap && timeline.duration / 1000 > films[id].cap) console.warn(`WARNING ${id}: ${(timeline.duration / 1000).toFixed(1)} s is over its ${films[id].cap} s cap`);
             await page.close();
         }
     }

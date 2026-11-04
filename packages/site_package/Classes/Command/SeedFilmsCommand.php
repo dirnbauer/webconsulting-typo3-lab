@@ -33,8 +33,41 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
  *
  * Every film is a folder in Resources/Private/Fixtures/Films/ whose film.json
  * names the MP4, the WebP poster and the WebVTT captions and holds the page
- * slug, the texts and the transcript. The files go into FAL (fileadmin/films/
- * <id>/); a file with the same content there is reused.
+ * slug, the texts and the transcript. One talk with several cuts keeps each
+ * cut in its own folder below the film's folder (Films/usability-slogans/
+ * short/film.json and long/film.json, each with its own id); a folder with
+ * cut folders has no film.json of its own. The files go into FAL (fileadmin/
+ * films/<id>/); a file with the same content there is reused.
+ *
+ * Placements: without `placements` the film goes on the page with its
+ * `slug`, after the intro. With them it goes on every page listed:
+ *
+ *     "placements": [{"slug": "/typo3-v14-strategy"}, {"slug": "/", "after": {"header": "Five points …"}}]
+ *
+ * A placement with `after.header` puts the video right after the first
+ * default-language element in colPos 0 of that page whose header is exactly
+ * that text (the transcript after the video); without `after`, after the intro
+ * as above. Each placement has its own markers: `<id>` for the first, `<id>#2`,
+ * `<id>#3` … for the next ones (transcripts `<id>-transcript`, `<id>#2-transcript`).
+ * The files are imported once per film id (fileadmin/films/<id>/) and reused.
+ *
+ * A placement with `after.film` (`{"slug": "/", "after": {"film": "lab-overview"}}`)
+ * goes right after that film's transcript on the same page (the transcript
+ * of its first placement, marker `<id>-transcript`). When that film is not on
+ * the page, the placement fails with a message and the next film goes on; the
+ * film folders are processed in sorted order, so a film that follows another
+ * one in the same run finds it when its id sorts first.
+ *
+ * Optional film.json keys for the video element: `variant` ("default" or
+ * "portrait", the Video Feature Section's layout), `autoplay` (true by default;
+ * false starts the film on a click, with sound), `eyebrow` (default "Film")
+ * and `caption` (the quiet note below the player, default empty).
+ *
+ * Links to pages of the Desiderio site in `description` and `caption` are
+ * written as `{{page:<slug>}}` (`{{page:typo3-v14-strategy}}`); the seeder
+ * replaces each with `t3://page?uid=<uid>` of the default-language page with
+ * that slug, so TYPO3 renders it in the reader's language. A slug the site
+ * does not have stops the film with an error.
  *
  * Idempotent by comparison: the two elements are found by the marker in
  * rowDescription, only values that differ are written, so a second run
@@ -56,6 +89,10 @@ final class SeedFilmsCommand extends Command
     private const string FOLDER = 'films';
     private const string TRANSCRIPT_HEADER = 'What the film says';
     private const string TRANSCRIPT_TITLE = 'Read the transcript';
+    /** The Video Feature Section's layout select (Content Blocks prefixes it). */
+    private const string VARIANT_FIELD = 'desiderio_featurevideo_variant';
+    /** @var list<string> */
+    private const array VARIANTS = ['default', 'portrait'];
 
     private bool $dryRun = false;
     private int $rootUid = 0;
@@ -97,9 +134,8 @@ final class SeedFilmsCommand extends Command
         Bootstrap::initializeBackendAuthentication();
         $this->rootUid = $this->siteFinder->getSiteByIdentifier(self::SITE)->getRootPageId();
 
-        $films = glob(self::FILMS . '/*/film.json') ?: [];
         $failed = false;
-        foreach ($films as $manifestFile) {
+        foreach (self::manifests(self::FILMS) as $manifestFile) {
             $film = json_decode((string)file_get_contents($manifestFile), true);
             if (!is_array($film) || !is_string($film['id'] ?? null)) {
                 $io->warning(sprintf('%s is not a film manifest.', $manifestFile));
@@ -133,29 +169,212 @@ final class SeedFilmsCommand extends Command
     }
 
     /**
+     * The film.json files below $directory, sorted by path, so a film placed
+     * after another one (`after.film`) finds it in the same run when its id
+     * sorts first. A film folder holds either one film.json or cut folders
+     * with one each (short/film.json, long/film.json); when both exist during
+     * a change-over, the cuts win and the folder's own manifest is skipped.
+     *
+     * @return list<string>
+     */
+    public static function manifests(string $directory): array
+    {
+        $base = rtrim($directory, '/');
+        $cuts = glob($base . '/*/*/film.json') ?: [];
+        $foldersWithCuts = array_unique(array_map(static fn(string $file): string => dirname($file, 2), $cuts));
+        $films = array_values(array_filter(
+            glob($base . '/*/film.json') ?: [],
+            static fn(string $file): bool => !in_array(dirname($file), $foldersWithCuts, true),
+        ));
+        $files = [...$films, ...$cuts];
+        sort($files, SORT_STRING);
+
+        return $files;
+    }
+
+    /**
+     * The video element's options from film.json, with their defaults:
+     * `variant` "default", `autoplay` true, `eyebrow` "Film", `caption` "".
+     *
+     * @param array<string, mixed> $film
+     * @return array{variant: string, autoplay: bool, eyebrow: string, caption: string}
+     */
+    public static function videoOptionsOf(array $film): array
+    {
+        $variant = $film['variant'] ?? 'default';
+        if (!is_string($variant) || !in_array($variant, self::VARIANTS, true)) {
+            throw new \RuntimeException(sprintf('film.json "variant" must be one of %s.', implode(', ', self::VARIANTS)));
+        }
+        $autoplay = $film['autoplay'] ?? true;
+        if (!is_bool($autoplay)) {
+            throw new \RuntimeException('film.json "autoplay" must be true or false.');
+        }
+        $eyebrow = $film['eyebrow'] ?? 'Film';
+        if (!is_string($eyebrow) || trim($eyebrow) === '') {
+            throw new \RuntimeException('film.json "eyebrow" must be a non-empty text.');
+        }
+        $caption = $film['caption'] ?? '';
+        if (!is_string($caption)) {
+            throw new \RuntimeException('film.json "caption" must be a text.');
+        }
+
+        return ['variant' => $variant, 'autoplay' => $autoplay, 'eyebrow' => $eyebrow, 'caption' => $caption];
+    }
+
+    /**
+     * Replaces every `{{page:<slug>}}` in $text with `t3://page?uid=<uid>`.
+     * The slug may be written with or without its leading "/" (`{{page:}}`
+     * is the home page); $pageUid returns the uid of the default-language
+     * page with that slug, or null when there is none.
+     *
+     * @param callable(string): ?int $pageUid
+     */
+    public static function resolvePageLinks(string $text, callable $pageUid): string
+    {
+        return (string)preg_replace_callback(
+            '/\{\{page:([^}]*)\}\}/',
+            static function (array $matches) use ($pageUid): string {
+                $slug = '/' . trim($matches[1], " /");
+                $uid = $pageUid($slug);
+                if ($uid === null) {
+                    throw new \RuntimeException(sprintf('film.json links %s, but the Desiderio site has no page with the slug %s.', $matches[0], $slug));
+                }
+
+                return 't3://page?uid=' . $uid;
+            },
+            $text,
+        );
+    }
+
+    /**
+     * Where a film goes: film.json's `placements`, normalised, or its `slug`
+     * after the intro when there are none. A placement follows at most one
+     * anchor: an element's header (`after.header`) or another film's
+     * transcript (`after.film`).
+     *
+     * @param array<string, mixed> $film
+     * @return list<array{slug: string, afterHeader: ?string, afterFilm: ?string}>
+     */
+    public static function placementsOf(array $film): array
+    {
+        if (!array_key_exists('placements', $film)) {
+            $slug = $film['slug'] ?? null;
+            if (!is_string($slug) || !str_starts_with($slug, '/')) {
+                throw new \RuntimeException('film.json has no slug.');
+            }
+            return [['slug' => $slug, 'afterHeader' => null, 'afterFilm' => null]];
+        }
+        $placements = $film['placements'];
+        if (!is_array($placements) || $placements === [] || !array_is_list($placements)) {
+            throw new \RuntimeException('film.json "placements" must be a non-empty list.');
+        }
+        $normalised = [];
+        $seen = [];
+        foreach ($placements as $index => $placement) {
+            $slug = is_array($placement) ? ($placement['slug'] ?? null) : null;
+            if (!is_string($slug) || !str_starts_with($slug, '/')) {
+                throw new \RuntimeException(sprintf('Placement %d has no slug starting with "/".', $index + 1));
+            }
+            $afterHeader = null;
+            $afterFilm = null;
+            if (array_key_exists('after', $placement)) {
+                $after = $placement['after'];
+                if (!is_array($after) || count($after) !== 1 || !(array_key_exists('header', $after) || array_key_exists('film', $after))) {
+                    throw new \RuntimeException(sprintf('Placement %d: "after" needs exactly one of "header" or "film".', $index + 1));
+                }
+                if (array_key_exists('header', $after)) {
+                    $header = $after['header'];
+                    if (!is_string($header) || trim($header) === '') {
+                        throw new \RuntimeException(sprintf('Placement %d: "after" needs a non-empty "header".', $index + 1));
+                    }
+                    $afterHeader = $header;
+                } else {
+                    $other = $after['film'];
+                    if (!is_string($other) || preg_match('/^[a-z0-9][a-z0-9-]*$/', $other) !== 1) {
+                        throw new \RuntimeException(sprintf('Placement %d: "after.film" must be a film id.', $index + 1));
+                    }
+                    if ($other === ($film['id'] ?? null)) {
+                        throw new \RuntimeException(sprintf('Placement %d: a film cannot follow itself.', $index + 1));
+                    }
+                    $afterFilm = $other;
+                }
+            }
+            $key = $slug . "\n" . ($afterHeader ?? '') . "\n" . ($afterFilm ?? '');
+            if (isset($seen[$key])) {
+                throw new \RuntimeException(sprintf('Placement %d repeats placement %d.', $index + 1, $seen[$key]));
+            }
+            $seen[$key] = $index + 1;
+            $normalised[] = ['slug' => $slug, 'afterHeader' => $afterHeader, 'afterFilm' => $afterFilm];
+        }
+
+        return $normalised;
+    }
+
+    /**
+     * The marker keys of a film's placement (0-based): `<id>` and `<id>-transcript`
+     * for the first, `<id>#2` and `<id>#2-transcript` for the second, and so on.
+     *
+     * @return array{video: string, transcript: string}
+     */
+    public static function markerKeys(string $id, int $placement): array
+    {
+        $key = $placement === 0 ? $id : $id . '#' . ($placement + 1);
+
+        return ['video' => $key, 'transcript' => $key . '-transcript'];
+    }
+
+    /**
+     * The rowDescription that identifies a seeded element.
+     */
+    public static function marker(string $key): string
+    {
+        return sprintf('Seeded by sitepackage:films:seed (%s). A reseed replaces it.', $key);
+    }
+
+    /**
      * @param array<string, mixed> $film
      */
     private function seed(array $film, string $directory): void
     {
         $id = (string)$film['id'];
-        $slug = $this->text($film, 'slug');
-        $page = $this->pageBySlug($slug);
-        if ($page === null) {
-            throw new \RuntimeException(sprintf('No page %s below the Desiderio root %d.', $slug, $this->rootUid));
-        }
+        $placements = self::placementsOf($film);
+        $options = self::videoOptionsOf($film);
         foreach (['mp4', 'poster', 'vtt'] as $key) {
             if (!is_file($directory . '/' . $this->text($film, $key))) {
                 throw new \RuntimeException(sprintf('film.json names %s, which is not in %s.', $this->text($film, $key), $directory));
             }
         }
+        foreach ($placements as $index => $placement) {
+            $page = $this->pageBySlug($placement['slug']);
+            if ($page === null) {
+                throw new \RuntimeException(sprintf('No page %s below the Desiderio root %d.', $placement['slug'], $this->rootUid));
+            }
+            $this->place($film, $options, $directory, $page, $placement, self::markerKeys($id, $index));
+        }
+    }
+
+    /**
+     * One placement: the video after its anchor, the transcript after the video.
+     *
+     * @param array<string, mixed> $film
+     * @param array{variant: string, autoplay: bool, eyebrow: string, caption: string} $options
+     * @param array{slug: string, afterHeader: ?string, afterFilm: ?string} $placement
+     * @param array{video: string, transcript: string} $keys
+     */
+    private function place(array $film, array $options, string $directory, int $page, array $placement, array $keys): void
+    {
+        $id = (string)$film['id'];
+        $pageUid = fn(string $slug): ?int => $this->pageBySlug($slug);
 
         $videoFields = [
             'CType' => 'desiderio_featurevideo',
             'colPos' => '0',
-            'eyebrow' => 'Film',
+            'eyebrow' => $options['eyebrow'],
             'header' => $this->text($film, 'header'),
-            'description' => $this->text($film, 'description'),
+            'description' => self::resolvePageLinks($this->text($film, 'description'), $pageUid),
             'video_url' => '',
+            'caption' => self::resolvePageLinks($options['caption'], $pageUid),
+            self::VARIANT_FIELD => $options['variant'],
         ];
         $transcriptFields = [
             'CType' => 'desiderio_accordion',
@@ -165,19 +384,19 @@ final class SeedFilmsCommand extends Command
         ];
         $item = ['title' => self::TRANSCRIPT_TITLE, 'open_by_default' => '0', 'content' => $this->transcript($film)];
 
-        $video = $this->element($page, $id, $videoFields, [], $this->intro($page));
-        $transcript = $this->element($page, $id . '-transcript', $transcriptFields, ['desiderio_accordion_items' => $item], $video);
+        $video = $this->element($page, $keys['video'], $videoFields, [], $this->anchor($page, $placement));
+        $transcript = $this->element($page, $keys['transcript'], $transcriptFields, ['desiderio_accordion_items' => $item], $video);
         if ($video === null || $transcript === null) {
             return;
         }
 
         $alt = $this->text($film, 'alt');
         $title = $this->text($film, 'title');
-        $this->files($video, 'video_file', $directory . '/' . $this->text($film, 'mp4'), $id, ['alternative' => $alt, 'title' => $title, 'autoplay' => 1]);
+        $this->files($video, 'video_file', $directory . '/' . $this->text($film, 'mp4'), $id, ['alternative' => $alt, 'title' => $title, 'autoplay' => $options['autoplay'] ? 1 : 0]);
         $this->files($video, 'poster', $directory . '/' . $this->text($film, 'poster'), $id, ['alternative' => $alt, 'title' => $title]);
         $this->files($video, 'captions_file', $directory . '/' . $this->text($film, 'vtt'), $id, []);
-        $this->collection($transcript, 'desiderio_accordion_items', $item, $id);
-        $this->order($page, $video, $transcript, $id);
+        $this->collection($transcript, 'desiderio_accordion_items', $item, $keys['video']);
+        $this->order($page, $video, $transcript, $keys['video'], $placement);
     }
 
     /**
@@ -189,7 +408,7 @@ final class SeedFilmsCommand extends Command
      */
     private function element(int $page, string $key, array $fields, array $collections, ?int $after): ?int
     {
-        $marker = sprintf('Seeded by sitepackage:films:seed (%s). A reseed replaces it.', $key);
+        $marker = self::marker($key);
         $fields['rowDescription'] = $marker;
         $uid = $this->byMarker($page, $marker);
         if ($uid !== null) {
@@ -254,24 +473,75 @@ final class SeedFilmsCommand extends Command
     }
 
     /**
-     * Video, then transcript, right after the page's intro (a hero or a
-     * header section as its first element), or at the top without one.
+     * Video, then transcript, right after the anchor: the element with the
+     * placement's header, the other film's transcript, or the page's intro
+     * (a hero or a header section as its first element), or at the top
+     * without one.
+     *
+     * @param array{slug: string, afterHeader: ?string, afterFilm: ?string} $placement
      */
-    private function order(int $page, int $video, int $transcript, string $label): void
+    private function order(int $page, int $video, int $transcript, string $label, array $placement): void
     {
-        $intro = $this->intro($page, [$video, $transcript]);
+        $anchor = $this->anchor($page, $placement, [$video, $transcript]);
         $wanted = [$video, $transcript];
         $all = $this->contentOf($page);
-        if (array_slice($all, $intro === null ? 0 : 1, 2) === $wanted) {
+        $offset = $anchor === null ? 0 : (int)array_search($anchor, $all, true) + 1;
+        if (array_slice($all, $offset, 2) === $wanted) {
             return;
         }
         $this->counts['moved']++;
-        $this->output->writeln(sprintf('move    %s below %s', $label, $intro === null ? 'the top of the page' : 'tt_content ' . $intro));
+        $this->output->writeln(sprintf('move    %s below %s', $label, $anchor === null ? 'the top of the page' : 'tt_content ' . $anchor));
         if ($this->dryRun) {
             return;
         }
-        $this->process([], ['tt_content' => [$video => ['move' => $intro === null ? $page : -$intro]]]);
+        $this->process([], ['tt_content' => [$video => ['move' => $anchor === null ? $page : -$anchor]]]);
         $this->process([], ['tt_content' => [$transcript => ['move' => -$video]]]);
+    }
+
+    /**
+     * The element a placement's video follows: the first default-language
+     * element in colPos 0 whose header is `afterHeader`, the transcript of
+     * the film `afterFilm` on this page, or the page's intro.
+     *
+     * @param array{slug: string, afterHeader: ?string, afterFilm: ?string} $placement
+     * @param list<int> $without
+     */
+    private function anchor(int $page, array $placement, array $without = []): ?int
+    {
+        if ($placement['afterFilm'] !== null) {
+            $other = $placement['afterFilm'];
+            $transcript = $this->byMarker($page, self::marker(self::markerKeys($other, 0)['transcript']));
+            if ($transcript === null || in_array($transcript, $without, true)) {
+                throw new \RuntimeException(sprintf(
+                    'Film %s is not on page %d (%s) yet: no element with its transcript marker. Seed %s first; this placement is retried on the next run.',
+                    $other,
+                    $page,
+                    $placement['slug'],
+                    $other,
+                ));
+            }
+
+            return $transcript;
+        }
+        $afterHeader = $placement['afterHeader'];
+        if ($afterHeader === null) {
+            return $this->intro($page, $without);
+        }
+        $all = $this->contentOf($page, $without);
+        if ($all !== []) {
+            $queryBuilder = $this->queryBuilder('tt_content');
+            $match = $queryBuilder->select('uid')->from('tt_content')->where(
+                $queryBuilder->expr()->in('uid', $queryBuilder->createNamedParameter($all, Connection::PARAM_INT_ARRAY)),
+                $queryBuilder->expr()->eq('header', $queryBuilder->createNamedParameter($afterHeader)),
+            )->executeQuery()->fetchFirstColumn();
+            $matching = array_map('intval', $match);
+            foreach ($all as $uid) {
+                if (in_array($uid, $matching, true)) {
+                    return $uid;
+                }
+            }
+        }
+        throw new \RuntimeException(sprintf('Page %d has no element with the header "%s".', $page, $afterHeader));
     }
 
     /**
@@ -361,7 +631,12 @@ final class SeedFilmsCommand extends Command
             if (!array_key_exists($name, $row)) {
                 throw new \RuntimeException(sprintf('%s has no column %s.', $table, $name));
             }
-            if (str_replace("\r\n", "\n", (string)$row[$name]) !== $value) {
+            $current = str_replace("\r\n", "\n", (string)$row[$name]);
+            // Elements seeded before the layout select existed have it empty, which renders as "default".
+            if ($current === '' && $name === self::VARIANT_FIELD && $value === 'default') {
+                continue;
+            }
+            if ($current !== $value) {
                 $changed[$name] = $value;
             }
         }

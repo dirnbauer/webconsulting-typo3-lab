@@ -1,0 +1,25 @@
+WEBVTT - typo3-records-list-types (narration, English)
+
+1
+00:00:02.040 --> 00:00:07.434
+The Records module shows a plain table, even for news with photos.
+
+2
+00:00:12.134 --> 00:00:16.509
+You ask for cards with thumbnails instead of the table.
+
+3
+00:00:18.584 --> 00:00:25.336
+The extension adds the views. TSconfig decides which ones each page allows.
+
+4
+00:00:26.386 --> 00:00:32.720
+Grid, timeline, catalogue: editors switch views, and nothing in core is patched.
+
+5
+00:00:34.186 --> 00:00:39.815
+Configure, do not patch. Accessibility is evidenced, not assumed.
+
+6
+00:00:41.415 --> 00:00:44.641
+Open source. Clone the skills.

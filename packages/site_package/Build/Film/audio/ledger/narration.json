@@ -1,0 +1,552 @@
+{
+  "voice": "George",
+  "delivery": {
+    "stability": 0.62,
+    "similarity_boost": 0.78,
+    "style": 0.18,
+    "speed": 0.9
+  },
+  "lines": [
+    {
+      "say": "Hours in Redmine, receipts in the inbox, bookings in the bank. Three places, one month-end.",
+      "show": "Hours in Redmine, receipts in the inbox, bookings in the bank. Three places, one month-end.",
+      "file": "voice-01.mp3",
+      "duration": 6949,
+      "words": [
+        {
+          "word": "Hours",
+          "start": 35,
+          "end": 406
+        },
+        {
+          "word": "in",
+          "start": 476,
+          "end": 546
+        },
+        {
+          "word": "Redmine,",
+          "start": 627,
+          "end": 1277
+        },
+        {
+          "word": "receipts",
+          "start": 1405,
+          "end": 1834
+        },
+        {
+          "word": "in",
+          "start": 1881,
+          "end": 1939
+        },
+        {
+          "word": "the",
+          "start": 1974,
+          "end": 2043
+        },
+        {
+          "word": "inbox,",
+          "start": 2113,
+          "end": 2682
+        },
+        {
+          "word": "bookings",
+          "start": 2763,
+          "end": 3216
+        },
+        {
+          "word": "in",
+          "start": 3251,
+          "end": 3309
+        },
+        {
+          "word": "the",
+          "start": 3344,
+          "end": 3413
+        },
+        {
+          "word": "bank.",
+          "start": 3460,
+          "end": 3959
+        },
+        {
+          "word": "Three",
+          "start": 4447,
+          "end": 4760
+        },
+        {
+          "word": "places,",
+          "start": 4795,
+          "end": 5306
+        },
+        {
+          "word": "one",
+          "start": 5433,
+          "end": 5642
+        },
+        {
+          "word": "month-end.",
+          "start": 5677,
+          "end": 6420
+        }
+      ],
+      "heard": "Hours in Redmine, receipts in the inbox, bookings in the bank. Three places, one month end.",
+      "end": 6440
+    },
+    {
+      "say": "Ledger turns them into invoices, checked receipts and a handover your accountant can use.",
+      "show": "Ledger turns them into invoices, checked receipts and a handover your accountant can use.",
+      "file": "voice-02.mp3",
+      "duration": 5695,
+      "words": [
+        {
+          "word": "Ledger",
+          "start": 23,
+          "end": 418
+        },
+        {
+          "word": "turns",
+          "start": 464,
+          "end": 743
+        },
+        {
+          "word": "them",
+          "start": 789,
+          "end": 906
+        },
+        {
+          "word": "into",
+          "start": 940,
+          "end": 1080
+        },
+        {
+          "word": "invoices,",
+          "start": 1161,
+          "end": 1997
+        },
+        {
+          "word": "checked",
+          "start": 2125,
+          "end": 2450
+        },
+        {
+          "word": "receipts",
+          "start": 2496,
+          "end": 3007
+        },
+        {
+          "word": "and",
+          "start": 3053,
+          "end": 3170
+        },
+        {
+          "word": "a",
+          "start": 3216,
+          "end": 3239
+        },
+        {
+          "word": "handover",
+          "start": 3309,
+          "end": 3762
+        },
+        {
+          "word": "your",
+          "start": 3831,
+          "end": 3947
+        },
+        {
+          "word": "accountant",
+          "start": 3982,
+          "end": 4412
+        },
+        {
+          "word": "can",
+          "start": 4447,
+          "end": 4563
+        },
+        {
+          "word": "use.",
+          "start": 4656,
+          "end": 5166
+        }
+      ],
+      "heard": "Ledger turns them into invoices, checked receipts and a handover your accountant can use."
+    },
+    {
+      "say": "It imports billable hours from Redmine and drafts the invoice, one line per ticket.",
+      "show": "It imports billable hours from Redmine and drafts the invoice, one line per ticket.",
+      "file": "voice-03.mp3",
+      "duration": 5851,
+      "words": [
+        {
+          "word": "It",
+          "start": 12,
+          "end": 174
+        },
+        {
+          "word": "imports",
+          "start": 221,
+          "end": 650
+        },
+        {
+          "word": "billable",
+          "start": 720,
+          "end": 1115
+        },
+        {
+          "word": "hours",
+          "start": 1161,
+          "end": 1498
+        },
+        {
+          "word": "from",
+          "start": 1544,
+          "end": 1683
+        },
+        {
+          "word": "Redmine",
+          "start": 1765,
+          "end": 2287
+        },
+        {
+          "word": "and",
+          "start": 2334,
+          "end": 2426
+        },
+        {
+          "word": "drafts",
+          "start": 2473,
+          "end": 2856
+        },
+        {
+          "word": "the",
+          "start": 2891,
+          "end": 2961
+        },
+        {
+          "word": "invoice,",
+          "start": 3053,
+          "end": 3692
+        },
+        {
+          "word": "one",
+          "start": 3889,
+          "end": 4122
+        },
+        {
+          "word": "line",
+          "start": 4168,
+          "end": 4423
+        },
+        {
+          "word": "per",
+          "start": 4458,
+          "end": 4598
+        },
+        {
+          "word": "ticket.",
+          "start": 4632,
+          "end": 5201
+        }
+      ],
+      "heard": "It imports billable hours from Redmine and drafts the invoice, one line per ticket.",
+      "end": 5190
+    },
+    {
+      "say": "Receipts arrive from mail, Drive or upload. AI reads number, date and VAT; you confirm.",
+      "show": "Receipts arrive from mail, Drive or upload. AI reads number, date and VAT; you confirm.",
+      "file": "voice-04.mp3",
+      "duration": 7837,
+      "words": [
+        {
+          "word": "Receipts",
+          "start": 12,
+          "end": 476
+        },
+        {
+          "word": "arrive",
+          "start": 511,
+          "end": 882
+        },
+        {
+          "word": "from",
+          "start": 917,
+          "end": 1057
+        },
+        {
+          "word": "mail,",
+          "start": 1149,
+          "end": 1614
+        },
+        {
+          "word": "Drive",
+          "start": 1707,
+          "end": 2148
+        },
+        {
+          "word": "or",
+          "start": 2218,
+          "end": 2380
+        },
+        {
+          "word": "upload.",
+          "start": 2450,
+          "end": 3111
+        },
+        {
+          "word": "AI",
+          "start": 3599,
+          "end": 4040
+        },
+        {
+          "word": "reads",
+          "start": 4133,
+          "end": 4412
+        },
+        {
+          "word": "number,",
+          "start": 4481,
+          "end": 5016
+        },
+        {
+          "word": "date",
+          "start": 5178,
+          "end": 5492
+        },
+        {
+          "word": "and",
+          "start": 5515,
+          "end": 5596
+        },
+        {
+          "word": "VAT;",
+          "start": 5666,
+          "end": 6165
+        },
+        {
+          "word": "you",
+          "start": 6327,
+          "end": 6420
+        },
+        {
+          "word": "confirm.",
+          "start": 6490,
+          "end": 7221
+        }
+      ],
+      "heard": "Receipts arrive from mail, drive or upload. AI reads number, date and VAT. You confirm."
+    },
+    {
+      "say": "Bank bookings come in over P S D two. Clear matches are booked; the rest waits for you.",
+      "show": "Bank bookings come in over PSD2. Clear matches are booked; the rest waits for you.",
+      "file": "voice-05.mp3",
+      "duration": 6713,
+      "words": [
+        {
+          "word": "Bank",
+          "start": 12,
+          "end": 325
+        },
+        {
+          "word": "bookings",
+          "start": 395,
+          "end": 836
+        },
+        {
+          "word": "come",
+          "start": 906,
+          "end": 1091
+        },
+        {
+          "word": "in",
+          "start": 1126,
+          "end": 1231
+        },
+        {
+          "word": "over",
+          "start": 1324,
+          "end": 1533
+        },
+        {
+          "word": "P",
+          "start": 1602,
+          "end": 1707
+        },
+        {
+          "word": "S",
+          "start": 1904,
+          "end": 2032
+        },
+        {
+          "word": "D",
+          "start": 2113,
+          "end": 2206
+        },
+        {
+          "word": "two.",
+          "start": 2403,
+          "end": 2902
+        },
+        {
+          "word": "Clear",
+          "start": 3390,
+          "end": 3680
+        },
+        {
+          "word": "matches",
+          "start": 3727,
+          "end": 4063
+        },
+        {
+          "word": "are",
+          "start": 4098,
+          "end": 4180
+        },
+        {
+          "word": "booked;",
+          "start": 4203,
+          "end": 4644
+        },
+        {
+          "word": "the",
+          "start": 4876,
+          "end": 4969
+        },
+        {
+          "word": "rest",
+          "start": 5050,
+          "end": 5306
+        },
+        {
+          "word": "waits",
+          "start": 5375,
+          "end": 5631
+        },
+        {
+          "word": "for",
+          "start": 5666,
+          "end": 5770
+        },
+        {
+          "word": "you.",
+          "start": 5840,
+          "end": 6188
+        }
+      ],
+      "heard": "Bank bookings come in over PSD too. Clear matches are booked. The rest waits for you."
+    },
+    {
+      "say": "The monthly statement shows every booking with its receipt, ready for the tax advisor.",
+      "show": "The monthly statement shows every booking with its receipt, ready for the tax advisor.",
+      "file": "voice-06.mp3",
+      "duration": 5851,
+      "words": [
+        {
+          "word": "The",
+          "start": 12,
+          "end": 128
+        },
+        {
+          "word": "monthly",
+          "start": 197,
+          "end": 546
+        },
+        {
+          "word": "statement",
+          "start": 615,
+          "end": 1068
+        },
+        {
+          "word": "shows",
+          "start": 1115,
+          "end": 1428
+        },
+        {
+          "word": "every",
+          "start": 1521,
+          "end": 1823
+        },
+        {
+          "word": "booking",
+          "start": 1892,
+          "end": 2229
+        },
+        {
+          "word": "with",
+          "start": 2276,
+          "end": 2415
+        },
+        {
+          "word": "its",
+          "start": 2461,
+          "end": 2577
+        },
+        {
+          "word": "receipt,",
+          "start": 2647,
+          "end": 3286
+        },
+        {
+          "word": "ready",
+          "start": 3715,
+          "end": 3971
+        },
+        {
+          "word": "for",
+          "start": 4040,
+          "end": 4133
+        },
+        {
+          "word": "the",
+          "start": 4168,
+          "end": 4238
+        },
+        {
+          "word": "tax",
+          "start": 4284,
+          "end": 4551
+        },
+        {
+          "word": "advisor.",
+          "start": 4621,
+          "end": 5306
+        }
+      ],
+      "heard": "The monthly statement shows every booking with its receipt, ready for the tax advisor,",
+      "end": 5340
+    },
+    {
+      "say": "Ledger. Less bookkeeping, more overview.",
+      "show": "Ledger. Less bookkeeping, more overview.",
+      "file": "voice-07.mp3",
+      "duration": 3004,
+      "words": [
+        {
+          "word": "Ledger.",
+          "start": 12,
+          "end": 592
+        },
+        {
+          "word": "Less",
+          "start": 755,
+          "end": 1010
+        },
+        {
+          "word": "bookkeeping,",
+          "start": 1045,
+          "end": 1707
+        },
+        {
+          "word": "more",
+          "start": 1753,
+          "end": 1974
+        },
+        {
+          "word": "overview.",
+          "start": 2020,
+          "end": 2682
+        }
+      ],
+      "heard": "Ledger, less bookkeeping, more overview."
+    }
+  ]
+}

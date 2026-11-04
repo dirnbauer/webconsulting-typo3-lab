@@ -60,11 +60,11 @@ export default {
         accent: '#c4b5fd',
         palette: ['#7c5cff', '#2c5a52', '#c7863f'],
         music: 'focus',
-        alt: 'Overview film, {duration} seconds: 10 AI tools for TYPO3 v14, in three groups: '
+        alt: 'Overview film, {duration} seconds: 11 AI tools for TYPO3 v14, in three groups: '
             + 'AI editors control, checked skills, and agents within limits. Narrated, with English captions.',
         scenes: [
             { type: 'hook', head: 'AI changes <em>nobody approved.</em>', images: [tool(ai, 'ai-assistant').image, tool(ai, 'mcp-server').image, tool(ai, 'agent-nexus').image], say: 'An AI tool that writes straight to live pages leaves nobody to approve the change.' },
-            { type: 'title', eyebrow: 'AI for TYPO3 v14', name: 'AI tools', sub: '10 tools, with people in charge', key: `${HOST}/ai/`, image: tool(ai, 'ai-assistant').image, say: 'This lab runs 10 AI tools for TYPO3 v14, and people approve what they change.' },
+            { type: 'title', eyebrow: 'AI for TYPO3 v14', name: 'AI tools', sub: '11 tools, with people in charge', key: `${HOST}/ai/`, image: tool(ai, 'ai-assistant').image, say: 'This lab runs 11 AI tools for TYPO3 v14, and people approve what they change.' },
             group(ai, 'Editors in control', 'AI your editors <em>can control</em>', [['ai-assistant'], ['nr-llm-manual', 'n'], ['jev', 'jev']],
                 'The assistant asks before it writes, nr-llm keeps one model setup, and Jev sorts form messages.'),
             group(ai, 'Skills', 'Skills, checked <em>before they run</em>', [['skillflow'], ['skillspector', 'skillspector']],

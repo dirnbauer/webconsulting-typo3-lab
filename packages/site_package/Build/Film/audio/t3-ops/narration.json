@@ -1,0 +1,556 @@
+{
+  "voice": "George",
+  "delivery": {
+    "stability": 0.62,
+    "similarity_boost": 0.78,
+    "style": 0.18,
+    "speed": 0.9
+  },
+  "lines": [
+    {
+      "say": "Twenty-two typo three sites, one security advisory, and every update done by hand.",
+      "show": "Twenty-two TYPO3 sites, one security advisory, and every update done by hand.",
+      "file": "voice-01.mp3",
+      "duration": 6296,
+      "words": [
+        {
+          "word": "Twenty-two",
+          "start": 81,
+          "end": 639
+        },
+        {
+          "word": "typo",
+          "start": 731,
+          "end": 1103
+        },
+        {
+          "word": "three",
+          "start": 1184,
+          "end": 1440
+        },
+        {
+          "word": "sites,",
+          "start": 1509,
+          "end": 1997
+        },
+        {
+          "word": "one",
+          "start": 2125,
+          "end": 2345
+        },
+        {
+          "word": "security",
+          "start": 2392,
+          "end": 2914
+        },
+        {
+          "word": "advisory,",
+          "start": 2949,
+          "end": 3611
+        },
+        {
+          "word": "and",
+          "start": 3634,
+          "end": 3785
+        },
+        {
+          "word": "every",
+          "start": 3855,
+          "end": 4063
+        },
+        {
+          "word": "update",
+          "start": 4133,
+          "end": 4563
+        },
+        {
+          "word": "done",
+          "start": 4598,
+          "end": 4795
+        },
+        {
+          "word": "by",
+          "start": 4830,
+          "end": 4992
+        },
+        {
+          "word": "hand.",
+          "start": 5085,
+          "end": 5573
+        }
+      ],
+      "heard": "22 TYPO3 sites, one security advisory and every update done by hand.",
+      "end": 5630
+    },
+    {
+      "say": "T three ops runs the whole fleet from one screen.",
+      "show": "T3 Ops runs the whole fleet from one screen.",
+      "file": "voice-02.mp3",
+      "duration": 3657,
+      "words": [
+        {
+          "word": "T",
+          "start": 12,
+          "end": 209
+        },
+        {
+          "word": "three",
+          "start": 372,
+          "end": 650
+        },
+        {
+          "word": "ops",
+          "start": 720,
+          "end": 1010
+        },
+        {
+          "word": "runs",
+          "start": 1091,
+          "end": 1393
+        },
+        {
+          "word": "the",
+          "start": 1440,
+          "end": 1509
+        },
+        {
+          "word": "whole",
+          "start": 1544,
+          "end": 1730
+        },
+        {
+          "word": "fleet",
+          "start": 1776,
+          "end": 2078
+        },
+        {
+          "word": "from",
+          "start": 2148,
+          "end": 2287
+        },
+        {
+          "word": "one",
+          "start": 2368,
+          "end": 2566
+        },
+        {
+          "word": "screen.",
+          "start": 2601,
+          "end": 3181
+        }
+      ],
+      "heard": "T-3 Ops runs the whole fleet from one screen.",
+      "end": 3250
+    },
+    {
+      "say": "Four times a day it checks core, extensions and advisories.",
+      "show": "Four times a day it checks core, extensions and advisories.",
+      "file": "voice-03.mp3",
+      "duration": 4493,
+      "words": [
+        {
+          "word": "Four",
+          "start": 23,
+          "end": 279
+        },
+        {
+          "word": "times",
+          "start": 325,
+          "end": 604
+        },
+        {
+          "word": "a",
+          "start": 639,
+          "end": 673
+        },
+        {
+          "word": "day",
+          "start": 743,
+          "end": 998
+        },
+        {
+          "word": "it",
+          "start": 1091,
+          "end": 1184
+        },
+        {
+          "word": "checks",
+          "start": 1219,
+          "end": 1486
+        },
+        {
+          "word": "core,",
+          "start": 1567,
+          "end": 2009
+        },
+        {
+          "word": "extensions",
+          "start": 2078,
+          "end": 2833
+        },
+        {
+          "word": "and",
+          "start": 2902,
+          "end": 3007
+        },
+        {
+          "word": "advisories.",
+          "start": 3077,
+          "end": 3971
+        }
+      ],
+      "heard": "Four times a day it checks core, extensions and advisories."
+    },
+    {
+      "say": "An update runs on a staging copy first: backup, Composer, deploy, screenshots.",
+      "show": "An update runs on a staging copy first: backup, Composer, deploy, screenshots.",
+      "file": "voice-04.mp3",
+      "duration": 7001,
+      "words": [
+        {
+          "word": "An",
+          "start": 12,
+          "end": 163
+        },
+        {
+          "word": "update",
+          "start": 209,
+          "end": 615
+        },
+        {
+          "word": "runs",
+          "start": 650,
+          "end": 906
+        },
+        {
+          "word": "on",
+          "start": 952,
+          "end": 1022
+        },
+        {
+          "word": "a",
+          "start": 1057,
+          "end": 1091
+        },
+        {
+          "word": "staging",
+          "start": 1138,
+          "end": 1614
+        },
+        {
+          "word": "copy",
+          "start": 1695,
+          "end": 1997
+        },
+        {
+          "word": "first:",
+          "start": 2078,
+          "end": 2717
+        },
+        {
+          "word": "backup,",
+          "start": 3204,
+          "end": 3843
+        },
+        {
+          "word": "Composer,",
+          "start": 3878,
+          "end": 4667
+        },
+        {
+          "word": "deploy,",
+          "start": 4772,
+          "end": 5433
+        },
+        {
+          "word": "screenshots.",
+          "start": 5515,
+          "end": 6444
+        }
+      ],
+      "heard": "An update runs on a staging copy first. Backup, Composer, Deploy, Screenshots."
+    },
+    {
+      "say": "Before and after shots of every sampled page, compared pixel by pixel.",
+      "show": "Before and after shots of every sampled page, compared pixel by pixel.",
+      "file": "voice-05.mp3",
+      "duration": 5329,
+      "words": [
+        {
+          "word": "Before",
+          "start": 23,
+          "end": 476
+        },
+        {
+          "word": "and",
+          "start": 511,
+          "end": 615
+        },
+        {
+          "word": "after",
+          "start": 685,
+          "end": 952
+        },
+        {
+          "word": "shots",
+          "start": 1022,
+          "end": 1324
+        },
+        {
+          "word": "of",
+          "start": 1370,
+          "end": 1428
+        },
+        {
+          "word": "every",
+          "start": 1498,
+          "end": 1718
+        },
+        {
+          "word": "sampled",
+          "start": 1765,
+          "end": 2206
+        },
+        {
+          "word": "page,",
+          "start": 2252,
+          "end": 2763
+        },
+        {
+          "word": "compared",
+          "start": 2844,
+          "end": 3309
+        },
+        {
+          "word": "pixel",
+          "start": 3379,
+          "end": 3750
+        },
+        {
+          "word": "by",
+          "start": 3831,
+          "end": 3947
+        },
+        {
+          "word": "pixel.",
+          "start": 4029,
+          "end": 4690
+        }
+      ],
+      "heard": "before and after shots of every sampled page, compared pixel by pixel."
+    },
+    {
+      "say": "A 64-point hardening checklist, from the Install Tool to security headers.",
+      "show": "A 64-point hardening checklist, from the Install Tool to security headers.",
+      "file": "voice-06.mp3",
+      "duration": 5930,
+      "words": [
+        {
+          "word": "A",
+          "start": 35,
+          "end": 116
+        },
+        {
+          "word": "64-point",
+          "start": 221,
+          "end": 1207
+        },
+        {
+          "word": "hardening",
+          "start": 1300,
+          "end": 1776
+        },
+        {
+          "word": "checklist,",
+          "start": 1846,
+          "end": 2589
+        },
+        {
+          "word": "from",
+          "start": 2821,
+          "end": 2995
+        },
+        {
+          "word": "the",
+          "start": 3030,
+          "end": 3100
+        },
+        {
+          "word": "Install",
+          "start": 3181,
+          "end": 3611
+        },
+        {
+          "word": "Tool",
+          "start": 3692,
+          "end": 3947
+        },
+        {
+          "word": "to",
+          "start": 4029,
+          "end": 4098
+        },
+        {
+          "word": "security",
+          "start": 4180,
+          "end": 4737
+        },
+        {
+          "word": "headers.",
+          "start": 4807,
+          "end": 5375
+        }
+      ],
+      "heard": "a 64-point hardening checklist from the Install tool to Security headers",
+      "end": 5410
+    },
+    {
+      "say": "Monitoring with Prometheus, Grafana and Uptime Kuma. Nightly encrypted backups, verified every morning. Cloudflare cache purged after each release.",
+      "show": "Monitoring with Prometheus, Grafana and Uptime Kuma. Nightly encrypted backups, verified every morning. Cloudflare cache purged after each release.",
+      "file": "voice-07.mp3",
+      "duration": 11050,
+      "words": [
+        {
+          "word": "Monitoring",
+          "start": 23,
+          "end": 615
+        },
+        {
+          "word": "with",
+          "start": 662,
+          "end": 789
+        },
+        {
+          "word": "Prometheus,",
+          "start": 836,
+          "end": 1509
+        },
+        {
+          "word": "Grafana",
+          "start": 1556,
+          "end": 2171
+        },
+        {
+          "word": "and",
+          "start": 2218,
+          "end": 2334
+        },
+        {
+          "word": "Uptime",
+          "start": 2415,
+          "end": 2844
+        },
+        {
+          "word": "Kuma.",
+          "start": 2891,
+          "end": 3471
+        },
+        {
+          "word": "Nightly",
+          "start": 4040,
+          "end": 4470
+        },
+        {
+          "word": "encrypted",
+          "start": 4516,
+          "end": 5027
+        },
+        {
+          "word": "backups,",
+          "start": 5097,
+          "end": 5759
+        },
+        {
+          "word": "verified",
+          "start": 5863,
+          "end": 6478
+        },
+        {
+          "word": "every",
+          "start": 6513,
+          "end": 6699
+        },
+        {
+          "word": "morning.",
+          "start": 6769,
+          "end": 7291
+        },
+        {
+          "word": "Cloudflare",
+          "start": 7779,
+          "end": 8464
+        },
+        {
+          "word": "cache",
+          "start": 8510,
+          "end": 8870
+        },
+        {
+          "word": "purged",
+          "start": 8940,
+          "end": 9439
+        },
+        {
+          "word": "after",
+          "start": 9485,
+          "end": 9706
+        },
+        {
+          "word": "each",
+          "start": 9787,
+          "end": 10008
+        },
+        {
+          "word": "release.",
+          "start": 10077,
+          "end": 10693
+        }
+      ],
+      "heard": "Monitoring with Prometheus, Grafana, and Uptime Kuma. Nightly encrypted backups verified every morning. Cloudflare cache purged after each release."
+    },
+    {
+      "say": "T three ops. Updates you can prove.",
+      "show": "T3 Ops. Updates you can prove.",
+      "file": "voice-08.mp3",
+      "duration": 2952,
+      "words": [
+        {
+          "word": "T",
+          "start": 46,
+          "end": 209
+        },
+        {
+          "word": "three",
+          "start": 348,
+          "end": 627
+        },
+        {
+          "word": "ops.",
+          "start": 697,
+          "end": 1173
+        },
+        {
+          "word": "Updates",
+          "start": 1277,
+          "end": 1765
+        },
+        {
+          "word": "you",
+          "start": 1800,
+          "end": 1869
+        },
+        {
+          "word": "can",
+          "start": 1916,
+          "end": 2020
+        },
+        {
+          "word": "prove.",
+          "start": 2090,
+          "end": 2624
+        }
+      ],
+      "heard": "T3 Ops. Updates you can prove."
+    }
+  ]
+}

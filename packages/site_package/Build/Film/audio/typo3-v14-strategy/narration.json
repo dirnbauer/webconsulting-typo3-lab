@@ -1,0 +1,623 @@
+{
+  "voice": "George",
+  "delivery": {
+    "stability": 0.62,
+    "similarity_boost": 0.78,
+    "style": 0.18,
+    "speed": 0.9
+  },
+  "lines": [
+    {
+      "say": "Agents now read, edit and buy on websites. Tenders ask how a CMS handles that.",
+      "show": "Agents now read, edit and buy on websites. Tenders ask how a CMS handles that.",
+      "file": "voice-01.mp3",
+      "duration": 6504,
+      "words": [
+        {
+          "word": "Agents",
+          "start": 35,
+          "end": 453
+        },
+        {
+          "word": "now",
+          "start": 522,
+          "end": 673
+        },
+        {
+          "word": "read,",
+          "start": 778,
+          "end": 1173
+        },
+        {
+          "word": "edit",
+          "start": 1300,
+          "end": 1637
+        },
+        {
+          "word": "and",
+          "start": 1707,
+          "end": 1788
+        },
+        {
+          "word": "buy",
+          "start": 1869,
+          "end": 2067
+        },
+        {
+          "word": "on",
+          "start": 2148,
+          "end": 2218
+        },
+        {
+          "word": "websites.",
+          "start": 2287,
+          "end": 3077
+        },
+        {
+          "word": "Tenders",
+          "start": 3344,
+          "end": 3773
+        },
+        {
+          "word": "ask",
+          "start": 3855,
+          "end": 4145
+        },
+        {
+          "word": "how",
+          "start": 4214,
+          "end": 4319
+        },
+        {
+          "word": "a",
+          "start": 4389,
+          "end": 4412
+        },
+        {
+          "word": "CMS",
+          "start": 4458,
+          "end": 4981
+        },
+        {
+          "word": "handles",
+          "start": 5062,
+          "end": 5457
+        },
+        {
+          "word": "that.",
+          "start": 5503,
+          "end": 5944
+        }
+      ],
+      "heard": "Agents now read, edit and buy on websites. Tenders ask how a CMS handles that."
+    },
+    {
+      "say": "Our strategy for typo three version fourteen and AI agents.",
+      "show": "Our strategy for TYPO3 v14 and AI agents.",
+      "file": "voice-02.mp3",
+      "duration": 5251,
+      "words": [
+        {
+          "word": "Our",
+          "start": 12,
+          "end": 221
+        },
+        {
+          "word": "strategy",
+          "start": 290,
+          "end": 801
+        },
+        {
+          "word": "for",
+          "start": 848,
+          "end": 952
+        },
+        {
+          "word": "typo",
+          "start": 998,
+          "end": 1358
+        },
+        {
+          "word": "three",
+          "start": 1440,
+          "end": 1741
+        },
+        {
+          "word": "version",
+          "start": 1811,
+          "end": 2159
+        },
+        {
+          "word": "fourteen",
+          "start": 2241,
+          "end": 2833
+        },
+        {
+          "word": "and",
+          "start": 3065,
+          "end": 3239
+        },
+        {
+          "word": "AI",
+          "start": 3332,
+          "end": 3738
+        },
+        {
+          "word": "agents.",
+          "start": 3773,
+          "end": 4505
+        }
+      ],
+      "heard": "Our strategy for TYPO3 version 14 and AI agents.",
+      "end": 4480
+    },
+    {
+      "say": "One: agents use governed tools, never a shared admin login.",
+      "show": "One: agents use governed tools, never a shared admin login.",
+      "file": "voice-03.mp3",
+      "duration": 5146,
+      "words": [
+        {
+          "word": "One:",
+          "start": 23,
+          "end": 418
+        },
+        {
+          "word": "agents",
+          "start": 650,
+          "end": 1161
+        },
+        {
+          "word": "use",
+          "start": 1242,
+          "end": 1440
+        },
+        {
+          "word": "governed",
+          "start": 1486,
+          "end": 1823
+        },
+        {
+          "word": "tools,",
+          "start": 1858,
+          "end": 2438
+        },
+        {
+          "word": "never",
+          "start": 2635,
+          "end": 2926
+        },
+        {
+          "word": "a",
+          "start": 2995,
+          "end": 3030
+        },
+        {
+          "word": "shared",
+          "start": 3100,
+          "end": 3448
+        },
+        {
+          "word": "admin",
+          "start": 3529,
+          "end": 3924
+        },
+        {
+          "word": "login.",
+          "start": 4017,
+          "end": 4598
+        }
+      ],
+      "heard": "1. Agents use governed tools, never a shared admin login."
+    },
+    {
+      "say": "Two: people approve what goes live.",
+      "show": "Two: people approve what goes live.",
+      "file": "voice-04.mp3",
+      "duration": 3344,
+      "words": [
+        {
+          "word": "Two:",
+          "start": 23,
+          "end": 569
+        },
+        {
+          "word": "people",
+          "start": 766,
+          "end": 1103
+        },
+        {
+          "word": "approve",
+          "start": 1138,
+          "end": 1556
+        },
+        {
+          "word": "what",
+          "start": 1591,
+          "end": 1730
+        },
+        {
+          "word": "goes",
+          "start": 1776,
+          "end": 2032
+        },
+        {
+          "word": "live.",
+          "start": 2113,
+          "end": 2694
+        }
+      ],
+      "heard": "2. People approve what goes live.",
+      "end": 2680
+    },
+    {
+      "say": "Three: one registry defines each action and its risk.",
+      "show": "Three: one registry defines each action and its risk.",
+      "file": "voice-05.mp3",
+      "duration": 4545,
+      "words": [
+        {
+          "word": "Three:",
+          "start": 23,
+          "end": 615
+        },
+        {
+          "word": "one",
+          "start": 813,
+          "end": 1033
+        },
+        {
+          "word": "registry",
+          "start": 1080,
+          "end": 1614
+        },
+        {
+          "word": "defines",
+          "start": 1683,
+          "end": 2183
+        },
+        {
+          "word": "each",
+          "start": 2264,
+          "end": 2473
+        },
+        {
+          "word": "action",
+          "start": 2543,
+          "end": 2961
+        },
+        {
+          "word": "and",
+          "start": 3042,
+          "end": 3158
+        },
+        {
+          "word": "its",
+          "start": 3228,
+          "end": 3355
+        },
+        {
+          "word": "risk.",
+          "start": 3437,
+          "end": 4017
+        }
+      ],
+      "heard": "3. One registry defines each action and its risk",
+      "end": 4020
+    },
+    {
+      "say": "Four: you choose the model and where it runs.",
+      "show": "Four: you choose the model and where it runs.",
+      "file": "voice-06.mp3",
+      "duration": 3762,
+      "words": [
+        {
+          "word": "Four:",
+          "start": 23,
+          "end": 534
+        },
+        {
+          "word": "you",
+          "start": 731,
+          "end": 836
+        },
+        {
+          "word": "choose",
+          "start": 917,
+          "end": 1207
+        },
+        {
+          "word": "the",
+          "start": 1242,
+          "end": 1312
+        },
+        {
+          "word": "model",
+          "start": 1358,
+          "end": 1637
+        },
+        {
+          "word": "and",
+          "start": 1718,
+          "end": 1811
+        },
+        {
+          "word": "where",
+          "start": 1858,
+          "end": 2067
+        },
+        {
+          "word": "it",
+          "start": 2101,
+          "end": 2171
+        },
+        {
+          "word": "runs.",
+          "start": 2241,
+          "end": 2926
+        }
+      ],
+      "heard": "4. You choose the model and where it runs.",
+      "end": 2880
+    },
+    {
+      "say": "Five: governance is what clients buy.",
+      "show": "Five: governance is what clients buy.",
+      "file": "voice-07.mp3",
+      "duration": 3187,
+      "words": [
+        {
+          "word": "Five:",
+          "start": 12,
+          "end": 557
+        },
+        {
+          "word": "governance",
+          "start": 789,
+          "end": 1289
+        },
+        {
+          "word": "is",
+          "start": 1312,
+          "end": 1393
+        },
+        {
+          "word": "what",
+          "start": 1440,
+          "end": 1579
+        },
+        {
+          "word": "clients",
+          "start": 1649,
+          "end": 2067
+        },
+        {
+          "word": "buy.",
+          "start": 2113,
+          "end": 2670
+        }
+      ],
+      "heard": "Five, governance is what clients buy.",
+      "end": 2690
+    },
+    {
+      "say": "Much of it runs here today: an M C P server, an abilities registry, agent protocols.",
+      "show": "Much of it runs here today: an MCP server, an abilities registry, agent protocols.",
+      "file": "voice-08.mp3",
+      "duration": 6922,
+      "words": [
+        {
+          "word": "Much",
+          "start": 35,
+          "end": 279
+        },
+        {
+          "word": "of",
+          "start": 313,
+          "end": 360
+        },
+        {
+          "word": "it",
+          "start": 406,
+          "end": 476
+        },
+        {
+          "word": "runs",
+          "start": 522,
+          "end": 766
+        },
+        {
+          "word": "here",
+          "start": 813,
+          "end": 964
+        },
+        {
+          "word": "today:",
+          "start": 998,
+          "end": 1579
+        },
+        {
+          "word": "an",
+          "start": 1741,
+          "end": 1892
+        },
+        {
+          "word": "M",
+          "start": 1962,
+          "end": 2101
+        },
+        {
+          "word": "C",
+          "start": 2171,
+          "end": 2241
+        },
+        {
+          "word": "P",
+          "start": 2403,
+          "end": 2485
+        },
+        {
+          "word": "server,",
+          "start": 2682,
+          "end": 3286
+        },
+        {
+          "word": "an",
+          "start": 3413,
+          "end": 3553
+        },
+        {
+          "word": "abilities",
+          "start": 3599,
+          "end": 4156
+        },
+        {
+          "word": "registry,",
+          "start": 4226,
+          "end": 4969
+        },
+        {
+          "word": "agent",
+          "start": 5050,
+          "end": 5445
+        },
+        {
+          "word": "protocols.",
+          "start": 5492,
+          "end": 6385
+        }
+      ],
+      "heard": "Much of it runs here today, an MCP server, an abilities registry, agent protocols,",
+      "end": 6400
+    },
+    {
+      "say": "These five points are our standard for everything we build. Not only typo three.",
+      "show": "These five points are our standard for everything we build. Not only TYPO3.",
+      "file": "voice-09.mp3",
+      "duration": 5799,
+      "words": [
+        {
+          "word": "These",
+          "start": 12,
+          "end": 325
+        },
+        {
+          "word": "five",
+          "start": 372,
+          "end": 685
+        },
+        {
+          "word": "points",
+          "start": 731,
+          "end": 1103
+        },
+        {
+          "word": "are",
+          "start": 1173,
+          "end": 1358
+        },
+        {
+          "word": "our",
+          "start": 1393,
+          "end": 1486
+        },
+        {
+          "word": "standard",
+          "start": 1533,
+          "end": 1950
+        },
+        {
+          "word": "for",
+          "start": 1985,
+          "end": 2078
+        },
+        {
+          "word": "everything",
+          "start": 2148,
+          "end": 2531
+        },
+        {
+          "word": "we",
+          "start": 2577,
+          "end": 2682
+        },
+        {
+          "word": "build.",
+          "start": 2752,
+          "end": 3320
+        },
+        {
+          "word": "Not",
+          "start": 3750,
+          "end": 3947
+        },
+        {
+          "word": "only",
+          "start": 4017,
+          "end": 4238
+        },
+        {
+          "word": "typo",
+          "start": 4319,
+          "end": 4679
+        },
+        {
+          "word": "three.",
+          "start": 4760,
+          "end": 5317
+        }
+      ],
+      "heard": "These five points are our standard for everything we build, not only TYPO3.",
+      "end": 5340
+    },
+    {
+      "say": "Read the strategy, then start with one workflow.",
+      "show": "Read the strategy, then start with one workflow.",
+      "file": "voice-10.mp3",
+      "duration": 3344,
+      "words": [
+        {
+          "word": "Read",
+          "start": 35,
+          "end": 279
+        },
+        {
+          "word": "the",
+          "start": 313,
+          "end": 395
+        },
+        {
+          "word": "strategy,",
+          "start": 441,
+          "end": 1184
+        },
+        {
+          "word": "then",
+          "start": 1254,
+          "end": 1428
+        },
+        {
+          "word": "start",
+          "start": 1509,
+          "end": 1823
+        },
+        {
+          "word": "with",
+          "start": 1858,
+          "end": 1985
+        },
+        {
+          "word": "one",
+          "start": 2067,
+          "end": 2264
+        },
+        {
+          "word": "workflow.",
+          "start": 2299,
+          "end": 3065
+        }
+      ],
+      "heard": "Read the strategy, then start with one workflow."
+    }
+  ]
+}

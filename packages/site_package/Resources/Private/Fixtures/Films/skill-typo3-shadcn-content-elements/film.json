@@ -1,0 +1,58 @@
+{
+  "id": "skill-typo3-shadcn-content-elements",
+  "slug": "/ai/agentic-skills/typo3-shadcn-content-elements",
+  "placements": [
+    {
+      "slug": "/ai/agentic-skills/typo3-shadcn-content-elements"
+    }
+  ],
+  "title": "typo3-shadcn-content-elements: the skill at work",
+  "header": "typo3-shadcn-content-elements in 47 seconds",
+  "description": "<p>shadcn presets as Fluid elements with semantic tokens. Recorded in this TYPO3 v14 lab: the skill’s read-only audit of the Desiderio elements, then a pricing page with the preset switched in the browser and dark mode turned on with the header switch. Narrated, with English captions.</p>",
+  "mp4": "skill-typo3-shadcn-content-elements-2830556b.mp4",
+  "poster": "skill-typo3-shadcn-content-elements-poster-2830556b.webp",
+  "vtt": "skill-typo3-shadcn-content-elements-2830556b.en.vtt",
+  "duration": 47.364,
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "sound": true,
+  "alt": "Film, 47 seconds: the typo3-shadcn-content-elements agent skill. Its audit checks 244 TYPO3 content elements, a colour scan finds no raw value in their templates, and a pricing page follows a preset switch and dark mode. Narrated, with English captions.",
+  "transcript": [
+    {
+      "at": "0:02",
+      "text": "shad C N ships as React. TYPO3 renders Fluid."
+    },
+    {
+      "at": "0:11",
+      "text": "You ask to move hardcoded colours to semantic tokens."
+    },
+    {
+      "at": "0:18",
+      "text": "The audit checks all 244 elements, and the colour scan finds no raw value left."
+    },
+    {
+      "at": "0:26",
+      "text": "Switch the preset, switch to dark mode: every element follows."
+    },
+    {
+      "at": "0:34",
+      "text": "No React at runtime. Tokens, not colours, in every template."
+    },
+    {
+      "at": "0:41",
+      "text": "Open source. Clone the skills."
+    }
+  ],
+  "captions": {
+    "language": "en",
+    "label": "English",
+    "burnedIn": true
+  },
+  "bytes": {
+    "mp4": 2482511,
+    "poster": 51450,
+    "vtt": 593
+  },
+  "generator": "packages/site_package/Build/Film/render-films.mjs"
+}

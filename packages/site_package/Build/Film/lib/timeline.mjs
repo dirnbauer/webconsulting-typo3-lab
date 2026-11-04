@@ -14,6 +14,17 @@ const SPOKEN = [
     [/TYPO3 v14/g, 'typo three version fourteen'],
     [/TYPO3/g, 'typo three'],
     [/\bv14\b/g, 'version fourteen'],
+    [/\bT3 Ops\b/g, 'T three ops'],
+    [/\bMedAtlas\b/g, 'Med Atlas'],
+    [/\bCapexOne\b/g, 'Capex One'],
+    [/\bPSD2\b/g, 'P S D two'],
+    [/\bNPV\b/g, 'N P V'],
+    [/\bIRR\b/g, 'I R R'],
+    [/\bROCE\b/g, 'R O C E'],
+    [/\bt3u\b/g, 't three u'],
+    [/\bWebMCP\b/g, 'Web M C P'],
+    [/\bWCAG\b/g, 'W C A G'],
+    [/\bJSON-LD\b/g, 'Jason L D'],
     [/\.docx\b/g, 'dot doc x'],
     [/\bDOCX\b/g, 'doc x'],
     [/\bSolr\b/g, 'Solar'],
@@ -42,6 +53,7 @@ const SPOKEN = [
     [/\bJSON\b/g, 'Jason'],
     [/\bCLI\b/g, 'C L I'],
     [/\bTSconfig\b/g, 'T S config'],
+    [/\bFractor\b/g, 'Frack-tor'],
     [/\bURIs?\b/g, (match) => (match.endsWith('s') ? 'U R Is' : 'U R I')],
     [/\bURLs\b/g, 'U R Ls'],
     [/\bUI\b/g, 'U I'],
@@ -87,8 +99,22 @@ const DEFAULTS = {
     grid: { lead: 500, hold: 1200, min: 5500 },
     montage: { lead: 400, hold: 800, min: 5000 },
     split: { lead: 500, hold: 1200, min: 6000 },
+    stats: { lead: 450, hold: 1300, min: 5200 },
+    terminal: { lead: 500, hold: 1200, min: 6500 },
     end: { lead: 700, hold: 3600, min: 7000 },
 };
+
+/**
+ * A terminal scene lasts at least as long as its prompt takes to type (film.html:
+ * typing starts 900 ms in, 30 to 45 ms a character) plus 140 ms an output line
+ * and a hold, or 3.2 s for the result (`then`) to stay on screen.
+ */
+function terminalMin(scene) {
+    const per = Math.min(45, Math.max(30, scene.typeMs ?? 38));
+    const chars = [...(scene.prompt ?? '')].length;
+    const output = (scene.lines ?? scene.output ?? []).length;
+    return (scene.typeAt ?? 900) + chars * per + 450 + output * 140 + (scene.then ? 3600 : 1400);
+}
 const GAP = 380;
 
 /**
@@ -114,7 +140,9 @@ export function timeline(spec, narration) {
     });
     let t = 0;
     const scenes = spec.scenes.map((scene, index) => {
-        const base = DEFAULTS[scene.type] ?? DEFAULTS.shot;
+        const base = scene.type === 'terminal'
+            ? { ...DEFAULTS.terminal, min: Math.max(DEFAULTS.terminal.min, terminalMin(scene)) }
+            : DEFAULTS[scene.type] ?? DEFAULTS.shot;
         const lead = scene.lead ?? base.lead;
         const hold = scene.hold ?? base.hold;
         const own = lines.filter((line) => line.scene === index);

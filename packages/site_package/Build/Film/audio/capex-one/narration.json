@@ -1,0 +1,657 @@
+{
+  "voice": "George",
+  "delivery": {
+    "stability": 0.62,
+    "similarity_boost": 0.78,
+    "style": 0.18,
+    "speed": 0.9
+  },
+  "lines": [
+    {
+      "say": "Last month’s slides and forty hours per gate review.",
+      "show": "Last month’s slides and forty hours per gate review.",
+      "file": "voice-01.mp3",
+      "duration": 3527,
+      "words": [
+        {
+          "word": "Last",
+          "start": 70,
+          "end": 383
+        },
+        {
+          "word": "month's",
+          "start": 464,
+          "end": 743
+        },
+        {
+          "word": "slides",
+          "start": 778,
+          "end": 1265
+        },
+        {
+          "word": "and",
+          "start": 1312,
+          "end": 1428
+        },
+        {
+          "word": "forty",
+          "start": 1498,
+          "end": 1834
+        },
+        {
+          "word": "hours",
+          "start": 1881,
+          "end": 2136
+        },
+        {
+          "word": "per",
+          "start": 2206,
+          "end": 2380
+        },
+        {
+          "word": "gate",
+          "start": 2461,
+          "end": 2682
+        },
+        {
+          "word": "review.",
+          "start": 2717,
+          "end": 3216
+        }
+      ],
+      "heard": "Last month's slides and 40 hours per gate review."
+    },
+    {
+      "say": "Capex One Plus checks every capital project against its business case, live.",
+      "show": "CapexOne Plus checks every capital project against its business case, live.",
+      "file": "voice-02.mp3",
+      "duration": 5851,
+      "words": [
+        {
+          "word": "Capex",
+          "start": 12,
+          "end": 522
+        },
+        {
+          "word": "One",
+          "start": 615,
+          "end": 906
+        },
+        {
+          "word": "Plus",
+          "start": 952,
+          "end": 1300
+        },
+        {
+          "word": "checks",
+          "start": 1382,
+          "end": 1707
+        },
+        {
+          "word": "every",
+          "start": 1800,
+          "end": 2113
+        },
+        {
+          "word": "capital",
+          "start": 2159,
+          "end": 2519
+        },
+        {
+          "word": "project",
+          "start": 2589,
+          "end": 3042
+        },
+        {
+          "word": "against",
+          "start": 3088,
+          "end": 3425
+        },
+        {
+          "word": "its",
+          "start": 3471,
+          "end": 3611
+        },
+        {
+          "word": "business",
+          "start": 3657,
+          "end": 4040
+        },
+        {
+          "word": "case,",
+          "start": 4087,
+          "end": 4540
+        },
+        {
+          "word": "live.",
+          "start": 4702,
+          "end": 5201
+        }
+      ],
+      "heard": "CAPEX One Plus checks every capital project against its business case, Live."
+    },
+    {
+      "say": "Describe the investment; a rule engine builds the stage-gate plan.",
+      "show": "Describe the investment; a rule engine builds the stage-gate plan.",
+      "file": "voice-03.mp3",
+      "duration": 4911,
+      "words": [
+        {
+          "word": "Describe",
+          "start": 23,
+          "end": 592
+        },
+        {
+          "word": "the",
+          "start": 627,
+          "end": 697
+        },
+        {
+          "word": "investment;",
+          "start": 743,
+          "end": 1498
+        },
+        {
+          "word": "a",
+          "start": 1730,
+          "end": 1811
+        },
+        {
+          "word": "rule",
+          "start": 1916,
+          "end": 2183
+        },
+        {
+          "word": "engine",
+          "start": 2229,
+          "end": 2577
+        },
+        {
+          "word": "builds",
+          "start": 2624,
+          "end": 3019
+        },
+        {
+          "word": "the",
+          "start": 3065,
+          "end": 3146
+        },
+        {
+          "word": "stage-gate",
+          "start": 3193,
+          "end": 3808
+        },
+        {
+          "word": "plan.",
+          "start": 3843,
+          "end": 4389
+        }
+      ],
+      "heard": "Describe the investment, a rule engine builds the stage gate plan."
+    },
+    {
+      "say": "Before every review, the gate pack builds itself.",
+      "show": "Before every review, the gate pack builds itself.",
+      "file": "voice-04.mp3",
+      "duration": 3762,
+      "words": [
+        {
+          "word": "Before",
+          "start": 35,
+          "end": 406
+        },
+        {
+          "word": "every",
+          "start": 453,
+          "end": 685
+        },
+        {
+          "word": "review,",
+          "start": 766,
+          "end": 1265
+        },
+        {
+          "word": "the",
+          "start": 1347,
+          "end": 1440
+        },
+        {
+          "word": "gate",
+          "start": 1509,
+          "end": 1741
+        },
+        {
+          "word": "pack",
+          "start": 1776,
+          "end": 1985
+        },
+        {
+          "word": "builds",
+          "start": 2067,
+          "end": 2357
+        },
+        {
+          "word": "itself.",
+          "start": 2392,
+          "end": 3030
+        }
+      ],
+      "heard": "Before every review, the gate pack builds itself."
+    },
+    {
+      "say": "N P V and I R R, against the approved case.",
+      "show": "NPV and IRR, against the approved case.",
+      "file": "voice-05.mp3",
+      "duration": 4545,
+      "words": [
+        {
+          "word": "N",
+          "start": 12,
+          "end": 209
+        },
+        {
+          "word": "P",
+          "start": 302,
+          "end": 383
+        },
+        {
+          "word": "V",
+          "start": 580,
+          "end": 650
+        },
+        {
+          "word": "and",
+          "start": 848,
+          "end": 964
+        },
+        {
+          "word": "I",
+          "start": 1091,
+          "end": 1219
+        },
+        {
+          "word": "R",
+          "start": 1416,
+          "end": 1649
+        },
+        {
+          "word": "R,",
+          "start": 1718,
+          "end": 2125
+        },
+        {
+          "word": "against",
+          "start": 2252,
+          "end": 2670
+        },
+        {
+          "word": "the",
+          "start": 2705,
+          "end": 2786
+        },
+        {
+          "word": "approved",
+          "start": 2833,
+          "end": 3251
+        },
+        {
+          "word": "case.",
+          "start": 3297,
+          "end": 3901
+        }
+      ],
+      "heard": "NPV and IRR against the approved case."
+    },
+    {
+      "say": "Every invoice passes the approval matrix before it reaches the ERP.",
+      "show": "Every invoice passes the approval matrix before it reaches the ERP.",
+      "file": "voice-06.mp3",
+      "duration": 5198,
+      "words": [
+        {
+          "word": "Every",
+          "start": 35,
+          "end": 372
+        },
+        {
+          "word": "invoice",
+          "start": 441,
+          "end": 940
+        },
+        {
+          "word": "passes",
+          "start": 987,
+          "end": 1474
+        },
+        {
+          "word": "the",
+          "start": 1521,
+          "end": 1602
+        },
+        {
+          "word": "approval",
+          "start": 1649,
+          "end": 2078
+        },
+        {
+          "word": "matrix",
+          "start": 2148,
+          "end": 2659
+        },
+        {
+          "word": "before",
+          "start": 2763,
+          "end": 3100
+        },
+        {
+          "word": "it",
+          "start": 3135,
+          "end": 3193
+        },
+        {
+          "word": "reaches",
+          "start": 3239,
+          "end": 3564
+        },
+        {
+          "word": "the",
+          "start": 3611,
+          "end": 3680
+        },
+        {
+          "word": "ERP.",
+          "start": 3762,
+          "end": 4644
+        }
+      ],
+      "heard": "Every invoice passes the approval matrix before it reaches the ERP."
+    },
+    {
+      "say": "The CFO sees value at risk across the portfolio.",
+      "show": "The CFO sees value at risk across the portfolio.",
+      "file": "voice-07.mp3",
+      "duration": 3944,
+      "words": [
+        {
+          "word": "The",
+          "start": 23,
+          "end": 139
+        },
+        {
+          "word": "CFO",
+          "start": 186,
+          "end": 697
+        },
+        {
+          "word": "sees",
+          "start": 789,
+          "end": 1045
+        },
+        {
+          "word": "value",
+          "start": 1115,
+          "end": 1463
+        },
+        {
+          "word": "at",
+          "start": 1486,
+          "end": 1556
+        },
+        {
+          "word": "risk",
+          "start": 1637,
+          "end": 1950
+        },
+        {
+          "word": "across",
+          "start": 2020,
+          "end": 2334
+        },
+        {
+          "word": "the",
+          "start": 2368,
+          "end": 2438
+        },
+        {
+          "word": "portfolio.",
+          "start": 2473,
+          "end": 3402
+        }
+      ],
+      "heard": "The CFO sees value at risk across the portfolio.",
+      "end": 3390
+    },
+    {
+      "say": "We aim to save you three percent: a third is our fee, two thirds stay with you. A goal, not a guarantee.",
+      "show": "We aim to save you three percent: a third is our fee, two thirds stay with you. A goal, not a guarantee.",
+      "file": "voice-08.mp3",
+      "duration": 8542,
+      "words": [
+        {
+          "word": "We",
+          "start": 35,
+          "end": 221
+        },
+        {
+          "word": "aim",
+          "start": 290,
+          "end": 488
+        },
+        {
+          "word": "to",
+          "start": 569,
+          "end": 627
+        },
+        {
+          "word": "save",
+          "start": 697,
+          "end": 975
+        },
+        {
+          "word": "you",
+          "start": 1010,
+          "end": 1091
+        },
+        {
+          "word": "three",
+          "start": 1173,
+          "end": 1405
+        },
+        {
+          "word": "percent:",
+          "start": 1451,
+          "end": 2101
+        },
+        {
+          "word": "a",
+          "start": 2368,
+          "end": 2450
+        },
+        {
+          "word": "third",
+          "start": 2543,
+          "end": 2844
+        },
+        {
+          "word": "is",
+          "start": 2891,
+          "end": 2961
+        },
+        {
+          "word": "our",
+          "start": 3030,
+          "end": 3146
+        },
+        {
+          "word": "fee,",
+          "start": 3228,
+          "end": 3715
+        },
+        {
+          "word": "two",
+          "start": 3878,
+          "end": 4110
+        },
+        {
+          "word": "thirds",
+          "start": 4191,
+          "end": 4563
+        },
+        {
+          "word": "stay",
+          "start": 4586,
+          "end": 4818
+        },
+        {
+          "word": "with",
+          "start": 4865,
+          "end": 5016
+        },
+        {
+          "word": "you.",
+          "start": 5062,
+          "end": 5422
+        },
+        {
+          "word": "A",
+          "start": 5851,
+          "end": 5944
+        },
+        {
+          "word": "goal,",
+          "start": 6037,
+          "end": 6525
+        },
+        {
+          "word": "not",
+          "start": 6722,
+          "end": 6931
+        },
+        {
+          "word": "a",
+          "start": 6966,
+          "end": 6989
+        },
+        {
+          "word": "guarantee.",
+          "start": 7059,
+          "end": 7930
+        }
+      ],
+      "heard": "We aim to save you 3%. A third is our fee. Two-thirds stay with you. A goal, not a guarantee."
+    },
+    {
+      "say": "Guillermo Rauch: focus on the API. So we did: 173 documented endpoints.",
+      "show": "Guillermo Rauch: focus on the API. So we did: 173 documented endpoints.",
+      "file": "voice-09.mp3",
+      "duration": 7837,
+      "words": [
+        {
+          "word": "Guillermo",
+          "start": 23,
+          "end": 546
+        },
+        {
+          "word": "Rauch:",
+          "start": 639,
+          "end": 1149
+        },
+        {
+          "word": "focus",
+          "start": 1312,
+          "end": 1730
+        },
+        {
+          "word": "on",
+          "start": 1800,
+          "end": 1869
+        },
+        {
+          "word": "the",
+          "start": 1904,
+          "end": 1974
+        },
+        {
+          "word": "API.",
+          "start": 2043,
+          "end": 2926
+        },
+        {
+          "word": "So",
+          "start": 3413,
+          "end": 3599
+        },
+        {
+          "word": "we",
+          "start": 3669,
+          "end": 3773
+        },
+        {
+          "word": "did:",
+          "start": 3843,
+          "end": 4307
+        },
+        {
+          "word": "173",
+          "start": 4876,
+          "end": 5909
+        },
+        {
+          "word": "documented",
+          "start": 6014,
+          "end": 6653
+        },
+        {
+          "word": "endpoints.",
+          "start": 6722,
+          "end": 7546
+        }
+      ],
+      "heard": "Guillermo Rauch, focus on the API. So we did. 173 documented endpoints."
+    },
+    {
+      "say": "Capex One Plus. Decide on live numbers.",
+      "show": "CapexOne Plus. Decide on live numbers.",
+      "file": "voice-10.mp3",
+      "duration": 3657,
+      "words": [
+        {
+          "word": "Capex",
+          "start": 35,
+          "end": 546
+        },
+        {
+          "word": "One",
+          "start": 673,
+          "end": 917
+        },
+        {
+          "word": "Plus.",
+          "start": 964,
+          "end": 1521
+        },
+        {
+          "word": "Decide",
+          "start": 1753,
+          "end": 2299
+        },
+        {
+          "word": "on",
+          "start": 2334,
+          "end": 2403
+        },
+        {
+          "word": "live",
+          "start": 2496,
+          "end": 2775
+        },
+        {
+          "word": "numbers.",
+          "start": 2810,
+          "end": 3332
+        }
+      ],
+      "heard": "CAPEX One Plus. Decide on live numbers."
+    }
+  ]
+}

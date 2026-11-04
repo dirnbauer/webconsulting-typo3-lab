@@ -1,0 +1,63 @@
+{
+  "id": "ledger",
+  "page": 8230,
+  "slug": "/software/ledger",
+  "placements": [
+    {
+      "slug": "/software/ledger"
+    }
+  ],
+  "title": "Ledger: overview film",
+  "header": "Ledger in 57 seconds",
+  "description": "<p>Hours, receipts and bank in one place. A narrated tour of Ledger on synthetic demo data, with English captions.</p>",
+  "mp4": "ledger-77fd3e4f.mp4",
+  "poster": "ledger-poster-77fd3e4f.webp",
+  "vtt": "ledger-77fd3e4f.en.vtt",
+  "duration": 57,
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "sound": true,
+  "alt": "Overview film, 57 seconds: Ledger. One line per ticket; Checks explained, you confirm; Booked when exactly one invoice fits; Matched, suggested, missing. Narrated, with English captions.",
+  "transcript": [
+    {
+      "at": "0:02",
+      "text": "Hours in Redmine, receipts in the inbox, bookings in the bank. Three places, one month-end."
+    },
+    {
+      "at": "0:10",
+      "text": "Ledger turns them into invoices, checked receipts and a handover your accountant can use."
+    },
+    {
+      "at": "0:17",
+      "text": "It imports billable hours from Redmine and drafts the invoice, one line per ticket."
+    },
+    {
+      "at": "0:24",
+      "text": "Receipts arrive from mail, Drive or upload. AI reads number, date and VAT; you confirm."
+    },
+    {
+      "at": "0:34",
+      "text": "Bank bookings come in over PSD2. Clear matches are booked; the rest waits for you."
+    },
+    {
+      "at": "0:42",
+      "text": "The monthly statement shows every booking with its receipt, ready for the tax advisor."
+    },
+    {
+      "at": "0:49",
+      "text": "Ledger. Less bookkeeping, more overview."
+    }
+  ],
+  "captions": {
+    "language": "en",
+    "label": "English",
+    "burnedIn": true
+  },
+  "bytes": {
+    "mp4": 3342815,
+    "poster": 51810,
+    "vtt": 833
+  },
+  "generator": "packages/site_package/Build/Film/render-films.mjs"
+}

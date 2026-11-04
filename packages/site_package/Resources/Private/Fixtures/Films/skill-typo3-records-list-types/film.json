@@ -1,0 +1,58 @@
+{
+  "id": "skill-typo3-records-list-types",
+  "slug": "/ai/agentic-skills/typo3-records-list-types",
+  "placements": [
+    {
+      "slug": "/ai/agentic-skills/typo3-records-list-types"
+    }
+  ],
+  "title": "typo3-records-list-types: the skill at work",
+  "header": "typo3-records-list-types in 48 seconds",
+  "description": "<p>Cards, timelines and catalogues through TSconfig. Recorded in this TYPO3 v14 lab: the TSconfig of the Records List Examples package, then the Records module on the news folder. Narrated, with English captions.</p>",
+  "mp4": "skill-typo3-records-list-types-68943eba.mp4",
+  "poster": "skill-typo3-records-list-types-poster-68943eba.webp",
+  "vtt": "skill-typo3-records-list-types-68943eba.en.vtt",
+  "duration": 47.601,
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "sound": true,
+  "alt": "Film, 48 seconds: the typo3-records-list-types agent skill. Page TSconfig adds view types to the TYPO3 v14 Records module, and editors switch a news folder from the table to grid, timeline and catalogue views. Narrated, with English captions.",
+  "transcript": [
+    {
+      "at": "0:02",
+      "text": "The Records module shows a plain table, even for news with photos."
+    },
+    {
+      "at": "0:12",
+      "text": "You ask for cards with thumbnails instead of the table."
+    },
+    {
+      "at": "0:18",
+      "text": "The extension adds the views. TSconfig decides which ones each page allows."
+    },
+    {
+      "at": "0:26",
+      "text": "Grid, timeline, catalogue: editors switch views, and nothing in core is patched."
+    },
+    {
+      "at": "0:34",
+      "text": "Configure, do not patch. Accessibility is evidenced, not assumed."
+    },
+    {
+      "at": "0:41",
+      "text": "Open source. Clone the skills."
+    }
+  ],
+  "captions": {
+    "language": "en",
+    "label": "English",
+    "burnedIn": true
+  },
+  "bytes": {
+    "mp4": 2576549,
+    "poster": 82300,
+    "vtt": 630
+  },
+  "generator": "packages/site_package/Build/Film/render-films.mjs"
+}

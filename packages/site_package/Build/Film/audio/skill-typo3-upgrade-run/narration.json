@@ -1,0 +1,385 @@
+{
+  "voice": "George",
+  "delivery": {
+    "stability": 0.62,
+    "similarity_boost": 0.78,
+    "style": 0.18,
+    "speed": 0.9
+  },
+  "lines": [
+    {
+      "say": "A typo three update succeeds when nobody notices. Proving that by hand is slow.",
+      "show": "A TYPO3 update succeeds when nobody notices. Proving that by hand is slow.",
+      "file": "voice-01.mp3",
+      "duration": 6087,
+      "words": [
+        {
+          "word": "A",
+          "start": 35,
+          "end": 104
+        },
+        {
+          "word": "typo",
+          "start": 186,
+          "end": 569
+        },
+        {
+          "word": "three",
+          "start": 639,
+          "end": 871
+        },
+        {
+          "word": "update",
+          "start": 940,
+          "end": 1393
+        },
+        {
+          "word": "succeeds",
+          "start": 1428,
+          "end": 2009
+        },
+        {
+          "word": "when",
+          "start": 2043,
+          "end": 2183
+        },
+        {
+          "word": "nobody",
+          "start": 2252,
+          "end": 2566
+        },
+        {
+          "word": "notices.",
+          "start": 2635,
+          "end": 3355
+        },
+        {
+          "word": "Proving",
+          "start": 3715,
+          "end": 4098
+        },
+        {
+          "word": "that",
+          "start": 4145,
+          "end": 4331
+        },
+        {
+          "word": "by",
+          "start": 4412,
+          "end": 4574
+        },
+        {
+          "word": "hand",
+          "start": 4667,
+          "end": 4923
+        },
+        {
+          "word": "is",
+          "start": 4992,
+          "end": 5074
+        },
+        {
+          "word": "slow.",
+          "start": 5120,
+          "end": 5677
+        }
+      ],
+      "heard": "A TYPO3 update succeeds when nobody notices, proving that by hand is slow."
+    },
+    {
+      "say": "You ask for the update, with nothing visibly changed.",
+      "show": "You ask for the update, with nothing visibly changed.",
+      "file": "voice-02.mp3",
+      "duration": 3944,
+      "words": [
+        {
+          "word": "You",
+          "start": 23,
+          "end": 163
+        },
+        {
+          "word": "ask",
+          "start": 255,
+          "end": 488
+        },
+        {
+          "word": "for",
+          "start": 557,
+          "end": 639
+        },
+        {
+          "word": "the",
+          "start": 673,
+          "end": 743
+        },
+        {
+          "word": "update,",
+          "start": 789,
+          "end": 1382
+        },
+        {
+          "word": "with",
+          "start": 1451,
+          "end": 1637
+        },
+        {
+          "word": "nothing",
+          "start": 1683,
+          "end": 1927
+        },
+        {
+          "word": "visibly",
+          "start": 1997,
+          "end": 2403
+        },
+        {
+          "word": "changed.",
+          "start": 2450,
+          "end": 3111
+        }
+      ],
+      "heard": "You ask for the update with nothing visibly changed."
+    },
+    {
+      "say": "t three u seals a 72-node graph and hands out one node at a time.",
+      "show": "t3u seals a 72-node graph and hands out one node at a time.",
+      "file": "voice-03.mp3",
+      "duration": 5329,
+      "words": [
+        {
+          "word": "t",
+          "start": 35,
+          "end": 232
+        },
+        {
+          "word": "three",
+          "start": 267,
+          "end": 743
+        },
+        {
+          "word": "u",
+          "start": 906,
+          "end": 1068
+        },
+        {
+          "word": "seals",
+          "start": 1161,
+          "end": 1509
+        },
+        {
+          "word": "a",
+          "start": 1556,
+          "end": 1579
+        },
+        {
+          "word": "72-node",
+          "start": 1649,
+          "end": 2473
+        },
+        {
+          "word": "graph",
+          "start": 2519,
+          "end": 2926
+        },
+        {
+          "word": "and",
+          "start": 2972,
+          "end": 3100
+        },
+        {
+          "word": "hands",
+          "start": 3170,
+          "end": 3390
+        },
+        {
+          "word": "out",
+          "start": 3425,
+          "end": 3564
+        },
+        {
+          "word": "one",
+          "start": 3646,
+          "end": 3843
+        },
+        {
+          "word": "node",
+          "start": 3889,
+          "end": 4145
+        },
+        {
+          "word": "at",
+          "start": 4168,
+          "end": 4238
+        },
+        {
+          "word": "a",
+          "start": 4284,
+          "end": 4307
+        },
+        {
+          "word": "time.",
+          "start": 4377,
+          "end": 4934
+        }
+      ],
+      "heard": "T3 u-seals a 72-node graph and hands out one node at a time."
+    },
+    {
+      "say": "The final proof of a real run: 360 screenshots, no undeclared difference.",
+      "show": "The final proof of a real run: 360 screenshots, no undeclared difference.",
+      "file": "voice-04.mp3",
+      "duration": 6400,
+      "words": [
+        {
+          "word": "The",
+          "start": 23,
+          "end": 139
+        },
+        {
+          "word": "final",
+          "start": 221,
+          "end": 580
+        },
+        {
+          "word": "proof",
+          "start": 662,
+          "end": 940
+        },
+        {
+          "word": "of",
+          "start": 1022,
+          "end": 1080
+        },
+        {
+          "word": "a",
+          "start": 1149,
+          "end": 1173
+        },
+        {
+          "word": "real",
+          "start": 1265,
+          "end": 1509
+        },
+        {
+          "word": "run:",
+          "start": 1591,
+          "end": 2055
+        },
+        {
+          "word": "360",
+          "start": 2287,
+          "end": 3216
+        },
+        {
+          "word": "screenshots,",
+          "start": 3286,
+          "end": 4180
+        },
+        {
+          "word": "no",
+          "start": 4412,
+          "end": 4598
+        },
+        {
+          "word": "undeclared",
+          "start": 4702,
+          "end": 5317
+        },
+        {
+          "word": "difference.",
+          "start": 5364,
+          "end": 6026
+        }
+      ],
+      "heard": "The final proof of a real run, 360 screenshots, no undeclared difference."
+    },
+    {
+      "say": "A person accepts the result. Nothing deploys to live.",
+      "show": "A person accepts the result. Nothing deploys to live.",
+      "file": "voice-05.mp3",
+      "duration": 4180,
+      "words": [
+        {
+          "word": "A",
+          "start": 35,
+          "end": 128
+        },
+        {
+          "word": "person",
+          "start": 221,
+          "end": 604
+        },
+        {
+          "word": "accepts",
+          "start": 650,
+          "end": 1080
+        },
+        {
+          "word": "the",
+          "start": 1126,
+          "end": 1196
+        },
+        {
+          "word": "result.",
+          "start": 1265,
+          "end": 1834
+        },
+        {
+          "word": "Nothing",
+          "start": 2322,
+          "end": 2659
+        },
+        {
+          "word": "deploys",
+          "start": 2705,
+          "end": 3170
+        },
+        {
+          "word": "to",
+          "start": 3216,
+          "end": 3274
+        },
+        {
+          "word": "live.",
+          "start": 3355,
+          "end": 3808
+        }
+      ],
+      "heard": "A person accepts the result. Nothing deploys to live."
+    },
+    {
+      "say": "Open source. Clone the skills.",
+      "show": "Open source. Clone the skills.",
+      "file": "voice-06.mp3",
+      "duration": 2508,
+      "words": [
+        {
+          "word": "Open",
+          "start": 12,
+          "end": 348
+        },
+        {
+          "word": "source.",
+          "start": 441,
+          "end": 964
+        },
+        {
+          "word": "Clone",
+          "start": 1091,
+          "end": 1440
+        },
+        {
+          "word": "the",
+          "start": 1474,
+          "end": 1544
+        },
+        {
+          "word": "skills.",
+          "start": 1579,
+          "end": 2206
+        }
+      ],
+      "heard": "Open source, clone the skills."
+    }
+  ]
+}

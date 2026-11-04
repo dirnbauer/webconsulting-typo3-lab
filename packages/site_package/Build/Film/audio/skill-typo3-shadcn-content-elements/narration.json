@@ -1,0 +1,362 @@
+{
+  "voice": "George",
+  "delivery": {
+    "stability": 0.62,
+    "similarity_boost": 0.78,
+    "style": 0.18,
+    "speed": 0.9
+  },
+  "lines": [
+    {
+      "say": "shad C N ships as React. typo three renders Fluid.",
+      "show": "shad C N ships as React. TYPO3 renders Fluid.",
+      "file": "voice-01.mp3",
+      "duration": 4545,
+      "words": [
+        {
+          "word": "shad",
+          "start": 70,
+          "end": 372
+        },
+        {
+          "word": "C",
+          "start": 441,
+          "end": 569
+        },
+        {
+          "word": "N",
+          "start": 766,
+          "end": 906
+        },
+        {
+          "word": "ships",
+          "start": 987,
+          "end": 1358
+        },
+        {
+          "word": "as",
+          "start": 1405,
+          "end": 1544
+        },
+        {
+          "word": "React.",
+          "start": 1637,
+          "end": 2206
+        },
+        {
+          "word": "typo",
+          "start": 2473,
+          "end": 2868
+        },
+        {
+          "word": "three",
+          "start": 2949,
+          "end": 3262
+        },
+        {
+          "word": "renders",
+          "start": 3344,
+          "end": 3680
+        },
+        {
+          "word": "Fluid.",
+          "start": 3727,
+          "end": 4238
+        }
+      ],
+      "heard": "Shad CN ships as React. TYPO3 renders fluid."
+    },
+    {
+      "say": "You ask to move hardcoded colours to semantic tokens.",
+      "show": "You ask to move hardcoded colours to semantic tokens.",
+      "file": "voice-02.mp3",
+      "duration": 3840,
+      "words": [
+        {
+          "word": "You",
+          "start": 23,
+          "end": 163
+        },
+        {
+          "word": "ask",
+          "start": 255,
+          "end": 464
+        },
+        {
+          "word": "to",
+          "start": 534,
+          "end": 592
+        },
+        {
+          "word": "move",
+          "start": 673,
+          "end": 917
+        },
+        {
+          "word": "hardcoded",
+          "start": 964,
+          "end": 1637
+        },
+        {
+          "word": "colours",
+          "start": 1707,
+          "end": 2055
+        },
+        {
+          "word": "to",
+          "start": 2101,
+          "end": 2171
+        },
+        {
+          "word": "semantic",
+          "start": 2252,
+          "end": 2786
+        },
+        {
+          "word": "tokens.",
+          "start": 2856,
+          "end": 3529
+        }
+      ],
+      "heard": "You ask to move hard-coded colors to semantic tokens"
+    },
+    {
+      "say": "The audit checks all 244 elements, and the colour scan finds no raw value left.",
+      "show": "The audit checks all 244 elements, and the colour scan finds no raw value left.",
+      "file": "voice-03.mp3",
+      "duration": 6766,
+      "words": [
+        {
+          "word": "The",
+          "start": 23,
+          "end": 174
+        },
+        {
+          "word": "audit",
+          "start": 244,
+          "end": 557
+        },
+        {
+          "word": "checks",
+          "start": 604,
+          "end": 975
+        },
+        {
+          "word": "all",
+          "start": 1022,
+          "end": 1265
+        },
+        {
+          "word": "244",
+          "start": 1347,
+          "end": 2368
+        },
+        {
+          "word": "elements,",
+          "start": 2438,
+          "end": 3019
+        },
+        {
+          "word": "and",
+          "start": 3216,
+          "end": 3367
+        },
+        {
+          "word": "the",
+          "start": 3413,
+          "end": 3483
+        },
+        {
+          "word": "colour",
+          "start": 3529,
+          "end": 3785
+        },
+        {
+          "word": "scan",
+          "start": 3820,
+          "end": 4156
+        },
+        {
+          "word": "finds",
+          "start": 4238,
+          "end": 4540
+        },
+        {
+          "word": "no",
+          "start": 4632,
+          "end": 4772
+        },
+        {
+          "word": "raw",
+          "start": 4876,
+          "end": 5074
+        },
+        {
+          "word": "value",
+          "start": 5143,
+          "end": 5492
+        },
+        {
+          "word": "left.",
+          "start": 5526,
+          "end": 6049
+        }
+      ],
+      "heard": "The audit checks all 244 elements and the color scan finds no raw value left.",
+      "end": 6040
+    },
+    {
+      "say": "Switch the preset, switch to dark mode: every element follows.",
+      "show": "Switch the preset, switch to dark mode: every element follows.",
+      "file": "voice-04.mp3",
+      "duration": 4493,
+      "words": [
+        {
+          "word": "Switch",
+          "start": 23,
+          "end": 360
+        },
+        {
+          "word": "the",
+          "start": 430,
+          "end": 499
+        },
+        {
+          "word": "preset,",
+          "start": 546,
+          "end": 1138
+        },
+        {
+          "word": "switch",
+          "start": 1265,
+          "end": 1591
+        },
+        {
+          "word": "to",
+          "start": 1637,
+          "end": 1695
+        },
+        {
+          "word": "dark",
+          "start": 1776,
+          "end": 2032
+        },
+        {
+          "word": "mode:",
+          "start": 2113,
+          "end": 2519
+        },
+        {
+          "word": "every",
+          "start": 2752,
+          "end": 3030
+        },
+        {
+          "word": "element",
+          "start": 3111,
+          "end": 3460
+        },
+        {
+          "word": "follows.",
+          "start": 3529,
+          "end": 4110
+        }
+      ],
+      "heard": "Switch the preset. Switch to dark mode. Every element follows.",
+      "end": 4130
+    },
+    {
+      "say": "No React at runtime. Tokens, not colours, in every template.",
+      "show": "No React at runtime. Tokens, not colours, in every template.",
+      "file": "voice-05.mp3",
+      "duration": 5016,
+      "words": [
+        {
+          "word": "No",
+          "start": 23,
+          "end": 209
+        },
+        {
+          "word": "React",
+          "start": 302,
+          "end": 685
+        },
+        {
+          "word": "at",
+          "start": 731,
+          "end": 801
+        },
+        {
+          "word": "runtime.",
+          "start": 871,
+          "end": 1602
+        },
+        {
+          "word": "Tokens,",
+          "start": 1962,
+          "end": 2485
+        },
+        {
+          "word": "not",
+          "start": 2519,
+          "end": 2670
+        },
+        {
+          "word": "colours,",
+          "start": 2740,
+          "end": 3262
+        },
+        {
+          "word": "in",
+          "start": 3309,
+          "end": 3460
+        },
+        {
+          "word": "every",
+          "start": 3529,
+          "end": 3727
+        },
+        {
+          "word": "template.",
+          "start": 3773,
+          "end": 4505
+        }
+      ],
+      "heard": "No React at runtime. Tokens, not colors, in every template."
+    },
+    {
+      "say": "Open source. Clone the skills.",
+      "show": "Open source. Clone the skills.",
+      "file": "voice-06.mp3",
+      "duration": 2743,
+      "words": [
+        {
+          "word": "Open",
+          "start": 46,
+          "end": 383
+        },
+        {
+          "word": "source.",
+          "start": 464,
+          "end": 975
+        },
+        {
+          "word": "Clone",
+          "start": 1242,
+          "end": 1625
+        },
+        {
+          "word": "the",
+          "start": 1660,
+          "end": 1730
+        },
+        {
+          "word": "skills.",
+          "start": 1765,
+          "end": 2415
+        }
+      ],
+      "heard": "Open source. Clone the skills."
+    }
+  ]
+}
