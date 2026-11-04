@@ -289,8 +289,17 @@ final class SiteTranslator
                 $value = $this->string($source[$name]);
                 $role = $this->role($table, $name);
                 $separator = $this->scope->lineSeparator($table, $name);
+                $labelled = null;
+                if ($separator === null && str_starts_with(ltrim($value), '[')) {
+                    $labelled = self::translateJsonLabels(
+                        $value,
+                        fn(string $label): string => $this->translatedValue($table, $name, $label, FieldRole::Other, $where),
+                    );
+                }
                 if ($separator !== null) {
                     $wanted = $this->translatedLines($table, $name, $value, $separator, $where);
+                } elseif ($labelled !== null) {
+                    $wanted = $labelled;
                 } elseif ($role === FieldRole::Skip || str_starts_with(ltrim($value), '{') || str_starts_with(ltrim($value), '[')) {
                     $this->reportCopied($table, $name, $value, $where);
                     $wanted = $value;
@@ -460,6 +469,41 @@ final class SiteTranslator
         }
 
         return implode("\n", $lines);
+    }
+
+    /**
+     * Chart data stored as JSON rows (`[{"label": "January", "value": 15}, …]`,
+     * the `chart_data` of the chart elements): the canvas draws its axis and
+     * legend from these labels, while the editor's `Label | Value` list next to
+     * it is translated line by line. Each `label` goes through the same memory,
+     * values and every other key stay as they are. Returns null for JSON that is
+     * not such a row list, so the caller copies it unchanged.
+     *
+     * @param callable(string): string $translate
+     */
+    public static function translateJsonLabels(string $json, callable $translate): ?string
+    {
+        try {
+            $rows = json_decode($json, true, 16, JSON_THROW_ON_ERROR);
+        } catch (\JsonException) {
+            return null;
+        }
+        if (!is_array($rows) || $rows === [] || !array_is_list($rows)) {
+            return null;
+        }
+        $changed = false;
+        foreach ($rows as $index => $row) {
+            if (!is_array($row) || !is_string($row['label'] ?? null)) {
+                return null;
+            }
+            $label = $translate($row['label']);
+            if ($label !== $row['label']) {
+                $rows[$index]['label'] = $label;
+                $changed = true;
+            }
+        }
+
+        return $changed ? (string)json_encode($rows, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES) : $json;
     }
 
     /**
