@@ -4,6 +4,21 @@ All notable changes to Webconsulting TYPO3 Lab are documented in this file.
 
 ## Unreleased
 
+### Dependency update — 2026-11-04
+
+- TYPO3 core stays on 14.3.10, EXT:solr on 14.0.2 (the Solr image pins are
+  unchanged) and Desiderio on 4.27.4.
+- Extensions: nr-llm 0.41.18 (was 0.41.7), nr-vault 1.2.0 (was 1.1.0),
+  sg-apicore 3.1.10 (was 3.1.7). nr-llm 0.43 stays out: the lab, the site
+  package, typo3-ai-assistant, skillflow, skillspector and image-workbench
+  all allow only up to 0.41.
+- Libraries: Symfony 7.4.23 and 8.1.10–8.1.11 patch releases, the Symfony
+  contracts 3.8.1, league/commonmark 2.10.7, composer/semver 3.6.0,
+  composer/class-map-generator 1.9.0, phpstan/phpdoc-parser 2.4.1. Doctrine
+  DBAL 4.5 and Symfony 8 for the 7.4 components wait for TYPO3 core.
+- Dev tools: PHPStan 2.3.5, PHPUnit 13.4.6 with php-code-coverage 14.5.1,
+  which no longer needs theseer/tokenizer.
+
 ### Powermail from the GitLab mirrors — 2026-11-04
 
 - Powermail and Powermail Conditional install from our GitLab mirrors
