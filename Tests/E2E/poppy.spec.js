@@ -48,20 +48,25 @@ test('Poppy discovery advertises the working guest profile', async ({ request, b
   const api = await request.get('/poppy/knowledge?topic=poppy'); expect(api.status()).toBe(401);
 });
 
+// Each answer runs the whole protocol chain (discovery, signed assertions, DPoP
+// token, knowledge request): about six seconds on a busy lab, more than the
+// default five-second expectation.
+const PROTOCOL = { timeout: 30_000 };
+
 test('Poppy playground reads both CMS answers, renews and rejects replay', async ({ page }) => {
   await page.goto('/poppy/demo');
   await expect(page.getByRole('heading', { name: 'Ask the lab through Poppy.' })).toBeVisible();
   await page.getByRole('button', { name: 'Ask TYPO3 Lab' }).click();
-  await expect(page.locator('#answer')).toContainText('signed-out profile');
-  await expect(page.locator('#status')).toContainText('Guest session verified');
+  await expect(page.locator('#answer')).toContainText('signed-out profile', PROTOCOL);
+  await expect(page.locator('#status')).toContainText('Guest session verified', PROTOCOL);
   await page.getByRole('button', { name: 'Renew session', exact: true }).click();
-  await expect(page.locator('#check-result')).toContainText('same guest session');
+  await expect(page.locator('#check-result')).toContainText('same guest session', PROTOCOL);
   await page.getByRole('button', { name: 'Test replay protection' }).click();
-  await expect(page.locator('#check-result')).toContainText('HTTP 401 invalid_dpop_proof');
+  await expect(page.locator('#check-result')).toContainText('HTTP 401 invalid_dpop_proof', PROTOCOL);
   await page.getByLabel('What does TYPO3 Lab say about…').selectOption('pi-durable');
   await page.getByRole('button', { name: 'Ask TYPO3 Lab' }).click();
-  await expect(page.locator('#answer-heading')).toHaveText('Pi Durable + TYPO3: a personal agent example');
-  await expect(page.locator('#answer')).toContainText('Pi Durable provides the runtime');
+  await expect(page.locator('#answer-heading')).toHaveText('Pi Durable + TYPO3: a personal agent example', PROTOCOL);
+  await expect(page.locator('#answer')).toContainText('Pi Durable provides the runtime', PROTOCOL);
   await expect(page.locator('#source')).toHaveAttribute('href', /\/agent-nexus\/poppy\/pi-durable\/$/);
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1)).toBeTruthy();
 });

@@ -6,6 +6,8 @@ const pages = [
     name: "records list",
     path: "/features/records-list/",
     modernHeading: true,
+    heroHeading: true,
+    featureFilm: true,
   },
   {
     name: "Powermail support",
@@ -16,6 +18,8 @@ const pages = [
     name: "blog",
     path: "/features/blog",
     modernHeading: true,
+    heroHeading: true,
+    featureFilm: true,
   },
   {
     name: "Astryx",
@@ -53,7 +57,16 @@ for (const target of pages) {
 
     const heading = page.locator("h1");
     await expect(heading).toHaveCount(1);
-    await expect(heading).toBeVisible();
+    // Since Desiderio 4.26.2 a page that opens with a hero keeps its page title as
+    // a screen-reader-only h1 (tx_desiderio_h1_sronly); the hero headline is the
+    // visible heading and carries the h1 typography.
+    const visibleHeading = target.heroHeading
+      ? page.locator('main [data-slot="typography"][data-variant="h1"]').first()
+      : heading;
+    if (target.heroHeading) {
+      await expect(heading).toHaveClass(/(?:^|\s)sr-only(?:\s|$)/);
+    }
+    await expect(visibleHeading).toBeVisible();
     await expect(page.locator("body")).not.toHaveCSS("font-family", "Times");
 
     const stylesheetUrls = await page.locator('link[rel="stylesheet"]').evaluateAll(
@@ -69,10 +82,10 @@ for (const target of pages) {
     }
 
     if (target.modernHeading) {
-      await expect(heading).toHaveAttribute("data-slot", "typography");
-      await expect(heading).toHaveAttribute("data-variant", "h1");
+      await expect(visibleHeading).toHaveAttribute("data-slot", "typography");
+      await expect(visibleHeading).toHaveAttribute("data-variant", "h1");
 
-      const headingStyle = await heading.evaluate((element) => {
+      const headingStyle = await visibleHeading.evaluate((element) => {
         const style = getComputedStyle(element);
         return {
           fontSize: Number.parseFloat(style.fontSize),
@@ -84,9 +97,19 @@ for (const target of pages) {
       expect(headingStyle.fontWeight).toBeGreaterThanOrEqual(600);
     }
 
-    await expect(page.locator("video")).toHaveCount(0);
-    await expect(page.locator('source[type^="video/"]')).toHaveCount(0);
-    expect(videoExtensionPattern.test(await page.content())).toBe(false);
+    if (target.featureFilm) {
+      // Feature pages carry their film (sitepackage:films:seed): one native player
+      // with controls and a poster, nothing that plays as a background.
+      const film = page.locator("main video");
+      await expect(film).toHaveCount(1);
+      await expect(film).toHaveAttribute("controls", "");
+      await expect(film).toHaveAttribute("poster", /\S/);
+      await expect(page.locator("video")).toHaveCount(1);
+    } else {
+      await expect(page.locator("video")).toHaveCount(0);
+      await expect(page.locator('source[type^="video/"]')).toHaveCount(0);
+      expect(videoExtensionPattern.test(await page.content())).toBe(false);
+    }
 
     const horizontalOverflow = await page.evaluate(
       () => document.documentElement.scrollWidth > document.documentElement.clientWidth + 1,
