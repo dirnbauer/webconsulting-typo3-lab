@@ -26,7 +26,10 @@ plugin.tx_blog.settings.lists.pagination.itemsPerPage: 6
 # the portraits of the demo cast and the translations are made with AI.
 desiderio.footer.aiNotice: true
 
-# The Download page shows as a button next to the search on desktop.
-desiderio.header.ctaSlug: /downloads
+# No button next to the search: the header keeps only the menu and the search
+# (user, 2026-11-04). The Download page stays reachable from the home hero,
+# the Resources cards and the AI hub; its page is hidden from the menu
+# (nav_hide in Build/Scripts/lib/downloads-page.json). Empty shows no button.
+desiderio.header.ctaSlug: ''
 # Compact footer tagline with the framework and design inspiration.
 desiderio.brand.tagline: 'shadcn/ui · TYPO3 v14 · inspired by Camino'

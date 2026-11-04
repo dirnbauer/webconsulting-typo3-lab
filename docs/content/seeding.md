@@ -70,6 +70,47 @@ Then, after a `ddev snapshot`:
 13. `ddev exec vendor/bin/typo3 sitepackage:seed-poppy` (after Desiderio reseeding: applies the lab-owned feature/help payload, imports its native FAL images and orders content through DataHandler move commands).
 14. `ddev exec vendor/bin/typo3 cache:flush`, then `ddev exec vendor/bin/typo3 sitepackage:solr:reindex --index` (clears each Solr site's documents, queues every indexing configuration again and indexes it; on production run the same command in the web container after a database push)
 
+Films on more than one page, or further down a page: `film.json` may carry
+`"placements": [{"slug": "/typo3-v14-strategy"}, {"slug": "/", "after": {"header": "…"}}]`. Without it
+the film goes after the intro of its `slug` page as before; a placement with `after.header` goes right
+after the first default-language colPos-0 element whose header is exactly that text, and a page without
+such an element stops the film with an error. Each placement keeps its own markers (`<id>` for the first,
+`<id>#2`, `<id>#3` … after it), the files are imported once per film id and reused, and a second run
+reports 0 changes.
+
+A talk with several cuts keeps each cut in its own folder below the film's folder
+(`Films/<talk>/<cut>/film.json`, each with its own id and placement);
+`sitepackage:films:seed` reads those like any film and skips the folder's own `film.json` while both exist.
+The usability talk ships only its long cut (`Films/usability-slogans/long/`, id `usability-slogans`, on the
+home page after the lab overview film); the short cut's recipe stays in `Build/Film/talk/` but its MP4 is
+not a fixture any more.
+
+A placement may also follow another film: `{"slug": "/", "after": {"film": "lab-overview"}}` goes right
+after that film's transcript on the same page (the `<id>-transcript` marker of its first placement). When
+that film is not on the page yet, the placement fails with a message naming the film and the page, the
+command goes on with the next film and exits non-zero; film folders run in sorted order, so a film that
+sorts first is already there in the same run. Optional `film.json` keys for the video element: `variant`
+(`default`, or `portrait` for a 9:16 player beside the text), `autoplay` (default `true`; `false` sets the
+file reference's autoplay to 0, so the film starts on a click, with sound and no sound button), `eyebrow`
+(default "Film") and `caption` (the plain-text note below the player, default empty); `lang` is reserved
+for a captions language other than English (not wired: every film so far has English captions). A link to a page of the Desiderio site in
+`description` or `caption` is written `{{page:<slug>}}` (`<a href="{{page:usability-slogans}}">`); the
+seeder turns it into `t3://page?uid=<uid>` of the default-language page with that slug, and a slug the site
+does not have stops the film with an error.
+
+The film specs (`packages/site_package/Build/Film/films/`) have two more scene builders in `film.html`:
+`stats` (two to four glass tiles whose numbers count up from 0, each with a label and a note, the
+palette's first colour glowing behind the tile the narration is on) and `terminal` (an agent session: a
+prompt typed character by character, then real output lines with success, warning, error and muted
+colours, highlights in the accent colour, scrolling, and an optional result image or clip sliding in).
+A spec's `background` picks a style from `lib/backgrounds.mjs` (`aurora` by default, the look of every
+film so far, or `mesh`, `grid`, `orbits`, `pulse`, `bands`, which also add a sheen over the frames).
+The ten skill films use `films/skill-film.mjs`: `skillFilm({ slug, name, sub, hook, prompt, work,
+result, guardrail })` builds the seven-scene structure (hook, title, "You say", "It works", "The
+result", "The guardrail", end) for `/ai/agentic-skills/<slug>`, and `render-films.mjs --list` warns
+when one runs longer than its 50 s cap. `render-films.mjs --spec=<file>` previews a spec module that is
+not registered in `films/index.mjs`.
+
 `ddev lab-update <package>` runs steps 1–3, 4a, 5 and 14 and the legacy redirects after a
 Composer update. It refuses to run while development clones are linked. The
 styleguide seed leaves the Templates overview (step 4) alone, so run step 4

@@ -4,6 +4,36 @@ All notable changes to Webconsulting TYPO3 Lab are documented in this file.
 
 ## Unreleased
 
+### Desiderio 4.28.0: the Software section, Agentic skills, the strategy on the home page, 19 new films — 2026-11-04
+
+- The Desiderio site gets a first-level **Software** section with four product
+  pages (T3 Ops, Ledger, MedAtlas Austria, CapexOne Plus), an **Agentic skills**
+  entry with ten skill pages in the AI section, the strategy's five points and
+  the "Everything in this lab" overview on the home page, the "Not only TYPO3"
+  additions on the strategy page.
+  The header's download buttons are gone (`desiderio.header.ctaSlug` empty) and
+  the Downloads page leaves the menu (`nav_hide` in `downloads-page.json`); it
+  stays reachable from the hero, the CTA banner and the lab overview film.
+- Films: one overview film per product page (t3-ops, ledger, medatlas, capex-one),
+  the strategy film on the strategy page and the home page, the lab overview film
+  on the home page, the agentic-skills film and ten skill films that show each
+  skill on a real run, the AI hub film re-rendered for eleven tools, and Kurt's
+  usability-slogans talk, the full five minutes as a portrait click-to-play block
+  on the home page (presented by his AI avatar through HeyGen, composited in
+  `Build/Film/talk/`, which also keeps the recipe for a short cut that is not
+  shipped). The film pipeline gained a background module (aurora, mesh,
+  grid, orbits, pulse, bands), a frame sheen, `stats` and `terminal` scene builders,
+  a skill-film helper, `--spec` previews and a 50 s cap warning.
+- `sitepackage:films:seed`: `placements` (several pages, after a header or after
+  another film's transcript), cut folders (`short/`, `long/`), the video options
+  `variant`, `autoplay`, `eyebrow`, `caption`, and `{{page:slug}}` links in film
+  texts. Translation memories cover every new page and film in German, Chinese
+  and Hungarian.
+- `Build/Scripts/lab-mirror.sh` copies lab edits between the worktree and the
+  DDEV checkout without overwriting another session's files; `docs/content/seeding.md`
+  documents the new seeder options; `Tests/E2E/usability-slogans.spec.js` checks
+  the talk block.
+
 ### Dependency update — 2026-11-04
 
 - TYPO3 core stays on 14.3.10, EXT:solr on 14.0.2 (the Solr image pins are
