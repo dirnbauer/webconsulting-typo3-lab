@@ -436,7 +436,7 @@
     font-size: 0.875rem;
 }
 
-/* "Built on TYPO3", the trademark notice and Core's copyright notice. */
+/* "tagline + TYPO3 logo lockup", the trademark notice and Core's copyright notice. */
 .webcon-login-credits {
     margin-block-start: 32px;
     color: var(--webcon-muted);

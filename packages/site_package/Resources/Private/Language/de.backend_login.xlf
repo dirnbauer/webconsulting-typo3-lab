@@ -139,16 +139,16 @@
                 <target>Website von</target>
             </segment>
         </unit>
-        <unit id="credits.builtOn">
+        <unit id="credits.tagline">
             <segment state="final">
-                <source>Built on</source>
-                <target>Basiert auf</target>
+                <source>Proudly running on</source>
+                <target>Läuft aus Überzeugung auf</target>
             </segment>
         </unit>
         <unit id="credits.trademark">
             <segment state="final">
-                <source>TYPO3 is a registered trademark of the TYPO3 Association. This website is not affiliated with or endorsed by the TYPO3 Association.</source>
-                <target>TYPO3 ist eine eingetragene Marke der TYPO3 Association. Diese Website ist weder mit der TYPO3 Association verbunden noch von ihr empfohlen.</target>
+                <source>TYPO3 is a registered trademark of the TYPO3 Association.</source>
+                <target>TYPO3 ist eine eingetragene Marke der TYPO3 Association.</target>
             </segment>
         </unit>
         <unit id="credits.copyright">
