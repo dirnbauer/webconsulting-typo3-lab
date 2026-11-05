@@ -125,6 +125,67 @@ Composer update. It refuses to run while development clones are linked. The
 styleguide seed leaves the Templates overview (step 4) alone, so run step 4
 only after its source changed, then step 5.
 
+## Translating part of a site
+
+`sitepackage:content:translate` does not have to translate everything. The
+filters combine, and whatever falls outside them is neither read for the report
+nor written: no localize, no field update, no "missing" entry. `--dry-run`,
+`--missing` and `--fail-on-missing` cover only the filtered part, and the
+"Unused entries" column shows "–" for a filtered run (it would otherwise list
+the rest of the memory). The first output line names the active filter.
+
+| Option | What it selects | Example |
+|---|---|---|
+| `--site=` | the site: canon key, root page uid or site identifier (the memory folder is the canon key) | `--site=astryx`, `--site=1290`, `--site=astryx-typo3` |
+| `--languages=` (or `--lang=`) | target languages as ISO codes or language ids, mixed allowed; default every language but the default one | `--languages=de`, `--languages=1,3`, `--languages=de,3` |
+| `--pages=` | only these pages and what is stored on them | `--pages=1032` |
+| `--recursive` | with `--pages`: every page below them too | `--pages=1291 --recursive` |
+| `--tables=` | only these record kinds: `pages` (the page rows), `tt_content` (the content of the pages) or a `recordTables` entry of the scope; collection items and file references follow their parent | `--tables=tx_news_domain_model_news` |
+
+```bash
+# One page, one language (a runner after a payload or a single-page reseed):
+ddev exec vendor/bin/typo3 sitepackage:content:translate --site=desiderio --languages=de --pages=1032
+# A whole subtree of the Astryx site into German:
+ddev exec vendor/bin/typo3 sitepackage:content:translate --site=1290 --languages=de --pages=1291 --recursive
+# Only the page titles and descriptions, as a check:
+ddev exec vendor/bin/typo3 sitepackage:content:translate --site=astryx-typo3 --tables=pages --dry-run --missing=-
+# Only the news records of the Desiderio site, Chinese and Hungarian:
+ddev exec vendor/bin/typo3 sitepackage:content:translate --site=desiderio --languages=zh,hu --tables=tx_news_domain_model_news
+```
+
+Translate a page that has no translation yet without `--tables`, or with
+`--tables=pages,tt_content`: its content shows in a language only once the page
+itself exists in that language.
+
+### Reseeding one page and translating only it
+
+`desiderio:styleguide:seed --pages=` (desiderio 4.30.0) reseeds only the named
+pages (uids or slugs as the seeder writes them, `home` or `/` for the root).
+Reseeding a page deletes its translated content, so pass the uids of its last
+line (`Reseeded pages: …`) to the translate command:
+
+```bash
+ddev exec vendor/bin/typo3 desiderio:styleguide:seed --pages=/pricing/how-we-earn
+# … Reseeded pages: 8341
+ddev exec vendor/bin/typo3 sitepackage:content:translate --site=desiderio --pages=8341 --fail-on-missing
+```
+
+Measured in the lab on 2026-11-05: 5 s for the reseed, 20 s for de, zh and hu.
+
+### The Astryx site
+
+The Astryx site (root 1290, `--site=astryx`) has English and German. Its memory
+is `Resources/Private/Data/Translations/astryx/de.json` (2,581 entries; page
+titles match `AstryxSiteDefinitions::germanPageTitles()`, so the seeder and the
+translate run agree). After `astryx-typo3:site:seed --content`:
+
+```bash
+ddev exec vendor/bin/typo3 sitepackage:content:translate --site=astryx --languages=de --fail-on-missing
+```
+
+A full Astryx run takes about 8 minutes in the lab (786 new elements); a rerun
+with nothing to do takes 11 seconds.
+
 ## Checking the result
 
 ```bash

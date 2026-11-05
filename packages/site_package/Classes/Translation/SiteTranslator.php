@@ -75,7 +75,7 @@ final class SiteTranslator
 
     /**
      * @param list<int> $otherRoots roots of other sites inside this tree, left out
-     * @param list<int> $onlyPages restrict the run to these pages (and the records stored on them)
+     * @param TranslationFilter|null $filter restrict the run to some pages and record kinds
      */
     public function translate(
         int $root,
@@ -85,8 +85,9 @@ final class SiteTranslator
         TranslationMemory $memory,
         TranslationScope $scope,
         bool $dryRun,
-        array $onlyPages = [],
+        ?TranslationFilter $filter = null,
     ): TranslationResult {
+        $filter ??= new TranslationFilter();
         $this->memory = $memory;
         $this->scope = $scope;
         $this->language = $language;
@@ -96,7 +97,7 @@ final class SiteTranslator
         $this->syncFields = [];
         $this->counts = ['pagesLocalized' => 0, 'recordsLocalized' => 0, 'childrenSynchronized' => 0, 'fieldsUpdated' => 0, 'recordsUpdated' => 0];
 
-        [$pages, $records] = $this->units($root, $otherRoots, $languageCode, $onlyPages);
+        [$pages, $records] = $this->units($root, $otherRoots, $languageCode, $filter);
 
         // 1. Create what does not exist yet: pages first, their content second.
         $newPages = [];
@@ -172,11 +173,13 @@ final class SiteTranslator
     /**
      * Pages and records in scope, in tree order.
      *
+     * Only what the filter selects: its pages (or subtrees), and of those
+     * only the page rows, content or record tables it names.
+     *
      * @param list<int> $otherRoots
-     * @param list<int> $onlyPages
      * @return array{0: list<array{uid: int}>, 1: list<array{0: string, 1: int}>}
      */
-    private function units(int $root, array $otherRoots, string $languageCode, array $onlyPages): array
+    private function units(int $root, array $otherRoots, string $languageCode, TranslationFilter $filter): array
     {
         $tree = $this->collector->pageTree($root, $otherRoots);
         $parents = [];
@@ -187,19 +190,23 @@ final class SiteTranslator
         $pages = [];
         $records = [];
         foreach ($tree as $page) {
-            if ($page['hidden'] || ($onlyPages !== [] && !in_array($page['uid'], $onlyPages, true))
-                || $this->scope->skips($this->rootline($page['uid'], $parents, $root), $languageCode)) {
+            $rootline = $this->rootline($page['uid'], $parents, $root);
+            if ($page['hidden'] || !$filter->includesPage($rootline) || $this->scope->skips($rootline, $languageCode)) {
                 continue;
             }
             $hasContent = !in_array($page['doktype'], self::CONTENT_DOKTYPES_WITHOUT_CONTENT, true);
             if ($hasContent) {
-                $pages[] = ['uid' => $page['uid']];
-                foreach ($this->defaultRows('tt_content', ['pid' => $page['uid']], ['colPos', 'sorting']) as $row) {
-                    $records[] = ['tt_content', $this->int($row['uid'] ?? 0)];
+                if ($filter->includesTable(TranslationFilter::PAGES)) {
+                    $pages[] = ['uid' => $page['uid']];
+                }
+                if ($filter->includesTable(TranslationFilter::CONTENT)) {
+                    foreach ($this->defaultRows('tt_content', ['pid' => $page['uid']], ['colPos', 'sorting']) as $row) {
+                        $records[] = ['tt_content', $this->int($row['uid'] ?? 0)];
+                    }
                 }
             }
             foreach ($this->scope->recordTables as $table) {
-                if (!$this->tcaSchemaFactory->has($table)) {
+                if (!$filter->includesTable($table) || !$this->tcaSchemaFactory->has($table)) {
                     continue;
                 }
                 foreach ($this->defaultRows($table, ['pid' => $page['uid']], ['sorting', 'uid']) as $row) {

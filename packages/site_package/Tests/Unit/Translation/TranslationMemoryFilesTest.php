@@ -50,8 +50,14 @@ final class TranslationMemoryFilesTest extends TestCase
     public function testScopeFileIsReadable(string $path): void
     {
         $scope = TranslationScope::fromFile($path);
+        $data = json_decode((string)file_get_contents($path), true);
 
-        self::assertNotEmpty($scope->recordTables);
+        // The memory directory is the canon site key the command resolves --site to.
+        self::assertIsArray($data);
+        self::assertSame(basename(dirname($path)), $data['site'] ?? null);
+        foreach ($scope->recordTables as $table) {
+            self::assertMatchesRegularExpression('/^[a-z0-9_]+$/', $table);
+        }
         foreach ($scope->skip as $rule) {
             self::assertGreaterThan(0, $rule['page']);
         }

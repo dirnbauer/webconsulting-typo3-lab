@@ -4,6 +4,21 @@ All notable changes to Webconsulting TYPO3 Lab are documented in this file.
 
 ## Unreleased
 
+### Targeted translation runs — 2026-11-05
+
+- `sitepackage:content:translate` translates part of a site: `--languages=`
+  (ISO codes or language ids, `--lang` stays as an alias), `--site=` (canon
+  key, root page uid or site identifier), `--pages=` with `--recursive` for
+  whole subtrees, and `--tables=` (`pages`, `tt_content` or a record table of
+  the scope). The filters combine; dry runs, `--missing` and
+  `--fail-on-missing` cover only the selected part. See
+  `docs/content/seeding.md`, "Translating part of a site".
+- The Astryx site (root 1290) is translated into German: translation memory
+  `Translations/astryx/de.json` (2,581 entries, Care and the model block
+  included), 786 elements localized. desiderio 4.30.0 adds
+  `desiderio:styleguide:seed --pages=` so a runner reseeds and translates
+  single pages.
+
 ### Desiderio 4.29.1: follow-ups of the open-source model round — 2026-11-05
 
 - The old dark pricing screenshot with the retired plans (Pro €49, Agency
