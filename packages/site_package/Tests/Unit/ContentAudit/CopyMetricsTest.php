@@ -47,6 +47,31 @@ final class CopyMetricsTest extends TestCase
         self::assertSame(['It', 'costs', '1,490', 'a', 'year'], CopyMetrics::words('It costs €1,490 a year.'));
     }
 
+    public function testInlineCodeIsOneWord(): void
+    {
+        self::assertCount(8, CopyMetrics::words('Set `WEBCON_MCP_CHAT_BRIDGE_API_TOKEN` and `TYPO3_WORKOS_CLIENT_ID` from your Slack app.'));
+        self::assertCount(4, CopyMetrics::words('For DDEV in `.ddev/config.local.yaml`.'));
+        // Without backticks the parts are still words.
+        self::assertCount(4, CopyMetrics::words('config.local.yaml file'));
+    }
+
+    public function testAQuotationThatEndsASentenceEndsIt(): void
+    {
+        self::assertSame(
+            ['Just starting: “I have not worked in a studio yet.”', 'Step two asks where you study.'],
+            CopyMetrics::sentences('Just starting: “I have not worked in a studio yet.” Step two asks where you study.')
+        );
+        self::assertSame(
+            ['Neu: „Ich wohne in Graz.“', 'Schritt zwei fragt nach dem Portfolio.'],
+            CopyMetrics::sentences('Neu: „Ich wohne in Graz.“ Schritt zwei fragt nach dem Portfolio.')
+        );
+    }
+
+    public function testAQuotedSentenceInsideASentenceKeepsItWhole(): void
+    {
+        self::assertCount(1, CopyMetrics::sentences('Or try “The editor no longer saves images.” (support) or “Do you hire juniors?” (jobs).'));
+    }
+
     public function testLinesWithoutPunctuationCountAsSentences(): void
     {
         self::assertCount(3, CopyMetrics::sentences("First item\nSecond item\nThird item"));

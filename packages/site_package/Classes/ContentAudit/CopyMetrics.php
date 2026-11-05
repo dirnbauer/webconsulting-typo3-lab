@@ -40,6 +40,10 @@ final class CopyMetrics
      */
     public static function words(string $text): array
     {
+        // Inline code (`TYPO3_WORKOS_API_KEY`, `.ddev/config.local.yaml`) is one
+        // name, so it counts as one word, not as the parts between its dots and
+        // underscores.
+        $text = (string)preg_replace('/`[^`\n]+`/u', 'code', $text);
         // A number with a decimal or thousands separator ("21,6", "1.490") is one word.
         preg_match_all('/\p{N}+(?:[.,]\p{N}+)+|[\p{L}\p{N}][\p{L}\p{N}\'’\-]*/u', $text, $matches);
 
@@ -50,8 +54,8 @@ final class CopyMetrics
     }
 
     /**
-     * Splits on sentence punctuation (full-width 。！？ included) and on line
-     * breaks. A line without punctuation (a list item, a heading) counts as
+     * Splits on sentence punctuation (full-width 。！？ included), on a closing
+     * quotation mark after it, and on line breaks. A line without punctuation (a list item, a heading) counts as
      * its own sentence.
      *
      * @return list<string>
@@ -69,7 +73,10 @@ final class CopyMetrics
         $protected = (string)preg_replace('/(\d)\.(?=\s+\p{Ll})/u', '$1¤', $protected);
 
         // Chinese ends a sentence with a full-width mark and no space after it.
-        $parts = preg_split('/(?<=[.!?…])\s+|(?<=[。！？])|\n+/u', $protected) ?: [];
+        // A quotation that ends a sentence ("… remotely.” Step two …") ends it
+        // too, when the next word starts with a capital; a quoted sentence in
+        // the middle of one ("“… images.” (support), …") does not.
+        $parts = preg_split('/(?<=[.!?…])\s+|(?<=[.!?…][”“"’»])\s+(?=[\p{Lu}\p{N}„“"«])|(?<=[。！？])|\n+/u', $protected) ?: [];
         $sentences = [];
         foreach ($parts as $part) {
             $part = trim($part);
