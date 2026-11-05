@@ -4,6 +4,34 @@ All notable changes to Webconsulting TYPO3 Lab are documented in this file.
 
 ## Unreleased
 
+### Desiderio 4.29.1: follow-ups of the open-source model round — 2026-11-05
+
+- The old dark pricing screenshot with the retired plans (Pro €49, Agency
+  €149) is gone: six element fixtures show the current dark pricing screenshot
+  or the dark contact form, the capture script no longer makes it, and a
+  desiderio unit test keeps its name out of every source (desiderio 4.29.1).
+- The content audit of the Desiderio site (root 505) reports 0 errors (64
+  before). Shorter sentences at the source: desiderio 4.29.1 (design system
+  page title and call to action, two alt texts, the news demo), webcon-jev
+  0.3.2 (four example pages), webcon-templates 1.0.4 (film alt text, harvest
+  step) and the lab's film specs and `film.json` (ten category films, the DOCX
+  Editor, ten skill films, CapexOne). Two false positives fixed in the audit:
+  inline code (`TYPO3_WORKOS_API_KEY`) counts as one word, and a closing
+  quotation mark after a full stop ends the sentence when a capital follows.
+- The English address folder 569 has the slug `/address` like its German,
+  Chinese and Hungarian records (`desiderio/address-slug.payload.json`). A
+  folder has no frontend URL, so there is no redirect. Page 555 ("Adressen",
+  `/adress`) on Blog classico is untouched.
+- The Astryx site offers Care, support hours, sponsored features and the
+  Supporter next to its plans, with the model sentence and webconsulting GmbH
+  as the seller; every price comes from Desiderio's `ShowcasePricing`
+  (astryx-typo3 2.6.2).
+- Desiderio and Astryx for TYPO3 have a GitHub "Sponsor" button
+  (`.github/FUNDING.yml`) that leads to the How we earn page; GitHub Sponsors
+  stays prepared as a comment until the owner has enrolled.
+- Translation memories: 44 German, 48 Chinese and 48 Hungarian entries for the
+  changed copy.
+
 ### Desiderio 4.29.0: the open-source sales model, the lab and talk pages, a lighter home page — 2026-11-05
 
 - The Desiderio site explains how free software pays for itself: a **How we

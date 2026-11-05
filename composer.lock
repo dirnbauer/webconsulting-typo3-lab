@@ -12349,16 +12349,16 @@
         },
         {
             "name": "webconsulting/astryx-typo3",
-            "version": "v2.6.1",
+            "version": "v2.6.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/astryx-typo3.git",
-                "reference": "d8d8b44be547035f6dbb0e965b8b2cc57f428e33"
+                "reference": "c67305f9adb46e30507b5cd1c33c0d62a4481b88"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/astryx-typo3/zipball/d8d8b44be547035f6dbb0e965b8b2cc57f428e33",
-                "reference": "d8d8b44be547035f6dbb0e965b8b2cc57f428e33",
+                "url": "https://api.github.com/repos/dirnbauer/astryx-typo3/zipball/c67305f9adb46e30507b5cd1c33c0d62a4481b88",
+                "reference": "c67305f9adb46e30507b5cd1c33c0d62a4481b88",
                 "shasum": ""
             },
             "require": {
@@ -12367,7 +12367,7 @@
                 "praetorius/vite-asset-collector": "^1.18",
                 "typo3/cms-core": "^14.3.7",
                 "typo3/cms-fluid": "^14.3.7",
-                "webconsulting/desiderio": "^4.1"
+                "webconsulting/desiderio": "^4.29"
             },
             "require-dev": {
                 "friendsofphp/php-cs-fixer": "^3.75",
@@ -12387,7 +12387,7 @@
                 "typo3/cms": {
                     "extension-key": "astryx_typo3",
                     "web-dir": "public",
-                    "version": "2.6.1",
+                    "version": "2.6.2",
                     "Package": {
                         "providesPackages": []
                     }
@@ -12440,20 +12440,20 @@
                 }
             ],
             "description": "Astryx for TYPO3 — the Astryx design system, server-rendered for TYPO3 14: 250 Content Blocks, 205 Fluid components, 25 runtime-switchable themes, no JavaScript framework",
-            "time": "2026-10-24T04:02:43+00:00"
+            "time": "2026-11-05T12:01:53+00:00"
         },
         {
             "name": "webconsulting/desiderio",
-            "version": "v4.29.0",
+            "version": "v4.29.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/desiderio.git",
-                "reference": "877ddd284800d0dcc6888a3b1ba90af0f69bcce0"
+                "reference": "8d67a05b2e1094980d534928d267f820761854bf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/desiderio/zipball/877ddd284800d0dcc6888a3b1ba90af0f69bcce0",
-                "reference": "877ddd284800d0dcc6888a3b1ba90af0f69bcce0",
+                "url": "https://api.github.com/repos/dirnbauer/desiderio/zipball/8d67a05b2e1094980d534928d267f820761854bf",
+                "reference": "8d67a05b2e1094980d534928d267f820761854bf",
                 "shasum": ""
             },
             "require": {
@@ -12496,7 +12496,7 @@
             "extra": {
                 "typo3/cms": {
                     "extension-key": "desiderio",
-                    "version": "4.29.0",
+                    "version": "4.29.1",
                     "Package": {
                         "providesPackages": []
                     }
@@ -12547,7 +12547,7 @@
                 }
             ],
             "description": "Desiderio — shadcn/ui-inspired Fluid 5 component library, 244 Desiderio Content Blocks, and theme layer for TYPO3 14",
-            "time": "2026-11-05T09:23:31+00:00"
+            "time": "2026-11-05T12:01:44+00:00"
         },
         {
             "name": "webconsulting/docx-editor",
@@ -14042,16 +14042,16 @@
         },
         {
             "name": "webconsulting/webcon-jev",
-            "version": "v0.3.1",
+            "version": "v0.3.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/typo3-webcon-jev.git",
-                "reference": "0395d720155774a13432cf3514127dbd3b70653b"
+                "reference": "0d220f0ac636c69ccc4ac9076ce5248a6aaf69f9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/typo3-webcon-jev/zipball/0395d720155774a13432cf3514127dbd3b70653b",
-                "reference": "0395d720155774a13432cf3514127dbd3b70653b",
+                "url": "https://api.github.com/repos/dirnbauer/typo3-webcon-jev/zipball/0d220f0ac636c69ccc4ac9076ce5248a6aaf69f9",
+                "reference": "0d220f0ac636c69ccc4ac9076ce5248a6aaf69f9",
                 "shasum": ""
             },
             "require": {
@@ -14147,15 +14147,15 @@
                 "issues": "https://github.com/dirnbauer/typo3-webcon-jev/issues",
                 "source": "https://github.com/dirnbauer/typo3-webcon-jev"
             },
-            "time": "2026-10-24T04:07:41+00:00"
+            "time": "2026-11-05T12:01:54+00:00"
         },
         {
             "name": "webconsulting/webcon-templates",
-            "version": "v1.0.3",
+            "version": "v1.0.4",
             "source": {
                 "type": "git",
                 "url": "git@gitlab.webconsulting.at:extensions/typo3-webcon-templates.git",
-                "reference": "6121c52ae2906ab852ac66f203b35ed707ab9bdf"
+                "reference": "fe4b9c1dab73707046ff60762f42123de862b003"
             },
             "require": {
                 "friendsoftypo3/content-blocks": "^2.4",
@@ -14235,7 +14235,7 @@
                 "templates",
                 "themes"
             ],
-            "time": "2026-10-26T11:29:53+00:00"
+            "time": "2026-11-05T12:01:54+00:00"
         },
         {
             "name": "webconsulting/workos-auth",
