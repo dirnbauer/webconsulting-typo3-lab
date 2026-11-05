@@ -34,7 +34,7 @@ idioms and puns cost them time.
 | Three teams, one unfair advantage | Built for agencies, in-house teams and freelancers |
 | Where Desiderio earns its keep | What teams use Desiderio for |
 | Running a TYPO3 site in 2026 shouldn't hurt this much | Common problems with TYPO3 sites today |
-| Free forever. Faster with the creators. | Free to use. Paid plans add support. |
+| Free forever. Faster with the creators. | Free to use. Paid plans add our time. |
 | Das Programm schreibt ihr selbst. | Ihr bestimmt das Programm. |
 
 ## Limits

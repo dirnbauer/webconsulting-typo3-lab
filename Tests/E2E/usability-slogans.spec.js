@@ -38,13 +38,15 @@ test("the usability talk on its page is the long cut as a click-to-play portrait
   const source = await video.locator("source").first().getAttribute("src");
   expect(source, "the block plays the wrong cut").toMatch(/\/usability-slogans-long-[0-9a-f]{8}\.mp4$/);
 
-  // The text column: eyebrow, heading, the ten slogans and the Nielsen credit.
-  await expect(block.locator(".feature-video__text h2")).toBeVisible();
-  await expect(block.locator(".feature-video__text ol > li")).toHaveCount(10);
+  // The text column has its own heading: the page's header section names the
+  // talk, the slogan block lists the ten slogans and the editors block credits
+  // Nielsen, so the film block repeats none of them.
+  await expect(block.locator(".feature-video__text h2")).toHaveText("Watch the five-minute talk");
+  await expect(block.locator(".feature-video__text ol > li")).toHaveCount(0);
   await expect(
-    block.locator('.feature-video__text a[href="https://www.nngroup.com/books/usability-engineering/"]'),
-    "Nielsen is credited with a link to the book",
-  ).toHaveCount(1);
+    page.locator('a[href="https://www.nngroup.com/books/usability-engineering/"]'),
+    "Nielsen is credited on the page with a link to the book",
+  ).not.toHaveCount(0);
   // The block sits on the talk page: no link to the page itself.
   // (The article URL …/blog/usability-slogans-nielsen is fine: only the page path itself is wrong.)
   const hrefs = await block.locator("a[href]").evaluateAll((links) => links.map((link) => link.href));
