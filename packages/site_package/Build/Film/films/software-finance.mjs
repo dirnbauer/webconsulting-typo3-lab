@@ -95,10 +95,9 @@ let capexOne = film({
     id: 'capex-one', page: 8232, name: 'CapexOne Plus', background: 'grid',
     // CapexOne Plus brand (globals.css, dark): tan accent, slate, and a deep ink blue for the floor.
     accent: '#e2c2a4', palette: ['#c49a7a', '#7f9fb5', '#46557a'],
-    alt: 'Overview film, {duration} seconds: CapexOne Plus checks capital projects against their business case. '
-        + 'Planner, gate pack, project value, invoice approval and the CFO portfolio view; the shared-savings model '
-        + '(a 3 % saving goal, one third our fee, two thirds stay with the client: a target, not a guarantee); '
-        + 'and an API built for agents. Narrated, with English captions.',
+    alt: 'Overview film, {duration} seconds: CapexOne Plus checks capital projects against their business case. It shows the planner, gate '
+        + 'pack, project value, invoice approval and the CFO portfolio view, and an API built for agents. The shared-savings model sets a 3 '
+        + '% saving goal: one third is our fee, two thirds stay with the client, a target, not a guarantee. Narrated, with English captions.',
     hook: { head: 'Last month’s slides, <em>forty hours a gate.</em>', say: 'Last month’s slides and forty hours per gate review.' },
     title: { sub: 'Capital projects, checked live', key: 'capex-one.com', say: 'CapexOne Plus checks every capital project against its business case, live.' },
     shots: [

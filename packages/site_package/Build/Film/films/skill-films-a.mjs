@@ -93,8 +93,9 @@ export default Object.fromEntries([
             items: [['A person accepts the proof', 'closure-verify records it and leaves acceptance to a person'], ['Nothing deploys to live', 'local DDEV only']],
             say: 'A person accepts the result. Nothing deploys to live.',
         },
-        alt: 'Film, {duration} seconds: the typo3-upgrade-run agent skill. The t3u harness seals a 72-node upgrade graph for a DDEV project '
-            + 'and hands out the first node; the final proof of a real 12.4 to 14.3 run compares 60 URLs and 360 screenshots. Narrated, with English captions.',
+        alt: 'Film, {duration} seconds: the typo3-upgrade-run agent skill. The t3u harness seals a 72-node upgrade graph for a DDEV project and '
+            + 'hands out the first node. The final proof of a real 12.4 to 14.3 run compares 60 URLs and 360 screenshots. Narrated, with English '
+            + 'captions.',
     }),
     film({
         slug: 'typo3-wcag22-aa-agentic',
@@ -144,8 +145,9 @@ export default Object.fromEntries([
             items: [['Evidence, not a conformance claim', 'never complete WCAG conformance from scans alone'], ['A person reviews the rest', 'alt text, keyboard, screen reader, legal wording']],
             say: 'Scans are evidence, not a conformance claim. A person reviews the rest.',
         },
-        alt: 'Film, {duration} seconds: the typo3-wcag22-aa-agentic agent skill. Playwright and axe-core scan nine pages of a TYPO3 template site '
-            + 'in 29 states; the generated report lists each violation by page and the theme files, with a draft accessibility statement. Narrated, with English captions.',
+        alt: 'Film, {duration} seconds: the typo3-wcag22-aa-agentic agent skill. Playwright and axe-core scan nine pages of a TYPO3 template '
+            + 'site in 29 states. The report lists each violation by page and theme file, with a draft accessibility statement. Narrated, with '
+            + 'English captions.',
     }),
     film({
         slug: 'typo3-webmcp',
@@ -184,8 +186,8 @@ export default Object.fromEntries([
             items: [['A schema is not consent', 'the visitor ticks the box and sends the form'], ['The tool sends nothing', 'prepare_error_report answers submitted: false']],
             say: 'A schema is not consent. People stay in charge.',
         },
-        alt: 'Film, {duration} seconds: the typo3-webmcp agent skill. Chrome with WebMCP testing lists four browser tools on a TYPO3 14 site, '
-            + 'and the form tool fills an error report while the consent box stays empty and nothing is sent. Narrated, with English captions.',
+        alt: 'Film, {duration} seconds: the typo3-webmcp agent skill. Chrome with WebMCP testing lists four browser tools on a TYPO3 14 site. '
+            + 'The form tool fills an error report, the consent box stays empty and nothing is sent. Narrated, with English captions.',
     }),
     film({
         slug: 'typo3-structured-data',
@@ -226,8 +228,9 @@ export default Object.fromEntries([
             items: [['No invented facts', 'every value comes from the visible page'], ['Eligible, never promised', 'valid markup earns eligibility, not a rich result']],
             say: 'No invented facts. Valid markup earns eligibility, not a promise.',
         },
-        alt: 'Film, {duration} seconds: the typo3-structured-data agent skill. It keeps an upgrade identical, then checks one JSON-LD graph per page '
-            + 'against the visible page on seven pages of a TYPO3 14 site; the Schema.org Validator reports no errors. Narrated, with English captions.',
+        alt: 'Film, {duration} seconds: the typo3-structured-data agent skill. It keeps an upgrade identical, then checks one JSON-LD graph per '
+            + 'page against the visible page on seven TYPO3 14 pages. The Schema.org Validator reports no errors. Narrated, with English '
+            + 'captions.',
     }),
     film({
         slug: 'typo3-backend-rights',
@@ -274,7 +277,8 @@ export default Object.fromEntries([
             items: [['A working administrator always stays', 'never demote the current working administrator'], ['Verified, not copied', 'the audit runs again, --strict, after the change']],
             say: 'A working administrator always stays. A lockout costs more than any permission gain.',
         },
-        alt: 'Film, {duration} seconds: the typo3-backend-rights agent skill. A read-only audit of the TYPO3 lab prints its editor model as JSON: '
-            + 'three groups, four administrators and 56 findings, and the Backend Users module shows the groups. Narrated, with English captions.',
+        alt: 'Film, {duration} seconds: the typo3-backend-rights agent skill. A read-only audit of the TYPO3 lab prints its editor model as '
+            + 'JSON: three groups, four administrators and 56 findings. The Backend Users module shows the groups. Narrated, with English '
+            + 'captions.',
     }),
 ]);

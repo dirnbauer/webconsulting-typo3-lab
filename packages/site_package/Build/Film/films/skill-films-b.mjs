@@ -53,7 +53,8 @@ export default Object.fromEntries([
     film({
         slug: 'typo3-content-blocks',
         music: 'bright',
-        recorded: 'Recorded in this TYPO3 v14 lab: make:content-block in DDEV, then the new element in the content wizard of a test page, saved for real and removed afterwards',
+        recorded: 'Recorded in this TYPO3 v14 lab: make:content-block in DDEV, then the new element in the content wizard of a test page. It was '
+            + 'saved for real and removed afterwards',
         promptMs: 30,
         workMs: 30,
         sub: 'An element in one YAML file',
@@ -109,13 +110,15 @@ export default Object.fromEntries([
             say: 'A renamed field leaves records that look empty.',
         },
         alt: 'Film, {duration} seconds: the typo3-content-blocks agent skill. make:content-block creates a teaser block in a TYPO3 v14 project, '
-            + 'config.yaml lists its headline, image and link fields, and the new element appears in the content wizard and is saved. Narrated, with English captions.',
+            + 'and config.yaml lists its headline, image and link fields. The new element appears in the content wizard and is saved. Narrated, '
+            + 'with English captions.',
     }),
     film({
         slug: 'typo3-shadcn-content-elements',
         background: 'mesh',
         music: 'bright',
-        recorded: 'Recorded in this TYPO3 v14 lab: the skill’s read-only audit of the Desiderio elements, then a pricing page with the preset switched in the browser and dark mode turned on with the header switch',
+        recorded: 'Recorded in this TYPO3 v14 lab: the skill’s read-only audit of the Desiderio elements. Then a pricing page switches its preset in '
+            + 'the browser and turns on dark mode in the header',
         promptMs: 30,
         workMs: 30,
         sub: 'shadcn presets as Fluid elements with semantic tokens',
@@ -160,8 +163,9 @@ export default Object.fromEntries([
             items: [['No React at runtime', 'tokens and class contracts are ported into Fluid'], ['Tokens, not colours', 'presets and dark mode reach every element']],
             say: 'No React at runtime. Tokens, not colours, in every template.',
         },
-        alt: 'Film, {duration} seconds: the typo3-shadcn-content-elements agent skill. Its audit checks 244 TYPO3 content elements, a colour scan '
-            + 'finds no raw value in their templates, and a pricing page follows a preset switch and dark mode. Narrated, with English captions.',
+        alt: 'Film, {duration} seconds: the typo3-shadcn-content-elements agent skill. Its audit checks 244 TYPO3 content elements, and a '
+            + 'colour scan finds no raw value in their templates. A pricing page follows a preset switch and dark mode. Narrated, with English '
+            + 'captions.',
     }),
     film({
         slug: 'typo3-visual-editor',
@@ -195,8 +199,8 @@ export default Object.fromEntries([
             items: [['Tested as an editor', 'never judge readiness from admin-only testing'], ['Traceable output', 'every editable text maps to a record and a field']],
             say: 'Readiness is tested as an editor, never only as admin.',
         },
-        alt: 'Film, {duration} seconds: the typo3-visual-editor agent skill. A Desiderio Fluid template renders three fields with f:render.text, '
-            + 'and in the TYPO3 Visual Editor a headline is typed into on the page and saved. Narrated, with English captions.',
+        alt: 'Film, {duration} seconds: the typo3-visual-editor agent skill. A Desiderio Fluid template renders three fields with '
+            + 'f:render.text. In the TYPO3 Visual Editor, a headline is typed on the page and saved. Narrated, with English captions.',
     }),
     film({
         slug: 'typo3-rector',
@@ -250,8 +254,9 @@ export default Object.fromEntries([
             items: [['One applied pass is not completion', 'dry run, review, apply, dry run again'], ['Nothing applied to a repository', 'the runs used a throwaway copy']],
             say: 'One applied pass is not completion. The clean dry run is.',
         },
-        alt: 'Film, {duration} seconds: the typo3-rector agent skill with typo3-fractor. A dry run on a TYPO3 12 extension lists 13 files with their Rector rules, '
-            + 'Fractor reformats two label files, and after applying, a second dry run finds one generated file and a third reports Rector is done. Narrated, with English captions.',
+        alt: 'Film, {duration} seconds: the typo3-rector agent skill with typo3-fractor. A dry run on a TYPO3 12 extension lists 13 files with '
+            + 'their Rector rules, and Fractor reformats two label files. After applying, a second dry run finds one generated file and a third '
+            + 'reports Rector is done. Narrated, with English captions.',
     }),
     film({
         slug: 'typo3-records-list-types',
@@ -287,7 +292,7 @@ export default Object.fromEntries([
             items: [['Configure, do not patch', 'views come from TSconfig and Fluid templates'], ['Accessibility is evidenced', 'not assumed']],
             say: 'Configure, do not patch. Accessibility is evidenced, not assumed.',
         },
-        alt: 'Film, {duration} seconds: the typo3-records-list-types agent skill. Page TSconfig adds view types to the TYPO3 v14 Records module, '
-            + 'and editors switch a news folder from the table to grid, timeline and catalogue views. Narrated, with English captions.',
+        alt: 'Film, {duration} seconds: the typo3-records-list-types agent skill. Page TSconfig adds view types to the TYPO3 v14 Records '
+            + 'module. Editors switch a news folder from the table to grid, timeline and catalogue views. Narrated, with English captions.',
     }),
 ]);

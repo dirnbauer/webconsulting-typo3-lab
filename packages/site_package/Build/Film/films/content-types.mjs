@@ -116,8 +116,8 @@ function groupFilm(group) {
         accent: group.accent,
         palette: group.palette,
         music: 'bright',
-        alt: `Overview film, {duration} seconds: the ${group.count} ${group.name} elements of Desiderio for TYPO3 v14, `
-            + `including ${items.map((item) => item.name.toLowerCase()).join(', ')}. Narrated, with English captions.`,
+        alt: `Overview film, {duration} seconds: the ${group.count} ${group.name} elements of Desiderio for TYPO3 v14. `
+            + `It shows ${items.map((item) => item.name.toLowerCase()).join(', ')}. Narrated, with English captions.`,
         scenes: [
             { type: 'hook', head: group.hook.head, images: items.slice(0, 3).map((item) => item.image), say: group.hook.say },
             { type: 'title', eyebrow: 'Desiderio for TYPO3 v14', name: group.name, sub: group.sub, key: `${group.count} elements`, image: items[0].image, say: group.title },
