@@ -12444,16 +12444,16 @@
         },
         {
             "name": "webconsulting/desiderio",
-            "version": "v4.30.0",
+            "version": "v4.31.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/desiderio.git",
-                "reference": "d0c72f38b55a0b9466e31a56e3801a72d0b8823f"
+                "reference": "52d6eb26c7737d1267bad657745eaeca0e48e3c7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/desiderio/zipball/d0c72f38b55a0b9466e31a56e3801a72d0b8823f",
-                "reference": "d0c72f38b55a0b9466e31a56e3801a72d0b8823f",
+                "url": "https://api.github.com/repos/dirnbauer/desiderio/zipball/52d6eb26c7737d1267bad657745eaeca0e48e3c7",
+                "reference": "52d6eb26c7737d1267bad657745eaeca0e48e3c7",
                 "shasum": ""
             },
             "require": {
@@ -12496,7 +12496,7 @@
             "extra": {
                 "typo3/cms": {
                     "extension-key": "desiderio",
-                    "version": "4.30.0",
+                    "version": "4.31.0",
                     "Package": {
                         "providesPackages": []
                     }
@@ -12547,7 +12547,7 @@
                 }
             ],
             "description": "Desiderio — shadcn/ui-inspired Fluid 5 component library, 244 Desiderio Content Blocks, and theme layer for TYPO3 14",
-            "time": "2026-11-05T18:29:25+00:00"
+            "time": "2026-11-05T22:46:40+00:00"
         },
         {
             "name": "webconsulting/docx-editor",
@@ -13825,16 +13825,16 @@
         },
         {
             "name": "webconsulting/visual-editor-enhancements",
-            "version": "v1.4.4",
+            "version": "v1.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/typo3-visual-editor-enhancements.git",
-                "reference": "2874dcd5559593920ee78aaa44fa15d9ee0a2184"
+                "reference": "1895016f10e1a9c87fc629468fa0512b28113e5f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/typo3-visual-editor-enhancements/zipball/2874dcd5559593920ee78aaa44fa15d9ee0a2184",
-                "reference": "2874dcd5559593920ee78aaa44fa15d9ee0a2184",
+                "url": "https://api.github.com/repos/dirnbauer/typo3-visual-editor-enhancements/zipball/1895016f10e1a9c87fc629468fa0512b28113e5f",
+                "reference": "1895016f10e1a9c87fc629468fa0512b28113e5f",
                 "shasum": ""
             },
             "require": {
@@ -13851,6 +13851,7 @@
                 "phpstan/phpstan-phpunit": "^2.0.18",
                 "phpunit/phpunit": "^13.3",
                 "saschaegerer/phpstan-typo3": "^3.1",
+                "typo3/cms-workspaces": "^14.3.7",
                 "typo3/coding-standards": "^0.9",
                 "typo3/testing-framework": "^9.7"
             },
@@ -13929,7 +13930,7 @@
                 "issues": "https://github.com/dirnbauer/typo3-visual-editor-enhancements/issues",
                 "source": "https://github.com/dirnbauer/typo3-visual-editor-enhancements"
             },
-            "time": "2026-10-25T21:02:31+00:00"
+            "time": "2026-11-05T22:46:33+00:00"
         },
         {
             "name": "webconsulting/webcon-easy-workspace",
