@@ -1,0 +1,596 @@
+{
+  "voice": "George",
+  "delivery": {
+    "stability": 0.62,
+    "similarity_boost": 0.78,
+    "style": 0.18,
+    "speed": 0.9
+  },
+  "lines": [
+    {
+      "say": "Everything here is free. Here is how we pay the rent.",
+      "show": "Everything here is free. Here is how we pay the rent.",
+      "file": "voice-01.mp3",
+      "duration": 3762,
+      "words": [
+        {
+          "word": "Everything",
+          "start": 35,
+          "end": 476
+        },
+        {
+          "word": "here",
+          "start": 557,
+          "end": 801
+        },
+        {
+          "word": "is",
+          "start": 871,
+          "end": 975
+        },
+        {
+          "word": "free.",
+          "start": 1057,
+          "end": 1579
+        },
+        {
+          "word": "Here",
+          "start": 1846,
+          "end": 2125
+        },
+        {
+          "word": "is",
+          "start": 2171,
+          "end": 2252
+        },
+        {
+          "word": "how",
+          "start": 2299,
+          "end": 2415
+        },
+        {
+          "word": "we",
+          "start": 2485,
+          "end": 2589
+        },
+        {
+          "word": "pay",
+          "start": 2659,
+          "end": 2833
+        },
+        {
+          "word": "the",
+          "start": 2879,
+          "end": 2949
+        },
+        {
+          "word": "rent.",
+          "start": 3030,
+          "end": 3483
+        }
+      ],
+      "heard": "Everything here is free. Here is how we pay the rent.",
+      "end": 3510
+    },
+    {
+      "say": "Use it. Support it. Ask for features. Or let us take care of it.",
+      "show": "Use it. Support it. Ask for features. Or let us take care of it.",
+      "file": "voice-02.mp3",
+      "duration": 5329,
+      "words": [
+        {
+          "word": "Use",
+          "start": 35,
+          "end": 360
+        },
+        {
+          "word": "it.",
+          "start": 406,
+          "end": 662
+        },
+        {
+          "word": "Support",
+          "start": 766,
+          "end": 1265
+        },
+        {
+          "word": "it.",
+          "start": 1335,
+          "end": 1637
+        },
+        {
+          "word": "Ask",
+          "start": 1869,
+          "end": 2183
+        },
+        {
+          "word": "for",
+          "start": 2252,
+          "end": 2357
+        },
+        {
+          "word": "features.",
+          "start": 2426,
+          "end": 3100
+        },
+        {
+          "word": "Or",
+          "start": 3367,
+          "end": 3518
+        },
+        {
+          "word": "let",
+          "start": 3564,
+          "end": 3692
+        },
+        {
+          "word": "us",
+          "start": 3738,
+          "end": 3820
+        },
+        {
+          "word": "take",
+          "start": 3866,
+          "end": 4063
+        },
+        {
+          "word": "care",
+          "start": 4098,
+          "end": 4319
+        },
+        {
+          "word": "of",
+          "start": 4354,
+          "end": 4412
+        },
+        {
+          "word": "it.",
+          "start": 4481,
+          "end": 4772
+        }
+      ],
+      "heard": "Use it, support it, ask for features, or let us take care of it."
+    },
+    {
+      "say": "Every release, every fix, the demo and commercial use stay free.",
+      "show": "Every release, every fix, the demo and commercial use stay free.",
+      "file": "voice-03.mp3",
+      "duration": 5094,
+      "words": [
+        {
+          "word": "Every",
+          "start": 12,
+          "end": 313
+        },
+        {
+          "word": "release,",
+          "start": 395,
+          "end": 906
+        },
+        {
+          "word": "every",
+          "start": 998,
+          "end": 1289
+        },
+        {
+          "word": "fix,",
+          "start": 1382,
+          "end": 1788
+        },
+        {
+          "word": "the",
+          "start": 1858,
+          "end": 1962
+        },
+        {
+          "word": "demo",
+          "start": 2032,
+          "end": 2357
+        },
+        {
+          "word": "and",
+          "start": 2438,
+          "end": 2508
+        },
+        {
+          "word": "commercial",
+          "start": 2589,
+          "end": 3042
+        },
+        {
+          "word": "use",
+          "start": 3135,
+          "end": 3460
+        },
+        {
+          "word": "stay",
+          "start": 3564,
+          "end": 3878
+        },
+        {
+          "word": "free.",
+          "start": 3971,
+          "end": 4551
+        }
+      ],
+      "heard": "Every release, every fix, the demo and commercial use stay free."
+    },
+    {
+      "say": "Plans pay for our time. Studio, five hundred and ninety euros a year. Agency, one thousand nine hundred and ninety. Partner, four thousand nine hundred.",
+      "show": "Plans pay for our time. Studio €590 a year, Agency €1,990, Partner €4,900.",
+      "file": "voice-04.mp3",
+      "duration": 10632,
+      "words": [
+        {
+          "word": "Plans",
+          "start": 35,
+          "end": 453
+        },
+        {
+          "word": "pay",
+          "start": 522,
+          "end": 697
+        },
+        {
+          "word": "for",
+          "start": 743,
+          "end": 848
+        },
+        {
+          "word": "our",
+          "start": 894,
+          "end": 1010
+        },
+        {
+          "word": "time.",
+          "start": 1057,
+          "end": 1602
+        },
+        {
+          "word": "Studio,",
+          "start": 1916,
+          "end": 2670
+        },
+        {
+          "word": "five",
+          "start": 2740,
+          "end": 2995
+        },
+        {
+          "word": "hundred",
+          "start": 3019,
+          "end": 3239
+        },
+        {
+          "word": "and",
+          "start": 3274,
+          "end": 3344
+        },
+        {
+          "word": "ninety",
+          "start": 3413,
+          "end": 3715
+        },
+        {
+          "word": "euros",
+          "start": 3785,
+          "end": 4156
+        },
+        {
+          "word": "a",
+          "start": 4191,
+          "end": 4214
+        },
+        {
+          "word": "year.",
+          "start": 4307,
+          "end": 4818
+        },
+        {
+          "word": "Agency,",
+          "start": 5178,
+          "end": 6014
+        },
+        {
+          "word": "one",
+          "start": 6084,
+          "end": 6293
+        },
+        {
+          "word": "thousand",
+          "start": 6327,
+          "end": 6699
+        },
+        {
+          "word": "nine",
+          "start": 6769,
+          "end": 6966
+        },
+        {
+          "word": "hundred",
+          "start": 7001,
+          "end": 7233
+        },
+        {
+          "word": "and",
+          "start": 7268,
+          "end": 7338
+        },
+        {
+          "word": "ninety.",
+          "start": 7407,
+          "end": 8069
+        },
+        {
+          "word": "Partner,",
+          "start": 8429,
+          "end": 8905
+        },
+        {
+          "word": "four",
+          "start": 8940,
+          "end": 9125
+        },
+        {
+          "word": "thousand",
+          "start": 9172,
+          "end": 9497
+        },
+        {
+          "word": "nine",
+          "start": 9567,
+          "end": 9741
+        },
+        {
+          "word": "hundred.",
+          "start": 9776,
+          "end": 10321
+        }
+      ],
+      "heard": "Plans pay for our time. 590 euros a year. 1,990. 4,900."
+    },
+    {
+      "say": "Or Care: we run your site, with updates and backups. Three hundred and ninety euros a month per live site.",
+      "show": "Or Care: we run your site, with updates and backups. €390 a month per live site.",
+      "file": "voice-05.mp3",
+      "duration": 7419,
+      "words": [
+        {
+          "word": "Or",
+          "start": 23,
+          "end": 174
+        },
+        {
+          "word": "Care:",
+          "start": 255,
+          "end": 731
+        },
+        {
+          "word": "we",
+          "start": 836,
+          "end": 987
+        },
+        {
+          "word": "run",
+          "start": 1057,
+          "end": 1219
+        },
+        {
+          "word": "your",
+          "start": 1265,
+          "end": 1393
+        },
+        {
+          "word": "site,",
+          "start": 1463,
+          "end": 1811
+        },
+        {
+          "word": "with",
+          "start": 1834,
+          "end": 1974
+        },
+        {
+          "word": "updates",
+          "start": 2020,
+          "end": 2531
+        },
+        {
+          "word": "and",
+          "start": 2554,
+          "end": 2635
+        },
+        {
+          "word": "backups.",
+          "start": 2705,
+          "end": 3437
+        },
+        {
+          "word": "Three",
+          "start": 3796,
+          "end": 4063
+        },
+        {
+          "word": "hundred",
+          "start": 4110,
+          "end": 4354
+        },
+        {
+          "word": "and",
+          "start": 4389,
+          "end": 4458
+        },
+        {
+          "word": "ninety",
+          "start": 4540,
+          "end": 4853
+        },
+        {
+          "word": "euros",
+          "start": 4934,
+          "end": 5317
+        },
+        {
+          "word": "a",
+          "start": 5352,
+          "end": 5387
+        },
+        {
+          "word": "month",
+          "start": 5457,
+          "end": 5724
+        },
+        {
+          "word": "per",
+          "start": 5805,
+          "end": 5979
+        },
+        {
+          "word": "live",
+          "start": 6072,
+          "end": 6351
+        },
+        {
+          "word": "site.",
+          "start": 6397,
+          "end": 6954
+        }
+      ],
+      "heard": "or care, we run your site with updates and backups. 390 euros a month per live site."
+    },
+    {
+      "say": "What we never do: paid early access, licence keys, discount codes or countdown timers.",
+      "show": "What we never do: paid early access, licence keys, discount codes or countdown timers.",
+      "file": "voice-06.mp3",
+      "duration": 7184,
+      "words": [
+        {
+          "word": "What",
+          "start": 23,
+          "end": 232
+        },
+        {
+          "word": "we",
+          "start": 279,
+          "end": 383
+        },
+        {
+          "word": "never",
+          "start": 464,
+          "end": 673
+        },
+        {
+          "word": "do:",
+          "start": 743,
+          "end": 1184
+        },
+        {
+          "word": "paid",
+          "start": 1312,
+          "end": 1602
+        },
+        {
+          "word": "early",
+          "start": 1672,
+          "end": 1927
+        },
+        {
+          "word": "access,",
+          "start": 2009,
+          "end": 2694
+        },
+        {
+          "word": "licence",
+          "start": 2821,
+          "end": 3297
+        },
+        {
+          "word": "keys,",
+          "start": 3344,
+          "end": 3820
+        },
+        {
+          "word": "discount",
+          "start": 3982,
+          "end": 4481
+        },
+        {
+          "word": "codes",
+          "start": 4563,
+          "end": 4969
+        },
+        {
+          "word": "or",
+          "start": 5039,
+          "end": 5143
+        },
+        {
+          "word": "countdown",
+          "start": 5224,
+          "end": 5724
+        },
+        {
+          "word": "timers.",
+          "start": 5793,
+          "end": 6444
+        }
+      ],
+      "heard": "What we never do, paid early access, license keys, discount codes or countdown timers.",
+      "end": 6440
+    },
+    {
+      "say": "Use it today. Call us when you want help.",
+      "show": "Use it today. Call us when you want help.",
+      "file": "voice-07.mp3",
+      "duration": 2821,
+      "words": [
+        {
+          "word": "Use",
+          "start": 35,
+          "end": 279
+        },
+        {
+          "word": "it",
+          "start": 313,
+          "end": 383
+        },
+        {
+          "word": "today.",
+          "start": 418,
+          "end": 964
+        },
+        {
+          "word": "Call",
+          "start": 1126,
+          "end": 1370
+        },
+        {
+          "word": "us",
+          "start": 1451,
+          "end": 1521
+        },
+        {
+          "word": "when",
+          "start": 1556,
+          "end": 1683
+        },
+        {
+          "word": "you",
+          "start": 1718,
+          "end": 1788
+        },
+        {
+          "word": "want",
+          "start": 1834,
+          "end": 2009
+        },
+        {
+          "word": "help.",
+          "start": 2090,
+          "end": 2519
+        }
+      ],
+      "heard": "Use it today, call us when you want help."
+    }
+  ]
+}

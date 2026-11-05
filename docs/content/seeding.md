@@ -81,9 +81,18 @@ reports 0 changes.
 A talk with several cuts keeps each cut in its own folder below the film's folder
 (`Films/<talk>/<cut>/film.json`, each with its own id and placement);
 `sitepackage:films:seed` reads those like any film and skips the folder's own `film.json` while both exist.
-The usability talk ships only its long cut (`Films/usability-slogans/long/`, id `usability-slogans`, on the
-home page after the lab overview film); the short cut's recipe stays in `Build/Film/talk/` but its MP4 is
-not a fixture any more.
+The usability talk ships only its long cut (`Films/usability-slogans/long/`, id `usability-slogans`, on its
+own page `/usability-slogans` after the header section, `variant: portrait`, `autoplay: false`); the short
+cut's recipe stays in `Build/Film/talk/` but its MP4 is not a fixture any more.
+
+Since 2026-11-05 (plan `docs/plans/2026-11-05-open-source-sales-plan.md`, 6.1 and 6.2) the home page carries
+only the product film, a seeded Desiderio block; the films seeder puts nothing on `/` any more. The
+placements of the films that used to be there: `typo3-v14-strategy` → `[{"slug": "/typo3-v14-strategy"}]`
+(the strategy page only), `lab-overview` → `[{"slug": "/resources"}]` (Lab and resources, after the hero),
+`usability-slogans` (long cut) → `[{"slug": "/usability-slogans"}]`. The model film `how-we-earn` ("Free
+software, paid care", spec `Build/Film/films/how-we-earn.mjs`, about 58 s) goes on `/pricing/how-we-earn`
+after its hero (`[{"slug": "/pricing/how-we-earn"}]`). The two new pages come from the styleguide seed
+(step 1), so `sitepackage:films:seed` stops those two films with "No page …" until step 1 has created them.
 
 A placement may also follow another film: `{"slug": "/", "after": {"film": "lab-overview"}}` goes right
 after that film's transcript on the same page (the `<id>-transcript` marker of its first placement). When

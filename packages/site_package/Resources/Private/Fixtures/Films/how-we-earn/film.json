@@ -1,0 +1,63 @@
+{
+  "id": "how-we-earn",
+  "slug": "/pricing/how-we-earn",
+  "placements": [
+    {
+      "slug": "/pricing/how-we-earn"
+    }
+  ],
+  "title": "Free software, paid care: how we earn",
+  "eyebrow": "Film",
+  "header": "How we earn with free software, in 58 seconds",
+  "description": "<p>Desiderio is free with every release; we earn when you want our time. The four ways to work with us, what stays free, what the plans and Care cost, and what we never do. Narrated, with English captions.</p>",
+  "mp4": "how-we-earn-3231bab9.mp4",
+  "poster": "how-we-earn-poster-3231bab9.webp",
+  "vtt": "how-we-earn-3231bab9.en.vtt",
+  "duration": 58.391,
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "sound": true,
+  "alt": "Film, 58 seconds: how webconsulting earns with free software. Four ways to work with us: use it, support it, ask for features, let us take care. Always free: every release, every fix, the demo and commercial use. Support plans: Studio €590, Agency €1,990, Partner €4,900 a year. Care over the T3 Ops overview: we run your site for €390 a month per live site. What we never do: paid early access, licence keys, discount codes, countdown timers. Narrated, with English captions.",
+  "transcript": [
+    {
+      "at": "0:02",
+      "text": "Everything here is free. Here is how we pay the rent."
+    },
+    {
+      "at": "0:07",
+      "text": "Use it. Support it. Ask for features. Or let us take care of it."
+    },
+    {
+      "at": "0:14",
+      "text": "Every release, every fix, the demo and commercial use stay free."
+    },
+    {
+      "at": "0:20",
+      "text": "Plans pay for our time. Studio €590 a year, Agency €1,990, Partner €4,900."
+    },
+    {
+      "at": "0:33",
+      "text": "Or Care: we run your site, with updates and backups. €390 a month per live site."
+    },
+    {
+      "at": "0:42",
+      "text": "What we never do: paid early access, licence keys, discount codes or countdown timers."
+    },
+    {
+      "at": "0:51",
+      "text": "Use it today. Call us when you want help."
+    }
+  ],
+  "captions": {
+    "language": "en",
+    "label": "English",
+    "burnedIn": true
+  },
+  "bytes": {
+    "mp4": 2987985,
+    "poster": 33384,
+    "vtt": 769
+  },
+  "generator": "packages/site_package/Build/Film/render-films.mjs"
+}

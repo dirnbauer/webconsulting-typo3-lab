@@ -1,7 +1,8 @@
 /**
- * The lab overview film lab-overview: on the home page after the section
- * "Everything in this lab" (film.json placements, plan 4.8 item 2 and 6.3;
- * background mesh, bed bright).
+ * The lab overview film lab-overview: on the Lab and resources page
+ * (/resources) after its hero (film.json placements; on the home page after
+ * "Everything in this lab" until 2026-11-05, plan 2026-11-05 6.1; background
+ * mesh, bed bright).
  *
  * Shape: the hub films' montage (films/hubs.mjs) over the five groups of the
  * lab. Website tools and AI show each tool by the first screenshot of its own
@@ -54,9 +55,9 @@ const TEMPLATE_SITES = [
 export default {
     'lab-overview': {
         name: 'The webconsulting TYPO3 lab',
-        page: 505,
-        slug: '/',
-        placements: [{ slug: '/', after: { header: 'Everything in this lab' } }],
+        page: 2232,
+        slug: '/resources',
+        placements: [{ slug: '/resources' }],
         title: 'The webconsulting TYPO3 lab: overview film',
         video: { description: '<p>Everything in this lab in one film: website tools, AI tools, four software products, ten website templates and our strategy for agents on the web. Narrated, with English captions.</p>' },
         url: `${HOST}/`,

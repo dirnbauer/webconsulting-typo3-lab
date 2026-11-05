@@ -25,7 +25,30 @@ const pages = [
     name: "Astryx",
     path: "/astryx-typo3/",
   },
+  // New in the 2026-11-05 round (desiderio 4.29): the model page with its film
+  // (how-we-earn) and the talk page with the long cut of the usability talk.
+  // `pending`: the test skips while the page answers 404 (the round's
+  // styleguide seed has not run yet) and runs in full once it exists.
+  {
+    name: "How we earn",
+    path: "/pricing/how-we-earn/",
+    featureFilm: true,
+    pending: true,
+  },
+  {
+    name: "Usability slogans",
+    path: "/usability-slogans/",
+    featureFilm: true,
+    pending: true,
+  },
 ];
+
+/** The round's pages exist once the styleguide seed of 2026-11-05 has run. */
+const ROUND_PAGE = "/pricing/how-we-earn/";
+async function roundSeeded(request) {
+  const response = await request.get(ROUND_PAGE, { ignoreHTTPSErrors: true, maxRedirects: 0 });
+  return response.status() !== 404;
+}
 
 const videoExtensionPattern = /\.(?:m4v|mov|mp4|og[gv]|webm)(?:[?#"']|$)/i;
 
@@ -53,6 +76,10 @@ for (const target of pages) {
 
     const response = await page.goto(target.path, { waitUntil: "domcontentloaded" });
     expect(response, "navigation returned no response").not.toBeNull();
+    test.skip(
+      Boolean(target.pending) && response.status() === 404,
+      `${target.path} does not exist yet: run the styleguide seed of the 2026-11-05 round (desiderio 4.29).`,
+    );
     expect(response.status()).toBeLessThan(400);
 
     const heading = page.locator("h1");
@@ -127,3 +154,33 @@ for (const target of pages) {
     expect(browserErrors).toEqual([]);
   });
 }
+
+// The home page sells Desiderio (plan 2026-11-05, D5–D7): of its films only the
+// product film stays. The strategy film stays on /typo3-v14-strategy, the lab
+// film moves to /resources and the usability talk to /usability-slogans.
+test("the home page carries one film block, the product film", async ({ page, request }) => {
+  test.skip(
+    !(await roundSeeded(request)),
+    `${ROUND_PAGE} does not exist yet, so the home page still has four films: run the styleguide seed of the 2026-11-05 round.`,
+  );
+  const response = await page.goto("/", { waitUntil: "domcontentloaded" });
+  expect(response, "navigation returned no response").not.toBeNull();
+  expect(response.status()).toBe(200);
+  await expect(page.locator("h1")).toHaveCount(1);
+  await expect(page.locator("main section.feature-video")).toHaveCount(1);
+  await expect(page.locator('main video source[src*="/fileadmin/films/"]')).toHaveCount(0);
+});
+
+// Lab and resources (plan 2026-11-05, 5.5): the lab overview film after the hero.
+test("the lab and resources page plays the lab overview film", async ({ page, request }) => {
+  test.skip(
+    !(await roundSeeded(request)),
+    `${ROUND_PAGE} does not exist yet, so the lab film is still on the home page: run the styleguide seed and sitepackage:films:seed.`,
+  );
+  const response = await page.goto("/resources/", { waitUntil: "domcontentloaded" });
+  expect(response, "navigation returned no response").not.toBeNull();
+  expect(response.status()).toBe(200);
+  await expect(page.locator("h1")).toHaveCount(1);
+  await expect(page.locator("main video")).toHaveCount(1);
+  await expect(page.locator('main video source[src*="/films/lab-overview/"]')).toHaveCount(1);
+});

@@ -1,8 +1,8 @@
 /**
- * The strategy film typo3-v14-strategy: on /typo3-v14-strategy after its hero,
- * and on the home page after the strategy section "Five points for all our
- * software" (film.json placements, plan 4.8 and 6.3; background orbits, bed
- * focus).
+ * The strategy film typo3-v14-strategy: on /typo3-v14-strategy after its hero
+ * (film.json placements; the home placement after "Five points for all our
+ * software" was removed on 2026-11-05, plan 2026-11-05 6.1; background orbits,
+ * bed focus).
  *
  * Shape: hook, title, the five points in two scenes (3 + 2, the same texts as
  * the page's checklist), a grid of lab screens that run parts of it today,
@@ -28,10 +28,7 @@ export default {
         name: 'Our TYPO3 v14 strategy',
         page: 1121,
         slug: '/typo3-v14-strategy',
-        placements: [
-            { slug: '/typo3-v14-strategy' },
-            { slug: '/', after: { header: 'Five points for all our software' } },
-        ],
+        placements: [{ slug: '/typo3-v14-strategy' }],
         title: 'TYPO3 v14 and AI agents: strategy film',
         video: { description: '<p>Our strategy for TYPO3 v14 and AI agents, 2026 to 2030: five points that are the standard for everything we build. Narrated, with English captions.</p>' },
         url: `${HOST}/typo3-v14-strategy/`,

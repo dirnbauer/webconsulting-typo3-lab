@@ -2,6 +2,7 @@ import ai from './ai.mjs';
 import contentTypes from './content-types.mjs';
 import docx from './docx-editor.mjs';
 import features from './features.mjs';
+import howWeEarn from './how-we-earn.mjs';
 import hubs from './hubs.mjs';
 import labOverview from './lab-overview.mjs';
 import skillFilmsA from './skill-films-a.mjs';
@@ -14,5 +15,5 @@ import themes from './themes.mjs';
 
 export const films = {
     ...docx, ...features, ...ai, ...hubs, ...contentTypes, ...themes,
-    ...softwareOps, ...softwareFinance, ...skills, ...skillFilmsA, ...skillFilmsB, ...strategy, ...labOverview,
+    ...softwareOps, ...softwareFinance, ...skills, ...skillFilmsA, ...skillFilmsB, ...strategy, ...labOverview, ...howWeEarn,
 };

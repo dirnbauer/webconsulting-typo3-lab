@@ -1,22 +1,28 @@
 import { expect, test } from "@playwright/test";
 
-// Kurt's usability talk (plan 2026-11-04, D7, 4.8 item 3 and WP4e): the long
-// cut (about five minutes), placed by sitepackage:films:seed as a portrait
-// Video Feature Section on the home page after the lab overview film, from
+// Kurt's usability talk (plan 2026-11-05, D6 and 6.1): the long cut (about
+// five minutes) on its own page /usability-slogans (a child of Lab and
+// resources), placed by sitepackage:films:seed as a portrait Video Feature
+// Section after the page's header section, from
 // packages/site_package/Resources/Private/Fixtures/Films/usability-slogans/long/
-// (film id usability-slogans). The short cut is not on the site any more, and
-// the block links to no separate talk page. It does not start by itself:
-// poster, controls and captions, no autoplay, and a click starts it.
+// (film id usability-slogans). It does not start by itself: poster, controls
+// and captions, no autoplay, and a click starts it. Until 2026-11-05 the
+// block sat on the home page; the home page must not play it any more.
 //
-// The test skips while the film is not on the page yet (run
+// The tests skip while the talk page does not exist yet (404: the styleguide
+// reseed of the round has not run) or carries no block yet (run
 // sitepackage:films:seed --film=usability-slogans). USABILITY_TALK_PATH points
-// it at another page that carries the block.
-const path = process.env.USABILITY_TALK_PATH ?? "/";
+// them at another page that carries the block.
+const path = process.env.USABILITY_TALK_PATH ?? "/usability-slogans/";
 
-test("the usability talk on the home page is the long cut as a click-to-play portrait video", async ({ page }) => {
+test("the usability talk on its page is the long cut as a click-to-play portrait video", async ({ page }) => {
   test.setTimeout(240_000);
   const response = await page.goto(path, { waitUntil: "load", timeout: 120_000 });
   expect(response, "navigation returned no response").not.toBeNull();
+  test.skip(
+    response.status() === 404,
+    `${path} does not exist yet: run the styleguide seed of the 2026-11-05 round (desiderio 4.29).`,
+  );
   expect(response.status()).toBe(200);
 
   const block = page.locator(".feature-video--portrait").filter({
@@ -30,7 +36,7 @@ test("the usability talk on the home page is the long cut as a click-to-play por
 
   const video = block.locator("video");
   const source = await video.locator("source").first().getAttribute("src");
-  expect(source, "the home block plays the wrong cut").toMatch(/\/usability-slogans-long-[0-9a-f]{8}\.mp4$/);
+  expect(source, "the block plays the wrong cut").toMatch(/\/usability-slogans-long-[0-9a-f]{8}\.mp4$/);
 
   // The text column: eyebrow, heading, the ten slogans and the Nielsen credit.
   await expect(block.locator(".feature-video__text h2")).toBeVisible();
@@ -39,12 +45,12 @@ test("the usability talk on the home page is the long cut as a click-to-play por
     block.locator('.feature-video__text a[href="https://www.nngroup.com/books/usability-engineering/"]'),
     "Nielsen is credited with a link to the book",
   ).toHaveCount(1);
-  // The full talk is this block now: no link to the old talk page.
+  // The block sits on the talk page: no link to the page itself.
   // (The article URL …/blog/usability-slogans-nielsen is fine: only the page path itself is wrong.)
   const hrefs = await block.locator("a[href]").evaluateAll((links) => links.map((link) => link.href));
   expect(
     hrefs.filter((href) => /\/usability-slogans\/?(?:[?#].*)?$/.test(href)),
-    "the block must not link to the old talk page",
+    "the block must not link to its own page",
   ).toEqual([]);
   await expect(block.locator(".feature-video__text a", { hasText: "Watch the full talk" })).toHaveCount(0);
 
@@ -79,4 +85,17 @@ test("the usability talk on the home page is the long cut as a click-to-play por
   expect(await video.evaluate((element) => element.paused)).toBe(true);
   await video.click();
   await expect.poll(() => video.evaluate((element) => element.paused), { timeout: 20_000 }).toBe(false);
+});
+
+test("the home page does not play the usability talk any more", async ({ page, request }) => {
+  test.setTimeout(120_000);
+  const talkPage = await request.get("/usability-slogans/", { ignoreHTTPSErrors: true, maxRedirects: 0 });
+  test.skip(
+    talkPage.status() === 404,
+    "The talk page does not exist yet, so the home page still has the talk: run the styleguide seed of the 2026-11-05 round.",
+  );
+  const response = await page.goto("/", { waitUntil: "domcontentloaded", timeout: 90_000 });
+  expect(response, "navigation returned no response").not.toBeNull();
+  expect(response.status()).toBe(200);
+  await expect(page.locator('video source[src*="/films/usability-slogans/"]')).toHaveCount(0);
 });
