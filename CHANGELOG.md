@@ -4,6 +4,32 @@ All notable changes to Webconsulting TYPO3 Lab are documented in this file.
 
 ## Unreleased
 
+### Desiderio 4.29.0: the open-source sales model, the lab and talk pages, a lighter home page — 2026-11-05
+
+- The Desiderio site explains how free software pays for itself: a **How we
+  earn** page (`/pricing/how-we-earn`, "Free software, paid care") with the four
+  ways to work with us, what is always free and what costs our time, Care
+  (€390 a month per live site), Supporter (€190 a year) and sponsored features
+  (from €1,290). The pricing page, the target-group hub and the three audience
+  pages carry the model block, and every price comes from Desiderio's
+  `ShowcasePricing`. The order page names webconsulting GmbH as the seller.
+- The home page is trimmed to 15 sections with one film (the product film) and
+  a "See the lab" link; `/resources` becomes "Lab and resources" with the lab
+  cards and the other sites, and the talk page `/usability-slogans` is back below it.
+- Films: a new 58-second film "Free software, paid care" (`how-we-earn`, fal
+  voice George, aurora background) on the model page; three placements moved:
+  the strategy film plays on the strategy page only, the lab overview film on
+  `/resources`, Kurt's usability-slogans talk on `/usability-slogans` (its own
+  block heading "The talk", British spellings in the transcript and captions).
+- Translation memories in German, Chinese and Hungarian cover the new pages,
+  the film texts and the QA fixes; the localized slugs of the audience pages
+  follow the English ones (the old URLs redirect).
+- `Tests/E2E/frontend.spec.js` and `Tests/E2E/usability-slogans.spec.js` check
+  the new pages and the film placements; the content canon (`canon.yaml`) holds
+  the prices, the services, the model sentence and the seller; the style guide
+  example says "Paid plans add our time"; `docs/content/seeding.md` documents the
+  new film placements.
+
 ### Desiderio 4.28.0: the Software section, Agentic skills, the strategy on the home page, 19 new films — 2026-11-04
 
 - The Desiderio site gets a first-level **Software** section with four product
