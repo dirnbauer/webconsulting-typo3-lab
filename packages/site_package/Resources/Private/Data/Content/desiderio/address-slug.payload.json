@@ -1,0 +1,28 @@
+{
+    "version": 1,
+    "site": "desiderio",
+    "root": 505,
+    "language": 0,
+    "languageCode": "en",
+    "generated": "2026-11-05T13:00:00+01:00",
+    "records": [
+        {
+            "table": "pages",
+            "uid": 569,
+            "expect": {
+                "title": "Address",
+                "slug": "/adress"
+            },
+            "set": {
+                "slug": "/address"
+            },
+            "_context": {
+                "page": 569,
+                "pageTitle": "Address",
+                "element": 569,
+                "type": "pages"
+            }
+        }
+    ],
+    "_note": "Folder 569 holds the address records (tt_address) and exists only in the database. Its English slug had a typo (/adress) while the German, Chinese and Hungarian records use /address. A folder has no frontend URL (both slugs answer 404), so no redirect is needed. Page 555 on Blog classico (\"Adressen\", /adress) is another site and stays as it is."
+}
