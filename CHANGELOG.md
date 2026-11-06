@@ -4,6 +4,16 @@ All notable changes to Webconsulting TYPO3 Lab are documented in this file.
 
 ## Unreleased
 
+### Visual Editor settings and entries — 2026-11-06
+
+- Visual Editor Enhancements 1.5.1 restores the element toolbar's field
+  settings. Settings and entries share the same versioned JavaScript module.
+- A labelled Entries action beside the settings icon opens a compact panel
+  at the right. Entry titles open TYPO3's editing form; extra actions live
+  in each entry's menu. Field settings show short collection shortcuts.
+- Real-runtime checks cover the new entry form's save and close flow,
+  keyboard entry access, nested navigation and German editor permissions.
+
 ### Targeted translation runs — 2026-11-05
 
 - `sitepackage:content:translate` translates part of a site: `--languages=`
