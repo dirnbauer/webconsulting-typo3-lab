@@ -198,7 +198,7 @@ async function finish(id, spec, mp4, posterPng, timeline) {
         sound,
         alt: spec.alt.replace('{duration}', String(seconds)),
         transcript: timeline.lines.map((line) => ({ at: clock(line.at), text: line.show })),
-        captions: { language: 'en', label: 'English', burnedIn: true },
+        captions: { language: 'en', label: 'English', burnedIn: spec.burnedInCaptions !== false },
         bytes: { mp4: size(names.mp4), poster: size(names.poster), vtt: size(names.vtt) },
         generator: 'packages/site_package/Build/Film/render-films.mjs',
     };

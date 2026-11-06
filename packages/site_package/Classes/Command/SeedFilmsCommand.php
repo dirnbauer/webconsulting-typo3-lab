@@ -221,6 +221,25 @@ final class SeedFilmsCommand extends Command
         return ['variant' => $variant, 'autoplay' => $autoplay, 'eyebrow' => $eyebrow, 'caption' => $caption];
     }
 
+    /** @param array<string, mixed> $film
+     * @return list<string>
+     */
+    public static function captionFilesOf(array $film): array
+    {
+        $tracks = $film['captionTracks'] ?? [$film['vtt'] ?? null];
+        if (!is_array($tracks) || $tracks === [] || count($tracks) > 10) {
+            throw new \RuntimeException('film.json must name between one and ten caption tracks.');
+        }
+        $files = [];
+        foreach ($tracks as $name) {
+            if (!is_string($name) || basename($name) !== $name || !str_ends_with($name, '.vtt') || in_array($name, $files, true)) {
+                throw new \RuntimeException('film.json caption tracks must be distinct WebVTT filenames.');
+            }
+            $files[] = $name;
+        }
+        return $files;
+    }
+
     /**
      * Replaces every `{{page:<slug>}}` in $text with `t3://page?uid=<uid>`.
      * The slug may be written with or without its leading "/" (`{{page:}}`
@@ -339,9 +358,9 @@ final class SeedFilmsCommand extends Command
         $id = (string)$film['id'];
         $placements = self::placementsOf($film);
         $options = self::videoOptionsOf($film);
-        foreach (['mp4', 'poster', 'vtt'] as $key) {
-            if (!is_file($directory . '/' . $this->text($film, $key))) {
-                throw new \RuntimeException(sprintf('film.json names %s, which is not in %s.', $this->text($film, $key), $directory));
+        foreach ([$this->text($film, 'mp4'), $this->text($film, 'poster'), ...self::captionFilesOf($film)] as $name) {
+            if (!is_file($directory . '/' . $name)) {
+                throw new \RuntimeException(sprintf('film.json names %s, which is not in %s.', $name, $directory));
             }
         }
         foreach ($placements as $index => $placement) {
@@ -394,7 +413,8 @@ final class SeedFilmsCommand extends Command
         $title = $this->text($film, 'title');
         $this->files($video, 'video_file', $directory . '/' . $this->text($film, 'mp4'), $id, ['alternative' => $alt, 'title' => $title, 'autoplay' => $options['autoplay'] ? 1 : 0]);
         $this->files($video, 'poster', $directory . '/' . $this->text($film, 'poster'), $id, ['alternative' => $alt, 'title' => $title]);
-        $this->files($video, 'captions_file', $directory . '/' . $this->text($film, 'vtt'), $id, []);
+        $captionPaths = array_map(static fn(string $name): string => $directory . '/' . $name, self::captionFilesOf($film));
+        $this->files($video, 'captions_file', $captionPaths, $id, []);
         $this->collection($transcript, 'desiderio_accordion_items', $item, $keys['video']);
         $this->order($page, $video, $transcript, $keys['video'], $placement);
     }
@@ -548,32 +568,36 @@ final class SeedFilmsCommand extends Command
      * Replaces a file field's reference when the file or its texts differ.
      *
      * @param array{alternative?: string, title?: string, autoplay?: int} $texts
+     * @param string|list<string> $path
      */
-    private function files(int $uid, string $field, string $path, string $film, array $texts): void
+    private function files(int $uid, string $field, string|array $path, string $film, array $texts): void
     {
-        $sha1 = (string)sha1_file($path);
+        $paths = is_array($path) ? $path : [$path];
+        $hashes = array_map(static fn(string $file): string => (string)sha1_file($file), $paths);
         $existing = $this->references($uid, $field);
-        if (count($existing) === 1
-            && $existing[0]['sha1'] === $sha1
-            && $existing[0]['alternative'] === ($texts['alternative'] ?? '')
-            && $existing[0]['title'] === ($texts['title'] ?? '')
-            && (int)$existing[0]['autoplay'] === ($texts['autoplay'] ?? 0)
+        if (array_column($existing, 'sha1') === $hashes
+            && array_all($existing, static fn(array $reference): bool =>
+                $reference['alternative'] === ($texts['alternative'] ?? '')
+                && $reference['title'] === ($texts['title'] ?? '')
+                && (int)$reference['autoplay'] === ($texts['autoplay'] ?? 0))
         ) {
             return;
         }
         $this->counts['files']++;
-        $this->output->writeln(sprintf('files   tt_content %d.%s: %s', $uid, $field, basename($path)));
+        $this->output->writeln(sprintf('files   tt_content %d.%s: %s', $uid, $field, implode(', ', array_map('basename', $paths))));
         if ($this->dryRun) {
             return;
         }
-        $file = $this->import($path, $film, $sha1);
-        $id = $this->newId();
-        $reference = ['uid_local' => $file->getUid(), 'uid_foreign' => $uid, 'tablenames' => 'tt_content', 'fieldname' => $field, 'pid' => $this->pid($uid), 'sys_language_uid' => 0] + $texts;
+        $references = [];
+        foreach ($paths as $index => $filePath) {
+            $file = $this->import($filePath, $film, $hashes[$index]);
+            $references[$this->newId()] = ['uid_local' => $file->getUid(), 'uid_foreign' => $uid, 'tablenames' => 'tt_content', 'fieldname' => $field, 'pid' => $this->pid($uid), 'sys_language_uid' => 0, 'sorting_foreign' => $index + 1] + $texts;
+        }
         $commandMap = [];
         foreach ($existing as $old) {
             $commandMap['sys_file_reference'][$old['uid']]['delete'] = 1;
         }
-        $this->process(['sys_file_reference' => [$id => $reference], 'tt_content' => [$uid => [$field => $id]]], $commandMap);
+        $this->process(['sys_file_reference' => $references, 'tt_content' => [$uid => [$field => implode(',', array_keys($references))]]], $commandMap);
     }
 
     private function import(string $path, string $film, string $sha1): File

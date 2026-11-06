@@ -1054,6 +1054,7 @@ function aura() {
 }
 
 function subtitles() {
+  if (SPEC.burnedInCaptions === false) return;
   for (const line of TL.lines) {
     const caption = node('div', 'subtitle', stage, line.show);
     const t0 = Math.max(0, line.at - 60);

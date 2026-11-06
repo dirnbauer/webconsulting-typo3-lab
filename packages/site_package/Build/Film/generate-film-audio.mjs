@@ -198,15 +198,19 @@ async function voice(id) {
     const only = argument('line') ? Number(argument('line')) : null;
     const dir = join(TAKES, id);
     mkdirSync(dir, { recursive: true });
+    // Scene insertion can overwrite a take before its new position is reached.
+    // Keep the old audio in memory while renumbering the new sequence.
+    const retainedAudio = new Map(before.filter((take) => existsSync(join(dir, take.file)))
+        .map((take) => [take.file, readFileSync(join(dir, take.file))]));
     mkdirSync(join(FILM, 'audio', id), { recursive: true });
     const out = [];
     let made = 0;
     for (const [index, line] of lines.entries()) {
         const file = `voice-${String(index + 1).padStart(2, '0')}.mp3`;
-        const kept = before.find((take) => take.say === line.say && existsSync(join(dir, take.file)));
+        const kept = before.find((take) => take.say === line.say && retainedAudio.has(take.file));
         const wanted = only ? only === index + 1 : true;
         if (kept && !(has('force') && wanted)) {
-            if (kept.file !== file) copyFileSync(join(dir, kept.file), join(dir, file));
+            if (kept.file !== file) writeFileSync(join(dir, file), retainedAudio.get(kept.file));
             out.push({ ...kept, show: line.show, file });
             continue;
         }

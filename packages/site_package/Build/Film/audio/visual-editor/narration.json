@@ -8,322 +8,530 @@
   },
   "lines": [
     {
-      "say": "The Visual Editor lets editors type on the page. Layout options, links and new elements still mean the backend form.",
-      "show": "The Visual Editor lets editors type on the page. Layout options, links and new elements still mean the backend form.",
+      "say": "Editing an element means managing its entries, too.",
+      "show": "Editing an element means managing its entries, too.",
       "file": "voice-01.mp3",
-      "duration": 8673,
+      "duration": 3944,
+      "end": 3300,
       "words": [
         {
-          "word": "The",
-          "start": 81,
-          "end": 163
-        },
-        {
-          "word": "Visual",
-          "start": 232,
-          "end": 580
-        },
-        {
-          "word": "Editor",
-          "start": 673,
-          "end": 1103
-        },
-        {
-          "word": "lets",
-          "start": 1173,
-          "end": 1393
-        },
-        {
-          "word": "editors",
-          "start": 1486,
-          "end": 1950
-        },
-        {
-          "word": "type",
-          "start": 2020,
-          "end": 2299
-        },
-        {
-          "word": "on",
-          "start": 2334,
-          "end": 2403
-        },
-        {
-          "word": "the",
-          "start": 2438,
-          "end": 2508
-        },
-        {
-          "word": "page.",
-          "start": 2554,
-          "end": 3146
-        },
-        {
-          "word": "Layout",
-          "start": 3715,
-          "end": 4156
-        },
-        {
-          "word": "options,",
-          "start": 4226,
-          "end": 4830
-        },
-        {
-          "word": "links",
-          "start": 4992,
-          "end": 5352
-        },
-        {
-          "word": "and",
-          "start": 5387,
-          "end": 5457
-        },
-        {
-          "word": "new",
-          "start": 5538,
-          "end": 5677
-        },
-        {
-          "word": "elements",
-          "start": 5747,
-          "end": 6200
-        },
-        {
-          "word": "still",
-          "start": 6432,
-          "end": 6711
-        },
-        {
-          "word": "mean",
-          "start": 6757,
-          "end": 6908
-        },
-        {
-          "word": "the",
-          "start": 6943,
-          "end": 7012
-        },
-        {
-          "word": "backend",
-          "start": 7059,
-          "end": 7465
-        },
-        {
-          "word": "form.",
-          "start": 7546,
-          "end": 8046
-        }
-      ],
-      "heard": "The visual editor lets editors type on the page. Layout options, links and new elements still mean the back-end form.",
-      "end": 8070
-    },
-    {
-      "say": "Visual Editor Enhancements adds what editors miss on the page.",
-      "show": "Visual Editor Enhancements adds what editors miss on the page.",
-      "file": "voice-02.mp3",
-      "duration": 4676,
-      "words": [
-        {
-          "word": "Visual",
-          "start": 12,
-          "end": 430
-        },
-        {
-          "word": "Editor",
-          "start": 511,
-          "end": 882
-        },
-        {
-          "word": "Enhancements",
-          "start": 929,
-          "end": 1683
-        },
-        {
-          "word": "adds",
-          "start": 1881,
-          "end": 2194
-        },
-        {
-          "word": "what",
-          "start": 2229,
-          "end": 2368
-        },
-        {
-          "word": "editors",
-          "start": 2450,
-          "end": 2879
-        },
-        {
-          "word": "miss",
-          "start": 2961,
-          "end": 3216
-        },
-        {
-          "word": "on",
-          "start": 3286,
-          "end": 3355
-        },
-        {
-          "word": "the",
-          "start": 3390,
-          "end": 3460
-        },
-        {
-          "word": "page.",
-          "start": 3506,
-          "end": 4122
-        }
-      ],
-      "heard": "Visual Editor enhancements adds what editors miss on the page."
-    },
-    {
-      "say": "The element library shows live previews, and a typo like testimonal still finds testimonials.",
-      "show": "The element library shows live previews, and a typo like testimonal still finds testimonials.",
-      "file": "voice-03.mp3",
-      "duration": 7001,
-      "words": [
-        {
-          "word": "The",
+          "word": "Editing",
           "start": 35,
-          "end": 151
+          "end": 488
+        },
+        {
+          "word": "an",
+          "start": 534,
+          "end": 592
         },
         {
           "word": "element",
-          "start": 244,
-          "end": 580
+          "start": 662,
+          "end": 1045
         },
         {
-          "word": "library",
-          "start": 650,
-          "end": 1057
+          "word": "means",
+          "start": 1242,
+          "end": 1509
         },
         {
-          "word": "shows",
-          "start": 1126,
-          "end": 1428
+          "word": "managing",
+          "start": 1591,
+          "end": 2009
         },
         {
-          "word": "live",
-          "start": 1521,
-          "end": 1823
+          "word": "its",
+          "start": 2055,
+          "end": 2171
         },
         {
-          "word": "previews,",
-          "start": 1869,
-          "end": 2624
+          "word": "entries,",
+          "start": 2241,
+          "end": 2728
         },
         {
-          "word": "and",
-          "start": 2786,
-          "end": 2949
-        },
-        {
-          "word": "a",
-          "start": 3019,
-          "end": 3042
-        },
-        {
-          "word": "typo",
-          "start": 3111,
-          "end": 3495
-        },
-        {
-          "word": "like",
-          "start": 3587,
-          "end": 3785
-        },
-        {
-          "word": "testimonal",
-          "start": 3820,
-          "end": 4447
-        },
-        {
-          "word": "still",
-          "start": 4540,
-          "end": 4807
-        },
-        {
-          "word": "finds",
-          "start": 4899,
-          "end": 5317
-        },
-        {
-          "word": "testimonials.",
-          "start": 5364,
-          "end": 6455
+          "word": "too.",
+          "start": 2763,
+          "end": 3297
         }
       ],
-      "heard": "The element library shows live previews, and a typo like Testimonyl still finds testimonials.",
-      "end": 6460
+      "heard": "Editing an element means managing its entries too."
     },
     {
-      "say": "Layout options open in a popover, grouped like the backend form.",
-      "show": "Layout options open in a popover, grouped like the backend form.",
-      "file": "voice-04.mp3",
-      "duration": 4963,
+      "say": "Visual Editor Enhancements keeps both close to the page.",
+      "show": "Visual Editor Enhancements keeps both close to the page.",
+      "file": "voice-02.mp3",
+      "duration": 4206,
       "words": [
         {
-          "word": "Layout",
+          "word": "Visual",
           "start": 23,
-          "end": 476
+          "end": 441
         },
         {
-          "word": "options",
-          "start": 546,
-          "end": 975
+          "word": "Editor",
+          "start": 534,
+          "end": 917
         },
         {
-          "word": "open",
-          "start": 1068,
-          "end": 1382
+          "word": "Enhancements",
+          "start": 964,
+          "end": 1683
         },
         {
-          "word": "in",
-          "start": 1428,
-          "end": 1498
+          "word": "keeps",
+          "start": 1788,
+          "end": 2067
         },
         {
-          "word": "a",
-          "start": 1544,
-          "end": 1567
+          "word": "both",
+          "start": 2136,
+          "end": 2415
         },
         {
-          "word": "popover,",
-          "start": 1637,
-          "end": 2392
+          "word": "close",
+          "start": 2485,
+          "end": 2775
         },
         {
-          "word": "grouped",
-          "start": 2589,
-          "end": 2926
-        },
-        {
-          "word": "like",
-          "start": 2995,
-          "end": 3170
+          "word": "to",
+          "start": 2798,
+          "end": 2856
         },
         {
           "word": "the",
-          "start": 3193,
-          "end": 3262
+          "start": 2926,
+          "end": 2995
         },
         {
-          "word": "backend",
+          "word": "page.",
+          "start": 3042,
+          "end": 3657
+        }
+      ],
+      "heard": "Visual Editor enhancements keeps both close to the page."
+    },
+    {
+      "say": "Choose Entries beside settings. A compact panel lists the questions, cards or list items.",
+      "show": "Choose Entries beside settings. A compact panel lists the questions, cards or list items.",
+      "file": "voice-03.mp3",
+      "duration": 7184,
+      "words": [
+        {
+          "word": "Choose",
+          "start": 12,
+          "end": 383
+        },
+        {
+          "word": "Entries",
+          "start": 453,
+          "end": 848
+        },
+        {
+          "word": "beside",
+          "start": 894,
+          "end": 1347
+        },
+        {
+          "word": "settings.",
+          "start": 1382,
+          "end": 2078
+        },
+        {
+          "word": "A",
+          "start": 2566,
+          "end": 2659
+        },
+        {
+          "word": "compact",
+          "start": 2752,
+          "end": 3239
+        },
+        {
+          "word": "panel",
           "start": 3309,
-          "end": 3738
+          "end": 3646
+        },
+        {
+          "word": "lists",
+          "start": 3727,
+          "end": 4063
+        },
+        {
+          "word": "the",
+          "start": 4145,
+          "end": 4214
+        },
+        {
+          "word": "questions,",
+          "start": 4261,
+          "end": 4876
+        },
+        {
+          "word": "cards",
+          "start": 4946,
+          "end": 5422
+        },
+        {
+          "word": "or",
+          "start": 5503,
+          "end": 5642
+        },
+        {
+          "word": "list",
+          "start": 5724,
+          "end": 5956
+        },
+        {
+          "word": "items.",
+          "start": 6037,
+          "end": 6641
+        }
+      ],
+      "heard": "Choose entries beside settings. A compact panel lists the questions, cards or list items."
+    },
+    {
+      "say": "Click a title to edit its text and media in the typo three form. Save, then close.",
+      "show": "Click a title to edit its text and media in the TYPO3 form. Save, then close.",
+      "file": "voice-04.mp3",
+      "duration": 7105,
+      "words": [
+        {
+          "word": "Click",
+          "start": 12,
+          "end": 255
+        },
+        {
+          "word": "a",
+          "start": 302,
+          "end": 325
+        },
+        {
+          "word": "title",
+          "start": 395,
+          "end": 789
+        },
+        {
+          "word": "to",
+          "start": 824,
+          "end": 882
+        },
+        {
+          "word": "edit",
+          "start": 964,
+          "end": 1254
+        },
+        {
+          "word": "its",
+          "start": 1300,
+          "end": 1451
+        },
+        {
+          "word": "text",
+          "start": 1498,
+          "end": 1892
+        },
+        {
+          "word": "and",
+          "start": 1962,
+          "end": 2078
+        },
+        {
+          "word": "media",
+          "start": 2171,
+          "end": 2612
+        },
+        {
+          "word": "in",
+          "start": 2682,
+          "end": 2775
+        },
+        {
+          "word": "the",
+          "start": 2821,
+          "end": 2891
+        },
+        {
+          "word": "typo",
+          "start": 2937,
+          "end": 3320
+        },
+        {
+          "word": "three",
+          "start": 3402,
+          "end": 3680
         },
         {
           "word": "form.",
-          "start": 3820,
-          "end": 4354
+          "start": 3750,
+          "end": 4331
+        },
+        {
+          "word": "Save,",
+          "start": 4760,
+          "end": 5283
+        },
+        {
+          "word": "then",
+          "start": 5352,
+          "end": 5550
+        },
+        {
+          "word": "close.",
+          "start": 5642,
+          "end": 6374
         }
       ],
-      "heard": "Layout options open in a popover, grouped like the backend form."
+      "heard": "Click a title to edit its text and media in the TYPO3 form. Save, then close."
+    },
+    {
+      "say": "Add an entry below the list. New entries start hidden. Adding and removing save immediately.",
+      "show": "Add an entry below the list. New entries start hidden. Adding and removing save immediately.",
+      "file": "voice-05.mp3",
+      "duration": 6296,
+      "end": 6020,
+      "words": [
+        {
+          "word": "Add",
+          "start": 35,
+          "end": 279
+        },
+        {
+          "word": "an",
+          "start": 313,
+          "end": 372
+        },
+        {
+          "word": "entry",
+          "start": 441,
+          "end": 731
+        },
+        {
+          "word": "below",
+          "start": 801,
+          "end": 1080
+        },
+        {
+          "word": "the",
+          "start": 1149,
+          "end": 1219
+        },
+        {
+          "word": "list.",
+          "start": 1265,
+          "end": 1776
+        },
+        {
+          "word": "New",
+          "start": 1939,
+          "end": 2125
+        },
+        {
+          "word": "entries",
+          "start": 2194,
+          "end": 2566
+        },
+        {
+          "word": "start",
+          "start": 2601,
+          "end": 2914
+        },
+        {
+          "word": "hidden.",
+          "start": 2961,
+          "end": 3425
+        },
+        {
+          "word": "Adding",
+          "start": 3657,
+          "end": 4052
+        },
+        {
+          "word": "and",
+          "start": 4098,
+          "end": 4168
+        },
+        {
+          "word": "removing",
+          "start": 4249,
+          "end": 4714
+        },
+        {
+          "word": "save",
+          "start": 4807,
+          "end": 5155
+        },
+        {
+          "word": "immediately.",
+          "start": 5201,
+          "end": 5991
+        }
+      ],
+      "heard": "Add an entry below the list, new entries start hidden, adding and removing save immediately."
+    },
+    {
+      "say": "Field settings stay in their own panel. These changes wait for the next Save.",
+      "show": "Field settings stay in their own panel. These changes wait for the next Save.",
+      "file": "voice-06.mp3",
+      "duration": 5878,
+      "end": 5420,
+      "words": [
+        {
+          "word": "Field",
+          "start": 35,
+          "end": 406
+        },
+        {
+          "word": "settings",
+          "start": 476,
+          "end": 975
+        },
+        {
+          "word": "stay",
+          "start": 1103,
+          "end": 1405
+        },
+        {
+          "word": "in",
+          "start": 1451,
+          "end": 1509
+        },
+        {
+          "word": "their",
+          "start": 1544,
+          "end": 1695
+        },
+        {
+          "word": "own",
+          "start": 1741,
+          "end": 1939
+        },
+        {
+          "word": "panel.",
+          "start": 2020,
+          "end": 2601
+        },
+        {
+          "word": "These",
+          "start": 2914,
+          "end": 3193
+        },
+        {
+          "word": "changes",
+          "start": 3239,
+          "end": 3727
+        },
+        {
+          "word": "wait",
+          "start": 3808,
+          "end": 4063
+        },
+        {
+          "word": "for",
+          "start": 4133,
+          "end": 4226
+        },
+        {
+          "word": "the",
+          "start": 4261,
+          "end": 4331
+        },
+        {
+          "word": "next",
+          "start": 4377,
+          "end": 4667
+        },
+        {
+          "word": "Save.",
+          "start": 4748,
+          "end": 5364
+        }
+      ],
+      "heard": "Field settings stay in their own panel. These changes wait for the next save."
+    },
+    {
+      "say": "Find new elements in the library, with live previews and search that forgives typos.",
+      "show": "Find new elements in the library, with live previews and search that forgives typos.",
+      "file": "voice-07.mp3",
+      "duration": 5564,
+      "words": [
+        {
+          "word": "Find",
+          "start": 12,
+          "end": 348
+        },
+        {
+          "word": "new",
+          "start": 453,
+          "end": 569
+        },
+        {
+          "word": "elements",
+          "start": 639,
+          "end": 998
+        },
+        {
+          "word": "in",
+          "start": 1033,
+          "end": 1103
+        },
+        {
+          "word": "the",
+          "start": 1138,
+          "end": 1207
+        },
+        {
+          "word": "library,",
+          "start": 1254,
+          "end": 1788
+        },
+        {
+          "word": "with",
+          "start": 1823,
+          "end": 2009
+        },
+        {
+          "word": "live",
+          "start": 2090,
+          "end": 2368
+        },
+        {
+          "word": "previews",
+          "start": 2415,
+          "end": 2937
+        },
+        {
+          "word": "and",
+          "start": 2972,
+          "end": 3065
+        },
+        {
+          "word": "search",
+          "start": 3146,
+          "end": 3541
+        },
+        {
+          "word": "that",
+          "start": 3587,
+          "end": 3715
+        },
+        {
+          "word": "forgives",
+          "start": 3750,
+          "end": 4110
+        },
+        {
+          "word": "typos.",
+          "start": 4180,
+          "end": 5004
+        }
+      ],
+      "heard": "Find new elements in the library with live previews and search that forgives typos."
     },
     {
       "say": "The rich-text toolbar sits in one row above the text.",
       "show": "The rich-text toolbar sits in one row above the text.",
-      "file": "voice-05.mp3",
+      "file": "voice-08.mp3",
       "duration": 4075,
       "words": [
         {
@@ -382,7 +590,7 @@
     {
       "say": "Hover a button, and a chain icon opens the link browser.",
       "show": "Hover a button, and a chain icon opens the link browser.",
-      "file": "voice-06.mp3",
+      "file": "voice-09.mp3",
       "duration": 4180,
       "words": [
         {
@@ -444,43 +652,83 @@
       "heard": "Hover a button and a chain icon opens the link browser."
     },
     {
-      "say": "Everything saves through the Visual Editor.",
-      "show": "Everything saves through the Visual Editor.",
-      "file": "voice-07.mp3",
-      "duration": 2638,
+      "say": "Enable collection editing in your user settings. Then open a page and try Entries.",
+      "show": "Enable collection editing in your user settings. Then open a page and try Entries.",
+      "file": "voice-10.mp3",
+      "duration": 5616,
       "words": [
         {
-          "word": "Everything",
-          "start": 23,
-          "end": 441
+          "word": "Enable",
+          "start": 12,
+          "end": 488
         },
         {
-          "word": "saves",
+          "word": "collection",
           "start": 534,
-          "end": 906
+          "end": 940
         },
         {
-          "word": "through",
-          "start": 940,
-          "end": 1161
+          "word": "editing",
+          "start": 1022,
+          "end": 1440
         },
         {
-          "word": "the",
-          "start": 1184,
-          "end": 1254
+          "word": "in",
+          "start": 1521,
+          "end": 1602
         },
         {
-          "word": "Visual",
-          "start": 1300,
-          "end": 1625
+          "word": "your",
+          "start": 1649,
+          "end": 1765
         },
         {
-          "word": "Editor.",
-          "start": 1718,
-          "end": 2310
+          "word": "user",
+          "start": 1846,
+          "end": 2148
+        },
+        {
+          "word": "settings.",
+          "start": 2194,
+          "end": 2856
+        },
+        {
+          "word": "Then",
+          "start": 3088,
+          "end": 3262
+        },
+        {
+          "word": "open",
+          "start": 3332,
+          "end": 3541
+        },
+        {
+          "word": "a",
+          "start": 3587,
+          "end": 3611
+        },
+        {
+          "word": "page",
+          "start": 3680,
+          "end": 4087
+        },
+        {
+          "word": "and",
+          "start": 4133,
+          "end": 4261
+        },
+        {
+          "word": "try",
+          "start": 4307,
+          "end": 4516
+        },
+        {
+          "word": "Entries.",
+          "start": 4609,
+          "end": 5317
         }
       ],
-      "heard": "Everything saves through the visual editor."
+      "heard": "Enable collection editing in your user settings, then open a page and try entries."
     }
   ]
 }

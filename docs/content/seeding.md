@@ -101,11 +101,26 @@ command goes on with the next film and exits non-zero; film folders run in sorte
 sorts first is already there in the same run. Optional `film.json` keys for the video element: `variant`
 (`default`, or `portrait` for a 9:16 player beside the text), `autoplay` (default `true`; `false` sets the
 file reference's autoplay to 0, so the film starts on a click, with sound and no sound button), `eyebrow`
-(default "Film") and `caption` (the plain-text note below the player, default empty); `lang` is reserved
-for a captions language other than English (not wired: every film so far has English captions). A link to a page of the Desiderio site in
+(default "Film") and `caption` (the plain-text note below the player, default empty). Optional
+`captionTracks` maps language codes to WebVTT filenames, for example
+`{"en":"film.en.vtt","de":"film.de.vtt","zh":"film.zh.vtt","hu":"film.hu.vtt"}`.
+Without it, the original single `vtt` file is used. Desiderio 4.32+ accepts up to ten tracks,
+reads their language from the filename and selects the current page language by default.
+A link to a page of the Desiderio site in
 `description` or `caption` is written `{{page:<slug>}}` (`<a href="{{page:usability-slogans}}">`); the
 seeder turns it into `t3://page?uid=<uid>` of the default-language page with that slug, and a slug the site
 does not have stops the film with an error.
+
+For a film with translated captions, set `burnedInCaptions: false` in its spec before
+rendering, then run `node packages/site_package/Build/Film/translate-film-captions.mjs
+--film=visual-editor --languages=de,zh,hu`. Every narration line must already have a
+translation in the site's memories. The script preserves cue times, creates the VTT
+tracks, updates `captionTracks` and adds the timestamped transcript to those memories.
+Commit the generated files and memories together. Then seed the film and translate
+its page. The Visual Editor film uses this flow; the voice and screenshot UI remain
+English, while the page copy, captions and transcript are available in four languages.
+After inserting or reordering scenes, regenerate narration before rendering; retained
+audio is buffered before renumbering so earlier writes cannot replace later takes.
 
 The film specs (`packages/site_package/Build/Film/films/`) have two more scene builders in `film.html`:
 `stats` (two to four glass tiles whose numbers count up from 0, each with a label and a note, the
