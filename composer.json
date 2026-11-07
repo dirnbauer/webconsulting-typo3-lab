@@ -23,12 +23,6 @@
 	},
 	"repositories": [
 		{
-			"name": "redaktion",
-			"type": "git",
-			"url": "git@gitlab.webconsulting.at:webcon/desktop-news-typo3.git",
-			"only": ["kdirnbauer/typo3-desktop-connector"]
-		},
-		{
 			"name": "poppy",
 			"type": "git",
 			"url": "git@gitlab.webconsulting.at:extensions/typo3-poppy.git"
@@ -251,7 +245,6 @@
 		"webconsulting/workos-auth": "^2.4.0"
 	},
 	"require-dev": {
-		"kdirnbauer/typo3-desktop-connector": "^2.0.1",
 		"phpstan/phpstan": "^2.3.1",
 		"phpunit/phpunit": "^13.4.3",
 		"saschaegerer/phpstan-typo3": "^3.1"

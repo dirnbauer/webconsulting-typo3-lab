@@ -50,3 +50,7 @@ dump.sql.gz
 
 # Generated FAL copies of the Redaktion source screenshots
 /public/fileadmin/user_upload/redaktion/
+
+# Optional private Redaktion connector: local Composer profile only
+/.composer-redaktion-dev.json
+/.composer-redaktion-dev.lock
