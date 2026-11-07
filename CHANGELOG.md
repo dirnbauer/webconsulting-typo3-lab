@@ -20,6 +20,12 @@ All notable changes to Webconsulting TYPO3 Lab are documented in this file.
   following the scroll after Add entry, a multi-line label, Entries with a
   403, a timing budget for the 40-entry team grid 194005) and reads its
   outside-the-mount element at run time (22 scenarios).
+- Desiderio 4.34.1: the Entries, connected-translation and tray screenshots
+  recaptured with 1.6.1 (count alone instead of "3 / 99999"), swapped in
+  place on `/features/visual-editor`, `/target-groups` and
+  `/target-groups/for-typo3-suite-buyers` in all four languages (24
+  references, no reseed, no translation change); the features film
+  definition points at the new files.
 
 ### Visual Editor entries inspector and action-bar labels — 2026-11-07
 
