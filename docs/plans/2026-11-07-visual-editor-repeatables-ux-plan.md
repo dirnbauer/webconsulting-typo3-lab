@@ -883,6 +883,8 @@ VEE and desiderio work on separate branches/worktrees; the lab is touched only b
   recipe (setup.default only seeds users who never logged in); firstVersion stays 0 (D1 still pending). Desiderio
   4.34.1 (7978aa95) recaptures entries / translation / tray; lab 63888a4 + 300b9da deployed, live 401. Prod: in-place
   screenshot swap runner `var/prod-ve-1.6.1/` (no reseed, no translate).
+  Prod run 2026-11-08: ALL-DONE 210 s, VERIFY-OK, HEALTH-OK, backup `20261107T235140Z-pre-ve-1.6.1`; GitLab mirrors
+  of VEE 1.6.1, Desiderio 4.34.1 and lab `45452b9` synced (identical to GitHub).
 
 ## 14. Sources
 

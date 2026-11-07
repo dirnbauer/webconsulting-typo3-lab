@@ -390,3 +390,12 @@ offered it (pre-existing); Core's own text edits of entries with nested members 
 sorting/tstamp (Core behaviour, documented); the `stage` sentence stays unused in the XLF; DE "Eigener Wert" not
 compared with Core's German pack (not installed); the features film still shows the 1.6.0 shots (definition points
 to the new files, not re-rendered).
+
+**Production run, 2026-11-08 (00:51 UTC start):** `sh var/prod-run.sh var/prod-ve-1.6.1` — guards (Desiderio 4.34.1,
+VEE v1.6.1, three assets), backup `/var/backups/typo3-lab/20261107T235140Z-pre-ve-1.6.1/` (database.sql.gz + run.log),
+translate dry run 0 missing (no translate needed), in-place screenshot swap 24 references (repeat 0), cache flush,
+`verify.php` VERIFY-OK (product page 2075 ×4 languages, `/target-groups` 1094 and `/target-groups/for-typo3-suite-buyers`
+8162 ×4 languages, 0 live references to the 1.6.0 shots), `health.sh` HEALTH-OK (12 pages 200 with the new hashes,
+6 processed media files served). **ALL-DONE in 210 s.** Runner directory removed from the host; GitLab mirrors of
+VEE (`v1.6.1`), Desiderio (`v4.34.1`) and the lab (`45452b9`) pushed once the owner's SSH agent was available
+(GitHub and GitLab identical: 31 / 133 tags).
