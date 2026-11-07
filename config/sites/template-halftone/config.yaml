@@ -7,6 +7,7 @@ rootPageId: 7070
 websiteTitle: Halftone
 dependencies:
   - webconsulting/webcon-templates-halftone
+  - webconsulting/lab-statistics
 errorHandling:
   -
     errorCode: 404

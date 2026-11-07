@@ -1,0 +1,4 @@
+[site("base").getHost() == "typo3-lab.webconsulting.at" && !backend.user.isLoggedIn && !frontend.user.isLoggedIn]
+page.includeJSFooter.labStatistics = EXT:site_package/Resources/Public/JavaScript/lab-statistics.js
+page.includeJSFooter.labStatistics.defer = 1
+[END]
