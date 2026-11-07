@@ -7,6 +7,7 @@ rootPageId: 7020
 websiteTitle: 'Mara Quell'
 dependencies:
   - webconsulting/webcon-templates-quell
+  - webconsulting/lab-statistics
 errorHandling:
   -
     errorCode: 404
