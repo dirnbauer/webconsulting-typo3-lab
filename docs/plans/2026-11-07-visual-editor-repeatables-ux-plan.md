@@ -877,6 +877,13 @@ VEE and desiderio work on separate branches/worktrees; the lab is touched only b
   exact for plain-text titles (now an inline input; the form is under "Edit in form") — re-voice decision for 4.35;
   "Not translated here" / "Only in this language" badges not photographed (showcase is fully translated).
 
+- **VEE 1.6.1 + Desiderio 4.34.1, 2026-11-07** — all 23 findings of the 1.6.0 review fixed (`v1.6.1` 74f605d, CI 7/7;
+  table, gates and decisions in `2026-11-07-visual-editor-1-6-review.md` §7). Inspector header shows the count alone
+  for unlimited lists ("3", not "3 / 99999"); `setup.override.tx_visualeditor_*` replaces the D11 `setup.default`
+  recipe (setup.default only seeds users who never logged in); firstVersion stays 0 (D1 still pending). Desiderio
+  4.34.1 (7978aa95) recaptures entries / translation / tray; lab 63888a4 + 300b9da deployed, live 401. Prod: in-place
+  screenshot swap runner `var/prod-ve-1.6.1/` (no reseed, no translate).
+
 ## 14. Sources
 
 Local (all read 2026-11-07 in `MAIN` unless stated): `VE` 1.10.4 — `Resources/Public/JavaScript/Frontend/components/ve-content-element.js:17-30,64-69,210-258,265-330,393-466`,

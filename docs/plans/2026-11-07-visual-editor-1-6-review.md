@@ -338,4 +338,55 @@ Review of the released tag `v1.6.0` (cbba30b) against the plan `2026-11-07-visua
 
 ## 7. Release log
 
-(empty — filled by the 1.6.1 release)
+**VEE 1.6.1, 2026-11-07** = package main/tag `v1.6.1` 74f605d (GitHub; CI run 42414568085 green 7/7: quality, unit 8.4/8.5,
+javascript, functional MariaDB 8.4/8.5, components). Built as four parallel lanes (Opus 5.5, own worktrees
+`_wt/vee-161-{srv-a,srv-b,cli-c,cli-d}`) cherry-picked onto `fix/1.6.1`, plus integration and docs commits.
+
+| # | Fix commit | Test (fails on v1.6.0, passes now) |
+|---|---|---|
+| 1 | 901e396 (`synchronized` reason, sync preflight `translation`, chooser) | `InlineLanguageSynchronizationTest` (4), `FieldOptionsMiddlewareTest::translatedRecordsOfferSynchronizedFieldsOnlyWithACustomState` |
+| 2 | 901e396 (`LiveSnapshot::dependents()` via l10n_parent OR l10n_source) | `InlineWorkspaceDependentsTest::translationReachedThroughL10nSource…` (2) |
+| 3 | f3e1fcc + 38ee52f (`deferElementRefresh`, Add entry while saving) | component R1; runtime "typed entry title, then Add entry, then Save" |
+| 4 | b3131a4 (`labelMultiline`, `<br>` seed) + f3e1fcc (textarea) + 38ee52f (line-broken plain label) | `InlineCapabilityPayloadTest::textareaLabels…`, component R5, node `title keys`, runtime multi-line label |
+| 5 | 901e396 + 07179e4 (eye only; titles stay an ordinary text save) | `InlineStagedChildWriteTest` (3) |
+| 6 | 901e396 (Core applicability mirror of `DataMapProcessor::isApplicable`) | `InlineWorkspaceDependentsTest::nestedParentWithoutCoreSynchronization…`, `…nestedCreateUnderFirstVersionOne…` |
+| 7, 10 | ce8a77d (Add entry passes the Entries button as trigger) | component `#7/#10 anchored layout…`; runtime anchored scroll (bar −60, panel −60) |
+| 8 | ce8a77d (Entries opens with `loadError`) | component `#8 … (403)`; runtime "Entries with a failing capability request (403)" |
+| 9 | f3e1fcc (`#rebindTrigger()` for every layout) | component R3 (inspector, tray, anchored); runtime "Escape after Add after" |
+| 11 | 74f605d (docs: `setup.override` recipe) | `Tests/Functional/Service/UserSettingsOverrideTest.php` (pins Core) |
+| 12 | 901e396 (`HIDE_FOR_NON_ADMINS`) | `InlineCapabilityPayloadTest::hideForNonAdminsDisplayCondition…` |
+| 13 | ce8a77d (unpin on focus change) | component `#13 caption follows the keyboard focus` |
+| 14 | b3131a4 (`{}` index) | `FrontendConfigurationTest::anEmptyCollectionIndexIsSerialisedAsAJsonObject`, node config, component `#14` (0 requests) |
+| 15 | ce8a77d (base sheet when the vendor renders labels) | component `#15` |
+| 16 | f3e1fcc (hint hidden under a firstVersion refusal) | component "a refused first version shows the refusal, not the first-draft hint"; runtime first-version scenario |
+| 17 | f3e1fcc (page editable baseline kept) + b3131a4 (server seed like the vendor) | component "opening Entries keeps the page editable baseline…" |
+| 18 | f3e1fcc, ce8a77d, 38ee52f | the four reproduced scenarios R1, R3, R4, R5 failed on the v1.6.0 tree (R1 `ve-editable-text[uid=8]` count 0; R3 aria-expanded "false"; R4 panel stayed at y 85; R5 value "Line oneLine two") and pass now |
+| 19–23 | 74f605d (interlink-shortcode, Version 1.6.1, five flags + `FeatureFlagsDocumentedTest`, support row 1.5.x–1.6.x, CI sentence, KnownProblems) | render-guides `--fail-on-log`: 0 warnings |
+| §6 maxItems | b3131a4 (≥ 99999 → 0, create + sync `max`) + f3e1fcc (header) | `InlineCapabilityPayloadTest::collectionsWithoutAnEntryLimitPublishMaxItemsZero`, component header spec |
+| §6 performance | 4ece0a5 (relations memo per TCA, cascade proof at click time) | `InlinePayloadPerformanceTest`: compiles payload 36→16, move 73→31, delete 70→32; lab 194005 (40 entries): payload median 1492→1355 ms, move 1724/737→1097/1060 ms |
+| §6 Alt+Arrow | f3e1fcc (`fromTextControl` guard) | component move spec + node test |
+| §6 lock scope | 901e396 (translated parent locks, sorted, released in finally) | `InlineLockScopeTest` (3) |
+| §6 `stage` | not emitted (Core 14.3: members edit at every stage, DataHandler resets to stage 0) | `elementInReviewStageStaysEditableForMembersAndReturnsToEditingStage` pins Core |
+
+Gates: phpstan level 8 0, cgl 0/87, unit 159, node 91, functional 149 SQLite + 149 MariaDB (DDEV port 32769,
+`vee161*` dropped), components 65, docs render 0 warnings, XLF EN/DE 162/162 + 27/27. Runtime suite on DDEV
+(admin, German editor, restricted `ve_editor`, workspace): 21 passed, 1 skipped (showcase 8430 uid guard), axe 0
+violations in 5 states, cleanup 0 users/groups/sessions/drafts. Behaviour changes (CHANGELOG `## [1.6.1]`):
+`synchronized`; firstVersion covers the staged eye on entries with nested members (titles stay available: same
+write as the page editable); maxItems 0 = unlimited; `setup.override` recipe; `{}` index; delete cascade proof at
+click time (409 `translations` possible); `stage` not emitted. firstVersion default stays 0 (D1 pending).
+
+Lab: 63888a4 (lock 1.6.1 + six runtime scenarios), Quality 42414769683 green, deployed; 300b9da (Desiderio
+4.34.1 lock), Quality 42415399988 green, Coolify deployment `lsbzttyin0ksv4oro08v1ddn` finished, cleanup keeps 3
+versions, live 401. **Desiderio 4.34.1** = 7978aa95 (tag `v4.34.1`, CI green): entries-936063d6,
+-translation-0146cf72, -tray-98e58e8d (count "3", no "/ 99999"); lab swap in place (24 references, repeat 0,
+translate dry run 0 missing / 0 updates, content:audit en 0 errors on 2080, 1094, 8436). Prod runner
+`var/prod-ve-1.6.1/`: see below.
+
+Prod run: **pending** — the 1Password SSH agent was locked during the release, so the runner (in MAIN `var/prod-ve-1.6.1/`: guards VEE v1.6.1 + Desiderio 4.34.1, backup, translate dry run, swap 24 + repeat 0, cache:flush, verify.php, health.sh; tested against the lab: VERIFY-OK, HEALTH-OK) and the GitLab mirrors (VEE main + `v1.6.1`, Desiderio main + `v4.34.1`, lab main) wait for the owner.
+
+Not fixed: default-language action by an editor lacking a translation's language → Core 422 although the payload
+offered it (pre-existing); Core's own text edits of entries with nested members in a workspace renumber live nested
+sorting/tstamp (Core behaviour, documented); the `stage` sentence stays unused in the XLF; DE "Eigener Wert" not
+compared with Core's German pack (not installed); the features film still shows the 1.6.0 shots (definition points
+to the new files, not re-rendered).
