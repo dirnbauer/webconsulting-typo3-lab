@@ -5,8 +5,8 @@
   "title": "Apache Solr: overview film",
   "header": "Apache Solr in 44 seconds",
   "description": "<p>Search results in your design, with Desiderio. A narrated tour, recorded in this TYPO3 v14 lab, with English captions.</p>",
-  "mp4": "solr-db1e393b.mp4",
-  "poster": "solr-poster-db1e393b.webp",
+  "mp4": "solr-f7dd1e7f.mp4",
+  "poster": "solr-poster-f7dd1e7f.webp",
   "vtt": "solr-db1e393b.en.vtt",
   "duration": 43.921,
   "width": 1920,
@@ -43,11 +43,11 @@
   "captions": {
     "language": "en",
     "label": "English",
-    "burnedIn": true
+    "burnedIn": false
   },
   "bytes": {
-    "mp4": 2755071,
-    "poster": 40124,
+    "mp4": 2711077,
+    "poster": 33416,
     "vtt": 660
   },
   "generator": "packages/site_package/Build/Film/render-films.mjs"

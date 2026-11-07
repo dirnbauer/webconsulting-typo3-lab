@@ -26,7 +26,7 @@ const backend = (image) => image.startsWith('Backend/') || image.startsWith('sti
  * @param {{head: string, items: string[][], say: string}} [film.points]
  * @param {{head: string, cta: string, url: string, install?: string, note?: string, say: string}} film.end
  */
-export function featureFilm({ id, page, name, section, slug = id, eyebrow, background, alt, accent, palette, music, hook, title, shots, points, end, burnedInCaptions = true, video }) {
+export function featureFilm({ id, page, name, section, slug = id, eyebrow, background, alt, accent, palette, music, hook, title, shots, points, end, burnedInCaptions = false, video }) {
     const path = `/${section}/${slug}/`;
     const forTypo3 = section !== 'software';
     return [id, {

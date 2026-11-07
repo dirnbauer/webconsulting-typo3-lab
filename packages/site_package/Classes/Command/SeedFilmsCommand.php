@@ -76,6 +76,7 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
  * then adds the de/zh/hu versions from the translation memories.
  *
  *     ddev exec vendor/bin/typo3 sitepackage:films:seed --dry-run
+ *     ddev exec vendor/bin/typo3 sitepackage:films:seed --film=solr --pictures-only
  *     ddev exec vendor/bin/typo3 sitepackage:films:seed --film=docx-editor
  */
 #[AsCommand(
@@ -95,6 +96,7 @@ final class SeedFilmsCommand extends Command
     private const array VARIANTS = ['default', 'portrait'];
 
     private bool $dryRun = false;
+    private bool $picturesOnly = false;
     private int $rootUid = 0;
     private int $newCounter = 0;
     private OutputInterface $output;
@@ -115,6 +117,7 @@ final class SeedFilmsCommand extends Command
     {
         $this
             ->addOption('film', null, InputOption::VALUE_REQUIRED, 'Only these films (ids, comma-separated)')
+            ->addOption('pictures-only', null, InputOption::VALUE_NONE, 'Replace MP4/poster files in existing references, preserving translated copy and captions')
             ->addOption('dry-run', null, InputOption::VALUE_NONE, 'Report what would change, write nothing')
             ->addOption('allow-production', null, InputOption::VALUE_NONE, 'Allow running in the Production context');
     }
@@ -124,6 +127,7 @@ final class SeedFilmsCommand extends Command
         $io = new SymfonyStyle($input, $output);
         $this->output = $output;
         $this->dryRun = (bool)$input->getOption('dry-run');
+        $this->picturesOnly = (bool)$input->getOption('pictures-only');
         if (!$this->dryRun && Environment::getContext()->isProduction() && !$input->getOption('allow-production')) {
             $io->error('Refusing to write content in the Production context. Pass --allow-production if you mean it.');
             return Command::FAILURE;
@@ -368,6 +372,17 @@ final class SeedFilmsCommand extends Command
             if ($page === null) {
                 throw new \RuntimeException(sprintf('No page %s below the Desiderio root %d.', $placement['slug'], $this->rootUid));
             }
+            if ($this->picturesOnly) {
+                $key = self::markerKeys($id, $index)['video'];
+                $video = $this->byMarker($page, self::marker($key));
+                if ($video === null) {
+                    $this->output->writeln(sprintf('skip    %s: no published video to refresh.', $key));
+                    continue;
+                }
+                $this->refreshPictureReference($video, 'video_file', $directory . '/' . $this->text($film, 'mp4'), $id);
+                $this->refreshPictureReference($video, 'poster', $directory . '/' . $this->text($film, 'poster'), $id);
+                continue;
+            }
             $this->place($film, $options, $directory, $page, $placement, self::markerKeys($id, $index));
         }
     }
@@ -598,6 +613,52 @@ final class SeedFilmsCommand extends Command
             $commandMap['sys_file_reference'][$old['uid']]['delete'] = 1;
         }
         $this->process(['sys_file_reference' => $references, 'tt_content' => [$uid => [$field => implode(',', array_keys($references))]]], $commandMap);
+    }
+
+    /**
+     * Keep reference UIDs, translated metadata and caption tracks intact when
+     * replacing only a film's picture. DataHandler maintains history and the
+     * reference index for the source and its existing translations.
+     */
+    private function refreshPictureReference(int $video, string $field, string $path, string $film): void
+    {
+        $source = $this->references($video, $field);
+        if (count($source) !== 1) {
+            throw new \RuntimeException(sprintf('Expected one existing reference for %d.%s.', $video, $field));
+        }
+        $query = $this->queryBuilder('sys_file_reference');
+        $rows = $query->select('r.uid', 'f.sha1')->from('sys_file_reference', 'r')
+            ->innerJoin('r', 'sys_file', 'f', 'f.uid = r.uid_local')
+            ->innerJoin('r', 'tt_content', 'c', 'c.uid = r.uid_foreign')
+            ->where(
+                $query->expr()->or(
+                    $query->expr()->eq('r.uid', $query->createNamedParameter($source[0]['uid'], Connection::PARAM_INT)),
+                    $query->expr()->eq('r.l10n_parent', $query->createNamedParameter($source[0]['uid'], Connection::PARAM_INT)),
+                ),
+                $query->expr()->or(
+                    $query->expr()->eq('c.uid', $query->createNamedParameter($video, Connection::PARAM_INT)),
+                    $query->expr()->eq('c.l18n_parent', $query->createNamedParameter($video, Connection::PARAM_INT)),
+                ),
+                $query->expr()->eq('r.tablenames', $query->createNamedParameter('tt_content')),
+                $query->expr()->eq('r.fieldname', $query->createNamedParameter($field)),
+                'r.deleted = 0', 'r.t3ver_wsid = 0', 'c.deleted = 0', 'c.t3ver_wsid = 0',
+            )->executeQuery()->fetchAllAssociative();
+        $sha1 = (string)sha1_file($path);
+        $changed = array_filter($rows, static fn(array $row): bool => $row['sha1'] !== $sha1);
+        if ($changed === []) {
+            return;
+        }
+        $this->counts['files']++;
+        $this->output->writeln(sprintf('picture %d.%s: %d reference(s) -> %s', $video, $field, count($changed), basename($path)));
+        if ($this->dryRun) {
+            return;
+        }
+        $file = $this->import($path, $film, $sha1);
+        $updates = [];
+        foreach ($changed as $row) {
+            $updates[(int)$row['uid']] = ['uid_local' => $file->getUid()];
+        }
+        $this->process(['sys_file_reference' => $updates]);
     }
 
     private function import(string $path, string $film, string $sha1): File

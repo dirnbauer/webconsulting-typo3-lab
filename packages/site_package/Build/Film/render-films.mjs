@@ -7,6 +7,8 @@
  *   node render-films.mjs --film=docx-editor --stills=1500,9000   # PNG stills into <cache>/stills/
  *   node render-films.mjs --film=docx-editor --range=0,8000  # a quick test render into <cache>/out/
  *   node render-films.mjs --film=docx-editor --remix         # new soundtrack on the current picture
+ *   node render-films.mjs --film=solr --refresh-picture    # redraw only; preserve audio, captions and copy
+ *   node render-films.mjs --film=all --check-picture       # check unchanged timing/copy before redrawing
  *   node render-films.mjs --list                             # ids, pages and lengths (warns over a film's `cap`)
  *   node render-films.mjs --spec=~/.cache/lab-films/specs/draft.mjs --film=draft --stills=3000
  *                                                            # a spec module not in films/index.mjs
@@ -41,8 +43,14 @@ import { pathToFileURL } from 'node:url';
 import { CACHE, FILM, LAB, argument, chromium } from './lib/capture.mjs';
 import { films } from './films/index.mjs';
 import { header } from './lib/timeline.mjs';
+import { pictureRefreshSource } from './lib/picture-refresh.mjs';
 
-const OUT = join(CACHE, 'out');
+const REFRESH_PICTURE = process.argv.includes('--refresh-picture') || process.argv.includes('--check-picture');
+// Independent renders must never share intermediate frame parts.
+const OUT = REFRESH_PICTURE ? join(CACHE, 'out', `refresh-${process.pid}`) : join(CACHE, 'out');
+if (REFRESH_PICTURE && ['remix', 'range', 'stills', 'spec', 'query'].some((name) => argument(name) !== undefined)) {
+    throw new Error('--refresh-picture/--check-picture require the complete, unchanged registered film');
+}
 const STILLS = join(CACHE, 'stills');
 const VOICE = join(CACHE, 'audio');
 const MUSIC = join(CACHE, 'music');
@@ -165,6 +173,7 @@ async function score(id, spec, mp4, timeline) {
 }
 
 async function finish(id, spec, mp4, posterPng, timeline) {
+    if (REFRESH_PICTURE) return refreshPicture(id, spec, mp4, posterPng, timeline);
     const sound = await score(id, spec, mp4, timeline);
     const target = join(TARGET, id);
     mkdirSync(target, { recursive: true });
@@ -198,12 +207,38 @@ async function finish(id, spec, mp4, posterPng, timeline) {
         sound,
         alt: spec.alt.replace('{duration}', String(seconds)),
         transcript: timeline.lines.map((line) => ({ at: clock(line.at), text: line.show })),
-        captions: { language: 'en', label: 'English', burnedIn: spec.burnedInCaptions !== false },
+        captions: { language: 'en', label: 'English', burnedIn: spec.burnedInCaptions === true },
         bytes: { mp4: size(names.mp4), poster: size(names.poster), vtt: size(names.vtt) },
         generator: 'packages/site_package/Build/Film/render-films.mjs',
     };
     writeFileSync(join(target, 'film.json'), JSON.stringify(manifest, null, 2) + '\n');
     console.log(`${id}: ${names.mp4} ${(size(names.mp4) / 1024 / 1024).toFixed(2)} MB, ${manifest.duration} s`);
+}
+
+/** Refresh the picture without re-encoding audio or changing any caption language. */
+async function refreshPicture(id, spec, mp4, posterPng, timeline) {
+    const target = join(TARGET, id);
+    const current = pictureRefreshSource(target, spec, timeline, captions(spec, timeline.lines, timeline.duration));
+    const scored = join(OUT, `${id}-original-audio.mp4`);
+    await ffmpeg(['-i', mp4, '-i', join(target, current.mp4), '-map', '0:v:0', '-map', '1:a:0', '-c', 'copy', '-movflags', '+faststart', scored]);
+    const hash = createHash('sha256').update(readFileSync(scored)).digest('hex').slice(0, 8);
+    const names = { mp4: `${id}-${hash}.mp4`, poster: `${id}-poster-${hash}.webp` };
+    const webp = spawnSync('cwebp', ['-quiet', '-q', '82', '-m', '6', '-resize', '1600', '0', posterPng, '-o', join(target, names.poster)]);
+    if (webp.status !== 0) throw new Error(`cwebp failed: ${webp.stderr}`);
+    renameSync(scored, join(target, names.mp4));
+    const manifest = {
+        ...current,
+        ...names,
+        captions: { ...current.captions, burnedIn: false },
+        bytes: { ...current.bytes, mp4: statSync(join(target, names.mp4)).size, poster: statSync(join(target, names.poster)).size },
+    };
+    writeFileSync(join(target, 'film.json'), JSON.stringify(manifest, null, 2) + '\n');
+    // Only replace picture assets; existing VTT tracks and their names stay intact.
+    for (const field of ['mp4', 'poster']) {
+        if (current[field] !== names[field]) unlinkSync(join(target, current[field]));
+    }
+    unlinkSync(mp4);
+    console.log(`${id}: ${names.mp4}, original audio and all caption tracks preserved`);
 }
 
 async function open(browser, id) {
@@ -268,6 +303,25 @@ try {
         if (!spec) throw new Error(`No film ${id}`);
         const { page, duration } = await open(browser, id);
         const timeline = await page.evaluate(() => window.TIMELINE);
+        if (REFRESH_PICTURE) {
+            const current = JSON.parse(readFileSync(join(TARGET, id, 'film.json'), 'utf8'));
+            if (current.captions.burnedIn === false) {
+                console.log(`${id}: already clean, keeping all existing assets`);
+                await page.close();
+                continue;
+            }
+            pictureRefreshSource(join(TARGET, id), spec, timeline, captions(spec, timeline.lines, timeline.duration));
+            const problems = await page.evaluate(() => ({
+                burnedCaptions: document.querySelectorAll('.subtitle').length,
+                missingImages: [...document.images].filter((img) => img.src && !img.naturalWidth).map((img) => img.src),
+            }));
+            if (problems.burnedCaptions || problems.missingImages.length) throw new Error(`${id}: invalid picture: ${JSON.stringify(problems)}`);
+            if (process.argv.includes('--check-picture')) {
+                console.log(`${id}: picture refresh safe; images loaded; no baked captions`);
+                await page.close();
+                continue;
+            }
+        }
         const stills = argument('stills');
         const range = argument('range')?.split(',').map(Number);
         if (stills) {
@@ -307,6 +361,7 @@ try {
             await page.evaluate((time) => window.seek(time), await page.evaluate(() => window.POSTER_AT));
             await page.screenshot({ path: poster });
             await finish(id, spec, mp4, poster, timeline);
+            if (REFRESH_PICTURE) unlinkSync(master);
         }
         await page.close();
     }
