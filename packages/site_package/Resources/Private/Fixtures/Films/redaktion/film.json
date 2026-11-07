@@ -1,0 +1,63 @@
+{
+  "id": "redaktion",
+  "page": 8447,
+  "slug": "/software/redaktion",
+  "placements": [
+    {
+      "slug": "/software/redaktion"
+    }
+  ],
+  "title": "webconsulting Redaktion: overview film",
+  "header": "Redaktion in one minute",
+  "description": "<p>The actual macOS app with synthetic demo articles: focused writing, local drafts, offline continuation and deliberate TYPO3 publishing. Narrated, with selectable English captions.</p>",
+  "mp4": "redaktion-b46ae316.mp4",
+  "poster": "redaktion-poster-b46ae316.webp",
+  "vtt": "redaktion-b46ae316.en.vtt",
+  "duration": 61.598,
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "sound": true,
+  "alt": "Overview film, 62 seconds: webconsulting Redaktion. Rich-text news editing, local drafts, offline continuation, content preview and native Mac shortcuts. Narrated, with selectable English captions.",
+  "transcript": [
+    {
+      "at": "0:02",
+      "text": "You are halfway through a story when the connection drops."
+    },
+    {
+      "at": "0:06",
+      "text": "Redaktion keeps your writing on your Mac. TYPO3 stays in charge of publishing."
+    },
+    {
+      "at": "0:14",
+      "text": "Pick a news article, write in rich text, and keep the rest of the website out of your way."
+    },
+    {
+      "at": "0:22",
+      "text": "Drafts save locally after a short pause. Previously loaded articles and drafts stay available after an offline restart."
+    },
+    {
+      "at": "0:32",
+      "text": "Check the wording in preview. Saving sends it to your chosen TYPO3 workspace. Publication needs your explicit approval."
+    },
+    {
+      "at": "0:43",
+      "text": "Native shortcuts, encrypted sessions, and light or dark mode. The same workspace also runs in the browser."
+    },
+    {
+      "at": "0:52",
+      "text": "Redaktion, by webconsulting. Ask us for a demonstration."
+    }
+  ],
+  "captions": {
+    "language": "en",
+    "label": "English",
+    "burnedIn": false
+  },
+  "bytes": {
+    "mp4": 3177725,
+    "poster": 42448,
+    "vtt": 918
+  },
+  "generator": "packages/site_package/Build/Film/render-films.mjs"
+}

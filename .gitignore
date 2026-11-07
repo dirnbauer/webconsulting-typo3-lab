@@ -47,3 +47,6 @@ dump.sql.gz
 
 # Development links recorded by Build/Scripts/lab-link.sh (per checkout)
 /.lab-links
+
+# Generated FAL copies of the Redaktion source screenshots
+/public/fileadmin/user_upload/redaktion/

@@ -1,0 +1,557 @@
+{
+  "version": 1,
+  "site": "desiderio",
+  "root": 505,
+  "language": 0,
+  "languageCode": "en",
+  "records": [
+    {
+      "table": "pages",
+      "action": "create",
+      "key": "NEW_redaktion_page",
+      "pid": 0,
+      "match": {
+        "pid": 0,
+        "slug": "/software/redaktion",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "title": "Redaktion: a focused Mac app for TYPO3 news",
+        "nav_title": "Redaktion",
+        "slug": "/software/redaktion",
+        "hidden": 0,
+        "nav_hide": 0,
+        "sys_language_uid": 0,
+        "seo_title": "Redaktion: local drafts and focused TYPO3 news editing",
+        "description": "Write TYPO3 news on your Mac. Keep local drafts, continue through interruptions, preview your content and publish through the existing TYPO3 workspace workflow.",
+        "abstract": "A focused Electron app and web editor for TYPO3 news, with local drafts, cached offline editing, native shortcuts and deliberate publishing."
+      }
+    },
+    {
+      "table": "tt_content",
+      "action": "create",
+      "key": "NEW_redaktion_hero",
+      "pid": "@NEW_redaktion_page",
+      "match": {
+        "pid": "@NEW_redaktion_page",
+        "rowDescription": "redaktion:hero",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "CType": "desiderio_headerpage",
+        "header_layout": 2,
+        "colPos": 0,
+        "hidden": 0,
+        "sys_language_uid": 0,
+        "rowDescription": "redaktion:hero",
+        "eyebrow": "Software by webconsulting · macOS beta",
+        "header": "Write now. Publish when you are ready.",
+        "subheadline": "A calm desktop workspace for TYPO3 news. Keep drafts on your Mac, continue through interruptions, and send changes to TYPO3 when you decide."
+      }
+    },
+    {
+      "table": "tt_content",
+      "action": "create",
+      "key": "NEW_redaktion_why",
+      "pid": "@NEW_redaktion_page",
+      "match": {
+        "pid": "@NEW_redaktion_page",
+        "rowDescription": "redaktion:why",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "CType": "desiderio_contentsidebar",
+        "header_layout": 2,
+        "colPos": 0,
+        "hidden": 0,
+        "sys_language_uid": 0,
+        "rowDescription": "redaktion:why",
+        "header": "What does a desktop app add to TYPO3?",
+        "content": "<p>Writing often happens between meetings, on a train, or with an unstable connection. Redaktion keeps the current story and its local draft on your Mac. You can reopen previously loaded articles after an offline restart and continue writing.</p><p>The article list, rich text, HTML source and preview share one focused workspace. Switch to writing focus to hide navigation, filters and the article directory. Native shortcuts save, create and search without reaching for the mouse.</p>",
+        "sidebar_content": "<h3>TYPO3 remains in charge</h3><p>Your backend user, permissions and workspace rules still apply. A local draft is not a server save. Nothing uploads or publishes in the background.</p><p>The backend remains the place for full page configuration, media management and fields this focused editor does not expose.</p>",
+        "sidebar_position": "right"
+      }
+    },
+    {
+      "table": "tt_content",
+      "action": "create",
+      "key": "NEW_redaktion_benefits",
+      "pid": "@NEW_redaktion_page",
+      "match": {
+        "pid": "@NEW_redaktion_page",
+        "rowDescription": "redaktion:benefits",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "CType": "desiderio_featurecards",
+        "header_layout": 2,
+        "colPos": 0,
+        "hidden": 0,
+        "sys_language_uid": 0,
+        "rowDescription": "redaktion:benefits",
+        "eyebrow": "The desktop advantage",
+        "header": "Less friction between an idea and an article",
+        "subheadline": "Features that improve the writing workflow without taking publishing away from TYPO3."
+      },
+      "_collection": {
+        "field": "desiderio_featurecards_items",
+        "keys": [
+          "NEW_redaktion_benefit_0",
+          "NEW_redaktion_benefit_1",
+          "NEW_redaktion_benefit_2",
+          "NEW_redaktion_benefit_3",
+          "NEW_redaktion_benefit_4",
+          "NEW_redaktion_benefit_5"
+        ]
+      }
+    },
+    {
+      "table": "feature_cards_items",
+      "action": "create",
+      "key": "NEW_redaktion_benefit_0",
+      "pid": "@NEW_redaktion_page",
+      "match": {
+        "pid": "@NEW_redaktion_page",
+        "foreign_table_parent_uid": "@NEW_redaktion_benefits",
+        "title": "Local drafts, separate from the server",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "title": "Local drafts, separate from the server",
+        "description": "<p>After a short pause, the app saves your writing locally. Drafts are kept separately for each website, user, workspace and article.</p>",
+        "foreign_table_parent_uid": "@NEW_redaktion_benefits",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "feature_cards_items",
+      "action": "create",
+      "key": "NEW_redaktion_benefit_1",
+      "pid": "@NEW_redaktion_page",
+      "match": {
+        "pid": "@NEW_redaktion_page",
+        "foreign_table_parent_uid": "@NEW_redaktion_benefits",
+        "title": "Continue through interruptions",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "title": "Continue through interruptions",
+        "description": "<p>Previously loaded articles and their local drafts remain available after an offline restart. New articles from the server and uploads wait for a connection.</p>",
+        "foreign_table_parent_uid": "@NEW_redaktion_benefits",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "feature_cards_items",
+      "action": "create",
+      "key": "NEW_redaktion_benefit_2",
+      "pid": "@NEW_redaktion_page",
+      "match": {
+        "pid": "@NEW_redaktion_page",
+        "foreign_table_parent_uid": "@NEW_redaktion_benefits",
+        "title": "A native Mac workflow",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "title": "A native Mac workflow",
+        "description": "<p>Use ⌘S to send changes to TYPO3, ⌘N to begin a news article and ⌘K to search. Native menus, zoom and save notifications fit the way you work.</p>",
+        "foreign_table_parent_uid": "@NEW_redaktion_benefits",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "feature_cards_items",
+      "action": "create",
+      "key": "NEW_redaktion_benefit_3",
+      "pid": "@NEW_redaktion_page",
+      "match": {
+        "pid": "@NEW_redaktion_page",
+        "foreign_table_parent_uid": "@NEW_redaktion_benefits",
+        "title": "Encrypted sessions",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "title": "Encrypted sessions",
+        "description": "<p>The Mac app encrypts session tokens with Electron safeStorage. Passwords are never saved. The web editor keeps tokens in the current browser session.</p>",
+        "foreign_table_parent_uid": "@NEW_redaktion_benefits",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "feature_cards_items",
+      "action": "create",
+      "key": "NEW_redaktion_benefit_4",
+      "pid": "@NEW_redaktion_page",
+      "match": {
+        "pid": "@NEW_redaktion_page",
+        "foreign_table_parent_uid": "@NEW_redaktion_benefits",
+        "title": "Clear workspace review",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "title": "Clear workspace review",
+        "description": "<p>Save in a TYPO3 workspace, review the staged changes and explicitly approve publishing. Server permissions and policy refusals are respected.</p>",
+        "foreign_table_parent_uid": "@NEW_redaktion_benefits",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "feature_cards_items",
+      "action": "create",
+      "key": "NEW_redaktion_benefit_5",
+      "pid": "@NEW_redaktion_page",
+      "match": {
+        "pid": "@NEW_redaktion_page",
+        "foreign_table_parent_uid": "@NEW_redaktion_benefits",
+        "title": "One interface, several websites",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "title": "One interface, several websites",
+        "description": "<p>Remember website addresses and usernames, then sign in to the site you need. The same interface also runs in the browser.</p>",
+        "foreign_table_parent_uid": "@NEW_redaktion_benefits",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "tt_content",
+      "action": "create",
+      "key": "NEW_redaktion_shot_editor",
+      "pid": "@NEW_redaktion_page",
+      "match": {
+        "pid": "@NEW_redaktion_page",
+        "rowDescription": "redaktion:shot_editor",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "CType": "desiderio_textmedia",
+        "header_layout": 2,
+        "colPos": 0,
+        "hidden": 0,
+        "sys_language_uid": 0,
+        "rowDescription": "redaktion:shot_editor",
+        "header": "Room for the story",
+        "content": "<p>The real Mac app: articles on the left, a generous writing surface on the right. Rich text handles headings, lists, links, images and tables; HTML source remains available.</p><p><small>Actual application screenshot with synthetic demo articles. The interface is in German.</small></p>",
+        "shadcn_layout": "media-above",
+        "media_rounded": 0
+      },
+      "files": {
+        "media": [
+          {
+            "source": "EXT:site_package/Resources/Public/Images/Redaktion/redaktion-native-1449743c.webp",
+            "folder": "1:/user_upload/redaktion/",
+            "alternative": "Room for the story — webconsulting Redaktion with synthetic demo data.",
+            "title": "Room for the story",
+            "description": "Actual macOS application with synthetic demo articles."
+          }
+        ]
+      }
+    },
+    {
+      "table": "tt_content",
+      "action": "create",
+      "key": "NEW_redaktion_shot_draft",
+      "pid": "@NEW_redaktion_page",
+      "match": {
+        "pid": "@NEW_redaktion_page",
+        "rowDescription": "redaktion:shot_draft",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "CType": "desiderio_textmedia",
+        "header_layout": 2,
+        "colPos": 0,
+        "hidden": 0,
+        "sys_language_uid": 0,
+        "rowDescription": "redaktion:shot_draft",
+        "header": "Locally secured. Deliberately sent.",
+        "content": "<p>Writing focus removes the surrounding navigation. The local save state tells you your draft is on this Mac. The separate save action sends it to TYPO3 when a connection is available.</p><p><small>Actual application screenshot with synthetic demo articles. The interface is in German.</small></p>",
+        "shadcn_layout": "media-above",
+        "media_rounded": 0
+      },
+      "files": {
+        "media": [
+          {
+            "source": "EXT:site_package/Resources/Public/Images/Redaktion/redaktion-local-draft-c16dc500.webp",
+            "folder": "1:/user_upload/redaktion/",
+            "alternative": "Locally secured. Deliberately sent. — webconsulting Redaktion with synthetic demo data.",
+            "title": "Locally secured. Deliberately sent.",
+            "description": "Actual macOS application with synthetic demo articles."
+          }
+        ]
+      }
+    },
+    {
+      "table": "tt_content",
+      "action": "create",
+      "key": "NEW_redaktion_shot_preview",
+      "pid": "@NEW_redaktion_page",
+      "match": {
+        "pid": "@NEW_redaktion_page",
+        "rowDescription": "redaktion:shot_preview",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "CType": "desiderio_textmedia",
+        "header_layout": 2,
+        "colPos": 0,
+        "hidden": 0,
+        "sys_language_uid": 0,
+        "rowDescription": "redaktion:shot_preview",
+        "header": "Read before you send",
+        "content": "<p>Switch from editing to a clean content preview. It helps check structure and wording; the live website’s design and rendering remain the responsibility of TYPO3.</p><p><small>Actual application screenshot with synthetic demo articles. The interface is in German.</small></p>",
+        "shadcn_layout": "media-above",
+        "media_rounded": 0
+      },
+      "files": {
+        "media": [
+          {
+            "source": "EXT:site_package/Resources/Public/Images/Redaktion/redaktion-preview-f2f09d39.webp",
+            "folder": "1:/user_upload/redaktion/",
+            "alternative": "Read before you send — webconsulting Redaktion with synthetic demo data.",
+            "title": "Read before you send",
+            "description": "Actual macOS application with synthetic demo articles."
+          }
+        ]
+      }
+    },
+    {
+      "table": "tt_content",
+      "action": "create",
+      "key": "NEW_redaktion_shot_dark",
+      "pid": "@NEW_redaktion_page",
+      "match": {
+        "pid": "@NEW_redaktion_page",
+        "rowDescription": "redaktion:shot_dark",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "CType": "desiderio_textmedia",
+        "header_layout": 2,
+        "colPos": 0,
+        "hidden": 0,
+        "sys_language_uid": 0,
+        "rowDescription": "redaktion:shot_dark",
+        "header": "A quiet workspace, day or night",
+        "content": "<p>Light and dark modes use the webconsulting design language shared by Ledger and T3 Ops. Your choice stays on this device.</p><p><small>Actual application screenshot with synthetic demo articles. The interface is in German.</small></p>",
+        "shadcn_layout": "media-above",
+        "media_rounded": 0
+      },
+      "files": {
+        "media": [
+          {
+            "source": "EXT:site_package/Resources/Public/Images/Redaktion/redaktion-dark-b5e037ff.webp",
+            "folder": "1:/user_upload/redaktion/",
+            "alternative": "A quiet workspace, day or night — webconsulting Redaktion with synthetic demo data.",
+            "title": "A quiet workspace, day or night",
+            "description": "Actual macOS application with synthetic demo articles."
+          }
+        ]
+      }
+    },
+    {
+      "table": "tt_content",
+      "action": "create",
+      "key": "NEW_redaktion_start",
+      "pid": "@NEW_redaktion_page",
+      "match": {
+        "pid": "@NEW_redaktion_page",
+        "rowDescription": "redaktion:start",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "CType": "desiderio_contentsidebar",
+        "header_layout": 2,
+        "colPos": 0,
+        "hidden": 0,
+        "sys_language_uid": 0,
+        "rowDescription": "redaktion:start",
+        "header": "From the first connection to a published story",
+        "content": "<ol><li><strong>Connect:</strong> enter the HTTPS address of your TYPO3 installation and sign in with your backend administrator account. The Redaktion connector must be installed; news editing requires EXT:news.</li><li><strong>Write:</strong> select an article or start a new one. Work in rich text or HTML, review the preview and keep a local draft.</li><li><strong>Send:</strong> choose a workspace before editing when you want a review step. Saving sends the content to that workspace. Publishing requires a separate confirmation.</li></ol>",
+        "sidebar_position": "right",
+        "sidebar_content": "<h3>Current beta</h3><p>This beta requires an active backend administrator account; scoped editor roles are not supported yet. The tested desktop build is for macOS on Apple Silicon. It is unsigned and not notarized. The browser version is built from the same source.</p><p>The connector is installed from the private GitLab repository. Ask us for access or a guided demonstration.</p>"
+      }
+    },
+    {
+      "table": "tt_content",
+      "action": "create",
+      "key": "NEW_redaktion_faq",
+      "pid": "@NEW_redaktion_page",
+      "match": {
+        "pid": "@NEW_redaktion_page",
+        "rowDescription": "redaktion:faq",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "CType": "desiderio_accordion",
+        "header_layout": 2,
+        "colPos": 0,
+        "hidden": 0,
+        "sys_language_uid": 0,
+        "rowDescription": "redaktion:faq",
+        "header": "Questions about Redaktion"
+      },
+      "_collection": {
+        "field": "desiderio_accordion_items",
+        "keys": [
+          "NEW_redaktion_faq_0",
+          "NEW_redaktion_faq_1",
+          "NEW_redaktion_faq_2",
+          "NEW_redaktion_faq_3",
+          "NEW_redaktion_faq_4"
+        ]
+      }
+    },
+    {
+      "table": "accordion_items",
+      "action": "create",
+      "key": "NEW_redaktion_faq_0",
+      "pid": "@NEW_redaktion_page",
+      "match": {
+        "pid": "@NEW_redaktion_page",
+        "foreign_table_parent_uid": "@NEW_redaktion_faq",
+        "title": "Can I replace the TYPO3 backend with this?",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "title": "Can I replace the TYPO3 backend with this?",
+        "content": "<p>No. Redaktion focuses on news writing, common content editing and workspace review. Use the backend for complete page settings, media workflows and additional extension fields.</p>",
+        "foreign_table_parent_uid": "@NEW_redaktion_faq",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "accordion_items",
+      "action": "create",
+      "key": "NEW_redaktion_faq_1",
+      "pid": "@NEW_redaktion_page",
+      "match": {
+        "pid": "@NEW_redaktion_page",
+        "foreign_table_parent_uid": "@NEW_redaktion_faq",
+        "title": "What happens when the connection drops?",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "title": "What happens when the connection drops?",
+        "content": "<p>You can continue editing an already loaded article. Local drafts and cached articles survive a restart. Sending changes to TYPO3 and loading new server content require a connection.</p>",
+        "foreign_table_parent_uid": "@NEW_redaktion_faq",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "accordion_items",
+      "action": "create",
+      "key": "NEW_redaktion_faq_2",
+      "pid": "@NEW_redaktion_page",
+      "match": {
+        "pid": "@NEW_redaktion_page",
+        "foreign_table_parent_uid": "@NEW_redaktion_faq",
+        "title": "Is a local draft already visible on the website?",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "title": "Is a local draft already visible on the website?",
+        "content": "<p>No. Local drafts remain on the device. Saving sends them to TYPO3. In a draft workspace, a separate explicit publication step is required before those changes go live.</p>",
+        "foreign_table_parent_uid": "@NEW_redaktion_faq",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "accordion_items",
+      "action": "create",
+      "key": "NEW_redaktion_faq_3",
+      "pid": "@NEW_redaktion_page",
+      "match": {
+        "pid": "@NEW_redaktion_page",
+        "foreign_table_parent_uid": "@NEW_redaktion_faq",
+        "title": "Does it bypass permissions or publish automatically?",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "title": "Does it bypass permissions or publish automatically?",
+        "content": "<p>No. The connector executes under the backend user’s permissions and the abilities policy. Publishing only sends approval after you confirm the publication dialog.</p>",
+        "foreign_table_parent_uid": "@NEW_redaktion_faq",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "accordion_items",
+      "action": "create",
+      "key": "NEW_redaktion_faq_4",
+      "pid": "@NEW_redaktion_page",
+      "match": {
+        "pid": "@NEW_redaktion_page",
+        "foreign_table_parent_uid": "@NEW_redaktion_faq",
+        "title": "Who provides the app?",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "title": "Who provides the app?",
+        "content": "<p>Redaktion is an independent webconsulting application for TYPO3. It is not an official product of TYPO3 GmbH or the TYPO3 Association.</p>",
+        "foreign_table_parent_uid": "@NEW_redaktion_faq",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "tt_content",
+      "action": "create",
+      "key": "NEW_redaktion_cta",
+      "pid": "@NEW_redaktion_page",
+      "match": {
+        "pid": "@NEW_redaktion_page",
+        "rowDescription": "redaktion:cta",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "CType": "desiderio_contenthighlight",
+        "header_layout": 2,
+        "colPos": 0,
+        "hidden": 0,
+        "sys_language_uid": 0,
+        "rowDescription": "redaktion:cta",
+        "header": "Try a calmer way to write TYPO3 news",
+        "content": "<p>Bring one of your editorial workflows. We will show where local drafts and a focused Mac app save time, and which tasks should stay in your backend.</p>",
+        "variant": "primary",
+        "alignment": "center",
+        "link": "https://webconsulting.at/kontakt/",
+        "link_text": "Ask for a demonstration"
+      }
+    },
+    {
+      "table": "tt_content",
+      "action": "create",
+      "key": "NEW_redaktion_hub",
+      "pid": 0,
+      "match": {
+        "pid": 0,
+        "rowDescription": "redaktion:hub",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "CType": "desiderio_contenthighlight",
+        "header_layout": 2,
+        "colPos": 0,
+        "hidden": 0,
+        "sys_language_uid": 0,
+        "rowDescription": "redaktion:hub",
+        "header": "Redaktion: a focused Mac workspace for TYPO3 news",
+        "content": "<p>Write in a calm desktop workspace, keep local drafts and continue through interruptions. Send changes deliberately; TYPO3 controls permissions and publishing.</p>",
+        "variant": "muted",
+        "alignment": "left",
+        "link": "@NEW_redaktion_page",
+        "link_text": "Discover Redaktion"
+      }
+    }
+  ]
+}
