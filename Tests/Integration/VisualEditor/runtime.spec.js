@@ -29,6 +29,8 @@ function sql(query) {
 }
 function helper(...args) { return execFileSync('ddev', ['exec', 'php', helperPath, ...args.map(String)], {cwd: main, encoding: 'utf8'}); }
 const fixturePath = sql(`SELECT slug FROM pages WHERE uid=${Number(fixture.page)}`) + '/';
+/** A live element outside every fixture mount (showcase 8430), read at run time: reseeds renumber it. */
+const outsideMount = sql('SELECT uid FROM tt_content WHERE pid=8430 AND deleted=0 AND sys_language_uid=0 AND t3ver_wsid=0 ORDER BY sorting LIMIT 1');
 /** settings <role> <chooser> <workspace> <labels> <layout> <scheme> — fixture identities only. */
 function settings(role, {chooser = 'tabs', workspace = 0, labels = 'caption', layout = 'inspector', scheme = 'auto'} = {}) {
   helper('settings', role, chooser, workspace, labels, layout, scheme);
@@ -221,7 +223,7 @@ test('Add entry: present from first render, creates hidden, focuses the new edit
   await eye.click();
   await expect(eye).toHaveAttribute('aria-checked', 'true');
   expect(await frame.evaluate((uid) => document.querySelector(`ve-editable-text[uid="${uid}"]`)?.hasAttribute('data-ve-entry-hidden'), uid)).toBe(false);
-  await row(c, uid).locator('input.entryTitle').fill('Bar entry made visible');
+  await row(c, uid).locator('.entryTitle').fill('Bar entry made visible');
   await expect(row(c, uid).locator('.isPending')).toHaveCount(1);
   // A staged row holds only its own Remove; Save now saves through the vendor.
   await expect(control(c, uid, 'remove')).toHaveAttribute('aria-disabled', 'true');
@@ -403,11 +405,11 @@ test('restricted ve_editor: hidden right decides the eye, unmodifiable child tab
   await expect(e.locator('[data-ve-enhancement="inline-add"]')).toBeHidden();
   await expect(e.locator('[data-ve-enhancement="inline-records"]')).toBeHidden();
   expect(await frame.evaluate(() => Object.keys(window.visualEditorEnhancements.collectionTypes.tt_content ?? {}))).not.toContain('desiderio_legallinks');
-  const denied = await frame.evaluate(async () => {
+  const denied = await frame.evaluate(async (outsideMount) => {
     const url = new URL(location.href);
-    url.searchParams.set('veFieldOptions', '1'); url.searchParams.set('table', 'tt_content'); url.searchParams.set('uid', '200210');
+    url.searchParams.set('veFieldOptions', '1'); url.searchParams.set('table', 'tt_content'); url.searchParams.set('uid', outsideMount);
     return (await fetch(url, {headers: {'X-Request-Token': window.veInfo.token}})).status;
-  });
+  }, outsideMount);
   expect(denied).toBe(403);
   await axe(frame, [{fromShadowDom: [`ve-content-element[uid="${r.NEWlegal}"]`, '.action-bar']}], 'restricted bar');
   await page.context().close();
@@ -456,7 +458,8 @@ test('workspace first version: refused under firstVersion = 0, created under 1 w
     helper('firstversion', 0);
     let f = await open(page);
     let c = await entries(f, r.NEWfirst);
-    await expect(c.locator('.contextHint')).toContainText('first draft');
+    // 1.6.1 (#16): no first-draft promise next to the refusal.
+    await expect(c.locator('.popover')).not.toContainText('first draft');
     const before = snapshot();
     // The payload already refuses it: Add stays focusable, aria-disabled, with the sentence.
     await expect(c.locator('.addEntry')).toHaveAttribute('aria-disabled', 'true');
@@ -472,6 +475,7 @@ test('workspace first version: refused under firstVersion = 0, created under 1 w
     helper('firstversion', 1);
     f = await open(page);
     c = await entries(f, r.NEWfirst);
+    await expect(c.locator('.contextHint')).toContainText('first draft');
     const allowed = nextIntent(page, 'create');
     await c.locator('.addEntry').click();
     const yes = await (await allowed).json();
@@ -503,9 +507,160 @@ test('staged parent text does not block structure; the page updates after Save',
   const save = frame.parentFrame().locator('ve-backend-save-button');
   await save.click();
   await expect.poll(() => sql(`SELECT header FROM tt_content WHERE uid=${r.NEWcheck}`)).toBe('Pending integration header');
-  await header.fill('VEE disposable checklist');
+  // 1.6.1: the deferred entry is rendered by the post-Save refresh (no frame reload).
+  await expect(frame.locator(`ve-editable-text[uid="${uid}"]`).first()).toBeAttached({timeout: 15000});
+  const refreshedHeader = frame.locator(`ve-editable-text[uid="${r.NEWcheck}"][field="header"]`).getByRole('textbox');
+  await refreshedHeader.fill('VEE disposable checklist');
   await save.click();
   await expect.poll(() => sql(`SELECT header FROM tt_content WHERE uid=${r.NEWcheck}`)).toBe('VEE disposable checklist');
+});
+
+/** The focused element of the frame, through open shadow roots. */
+function deepActive(frame) {
+  return frame.evaluate(() => {
+    let node = document.activeElement;
+    while (node?.shadowRoot?.activeElement) { node = node.shadowRoot.activeElement; }
+    return node ? {enhancement: node.getAttribute('data-ve-enhancement'), expanded: node.getAttribute('aria-expanded'), tag: node.localName} : null;
+  });
+}
+const entriesButton = (frame, uid) => element(frame, uid).locator('[data-ve-enhancement="inline-records"]');
+
+test('1.6.1: typed entry title, then Add entry, then Save shows the new entry on the page', async ({page}) => {
+  const frame = await open(page);
+  // Inline-covered staged text: the title of an entry, edited on the page.
+  const alpha = frame.locator(`ve-editable-text[uid="${r.NEWalpha}"][field="title"]`).getByRole('textbox');
+  await alpha.fill('Alpha entry typed first');
+  const c = await entries(frame, r.NEWcheck);
+  const response = nextIntent(page, 'create');
+  await c.locator('.addEntry').click();
+  const uid = Number((await (await response).json()).uid);
+  await expect(row(c, uid)).toBeVisible();
+  // Deferred: written on the server, not yet on the page.
+  await expect(c.locator('.notice')).toContainText('after you save your text');
+  await expect(frame.locator(`ve-editable-text[uid="${uid}"]`)).toHaveCount(0);
+  const save = frame.parentFrame().locator('ve-backend-save-button');
+  await save.click();
+  await expect.poll(() => sql(`SELECT title FROM feature_checklist_items WHERE uid=${r.NEWalpha}`)).toBe('Alpha entry typed first');
+  // The post-Save refresh renders the deferred entry without a frame reload.
+  await expect(frame.locator(`ve-editable-text[uid="${uid}"]`).first()).toBeAttached({timeout: 15000});
+  const title = frame.locator(`ve-editable-text[uid="${r.NEWalpha}"][field="title"]`).getByRole('textbox');
+  await title.fill('Alpha entry');
+  await save.click();
+  await expect.poll(() => sql(`SELECT title FROM feature_checklist_items WHERE uid=${r.NEWalpha}`)).toBe('Alpha entry');
+  evidence.push({deferredAddRendered: uid});
+});
+
+test('1.6.1: Escape after Add after returns focus to the Entries button, which stays expanded', async ({page}) => {
+  const frame = await open(page);
+  const c = await entries(frame, r.NEWcheck);
+  await expect(entriesButton(frame, r.NEWcheck)).toHaveAttribute('aria-expanded', 'true');
+  const response = nextIntent(page, 'create');
+  await control(c, r.NEWbeta, 'after').click();
+  const created = Number((await (await response).json()).uid);
+  await settle(c);
+  await expect(row(c, created)).toBeVisible();
+  // The wrapper was replaced; the new Entries button carries the open state.
+  await expect(entriesButton(frame, r.NEWcheck)).toHaveAttribute('aria-expanded', 'true');
+  await c.locator('.addEntry').focus();
+  await page.keyboard.press('Escape');
+  await expect.poll(() => c.evaluate((x) => x.open)).toBe(false);
+  await expect.poll(() => deepActive(frame)).toEqual({enhancement: 'inline-records', expanded: 'false', tag: 'button'});
+});
+
+test('1.6.1: anchored layout opened by the bar\'s Add entry follows the element when the page scrolls', async ({page}) => {
+  try {
+    settings('admin', {layout: 'anchored'});
+    const frame = await open(page);
+    const e = await revealBar(frame, r.NEWcheck);
+    const response = nextIntent(page, 'create');
+    await e.locator('[data-ve-enhancement="inline-add"]').click();
+    expect((await (await response).json()).success).toBe(true);
+    const c = frame.locator('ve-field-chooser');
+    await expect(c.locator('.popover')).toHaveAttribute('data-layout', 'anchored');
+    await settle(c);
+    await expect(entriesButton(frame, r.NEWcheck)).toHaveAttribute('aria-expanded', 'true');
+    const geometry = () => frame.evaluate((uid) => {
+      const wrapper = document.querySelector(`ve-content-element[uid="${uid}"]`);
+      const pop = document.querySelector('ve-field-chooser').renderRoot.querySelector('.popover');
+      return {bar: wrapper.getBoundingClientRect().top, popover: pop.getBoundingClientRect().top};
+    }, r.NEWcheck);
+    const before = await geometry();
+    await frame.evaluate(() => window.scrollBy(0, 60));
+    await frame.evaluate(() => new Promise((resolve) => requestAnimationFrame(() => requestAnimationFrame(resolve))));
+    const after = await geometry();
+    const barDelta = after.bar - before.bar;
+    const popoverDelta = after.popover - before.popover;
+    evidence.push({anchoredAddEntry: {barDelta, popoverDelta}});
+    expect(barDelta).toBeLessThan(-30);
+    expect(Math.abs(popoverDelta - barDelta)).toBeLessThan(2);
+    await c.locator('.addEntry').focus();
+    await page.keyboard.press('Escape');
+    await expect.poll(() => deepActive(frame)).toEqual({enhancement: 'inline-records', expanded: 'false', tag: 'button'});
+  } finally { settings('admin'); }
+});
+
+test('1.6.1: a multi-line label (Textarea) keeps its line break through the inspector', async ({page}) => {
+  const frame = await open(page);
+  const c = await entries(frame, r.NEWtabs);
+  const first = row(c, r.NEWone).locator('textarea.entryTitle');
+  await expect(first).toHaveCount(1);
+  await first.fill('Integration One');
+  await first.press('End');
+  await page.keyboard.press('Shift+Enter');
+  await page.keyboard.type('second line');
+  await first.press('Enter');
+  const save = frame.parentFrame().locator('ve-backend-save-button');
+  await save.click();
+  await expect.poll(() => sql(`SELECT REPLACE(tab_label, '\n', '|') FROM tabs_items WHERE uid=${r.NEWone}`)).toBe('Integration One|second line');
+  // Reopened in a fresh frame: the stored break is shown and kept by an edit.
+  const again = await open(page);
+  const c2 = await entries(again, r.NEWtabs);
+  const title = row(c2, r.NEWone).locator('textarea.entryTitle');
+  await expect(title).toHaveValue('Integration One\nsecond line');
+  await title.focus();
+  await page.keyboard.press('ControlOrMeta+End');
+  await page.keyboard.type('!');
+  expect(await again.evaluate(async (uid) => (await import('@typo3/visual-editor/Frontend/stores/data-handler-store')).dataHandlerStore.data.tabs_items?.[uid]?.tab_label, r.NEWone)).toBe('Integration One\nsecond line!');
+  await page.keyboard.press('Escape');
+  await expect(title).toHaveValue('Integration One\nsecond line');
+  expect(await changes(again)).toBe(0);
+});
+
+test('1.6.1: Entries with a failing capability request (403) shows the load error', async ({page}) => {
+  const frame = await open(page);
+  await page.route(/veFieldOptions=1/, (route) => route.fulfill({status: 403, contentType: 'application/json', body: '{"error":"Forbidden"}'}));
+  try {
+    const e = await revealBar(frame, r.NEWcheck);
+    await e.locator('[data-ve-enhancement="inline-records"]').click();
+    const c = frame.locator('ve-field-chooser');
+    await expect(c.locator('.popover')).toContainText('Could not load entries. Open the backend form.', {timeout: 800});
+  } finally { await page.unroute(/veFieldOptions=1/); }
+});
+
+test('1.6.1 timing: payload of the 40-entry team grid (194005) and one move stay inside the budget', async ({page}) => {
+  const frame = await open(page);
+  const timed = (uid) => frame.evaluate(async (uid) => {
+    const cache = await import('@webconsulting/visual-editor-enhancements/Shared/field-options-cache.js');
+    cache.clearFieldOptionsCache?.();
+    const start = performance.now();
+    const data = await cache.fetchFieldOptions('tt_content', uid);
+    return {ms: Math.round(performance.now() - start), children: data.fields.filter((f) => f.type === 'inline').reduce((n, f) => n + (f.children?.length ?? 0), 0)};
+  }, uid);
+  const runs = [];
+  for (let i = 0; i < 3; i++) runs.push(await timed(194005));
+  const payloadMs = runs.map((x) => x.ms).sort((a, b) => a - b)[1];
+  // One move on the disposable checklist (and back): read-only for every real element.
+  const moveMs = [];
+  for (const afterUid of [null, r.NEWbeta]) {
+    const start = Date.now();
+    const result = await intent(frame, r.NEWcheck, 'desiderio_featurechecklist_items', 'move', {childUid: r.NEWgamma, afterUid});
+    moveMs.push(Date.now() - start);
+    expect(result.status, JSON.stringify(result.data)).toBe(200);
+  }
+  evidence.push({timing: {payload194005: runs, payloadMedianMs: payloadMs, moveMs}});
+  expect(runs[0].children).toBeGreaterThanOrEqual(40);
+  expect(payloadMs).toBeLessThan(1500);
+  expect(Math.max(...moveMs)).toBeLessThan(3000);
 });
 
 test('1.5 kept: hidden entry edited in Core FormEngine stays hidden', async ({page}) => {
@@ -561,7 +716,7 @@ test('1.5 kept: the German broad editor with the chooser disabled creates hidden
     const result = await (await response).json();
     expect(result.success).toBe(true);
     expect(sql(`SELECT hidden FROM feature_checklist_items WHERE uid=${result.uid}`)).toBe('1');
-    const denied = await f.evaluate(async () => { const url = new URL(location.href); url.searchParams.set('veFieldOptions', '1'); url.searchParams.set('table', 'tt_content'); url.searchParams.set('uid', '200210'); return (await fetch(url, {headers: {'X-Request-Token': window.veInfo.token}})).status; });
+    const denied = await f.evaluate(async (outsideMount) => { const url = new URL(location.href); url.searchParams.set('veFieldOptions', '1'); url.searchParams.set('table', 'tt_content'); url.searchParams.set('uid', outsideMount); return (await fetch(url, {headers: {'X-Request-Token': window.veInfo.token}})).status; }, outsideMount);
     expect(denied).toBe(403);
   } finally { settings('editor'); await page.context().close(); }
 });

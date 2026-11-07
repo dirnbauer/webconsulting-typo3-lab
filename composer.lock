@@ -13826,16 +13826,16 @@
         },
         {
             "name": "webconsulting/visual-editor-enhancements",
-            "version": "v1.6.0",
+            "version": "v1.6.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/typo3-visual-editor-enhancements.git",
-                "reference": "cbba30bd09ce57e9f00045104bef7983d7f10c3b"
+                "reference": "74f605d1dcb4703f1ead807d2932ab7e160319f2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/typo3-visual-editor-enhancements/zipball/cbba30bd09ce57e9f00045104bef7983d7f10c3b",
-                "reference": "cbba30bd09ce57e9f00045104bef7983d7f10c3b",
+                "url": "https://api.github.com/repos/dirnbauer/typo3-visual-editor-enhancements/zipball/74f605d1dcb4703f1ead807d2932ab7e160319f2",
+                "reference": "74f605d1dcb4703f1ead807d2932ab7e160319f2",
                 "shasum": ""
             },
             "require": {
@@ -13931,7 +13931,7 @@
                 "issues": "https://github.com/dirnbauer/typo3-visual-editor-enhancements/issues",
                 "source": "https://github.com/dirnbauer/typo3-visual-editor-enhancements"
             },
-            "time": "2026-11-07T18:48:50+00:00"
+            "time": "2026-11-07T21:02:03+00:00"
         },
         {
             "name": "webconsulting/webcon-easy-workspace",

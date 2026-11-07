@@ -4,6 +4,23 @@ All notable changes to Webconsulting TYPO3 Lab are documented in this file.
 
 ## Unreleased
 
+### Visual Editor Enhancements 1.6.1 — 2026-11-07
+
+- Visual Editor Enhancements 1.6.1 fixes the 23 confirmed findings of the
+  1.6.0 review: collection actions follow Core's translation and workspace
+  semantics (new refusal `synchronized`, `l10n_source` dependents, Core
+  applicability, the staged eye on entries with nested members, translated
+  parent locks), unlimited collections show the count alone (no more
+  "3 / 99999"), multi-line titles keep their line breaks, a deferred entry
+  reaches the page after Save, the inspector keeps its trigger in every
+  layout and Entries explains a failed load. The install-wide recipe is
+  `setup.override.tx_visualeditor_*`; `firstVersion` stays `0`.
+- The runtime suite gains six 1.6.1 scenarios (typed title then Add entry
+  then Save renders the entry, Escape after Add after, the anchored layout
+  following the scroll after Add entry, a multi-line label, Entries with a
+  403, a timing budget for the 40-entry team grid 194005) and reads its
+  outside-the-mount element at run time (22 scenarios).
+
 ### Visual Editor entries inspector and action-bar labels — 2026-11-07
 
 - Visual Editor Enhancements 1.6.0: an **Add entry** button in every action
