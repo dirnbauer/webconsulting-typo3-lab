@@ -859,7 +859,23 @@ VEE and desiderio work on separate branches/worktrees; the lab is touched only b
 
 ## 13. Release log
 
-(empty — filled by WP-L, WP-M and WP-Q)
+- **WP-M, 2026-11-07 — Desiderio 4.34.0** (`90415198`, tag `v4.34.0`, GitHub + GitLab; CI green). Six live shots from
+  the lab with VEE 1.6.0 (runtime-suite fixture session, cleaned up: 0 users, groups, sessions, drafts):
+  `feature-visual-editor-entries-6c4254e3`, `-add-entry-233c62da`, `-entry-form-6ed8efcf`,
+  `-entries-translation-f066c6ec`, `-collection-settings-02c1b2d6`, `-entries-tray-948b158b` (16:10, DSF 2, dark backend);
+  copy of `visualEditor()` (abstract, hero, problem, tour 1/3/5 + three new tour shots, benefits 1–2, FAQ 1–3/5, CTA) and
+  the 8430 body text; 27 new de/zh/hu memory entries each; lint-copy 0 errors; `content:audit` en 0 errors on 2080/8430
+  (de 7 / hu 4 pre-existing title/eyebrow translations, unchanged). Film picture-only: `visual-editor-23d98eff.mp4`
+  (73.2 s, original audio, caption tracks `237cb15b.*.vtt` kept; `render-films.mjs` fix for named clean films and
+  cue-based caption guard). Lab `cdd8435` (lock + memories + film), Quality 42405517530 green, deployed, healthy.
+  Prod run `var/prod-ve-1.6` (product 2075, inline 8158): ALL-DONE in 531 s (backup 131 s, translate 246 s),
+  VERIFY-OK (35 checks), HEALTH-OK (16 pages × 200 + 5 media), 8 screenshot references swapped on `/target-groups` +
+  `/target-groups/for-typo3-suite-buyers`, repeat 0. Backup + run.log `/var/backups/typo3-lab/20261107T192512Z-pre-ve-1.6/`;
+  images pruned to the last 3 versions (cdd8435, 52ec3ae, 1fa3cb7).
+  Open: VEE shows Core's "no limit" `maxitems` as "3 / 99999" in the inspector count (visible in the shots; fix in 1.6.1
+  and recapture); film narration line 4 ("Click a title to edit its text and media in the TYPO3 form") is no longer
+  exact for plain-text titles (now an inline input; the form is under "Edit in form") — re-voice decision for 4.35;
+  "Not translated here" / "Only in this language" badges not photographed (showcase is fully translated).
 
 ## 14. Sources
 
