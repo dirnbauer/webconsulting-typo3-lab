@@ -6,6 +6,7 @@ baseVariants:
 contentSecurityPolicies: {  }
 dependencies:
   - webconsulting/site-package-blog
+  - webconsulting/lab-statistics
 errorHandling: {  }
 languages:
   -

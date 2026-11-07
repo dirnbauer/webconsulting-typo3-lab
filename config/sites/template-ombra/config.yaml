@@ -7,6 +7,7 @@ rootPageId: 7010
 websiteTitle: Ombra
 dependencies:
   - webconsulting/webcon-templates-ombra
+  - webconsulting/lab-statistics
 errorHandling:
   -
     errorCode: 404

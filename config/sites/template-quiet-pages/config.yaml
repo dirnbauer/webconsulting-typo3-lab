@@ -7,6 +7,7 @@ rootPageId: 7080
 websiteTitle: 'Quiet Pages'
 dependencies:
   - webconsulting/webcon-templates-quiet-pages
+  - webconsulting/lab-statistics
 errorHandling:
   -
     errorCode: 404

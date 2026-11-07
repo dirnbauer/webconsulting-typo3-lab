@@ -9,6 +9,7 @@ dependencies:
   - webconsulting/astryx-typo3
   - webconsulting/astryx-typo3-content-elements
   - webconsulting/astryx-typo3-search
+  - webconsulting/lab-statistics
 solr_enabled_read: true
 solr_host_read: typo3-solr
 solr_path_read: /

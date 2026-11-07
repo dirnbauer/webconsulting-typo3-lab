@@ -5,6 +5,7 @@ baseVariants:
     condition: 'applicationContext == "Production"'
 dependencies:
   - webconsulting/site-package-camino
+  - webconsulting/lab-statistics
 languages:
   -
     title: English
