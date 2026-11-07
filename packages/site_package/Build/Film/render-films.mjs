@@ -7,7 +7,7 @@
  *   node render-films.mjs --film=docx-editor --stills=1500,9000   # PNG stills into <cache>/stills/
  *   node render-films.mjs --film=docx-editor --range=0,8000  # a quick test render into <cache>/out/
  *   node render-films.mjs --film=docx-editor --remix         # new soundtrack on the current picture
- *   node render-films.mjs --film=solr --refresh-picture    # redraw only; preserve audio, captions and copy
+ *   node render-films.mjs --film=solr --refresh-picture    # redraw only (new screenshots); preserve audio, captions and copy
  *   node render-films.mjs --film=all --check-picture       # check unchanged timing/copy before redrawing
  *   node render-films.mjs --list                             # ids, pages and lengths (warns over a film's `cap`)
  *   node render-films.mjs --spec=~/.cache/lab-films/specs/draft.mjs --film=draft --stills=3000
@@ -313,7 +313,9 @@ try {
         const timeline = await page.evaluate(() => window.TIMELINE);
         if (REFRESH_PICTURE) {
             const current = JSON.parse(readFileSync(join(TARGET, id, 'film.json'), 'utf8'));
-            if (current.captions.burnedIn === false) {
+            // The bulk caption clean-up (--film=all) leaves clean films alone; a film
+            // named on its own is redrawn (new screenshots, same audio and captions).
+            if (current.captions.burnedIn === false && argument('film') === 'all') {
                 console.log(`${id}: already clean, keeping all existing assets`);
                 await page.close();
                 continue;

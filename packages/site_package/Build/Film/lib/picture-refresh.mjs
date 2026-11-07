@@ -19,6 +19,22 @@ export function pictureRefreshSource(directory, spec, timeline, vtt) {
     if (files.some((file) => typeof file !== 'string' || file !== basename(file) || !existsSync(join(directory, file)))) {
         fail('a source asset is missing or outside its fixture directory');
     }
-    if (readFileSync(join(directory, current.vtt), 'utf8') !== vtt) fail('caption timing or wording changed');
+    if (cues(readFileSync(join(directory, current.vtt), 'utf8')) !== cues(vtt)) fail('caption timing or wording changed');
     return current;
+}
+
+/**
+ * Cue timings and text of a WebVTT file. translate-film-captions.mjs rewrites the
+ * English track after a render (its own header, wrapped lines), so the header and
+ * the line breaks inside a cue do not count; every time and every word does.
+ */
+function cues(vtt) {
+    return vtt.replace(/\r/g, '').split(/\n{2,}/)
+        .filter((block) => block.includes('-->'))
+        .map((block) => {
+            const lines = block.trim().split('\n');
+            const at = lines.findIndex((line) => line.includes('-->'));
+            return `${lines[at].trim()}|${lines.slice(at + 1).join(' ').replace(/\s+/g, ' ').trim()}`;
+        })
+        .join('\n');
 }

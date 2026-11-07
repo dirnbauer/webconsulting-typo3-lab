@@ -18,6 +18,14 @@ All notable changes to Webconsulting TYPO3 Lab are documented in this file.
   `ve_editor` and a workspace (sessions, no stored passwords), 16 scenarios
   with axe, and a cleanup that proves no page row, draft, user, group or
   session remains.
+- Desiderio 4.34.0: `/features/visual-editor` and the inline records showcase
+  describe 1.6 (Add entry, Entries inspector, hover labels, per-language
+  visibility, three layouts) with six live screenshots; the two Packages
+  pages swap their Entries screenshot in place. 27 new de/zh/hu translation
+  memory entries. The Visual Editor film gets the new pictures with its
+  original narration and caption tracks (`visual-editor-23d98eff.mp4`):
+  `render-films.mjs --refresh-picture` now redraws a film named on its own
+  and compares captions by cue timing and text.
 
 ### Visual Editor settings and entries — 2026-11-06
 
