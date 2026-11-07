@@ -4,6 +4,21 @@ All notable changes to Webconsulting TYPO3 Lab are documented in this file.
 
 ## Unreleased
 
+### Visual Editor entries inspector and action-bar labels — 2026-11-07
+
+- Visual Editor Enhancements 1.6.0: an **Add entry** button in every action
+  bar, the **Entries inspector** (move, visibility, add after, remove,
+  staged titles, translations sync, workspace drafts, three layouts) and very
+  small labels on every action-bar button (user setting, default `caption`).
+  First workspace drafts stay off (`firstVersion = 0`) until the owner
+  decides.
+- `Build/Scripts/ve-runtime.sh` runs the regular-runtime suite
+  (`Tests/Integration/VisualEditor`): candidate install by git archive and
+  restore, disposable fixture with admin, German editor, restricted
+  `ve_editor` and a workspace (sessions, no stored passwords), 16 scenarios
+  with axe, and a cleanup that proves no page row, draft, user, group or
+  session remains.
+
 ### Visual Editor settings and entries — 2026-11-06
 
 - Visual Editor Enhancements 1.5.1 restores the element toolbar's field

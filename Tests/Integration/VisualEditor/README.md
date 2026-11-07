@@ -1,51 +1,77 @@
 # Regular-runtime Visual Editor integration
 
-Opt-in, serial, local DDEV checks against real Core, FormEngine, MariaDB,
-backend sessions, modal dialogs and rendered templates. No component routes are
-mocked. Use only disposable fixtures. `VEE_RUNTIME_ROOT` is the MAIN runtime;
-the lab worktree owns these test sources. The regular package candidates must
-already be linked with `Build/Scripts/lab-link.sh`; never inject an autoloader.
+Opt-in, serial, local DDEV checks of Visual Editor Enhancements against real
+Core, FormEngine, MariaDB, backend sessions, Core modals and rendered
+templates. Nothing is mocked. Only disposable fixtures are touched; no existing
+user's password, preferences or workspace is used or changed.
 
-The PHP helper runs from MAIN after being copied into its web container as
-`/tmp/ve-runtime.php`. Its modes are `inspect`, `fixture`, `extra`, `visible`,
-`settings`, `version`, `cleanup`. Run `fixture`, `extra`, `visible` once, then
-flush the TYPO3 cache. It creates a page below showcase UID 8430, page-scoped
-editor group, two disposable users and a workspace using Core DataHandler.
-Generated credentials stay in `var/ve-integration/fixture.json` (0600). Copy
-that file privately from the container to MAIN's same ignored directory.
-`settings <admin|editor> <tabs|sections|disabled> <workspace-id>` touches those
-fixtures only. `version` provisions complete drafts through stock Core before
-the workspace test's live snapshot; metadata changes during this fixture setup
-are not an acceptance pass for first-version frontend creation.
-
-The suite authenticates the disposable admin through the classic backend login
-using the fixture's generated password. An optional private ``VEE_AUTH_STATE``
-file can supply an existing disposable session. Never substitute an existing
-user's password or alter their preferences.
-
-Set `VEE_RUNTIME_ROOT`, optionally `VEE_RUNTIME_FIXTURE`, `VEE_FIXTURE_HELPER`
-and `PLAYWRIGHT_BROWSERS_PATH`. Run with MAIN's Playwright dependency and the config
-in this directory. If the worktree has no node_modules, copy this directory to
-an ignored temporary directory and link MAIN's node_modules there. The final
-8-case run uses the same source as the committed suite.
+Everything runs through `Build/Scripts/ve-runtime.sh` (from MAIN or any lab
+worktree; it finds the DDEV project by name):
 
 ```sh
-VEE_RUNTIME_ROOT=/absolute/MAIN \
-  /absolute/MAIN/node_modules/.bin/playwright test \
-  --config=/temporary/test-copy/playwright.config.mjs \
-  --output=/temporary/test-copy/results
+Build/Scripts/ve-runtime.sh install feature/1.6-integration   # candidate into vendor/ (git archive)
+Build/Scripts/ve-runtime.sh fixture                           # page, users, sessions, workspace
+Build/Scripts/ve-runtime.sh run [--grep …]                    # Playwright, MAIN's node_modules
+Build/Scripts/ve-runtime.sh cleanup                           # remove everything, print the proof
+Build/Scripts/ve-runtime.sh restore                           # release from composer.lock back into vendor/
 ```
 
-The suite changes only fixture records, restores fixture preferences and never
-retries mutation requests automatically. The library compatibility case tests
-the real library persistence protocol; it does not automate catalog tile drag
-and drop. The text persistence cases check normal child saves through the real
-endpoint and the entry title's real Core contextual form, retaining hidden=1. Hidden entries
-intentionally have no anonymous frontend editable.
+`install` refuses while the package is lab-linked (`lab-link.sh`); it
+archives a ref of `packages/visual_editor_enhancements` into vendor/, then
+runs `ddev mutagen sync`, clears `/tmp/opcache`, dumps the autoloader, checks
+`PackageArtifact.php` and flushes the caches. Always `restore` afterwards.
 
-After tests, run `cleanup` through the helper. It discards the fixture's drafts,
-soft-deletes the page, group/workspace/users and disables both users. Check the
-reported remaining page-owned records; remove the private credential and auth
-files, invalidate only those users' sessions and flush the TYPO3 cache. Keep
-showcase pages 8430–8433 and unrelated content intact. The helper refuses to
-reuse an existing fixture state file.
+## Fixture (`fixture.php`)
+
+The wrapper copies the helper into the web container as `/tmp/ve-runtime.php`
+and runs its modes `fixture`, `extra`, `visible`, `localize`, `ve_editor` and
+`session <role>`. State lives in the container's `var/ve-integration/` (var/
+is not Mutagen-synced) and is copied to MAIN's same ignored directory (0600).
+
+- `fixture [run]`: a page below showcase 8430 (`firstVersion = 0` in its page
+  TSconfig), a broad editor group with the page as mount, a disposable admin
+  (English) and editor (German), a disposable workspace.
+- `extra`: checklist (three entries), legal links, nested data table, hero,
+  a never-versioned checklist for the first-version case and a checklist that
+  `localize` translates (Core localize of the page and the element into
+  language 1).
+- `ve_editor`: the restricted editor (plan D12): `web_edit` only, mount = the
+  fixture page, `tables_modify` tt_content + the fixture's child tables except
+  legal links, the tested CTypes, the inline fields and every child table's
+  `hidden` right except `tabs_items:hidden`, member of the disposable workspace.
+- `session <admin|editor|veEditor>`: a fixated backend session written as a
+  Playwright storageState. Users get a random password that is discarded at
+  once; nothing secret is stored besides these session files.
+- `settings <role> <chooser> <workspace> [labels] [layout] [scheme]`,
+  `firstversion <0|1>`, `version` (Core drafts of the checklist and its
+  entries) are used by the spec.
+
+`cleanup` discards the run's drafts, deletes the page (and its translation),
+workspace, groups and users, removes the users' rows and sessions outright and
+prints `remainingActivePageOwnedRows` (must be `{}`), `remainingDrafts`,
+`disposableUsers`, `disposableGroups`, `sessions` (all 0) and the deletion
+flags; then both state copies are removed and the lab health is checked.
+
+## Scenarios (`runtime.spec.js`)
+
+Action-bar labels (caption on hover/focus/click with a constant bar width,
+1.4.13 hoverable, survival of the vendor hide-toggle re-render; inline,
+stacked, icons), Add entry from first render (hidden, focus in the new
+editable, eye + title staged, Save now), add after / move / Alt+Arrow with the
+page order and a stale move, counted remove with Cancel / Escape / dismiss and
+the translation cascade, Sync translations and a translation-only entry in the
+German frame, the three panel layouts and the dark backend shadow, the
+restricted editor (eye refused without the hidden right, unmodifiable child
+table not disclosed, 403 outside the mount), workspace drafts for all three
+roles with byte-identical live rows, `firstVersion` refused under 0 and
+created under 1 with only sorting/tstamp live deltas, staged parent text, and
+the 1.5 cases (FormEngine sheet, nested settings, German editor, showcase
+8430 payload, library persistence). axe-core (MAIN's `node_modules`, WCAG 2.0
+/ 2.1 / 2.2 A and AA) runs on the hovered bar, the inspector (light and dark),
+the restricted bar and the Core modal; every state must have zero violations.
+The run prints an `EVIDENCE` line (axe results, SQL deltas).
+
+Elements are scrolled to 300 px below the frame top before hovering:
+desiderio's sticky site header otherwise covers the action bar of tall
+elements. After every operation the spec waits for the inspector to settle
+(it re-renders asynchronously; a click fired earlier can hit the row above).
