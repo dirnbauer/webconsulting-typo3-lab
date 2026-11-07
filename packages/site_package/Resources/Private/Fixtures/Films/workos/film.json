@@ -5,8 +5,8 @@
   "title": "WorkOS Auth: overview film",
   "header": "WorkOS Auth in 49 seconds",
   "description": "<p>One login for your site and the TYPO3 backend. A narrated tour, recorded in this TYPO3 v14 lab, with English captions.</p>",
-  "mp4": "workos-ed420c4d.mp4",
-  "poster": "workos-poster-ed420c4d.webp",
+  "mp4": "workos-f8d3e99e.mp4",
+  "poster": "workos-poster-f8d3e99e.webp",
   "vtt": "workos-ed420c4d.en.vtt",
   "duration": 49.381,
   "width": 1920,
@@ -43,11 +43,11 @@
   "captions": {
     "language": "en",
     "label": "English",
-    "burnedIn": true
+    "burnedIn": false
   },
   "bytes": {
-    "mp4": 2965103,
-    "poster": 29150,
+    "mp4": 2873637,
+    "poster": 22528,
     "vtt": 675
   },
   "generator": "packages/site_package/Build/Film/render-films.mjs"

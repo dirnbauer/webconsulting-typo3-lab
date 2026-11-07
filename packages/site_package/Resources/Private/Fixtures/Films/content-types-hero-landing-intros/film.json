@@ -5,8 +5,8 @@
   "title": "Hero & Landing Intros: overview film",
   "header": "Hero & Landing Intros in 31 seconds",
   "description": "<p>Heroes for the first screen of a page. A narrated tour, recorded in this TYPO3 v14 lab, with English captions.</p>",
-  "mp4": "content-types-hero-landing-intros-e2eb59a5.mp4",
-  "poster": "content-types-hero-landing-intros-poster-e2eb59a5.webp",
+  "mp4": "content-types-hero-landing-intros-d06212e3.mp4",
+  "poster": "content-types-hero-landing-intros-poster-d06212e3.webp",
   "vtt": "content-types-hero-landing-intros-e2eb59a5.en.vtt",
   "duration": 30.911,
   "width": 1920,
@@ -35,11 +35,11 @@
   "captions": {
     "language": "en",
     "label": "English",
-    "burnedIn": true
+    "burnedIn": false
   },
   "bytes": {
-    "mp4": 2143133,
-    "poster": 35594,
+    "mp4": 2120740,
+    "poster": 28878,
     "vtt": 454
   },
   "generator": "packages/site_package/Build/Film/render-films.mjs"

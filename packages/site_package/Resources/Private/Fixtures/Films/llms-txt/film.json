@@ -5,8 +5,8 @@
   "title": "llms.txt: overview film",
   "header": "llms.txt in 55 seconds",
   "description": "<p>Your site, explained to AI agents. A narrated tour, recorded in this TYPO3 v14 lab, with English captions.</p>",
-  "mp4": "llms-txt-6806a26e.mp4",
-  "poster": "llms-txt-poster-6806a26e.webp",
+  "mp4": "llms-txt-0917654e.mp4",
+  "poster": "llms-txt-poster-0917654e.webp",
   "vtt": "llms-txt-6806a26e.en.vtt",
   "duration": 55.285,
   "width": 1920,
@@ -43,11 +43,11 @@
   "captions": {
     "language": "en",
     "label": "English",
-    "burnedIn": true
+    "burnedIn": false
   },
   "bytes": {
-    "mp4": 5053958,
-    "poster": 93626,
+    "mp4": 4926822,
+    "poster": 87950,
     "vtt": 685
   },
   "generator": "packages/site_package/Build/Film/render-films.mjs"

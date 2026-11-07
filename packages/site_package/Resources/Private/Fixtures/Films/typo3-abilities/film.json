@@ -5,8 +5,8 @@
   "title": "Abilities Registry: overview film",
   "header": "Abilities Registry in 47 seconds",
   "description": "<p>Decide what AI agents may do in TYPO3. A narrated tour, recorded in this TYPO3 v14 lab, with English captions.</p>",
-  "mp4": "typo3-abilities-655f9a40.mp4",
-  "poster": "typo3-abilities-poster-655f9a40.webp",
+  "mp4": "typo3-abilities-f5f5fdb4.mp4",
+  "poster": "typo3-abilities-poster-f5f5fdb4.webp",
   "vtt": "typo3-abilities-655f9a40.en.vtt",
   "duration": 47.38,
   "width": 1920,
@@ -43,11 +43,11 @@
   "captions": {
     "language": "en",
     "label": "English",
-    "burnedIn": true
+    "burnedIn": false
   },
   "bytes": {
-    "mp4": 3121927,
-    "poster": 52562,
+    "mp4": 3064111,
+    "poster": 46246,
     "vtt": 688
   },
   "generator": "packages/site_package/Build/Film/render-films.mjs"

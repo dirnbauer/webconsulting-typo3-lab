@@ -9,8 +9,8 @@
   "title": "typo3-records-list-types: the skill at work",
   "header": "typo3-records-list-types in 48 seconds",
   "description": "<p>Cards, timelines and catalogues through TSconfig. Recorded in this TYPO3 v14 lab: the TSconfig of the Records List Examples package, then the Records module on the news folder. Narrated, with English captions.</p>",
-  "mp4": "skill-typo3-records-list-types-68943eba.mp4",
-  "poster": "skill-typo3-records-list-types-poster-68943eba.webp",
+  "mp4": "skill-typo3-records-list-types-1f79de3c.mp4",
+  "poster": "skill-typo3-records-list-types-poster-1f79de3c.webp",
   "vtt": "skill-typo3-records-list-types-68943eba.en.vtt",
   "duration": 47.601,
   "width": 1920,
@@ -47,11 +47,11 @@
   "captions": {
     "language": "en",
     "label": "English",
-    "burnedIn": true
+    "burnedIn": false
   },
   "bytes": {
-    "mp4": 2576549,
-    "poster": 82300,
+    "mp4": 2473200,
+    "poster": 75702,
     "vtt": 630
   },
   "generator": "packages/site_package/Build/Film/render-films.mjs"

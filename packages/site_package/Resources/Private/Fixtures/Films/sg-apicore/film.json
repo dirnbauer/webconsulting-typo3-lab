@@ -5,8 +5,8 @@
   "title": "sg_apicore: overview film",
   "header": "sg_apicore in 56 seconds",
   "description": "<p>A documented REST API for TYPO3. A narrated tour, recorded in this TYPO3 v14 lab, with English captions.</p>",
-  "mp4": "sg-apicore-c2b519eb.mp4",
-  "poster": "sg-apicore-poster-c2b519eb.webp",
+  "mp4": "sg-apicore-4afd31a6.mp4",
+  "poster": "sg-apicore-poster-4afd31a6.webp",
   "vtt": "sg-apicore-c2b519eb.en.vtt",
   "duration": 56.226,
   "width": 1920,
@@ -43,11 +43,11 @@
   "captions": {
     "language": "en",
     "label": "English",
-    "burnedIn": true
+    "burnedIn": false
   },
   "bytes": {
-    "mp4": 3564681,
-    "poster": 41660,
+    "mp4": 3532429,
+    "poster": 35644,
     "vtt": 751
   },
   "generator": "packages/site_package/Build/Film/render-films.mjs"

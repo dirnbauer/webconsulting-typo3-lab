@@ -5,8 +5,8 @@
   "title": "Skillflow: overview film",
   "header": "Skillflow in 47 seconds",
   "description": "<p>Agent skills that review your pages. A narrated tour, recorded in this TYPO3 v14 lab, with English captions.</p>",
-  "mp4": "skillflow-9b944b64.mp4",
-  "poster": "skillflow-poster-9b944b64.webp",
+  "mp4": "skillflow-13bb05f1.mp4",
+  "poster": "skillflow-poster-13bb05f1.webp",
   "vtt": "skillflow-9b944b64.en.vtt",
   "duration": 46.846,
   "width": 1920,
@@ -43,11 +43,11 @@
   "captions": {
     "language": "en",
     "label": "English",
-    "burnedIn": true
+    "burnedIn": false
   },
   "bytes": {
-    "mp4": 3020523,
-    "poster": 39660,
+    "mp4": 2930166,
+    "poster": 33282,
     "vtt": 676
   },
   "generator": "packages/site_package/Build/Film/render-films.mjs"

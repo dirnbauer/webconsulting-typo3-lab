@@ -5,8 +5,8 @@
   "title": "Features & Benefits: overview film",
   "header": "Features & Benefits in 32 seconds",
   "description": "<p>Ways to explain what you offer. A narrated tour, recorded in this TYPO3 v14 lab, with English captions.</p>",
-  "mp4": "content-types-features-benefits-feece9d4.mp4",
-  "poster": "content-types-features-benefits-poster-feece9d4.webp",
+  "mp4": "content-types-features-benefits-4d56b461.mp4",
+  "poster": "content-types-features-benefits-poster-4d56b461.webp",
   "vtt": "content-types-features-benefits-feece9d4.en.vtt",
   "duration": 31.982,
   "width": 1920,
@@ -35,11 +35,11 @@
   "captions": {
     "language": "en",
     "label": "English",
-    "burnedIn": true
+    "burnedIn": false
   },
   "bytes": {
-    "mp4": 2125319,
-    "poster": 62530,
+    "mp4": 2095204,
+    "poster": 56982,
     "vtt": 466
   },
   "generator": "packages/site_package/Build/Film/render-films.mjs"

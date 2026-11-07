@@ -5,8 +5,8 @@
   "title": "Skillspector: overview film",
   "header": "Skillspector in 48 seconds",
   "description": "<p>Check skills before agents use them. A narrated tour, recorded in this TYPO3 v14 lab, with English captions.</p>",
-  "mp4": "skillspector-6c0be631.mp4",
-  "poster": "skillspector-poster-6c0be631.webp",
+  "mp4": "skillspector-155b5541.mp4",
+  "poster": "skillspector-poster-155b5541.webp",
   "vtt": "skillspector-6c0be631.en.vtt",
   "duration": 47.88,
   "width": 1920,
@@ -43,11 +43,11 @@
   "captions": {
     "language": "en",
     "label": "English",
-    "burnedIn": true
+    "burnedIn": false
   },
   "bytes": {
-    "mp4": 2976361,
-    "poster": 42804,
+    "mp4": 2906690,
+    "poster": 36530,
     "vtt": 699
   },
   "generator": "packages/site_package/Build/Film/render-films.mjs"

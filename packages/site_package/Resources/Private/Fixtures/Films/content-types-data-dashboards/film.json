@@ -5,8 +5,8 @@
   "title": "Data & Dashboards: overview film",
   "header": "Data & Dashboards in 36 seconds",
   "description": "<p>Charts that render on the server. A narrated tour, recorded in this TYPO3 v14 lab, with English captions.</p>",
-  "mp4": "content-types-data-dashboards-ac19d117.mp4",
-  "poster": "content-types-data-dashboards-poster-ac19d117.webp",
+  "mp4": "content-types-data-dashboards-feeec800.mp4",
+  "poster": "content-types-data-dashboards-poster-feeec800.webp",
   "vtt": "content-types-data-dashboards-ac19d117.en.vtt",
   "duration": 35.794,
   "width": 1920,
@@ -35,11 +35,11 @@
   "captions": {
     "language": "en",
     "label": "English",
-    "burnedIn": true
+    "burnedIn": false
   },
   "bytes": {
-    "mp4": 2271353,
-    "poster": 38188,
+    "mp4": 2247656,
+    "poster": 29792,
     "vtt": 510
   },
   "generator": "packages/site_package/Build/Film/render-films.mjs"

@@ -10,8 +10,8 @@
   "title": "CapexOne Plus: overview film",
   "header": "CapexOne Plus in 72 seconds",
   "description": "<p>Capital projects, checked live. A narrated tour of the CapexOne Plus demo with fictional data, with English captions.</p>",
-  "mp4": "capex-one-a2c681bf.mp4",
-  "poster": "capex-one-poster-a2c681bf.webp",
+  "mp4": "capex-one-74cdc4eb.mp4",
+  "poster": "capex-one-poster-74cdc4eb.webp",
   "vtt": "capex-one-a2c681bf.en.vtt",
   "duration": 71.712,
   "width": 1920,
@@ -64,11 +64,11 @@
   "captions": {
     "language": "en",
     "label": "English",
-    "burnedIn": true
+    "burnedIn": false
   },
   "bytes": {
-    "mp4": 6683209,
-    "poster": 48390,
+    "mp4": 6589994,
+    "poster": 43386,
     "vtt": 996
   },
   "generator": "packages/site_package/Build/Film/render-films.mjs"

@@ -5,8 +5,8 @@
   "title": "Content types: overview film",
   "header": "Content types in 53 seconds",
   "description": "<p>All 244 elements, sorted into 10 groups. A narrated tour, recorded in this TYPO3 v14 lab, with English captions.</p>",
-  "mp4": "content-types-572c28f6.mp4",
-  "poster": "content-types-poster-572c28f6.webp",
+  "mp4": "content-types-56c61faa.mp4",
+  "poster": "content-types-poster-56c61faa.webp",
   "vtt": "content-types-572c28f6.en.vtt",
   "duration": 53.34,
   "width": 1920,
@@ -43,11 +43,11 @@
   "captions": {
     "language": "en",
     "label": "English",
-    "burnedIn": true
+    "burnedIn": false
   },
   "bytes": {
-    "mp4": 3685726,
-    "poster": 57678,
+    "mp4": 3614376,
+    "poster": 52312,
     "vtt": 724
   },
   "generator": "packages/site_package/Build/Film/render-films.mjs"

@@ -5,8 +5,8 @@
   "title": "Desiderio: overview film",
   "header": "Desiderio in 59 seconds",
   "description": "<p>244 finished content elements for TYPO3. A narrated tour, recorded in this TYPO3 v14 lab, with English captions.</p>",
-  "mp4": "desiderio-94bbad83.mp4",
-  "poster": "desiderio-poster-94bbad83.webp",
+  "mp4": "desiderio-ea8d1590.mp4",
+  "poster": "desiderio-poster-ea8d1590.webp",
   "vtt": "desiderio-94bbad83.en.vtt",
   "duration": 58.7,
   "width": 1920,
@@ -47,11 +47,11 @@
   "captions": {
     "language": "en",
     "label": "English",
-    "burnedIn": true
+    "burnedIn": false
   },
   "bytes": {
-    "mp4": 5110347,
-    "poster": 88896,
+    "mp4": 5047256,
+    "poster": 80938,
     "vtt": 856
   },
   "generator": "packages/site_package/Build/Film/render-films.mjs"

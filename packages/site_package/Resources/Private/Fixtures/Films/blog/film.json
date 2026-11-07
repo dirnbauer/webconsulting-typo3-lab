@@ -5,8 +5,8 @@
   "title": "TYPO3 Blog: overview film",
   "header": "TYPO3 Blog in 55 seconds",
   "description": "<p>Posts are pages, styled by Desiderio. A narrated tour, recorded in this TYPO3 v14 lab, with English captions.</p>",
-  "mp4": "blog-0e746159.mp4",
-  "poster": "blog-poster-0e746159.webp",
+  "mp4": "blog-632eeb54.mp4",
+  "poster": "blog-poster-632eeb54.webp",
   "vtt": "blog-0e746159.en.vtt",
   "duration": 54.779,
   "width": 1920,
@@ -47,11 +47,11 @@
   "captions": {
     "language": "en",
     "label": "English",
-    "burnedIn": true
+    "burnedIn": false
   },
   "bytes": {
-    "mp4": 3871154,
-    "poster": 40016,
+    "mp4": 3772899,
+    "poster": 33762,
     "vtt": 779
   },
   "generator": "packages/site_package/Build/Film/render-films.mjs"

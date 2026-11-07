@@ -5,8 +5,8 @@
   "title": "Navigation & Wayfinding: overview film",
   "header": "Navigation & Wayfinding in 34 seconds",
   "description": "<p>Menus, breadcrumbs and pagination. A narrated tour, recorded in this TYPO3 v14 lab, with English captions.</p>",
-  "mp4": "content-types-navigation-wayfinding-9844252e.mp4",
-  "poster": "content-types-navigation-wayfinding-poster-9844252e.webp",
+  "mp4": "content-types-navigation-wayfinding-4323de5a.mp4",
+  "poster": "content-types-navigation-wayfinding-poster-4323de5a.webp",
   "vtt": "content-types-navigation-wayfinding-9844252e.en.vtt",
   "duration": 33.599,
   "width": 1920,
@@ -35,11 +35,11 @@
   "captions": {
     "language": "en",
     "label": "English",
-    "burnedIn": true
+    "burnedIn": false
   },
   "bytes": {
-    "mp4": 2371712,
-    "poster": 38544,
+    "mp4": 2283740,
+    "poster": 32100,
     "vtt": 494
   },
   "generator": "packages/site_package/Build/Film/render-films.mjs"

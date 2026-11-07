@@ -9,8 +9,8 @@
   "title": "typo3-structured-data: the skill at work",
   "header": "typo3-structured-data in 48 seconds",
   "description": "<p>One JSON-LD graph from the records that render the page. Recorded on a TYPO3 14.3 site in DDEV and in the Schema.org Validator. Narrated, with English captions.</p>",
-  "mp4": "skill-typo3-structured-data-c5075413.mp4",
-  "poster": "skill-typo3-structured-data-poster-c5075413.webp",
+  "mp4": "skill-typo3-structured-data-c05a847e.mp4",
+  "poster": "skill-typo3-structured-data-poster-c05a847e.webp",
   "vtt": "skill-typo3-structured-data-c5075413.en.vtt",
   "duration": 47.991,
   "width": 1920,
@@ -47,11 +47,11 @@
   "captions": {
     "language": "en",
     "label": "English",
-    "burnedIn": true
+    "burnedIn": false
   },
   "bytes": {
-    "mp4": 2462774,
-    "poster": 35300,
+    "mp4": 2402350,
+    "poster": 30496,
     "vtt": 636
   },
   "generator": "packages/site_package/Build/Film/render-films.mjs"

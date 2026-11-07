@@ -5,8 +5,8 @@
   "title": "Easy Workspace: overview film",
   "header": "Easy Workspace in 50 seconds",
   "description": "<p>Review and publish a page in one click. A narrated tour, recorded in this TYPO3 v14 lab, with English captions.</p>",
-  "mp4": "easy-workspace-2d0dde10.mp4",
-  "poster": "easy-workspace-poster-2d0dde10.webp",
+  "mp4": "easy-workspace-58566c59.mp4",
+  "poster": "easy-workspace-poster-58566c59.webp",
   "vtt": "easy-workspace-2d0dde10.en.vtt",
   "duration": 49.581,
   "width": 1920,
@@ -47,11 +47,11 @@
   "captions": {
     "language": "en",
     "label": "English",
-    "burnedIn": true
+    "burnedIn": false
   },
   "bytes": {
-    "mp4": 4051823,
-    "poster": 38774,
+    "mp4": 3978056,
+    "poster": 34032,
     "vtt": 749
   },
   "generator": "packages/site_package/Build/Film/render-films.mjs"

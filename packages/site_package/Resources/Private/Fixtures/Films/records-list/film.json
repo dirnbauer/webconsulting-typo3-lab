@@ -5,8 +5,8 @@
   "title": "Records List Types: overview film",
   "header": "Records List Types in 53 seconds",
   "description": "<p>Cards, tables and teasers in the Records module. A narrated tour, recorded in this TYPO3 v14 lab, with English captions.</p>",
-  "mp4": "records-list-18780114.mp4",
-  "poster": "records-list-poster-18780114.webp",
+  "mp4": "records-list-5acea094.mp4",
+  "poster": "records-list-poster-5acea094.webp",
   "vtt": "records-list-18780114.en.vtt",
   "duration": 53.344,
   "width": 1920,
@@ -47,11 +47,11 @@
   "captions": {
     "language": "en",
     "label": "English",
-    "burnedIn": true
+    "burnedIn": false
   },
   "bytes": {
-    "mp4": 4722757,
-    "poster": 41866,
+    "mp4": 4627243,
+    "poster": 36080,
     "vtt": 766
   },
   "generator": "packages/site_package/Build/Film/render-films.mjs"

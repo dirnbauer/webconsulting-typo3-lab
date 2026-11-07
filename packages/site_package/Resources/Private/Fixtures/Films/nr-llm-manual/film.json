@@ -5,8 +5,8 @@
   "title": "nr-llm: overview film",
   "header": "nr-llm in 58 seconds",
   "description": "<p>One AI setup for every TYPO3 extension. A narrated tour, recorded in this TYPO3 v14 lab, with English captions.</p>",
-  "mp4": "nr-llm-manual-9f3176c9.mp4",
-  "poster": "nr-llm-manual-poster-9f3176c9.webp",
+  "mp4": "nr-llm-manual-d0407a15.mp4",
+  "poster": "nr-llm-manual-poster-d0407a15.webp",
   "vtt": "nr-llm-manual-9f3176c9.en.vtt",
   "duration": 58.332,
   "width": 1920,
@@ -47,11 +47,11 @@
   "captions": {
     "language": "en",
     "label": "English",
-    "burnedIn": true
+    "burnedIn": false
   },
   "bytes": {
-    "mp4": 3767038,
-    "poster": 27498,
+    "mp4": 3667832,
+    "poster": 21730,
     "vtt": 770
   },
   "generator": "packages/site_package/Build/Film/render-films.mjs"

@@ -5,8 +5,8 @@
   "title": "Powermail: overview film",
   "header": "Powermail in 51 seconds",
   "description": "<p>Forms your editors build, in your theme. A narrated tour, recorded in this TYPO3 v14 lab, with English captions.</p>",
-  "mp4": "powermail-e33fe765.mp4",
-  "poster": "powermail-poster-e33fe765.webp",
+  "mp4": "powermail-45fab222.mp4",
+  "poster": "powermail-poster-45fab222.webp",
   "vtt": "powermail-e33fe765.en.vtt",
   "duration": 51.419,
   "width": 1920,
@@ -47,11 +47,11 @@
   "captions": {
     "language": "en",
     "label": "English",
-    "burnedIn": true
+    "burnedIn": false
   },
   "bytes": {
-    "mp4": 3432891,
-    "poster": 39014,
+    "mp4": 3371619,
+    "poster": 33958,
     "vtt": 746
   },
   "generator": "packages/site_package/Build/Film/render-films.mjs"

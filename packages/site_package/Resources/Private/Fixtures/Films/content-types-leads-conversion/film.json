@@ -5,8 +5,8 @@
   "title": "Leads & Conversion: overview film",
   "header": "Leads & Conversion in 37 seconds",
   "description": "<p>Turn visits into leads without a developer. A narrated tour, recorded in this TYPO3 v14 lab, with English captions.</p>",
-  "mp4": "content-types-leads-conversion-5be33100.mp4",
-  "poster": "content-types-leads-conversion-poster-5be33100.webp",
+  "mp4": "content-types-leads-conversion-3f86e9e2.mp4",
+  "poster": "content-types-leads-conversion-poster-3f86e9e2.webp",
   "vtt": "content-types-leads-conversion-5be33100.en.vtt",
   "duration": 36.525,
   "width": 1920,
@@ -35,11 +35,11 @@
   "captions": {
     "language": "en",
     "label": "English",
-    "burnedIn": true
+    "burnedIn": false
   },
   "bytes": {
-    "mp4": 2509615,
-    "poster": 53538,
+    "mp4": 2477566,
+    "poster": 46018,
     "vtt": 511
   },
   "generator": "packages/site_package/Build/Film/render-films.mjs"

@@ -5,8 +5,8 @@
   "title": "DOCX Editor: edit Word files inside TYPO3",
   "header": "DOCX Editor in two minutes",
   "description": "<p>Edit a Word file where it is stored, or open any page as a Word document. Or keep your word processor: download the page, change it in Word or LibreOffice, upload it and review each change before the import. Recorded in this TYPO3 v14 lab, with English captions.</p>",
-  "mp4": "docx-editor-ff00a0f2.mp4",
-  "poster": "docx-editor-poster-ff00a0f2.webp",
+  "mp4": "docx-editor-c668f6b1.mp4",
+  "poster": "docx-editor-poster-c668f6b1.webp",
   "vtt": "docx-editor-ff00a0f2.en.vtt",
   "duration": 125.306,
   "width": 1920,
@@ -99,11 +99,11 @@
   "captions": {
     "language": "en",
     "label": "English",
-    "burnedIn": true
+    "burnedIn": false
   },
   "bytes": {
-    "mp4": 8154748,
-    "poster": 39304,
+    "mp4": 8401016,
+    "poster": 35056,
     "vtt": 1817
   },
   "generator": "packages/site_package/Build/Film/render-films.mjs"

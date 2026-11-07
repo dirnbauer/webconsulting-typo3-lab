@@ -5,8 +5,8 @@
   "title": "Agentation: overview film",
   "header": "Agentation in 50 seconds",
   "description": "<p>Show coding agents what to fix. A narrated tour, recorded in this TYPO3 v14 lab, with English captions.</p>",
-  "mp4": "agentation-daf3e151.mp4",
-  "poster": "agentation-poster-daf3e151.webp",
+  "mp4": "agentation-da19c368.mp4",
+  "poster": "agentation-poster-da19c368.webp",
   "vtt": "agentation-daf3e151.en.vtt",
   "duration": 49.795,
   "width": 1920,
@@ -43,11 +43,11 @@
   "captions": {
     "language": "en",
     "label": "English",
-    "burnedIn": true
+    "burnedIn": false
   },
   "bytes": {
-    "mp4": 3500504,
-    "poster": 47698,
+    "mp4": 3390527,
+    "poster": 41756,
     "vtt": 725
   },
   "generator": "packages/site_package/Build/Film/render-films.mjs"

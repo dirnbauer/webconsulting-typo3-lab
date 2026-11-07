@@ -5,8 +5,8 @@
   "title": "News: overview film",
   "header": "News in 57 seconds",
   "description": "<p>Articles and releases in your theme. A narrated tour, recorded in this TYPO3 v14 lab, with English captions.</p>",
-  "mp4": "news-b87524e4.mp4",
-  "poster": "news-poster-b87524e4.webp",
+  "mp4": "news-b3d48e1c.mp4",
+  "poster": "news-poster-b3d48e1c.webp",
   "vtt": "news-b87524e4.en.vtt",
   "duration": 56.582,
   "width": 1920,
@@ -47,11 +47,11 @@
   "captions": {
     "language": "en",
     "label": "English",
-    "burnedIn": true
+    "burnedIn": false
   },
   "bytes": {
-    "mp4": 4318357,
-    "poster": 47844,
+    "mp4": 4236816,
+    "poster": 40916,
     "vtt": 819
   },
   "generator": "packages/site_package/Build/Film/render-films.mjs"

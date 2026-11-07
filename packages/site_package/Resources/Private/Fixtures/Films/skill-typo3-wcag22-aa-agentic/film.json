@@ -9,8 +9,8 @@
   "title": "typo3-wcag22-aa-agentic: the skill at work",
   "header": "typo3-wcag22-aa-agentic in 47 seconds",
   "description": "<p>WCAG 2.2 AA scans, a report and a statement draft. Recorded from a real scan of nine pages of this lab’s Odera template site. Narrated, with English captions.</p>",
-  "mp4": "skill-typo3-wcag22-aa-agentic-b5e7c7a1.mp4",
-  "poster": "skill-typo3-wcag22-aa-agentic-poster-b5e7c7a1.webp",
+  "mp4": "skill-typo3-wcag22-aa-agentic-5b199178.mp4",
+  "poster": "skill-typo3-wcag22-aa-agentic-poster-5b199178.webp",
   "vtt": "skill-typo3-wcag22-aa-agentic-b5e7c7a1.en.vtt",
   "duration": 47.489,
   "width": 1920,
@@ -47,11 +47,11 @@
   "captions": {
     "language": "en",
     "label": "English",
-    "burnedIn": true
+    "burnedIn": false
   },
   "bytes": {
-    "mp4": 2772230,
-    "poster": 44344,
+    "mp4": 2764010,
+    "poster": 38636,
     "vtt": 639
   },
   "generator": "packages/site_package/Build/Film/render-films.mjs"

@@ -5,8 +5,8 @@
   "title": "Jev: overview film",
   "header": "Jev in 52 seconds",
   "description": "<p>Forms that understand what people write. A narrated tour, recorded in this TYPO3 v14 lab, with English captions.</p>",
-  "mp4": "jev-cff37187.mp4",
-  "poster": "jev-poster-cff37187.webp",
+  "mp4": "jev-4735106b.mp4",
+  "poster": "jev-poster-4735106b.webp",
   "vtt": "jev-cff37187.en.vtt",
   "duration": 52.195,
   "width": 1920,
@@ -47,11 +47,11 @@
   "captions": {
     "language": "en",
     "label": "English",
-    "burnedIn": true
+    "burnedIn": false
   },
   "bytes": {
-    "mp4": 4153244,
-    "poster": 29984,
+    "mp4": 4101300,
+    "poster": 24078,
     "vtt": 755
   },
   "generator": "packages/site_package/Build/Film/render-films.mjs"

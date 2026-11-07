@@ -5,8 +5,8 @@
   "title": "Website tools: overview film",
   "header": "Website tools in 75 seconds",
   "description": "<p>17 tools, each one running in this lab. A narrated tour, recorded in this TYPO3 v14 lab, with English captions.</p>",
-  "mp4": "features-7f3aa68b.mp4",
-  "poster": "features-poster-7f3aa68b.webp",
+  "mp4": "features-3a79e645.mp4",
+  "poster": "features-poster-3a79e645.webp",
   "vtt": "features-7f3aa68b.en.vtt",
   "duration": 75.47,
   "width": 1920,
@@ -47,11 +47,11 @@
   "captions": {
     "language": "en",
     "label": "English",
-    "burnedIn": true
+    "burnedIn": false
   },
   "bytes": {
-    "mp4": 5710935,
-    "poster": 57046,
+    "mp4": 5811767,
+    "poster": 48238,
     "vtt": 981
   },
   "generator": "packages/site_package/Build/Film/render-films.mjs"

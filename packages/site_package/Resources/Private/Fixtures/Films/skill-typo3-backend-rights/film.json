@@ -9,8 +9,8 @@
   "title": "typo3-backend-rights: the skill at work",
   "header": "typo3-backend-rights in 48 seconds",
   "description": "<p>Editor groups you can verify. Recorded from a read-only audit of this TYPO3 v14 lab and its Backend Users module. Narrated, with English captions.</p>",
-  "mp4": "skill-typo3-backend-rights-8a399c15.mp4",
-  "poster": "skill-typo3-backend-rights-poster-8a399c15.webp",
+  "mp4": "skill-typo3-backend-rights-4550b617.mp4",
+  "poster": "skill-typo3-backend-rights-poster-4550b617.webp",
   "vtt": "skill-typo3-backend-rights-8a399c15.en.vtt",
   "duration": 48.423,
   "width": 1920,
@@ -47,11 +47,11 @@
   "captions": {
     "language": "en",
     "label": "English",
-    "burnedIn": true
+    "burnedIn": false
   },
   "bytes": {
-    "mp4": 2425850,
-    "poster": 26256,
+    "mp4": 2447059,
+    "poster": 22638,
     "vtt": 625
   },
   "generator": "packages/site_package/Build/Film/render-films.mjs"

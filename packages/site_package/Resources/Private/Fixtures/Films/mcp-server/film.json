@@ -5,8 +5,8 @@
   "title": "MCP Server: overview film",
   "header": "MCP Server in 49 seconds",
   "description": "<p>Connect your AI assistant to TYPO3. A narrated tour, recorded in this TYPO3 v14 lab, with English captions.</p>",
-  "mp4": "mcp-server-6f6d1e21.mp4",
-  "poster": "mcp-server-poster-6f6d1e21.webp",
+  "mp4": "mcp-server-c5682391.mp4",
+  "poster": "mcp-server-poster-c5682391.webp",
   "vtt": "mcp-server-6f6d1e21.en.vtt",
   "duration": 49.015,
   "width": 1920,
@@ -43,11 +43,11 @@
   "captions": {
     "language": "en",
     "label": "English",
-    "burnedIn": true
+    "burnedIn": false
   },
   "bytes": {
-    "mp4": 3139777,
-    "poster": 47702,
+    "mp4": 3077443,
+    "poster": 41428,
     "vtt": 692
   },
   "generator": "packages/site_package/Build/Film/render-films.mjs"

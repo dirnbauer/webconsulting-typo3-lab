@@ -5,8 +5,8 @@
   "title": "nr-vault: overview film",
   "header": "nr-vault in 51 seconds",
   "description": "<p>Encrypted secrets with an audit log. A narrated tour, recorded in this TYPO3 v14 lab, with English captions.</p>",
-  "mp4": "nr-vault-74d2768b.mp4",
-  "poster": "nr-vault-poster-74d2768b.webp",
+  "mp4": "nr-vault-27cd4966.mp4",
+  "poster": "nr-vault-poster-27cd4966.webp",
   "vtt": "nr-vault-74d2768b.en.vtt",
   "duration": 50.844,
   "width": 1920,
@@ -43,11 +43,11 @@
   "captions": {
     "language": "en",
     "label": "English",
-    "burnedIn": true
+    "burnedIn": false
   },
   "bytes": {
-    "mp4": 3998009,
-    "poster": 32864,
+    "mp4": 3914151,
+    "poster": 26500,
     "vtt": 717
   },
   "generator": "packages/site_package/Build/Film/render-films.mjs"

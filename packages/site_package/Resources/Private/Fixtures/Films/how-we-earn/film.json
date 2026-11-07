@@ -10,8 +10,8 @@
   "eyebrow": "Film",
   "header": "How we earn, in 58 seconds",
   "description": "<p>Desiderio is free with every release; we earn when you want our time. The four ways to work with us, what stays free, what the plans and Care cost, and what we never do. Narrated, with English captions.</p>",
-  "mp4": "how-we-earn-3231bab9.mp4",
-  "poster": "how-we-earn-poster-3231bab9.webp",
+  "mp4": "how-we-earn-6c69bd03.mp4",
+  "poster": "how-we-earn-poster-6c69bd03.webp",
   "vtt": "how-we-earn-3231bab9.en.vtt",
   "duration": 58.391,
   "width": 1920,
@@ -52,11 +52,11 @@
   "captions": {
     "language": "en",
     "label": "English",
-    "burnedIn": true
+    "burnedIn": false
   },
   "bytes": {
-    "mp4": 2987985,
-    "poster": 33384,
+    "mp4": 2876718,
+    "poster": 28622,
     "vtt": 769
   },
   "generator": "packages/site_package/Build/Film/render-films.mjs"

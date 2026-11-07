@@ -9,8 +9,8 @@
   "title": "Agentic skills: overview film",
   "header": "Agentic skills in 44 seconds",
   "description": "<p>61 skills for coding agents. A narrated tour, recorded in this TYPO3 v14 lab, with English captions.</p>",
-  "mp4": "agentic-skills-72e85ca2.mp4",
-  "poster": "agentic-skills-poster-72e85ca2.webp",
+  "mp4": "agentic-skills-f6d2d087.mp4",
+  "poster": "agentic-skills-poster-f6d2d087.webp",
   "vtt": "agentic-skills-72e85ca2.en.vtt",
   "duration": 44.183,
   "width": 1920,
@@ -51,11 +51,11 @@
   "captions": {
     "language": "en",
     "label": "English",
-    "burnedIn": true
+    "burnedIn": false
   },
   "bytes": {
-    "mp4": 3381917,
-    "poster": 48668,
+    "mp4": 3343194,
+    "poster": 45310,
     "vtt": 594
   },
   "generator": "packages/site_package/Build/Film/render-films.mjs"

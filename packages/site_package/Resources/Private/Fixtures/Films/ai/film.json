@@ -5,8 +5,8 @@
   "title": "AI tools: overview film",
   "header": "AI tools in 60 seconds",
   "description": "<p>11 tools, with people in charge. A narrated tour, recorded in this TYPO3 v14 lab, with English captions.</p>",
-  "mp4": "ai-2b5befef.mp4",
-  "poster": "ai-poster-2b5befef.webp",
+  "mp4": "ai-a4c964ec.mp4",
+  "poster": "ai-poster-a4c964ec.webp",
   "vtt": "ai-2b5befef.en.vtt",
   "duration": 59.693,
   "width": 1920,
@@ -43,11 +43,11 @@
   "captions": {
     "language": "en",
     "label": "English",
-    "burnedIn": true
+    "burnedIn": false
   },
   "bytes": {
-    "mp4": 4971316,
-    "poster": 32416,
+    "mp4": 4871904,
+    "poster": 25506,
     "vtt": 804
   },
   "generator": "packages/site_package/Build/Film/render-films.mjs"

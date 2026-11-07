@@ -9,8 +9,8 @@
   "title": "typo3-visual-editor: the skill at work",
   "header": "typo3-visual-editor in 47 seconds",
   "description": "<p>Templates ready for editing on the page. Recorded in this TYPO3 v14 lab: a real Desiderio template, then the Visual Editor on a test page, saved for real and removed afterwards. Narrated, with English captions.</p>",
-  "mp4": "skill-typo3-visual-editor-18c41f19.mp4",
-  "poster": "skill-typo3-visual-editor-poster-18c41f19.webp",
+  "mp4": "skill-typo3-visual-editor-ff219af1.mp4",
+  "poster": "skill-typo3-visual-editor-poster-ff219af1.webp",
   "vtt": "skill-typo3-visual-editor-18c41f19.en.vtt",
   "duration": 47.08,
   "width": 1920,
@@ -47,11 +47,11 @@
   "captions": {
     "language": "en",
     "label": "English",
-    "burnedIn": true
+    "burnedIn": false
   },
   "bytes": {
-    "mp4": 2494117,
-    "poster": 60812,
+    "mp4": 2429240,
+    "poster": 54276,
     "vtt": 620
   },
   "generator": "packages/site_package/Build/Film/render-films.mjs"

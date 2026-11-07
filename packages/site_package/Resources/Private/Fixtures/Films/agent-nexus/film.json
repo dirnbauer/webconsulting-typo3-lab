@@ -5,8 +5,8 @@
   "title": "Agent Nexus: overview film",
   "header": "Agent Nexus in 60 seconds",
   "description": "<p>Five agent protocols on your own TYPO3. A narrated tour, recorded in this TYPO3 v14 lab, with English captions.</p>",
-  "mp4": "agent-nexus-1eee0814.mp4",
-  "poster": "agent-nexus-poster-1eee0814.webp",
+  "mp4": "agent-nexus-4e1e0c3b.mp4",
+  "poster": "agent-nexus-poster-4e1e0c3b.webp",
   "vtt": "agent-nexus-1eee0814.en.vtt",
   "duration": 60.082,
   "width": 1920,
@@ -47,11 +47,11 @@
   "captions": {
     "language": "en",
     "label": "English",
-    "burnedIn": true
+    "burnedIn": false
   },
   "bytes": {
-    "mp4": 4429437,
-    "poster": 32724,
+    "mp4": 4406530,
+    "poster": 26418,
     "vtt": 822
   },
   "generator": "packages/site_package/Build/Film/render-films.mjs"

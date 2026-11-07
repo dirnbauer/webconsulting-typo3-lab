@@ -5,8 +5,8 @@
   "title": "AI Assistant: overview film",
   "header": "AI Assistant in 52 seconds",
   "description": "<p>Ask TYPO3. Approve every change. A narrated tour, recorded in this TYPO3 v14 lab, with English captions.</p>",
-  "mp4": "ai-assistant-0d927738.mp4",
-  "poster": "ai-assistant-poster-0d927738.webp",
+  "mp4": "ai-assistant-d6e3b08f.mp4",
+  "poster": "ai-assistant-poster-d6e3b08f.webp",
   "vtt": "ai-assistant-0d927738.en.vtt",
   "duration": 52.429,
   "width": 1920,
@@ -47,11 +47,11 @@
   "captions": {
     "language": "en",
     "label": "English",
-    "burnedIn": true
+    "burnedIn": false
   },
   "bytes": {
-    "mp4": 4672020,
-    "poster": 57798,
+    "mp4": 4605134,
+    "poster": 50918,
     "vtt": 805
   },
   "generator": "packages/site_package/Build/Film/render-films.mjs"

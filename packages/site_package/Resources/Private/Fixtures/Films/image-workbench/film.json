@@ -5,8 +5,8 @@
   "title": "Image Workbench: overview film",
   "header": "Image Workbench in 44 seconds",
   "description": "<p>Crop, adjust and generate images inside TYPO3. A narrated tour, recorded in this TYPO3 v14 lab, with English captions.</p>",
-  "mp4": "image-workbench-87e4964f.mp4",
-  "poster": "image-workbench-poster-87e4964f.webp",
+  "mp4": "image-workbench-ad4fe090.mp4",
+  "poster": "image-workbench-poster-ad4fe090.webp",
   "vtt": "image-workbench-87e4964f.en.vtt",
   "duration": 44.087,
   "width": 1920,
@@ -43,11 +43,11 @@
   "captions": {
     "language": "en",
     "label": "English",
-    "burnedIn": true
+    "burnedIn": false
   },
   "bytes": {
-    "mp4": 3568790,
-    "poster": 56064,
+    "mp4": 3481490,
+    "poster": 50956,
     "vtt": 624
   },
   "generator": "packages/site_package/Build/Film/render-films.mjs"

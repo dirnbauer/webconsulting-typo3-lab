@@ -9,8 +9,8 @@
   "title": "typo3-rector: the skill at work",
   "header": "typo3-rector in 49 seconds",
   "description": "<p>Deprecated calls fixed by tools, twice checked. Recorded from real Rector and Fractor runs on a throwaway copy of a TYPO3 12 revision of powermail_cond; nothing was applied to any repository. Narrated, with English captions.</p>",
-  "mp4": "skill-typo3-rector-f1330c6d.mp4",
-  "poster": "skill-typo3-rector-poster-f1330c6d.webp",
+  "mp4": "skill-typo3-rector-3640c531.mp4",
+  "poster": "skill-typo3-rector-poster-3640c531.webp",
   "vtt": "skill-typo3-rector-f1330c6d.en.vtt",
   "duration": 49.259,
   "width": 1920,
@@ -47,11 +47,11 @@
   "captions": {
     "language": "en",
     "label": "English",
-    "burnedIn": true
+    "burnedIn": false
   },
   "bytes": {
-    "mp4": 2892180,
-    "poster": 58160,
+    "mp4": 2730638,
+    "poster": 53256,
     "vtt": 593
   },
   "generator": "packages/site_package/Build/Film/render-films.mjs"

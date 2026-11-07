@@ -10,8 +10,8 @@
   "title": "T3 Ops: overview film",
   "header": "T3 Ops in 63 seconds",
   "description": "<p>One screen for the whole fleet. A narrated tour of T3 Ops on demo data, with English captions.</p>",
-  "mp4": "t3-ops-e27ae329.mp4",
-  "poster": "t3-ops-poster-e27ae329.webp",
+  "mp4": "t3-ops-bf65c37a.mp4",
+  "poster": "t3-ops-poster-bf65c37a.webp",
   "vtt": "t3-ops-e27ae329.en.vtt",
   "duration": 63.458,
   "width": 1920,
@@ -56,11 +56,11 @@
   "captions": {
     "language": "en",
     "label": "English",
-    "burnedIn": true
+    "burnedIn": false
   },
   "bytes": {
-    "mp4": 3796442,
-    "poster": 49758,
+    "mp4": 3648651,
+    "poster": 44872,
     "vtt": 888
   },
   "generator": "packages/site_package/Build/Film/render-films.mjs"

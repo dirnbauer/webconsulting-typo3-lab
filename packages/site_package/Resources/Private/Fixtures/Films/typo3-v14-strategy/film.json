@@ -10,8 +10,8 @@
   "title": "TYPO3 v14 and AI agents: strategy film",
   "header": "Our TYPO3 v14 strategy in 65 seconds",
   "description": "<p>Our strategy for TYPO3 v14 and AI agents, 2026 to 2030: five points that are the standard for everything we build. Narrated, with English captions.</p>",
-  "mp4": "typo3-v14-strategy-29bffd67.mp4",
-  "poster": "typo3-v14-strategy-poster-29bffd67.webp",
+  "mp4": "typo3-v14-strategy-2f12e85c.mp4",
+  "poster": "typo3-v14-strategy-poster-2f12e85c.webp",
   "vtt": "typo3-v14-strategy-29bffd67.en.vtt",
   "duration": 64.994,
   "width": 1920,
@@ -64,11 +64,11 @@
   "captions": {
     "language": "en",
     "label": "English",
-    "burnedIn": true
+    "burnedIn": false
   },
   "bytes": {
-    "mp4": 3230166,
-    "poster": 43344,
+    "mp4": 3107900,
+    "poster": 38162,
     "vtt": 947
   },
   "generator": "packages/site_package/Build/Film/render-films.mjs"

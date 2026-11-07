@@ -10,8 +10,8 @@
   "title": "MedAtlas Austria: overview film",
   "header": "MedAtlas Austria in 64 seconds",
   "description": "<p>Medicines and shortages, from the public registers. A narrated tour of the MedAtlas Austria demo, figures as of 4 November 2026, with English captions. Not medical advice.</p>",
-  "mp4": "medatlas-578ad487.mp4",
-  "poster": "medatlas-poster-578ad487.webp",
+  "mp4": "medatlas-3c1f6d91.mp4",
+  "poster": "medatlas-poster-3c1f6d91.webp",
   "vtt": "medatlas-578ad487.en.vtt",
   "duration": 63.596,
   "width": 1920,
@@ -60,11 +60,11 @@
   "captions": {
     "language": "en",
     "label": "English",
-    "burnedIn": true
+    "burnedIn": false
   },
   "bytes": {
-    "mp4": 5784128,
-    "poster": 52714,
+    "mp4": 5717037,
+    "poster": 49204,
     "vtt": 830
   },
   "generator": "packages/site_package/Build/Film/render-films.mjs"

@@ -5,8 +5,8 @@
   "title": "Trust & Social Proof: overview film",
   "header": "Trust & Social Proof in 33 seconds",
   "description": "<p>Testimonials, logos and case studies. A narrated tour, recorded in this TYPO3 v14 lab, with English captions.</p>",
-  "mp4": "content-types-trust-social-proof-f4a199f2.mp4",
-  "poster": "content-types-trust-social-proof-poster-f4a199f2.webp",
+  "mp4": "content-types-trust-social-proof-820b9c0a.mp4",
+  "poster": "content-types-trust-social-proof-poster-820b9c0a.webp",
   "vtt": "content-types-trust-social-proof-f4a199f2.en.vtt",
   "duration": 32.843,
   "width": 1920,
@@ -35,11 +35,11 @@
   "captions": {
     "language": "en",
     "label": "English",
-    "burnedIn": true
+    "burnedIn": false
   },
   "bytes": {
-    "mp4": 2321355,
-    "poster": 37082,
+    "mp4": 2279208,
+    "poster": 31110,
     "vtt": 471
   },
   "generator": "packages/site_package/Build/Film/render-films.mjs"

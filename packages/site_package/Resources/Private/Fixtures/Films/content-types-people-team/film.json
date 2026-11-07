@@ -5,8 +5,8 @@
   "title": "People & Team: overview film",
   "header": "People & Team in 31 seconds",
   "description": "<p>Introduce the people behind the work. A narrated tour, recorded in this TYPO3 v14 lab, with English captions.</p>",
-  "mp4": "content-types-people-team-98abece6.mp4",
-  "poster": "content-types-people-team-poster-98abece6.webp",
+  "mp4": "content-types-people-team-6631a87b.mp4",
+  "poster": "content-types-people-team-poster-6631a87b.webp",
   "vtt": "content-types-people-team-98abece6.en.vtt",
   "duration": 30.832,
   "width": 1920,
@@ -35,11 +35,11 @@
   "captions": {
     "language": "en",
     "label": "English",
-    "burnedIn": true
+    "burnedIn": false
   },
   "bytes": {
-    "mp4": 2180981,
-    "poster": 43742,
+    "mp4": 2121678,
+    "poster": 37202,
     "vtt": 459
   },
   "generator": "packages/site_package/Build/Film/render-films.mjs"

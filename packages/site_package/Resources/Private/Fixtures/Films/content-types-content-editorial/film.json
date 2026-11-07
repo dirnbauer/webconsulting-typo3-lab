@@ -5,8 +5,8 @@
   "title": "Content & Editorial: overview film",
   "header": "Content & Editorial in 33 seconds",
   "description": "<p>Layouts for articles and text pages. A narrated tour, recorded in this TYPO3 v14 lab, with English captions.</p>",
-  "mp4": "content-types-content-editorial-775f1962.mp4",
-  "poster": "content-types-content-editorial-poster-775f1962.webp",
+  "mp4": "content-types-content-editorial-7af1edd2.mp4",
+  "poster": "content-types-content-editorial-poster-7af1edd2.webp",
   "vtt": "content-types-content-editorial-775f1962.en.vtt",
   "duration": 33.495,
   "width": 1920,
@@ -35,11 +35,11 @@
   "captions": {
     "language": "en",
     "label": "English",
-    "burnedIn": true
+    "burnedIn": false
   },
   "bytes": {
-    "mp4": 2313630,
-    "poster": 36080,
+    "mp4": 2323719,
+    "poster": 28602,
     "vtt": 475
   },
   "generator": "packages/site_package/Build/Film/render-films.mjs"

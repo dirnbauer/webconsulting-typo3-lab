@@ -5,8 +5,8 @@
   "title": "x402 Paywall: overview film",
   "header": "x402 Paywall in 55 seconds",
   "description": "<p>Paid content for people and AI agents. A narrated tour, recorded in this TYPO3 v14 lab, with English captions.</p>",
-  "mp4": "x402-6f10786a.mp4",
-  "poster": "x402-poster-6f10786a.webp",
+  "mp4": "x402-9008a87a.mp4",
+  "poster": "x402-poster-9008a87a.webp",
   "vtt": "x402-6f10786a.en.vtt",
   "duration": 54.735,
   "width": 1920,
@@ -43,11 +43,11 @@
   "captions": {
     "language": "en",
     "label": "English",
-    "burnedIn": true
+    "burnedIn": false
   },
   "bytes": {
-    "mp4": 4053536,
-    "poster": 42616,
+    "mp4": 3988880,
+    "poster": 37948,
     "vtt": 703
   },
   "generator": "packages/site_package/Build/Film/render-films.mjs"

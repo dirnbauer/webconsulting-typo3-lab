@@ -9,8 +9,8 @@
   "title": "typo3-upgrade-run: the skill at work",
   "header": "typo3-upgrade-run in 47 seconds",
   "description": "<p>The upgrade as a sealed evidence graph. Recorded from real runs: the t3u harness on a scratch run and the final proof of a real TYPO3 12.4 to 14.3 update. Narrated, with English captions.</p>",
-  "mp4": "skill-typo3-upgrade-run-31987950.mp4",
-  "poster": "skill-typo3-upgrade-run-poster-31987950.webp",
+  "mp4": "skill-typo3-upgrade-run-a33ba072.mp4",
+  "poster": "skill-typo3-upgrade-run-poster-a33ba072.webp",
   "vtt": "skill-typo3-upgrade-run-31987950.en.vtt",
   "duration": 47.485,
   "width": 1920,
@@ -47,11 +47,11 @@
   "captions": {
     "language": "en",
     "label": "English",
-    "burnedIn": true
+    "burnedIn": false
   },
   "bytes": {
-    "mp4": 2655926,
-    "poster": 43534,
+    "mp4": 2581839,
+    "poster": 38716,
     "vtt": 594
   },
   "generator": "packages/site_package/Build/Film/render-films.mjs"

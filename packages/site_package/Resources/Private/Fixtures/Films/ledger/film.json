@@ -10,8 +10,8 @@
   "title": "Ledger: overview film",
   "header": "Ledger in 57 seconds",
   "description": "<p>Hours, receipts and bank in one place. A narrated tour of Ledger on synthetic demo data, with English captions.</p>",
-  "mp4": "ledger-77fd3e4f.mp4",
-  "poster": "ledger-poster-77fd3e4f.webp",
+  "mp4": "ledger-08d24274.mp4",
+  "poster": "ledger-poster-08d24274.webp",
   "vtt": "ledger-77fd3e4f.en.vtt",
   "duration": 57,
   "width": 1920,
@@ -52,11 +52,11 @@
   "captions": {
     "language": "en",
     "label": "English",
-    "burnedIn": true
+    "burnedIn": false
   },
   "bytes": {
-    "mp4": 3342815,
-    "poster": 51810,
+    "mp4": 3313275,
+    "poster": 45662,
     "vtt": 833
   },
   "generator": "packages/site_package/Build/Film/render-films.mjs"

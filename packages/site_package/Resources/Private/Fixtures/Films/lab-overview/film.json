@@ -10,8 +10,8 @@
   "title": "The webconsulting TYPO3 lab: overview film",
   "header": "The webconsulting TYPO3 lab in 60 seconds",
   "description": "<p>Everything in this lab in one film: website tools, AI tools, four software products, ten website templates and our strategy for agents on the web. Narrated, with English captions.</p>",
-  "mp4": "lab-overview-a9e80bd2.mp4",
-  "poster": "lab-overview-poster-a9e80bd2.webp",
+  "mp4": "lab-overview-0b8a9894.mp4",
+  "poster": "lab-overview-poster-0b8a9894.webp",
   "vtt": "lab-overview-a9e80bd2.en.vtt",
   "duration": 59.615,
   "width": 1920,
@@ -56,11 +56,11 @@
   "captions": {
     "language": "en",
     "label": "English",
-    "burnedIn": true
+    "burnedIn": false
   },
   "bytes": {
-    "mp4": 5544391,
-    "poster": 54888,
+    "mp4": 5438791,
+    "poster": 46044,
     "vtt": 856
   },
   "generator": "packages/site_package/Build/Film/render-films.mjs"

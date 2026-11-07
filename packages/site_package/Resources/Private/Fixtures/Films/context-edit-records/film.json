@@ -5,8 +5,8 @@
   "title": "Context Edit Records: overview film",
   "header": "Context Edit Records in 44 seconds",
   "description": "<p>Edit records in a side panel. A narrated tour, recorded in this TYPO3 v14 lab, with English captions.</p>",
-  "mp4": "context-edit-records-0d5a3076.mp4",
-  "poster": "context-edit-records-poster-0d5a3076.webp",
+  "mp4": "context-edit-records-0448785a.mp4",
+  "poster": "context-edit-records-poster-0448785a.webp",
   "vtt": "context-edit-records-0d5a3076.en.vtt",
   "duration": 44.262,
   "width": 1920,
@@ -43,11 +43,11 @@
   "captions": {
     "language": "en",
     "label": "English",
-    "burnedIn": true
+    "burnedIn": false
   },
   "bytes": {
-    "mp4": 2673414,
-    "poster": 42976,
+    "mp4": 2616253,
+    "poster": 37922,
     "vtt": 670
   },
   "generator": "packages/site_package/Build/Film/render-films.mjs"

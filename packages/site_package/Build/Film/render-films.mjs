@@ -284,8 +284,16 @@ async function frames(pages, from, to, file, crf = 8, preset = 'veryfast') {
 mkdirSync(OUT, { recursive: true });
 const browser = await chromium.launch();
 const which = argument('film') ?? 'docx-editor';
-const ids = which === 'all' ? Object.keys(films) : which.split(',');
+const ids = which === 'all' ? Object.keys(films) : [...new Set(which.split(','))];
 const workers = Number(argument('workers') ?? 4);
+// During a picture batch, capture the next film while one preceding encode
+// finishes. Keep at most one encoder; its errors are checked before publishing
+// another film, and every queued encode finishes before the process exits.
+let encoding = Promise.resolve(null);
+async function finishEncoding() {
+    const error = await encoding;
+    if (error) throw error;
+}
 
 try {
     if (process.argv.includes('--list')) {
@@ -356,16 +364,24 @@ try {
             await frames(pages, 0, duration, master);
             await Promise.all(pages.slice(1).map((p) => p.close()));
             const mp4 = join(OUT, `${id}.mp4`);
-            await ffmpeg(['-i', master, '-c:v', 'libx264', '-preset', 'veryslow', '-crf', String(CRF), '-profile:v', 'high', '-level', '4.1', '-refs', '4', '-bf', '5', '-pix_fmt', 'yuv420p', '-movflags', '+faststart', '-an', mp4]);
             const poster = join(OUT, `${id}-poster.png`);
             await page.evaluate((time) => window.seek(time), await page.evaluate(() => window.POSTER_AT));
             await page.screenshot({ path: poster });
-            await finish(id, spec, mp4, poster, timeline);
-            if (REFRESH_PICTURE) unlinkSync(master);
+            await finishEncoding();
+            encoding = (async () => {
+                await ffmpeg(['-i', master, '-c:v', 'libx264', '-preset', 'veryslow', '-crf', String(CRF), '-profile:v', 'high', '-level', '4.1', '-refs', '4', '-bf', '5', '-pix_fmt', 'yuv420p', '-movflags', '+faststart', '-an', mp4]);
+                await finish(id, spec, mp4, poster, timeline);
+                if (REFRESH_PICTURE) unlinkSync(master);
+            })().then(() => null, (error) => error);
+            if (!REFRESH_PICTURE) await finishEncoding();
         }
         await page.close();
     }
 } finally {
-    await browser.close();
-    server.close();
+    try {
+        await finishEncoding();
+    } finally {
+        await browser.close();
+        server.close();
+    }
 }

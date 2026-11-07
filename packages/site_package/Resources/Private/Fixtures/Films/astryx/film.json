@@ -5,8 +5,8 @@
   "title": "Astryx: overview film",
   "header": "Astryx in 58 seconds",
   "description": "<p>Meta’s open-source design system, rendered by Fluid. A narrated tour, recorded in this TYPO3 v14 lab, with English captions.</p>",
-  "mp4": "astryx-4651ee68.mp4",
-  "poster": "astryx-poster-4651ee68.webp",
+  "mp4": "astryx-9bd9f023.mp4",
+  "poster": "astryx-poster-9bd9f023.webp",
   "vtt": "astryx-4651ee68.en.vtt",
   "duration": 58.238,
   "width": 1920,
@@ -47,11 +47,11 @@
   "captions": {
     "language": "en",
     "label": "English",
-    "burnedIn": true
+    "burnedIn": false
   },
   "bytes": {
-    "mp4": 4548930,
-    "poster": 43620,
+    "mp4": 4412822,
+    "poster": 35774,
     "vtt": 822
   },
   "generator": "packages/site_package/Build/Film/render-films.mjs"

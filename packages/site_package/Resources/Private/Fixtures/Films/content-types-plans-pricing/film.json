@@ -5,8 +5,8 @@
   "title": "Plans & Pricing: overview film",
   "header": "Plans & Pricing in 33 seconds",
   "description": "<p>Pricing tables, toggles and calculators. A narrated tour, recorded in this TYPO3 v14 lab, with English captions.</p>",
-  "mp4": "content-types-plans-pricing-a89f2cbe.mp4",
-  "poster": "content-types-plans-pricing-poster-a89f2cbe.webp",
+  "mp4": "content-types-plans-pricing-1f918322.mp4",
+  "poster": "content-types-plans-pricing-poster-1f918322.webp",
   "vtt": "content-types-plans-pricing-a89f2cbe.en.vtt",
   "duration": 33.234,
   "width": 1920,
@@ -35,11 +35,11 @@
   "captions": {
     "language": "en",
     "label": "English",
-    "burnedIn": true
+    "burnedIn": false
   },
   "bytes": {
-    "mp4": 2229904,
-    "poster": 33786,
+    "mp4": 2223058,
+    "poster": 26606,
     "vtt": 488
   },
   "generator": "packages/site_package/Build/Film/render-films.mjs"
