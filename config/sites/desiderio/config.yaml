@@ -14,11 +14,12 @@ dependencies:
   - webconsulting/innesto
   - webconsulting/site-package-workos
   - webconsulting/agent-nexus
-  - webconsulting/lab-statistics
   # Skills index and the skills search on /ai/agentic-skills/find (1030,
   # site settings skillflow.*). Listed after solr-defaults on purpose: its
   # page-scoped search settings must load after EXT:solr's default TypoScript.
   - webconsulting/skillflow-solr
+  # Statistics load last, after the theme (Tests/Unit/LabStatisticsTest.php).
+  - webconsulting/lab-statistics
 errorHandling:
   -
     errorCode: 404
