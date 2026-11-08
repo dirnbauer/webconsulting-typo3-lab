@@ -10,7 +10,7 @@ $source['repositories'] = array_merge([[
     'url' => 'git@gitlab.webconsulting.at:webcon/desktop-news-typo3.git',
     'only' => ['kdirnbauer/typo3-desktop-connector'],
 ]], $source['repositories']);
-$source['require-dev']['kdirnbauer/typo3-desktop-connector'] = '^2.1.0';
+$source['require-dev']['kdirnbauer/typo3-desktop-connector'] = '^2.2.1';
 $target = $root . '/.composer-redaktion-dev.json';
 file_put_contents($target, json_encode($source, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_THROW_ON_ERROR) . "\n");
 if (!is_file($root . '/.composer-redaktion-dev.lock')) {
