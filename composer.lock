@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "42f43cbf54bd1fa3330b175f957af9e6",
+    "content-hash": "76fa6a2b669c89fa25852dcdb0683e08",
     "packages": [
         {
             "name": "apache-solr-for-typo3/solr",
@@ -13115,16 +13115,16 @@
         },
         {
             "name": "webconsulting/skillflow",
-            "version": "v1.9.5",
+            "version": "v1.10.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/skillflow.git",
-                "reference": "e04297906b0acb7577af747f3a4c9eef5aa0efeb"
+                "reference": "2e75442ce41ddf490e4113a3344fbafc1c2c3ce5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/skillflow/zipball/e04297906b0acb7577af747f3a4c9eef5aa0efeb",
-                "reference": "e04297906b0acb7577af747f3a4c9eef5aa0efeb",
+                "url": "https://api.github.com/repos/dirnbauer/skillflow/zipball/2e75442ce41ddf490e4113a3344fbafc1c2c3ce5",
+                "reference": "2e75442ce41ddf490e4113a3344fbafc1c2c3ce5",
                 "shasum": ""
             },
             "require": {
@@ -13160,7 +13160,7 @@
             "extra": {
                 "typo3/cms": {
                     "extension-key": "skillflow",
-                    "version": "1.9.5"
+                    "version": "1.10.0"
                 }
             },
             "autoload": {
@@ -13226,7 +13226,7 @@
                 "source": "https://github.com/dirnbauer/skillflow",
                 "docs": "https://github.com/dirnbauer/skillflow/tree/main/Documentation"
             },
-            "time": "2026-10-24T03:53:56+00:00"
+            "time": "2026-11-08T08:18:51+00:00"
         },
         {
             "name": "webconsulting/skillspector",
