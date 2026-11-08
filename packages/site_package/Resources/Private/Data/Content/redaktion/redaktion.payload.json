@@ -16,15 +16,15 @@
         "sys_language_uid": 0
       },
       "set": {
-        "title": "Redaktion: a focused Mac app for TYPO3 news",
+        "title": "Redaktion: a calm Mac workspace for TYPO3 content",
         "nav_title": "Redaktion",
         "slug": "/software/redaktion",
         "hidden": 0,
         "nav_hide": 0,
         "sys_language_uid": 0,
-        "seo_title": "Redaktion: local drafts and focused TYPO3 news editing",
-        "description": "Write TYPO3 news on your Mac. Keep local drafts, continue through interruptions, preview your content and publish through the existing TYPO3 workspace workflow.",
-        "abstract": "A focused Electron app and web editor for TYPO3 news, with local drafts, cached offline editing, native shortcuts and deliberate publishing."
+        "seo_title": "Redaktion: TYPO3 news, pages, translations and media on your Mac",
+        "description": "Write TYPO3 news, build pages, translate content and manage images in one calm Mac app. Local drafts, TYPO3’s own rules and deliberate publishing.",
+        "abstract": "A focused Electron app and web editor for TYPO3: news with local drafts and offline editing, pages and content elements in every language, TYPO3 links and a media library with alt texts."
       }
     },
     {
@@ -46,7 +46,7 @@
         "rowDescription": "redaktion:hero",
         "eyebrow": "Software by webconsulting · macOS beta",
         "header": "Write now. Publish when you are ready.",
-        "subheadline": "A calm desktop workspace for TYPO3 news. Keep drafts on your Mac, continue through interruptions, and send changes to TYPO3 when you decide."
+        "subheadline": "A calm desktop workspace for TYPO3: write news, build pages, translate content and manage images. Keep drafts on your Mac and send changes to TYPO3 when you decide."
       }
     },
     {
@@ -67,9 +67,261 @@
         "sys_language_uid": 0,
         "rowDescription": "redaktion:why",
         "header": "What does a desktop app add to TYPO3?",
-        "content": "<p>Writing often happens between meetings, on a train, or with an unstable connection. Redaktion keeps the current story and its local draft on your Mac. You can reopen previously loaded articles after an offline restart and continue writing.</p><p>The article list, rich text, HTML source and preview share one focused workspace. Switch to writing focus to hide navigation, filters and the article directory. Native shortcuts save, create and search without reaching for the mouse.</p>",
-        "sidebar_content": "<h3>TYPO3 remains in charge</h3><p>Your backend user, permissions and workspace rules still apply. A local draft is not a server save. Nothing uploads or publishes in the background.</p><p>The backend remains the place for full page configuration, media management and fields this focused editor does not expose.</p>",
+        "content": "<p>Writing often happens between meetings, on a train, or with an unstable connection. Redaktion keeps the current story and its local draft on your Mac. You can reopen previously loaded articles after an offline restart and continue writing.</p><p>Pages work the way TYPO3 shows them: one tree per site, columns from the backend layout and every language of a page side by side. Content elements, links and images follow TYPO3’s own rules, from the element wizard to the link types and the file list.</p>",
+        "sidebar_content": "<h3>TYPO3 remains in charge</h3><p>Your backend user, permissions and workspace rules still apply. A local draft is not a server save. Nothing uploads or publishes in the background.</p><p>The backend remains the place for extension settings, user management, complete page configuration and collection entries that need adding or sorting.</p>",
         "sidebar_position": "right"
+      }
+    },
+    {
+      "table": "tt_content",
+      "action": "create",
+      "key": "NEW_redaktion_tour",
+      "pid": "@NEW_redaktion_page",
+      "match": {
+        "pid": "@NEW_redaktion_page",
+        "rowDescription": "redaktion:tour",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "CType": "desiderio_featuretabs",
+        "header_layout": 2,
+        "colPos": 0,
+        "hidden": 0,
+        "sys_language_uid": 0,
+        "rowDescription": "redaktion:tour",
+        "header": "Pages, languages, links and media",
+        "subheadline": "Everything an editor needs for a page, with TYPO3’s own rules: the page tree, the backend layout, the element wizard, the link types and the file list."
+      },
+      "_collection": {
+        "field": "desiderio_featuretabs_items",
+        "keys": [
+          "NEW_redaktion_tour_0",
+          "NEW_redaktion_tour_1",
+          "NEW_redaktion_tour_2",
+          "NEW_redaktion_tour_3",
+          "NEW_redaktion_tour_4",
+          "NEW_redaktion_tour_5"
+        ]
+      }
+    },
+    {
+      "table": "feature_tabs_items",
+      "action": "create",
+      "key": "NEW_redaktion_tour_0",
+      "pid": "@NEW_redaktion_page",
+      "match": {
+        "pid": "@NEW_redaktion_page",
+        "foreign_table_parent_uid": "@NEW_redaktion_tour",
+        "tab_label": "Pages",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "tab_label": "Pages",
+        "title": "Every page, every language, one view",
+        "description": "<p>The tree shows each page once, the columns follow the page’s backend layout, and language tabs count what is translated. Type icons, thumbnails and short excerpts make long pages easy to scan.</p>",
+        "foreign_table_parent_uid": "@NEW_redaktion_tour",
+        "sys_language_uid": 0,
+        "hidden": 0
+      },
+      "files": {
+        "image": [
+          {
+            "source": "EXT:site_package/Resources/Public/Images/Redaktion/redaktion-pages-685b1995.webp",
+            "folder": "1:/user_upload/redaktion/",
+            "alternative": "Every page, every language, one view — webconsulting Redaktion with demo content from the TYPO3 lab.",
+            "title": "Every page, every language, one view",
+            "description": "Actual macOS application with demo content from the TYPO3 lab."
+          }
+        ]
+      }
+    },
+    {
+      "table": "feature_tabs_items",
+      "action": "create",
+      "key": "NEW_redaktion_tour_1",
+      "pid": "@NEW_redaktion_page",
+      "match": {
+        "pid": "@NEW_redaktion_page",
+        "foreign_table_parent_uid": "@NEW_redaktion_tour",
+        "tab_label": "New page",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "tab_label": "New page",
+        "title": "A new page in five steps",
+        "description": "<p>Choose the position, the page type, title and URL path, the translations and a first element. New pages start hidden until you publish them.</p>",
+        "foreign_table_parent_uid": "@NEW_redaktion_tour",
+        "sys_language_uid": 0,
+        "hidden": 0
+      },
+      "files": {
+        "image": [
+          {
+            "source": "EXT:site_package/Resources/Public/Images/Redaktion/redaktion-assistant-c4e069cb.webp",
+            "folder": "1:/user_upload/redaktion/",
+            "alternative": "A new page in five steps — webconsulting Redaktion with demo content from the TYPO3 lab.",
+            "title": "A new page in five steps",
+            "description": "Actual macOS application with demo content from the TYPO3 lab."
+          }
+        ]
+      }
+    },
+    {
+      "table": "feature_tabs_items",
+      "action": "create",
+      "key": "NEW_redaktion_tour_2",
+      "pid": "@NEW_redaktion_page",
+      "match": {
+        "pid": "@NEW_redaktion_page",
+        "foreign_table_parent_uid": "@NEW_redaktion_tour",
+        "tab_label": "Elements",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "tab_label": "Elements",
+        "title": "TYPO3’s own element wizard",
+        "description": "<p>The wizard lists the content elements your site offers, Content Blocks included, filtered by the rules of each column. Search, use the keyboard or pick a recent element; insert points place it exactly.</p>",
+        "foreign_table_parent_uid": "@NEW_redaktion_tour",
+        "sys_language_uid": 0,
+        "hidden": 0
+      },
+      "files": {
+        "image": [
+          {
+            "source": "EXT:site_package/Resources/Public/Images/Redaktion/redaktion-wizard-e3fd916b.webp",
+            "folder": "1:/user_upload/redaktion/",
+            "alternative": "TYPO3’s own element wizard — webconsulting Redaktion with demo content from the TYPO3 lab.",
+            "title": "TYPO3’s own element wizard",
+            "description": "Actual macOS application with demo content from the TYPO3 lab."
+          }
+        ]
+      }
+    },
+    {
+      "table": "feature_tabs_items",
+      "action": "create",
+      "key": "NEW_redaktion_tour_3",
+      "pid": "@NEW_redaktion_page",
+      "match": {
+        "pid": "@NEW_redaktion_page",
+        "foreign_table_parent_uid": "@NEW_redaktion_tour",
+        "tab_label": "Translate",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "tab_label": "Translate",
+        "title": "Translate next to the original",
+        "description": "<p>Missing translations are marked and created with TYPO3’s own command, one element or a whole page at a time. While you translate, the original text sits under each field.</p>",
+        "foreign_table_parent_uid": "@NEW_redaktion_tour",
+        "sys_language_uid": 0,
+        "hidden": 0
+      },
+      "files": {
+        "image": [
+          {
+            "source": "EXT:site_package/Resources/Public/Images/Redaktion/redaktion-translate-db40c6ec.webp",
+            "folder": "1:/user_upload/redaktion/",
+            "alternative": "Translate next to the original — webconsulting Redaktion with demo content from the TYPO3 lab.",
+            "title": "Translate next to the original",
+            "description": "Actual macOS application with demo content from the TYPO3 lab."
+          }
+        ]
+      }
+    },
+    {
+      "table": "feature_tabs_items",
+      "action": "create",
+      "key": "NEW_redaktion_tour_4",
+      "pid": "@NEW_redaktion_page",
+      "match": {
+        "pid": "@NEW_redaktion_page",
+        "foreign_table_parent_uid": "@NEW_redaktion_tour",
+        "tab_label": "Links",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "tab_label": "Links",
+        "title": "Links the way TYPO3 stores them",
+        "description": "<p>Link to pages and their content, files, folders, web and e-mail addresses, phone numbers, and records such as news when your site configures them. Links keep TYPO3’s format, show their titles, and broken ones are marked.</p>",
+        "foreign_table_parent_uid": "@NEW_redaktion_tour",
+        "sys_language_uid": 0,
+        "hidden": 0
+      },
+      "files": {
+        "image": [
+          {
+            "source": "EXT:site_package/Resources/Public/Images/Redaktion/redaktion-links-b56892f1.webp",
+            "folder": "1:/user_upload/redaktion/",
+            "alternative": "Links the way TYPO3 stores them — webconsulting Redaktion with demo content from the TYPO3 lab.",
+            "title": "Links the way TYPO3 stores them",
+            "description": "Actual macOS application with demo content from the TYPO3 lab."
+          }
+        ]
+      }
+    },
+    {
+      "table": "feature_tabs_items",
+      "action": "create",
+      "key": "NEW_redaktion_tour_5",
+      "pid": "@NEW_redaktion_page",
+      "match": {
+        "pid": "@NEW_redaktion_page",
+        "foreign_table_parent_uid": "@NEW_redaktion_tour",
+        "tab_label": "Media",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "tab_label": "Media",
+        "title": "A media library on TYPO3’s file list",
+        "description": "<p>Browse and search folders, upload by drag and drop, and maintain titles and alt texts in every language. You see where each file is used, and missing files are flagged.</p>",
+        "foreign_table_parent_uid": "@NEW_redaktion_tour",
+        "sys_language_uid": 0,
+        "hidden": 0
+      },
+      "files": {
+        "image": [
+          {
+            "source": "EXT:site_package/Resources/Public/Images/Redaktion/redaktion-media-c3967a47.webp",
+            "folder": "1:/user_upload/redaktion/",
+            "alternative": "A media library on TYPO3’s file list — webconsulting Redaktion with demo content from the TYPO3 lab.",
+            "title": "A media library on TYPO3’s file list",
+            "description": "Actual macOS application with demo content from the TYPO3 lab."
+          }
+        ]
+      }
+    },
+    {
+      "table": "tt_content",
+      "action": "create",
+      "key": "NEW_redaktion_shot_alt",
+      "pid": "@NEW_redaktion_page",
+      "match": {
+        "pid": "@NEW_redaktion_page",
+        "rowDescription": "redaktion:shot_alt",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "CType": "desiderio_textmedia",
+        "header_layout": 2,
+        "colPos": 0,
+        "hidden": 0,
+        "sys_language_uid": 0,
+        "rowDescription": "redaktion:shot_alt",
+        "header": "Alt text where the image is used",
+        "content": "<p>Every image in a content element gets its own alternative text, title, description and link for that use. Empty fields fall back to the file’s metadata; a decorative image is marked on purpose and skipped by screen readers.</p><p><small>Actual application screenshot with demo content from the TYPO3 lab. The interface is in German.</small></p>",
+        "shadcn_layout": "media-above",
+        "media_rounded": 0
+      },
+      "files": {
+        "media": [
+          {
+            "source": "EXT:site_package/Resources/Public/Images/Redaktion/redaktion-alt-efdd0f72.webp",
+            "folder": "1:/user_upload/redaktion/",
+            "alternative": "Alt text where the image is used — webconsulting Redaktion with demo content from the TYPO3 lab.",
+            "title": "Alt text where the image is used",
+            "description": "Actual macOS application with demo content from the TYPO3 lab."
+          }
+        ]
       }
     },
     {
@@ -237,18 +489,18 @@
         "sys_language_uid": 0,
         "rowDescription": "redaktion:shot_editor",
         "header": "Room for the story",
-        "content": "<p>The real Mac app: articles on the left, a generous writing surface on the right. Rich text handles headings, lists, links, images and tables; HTML source remains available.</p><p><small>Actual application screenshot with synthetic demo articles. The interface is in German.</small></p>",
+        "content": "<p>The real Mac app: articles on the left, a generous writing surface on the right. Rich text handles headings, lists, links, images and tables; HTML source remains available.</p><p><small>Actual application screenshot with demo content from the TYPO3 lab. The interface is in German.</small></p>",
         "shadcn_layout": "media-above",
         "media_rounded": 0
       },
       "files": {
         "media": [
           {
-            "source": "EXT:site_package/Resources/Public/Images/Redaktion/redaktion-native-1449743c.webp",
+            "source": "EXT:site_package/Resources/Public/Images/Redaktion/redaktion-native-5e39c7c2.webp",
             "folder": "1:/user_upload/redaktion/",
-            "alternative": "Room for the story — webconsulting Redaktion with synthetic demo data.",
+            "alternative": "Room for the story — webconsulting Redaktion with demo content from the TYPO3 lab.",
             "title": "Room for the story",
-            "description": "Actual macOS application with synthetic demo articles."
+            "description": "Actual macOS application with demo content from the TYPO3 lab."
           }
         ]
       }
@@ -271,18 +523,18 @@
         "sys_language_uid": 0,
         "rowDescription": "redaktion:shot_draft",
         "header": "Locally secured. Deliberately sent.",
-        "content": "<p>Writing focus removes the surrounding navigation. The local save state tells you your draft is on this Mac. The separate save action sends it to TYPO3 when a connection is available.</p><p><small>Actual application screenshot with synthetic demo articles. The interface is in German.</small></p>",
+        "content": "<p>Writing focus removes the surrounding navigation. The local save state tells you your draft is on this Mac. The separate save action sends it to TYPO3 when a connection is available.</p><p><small>Actual application screenshot with demo content from the TYPO3 lab. The interface is in German.</small></p>",
         "shadcn_layout": "media-above",
         "media_rounded": 0
       },
       "files": {
         "media": [
           {
-            "source": "EXT:site_package/Resources/Public/Images/Redaktion/redaktion-local-draft-c16dc500.webp",
+            "source": "EXT:site_package/Resources/Public/Images/Redaktion/redaktion-local-draft-d1a44020.webp",
             "folder": "1:/user_upload/redaktion/",
-            "alternative": "Locally secured. Deliberately sent. — webconsulting Redaktion with synthetic demo data.",
+            "alternative": "Locally secured. Deliberately sent. — webconsulting Redaktion with demo content from the TYPO3 lab.",
             "title": "Locally secured. Deliberately sent.",
-            "description": "Actual macOS application with synthetic demo articles."
+            "description": "Actual macOS application with demo content from the TYPO3 lab."
           }
         ]
       }
@@ -305,18 +557,18 @@
         "sys_language_uid": 0,
         "rowDescription": "redaktion:shot_preview",
         "header": "Read before you send",
-        "content": "<p>Switch from editing to a clean content preview. It helps check structure and wording; the live website’s design and rendering remain the responsibility of TYPO3.</p><p><small>Actual application screenshot with synthetic demo articles. The interface is in German.</small></p>",
+        "content": "<p>Switch from editing to a clean content preview. It helps check structure and wording; the live website’s design and rendering remain the responsibility of TYPO3.</p><p><small>Actual application screenshot with demo content from the TYPO3 lab. The interface is in German.</small></p>",
         "shadcn_layout": "media-above",
         "media_rounded": 0
       },
       "files": {
         "media": [
           {
-            "source": "EXT:site_package/Resources/Public/Images/Redaktion/redaktion-preview-f2f09d39.webp",
+            "source": "EXT:site_package/Resources/Public/Images/Redaktion/redaktion-preview-47d061a8.webp",
             "folder": "1:/user_upload/redaktion/",
-            "alternative": "Read before you send — webconsulting Redaktion with synthetic demo data.",
+            "alternative": "Read before you send — webconsulting Redaktion with demo content from the TYPO3 lab.",
             "title": "Read before you send",
-            "description": "Actual macOS application with synthetic demo articles."
+            "description": "Actual macOS application with demo content from the TYPO3 lab."
           }
         ]
       }
@@ -339,18 +591,18 @@
         "sys_language_uid": 0,
         "rowDescription": "redaktion:shot_dark",
         "header": "A quiet workspace, day or night",
-        "content": "<p>Light and dark modes use the webconsulting design language shared by Ledger and T3 Ops. Your choice stays on this device.</p><p><small>Actual application screenshot with synthetic demo articles. The interface is in German.</small></p>",
+        "content": "<p>Light and dark modes use the webconsulting design language shared by Ledger and T3 Ops. Your choice stays on this device.</p><p><small>Actual application screenshot with demo content from the TYPO3 lab. The interface is in German.</small></p>",
         "shadcn_layout": "media-above",
         "media_rounded": 0
       },
       "files": {
         "media": [
           {
-            "source": "EXT:site_package/Resources/Public/Images/Redaktion/redaktion-dark-b5e037ff.webp",
+            "source": "EXT:site_package/Resources/Public/Images/Redaktion/redaktion-dark-b7f93839.webp",
             "folder": "1:/user_upload/redaktion/",
-            "alternative": "A quiet workspace, day or night — webconsulting Redaktion with synthetic demo data.",
+            "alternative": "A quiet workspace, day or night — webconsulting Redaktion with demo content from the TYPO3 lab.",
             "title": "A quiet workspace, day or night",
-            "description": "Actual macOS application with synthetic demo articles."
+            "description": "Actual macOS application with demo content from the TYPO3 lab."
           }
         ]
       }
@@ -372,8 +624,8 @@
         "hidden": 0,
         "sys_language_uid": 0,
         "rowDescription": "redaktion:start",
-        "header": "From the first connection to a published story",
-        "content": "<ol><li><strong>Connect:</strong> enter the HTTPS address of your TYPO3 installation and sign in with your backend administrator account. The Redaktion connector must be installed; news editing requires EXT:news.</li><li><strong>Write:</strong> select an article or start a new one. Work in rich text or HTML, review the preview and keep a local draft.</li><li><strong>Send:</strong> choose a workspace before editing when you want a review step. Saving sends the content to that workspace. Publishing requires a separate confirmation.</li></ol>",
+        "header": "From the first connection to a published page",
+        "content": "<ol><li><strong>Connect:</strong> enter the HTTPS address of your TYPO3 installation and sign in with your backend administrator account. The Redaktion connector must be installed; news editing requires EXT:news.</li><li><strong>Write and build:</strong> pick an article or a page. Add elements from TYPO3’s element wizard, link pages and files, and add images with alt texts.</li><li><strong>Translate:</strong> switch the language tab, translate missing elements with one click and compare with the original under each field.</li><li><strong>Send:</strong> choose a workspace before editing when you want a review step. Saving sends the content to that workspace. Publishing requires a separate confirmation.</li></ol>",
         "sidebar_position": "right",
         "sidebar_content": "<h3>Current beta</h3><p>This beta requires an active backend administrator account; scoped editor roles are not supported yet. The tested desktop build is for macOS on Apple Silicon. It is unsigned and not notarized. The browser version is built from the same source.</p><p>The connector is installed from the private GitLab repository. Ask us for access or a guided demonstration.</p>"
       }
@@ -401,6 +653,9 @@
         "field": "desiderio_accordion_items",
         "keys": [
           "NEW_redaktion_faq_0",
+          "NEW_redaktion_faq_5",
+          "NEW_redaktion_faq_6",
+          "NEW_redaktion_faq_7",
           "NEW_redaktion_faq_1",
           "NEW_redaktion_faq_2",
           "NEW_redaktion_faq_3",
@@ -421,7 +676,64 @@
       },
       "set": {
         "title": "Can I replace the TYPO3 backend with this?",
-        "content": "<p>No. Redaktion focuses on news writing, common content editing and workspace review. Use the backend for complete page settings, media workflows and additional extension fields.</p>",
+        "content": "<p>Not completely. Redaktion covers everyday editing: news, pages, content elements, translations, links and images. Use the backend for extension settings, user management, complete page configuration and collection entries that need adding or sorting.</p>",
+        "foreign_table_parent_uid": "@NEW_redaktion_faq",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "accordion_items",
+      "action": "create",
+      "key": "NEW_redaktion_faq_5",
+      "pid": "@NEW_redaktion_page",
+      "match": {
+        "pid": "@NEW_redaktion_page",
+        "foreign_table_parent_uid": "@NEW_redaktion_faq",
+        "title": "Which languages can I edit?",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "title": "Which languages can I edit?",
+        "content": "<p>Every language of the site. Each page shows a tab per language with the number of translated elements. Translating uses TYPO3’s own command, so translations stay connected to the original, and the original text is shown under each field.</p>",
+        "foreign_table_parent_uid": "@NEW_redaktion_faq",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "accordion_items",
+      "action": "create",
+      "key": "NEW_redaktion_faq_6",
+      "pid": "@NEW_redaktion_page",
+      "match": {
+        "pid": "@NEW_redaktion_page",
+        "foreign_table_parent_uid": "@NEW_redaktion_faq",
+        "title": "Does it follow TYPO3’s rules for links and files?",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "title": "Does it follow TYPO3’s rules for links and files?",
+        "content": "<p>Yes. Links are stored the way TYPO3 stores them (t3:// links for pages, files, folders and records), so the website and the backend link browser understand them. Images stay in TYPO3’s file list; alt texts and other texts for one use are file references with the file’s metadata as fallback.</p>",
+        "foreign_table_parent_uid": "@NEW_redaktion_faq",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "accordion_items",
+      "action": "create",
+      "key": "NEW_redaktion_faq_7",
+      "pid": "@NEW_redaktion_page",
+      "match": {
+        "pid": "@NEW_redaktion_page",
+        "foreign_table_parent_uid": "@NEW_redaktion_faq",
+        "title": "How does a new page start?",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "title": "How does a new page start?",
+        "content": "<p>Hidden. The page assistant creates it at the position you choose, with its URL path, the translations you want and a first element. You publish it when it is ready.</p>",
         "foreign_table_parent_uid": "@NEW_redaktion_faq",
         "sys_language_uid": 0,
         "hidden": 0
@@ -520,8 +832,8 @@
         "hidden": 0,
         "sys_language_uid": 0,
         "rowDescription": "redaktion:cta",
-        "header": "Try a calmer way to write TYPO3 news",
-        "content": "<p>Bring one of your editorial workflows. We will show where local drafts and a focused Mac app save time, and which tasks should stay in your backend.</p>",
+        "header": "Try a calmer way to edit TYPO3",
+        "content": "<p>Bring one of your editorial workflows: a news article, a page in two languages, a set of images. We will show where the Mac app saves time and which tasks should stay in your backend.</p>",
         "variant": "primary",
         "alignment": "center",
         "link": "https://webconsulting.at/kontakt/",
@@ -545,8 +857,8 @@
         "hidden": 0,
         "sys_language_uid": 0,
         "rowDescription": "redaktion:hub",
-        "header": "Redaktion: a focused Mac workspace for TYPO3 news",
-        "content": "<p>Write in a calm desktop workspace, keep local drafts and continue through interruptions. Send changes deliberately; TYPO3 controls permissions and publishing.</p>",
+        "header": "Redaktion: a calm Mac workspace for TYPO3 content",
+        "content": "<p>Write news, build pages, translate content and manage images in one focused app. Keep local drafts; TYPO3 controls permissions and publishing.</p>",
         "variant": "muted",
         "alignment": "left",
         "link": "@NEW_redaktion_page",

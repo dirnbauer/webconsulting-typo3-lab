@@ -8,552 +8,843 @@
   },
   "lines": [
     {
-      "say": "You are halfway through a story when the connection drops.",
-      "show": "You are halfway through a story when the connection drops.",
+      "say": "One page, four languages, a dozen images, and a deadline.",
+      "show": "One page, four languages, a dozen images, and a deadline.",
       "file": "voice-01.mp3",
-      "duration": 3422,
-      "end": 2940,
+      "duration": 4362,
+      "end": 3760,
       "words": [
         {
-          "word": "You",
-          "start": 70,
-          "end": 174
+          "word": "One",
+          "start": 35,
+          "end": 209
         },
         {
-          "word": "are",
-          "start": 244,
-          "end": 360
+          "word": "page,",
+          "start": 255,
+          "end": 673
         },
         {
-          "word": "halfway",
-          "start": 406,
-          "end": 789
+          "word": "four",
+          "start": 755,
+          "end": 987
         },
         {
-          "word": "through",
-          "start": 824,
-          "end": 1045
+          "word": "languages,",
+          "start": 1057,
+          "end": 1660
         },
         {
           "word": "a",
-          "start": 1080,
-          "end": 1103
+          "start": 1707,
+          "end": 1776
         },
         {
-          "word": "story",
-          "start": 1173,
-          "end": 1544
+          "word": "dozen",
+          "start": 1858,
+          "end": 2159
         },
         {
-          "word": "when",
-          "start": 1591,
-          "end": 1718
+          "word": "images,",
+          "start": 2229,
+          "end": 2728
         },
         {
-          "word": "the",
-          "start": 1741,
-          "end": 1811
+          "word": "and",
+          "start": 2763,
+          "end": 2879
         },
         {
-          "word": "connection",
-          "start": 1846,
-          "end": 2264
+          "word": "a",
+          "start": 2949,
+          "end": 2972
         },
         {
-          "word": "drops.",
-          "start": 2334,
-          "end": 2891
+          "word": "deadline.",
+          "start": 3042,
+          "end": 3750
         }
       ],
-      "heard": "You are halfway through a story when the connection drops."
+      "heard": "One page, four languages, a dozen images and a deadline."
     },
     {
-      "say": "Redaktion keeps your writing on your Mac. typo three stays in charge of publishing.",
-      "show": "Redaktion keeps your writing on your Mac. TYPO3 stays in charge of publishing.",
+      "say": "Redaktion is a calm Mac workspace for typo three. Your drafts stay on your Mac. typo three stays in charge of publishing.",
+      "show": "Redaktion is a calm Mac workspace for TYPO3. Your drafts stay on your Mac. TYPO3 stays in charge of publishing.",
       "file": "voice-02.mp3",
-      "duration": 6269,
+      "duration": 9456,
       "words": [
         {
           "word": "Redaktion",
           "start": 23,
-          "end": 639
+          "end": 580
         },
         {
-          "word": "keeps",
-          "start": 731,
-          "end": 987
-        },
-        {
-          "word": "your",
-          "start": 1022,
-          "end": 1149
-        },
-        {
-          "word": "writing",
-          "start": 1196,
-          "end": 1591
-        },
-        {
-          "word": "on",
-          "start": 1672,
-          "end": 1776
-        },
-        {
-          "word": "your",
-          "start": 1823,
-          "end": 1939
-        },
-        {
-          "word": "Mac.",
-          "start": 1985,
-          "end": 2450
-        },
-        {
-          "word": "typo",
-          "start": 2879,
-          "end": 3320
-        },
-        {
-          "word": "three",
-          "start": 3413,
-          "end": 3750
-        },
-        {
-          "word": "stays",
-          "start": 3820,
-          "end": 4191
-        },
-        {
-          "word": "in",
-          "start": 4238,
-          "end": 4307
-        },
-        {
-          "word": "charge",
-          "start": 4389,
-          "end": 4737
-        },
-        {
-          "word": "of",
-          "start": 4760,
-          "end": 4818
-        },
-        {
-          "word": "publishing.",
-          "start": 4888,
-          "end": 5631
-        }
-      ],
-      "heard": "Redaction keeps your writing on your Mac. TYPO3 stays in charge of publishing."
-    },
-    {
-      "say": "Pick a news article, write in rich text, and keep the rest of the website out of your way.",
-      "show": "Pick a news article, write in rich text, and keep the rest of the website out of your way.",
-      "file": "voice-03.mp3",
-      "duration": 6113,
-      "end": 5610,
-      "words": [
-        {
-          "word": "Pick",
-          "start": 23,
-          "end": 255
+          "word": "is",
+          "start": 650,
+          "end": 755
         },
         {
           "word": "a",
-          "start": 302,
-          "end": 325
+          "start": 801,
+          "end": 824
         },
         {
-          "word": "news",
-          "start": 406,
-          "end": 639
+          "word": "calm",
+          "start": 906,
+          "end": 1242
         },
         {
-          "word": "article,",
-          "start": 685,
-          "end": 1300
-        },
-        {
-          "word": "write",
-          "start": 1428,
-          "end": 1753
-        },
-        {
-          "word": "in",
-          "start": 1788,
-          "end": 1858
-        },
-        {
-          "word": "rich",
-          "start": 1950,
-          "end": 2183
-        },
-        {
-          "word": "text,",
-          "start": 2252,
-          "end": 2833
-        },
-        {
-          "word": "and",
-          "start": 2995,
-          "end": 3123
-        },
-        {
-          "word": "keep",
-          "start": 3193,
-          "end": 3367
-        },
-        {
-          "word": "the",
-          "start": 3413,
-          "end": 3483
-        },
-        {
-          "word": "rest",
-          "start": 3529,
-          "end": 3762
-        },
-        {
-          "word": "of",
-          "start": 3808,
-          "end": 3855
-        },
-        {
-          "word": "the",
-          "start": 3889,
-          "end": 3959
-        },
-        {
-          "word": "website",
-          "start": 3994,
-          "end": 4516
-        },
-        {
-          "word": "out",
-          "start": 4563,
-          "end": 4772
-        },
-        {
-          "word": "of",
-          "start": 4818,
-          "end": 4865
-        },
-        {
-          "word": "your",
-          "start": 4911,
-          "end": 5027
-        },
-        {
-          "word": "way.",
-          "start": 5097,
-          "end": 5596
-        }
-      ],
-      "heard": "Pick a news article, write in rich text, and keep the rest of the website out of your way."
-    },
-    {
-      "say": "Drafts save locally after a short pause. Previously loaded articles and drafts stay available after an offline restart.",
-      "show": "Drafts save locally after a short pause. Previously loaded articles and drafts stay available after an offline restart.",
-      "file": "voice-04.mp3",
-      "duration": 8620,
-      "words": [
-        {
-          "word": "Drafts",
-          "start": 23,
-          "end": 534
-        },
-        {
-          "word": "save",
-          "start": 569,
-          "end": 836
-        },
-        {
-          "word": "locally",
-          "start": 882,
-          "end": 1265
-        },
-        {
-          "word": "after",
-          "start": 1335,
-          "end": 1625
-        },
-        {
-          "word": "a",
-          "start": 1695,
-          "end": 1730
-        },
-        {
-          "word": "short",
-          "start": 1776,
-          "end": 2043
-        },
-        {
-          "word": "pause.",
-          "start": 2090,
-          "end": 2705
-        },
-        {
-          "word": "Previously",
-          "start": 2972,
-          "end": 3564
-        },
-        {
-          "word": "loaded",
-          "start": 3634,
-          "end": 3971
-        },
-        {
-          "word": "articles",
-          "start": 4017,
-          "end": 4470
-        },
-        {
-          "word": "and",
-          "start": 4505,
-          "end": 4586
-        },
-        {
-          "word": "drafts",
-          "start": 4656,
-          "end": 5178
-        },
-        {
-          "word": "stay",
-          "start": 5410,
-          "end": 5701
-        },
-        {
-          "word": "available",
-          "start": 5747,
-          "end": 6258
-        },
-        {
-          "word": "after",
-          "start": 6304,
-          "end": 6594
-        },
-        {
-          "word": "an",
-          "start": 6641,
-          "end": 6699
-        },
-        {
-          "word": "offline",
-          "start": 6769,
-          "end": 7291
-        },
-        {
-          "word": "restart.",
-          "start": 7361,
-          "end": 8150
-        }
-      ],
-      "heard": "Drafts save locally after a short pause. Previously loaded articles and drafts stay available after an offline restart."
-    },
-    {
-      "say": "Check the wording in preview. Saving sends it to your chosen typo three workspace. Publication needs your explicit approval.",
-      "show": "Check the wording in preview. Saving sends it to your chosen TYPO3 workspace. Publication needs your explicit approval.",
-      "file": "voice-05.mp3",
-      "duration": 9561,
-      "end": 8850,
-      "words": [
-        {
-          "word": "Check",
-          "start": 12,
-          "end": 279
-        },
-        {
-          "word": "the",
-          "start": 348,
-          "end": 418
-        },
-        {
-          "word": "wording",
-          "start": 464,
-          "end": 836
-        },
-        {
-          "word": "in",
-          "start": 882,
-          "end": 940
-        },
-        {
-          "word": "preview.",
-          "start": 1022,
-          "end": 1776
-        },
-        {
-          "word": "Saving",
-          "start": 2264,
-          "end": 2717
-        },
-        {
-          "word": "sends",
-          "start": 2798,
-          "end": 3042
-        },
-        {
-          "word": "it",
-          "start": 3088,
-          "end": 3158
-        },
-        {
-          "word": "to",
-          "start": 3193,
-          "end": 3239
-        },
-        {
-          "word": "your",
-          "start": 3309,
-          "end": 3437
-        },
-        {
-          "word": "chosen",
-          "start": 3483,
-          "end": 3866
-        },
-        {
-          "word": "typo",
-          "start": 3936,
-          "end": 4342
-        },
-        {
-          "word": "three",
-          "start": 4423,
-          "end": 4725
-        },
-        {
-          "word": "workspace.",
-          "start": 4795,
-          "end": 5759
-        },
-        {
-          "word": "Publication",
-          "start": 6327,
-          "end": 7059
-        },
-        {
-          "word": "needs",
-          "start": 7140,
-          "end": 7407
-        },
-        {
-          "word": "your",
-          "start": 7442,
-          "end": 7558
-        },
-        {
-          "word": "explicit",
-          "start": 7628,
-          "end": 8104
-        },
-        {
-          "word": "approval.",
-          "start": 8139,
-          "end": 8847
-        }
-      ],
-      "heard": "Check the wording in preview. Saving sends it to your chosen TYPO3 workspace. Publication needs your explicit approval."
-    },
-    {
-      "say": "Native shortcuts, encrypted sessions, and light or dark mode. The same workspace also runs in the browser.",
-      "show": "Native shortcuts, encrypted sessions, and light or dark mode. The same workspace also runs in the browser.",
-      "file": "voice-06.mp3",
-      "duration": 8072,
-      "end": 7570,
-      "words": [
-        {
-          "word": "Native",
-          "start": 35,
-          "end": 430
-        },
-        {
-          "word": "shortcuts,",
-          "start": 453,
-          "end": 1277
-        },
-        {
-          "word": "encrypted",
-          "start": 1312,
-          "end": 1939
-        },
-        {
-          "word": "sessions,",
-          "start": 1985,
-          "end": 2682
-        },
-        {
-          "word": "and",
-          "start": 2810,
-          "end": 2972
-        },
-        {
-          "word": "light",
-          "start": 3065,
-          "end": 3297
-        },
-        {
-          "word": "or",
-          "start": 3344,
-          "end": 3425
-        },
-        {
-          "word": "dark",
-          "start": 3495,
-          "end": 3773
-        },
-        {
-          "word": "mode.",
-          "start": 3855,
-          "end": 4331
-        },
-        {
-          "word": "The",
-          "start": 4760,
-          "end": 4888
-        },
-        {
-          "word": "same",
-          "start": 4934,
-          "end": 5166
+          "word": "Mac",
+          "start": 1324,
+          "end": 1544
         },
         {
           "word": "workspace",
-          "start": 5201,
-          "end": 5828
+          "start": 1625,
+          "end": 2299
         },
         {
-          "word": "also",
-          "start": 5863,
-          "end": 6211
+          "word": "for",
+          "start": 2334,
+          "end": 2438
         },
         {
-          "word": "runs",
-          "start": 6293,
-          "end": 6594
+          "word": "typo",
+          "start": 2485,
+          "end": 2868
+        },
+        {
+          "word": "three.",
+          "start": 2937,
+          "end": 3564
+        },
+        {
+          "word": "Your",
+          "start": 4052,
+          "end": 4238
+        },
+        {
+          "word": "drafts",
+          "start": 4272,
+          "end": 4690
+        },
+        {
+          "word": "stay",
+          "start": 4725,
+          "end": 4946
+        },
+        {
+          "word": "on",
+          "start": 5016,
+          "end": 5085
+        },
+        {
+          "word": "your",
+          "start": 5132,
+          "end": 5236
+        },
+        {
+          "word": "Mac.",
+          "start": 5283,
+          "end": 5817
+        },
+        {
+          "word": "typo",
+          "start": 6246,
+          "end": 6676
+        },
+        {
+          "word": "three",
+          "start": 6757,
+          "end": 7059
+        },
+        {
+          "word": "stays",
+          "start": 7129,
+          "end": 7477
         },
         {
           "word": "in",
+          "start": 7523,
+          "end": 7593
+        },
+        {
+          "word": "charge",
+          "start": 7663,
+          "end": 8011
+        },
+        {
+          "word": "of",
+          "start": 8034,
+          "end": 8092
+        },
+        {
+          "word": "publishing.",
+          "start": 8162,
+          "end": 8905
+        }
+      ],
+      "heard": "Redaction is a calm Mac workspace for Type 03. Your drafts stay on your Mac. Type 03 stays in charge of publishing."
+    },
+    {
+      "say": "Pages look the way typo three shows them. Language tabs count what is already translated.",
+      "show": "Pages look the way TYPO3 shows them. Language tabs count what is already translated.",
+      "file": "voice-03.mp3",
+      "duration": 6452,
+      "words": [
+        {
+          "word": "Pages",
+          "start": 12,
+          "end": 453
+        },
+        {
+          "word": "look",
+          "start": 522,
+          "end": 673
+        },
+        {
+          "word": "the",
+          "start": 720,
+          "end": 789
+        },
+        {
+          "word": "way",
+          "start": 836,
+          "end": 964
+        },
+        {
+          "word": "typo",
+          "start": 1033,
+          "end": 1440
+        },
+        {
+          "word": "three",
+          "start": 1509,
+          "end": 1788
+        },
+        {
+          "word": "shows",
+          "start": 1834,
+          "end": 2159
+        },
+        {
+          "word": "them.",
+          "start": 2206,
+          "end": 2519
+        },
+        {
+          "word": "Language",
+          "start": 3193,
+          "end": 3680
+        },
+        {
+          "word": "tabs",
+          "start": 3715,
+          "end": 4040
+        },
+        {
+          "word": "count",
+          "start": 4122,
+          "end": 4412
+        },
+        {
+          "word": "what",
+          "start": 4458,
+          "end": 4586
+        },
+        {
+          "word": "is",
+          "start": 4632,
+          "end": 4702
+        },
+        {
+          "word": "already",
+          "start": 4737,
+          "end": 4981
+        },
+        {
+          "word": "translated.",
+          "start": 5027,
+          "end": 5886
+        }
+      ],
+      "heard": "Pages look the way TYPO3 shows them. Language tabs count what is already translated."
+    },
+    {
+      "say": "The page assistant places a new page, sets its URL path and translations, and keeps it hidden until you publish.",
+      "show": "The page assistant places a new page, sets its URL path and translations, and keeps it hidden until you publish.",
+      "file": "voice-04.mp3",
+      "duration": 8020,
+      "words": [
+        {
+          "word": "The",
+          "start": 23,
+          "end": 139
+        },
+        {
+          "word": "page",
+          "start": 186,
+          "end": 476
+        },
+        {
+          "word": "assistant",
+          "start": 499,
+          "end": 975
+        },
+        {
+          "word": "places",
+          "start": 1022,
+          "end": 1416
+        },
+        {
+          "word": "a",
+          "start": 1463,
+          "end": 1486
+        },
+        {
+          "word": "new",
+          "start": 1579,
+          "end": 1730
+        },
+        {
+          "word": "page,",
+          "start": 1800,
+          "end": 2310
+        },
+        {
+          "word": "sets",
+          "start": 2543,
+          "end": 2844
+        },
+        {
+          "word": "its",
+          "start": 2914,
+          "end": 3030
+        },
+        {
+          "word": "URL",
+          "start": 3123,
+          "end": 3622
+        },
+        {
+          "word": "path",
+          "start": 3704,
+          "end": 4087
+        },
+        {
+          "word": "and",
+          "start": 4133,
+          "end": 4226
+        },
+        {
+          "word": "translations,",
+          "start": 4272,
+          "end": 5259
+        },
+        {
+          "word": "and",
+          "start": 5422,
+          "end": 5584
+        },
+        {
+          "word": "keeps",
+          "start": 5654,
+          "end": 5875
+        },
+        {
+          "word": "it",
+          "start": 5921,
+          "end": 5991
+        },
+        {
+          "word": "hidden",
+          "start": 6037,
+          "end": 6304
+        },
+        {
+          "word": "until",
+          "start": 6351,
+          "end": 6571
+        },
+        {
+          "word": "you",
           "start": 6641,
           "end": 6711
         },
         {
-          "word": "the",
-          "start": 6745,
-          "end": 6815
-        },
-        {
-          "word": "browser.",
-          "start": 6850,
-          "end": 7581
+          "word": "publish.",
+          "start": 6780,
+          "end": 7407
         }
       ],
-      "heard": "native shortcuts, encrypted sessions, and light or dark mode. The same workspace also runs in the browser."
+      "heard": "The Page Assistant places a new page, sets its URL path and translations, and keeps it hidden until you publish."
+    },
+    {
+      "say": "Elements come from typo three’s own wizard, Content Blocks included, filtered by the rules of each column.",
+      "show": "Elements come from TYPO3’s own wizard, Content Blocks included, filtered by the rules of each column.",
+      "file": "voice-05.mp3",
+      "duration": 7523,
+      "words": [
+        {
+          "word": "Elements",
+          "start": 12,
+          "end": 499
+        },
+        {
+          "word": "come",
+          "start": 569,
+          "end": 789
+        },
+        {
+          "word": "from",
+          "start": 824,
+          "end": 964
+        },
+        {
+          "word": "typo",
+          "start": 1045,
+          "end": 1428
+        },
+        {
+          "word": "three's",
+          "start": 1509,
+          "end": 1904
+        },
+        {
+          "word": "own",
+          "start": 1997,
+          "end": 2241
+        },
+        {
+          "word": "wizard,",
+          "start": 2310,
+          "end": 2821
+        },
+        {
+          "word": "Content",
+          "start": 3019,
+          "end": 3529
+        },
+        {
+          "word": "Blocks",
+          "start": 3599,
+          "end": 3936
+        },
+        {
+          "word": "included,",
+          "start": 3982,
+          "end": 4702
+        },
+        {
+          "word": "filtered",
+          "start": 4899,
+          "end": 5317
+        },
+        {
+          "word": "by",
+          "start": 5352,
+          "end": 5445
+        },
+        {
+          "word": "the",
+          "start": 5515,
+          "end": 5584
+        },
+        {
+          "word": "rules",
+          "start": 5654,
+          "end": 5944
+        },
+        {
+          "word": "of",
+          "start": 5979,
+          "end": 6026
+        },
+        {
+          "word": "each",
+          "start": 6095,
+          "end": 6246
+        },
+        {
+          "word": "column.",
+          "start": 6316,
+          "end": 6873
+        }
+      ],
+      "heard": "Elements come from TYPO3's own wizard, content blocks included, filtered by the rules of each column."
+    },
+    {
+      "say": "Translations use typo three’s own command, and the original text sits right under each field.",
+      "show": "Translations use TYPO3’s own command, and the original text sits right under each field.",
+      "file": "voice-06.mp3",
+      "duration": 6635,
+      "end": 6030,
+      "words": [
+        {
+          "word": "Translations",
+          "start": 12,
+          "end": 824
+        },
+        {
+          "word": "use",
+          "start": 917,
+          "end": 1091
+        },
+        {
+          "word": "typo",
+          "start": 1138,
+          "end": 1486
+        },
+        {
+          "word": "three's",
+          "start": 1567,
+          "end": 1962
+        },
+        {
+          "word": "own",
+          "start": 2055,
+          "end": 2276
+        },
+        {
+          "word": "command,",
+          "start": 2357,
+          "end": 2972
+        },
+        {
+          "word": "and",
+          "start": 3135,
+          "end": 3274
+        },
+        {
+          "word": "the",
+          "start": 3320,
+          "end": 3390
+        },
+        {
+          "word": "original",
+          "start": 3437,
+          "end": 3831
+        },
+        {
+          "word": "text",
+          "start": 3901,
+          "end": 4284
+        },
+        {
+          "word": "sits",
+          "start": 4365,
+          "end": 4656
+        },
+        {
+          "word": "right",
+          "start": 4725,
+          "end": 4911
+        },
+        {
+          "word": "under",
+          "start": 4957,
+          "end": 5120
+        },
+        {
+          "word": "each",
+          "start": 5190,
+          "end": 5364
+        },
+        {
+          "word": "field.",
+          "start": 5433,
+          "end": 6014
+        }
+      ],
+      "heard": "Translations use TYPO3's own command and the original text sits right under each field."
+    },
+    {
+      "say": "Link pages, their content, files and records. Links keep typo three’s format and show their titles.",
+      "show": "Link pages, their content, files and records. Links keep TYPO3’s format and show their titles.",
+      "file": "voice-07.mp3",
+      "duration": 7758,
+      "words": [
+        {
+          "word": "Link",
+          "start": 23,
+          "end": 302
+        },
+        {
+          "word": "pages,",
+          "start": 372,
+          "end": 917
+        },
+        {
+          "word": "their",
+          "start": 987,
+          "end": 1173
+        },
+        {
+          "word": "content,",
+          "start": 1219,
+          "end": 1788
+        },
+        {
+          "word": "files",
+          "start": 1881,
+          "end": 2310
+        },
+        {
+          "word": "and",
+          "start": 2345,
+          "end": 2438
+        },
+        {
+          "word": "records.",
+          "start": 2519,
+          "end": 3193
+        },
+        {
+          "word": "Links",
+          "start": 3680,
+          "end": 4017
+        },
+        {
+          "word": "keep",
+          "start": 4087,
+          "end": 4284
+        },
+        {
+          "word": "typo",
+          "start": 4354,
+          "end": 4714
+        },
+        {
+          "word": "three's",
+          "start": 4795,
+          "end": 5155
+        },
+        {
+          "word": "format",
+          "start": 5224,
+          "end": 5747
+        },
+        {
+          "word": "and",
+          "start": 5817,
+          "end": 5968
+        },
+        {
+          "word": "show",
+          "start": 6014,
+          "end": 6177
+        },
+        {
+          "word": "their",
+          "start": 6246,
+          "end": 6397
+        },
+        {
+          "word": "titles.",
+          "start": 6432,
+          "end": 7198
+        }
+      ],
+      "heard": "link pages, their content, files and records. Links keep TYPO3's format and show their titles."
+    },
+    {
+      "say": "The media library works on typo three’s file list, and every image gets its own alternative text where it is used.",
+      "show": "The media library works on TYPO3’s file list, and every image gets its own alternative text where it is used.",
+      "file": "voice-08.mp3",
+      "duration": 8176,
+      "end": 7440,
+      "words": [
+        {
+          "word": "The",
+          "start": 12,
+          "end": 151
+        },
+        {
+          "word": "media",
+          "start": 232,
+          "end": 604
+        },
+        {
+          "word": "library",
+          "start": 673,
+          "end": 1161
+        },
+        {
+          "word": "works",
+          "start": 1242,
+          "end": 1579
+        },
+        {
+          "word": "on",
+          "start": 1614,
+          "end": 1695
+        },
+        {
+          "word": "typo",
+          "start": 1765,
+          "end": 2148
+        },
+        {
+          "word": "three's",
+          "start": 2229,
+          "end": 2589
+        },
+        {
+          "word": "file",
+          "start": 2659,
+          "end": 2972
+        },
+        {
+          "word": "list,",
+          "start": 3019,
+          "end": 3483
+        },
+        {
+          "word": "and",
+          "start": 3646,
+          "end": 3808
+        },
+        {
+          "word": "every",
+          "start": 3889,
+          "end": 4122
+        },
+        {
+          "word": "image",
+          "start": 4203,
+          "end": 4551
+        },
+        {
+          "word": "gets",
+          "start": 4598,
+          "end": 4807
+        },
+        {
+          "word": "its",
+          "start": 4853,
+          "end": 4969
+        },
+        {
+          "word": "own",
+          "start": 5039,
+          "end": 5283
+        },
+        {
+          "word": "alternative",
+          "start": 5329,
+          "end": 5968
+        },
+        {
+          "word": "text",
+          "start": 6002,
+          "end": 6351
+        },
+        {
+          "word": "where",
+          "start": 6385,
+          "end": 6560
+        },
+        {
+          "word": "it",
+          "start": 6594,
+          "end": 6653
+        },
+        {
+          "word": "is",
+          "start": 6699,
+          "end": 6780
+        },
+        {
+          "word": "used.",
+          "start": 6873,
+          "end": 7454
+        }
+      ],
+      "heard": "The media library works on TYPO3's file list, and every image gets its own alternative text where it is used."
+    },
+    {
+      "say": "News keeps its calm writing surface, with local drafts that survive an offline restart.",
+      "show": "News keeps its calm writing surface, with local drafts that survive an offline restart.",
+      "file": "voice-09.mp3",
+      "duration": 6713,
+      "words": [
+        {
+          "word": "News",
+          "start": 23,
+          "end": 418
+        },
+        {
+          "word": "keeps",
+          "start": 499,
+          "end": 766
+        },
+        {
+          "word": "its",
+          "start": 813,
+          "end": 952
+        },
+        {
+          "word": "calm",
+          "start": 1022,
+          "end": 1358
+        },
+        {
+          "word": "writing",
+          "start": 1405,
+          "end": 1811
+        },
+        {
+          "word": "surface,",
+          "start": 1892,
+          "end": 2519
+        },
+        {
+          "word": "with",
+          "start": 2717,
+          "end": 2902
+        },
+        {
+          "word": "local",
+          "start": 2984,
+          "end": 3297
+        },
+        {
+          "word": "drafts",
+          "start": 3367,
+          "end": 3889
+        },
+        {
+          "word": "that",
+          "start": 3959,
+          "end": 4098
+        },
+        {
+          "word": "survive",
+          "start": 4133,
+          "end": 4563
+        },
+        {
+          "word": "an",
+          "start": 4598,
+          "end": 4656
+        },
+        {
+          "word": "offline",
+          "start": 4737,
+          "end": 5271
+        },
+        {
+          "word": "restart.",
+          "start": 5341,
+          "end": 6177
+        }
+      ],
+      "heard": "news keeps its calm writing surface with local drafts that survive an offline restart."
     },
     {
       "say": "Redaktion, by webconsulting. Ask us for a demonstration.",
       "show": "Redaktion, by webconsulting. Ask us for a demonstration.",
-      "file": "voice-07.mp3",
+      "file": "voice-10.mp3",
       "duration": 4441,
       "words": [
         {
