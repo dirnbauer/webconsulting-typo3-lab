@@ -86,7 +86,7 @@ export default Object.fromEntries([
         title: { sub: 'Edit the element. Manage its entries.', key: 'webconsulting/visual-editor-enhancements', say: 'Visual Editor Enhancements keeps both close to the page.' },
         shots: [
             { image: 'Backend/feature-visual-editor-entries-936063d6.webp', eyebrow: 'Entries', head: 'One panel. All your entries.', say: 'Choose Entries beside settings. A compact panel lists the questions, cards or list items.' },
-            { image: 'Backend/feature-visual-editor-entry-form-6ed8efcf.webp', eyebrow: 'Edit an entry', head: 'Click the title. Edit the content.', say: 'Click a title to edit its text and media in the TYPO3 form. Save, then close.' },
+            { image: 'Backend/feature-visual-editor-entry-form-6ed8efcf.webp', eyebrow: 'Edit an entry', head: 'Rename in place. The form is one click away.', say: 'Rename an entry right in the list. For text and media, Edit in form opens the TYPO3 form.' },
             { image: 'Backend/feature-visual-editor-entries-tray-98e58e8d.webp', eyebrow: 'Add and remove', head: 'Add an entry. Keep control.', say: 'Add an entry below the list. New entries start hidden. Adding and removing save immediately.' },
             { image: 'Backend/feature-visual-editor-collection-settings-02c1b2d6.webp', eyebrow: 'Field settings', head: 'Layout choices beside the content', say: 'Field settings stay in their own panel. These changes wait for the next Save.' },
             { image: 'Backend/feature-visual-editor-search-cf0a8d71.webp', eyebrow: 'Element library', head: 'Choose from live previews', say: 'Find new elements in the library, with live previews and search that forgives typos.' },

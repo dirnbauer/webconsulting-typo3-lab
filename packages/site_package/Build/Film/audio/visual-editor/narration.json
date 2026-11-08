@@ -191,98 +191,108 @@
       "heard": "Choose entries beside settings. A compact panel lists the questions, cards or list items."
     },
     {
-      "say": "Click a title to edit its text and media in the typo three form. Save, then close.",
-      "show": "Click a title to edit its text and media in the TYPO3 form. Save, then close.",
+      "say": "Rename an entry right in the list. For text and media, Edit in form opens the typo three form.",
+      "show": "Rename an entry right in the list. For text and media, Edit in form opens the TYPO3 form.",
       "file": "voice-04.mp3",
-      "duration": 7105,
+      "duration": 7367,
       "words": [
         {
-          "word": "Click",
-          "start": 12,
-          "end": 255
+          "word": "Rename",
+          "start": 23,
+          "end": 488
         },
         {
-          "word": "a",
-          "start": 302,
-          "end": 325
+          "word": "an",
+          "start": 522,
+          "end": 580
         },
         {
-          "word": "title",
-          "start": 395,
-          "end": 789
+          "word": "entry",
+          "start": 650,
+          "end": 998
         },
         {
-          "word": "to",
-          "start": 824,
-          "end": 882
-        },
-        {
-          "word": "edit",
-          "start": 964,
-          "end": 1254
-        },
-        {
-          "word": "its",
-          "start": 1300,
-          "end": 1451
-        },
-        {
-          "word": "text",
-          "start": 1498,
-          "end": 1892
-        },
-        {
-          "word": "and",
-          "start": 1962,
-          "end": 2078
-        },
-        {
-          "word": "media",
-          "start": 2171,
-          "end": 2612
+          "word": "right",
+          "start": 1091,
+          "end": 1312
         },
         {
           "word": "in",
-          "start": 2682,
-          "end": 2775
+          "start": 1358,
+          "end": 1416
         },
         {
           "word": "the",
-          "start": 2821,
-          "end": 2891
+          "start": 1451,
+          "end": 1521
+        },
+        {
+          "word": "list.",
+          "start": 1567,
+          "end": 2090
+        },
+        {
+          "word": "For",
+          "start": 2357,
+          "end": 2519
+        },
+        {
+          "word": "text",
+          "start": 2589,
+          "end": 2926
+        },
+        {
+          "word": "and",
+          "start": 2961,
+          "end": 3042
+        },
+        {
+          "word": "media,",
+          "start": 3123,
+          "end": 3715
+        },
+        {
+          "word": "Edit",
+          "start": 3843,
+          "end": 4180
+        },
+        {
+          "word": "in",
+          "start": 4226,
+          "end": 4296
+        },
+        {
+          "word": "form",
+          "start": 4400,
+          "end": 4772
+        },
+        {
+          "word": "opens",
+          "start": 4969,
+          "end": 5399
+        },
+        {
+          "word": "the",
+          "start": 5468,
+          "end": 5538
         },
         {
           "word": "typo",
-          "start": 2937,
-          "end": 3320
+          "start": 5584,
+          "end": 5968
         },
         {
           "word": "three",
-          "start": 3402,
-          "end": 3680
+          "start": 6049,
+          "end": 6351
         },
         {
           "word": "form.",
-          "start": 3750,
-          "end": 4331
-        },
-        {
-          "word": "Save,",
-          "start": 4760,
-          "end": 5283
-        },
-        {
-          "word": "then",
-          "start": 5352,
-          "end": 5550
-        },
-        {
-          "word": "close.",
-          "start": 5642,
-          "end": 6374
+          "start": 6420,
+          "end": 6954
         }
       ],
-      "heard": "Click a title to edit its text and media in the TYPO3 form. Save, then close."
+      "heard": "Rename an entry right in the list. For text and media, Edit in Form opens the TYPO3 form."
     },
     {
       "say": "Add an entry below the list. New entries start hidden. Adding and removing save immediately.",
