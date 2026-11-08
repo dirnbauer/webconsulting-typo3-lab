@@ -17,3 +17,6 @@ desiderio:
     legalPageIds: 750,751,752
   consent:
     privacyPageId: '751'
+
+# TYPO3 trademark notice in the footer (Desiderio 4.35.0).
+desiderio.footer.trademarkNotice: true

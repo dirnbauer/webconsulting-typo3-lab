@@ -33,3 +33,6 @@ desiderio.footer.aiNotice: true
 desiderio.header.ctaSlug: ''
 # Compact footer tagline with the framework and design inspiration.
 desiderio.brand.tagline: 'shadcn/ui · TYPO3 v14 · inspired by Camino'
+
+# TYPO3 trademark notice in the footer (Desiderio 4.35.0).
+desiderio.footer.trademarkNotice: true

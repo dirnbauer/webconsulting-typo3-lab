@@ -6,6 +6,7 @@ use Webconsulting\SitePackage\Middleware\BasicAuthSafeBackendDenial;
 use Webconsulting\SitePackage\Middleware\BasicAuthSafeFrontendEditDenial;
 use Webconsulting\SitePackage\Middleware\PreserveFrontendEditorSession;
 use Webconsulting\SitePackage\Middleware\SplitCombinedSolrTypeFilter;
+use Webconsulting\SitePackage\Middleware\TrademarkNotice;
 
 return [
     'frontend' => [
@@ -42,6 +43,15 @@ return [
             ],
             'before' => [
                 'typo3/cms-frontend/page-resolver',
+            ],
+        ],
+        // The TYPO3 trademark notice on every HTML page: innermost, so the
+        // content length counts it and the page cache keeps the page without it.
+        'webconsulting/site-package/trademark-notice' => [
+            'target' => TrademarkNotice::class,
+            'after' => [
+                'typo3/cms-frontend/content-length-headers',
+                'typo3/cms-frontend/shortcut-and-mountpoint-redirect',
             ],
         ],
     ],

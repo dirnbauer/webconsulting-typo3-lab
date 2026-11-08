@@ -14,3 +14,6 @@ desiderio.brand.tagline: 'Community · Barcamp · TYPO3'
 # desiderio:library:seed --parent=933 (previews render in this site's shadcn preset).
 elementLibrary.storagePid: 1064
 elementLibrary.hosts: 'desiderio,innesto,core'
+
+# TYPO3 trademark notice in the footer (Desiderio 4.35.0).
+desiderio.footer.trademarkNotice: true
