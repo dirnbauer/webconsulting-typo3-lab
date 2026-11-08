@@ -52,18 +52,24 @@ for (const language of [...new Set(languages)]) {
     output.push({language, path, memory: updated, texts});
 }
 // Keep line breaks readable without changing cue timing or narration speed.
+// Chinese breaks between characters, but a Latin word or number (TYPO3, v14, 14.3) stays whole,
+// no line starts with a space and closing punctuation never starts a line.
 function wrap(text, language) {
-    const width = language === 'zh' ? 24 : 48;
-    const units = language === 'zh' ? Array.from(text) : text.split(/\s+/);
-    const separator = language === 'zh' ? '' : ' ';
+    const cjk = language === 'zh';
+    const width = cjk ? 24 : 48;
+    const units = cjk ? (text.match(/[A-Za-z0-9][\w.\-/:+#@'’]*|\s+|./gu) ?? []) : text.split(/\s+/);
+    const separator = cjk ? '' : ' ';
     const lines = [''];
     for (const unit of units) {
         const index = lines.length - 1;
+        const space = cjk && /^\s+$/.test(unit);
+        if (space && lines[index] === '') continue;
         const candidate = lines[index] ? lines[index] + separator + unit : unit;
-        if (candidate.length > width && lines[index]) lines.push(unit);
+        const closing = cjk && /^[，。、；：！？）」』”’》]$/.test(unit);
+        if (candidate.length > width && lines[index] && !closing) lines.push(space ? '' : unit);
         else lines[index] = candidate;
     }
-    return lines.join('\n');
+    return lines.map((line) => line.trimEnd()).filter((line) => line !== '').join('\n');
 }
 const tracks = {en: manifest.vtt};
 for (const item of [{language: 'en', texts: sourceTexts}, ...output]) {

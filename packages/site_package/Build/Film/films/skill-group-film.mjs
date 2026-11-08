@@ -58,6 +58,8 @@ export function skillGroupFilm({ slug, name, sub, hook, titleSay, skills, music 
         url: `${HOST}${path}`,
         style: 'home',
         music,
+        // The header stays "<name> in N seconds"; the description names the captions in four languages.
+        video: { description: `<p>${sub} For each skill: the prompt you would type and what it does. Narrated, with selectable captions.</p>` },
         card: { eyebrow: 'Agentic skills for TYPO3 v14' },
         placements: [{ slug: path.slice(0, -1) }],
         alt: alt ?? `Film, {duration} seconds: ${name}, ${skills.length} agent skills for TYPO3 v14 (${skills.map((skill) => skill.name).join(', ')}). `
