@@ -4,6 +4,27 @@ All notable changes to Webconsulting TYPO3 Lab are documented in this file.
 
 ## Unreleased
 
+### Visual Editor Enhancements 1.7.0, Desiderio 4.36.0 and the re-voiced film — 2026-11-08
+
+- Visual Editor Enhancements 1.7.0: entry rows on the page (user setting
+  `tx_visualeditor_collectionRows = panel | appender | rows`, default
+  `panel`), Duplicate, Undo removal of workspace delete placeholders, removal
+  of entries with nested entries or image references after a bounded,
+  counted preflight (`cascade.maxDepth = 3`, `cascade.maxRecords = 50`), and
+  the first workspace draft allowed by default (`firstVersion = 1`, owner
+  decision D1; `firstVersion = 0` restores the refusal).
+- Desiderio 4.36.0 marks every collection row in its Content Block templates
+  with `f:mark.item` (185 loops, 4 listed exceptions); anonymous output is
+  byte-identical.
+- The runtime suite gains eight 1.7 scenarios (rail, appender, duplicate,
+  undo removal, nested cascade, first draft by default, axe on rail and
+  appender): 30 scenarios. The 40-entry payload budget rises from 1500 to
+  1750 ms (1.7 adds the cascade and duplicate checks per entry, about 12 %).
+- The Visual Editor film (`visual-editor-da5d0874`): line 4 re-voiced for the
+  1.6 Entries flow ("Rename an entry right in the list. For text and media,
+  Edit in form opens the TYPO3 form."), rendered with the 1.6.1 screenshots,
+  captions en/de/zh/hu.
+
 ### Visual Editor Enhancements 1.6.1 — 2026-11-07
 
 - Visual Editor Enhancements 1.6.1 fixes the 23 confirmed findings of the
