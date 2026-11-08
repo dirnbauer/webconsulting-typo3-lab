@@ -29,6 +29,8 @@ ddev exec vendor/bin/typo3 cache:flush
 
 The generated manifest and lock are ignored local files. A standard Lab Composer install returns to the default dependency set; repeat the explicit opt-in to enable Redaktion again. Create this profile before making development links; preserve existing links as documented in `lab-link.sh` when updating dependencies.
 
+Since 2.1.0 the "Seiten & Inhalte" view works like the TYPO3 page module: one tree node per default-language page (translations are attached to it), columns from the real backend layout (`BackendLayoutView`, so the Desiderio page TSconfig layouts appear), language tabs with translation counts, and translation through DataHandler `localize` (abilities `content/localize-element` and `pages/localize-page`). The editor offers the TCA fields of each element type, including Content Blocks fields and collection items. Without a selected workspace the app always writes to the live website, never into the backend user's stored workspace.
+
 The current beta requires TYPO3 14.3, abilities 1.3 and an active administrator account. Record-level editor scopes are not implemented, so ordinary editor accounts are refused. Existing JWT/auth and sanitizer corrections remain enabled. This is a development evaluation, not a claim of a production deployment of the editing service.
 
 The native app is Apple Silicon, unsigned and not notarized. The page says this and offers a demonstration; it does not promise a public binary or a public source repository. The locally built installer is delivered separately.
