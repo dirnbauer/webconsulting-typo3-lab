@@ -14,9 +14,9 @@
  * storageState with a fixated backend session; no password is ever stored or
  * printed - users get a random one that is discarded at once).
  *
- * Modes: inspect | fixture [run] | extra | visible | localize | ve_editor |
- * session <role> | settings <role> <chooserMode> <workspace> [labels] [layout] [colorScheme] |
- * firstversion <0|1> | version | cleanup
+ * Modes: inspect | fixture [run] | extra | v17 | visible | localize | ve_editor |
+ * session <role> | settings <role> <chooserMode> <workspace> [labels] [layout] [colorScheme] [collectionRows] |
+ * firstversion <0|1|default> | cascade <maxRecords|default> | version [recordKey] | cleanup
  */
 
 declare(strict_types=1);
@@ -41,6 +41,10 @@ const SHOWCASE = 8430;
 const ROLES = ['admin', 'editor', 'veEditor'];
 /** Child tables of the fixture's collections (the restricted editor's tables_modify, minus legal links). */
 const CHILD_TABLES = ['feature_checklist_items', 'tabs_items', 'data_table_rows', 'data_table_cells', 'data_table_columns'];
+/** 1.7 nested-cascade fixture (product comparison: products with specs and an image reference). */
+const PRODUCT_TABLES = ['product_comparison_products', 'product_comparison_specs'];
+/** Every table a run may leave a draft in (cleanup discards them, the proof counts them). */
+const DRAFT_TABLES = [...CHILD_TABLES, ...PRODUCT_TABLES, 'sys_file_reference'];
 
 $pool = GeneralUtility::makeInstance(ConnectionPool::class);
 
@@ -69,10 +73,15 @@ function saveState(array $state): void
     chmod(STATE, 0600);
 }
 
-function pageTsconfig(int $firstVersion): string
+/**
+ * @param int|null $firstVersion null: the extension's default (1.7: 1)
+ * @param int|null $maxRecords   null: the default cascade bound
+ */
+function pageTsconfig(?int $firstVersion, ?int $maxRecords = null): string
 {
     return "tx_visualeditorenhancements.inlineRecords.enabled = 1\n"
-        . "tx_visualeditorenhancements.inlineRecords.firstVersion = {$firstVersion}\n";
+        . ($firstVersion === null ? '' : "tx_visualeditorenhancements.inlineRecords.firstVersion = {$firstVersion}\n")
+        . ($maxRecords === null ? '' : "tx_visualeditorenhancements.inlineRecords.cascade.maxRecords = {$maxRecords}\n");
 }
 
 /** A password nobody knows: the suite signs in through fixated sessions only. */
@@ -81,9 +90,10 @@ function throwawayPassword(): string
     return bin2hex(random_bytes(24)) . '!Aa9';
 }
 
-function userSettings(string $chooserMode = 'tabs', string $labels = 'caption', string $layout = 'inspector', string $colorScheme = 'auto'): string
+function userSettings(string $chooserMode = 'tabs', string $labels = 'caption', string $layout = 'inspector', string $colorScheme = 'auto', string $collectionRows = 'panel'): string
 {
     return serialize([
+        'tx_visualeditor_collectionRows' => $collectionRows,
         'colorScheme' => $colorScheme,
         'tx_visualeditor_inlineRecords' => 1,
         'tx_visualeditor_fieldChooserMode' => $chooserMode,
@@ -221,7 +231,7 @@ if ($mode === 'extra') {
 
 if ($mode === 'visible') {
     $data = [];
-    foreach (['tt_content', 'feature_checklist_items', 'tabs_items', 'legal_links_link_items', 'data_table_rows', 'data_table_cells', 'data_table_columns'] as $table) {
+    foreach (['tt_content', 'feature_checklist_items', 'tabs_items', 'legal_links_link_items', 'data_table_rows', 'data_table_cells', 'data_table_columns', ...PRODUCT_TABLES] as $table) {
         foreach ($pool->getConnectionForTable($table)->fetchFirstColumn("SELECT uid FROM $table WHERE pid=? AND deleted=0 AND t3ver_wsid=0", [$page]) as $uid) {
             $data[$table][(int)$uid] = ['hidden' => 0];
         }
@@ -337,7 +347,7 @@ if ($mode === 'settings') {
         throw new RuntimeException('Fixture identity only');
     }
     $pool->getConnectionForTable('be_users')->update('be_users', [
-        'uc' => userSettings($argv[3] ?? 'tabs', $argv[5] ?? 'caption', $argv[6] ?? 'inspector', $argv[7] ?? 'auto'),
+        'uc' => userSettings($argv[3] ?? 'tabs', $argv[5] ?? 'caption', $argv[6] ?? 'inspector', $argv[7] ?? 'auto', $argv[8] ?? 'panel'),
         'workspace_id' => (int)($argv[4] ?? 0),
     ], ['uid' => $uid]);
     echo "Fixture preferences set\n";
@@ -345,15 +355,74 @@ if ($mode === 'settings') {
 }
 
 if ($mode === 'firstversion') {
-    dh(['pages' => [$page => ['TSconfig' => pageTsconfig(($argv[2] ?? '0') === '1' ? 1 : 0)]]]);
-    echo 'firstVersion = ', ($argv[2] ?? '0') === '1' ? 1 : 0, "\n";
+    // `default`: no firstVersion line at all - the extension's default decides.
+    $value = match ($argv[2] ?? '0') { '1' => 1, 'default' => null, default => 0 };
+    dh(['pages' => [$page => ['TSconfig' => pageTsconfig($value)]]]);
+    echo 'firstVersion = ', $value ?? 'default', "\n";
+    exit;
+}
+
+if ($mode === 'cascade') {
+    // The cascade bound (cascade.maxRecords) of the fixture page; firstVersion stays 0.
+    $value = ($argv[2] ?? 'default') === 'default' ? null : max(0, (int)$argv[2]);
+    dh(['pages' => [$page => ['TSconfig' => pageTsconfig(0, $value)]]]);
+    echo 'cascade.maxRecords = ', $value ?? 'default', "\n";
+    exit;
+}
+
+if ($mode === 'v17') {
+    // 1.7 scenarios: separate checklists for the on-page rail, Duplicate, Undo
+    // removal and the default firstVersion (never versioned), and a product
+    // comparison whose first product has two nested specs and an image
+    // reference (the counted cascade; sys_file is shared and must stay).
+    $file = (int)$pool->getConnectionForTable('sys_file')->fetchOne(
+        "SELECT uid FROM sys_file WHERE identifier LIKE '/desiderio-element-library/%.jpg' AND missing=0 ORDER BY uid LIMIT 1"
+    );
+    if ($file === 0) {
+        throw new RuntimeException('No shared image for the cascade fixture');
+    }
+    $checklist = static fn(string $key, string $header, array $items): array => [$key => [
+        'pid' => $page, 'CType' => 'desiderio_featurechecklist', 'header' => $header,
+        'desiderio_featurechecklist_items' => implode(',', array_keys($items)),
+    ]];
+    $items = [
+        'NEWrailone' => 'Rail one', 'NEWrailtwo' => 'Rail two', 'NEWrailthree' => 'Rail three',
+        'NEWdupone' => 'Duplicate source', 'NEWduptwo' => 'Duplicate neighbour',
+        'NEWundoone' => 'Undo one', 'NEWundotwo' => 'Undo two', 'NEWundothree' => 'Undo three',
+        'NEWdefone' => 'Default one', 'NEWdeftwo' => 'Default two',
+    ];
+    $handler = dh([
+        'tt_content' => $checklist('NEWrail', 'VEE disposable rail', array_slice($items, 0, 3, true))
+            + $checklist('NEWdup', 'VEE disposable duplicate', array_slice($items, 3, 2, true))
+            + $checklist('NEWundo', 'VEE disposable undo', array_slice($items, 5, 3, true))
+            + $checklist('NEWdefault', 'VEE disposable default first version', array_slice($items, 8, 2, true))
+            + ['NEWproducts' => ['pid' => $page, 'CType' => 'desiderio_productcomparison', 'header' => 'VEE disposable products',
+                'desiderio_productcomparison_products' => 'NEWpone,NEWptwo,NEWpthree']],
+        'feature_checklist_items' => array_map(static fn(string $title): array => ['pid' => $page, 'title' => $title], $items),
+        'product_comparison_products' => [
+            'NEWpone' => ['pid' => $page, 'name' => 'Cascade product', 'price' => '1', 'specs' => 'NEWsone,NEWstwo', 'image' => 'NEWref'],
+            'NEWptwo' => ['pid' => $page, 'name' => 'Product two', 'price' => '2', 'specs' => 'NEWsthree'],
+            'NEWpthree' => ['pid' => $page, 'name' => 'Product three', 'price' => '3', 'specs' => 'NEWsfour'],
+        ],
+        'product_comparison_specs' => [
+            'NEWsone' => ['pid' => $page, 'text' => 'Nested spec one'],
+            'NEWstwo' => ['pid' => $page, 'text' => 'Nested spec two'],
+            'NEWsthree' => ['pid' => $page, 'text' => 'Spec three'],
+            'NEWsfour' => ['pid' => $page, 'text' => 'Spec four'],
+        ],
+        'sys_file_reference' => ['NEWref' => ['pid' => $page, 'uid_local' => $file, 'hidden' => 0]],
+    ]);
+    $state['records'] = array_merge($state['records'], $handler->substNEWwithIDs);
+    $state['sharedFile'] = $file;
+    saveState($state);
+    echo json_encode($handler->substNEWwithIDs + ['sharedFile' => $file]), "\n";
     exit;
 }
 
 if ($mode === 'version') {
-    // Complete Core drafts of the checklist and ITS entries only (the
-    // first-version and translated elements must stay unversioned).
-    $check = (int)$state['records']['NEWcheck'];
+    // Complete Core drafts of one checklist (default: NEWcheck) and ITS entries
+    // only (the first-version and translated elements must stay unversioned).
+    $check = (int)$state['records'][$argv[2] ?? 'NEWcheck'];
     $workspace = (int)$state['workspace'];
     $content = $pool->getConnectionForTable('tt_content');
     if (!$content->count('*', 'tt_content', ['t3ver_oid' => $check, 't3ver_wsid' => $workspace])) {
@@ -373,7 +442,7 @@ if ($mode === 'cleanup') {
     $workspace = (int)$state['workspace'];
     $GLOBALS['BE_USER']->workspace = $workspace;
     // Discard every draft of this run (parents first; Core discards their inline drafts with them).
-    foreach (array_merge(['tt_content'], CHILD_TABLES, ['legal_links_link_items']) as $table) {
+    foreach (array_merge(['tt_content'], DRAFT_TABLES, ['legal_links_link_items']) as $table) {
         foreach ($pool->getConnectionForTable($table)->fetchFirstColumn("SELECT uid FROM $table WHERE pid=? AND t3ver_wsid=? AND t3ver_oid>0", [$page, $workspace]) as $uid) {
             if ($pool->getConnectionForTable($table)->count('*', $table, ['uid' => $uid])) {
                 dh([], [$table => [(int)$uid => ['discard' => 1]]], $workspace);
@@ -425,10 +494,11 @@ if ($mode === 'cleanup') {
         'pageDeleted' => (int)$pool->getConnectionForTable('pages')->fetchOne('SELECT COUNT(*) FROM pages WHERE (uid=? OR l10n_parent=?) AND deleted=0', [$page, $page]) === 0,
         'remainingActivePageOwnedRows' => (object)$remaining,
         'remainingDrafts' => (int)$pool->getConnectionForTable('tt_content')->fetchOne('SELECT COUNT(*) FROM tt_content WHERE t3ver_wsid=?', [$workspace])
-            + array_sum(array_map(static fn(string $t): int => (int)$pool->getConnectionForTable($t)->fetchOne("SELECT COUNT(*) FROM $t WHERE t3ver_wsid=?", [$workspace]), CHILD_TABLES)),
+            + array_sum(array_map(static fn(string $t): int => (int)$pool->getConnectionForTable($t)->fetchOne("SELECT COUNT(*) FROM $t WHERE t3ver_wsid=?", [$workspace]), DRAFT_TABLES)),
         'disposableUsers' => (int)$pool->getConnectionForTable('be_users')->fetchOne('SELECT COUNT(*) FROM be_users WHERE uid IN (' . implode(',', $users) . ')'),
         'disposableGroups' => (int)$pool->getConnectionForTable('be_groups')->fetchOne('SELECT COUNT(*) FROM be_groups WHERE uid IN (' . implode(',', $groups) . ')'),
         'sessions' => (int)$pool->getConnectionForTable('be_sessions')->fetchOne('SELECT COUNT(*) FROM be_sessions WHERE ses_userid IN (' . implode(',', $users) . ')'),
+        'sharedFileKept' => !isset($state['sharedFile']) || (int)$pool->getConnectionForTable('sys_file')->fetchOne('SELECT COUNT(*) FROM sys_file WHERE uid=?', [$state['sharedFile']]) === 1,
         'workspaceDeleted' => (int)$pool->getConnectionForTable('sys_workspace')->fetchOne('SELECT deleted FROM sys_workspace WHERE uid=?', [$workspace]) === 1,
     ];
     foreach (glob(STATE_DIR . '/state-*.json') ?: [] as $file) {

@@ -3,7 +3,7 @@
 # (Tests/Integration/VisualEditor, see its README.md).
 #
 #   Build/Scripts/ve-runtime.sh install [<ref>]  put a VEE candidate into vendor/ (git archive of <ref> from
-#                                                packages/visual_editor_enhancements; default feature/1.6-integration)
+#                                                packages/visual_editor_enhancements; default feature/1.7-integration)
 #   Build/Scripts/ve-runtime.sh restore          put the release from composer.lock back into vendor/
 #   Build/Scripts/ve-runtime.sh fixture [<run>]  create the disposable fixture, sessions, copy the state out
 #   Build/Scripts/ve-runtime.sh run [args...]    run the Playwright runtime spec (args go to playwright test)
@@ -69,7 +69,7 @@ health() {
 
 case "${1:-}" in
   install)
-    archive_into_vendor "${2:-feature/1.6-integration}"
+    archive_into_vendor "${2:-feature/1.7-integration}"
     health
     ;;
   restore)
@@ -79,7 +79,7 @@ case "${1:-}" in
     ;;
   fixture)
     [ -e "$STATE/fixture.json" ] && { echo "host fixture state exists; run cleanup first" >&2; exit 1; }
-    for mode in "fixture ${2:-$(date +%Y%m%d%H%M)}" extra visible localize ve_editor "session admin" "session editor" "session veEditor"; do
+    for mode in "fixture ${2:-$(date +%Y%m%d%H%M)}" extra v17 visible localize ve_editor "session admin" "session editor" "session veEditor"; do
       # shellcheck disable=SC2086
       helper $mode
     done
