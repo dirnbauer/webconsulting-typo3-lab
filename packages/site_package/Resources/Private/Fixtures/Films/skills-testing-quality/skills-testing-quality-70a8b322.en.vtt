@@ -1,0 +1,58 @@
+WEBVTT - Testing and code quality: agent skills for TYPO3 (en)
+
+1
+00:00:02.040 --> 00:00:06.049
+A bug that comes back should have been a test
+the first time.
+
+2
+00:00:07.149 --> 00:00:12.909
+Testing and code quality: four skills for TYPO3
+v14.
+
+3
+00:00:14.209 --> 00:00:21.797
+Unit, functional and end-to-end tests, and a
+reported bug reproduced as a failing test first.
+
+4
+00:00:23.147 --> 00:00:28.593
+A test written after the fix proves only that
+the code does what it does.
+
+5
+00:00:29.993 --> 00:00:36.797
+Builds and repairs Playwright tests for visitor
+and editor journeys, with isolated fixtures.
+
+6
+00:00:38.147 --> 00:00:43.071
+A unit test cannot click a filter or save a link
+dialog.
+
+7
+00:00:44.471 --> 00:00:53.156
+Checks an extension against TYPO3 standards:
+versions, coding standards, deprecations and TER
+readiness.
+
+8
+00:00:54.506 --> 00:00:59.404
+A version bump that leaves half the files behind
+is easy to miss.
+
+9
+00:01:00.804 --> 00:01:07.635
+Cleans up extension code for clarity and v14
+patterns without changing what it does.
+
+10
+00:01:08.985 --> 00:01:16.756
+It replaces custom code with what TYPO3 already
+provides, and checks that the behaviour stays
+the same.
+
+11
+00:01:18.356 --> 00:01:22.600
+Open source. Clone the skills, and help us
+improve them.

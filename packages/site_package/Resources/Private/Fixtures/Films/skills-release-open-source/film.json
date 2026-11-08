@@ -1,0 +1,96 @@
+{
+  "id": "skills-release-open-source",
+  "slug": "/ai/agentic-skills/release-open-source",
+  "placements": [
+    {
+      "slug": "/ai/agentic-skills/release-open-source"
+    }
+  ],
+  "title": "Release and open source: agent skills for TYPO3",
+  "header": "Release and open source in 94 seconds",
+  "description": "<p>Ship a first release that keeps its promises, write docs that render on docs.typo3.org, harden the supply chain and contribute to the Core. For each skill: the prompt you would type and what it does. Narrated, with selectable captions.</p>",
+  "mp4": "skills-release-open-source-af45b01d.mp4",
+  "poster": "skills-release-open-source-poster-af45b01d.webp",
+  "vtt": "skills-release-open-source-af45b01d.en.vtt",
+  "duration": 94.049,
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "sound": true,
+  "alt": "Film, 94 seconds: Release and open source, 4 agent skills for TYPO3 v14 (typo3-initial-release, typo3-docs, typo3-core-contributions, enterprise-readiness). Each skill with its own prompt and what it delivers. Narrated, with selectable captions.",
+  "transcript": [
+    {
+      "at": "0:02",
+      "text": "Shipping an extension takes more than code: a release, documentation and a safe supply chain."
+    },
+    {
+      "at": "0:10",
+      "text": "Release and open source: four skills for TYPO3 v14."
+    },
+    {
+      "at": "0:16",
+      "text": "Prepares the first public 1.0.0 release of an extension for TER or Packagist."
+    },
+    {
+      "at": "0:24",
+      "text": "Updating version strings is the smallest part of a release."
+    },
+    {
+      "at": "0:30",
+      "text": "Writes extension documentation that renders on docs.typo3.org, from guides.xml to screenshots."
+    },
+    {
+      "at": "0:41",
+      "text": "A wrong namespace in guides.xml stops a manual from rendering, so the skill generates that file instead of typing it."
+    },
+    {
+      "at": "0:52",
+      "text": "Helps contribute to TYPO3 Core: Forge issues, Gerrit patches, cherry-picks and CI logs."
+    },
+    {
+      "at": "1:02",
+      "text": "Gerrit has its own rules, from work-in-progress pushes to keeping the Change-Id."
+    },
+    {
+      "at": "1:09",
+      "text": "Assesses production readiness: supply-chain security, CI/CD hardening and quality gates."
+    },
+    {
+      "at": "1:18",
+      "text": "It makes the build and signing of a release traceable, from SHA-pinned actions to signed artefacts."
+    },
+    {
+      "at": "1:26",
+      "text": "Open source. Clone the skills, and help us improve them."
+    }
+  ],
+  "captions": {
+    "language": "en",
+    "label": "English",
+    "burnedIn": false,
+    "languages": [
+      "en",
+      "de",
+      "zh",
+      "hu"
+    ]
+  },
+  "bytes": {
+    "mp4": 4264702,
+    "poster": 33644,
+    "vtt": 1339,
+    "captionTracks": {
+      "en": 1339,
+      "de": 1417,
+      "zh": 1268,
+      "hu": 1538
+    }
+  },
+  "generator": "packages/site_package/Build/Film/render-films.mjs",
+  "captionTracks": {
+    "en": "skills-release-open-source-af45b01d.en.vtt",
+    "de": "skills-release-open-source-af45b01d.de.vtt",
+    "zh": "skills-release-open-source-af45b01d.zh.vtt",
+    "hu": "skills-release-open-source-af45b01d.hu.vtt"
+  }
+}

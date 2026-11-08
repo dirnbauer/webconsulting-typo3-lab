@@ -1,0 +1,934 @@
+{
+  "voice": "George",
+  "delivery": {
+    "stability": 0.62,
+    "similarity_boost": 0.78,
+    "style": 0.18,
+    "speed": 0.9
+  },
+  "lines": [
+    {
+      "say": "A site now has to be found three ways: by search engines, by its own search and by AI agents.",
+      "show": "A site now has to be found three ways: by search engines, by its own search and by AI agents.",
+      "file": "voice-01.mp3",
+      "duration": 7367,
+      "end": 6760,
+      "words": [
+        {
+          "word": "A",
+          "start": 46,
+          "end": 93
+        },
+        {
+          "word": "site",
+          "start": 186,
+          "end": 499
+        },
+        {
+          "word": "now",
+          "start": 534,
+          "end": 673
+        },
+        {
+          "word": "has",
+          "start": 743,
+          "end": 871
+        },
+        {
+          "word": "to",
+          "start": 917,
+          "end": 964
+        },
+        {
+          "word": "be",
+          "start": 1033,
+          "end": 1115
+        },
+        {
+          "word": "found",
+          "start": 1184,
+          "end": 1463
+        },
+        {
+          "word": "three",
+          "start": 1533,
+          "end": 1811
+        },
+        {
+          "word": "ways:",
+          "start": 1858,
+          "end": 2426
+        },
+        {
+          "word": "by",
+          "start": 2659,
+          "end": 2821
+        },
+        {
+          "word": "search",
+          "start": 2914,
+          "end": 3216
+        },
+        {
+          "word": "engines,",
+          "start": 3286,
+          "end": 3843
+        },
+        {
+          "word": "by",
+          "start": 3924,
+          "end": 4087
+        },
+        {
+          "word": "its",
+          "start": 4156,
+          "end": 4272
+        },
+        {
+          "word": "own",
+          "start": 4319,
+          "end": 4540
+        },
+        {
+          "word": "search",
+          "start": 4632,
+          "end": 5050
+        },
+        {
+          "word": "and",
+          "start": 5132,
+          "end": 5283
+        },
+        {
+          "word": "by",
+          "start": 5352,
+          "end": 5492
+        },
+        {
+          "word": "AI",
+          "start": 5596,
+          "end": 6037
+        },
+        {
+          "word": "agents.",
+          "start": 6084,
+          "end": 6734
+        }
+      ],
+      "heard": "A site now has to be found three ways, by search engines, by its own search, and by AI agents."
+    },
+    {
+      "say": "Search, S E O and agents: four skills for typo three version fourteen.",
+      "show": "Search, SEO and agents: four skills for TYPO3 v14.",
+      "file": "voice-02.mp3",
+      "duration": 6348,
+      "end": 5780,
+      "words": [
+        {
+          "word": "Search,",
+          "start": 12,
+          "end": 604
+        },
+        {
+          "word": "S",
+          "start": 708,
+          "end": 906
+        },
+        {
+          "word": "E",
+          "start": 1033,
+          "end": 1161
+        },
+        {
+          "word": "O",
+          "start": 1289,
+          "end": 1451
+        },
+        {
+          "word": "and",
+          "start": 1579,
+          "end": 1718
+        },
+        {
+          "word": "agents:",
+          "start": 1800,
+          "end": 2485
+        },
+        {
+          "word": "four",
+          "start": 2752,
+          "end": 3007
+        },
+        {
+          "word": "skills",
+          "start": 3053,
+          "end": 3460
+        },
+        {
+          "word": "for",
+          "start": 3506,
+          "end": 3611
+        },
+        {
+          "word": "typo",
+          "start": 3657,
+          "end": 4040
+        },
+        {
+          "word": "three",
+          "start": 4122,
+          "end": 4435
+        },
+        {
+          "word": "version",
+          "start": 4505,
+          "end": 4888
+        },
+        {
+          "word": "fourteen.",
+          "start": 4969,
+          "end": 5735
+        }
+      ],
+      "heard": "Search SEO and Agents, four skills for TYPO3 version 14."
+    },
+    {
+      "say": "Sitemaps, canonical U R Ls, hreflang, meta tags, Open Graph and robots rules with EXT:seo.",
+      "show": "Sitemaps, canonical URLs, hreflang, meta tags, Open Graph and robots rules with EXT:seo.",
+      "file": "voice-03.mp3",
+      "duration": 9691,
+      "words": [
+        {
+          "word": "Sitemaps,",
+          "start": 23,
+          "end": 929
+        },
+        {
+          "word": "canonical",
+          "start": 1126,
+          "end": 1695
+        },
+        {
+          "word": "U",
+          "start": 1800,
+          "end": 1927
+        },
+        {
+          "word": "R",
+          "start": 2055,
+          "end": 2183
+        },
+        {
+          "word": "Ls,",
+          "start": 2310,
+          "end": 2798
+        },
+        {
+          "word": "hreflang,",
+          "start": 2995,
+          "end": 3947
+        },
+        {
+          "word": "meta",
+          "start": 4145,
+          "end": 4447
+        },
+        {
+          "word": "tags,",
+          "start": 4493,
+          "end": 5062
+        },
+        {
+          "word": "Open",
+          "start": 5294,
+          "end": 5631
+        },
+        {
+          "word": "Graph",
+          "start": 5712,
+          "end": 6049
+        },
+        {
+          "word": "and",
+          "start": 6084,
+          "end": 6177
+        },
+        {
+          "word": "robots",
+          "start": 6246,
+          "end": 6711
+        },
+        {
+          "word": "rules",
+          "start": 6792,
+          "end": 7198
+        },
+        {
+          "word": "with",
+          "start": 7326,
+          "end": 7512
+        },
+        {
+          "word": "EXT:seo.",
+          "start": 7581,
+          "end": 9160
+        }
+      ],
+      "heard": "Sitemaps, canonical URLs, hate reflang, meta tags, open graph and robots rules with EXT SEO."
+    },
+    {
+      "say": "It starts where the symptoms show: language versions mixed up in Google, or a sitemap with only the home page in it.",
+      "show": "It starts where the symptoms show: language versions mixed up in Google, or a sitemap with only the home page in it.",
+      "file": "voice-04.mp3",
+      "duration": 8385,
+      "end": 7540,
+      "words": [
+        {
+          "word": "It",
+          "start": 35,
+          "end": 209
+        },
+        {
+          "word": "starts",
+          "start": 255,
+          "end": 639
+        },
+        {
+          "word": "where",
+          "start": 673,
+          "end": 813
+        },
+        {
+          "word": "the",
+          "start": 848,
+          "end": 917
+        },
+        {
+          "word": "symptoms",
+          "start": 952,
+          "end": 1405
+        },
+        {
+          "word": "show:",
+          "start": 1451,
+          "end": 2009
+        },
+        {
+          "word": "language",
+          "start": 2496,
+          "end": 2937
+        },
+        {
+          "word": "versions",
+          "start": 2984,
+          "end": 3460
+        },
+        {
+          "word": "mixed",
+          "start": 3553,
+          "end": 3843
+        },
+        {
+          "word": "up",
+          "start": 3878,
+          "end": 3971
+        },
+        {
+          "word": "in",
+          "start": 4040,
+          "end": 4098
+        },
+        {
+          "word": "Google,",
+          "start": 4191,
+          "end": 4783
+        },
+        {
+          "word": "or",
+          "start": 5050,
+          "end": 5201
+        },
+        {
+          "word": "a",
+          "start": 5271,
+          "end": 5294
+        },
+        {
+          "word": "sitemap",
+          "start": 5364,
+          "end": 5886
+        },
+        {
+          "word": "with",
+          "start": 5956,
+          "end": 6084
+        },
+        {
+          "word": "only",
+          "start": 6130,
+          "end": 6316
+        },
+        {
+          "word": "the",
+          "start": 6362,
+          "end": 6432
+        },
+        {
+          "word": "home",
+          "start": 6502,
+          "end": 6734
+        },
+        {
+          "word": "page",
+          "start": 6769,
+          "end": 7070
+        },
+        {
+          "word": "in",
+          "start": 7105,
+          "end": 7163
+        },
+        {
+          "word": "it.",
+          "start": 7233,
+          "end": 7546
+        }
+      ],
+      "heard": "It starts where the symptoms show, language versions mixed up in Google or a sitemap with only the homepage in it."
+    },
+    {
+      "say": "Builds schema.org Jason L D from the records that render the page, and keeps it through an upgrade.",
+      "show": "Builds schema.org JSON-LD from the records that render the page, and keeps it through an upgrade.",
+      "file": "voice-05.mp3",
+      "duration": 7602,
+      "words": [
+        {
+          "word": "Builds",
+          "start": 23,
+          "end": 430
+        },
+        {
+          "word": "schema.org",
+          "start": 464,
+          "end": 1637
+        },
+        {
+          "word": "Jason",
+          "start": 2125,
+          "end": 2566
+        },
+        {
+          "word": "L",
+          "start": 2659,
+          "end": 2821
+        },
+        {
+          "word": "D",
+          "start": 2914,
+          "end": 3042
+        },
+        {
+          "word": "from",
+          "start": 3239,
+          "end": 3390
+        },
+        {
+          "word": "the",
+          "start": 3425,
+          "end": 3495
+        },
+        {
+          "word": "records",
+          "start": 3564,
+          "end": 3959
+        },
+        {
+          "word": "that",
+          "start": 3994,
+          "end": 4110
+        },
+        {
+          "word": "render",
+          "start": 4180,
+          "end": 4435
+        },
+        {
+          "word": "the",
+          "start": 4481,
+          "end": 4551
+        },
+        {
+          "word": "page,",
+          "start": 4598,
+          "end": 5155
+        },
+        {
+          "word": "and",
+          "start": 5283,
+          "end": 5445
+        },
+        {
+          "word": "keeps",
+          "start": 5515,
+          "end": 5759
+        },
+        {
+          "word": "it",
+          "start": 5793,
+          "end": 5863
+        },
+        {
+          "word": "through",
+          "start": 5886,
+          "end": 6107
+        },
+        {
+          "word": "an",
+          "start": 6130,
+          "end": 6177
+        },
+        {
+          "word": "upgrade.",
+          "start": 6223,
+          "end": 6966
+        }
+      ],
+      "heard": "Buildschema.org, JSON-LD from the records that render the page and keeps it through an upgrade."
+    },
+    {
+      "say": "The validator finds no errors. The graph says what the page shows.",
+      "show": "The validator finds no errors. The graph says what the page shows.",
+      "file": "voice-06.mp3",
+      "duration": 5198,
+      "end": 4640,
+      "words": [
+        {
+          "word": "The",
+          "start": 23,
+          "end": 151
+        },
+        {
+          "word": "validator",
+          "start": 197,
+          "end": 789
+        },
+        {
+          "word": "finds",
+          "start": 859,
+          "end": 1149
+        },
+        {
+          "word": "no",
+          "start": 1231,
+          "end": 1405
+        },
+        {
+          "word": "errors.",
+          "start": 1498,
+          "end": 2090
+        },
+        {
+          "word": "The",
+          "start": 2357,
+          "end": 2473
+        },
+        {
+          "word": "graph",
+          "start": 2519,
+          "end": 2891
+        },
+        {
+          "word": "says",
+          "start": 2926,
+          "end": 3204
+        },
+        {
+          "word": "what",
+          "start": 3251,
+          "end": 3390
+        },
+        {
+          "word": "the",
+          "start": 3425,
+          "end": 3495
+        },
+        {
+          "word": "page",
+          "start": 3541,
+          "end": 3936
+        },
+        {
+          "word": "shows.",
+          "start": 3971,
+          "end": 4656
+        }
+      ],
+      "heard": "The validator finds no errors. The graph says what the page shows."
+    },
+    {
+      "say": "Runs and debugs Apache Solar search: indexing, facets, suggest, PDFs and stuck queues.",
+      "show": "Runs and debugs Apache Solr search: indexing, facets, suggest, PDFs and stuck queues.",
+      "file": "voice-07.mp3",
+      "duration": 7784,
+      "words": [
+        {
+          "word": "Runs",
+          "start": 12,
+          "end": 383
+        },
+        {
+          "word": "and",
+          "start": 418,
+          "end": 511
+        },
+        {
+          "word": "debugs",
+          "start": 580,
+          "end": 1149
+        },
+        {
+          "word": "Apache",
+          "start": 1196,
+          "end": 1683
+        },
+        {
+          "word": "Solar",
+          "start": 1765,
+          "end": 2090
+        },
+        {
+          "word": "search:",
+          "start": 2136,
+          "end": 2612
+        },
+        {
+          "word": "indexing,",
+          "start": 2810,
+          "end": 3587
+        },
+        {
+          "word": "facets,",
+          "start": 3657,
+          "end": 4284
+        },
+        {
+          "word": "suggest,",
+          "start": 4365,
+          "end": 5132
+        },
+        {
+          "word": "PDFs",
+          "start": 5294,
+          "end": 5979
+        },
+        {
+          "word": "and",
+          "start": 6014,
+          "end": 6118
+        },
+        {
+          "word": "stuck",
+          "start": 6188,
+          "end": 6513
+        },
+        {
+          "word": "queues.",
+          "start": 6560,
+          "end": 7175
+        }
+      ],
+      "heard": "runs and debugs Apache Solar Search, indexing facets, suggest, PDFs, and stuck queues."
+    },
+    {
+      "say": "A Solar server that accepts documents can still drop unknown fields.",
+      "show": "A Solr server that accepts documents can still drop unknown fields.",
+      "file": "voice-08.mp3",
+      "duration": 5198,
+      "words": [
+        {
+          "word": "A",
+          "start": 12,
+          "end": 93
+        },
+        {
+          "word": "Solar",
+          "start": 197,
+          "end": 522
+        },
+        {
+          "word": "server",
+          "start": 569,
+          "end": 882
+        },
+        {
+          "word": "that",
+          "start": 917,
+          "end": 1033
+        },
+        {
+          "word": "accepts",
+          "start": 1068,
+          "end": 1498
+        },
+        {
+          "word": "documents",
+          "start": 1567,
+          "end": 2159
+        },
+        {
+          "word": "can",
+          "start": 2392,
+          "end": 2589
+        },
+        {
+          "word": "still",
+          "start": 2659,
+          "end": 2937
+        },
+        {
+          "word": "drop",
+          "start": 3007,
+          "end": 3286
+        },
+        {
+          "word": "unknown",
+          "start": 3390,
+          "end": 3808
+        },
+        {
+          "word": "fields.",
+          "start": 3889,
+          "end": 4574
+        }
+      ],
+      "heard": "a solar server that accepts documents can still drop unknown fields."
+    },
+    {
+      "say": "Makes search, navigation and forms usable as typed Web M C P tools for browser agents.",
+      "show": "Makes search, navigation and forms usable as typed WebMCP tools for browser agents.",
+      "file": "voice-09.mp3",
+      "duration": 7758,
+      "words": [
+        {
+          "word": "Makes",
+          "start": 23,
+          "end": 313
+        },
+        {
+          "word": "search,",
+          "start": 360,
+          "end": 906
+        },
+        {
+          "word": "navigation",
+          "start": 1010,
+          "end": 1718
+        },
+        {
+          "word": "and",
+          "start": 1788,
+          "end": 1881
+        },
+        {
+          "word": "forms",
+          "start": 1974,
+          "end": 2392
+        },
+        {
+          "word": "usable",
+          "start": 2485,
+          "end": 3088
+        },
+        {
+          "word": "as",
+          "start": 3216,
+          "end": 3402
+        },
+        {
+          "word": "typed",
+          "start": 3483,
+          "end": 3831
+        },
+        {
+          "word": "Web",
+          "start": 3924,
+          "end": 4203
+        },
+        {
+          "word": "M",
+          "start": 4331,
+          "end": 4598
+        },
+        {
+          "word": "C",
+          "start": 4690,
+          "end": 4818
+        },
+        {
+          "word": "P",
+          "start": 5016,
+          "end": 5143
+        },
+        {
+          "word": "tools",
+          "start": 5341,
+          "end": 5747
+        },
+        {
+          "word": "for",
+          "start": 5817,
+          "end": 5933
+        },
+        {
+          "word": "browser",
+          "start": 5979,
+          "end": 6385
+        },
+        {
+          "word": "agents.",
+          "start": 6455,
+          "end": 7221
+        }
+      ],
+      "heard": "Make search, navigation and forms usable as typed web MCP tools for browser agents."
+    },
+    {
+      "say": "An agent fills the form. The consent box stays empty; a person sends it.",
+      "show": "An agent fills the form. The consent box stays empty; a person sends it.",
+      "file": "voice-10.mp3",
+      "duration": 5747,
+      "words": [
+        {
+          "word": "An",
+          "start": 46,
+          "end": 209
+        },
+        {
+          "word": "agent",
+          "start": 279,
+          "end": 627
+        },
+        {
+          "word": "fills",
+          "start": 697,
+          "end": 1022
+        },
+        {
+          "word": "the",
+          "start": 1068,
+          "end": 1138
+        },
+        {
+          "word": "form.",
+          "start": 1207,
+          "end": 1718
+        },
+        {
+          "word": "The",
+          "start": 1985,
+          "end": 2090
+        },
+        {
+          "word": "consent",
+          "start": 2159,
+          "end": 2577
+        },
+        {
+          "word": "box",
+          "start": 2647,
+          "end": 2914
+        },
+        {
+          "word": "stays",
+          "start": 2949,
+          "end": 3309
+        },
+        {
+          "word": "empty;",
+          "start": 3379,
+          "end": 3982
+        },
+        {
+          "word": "a",
+          "start": 4180,
+          "end": 4261
+        },
+        {
+          "word": "person",
+          "start": 4354,
+          "end": 4760
+        },
+        {
+          "word": "sends",
+          "start": 4841,
+          "end": 5108
+        },
+        {
+          "word": "it.",
+          "start": 5178,
+          "end": 5457
+        }
+      ],
+      "heard": "An agent fills the form. The consent box stays empty. A person sends it."
+    },
+    {
+      "say": "Open source. Clone the skills, and help us improve them.",
+      "show": "Open source. Clone the skills, and help us improve them.",
+      "file": "voice-11.mp3",
+      "duration": 3657,
+      "words": [
+        {
+          "word": "Open",
+          "start": 35,
+          "end": 348
+        },
+        {
+          "word": "source.",
+          "start": 430,
+          "end": 906
+        },
+        {
+          "word": "Clone",
+          "start": 1103,
+          "end": 1486
+        },
+        {
+          "word": "the",
+          "start": 1521,
+          "end": 1591
+        },
+        {
+          "word": "skills,",
+          "start": 1625,
+          "end": 2101
+        },
+        {
+          "word": "and",
+          "start": 2125,
+          "end": 2241
+        },
+        {
+          "word": "help",
+          "start": 2310,
+          "end": 2450
+        },
+        {
+          "word": "us",
+          "start": 2519,
+          "end": 2589
+        },
+        {
+          "word": "improve",
+          "start": 2635,
+          "end": 3053
+        },
+        {
+          "word": "them.",
+          "start": 3088,
+          "end": 3355
+        }
+      ],
+      "heard": "open source, clone the skills and help us improve them,"
+    }
+  ]
+}

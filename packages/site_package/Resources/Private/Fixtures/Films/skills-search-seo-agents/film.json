@@ -1,0 +1,96 @@
+{
+  "id": "skills-search-seo-agents",
+  "slug": "/ai/agentic-skills/search-seo-agents",
+  "placements": [
+    {
+      "slug": "/ai/agentic-skills/search-seo-agents"
+    }
+  ],
+  "title": "Search, SEO and agents: agent skills for TYPO3",
+  "header": "Search, SEO and agents in 96 seconds",
+  "description": "<p>Be found by Google, by your own site search and by AI agents, with every statement in the markup taken from the visible page. For each skill: the prompt you would type and what it does. Narrated, with selectable captions.</p>",
+  "mp4": "skills-search-seo-agents-6f1f2778.mp4",
+  "poster": "skills-search-seo-agents-poster-6f1f2778.webp",
+  "vtt": "skills-search-seo-agents-6f1f2778.en.vtt",
+  "duration": 96.035,
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "sound": true,
+  "alt": "Film, 96 seconds: Search, SEO and agents, 4 agent skills for TYPO3 v14 (typo3-seo, typo3-structured-data, typo3-solr, typo3-webmcp). Each skill with its own prompt and what it delivers. Narrated, with selectable captions.",
+  "transcript": [
+    {
+      "at": "0:02",
+      "text": "A site now has to be found three ways: by search engines, by its own search and by AI agents."
+    },
+    {
+      "at": "0:10",
+      "text": "Search, SEO and agents: four skills for TYPO3 v14."
+    },
+    {
+      "at": "0:18",
+      "text": "Sitemaps, canonical URLs, hreflang, meta tags, Open Graph and robots rules with EXT:seo."
+    },
+    {
+      "at": "0:30",
+      "text": "It starts where the symptoms show: language versions mixed up in Google, or a sitemap with only the home page in it."
+    },
+    {
+      "at": "0:40",
+      "text": "Builds schema.org JSON-LD from the records that render the page, and keeps it through an upgrade."
+    },
+    {
+      "at": "0:49",
+      "text": "The validator finds no errors. The graph says what the page shows."
+    },
+    {
+      "at": "0:56",
+      "text": "Runs and debugs Apache Solr search: indexing, facets, suggest, PDFs and stuck queues."
+    },
+    {
+      "at": "1:05",
+      "text": "A Solr server that accepts documents can still drop unknown fields."
+    },
+    {
+      "at": "1:12",
+      "text": "Makes search, navigation and forms usable as typed WebMCP tools for browser agents."
+    },
+    {
+      "at": "1:21",
+      "text": "An agent fills the form. The consent box stays empty; a person sends it."
+    },
+    {
+      "at": "1:29",
+      "text": "Open source. Clone the skills, and help us improve them."
+    }
+  ],
+  "captions": {
+    "language": "en",
+    "label": "English",
+    "burnedIn": false,
+    "languages": [
+      "en",
+      "de",
+      "zh",
+      "hu"
+    ]
+  },
+  "bytes": {
+    "mp4": 4710219,
+    "poster": 37680,
+    "vtt": 1310,
+    "captionTracks": {
+      "en": 1310,
+      "de": 1416,
+      "zh": 1271,
+      "hu": 1508
+    }
+  },
+  "generator": "packages/site_package/Build/Film/render-films.mjs",
+  "captionTracks": {
+    "en": "skills-search-seo-agents-6f1f2778.en.vtt",
+    "de": "skills-search-seo-agents-6f1f2778.de.vtt",
+    "zh": "skills-search-seo-agents-6f1f2778.zh.vtt",
+    "hu": "skills-search-seo-agents-6f1f2778.hu.vtt"
+  }
+}

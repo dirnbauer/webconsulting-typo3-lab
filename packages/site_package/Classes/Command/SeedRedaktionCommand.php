@@ -207,19 +207,42 @@ final class SeedRedaktionCommand extends Command
         }
     }
 
-    /** @return list<int> visible elements of the page (default language) with a retired marker */
+    /**
+     * Elements of the page with a retired marker and their translations: hiding
+     * the default-language record does not hide a translation, which a site in
+     * free mode (and the backend) would still show.
+     *
+     * @return list<int>
+     */
     private function retiredElements(int $page): array
     {
-        $rows = $this->pool->getConnectionForTable('tt_content')
-            ->select(['uid', 'rowDescription'], 'tt_content', ['pid' => $page, 'sys_language_uid' => 0, 'deleted' => 0, 't3ver_wsid' => 0])
-            ->fetchAllAssociative();
+        $queryBuilder = $this->pool->getQueryBuilderForTable('tt_content');
+        $queryBuilder->getRestrictions()->removeAll();
+        $rows = $queryBuilder->select('uid', 'rowDescription')->from('tt_content')->where(
+            $queryBuilder->expr()->eq('pid', $page),
+            $queryBuilder->expr()->eq('sys_language_uid', 0),
+            $queryBuilder->expr()->eq('deleted', 0),
+            $queryBuilder->expr()->eq('t3ver_wsid', 0),
+        )->executeQuery()->fetchAllAssociative();
         $uids = [];
         foreach ($rows as $row) {
             if (in_array((string)$row['rowDescription'], self::RETIRED, true)) {
                 $uids[] = (int)$row['uid'];
             }
         }
-        return $uids;
+        if ($uids === []) {
+            return [];
+        }
+        $queryBuilder = $this->pool->getQueryBuilderForTable('tt_content');
+        $queryBuilder->getRestrictions()->removeAll();
+        $translations = $queryBuilder->select('uid')->from('tt_content')->where(
+            $queryBuilder->expr()->in('l18n_parent', $uids),
+            $queryBuilder->expr()->gt('sys_language_uid', 0),
+            $queryBuilder->expr()->eq('deleted', 0),
+            $queryBuilder->expr()->eq('hidden', 0),
+            $queryBuilder->expr()->eq('t3ver_wsid', 0),
+        )->executeQuery()->fetchFirstColumn();
+        return array_merge($uids, array_map('intval', $translations));
     }
 
     /**

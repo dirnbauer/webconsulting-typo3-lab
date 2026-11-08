@@ -1,0 +1,60 @@
+WEBVTT - Testing and code quality: agent skills for TYPO3 (hu)
+
+1
+00:00:02.040 --> 00:00:06.049
+Egy visszatérő hibából már első alkalommal
+tesztnek kellett volna születnie.
+
+2
+00:00:07.149 --> 00:00:12.909
+Tesztelés és kódminőség: négy skill TYPO3
+v14-hez.
+
+3
+00:00:14.209 --> 00:00:21.797
+Egység-, funkcionális és végpontok közötti
+tesztek; a jelzett hibát először bukó tesztként
+reprodukálja.
+
+4
+00:00:23.147 --> 00:00:28.593
+A javítás után írt teszt csak azt bizonyítja,
+hogy a kód azt teszi, amit tesz.
+
+5
+00:00:29.993 --> 00:00:36.797
+Playwright-teszteket készít és javít látogatói
+és szerkesztői folyamatokhoz, elkülönített
+tesztadatokkal.
+
+6
+00:00:38.147 --> 00:00:43.071
+Egy egységteszt nem tud szűrőre kattintani vagy
+hivatkozási párbeszédablakot menteni.
+
+7
+00:00:44.471 --> 00:00:53.156
+TYPO3-szabványok szerint ellenőriz bővítményt:
+verziók, kódolási szabványok, elavult elemek és
+TER-érettség.
+
+8
+00:00:54.506 --> 00:00:59.404
+Könnyű nem észrevenni egy verzióemelést, amely a
+fájlok felét kihagyja.
+
+9
+00:01:00.804 --> 00:01:07.635
+Átláthatóbbá teszi a bővítménykódot v14-es
+mintákkal, a működés megváltoztatása nélkül.
+
+10
+00:01:08.985 --> 00:01:16.756
+Egyedi kódot vált ki a TYPO3 meglévő
+megoldásaival, és ellenőrzi, hogy a viselkedés
+változatlan marad.
+
+11
+00:01:18.356 --> 00:01:22.600
+Nyílt forráskód. Klónozza a skilleket, és
+segítsen jobbá tenni őket.

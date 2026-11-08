@@ -1,0 +1,856 @@
+{
+  "voice": "George",
+  "delivery": {
+    "stability": 0.62,
+    "similarity_boost": 0.78,
+    "style": 0.18,
+    "speed": 0.9
+  },
+  "lines": [
+    {
+      "say": "A bug that comes back should have been a test the first time.",
+      "show": "A bug that comes back should have been a test the first time.",
+      "file": "voice-01.mp3",
+      "duration": 3709,
+      "words": [
+        {
+          "word": "A",
+          "start": 46,
+          "end": 116
+        },
+        {
+          "word": "bug",
+          "start": 197,
+          "end": 430
+        },
+        {
+          "word": "that",
+          "start": 476,
+          "end": 592
+        },
+        {
+          "word": "comes",
+          "start": 639,
+          "end": 871
+        },
+        {
+          "word": "back",
+          "start": 940,
+          "end": 1242
+        },
+        {
+          "word": "should",
+          "start": 1335,
+          "end": 1544
+        },
+        {
+          "word": "have",
+          "start": 1567,
+          "end": 1660
+        },
+        {
+          "word": "been",
+          "start": 1683,
+          "end": 1800
+        },
+        {
+          "word": "a",
+          "start": 1834,
+          "end": 1858
+        },
+        {
+          "word": "test",
+          "start": 1904,
+          "end": 2241
+        },
+        {
+          "word": "the",
+          "start": 2287,
+          "end": 2357
+        },
+        {
+          "word": "first",
+          "start": 2403,
+          "end": 2670
+        },
+        {
+          "word": "time.",
+          "start": 2705,
+          "end": 3170
+        }
+      ],
+      "heard": "A bug that comes back should have been a test the first time."
+    },
+    {
+      "say": "Testing and code quality: four skills for typo three version fourteen.",
+      "show": "Testing and code quality: four skills for TYPO3 v14.",
+      "file": "voice-02.mp3",
+      "duration": 5460,
+      "end": 4980,
+      "words": [
+        {
+          "word": "Testing",
+          "start": 46,
+          "end": 522
+        },
+        {
+          "word": "and",
+          "start": 569,
+          "end": 639
+        },
+        {
+          "word": "code",
+          "start": 720,
+          "end": 975
+        },
+        {
+          "word": "quality:",
+          "start": 1010,
+          "end": 1649
+        },
+        {
+          "word": "four",
+          "start": 2009,
+          "end": 2264
+        },
+        {
+          "word": "skills",
+          "start": 2334,
+          "end": 2763
+        },
+        {
+          "word": "for",
+          "start": 2810,
+          "end": 2914
+        },
+        {
+          "word": "typo",
+          "start": 2961,
+          "end": 3344
+        },
+        {
+          "word": "three",
+          "start": 3390,
+          "end": 3669
+        },
+        {
+          "word": "version",
+          "start": 3750,
+          "end": 4098
+        },
+        {
+          "word": "fourteen.",
+          "start": 4180,
+          "end": 4934
+        }
+      ],
+      "heard": "Testing and Code Quality, 4 Skills for TYPO3 Version 14,"
+    },
+    {
+      "say": "Unit, functional and end-to-end tests, and a reported bug reproduced as a failing test first.",
+      "show": "Unit, functional and end-to-end tests, and a reported bug reproduced as a failing test first.",
+      "file": "voice-03.mp3",
+      "duration": 7288,
+      "words": [
+        {
+          "word": "Unit,",
+          "start": 12,
+          "end": 580
+        },
+        {
+          "word": "functional",
+          "start": 708,
+          "end": 1231
+        },
+        {
+          "word": "and",
+          "start": 1312,
+          "end": 1416
+        },
+        {
+          "word": "end-to-end",
+          "start": 1498,
+          "end": 2032
+        },
+        {
+          "word": "tests,",
+          "start": 2101,
+          "end": 2763
+        },
+        {
+          "word": "and",
+          "start": 2961,
+          "end": 3111
+        },
+        {
+          "word": "a",
+          "start": 3181,
+          "end": 3204
+        },
+        {
+          "word": "reported",
+          "start": 3274,
+          "end": 3785
+        },
+        {
+          "word": "bug",
+          "start": 3855,
+          "end": 4122
+        },
+        {
+          "word": "reproduced",
+          "start": 4226,
+          "end": 4888
+        },
+        {
+          "word": "as",
+          "start": 4934,
+          "end": 5039
+        },
+        {
+          "word": "a",
+          "start": 5085,
+          "end": 5108
+        },
+        {
+          "word": "failing",
+          "start": 5190,
+          "end": 5526
+        },
+        {
+          "word": "test",
+          "start": 5596,
+          "end": 5921
+        },
+        {
+          "word": "first.",
+          "start": 6002,
+          "end": 6641
+        }
+      ],
+      "heard": "unit, functional and end-to-end tests, and a reported bug reproduced as a failing test first."
+    },
+    {
+      "say": "A test written after the fix proves only that the code does what it does.",
+      "show": "A test written after the fix proves only that the code does what it does.",
+      "file": "voice-04.mp3",
+      "duration": 5146,
+      "words": [
+        {
+          "word": "A",
+          "start": 23,
+          "end": 116
+        },
+        {
+          "word": "test",
+          "start": 209,
+          "end": 499
+        },
+        {
+          "word": "written",
+          "start": 546,
+          "end": 848
+        },
+        {
+          "word": "after",
+          "start": 929,
+          "end": 1242
+        },
+        {
+          "word": "the",
+          "start": 1289,
+          "end": 1358
+        },
+        {
+          "word": "fix",
+          "start": 1428,
+          "end": 1707
+        },
+        {
+          "word": "proves",
+          "start": 1800,
+          "end": 2194
+        },
+        {
+          "word": "only",
+          "start": 2276,
+          "end": 2566
+        },
+        {
+          "word": "that",
+          "start": 2612,
+          "end": 2728
+        },
+        {
+          "word": "the",
+          "start": 2752,
+          "end": 2821
+        },
+        {
+          "word": "code",
+          "start": 2891,
+          "end": 3274
+        },
+        {
+          "word": "does",
+          "start": 3355,
+          "end": 3634
+        },
+        {
+          "word": "what",
+          "start": 3669,
+          "end": 3808
+        },
+        {
+          "word": "it",
+          "start": 3855,
+          "end": 3924
+        },
+        {
+          "word": "does.",
+          "start": 3994,
+          "end": 4586
+        }
+      ],
+      "heard": "A test written after the fix proves only that the code does what it does."
+    },
+    {
+      "say": "Builds and repairs Playwright tests for visitor and editor journeys, with isolated fixtures.",
+      "show": "Builds and repairs Playwright tests for visitor and editor journeys, with isolated fixtures.",
+      "file": "voice-05.mp3",
+      "duration": 6504,
+      "words": [
+        {
+          "word": "Builds",
+          "start": 23,
+          "end": 430
+        },
+        {
+          "word": "and",
+          "start": 453,
+          "end": 522
+        },
+        {
+          "word": "repairs",
+          "start": 604,
+          "end": 1126
+        },
+        {
+          "word": "Playwright",
+          "start": 1196,
+          "end": 1683
+        },
+        {
+          "word": "tests",
+          "start": 1730,
+          "end": 2159
+        },
+        {
+          "word": "for",
+          "start": 2206,
+          "end": 2322
+        },
+        {
+          "word": "visitor",
+          "start": 2368,
+          "end": 2798
+        },
+        {
+          "word": "and",
+          "start": 2868,
+          "end": 2949
+        },
+        {
+          "word": "editor",
+          "start": 3030,
+          "end": 3413
+        },
+        {
+          "word": "journeys,",
+          "start": 3483,
+          "end": 4098
+        },
+        {
+          "word": "with",
+          "start": 4261,
+          "end": 4447
+        },
+        {
+          "word": "isolated",
+          "start": 4528,
+          "end": 5132
+        },
+        {
+          "word": "fixtures.",
+          "start": 5201,
+          "end": 5933
+        }
+      ],
+      "heard": "builds and repairs playwright tests for visitor and editor journeys with isolated fixtures."
+    },
+    {
+      "say": "A unit test cannot click a filter or save a link dialog.",
+      "show": "A unit test cannot click a filter or save a link dialog.",
+      "file": "voice-06.mp3",
+      "duration": 4624,
+      "words": [
+        {
+          "word": "A",
+          "start": 23,
+          "end": 128
+        },
+        {
+          "word": "unit",
+          "start": 290,
+          "end": 569
+        },
+        {
+          "word": "test",
+          "start": 604,
+          "end": 1010
+        },
+        {
+          "word": "cannot",
+          "start": 1103,
+          "end": 1428
+        },
+        {
+          "word": "click",
+          "start": 1474,
+          "end": 1683
+        },
+        {
+          "word": "a",
+          "start": 1730,
+          "end": 1753
+        },
+        {
+          "word": "filter",
+          "start": 1823,
+          "end": 2287
+        },
+        {
+          "word": "or",
+          "start": 2485,
+          "end": 2659
+        },
+        {
+          "word": "save",
+          "start": 2740,
+          "end": 3019
+        },
+        {
+          "word": "a",
+          "start": 3042,
+          "end": 3065
+        },
+        {
+          "word": "link",
+          "start": 3111,
+          "end": 3309
+        },
+        {
+          "word": "dialog.",
+          "start": 3390,
+          "end": 4075
+        }
+      ],
+      "heard": "A unit test cannot click a filter or save a link dialog."
+    },
+    {
+      "say": "Checks an extension against typo three standards: versions, coding standards, deprecations and TER readiness.",
+      "show": "Checks an extension against TYPO3 standards: versions, coding standards, deprecations and TER readiness.",
+      "file": "voice-07.mp3",
+      "duration": 8385,
+      "words": [
+        {
+          "word": "Checks",
+          "start": 12,
+          "end": 360
+        },
+        {
+          "word": "an",
+          "start": 395,
+          "end": 453
+        },
+        {
+          "word": "extension",
+          "start": 499,
+          "end": 1045
+        },
+        {
+          "word": "against",
+          "start": 1091,
+          "end": 1370
+        },
+        {
+          "word": "typo",
+          "start": 1416,
+          "end": 1800
+        },
+        {
+          "word": "three",
+          "start": 1869,
+          "end": 2125
+        },
+        {
+          "word": "standards:",
+          "start": 2171,
+          "end": 2902
+        },
+        {
+          "word": "versions,",
+          "start": 3135,
+          "end": 3878
+        },
+        {
+          "word": "coding",
+          "start": 3971,
+          "end": 4365
+        },
+        {
+          "word": "standards,",
+          "start": 4447,
+          "end": 5132
+        },
+        {
+          "word": "deprecations",
+          "start": 5329,
+          "end": 6211
+        },
+        {
+          "word": "and",
+          "start": 6281,
+          "end": 6409
+        },
+        {
+          "word": "TER",
+          "start": 6490,
+          "end": 7082
+        },
+        {
+          "word": "readiness.",
+          "start": 7152,
+          "end": 7872
+        }
+      ],
+      "heard": "checks and extension against TYPO3 standards, versions, coding standards, deprecations and TER readiness."
+    },
+    {
+      "say": "A version bump that leaves half the files behind is easy to miss.",
+      "show": "A version bump that leaves half the files behind is easy to miss.",
+      "file": "voice-08.mp3",
+      "duration": 4598,
+      "words": [
+        {
+          "word": "A",
+          "start": 23,
+          "end": 104
+        },
+        {
+          "word": "version",
+          "start": 197,
+          "end": 580
+        },
+        {
+          "word": "bump",
+          "start": 662,
+          "end": 952
+        },
+        {
+          "word": "that",
+          "start": 1022,
+          "end": 1138
+        },
+        {
+          "word": "leaves",
+          "start": 1184,
+          "end": 1393
+        },
+        {
+          "word": "half",
+          "start": 1463,
+          "end": 1683
+        },
+        {
+          "word": "the",
+          "start": 1753,
+          "end": 1823
+        },
+        {
+          "word": "files",
+          "start": 1892,
+          "end": 2229
+        },
+        {
+          "word": "behind",
+          "start": 2299,
+          "end": 2728
+        },
+        {
+          "word": "is",
+          "start": 2810,
+          "end": 2914
+        },
+        {
+          "word": "easy",
+          "start": 2995,
+          "end": 3262
+        },
+        {
+          "word": "to",
+          "start": 3309,
+          "end": 3367
+        },
+        {
+          "word": "miss.",
+          "start": 3448,
+          "end": 3959
+        }
+      ],
+      "heard": "A version bump that leaves half the files behind is easy to miss."
+    },
+    {
+      "say": "Cleans up extension code for clarity and version fourteen patterns without changing what it does.",
+      "show": "Cleans up extension code for clarity and v14 patterns without changing what it does.",
+      "file": "voice-09.mp3",
+      "duration": 6531,
+      "words": [
+        {
+          "word": "Cleans",
+          "start": 23,
+          "end": 383
+        },
+        {
+          "word": "up",
+          "start": 430,
+          "end": 522
+        },
+        {
+          "word": "extension",
+          "start": 592,
+          "end": 1115
+        },
+        {
+          "word": "code",
+          "start": 1207,
+          "end": 1474
+        },
+        {
+          "word": "for",
+          "start": 1498,
+          "end": 1602
+        },
+        {
+          "word": "clarity",
+          "start": 1649,
+          "end": 2241
+        },
+        {
+          "word": "and",
+          "start": 2438,
+          "end": 2601
+        },
+        {
+          "word": "version",
+          "start": 2682,
+          "end": 3019
+        },
+        {
+          "word": "fourteen",
+          "start": 3111,
+          "end": 3553
+        },
+        {
+          "word": "patterns",
+          "start": 3634,
+          "end": 4133
+        },
+        {
+          "word": "without",
+          "start": 4203,
+          "end": 4540
+        },
+        {
+          "word": "changing",
+          "start": 4609,
+          "end": 4992
+        },
+        {
+          "word": "what",
+          "start": 5039,
+          "end": 5155
+        },
+        {
+          "word": "it",
+          "start": 5201,
+          "end": 5271
+        },
+        {
+          "word": "does.",
+          "start": 5317,
+          "end": 5909
+        }
+      ],
+      "heard": "cleans up extension code for clarity and version 14 patterns without changing what it does."
+    },
+    {
+      "say": "It replaces custom code with what typo three already provides, and checks that the behaviour stays the same.",
+      "show": "It replaces custom code with what TYPO3 already provides, and checks that the behaviour stays the same.",
+      "file": "voice-10.mp3",
+      "duration": 7471,
+      "words": [
+        {
+          "word": "It",
+          "start": 35,
+          "end": 197
+        },
+        {
+          "word": "replaces",
+          "start": 244,
+          "end": 743
+        },
+        {
+          "word": "custom",
+          "start": 824,
+          "end": 1207
+        },
+        {
+          "word": "code",
+          "start": 1300,
+          "end": 1637
+        },
+        {
+          "word": "with",
+          "start": 1683,
+          "end": 1834
+        },
+        {
+          "word": "what",
+          "start": 1869,
+          "end": 2009
+        },
+        {
+          "word": "typo",
+          "start": 2055,
+          "end": 2415
+        },
+        {
+          "word": "three",
+          "start": 2496,
+          "end": 2798
+        },
+        {
+          "word": "already",
+          "start": 2844,
+          "end": 3204
+        },
+        {
+          "word": "provides,",
+          "start": 3251,
+          "end": 4029
+        },
+        {
+          "word": "and",
+          "start": 4261,
+          "end": 4412
+        },
+        {
+          "word": "checks",
+          "start": 4481,
+          "end": 4818
+        },
+        {
+          "word": "that",
+          "start": 4853,
+          "end": 4981
+        },
+        {
+          "word": "the",
+          "start": 5004,
+          "end": 5074
+        },
+        {
+          "word": "behaviour",
+          "start": 5108,
+          "end": 5584
+        },
+        {
+          "word": "stays",
+          "start": 5654,
+          "end": 6002
+        },
+        {
+          "word": "the",
+          "start": 6072,
+          "end": 6165
+        },
+        {
+          "word": "same.",
+          "start": 6211,
+          "end": 6757
+        }
+      ],
+      "heard": "It replaces custom code with what TYPO3 already provides and checks that the behavior stays the same."
+    },
+    {
+      "say": "Open source. Clone the skills, and help us improve them.",
+      "show": "Open source. Clone the skills, and help us improve them.",
+      "file": "voice-11.mp3",
+      "duration": 3944,
+      "words": [
+        {
+          "word": "Open",
+          "start": 46,
+          "end": 418
+        },
+        {
+          "word": "source.",
+          "start": 511,
+          "end": 1045
+        },
+        {
+          "word": "Clone",
+          "start": 1242,
+          "end": 1625
+        },
+        {
+          "word": "the",
+          "start": 1660,
+          "end": 1730
+        },
+        {
+          "word": "skills,",
+          "start": 1776,
+          "end": 2299
+        },
+        {
+          "word": "and",
+          "start": 2334,
+          "end": 2485
+        },
+        {
+          "word": "help",
+          "start": 2554,
+          "end": 2705
+        },
+        {
+          "word": "us",
+          "start": 2775,
+          "end": 2856
+        },
+        {
+          "word": "improve",
+          "start": 2902,
+          "end": 3332
+        },
+        {
+          "word": "them.",
+          "start": 3367,
+          "end": 3669
+        }
+      ],
+      "heard": "Open source, clone the skills and help us improve them."
+    }
+  ]
+}

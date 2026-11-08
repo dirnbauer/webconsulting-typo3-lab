@@ -1,0 +1,96 @@
+{
+  "id": "skills-security-operations",
+  "slug": "/ai/agentic-skills/security-operations",
+  "placements": [
+    {
+      "slug": "/ai/agentic-skills/security-operations"
+    }
+  ],
+  "title": "Security and operations: agent skills for TYPO3",
+  "header": "Security and operations in 97 seconds",
+  "description": "<p>Harden the installation, give every editor exactly the rights they need, run the right scheduled jobs and check the project repository. For each skill: the prompt you would type and what it does. Narrated, with selectable captions.</p>",
+  "mp4": "skills-security-operations-1574b799.mp4",
+  "poster": "skills-security-operations-poster-1574b799.webp",
+  "vtt": "skills-security-operations-1574b799.en.vtt",
+  "duration": 96.859,
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "sound": true,
+  "alt": "Film, 97 seconds: Security and operations, 4 agent skills for TYPO3 v14 (typo3-security, typo3-backend-rights, typo3-scheduler-jobs, typo3-site-conformance). Each skill with its own prompt and what it delivers. Narrated, with selectable captions.",
+  "transcript": [
+    {
+      "at": "0:02",
+      "text": "Editors with exactly the rights they need, and an installation that is hardened and runs the right jobs."
+    },
+    {
+      "at": "0:10",
+      "text": "Security and operations: four skills for TYPO3 v14."
+    },
+    {
+      "at": "0:17",
+      "text": "Hardens a v14 installation: trusted hosts, the Install Tool, two-factor sign-in, CSP and safe queries."
+    },
+    {
+      "at": "0:29",
+      "text": "It fixes the classic findings the TYPO3 way: user input concatenated into SQL becomes a QueryBuilder query with bound values."
+    },
+    {
+      "at": "0:42",
+      "text": "Builds and audits editor groups, page and language rights, MFA and login branding."
+    },
+    {
+      "at": "0:50",
+      "text": "The lab fails: three groups, no leaves, 56 findings."
+    },
+    {
+      "at": "0:56",
+      "text": "Plans and checks the Scheduler tasks an installation needs, with groups and safe intervals."
+    },
+    {
+      "at": "1:04",
+      "text": "It finds jobs that are missing, late or ungrouped, and repairs task rows left without a type after a v14 update."
+    },
+    {
+      "at": "1:14",
+      "text": "Scores a deployable project with Docker or Compose against a gold standard."
+    },
+    {
+      "at": "1:21",
+      "text": "It is the project counterpart to typo3-conformance, which checks single extensions."
+    },
+    {
+      "at": "1:29",
+      "text": "Open source. Clone the skills, and help us improve them."
+    }
+  ],
+  "captions": {
+    "language": "en",
+    "label": "English",
+    "burnedIn": false,
+    "languages": [
+      "en",
+      "de",
+      "zh",
+      "hu"
+    ]
+  },
+  "bytes": {
+    "mp4": 4518874,
+    "poster": 29254,
+    "vtt": 1371,
+    "captionTracks": {
+      "en": 1371,
+      "de": 1424,
+      "zh": 1296,
+      "hu": 1596
+    }
+  },
+  "generator": "packages/site_package/Build/Film/render-films.mjs",
+  "captionTracks": {
+    "en": "skills-security-operations-1574b799.en.vtt",
+    "de": "skills-security-operations-1574b799.de.vtt",
+    "zh": "skills-security-operations-1574b799.zh.vtt",
+    "hu": "skills-security-operations-1574b799.hu.vtt"
+  }
+}

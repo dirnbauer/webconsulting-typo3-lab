@@ -1,0 +1,61 @@
+WEBVTT - Security and operations: agent skills for TYPO3 (de)
+
+1
+00:00:02.040 --> 00:00:09.262
+Redakteure mit genau den nötigen Rechten und
+eine gehärtete Installation mit den richtigen
+Aufgaben.
+
+2
+00:00:10.362 --> 00:00:16.409
+Sicherheit und Betrieb: vier Skills für TYPO3
+v14.
+
+3
+00:00:17.709 --> 00:00:27.857
+Härtet v14-Installationen: vertrauenswürdige
+Hosts, Install Tool, Zwei-Faktor-Anmeldung, CSP
+und sichere Abfragen.
+
+4
+00:00:29.207 --> 00:00:40.557
+Behebt klassische Befunde auf TYPO3-Art: An SQL
+angehängte Eingaben werden zu
+QueryBuilder-Abfragen mit gebundenen Werten.
+
+5
+00:00:41.957 --> 00:00:48.761
+Erstellt und prüft Redaktionsgruppen, Seiten-
+und Sprachrechte, MFA und Login-Branding.
+
+6
+00:00:50.111 --> 00:00:55.662
+Das Lab fällt durch: drei Gruppen, keine
+Blattgruppen, 56 Befunde.
+
+7
+00:00:56.762 --> 00:01:03.227
+Plant und prüft nötige Scheduler-Aufgaben, mit
+Gruppen und sicheren Intervallen.
+
+8
+00:01:04.577 --> 00:01:13.419
+Findet fehlende, verspätete oder ungruppierte
+Jobs und repariert Aufgabenzeilen ohne Typ nach
+einem v14-Update.
+
+9
+00:01:14.819 --> 00:01:20.370
+Bewertet ein bereitstellbares Projekt mit Docker
+oder Compose anhand eines Goldstandards.
+
+10
+00:01:21.720 --> 00:01:28.237
+Das Gegenstück für Projekte zu
+typo3-conformance, das einzelne Extensions
+prüft.
+
+11
+00:01:29.837 --> 00:01:33.899
+Open Source. Klonen Sie die Skills und helfen
+Sie uns, sie zu verbessern.

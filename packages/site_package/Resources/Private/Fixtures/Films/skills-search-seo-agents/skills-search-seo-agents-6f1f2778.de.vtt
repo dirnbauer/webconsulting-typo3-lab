@@ -1,0 +1,62 @@
+WEBVTT - Search, SEO and agents: agent skills for TYPO3 (de)
+
+1
+00:00:02.040 --> 00:00:09.707
+Eine Website muss heute auf drei Wegen
+auffindbar sein: für Suchmaschinen, die eigene
+Suche und KI-Agenten.
+
+2
+00:00:10.807 --> 00:00:17.455
+Suche, SEO und Agenten: vier Skills für TYPO3
+v14.
+
+3
+00:00:18.755 --> 00:00:28.746
+Sitemaps, kanonische URLs, hreflang, Meta-Tags,
+Open Graph und Robots-Regeln mit EXT:seo.
+
+4
+00:00:30.096 --> 00:00:38.781
+Beginnt bei den Symptomen: vermischte
+Sprachversionen in Google oder eine Sitemap mit
+nur der Startseite.
+
+5
+00:00:40.181 --> 00:00:48.083
+Erzeugt schema.org-JSON-LD aus den Datensätzen,
+die die Seite darstellen, und erhält es beim
+Upgrade.
+
+6
+00:00:49.433 --> 00:00:54.931
+Der Validator findet keine Fehler. Der Graph
+beschreibt, was die Seite zeigt.
+
+7
+00:00:56.031 --> 00:01:04.115
+Betreibt und debuggt Apache Solr: Indexierung,
+Facetten, Vorschläge, PDFs und blockierte
+Warteschlangen.
+
+8
+00:01:05.465 --> 00:01:10.963
+Ein Solr-Server kann Dokumente annehmen und
+trotzdem unbekannte Felder verwerfen.
+
+9
+00:01:12.363 --> 00:01:20.421
+Macht Suche, Navigation und Formulare als
+typisierte WebMCP-Tools für Browser-Agenten
+nutzbar.
+
+10
+00:01:21.771 --> 00:01:27.818
+Ein Agent füllt das Formular aus. Das
+Zustimmungsfeld bleibt leer; ein Mensch sendet
+es ab.
+
+11
+00:01:29.118 --> 00:01:33.075
+Open Source. Klonen Sie die Skills und helfen
+Sie uns, sie zu verbessern.

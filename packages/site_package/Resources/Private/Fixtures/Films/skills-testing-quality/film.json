@@ -1,0 +1,96 @@
+{
+  "id": "skills-testing-quality",
+  "slug": "/ai/agentic-skills/testing-quality",
+  "placements": [
+    {
+      "slug": "/ai/agentic-skills/testing-quality"
+    }
+  ],
+  "title": "Testing and code quality: agent skills for TYPO3",
+  "header": "Testing and code quality in 86 seconds",
+  "description": "<p>A bug report becomes a failing test, journeys run in a real browser, and extension code is checked and cleaned without changing what it does. For each skill: the prompt you would type and what it does. Narrated, with selectable captions.</p>",
+  "mp4": "skills-testing-quality-70a8b322.mp4",
+  "poster": "skills-testing-quality-poster-70a8b322.webp",
+  "vtt": "skills-testing-quality-70a8b322.en.vtt",
+  "duration": 85.56,
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "sound": true,
+  "alt": "Film, 86 seconds: Testing and code quality, 4 agent skills for TYPO3 v14 (typo3-testing, typo3-playwright, typo3-conformance, typo3-simplify). Each skill with its own prompt and what it delivers. Narrated, with selectable captions.",
+  "transcript": [
+    {
+      "at": "0:02",
+      "text": "A bug that comes back should have been a test the first time."
+    },
+    {
+      "at": "0:07",
+      "text": "Testing and code quality: four skills for TYPO3 v14."
+    },
+    {
+      "at": "0:14",
+      "text": "Unit, functional and end-to-end tests, and a reported bug reproduced as a failing test first."
+    },
+    {
+      "at": "0:23",
+      "text": "A test written after the fix proves only that the code does what it does."
+    },
+    {
+      "at": "0:30",
+      "text": "Builds and repairs Playwright tests for visitor and editor journeys, with isolated fixtures."
+    },
+    {
+      "at": "0:38",
+      "text": "A unit test cannot click a filter or save a link dialog."
+    },
+    {
+      "at": "0:44",
+      "text": "Checks an extension against TYPO3 standards: versions, coding standards, deprecations and TER readiness."
+    },
+    {
+      "at": "0:54",
+      "text": "A version bump that leaves half the files behind is easy to miss."
+    },
+    {
+      "at": "1:00",
+      "text": "Cleans up extension code for clarity and v14 patterns without changing what it does."
+    },
+    {
+      "at": "1:09",
+      "text": "It replaces custom code with what TYPO3 already provides, and checks that the behaviour stays the same."
+    },
+    {
+      "at": "1:18",
+      "text": "Open source. Clone the skills, and help us improve them."
+    }
+  ],
+  "captions": {
+    "language": "en",
+    "label": "English",
+    "burnedIn": false,
+    "languages": [
+      "en",
+      "de",
+      "zh",
+      "hu"
+    ]
+  },
+  "bytes": {
+    "mp4": 3939658,
+    "poster": 33358,
+    "vtt": 1278,
+    "captionTracks": {
+      "en": 1278,
+      "de": 1368,
+      "zh": 1226,
+      "hu": 1473
+    }
+  },
+  "generator": "packages/site_package/Build/Film/render-films.mjs",
+  "captionTracks": {
+    "en": "skills-testing-quality-70a8b322.en.vtt",
+    "de": "skills-testing-quality-70a8b322.de.vtt",
+    "zh": "skills-testing-quality-70a8b322.zh.vtt",
+    "hu": "skills-testing-quality-70a8b322.hu.vtt"
+  }
+}

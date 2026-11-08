@@ -1,0 +1,63 @@
+WEBVTT - Release and open source: agent skills for TYPO3 (de)
+
+1
+00:00:02.040 --> 00:00:08.871
+Eine Extension auszuliefern braucht mehr als
+Code: Release, Dokumentation und eine sichere
+Lieferkette.
+
+2
+00:00:09.971 --> 00:00:15.234
+Release und Open Source: vier Skills für TYPO3
+v14.
+
+3
+00:00:16.534 --> 00:00:23.417
+Bereitet die erste öffentliche Version 1.0.0
+einer Extension für TER oder Packagist vor.
+
+4
+00:00:24.767 --> 00:00:29.273
+Versionsnummern zu ändern ist der kleinste Teil
+eines Releases.
+
+5
+00:00:30.673 --> 00:00:40.482
+Schreibt Extension-Dokumentation für
+docs.typo3.org, von guides.xml bis zu
+Screenshots.
+
+6
+00:00:41.832 --> 00:00:51.405
+Ein falscher Namespace in guides.xml verhindert
+die Darstellung. Deshalb generiert der Skill die
+Datei, statt sie abzutippen.
+
+7
+00:00:52.805 --> 00:01:00.654
+Hilft bei Beiträgen zum TYPO3 Core:
+Forge-Issues, Gerrit-Patches, Cherry-Picks und
+CI-Logs.
+
+8
+00:01:02.004 --> 00:01:07.920
+Gerrit hat eigene Regeln, von
+Work-in-Progress-Pushes bis zum Erhalt der
+Change-Id.
+
+9
+00:01:09.320 --> 00:01:16.908
+Bewertet die Produktionsreife:
+Lieferkettensicherheit, CI/CD-Härtung und
+Qualitätsprüfungen.
+
+10
+00:01:18.258 --> 00:01:25.245
+Macht Build und Signierung eines Releases
+nachvollziehbar, von SHA-fixierten Actions bis
+zu signierten Artefakten.
+
+11
+00:01:26.845 --> 00:01:31.089
+Open Source. Klonen Sie die Skills und helfen
+Sie uns, sie zu verbessern.

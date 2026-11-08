@@ -1,27 +1,27 @@
 {
   "id": "redaktion",
   "page": 8447,
-  "slug": "/software/redaktion",
+  "slug": "/software/typewright",
   "placements": [
     {
-      "slug": "/software/redaktion",
+      "slug": "/software/typewright",
       "after": {
         "header": "Write now. Publish when you are ready."
       }
     }
   ],
-  "title": "webconsulting Redaktion: overview film",
-  "header": "Redaktion in ninety seconds",
-  "description": "<p>The actual macOS app with demo content from the TYPO3 lab: pages and languages, the page assistant, the element wizard, translation, links, media and news. Narrated, with selectable English captions.</p>",
-  "mp4": "redaktion-e41dc9b3.mp4",
-  "poster": "redaktion-poster-e41dc9b3.webp",
-  "vtt": "redaktion-e41dc9b3.en.vtt",
-  "duration": 88.686,
+  "title": "Typewright: overview film",
+  "header": "Typewright in fifteen features",
+  "description": "<p>The actual macOS app with demo content from the TYPO3 lab: pages and languages, adding and moving elements, editing, links, news with media, saving, uploads, alt text, translation and publishing. Narrated, with selectable captions.</p>",
+  "mp4": "redaktion-302a9b79.mp4",
+  "poster": "redaktion-poster-302a9b79.webp",
+  "vtt": "redaktion-302a9b79.en.vtt",
+  "duration": 138.646,
   "width": 1920,
   "height": 1080,
   "fps": 30,
   "sound": true,
-  "alt": "Overview film, 89 seconds: webconsulting Redaktion. Pages and content in every language, a page assistant, TYPO3's element wizard, translation next to the original, TYPO3 links, a media library with alt text per use and calm news writing with local drafts. Narrated, with selectable English captions.",
+  "alt": "Overview film, 139 seconds: Typewright, a calm Mac workspace for TYPO3 content, in fifteen features. The page tree in every language, the page assistant, TYPO3’s element wizard, moving and switching elements, page properties, every field of an element, rich text that keeps TYPO3’s markup, links, news with images and videos, local drafts and saving, the media library, uploads, alt text per use, translation next to the original and workspace publishing. Narrated, with selectable captions.",
   "transcript": [
     {
       "at": "0:02",
@@ -29,39 +29,71 @@
     },
     {
       "at": "0:07",
-      "text": "Redaktion is a calm Mac workspace for TYPO3. Your drafts stay on your Mac. TYPO3 stays in charge of publishing."
+      "text": "Typewright is a calm Mac workspace for TYPO3. Your drafts stay on your Mac. TYPO3 stays in charge of publishing."
     },
     {
       "at": "0:18",
-      "text": "Pages look the way TYPO3 shows them. Language tabs count what is already translated."
+      "text": "Pages look the way TYPO3 shows them, and language tabs count what is translated."
     },
     {
       "at": "0:26",
-      "text": "The page assistant places a new page, sets its URL path and translations, and keeps it hidden until you publish."
+      "text": "The page assistant places a new page in five steps and keeps it hidden until it is ready."
     },
     {
-      "at": "0:36",
-      "text": "Elements come from TYPO3’s own wizard, Content Blocks included, filtered by the rules of each column."
+      "at": "0:33",
+      "text": "Add an element from TYPO3’s own wizard, Content Blocks included, and fill it in right away."
     },
     {
-      "at": "0:44",
-      "text": "Translations use TYPO3’s own command, and the original text sits right under each field."
+      "at": "0:42",
+      "text": "Move elements between columns, duplicate or hide them, and switch languages with one tab."
     },
     {
-      "at": "0:52",
-      "text": "Link pages, their content, files and records. Links keep TYPO3’s format and show their titles."
+      "at": "0:49",
+      "text": "Page properties, from the URL path to the search description, in every language."
     },
     {
-      "at": "1:02",
-      "text": "The media library works on TYPO3’s file list, and every image gets its own alternative text where it is used."
+      "at": "0:57",
+      "text": "Edit every field TYPO3 defines, including tabs, questions and other collections."
     },
     {
-      "at": "1:11",
-      "text": "News keeps its calm writing surface, with local drafts that survive an offline restart."
+      "at": "1:05",
+      "text": "Rich text keeps TYPO3’s markup: abbreviations, language spans, classes and images."
     },
     {
-      "at": "1:19",
-      "text": "Redaktion, by webconsulting. Ask us for a demonstration."
+      "at": "1:14",
+      "text": "Press ⌘K to link a page, a content anchor, a file or a record."
+    },
+    {
+      "at": "1:21",
+      "text": "News articles get their images and videos, related links, categories and tags."
+    },
+    {
+      "at": "1:29",
+      "text": "Drafts stay on your Mac. ⌘S sends them to TYPO3, and the save bar confirms it."
+    },
+    {
+      "at": "1:37",
+      "text": "The media library browses TYPO3’s folders and edits metadata in every language."
+    },
+    {
+      "at": "1:44",
+      "text": "Uploads show their progress and land in TYPO3’s file storage."
+    },
+    {
+      "at": "1:51",
+      "text": "Each use of an image gets its own alternative text."
+    },
+    {
+      "at": "1:56",
+      "text": "Translate with TYPO3’s own command, with the original right under each field."
+    },
+    {
+      "at": "2:03",
+      "text": "Review every change in a workspace, and publish only after you confirm."
+    },
+    {
+      "at": "2:10",
+      "text": "Typewright, by webconsulting. Ask us for a demonstration."
     }
   ],
   "captions": {
@@ -76,21 +108,21 @@
     ]
   },
   "bytes": {
-    "mp4": 7223338,
-    "poster": 42450,
-    "vtt": 1301,
+    "mp4": 11846829,
+    "poster": 39880,
+    "vtt": 2049,
     "captionTracks": {
-      "en": 1301,
-      "de": 1503,
-      "zh": 1334,
-      "hu": 1532
+      "en": 2049,
+      "de": 2169,
+      "zh": 1992,
+      "hu": 2321
     }
   },
   "generator": "packages/site_package/Build/Film/render-films.mjs",
   "captionTracks": {
-    "en": "redaktion-e41dc9b3.en.vtt",
-    "de": "redaktion-e41dc9b3.de.vtt",
-    "zh": "redaktion-e41dc9b3.zh.vtt",
-    "hu": "redaktion-e41dc9b3.hu.vtt"
+    "en": "redaktion-302a9b79.en.vtt",
+    "de": "redaktion-302a9b79.de.vtt",
+    "zh": "redaktion-302a9b79.zh.vtt",
+    "hu": "redaktion-302a9b79.hu.vtt"
   }
 }

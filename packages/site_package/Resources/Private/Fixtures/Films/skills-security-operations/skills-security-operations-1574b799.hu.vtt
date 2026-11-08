@@ -1,0 +1,63 @@
+WEBVTT - Security and operations: agent skills for TYPO3 (hu)
+
+1
+00:00:02.040 --> 00:00:09.262
+A szerkesztők pontosan a szükséges jogokat
+kapják, a telepítés pedig megerősített, és a
+megfelelő feladatokat futtatja.
+
+2
+00:00:10.362 --> 00:00:16.409
+Biztonság és üzemeltetés: négy skill TYPO3
+v14-hez.
+
+3
+00:00:17.709 --> 00:00:27.857
+Megerősíti a v14-telepítést: megbízható hosztok,
+Install Tool, kétfaktoros belépés, CSP és
+biztonságos lekérdezések.
+
+4
+00:00:29.207 --> 00:00:40.557
+A TYPO3 módján javítja a tipikus hibákat: az
+SQL-hez fűzött bemenetből kötött értékű
+QueryBuilder-lekérdezés lesz.
+
+5
+00:00:41.957 --> 00:00:48.761
+Szerkesztői csoportokat, oldal- és nyelvi
+jogokat, MFA-t és arculathoz igazított belépést
+épít és ellenőriz.
+
+6
+00:00:50.111 --> 00:00:55.662
+A lab megbukik: három csoport, levélcsoportok
+nélkül, 56 megállapítás.
+
+7
+00:00:56.762 --> 00:01:03.227
+Megtervezi és ellenőrzi a szükséges
+Scheduler-feladatokat, csoportokkal és
+biztonságos időközökkel.
+
+8
+00:01:04.577 --> 00:01:13.419
+Megtalálja a hiányzó, késő vagy csoport nélküli
+feladatokat, és javítja a v14-frissítés után
+típus nélkül maradt feladatsorokat.
+
+9
+00:01:14.819 --> 00:01:20.370
+Arany standard alapján értékel egy Dockerrel
+vagy Compose-zal telepíthető projektet.
+
+10
+00:01:21.720 --> 00:01:28.237
+A projekteknél tölti be a typo3-conformance
+szerepét, amely különálló bővítményeket
+ellenőriz.
+
+11
+00:01:29.837 --> 00:01:33.899
+Nyílt forráskód. Klónozza a skilleket, és
+segítsen jobbá tenni őket.

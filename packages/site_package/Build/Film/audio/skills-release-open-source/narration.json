@@ -1,0 +1,824 @@
+{
+  "voice": "George",
+  "delivery": {
+    "stability": 0.62,
+    "similarity_boost": 0.78,
+    "style": 0.18,
+    "speed": 0.9
+  },
+  "lines": [
+    {
+      "say": "Shipping an extension takes more than code: a release, documentation and a safe supply chain.",
+      "show": "Shipping an extension takes more than code: a release, documentation and a safe supply chain.",
+      "file": "voice-01.mp3",
+      "duration": 6531,
+      "end": 5920,
+      "words": [
+        {
+          "word": "Shipping",
+          "start": 35,
+          "end": 372
+        },
+        {
+          "word": "an",
+          "start": 418,
+          "end": 476
+        },
+        {
+          "word": "extension",
+          "start": 522,
+          "end": 1091
+        },
+        {
+          "word": "takes",
+          "start": 1161,
+          "end": 1416
+        },
+        {
+          "word": "more",
+          "start": 1486,
+          "end": 1660
+        },
+        {
+          "word": "than",
+          "start": 1683,
+          "end": 1811
+        },
+        {
+          "word": "code:",
+          "start": 1904,
+          "end": 2461
+        },
+        {
+          "word": "a",
+          "start": 2624,
+          "end": 2705
+        },
+        {
+          "word": "release,",
+          "start": 2798,
+          "end": 3332
+        },
+        {
+          "word": "documentation",
+          "start": 3425,
+          "end": 4354
+        },
+        {
+          "word": "and",
+          "start": 4435,
+          "end": 4551
+        },
+        {
+          "word": "a",
+          "start": 4621,
+          "end": 4644
+        },
+        {
+          "word": "safe",
+          "start": 4690,
+          "end": 4946
+        },
+        {
+          "word": "supply",
+          "start": 4969,
+          "end": 5306
+        },
+        {
+          "word": "chain.",
+          "start": 5387,
+          "end": 5898
+        }
+      ],
+      "heard": "Shipping an extension takes more than code, a release, documentation and a safe supply chain."
+    },
+    {
+      "say": "Release and open source: four skills for typo three version fourteen.",
+      "show": "Release and open source: four skills for TYPO3 v14.",
+      "file": "voice-02.mp3",
+      "duration": 4963,
+      "words": [
+        {
+          "word": "Release",
+          "start": 12,
+          "end": 360
+        },
+        {
+          "word": "and",
+          "start": 395,
+          "end": 464
+        },
+        {
+          "word": "open",
+          "start": 534,
+          "end": 778
+        },
+        {
+          "word": "source:",
+          "start": 859,
+          "end": 1358
+        },
+        {
+          "word": "four",
+          "start": 1521,
+          "end": 1776
+        },
+        {
+          "word": "skills",
+          "start": 1823,
+          "end": 2252
+        },
+        {
+          "word": "for",
+          "start": 2299,
+          "end": 2403
+        },
+        {
+          "word": "typo",
+          "start": 2450,
+          "end": 2810
+        },
+        {
+          "word": "three",
+          "start": 2879,
+          "end": 3158
+        },
+        {
+          "word": "version",
+          "start": 3228,
+          "end": 3587
+        },
+        {
+          "word": "fourteen.",
+          "start": 3669,
+          "end": 4423
+        }
+      ],
+      "heard": "Release and open source, four skills for TYPO3 version 14."
+    },
+    {
+      "say": "Prepares the first public 1.0.0 release of an extension for TER or Packagist.",
+      "show": "Prepares the first public 1.0.0 release of an extension for TER or Packagist.",
+      "file": "voice-03.mp3",
+      "duration": 6583,
+      "words": [
+        {
+          "word": "Prepares",
+          "start": 12,
+          "end": 511
+        },
+        {
+          "word": "the",
+          "start": 557,
+          "end": 627
+        },
+        {
+          "word": "first",
+          "start": 697,
+          "end": 1010
+        },
+        {
+          "word": "public",
+          "start": 1091,
+          "end": 1463
+        },
+        {
+          "word": "1.0.0",
+          "start": 1533,
+          "end": 2659
+        },
+        {
+          "word": "release",
+          "start": 2728,
+          "end": 3146
+        },
+        {
+          "word": "of",
+          "start": 3193,
+          "end": 3309
+        },
+        {
+          "word": "an",
+          "start": 3355,
+          "end": 3402
+        },
+        {
+          "word": "extension",
+          "start": 3448,
+          "end": 3971
+        },
+        {
+          "word": "for",
+          "start": 4040,
+          "end": 4145
+        },
+        {
+          "word": "TER",
+          "start": 4191,
+          "end": 4853
+        },
+        {
+          "word": "or",
+          "start": 4946,
+          "end": 5085
+        },
+        {
+          "word": "Packagist.",
+          "start": 5155,
+          "end": 5968
+        }
+      ],
+      "heard": "prepares the first public 1.0.0 release of an extension for TER or Packagist."
+    },
+    {
+      "say": "Updating version strings is the smallest part of a release.",
+      "show": "Updating version strings is the smallest part of a release.",
+      "file": "voice-04.mp3",
+      "duration": 4206,
+      "words": [
+        {
+          "word": "Updating",
+          "start": 12,
+          "end": 592
+        },
+        {
+          "word": "version",
+          "start": 662,
+          "end": 1022
+        },
+        {
+          "word": "strings",
+          "start": 1103,
+          "end": 1567
+        },
+        {
+          "word": "is",
+          "start": 1637,
+          "end": 1765
+        },
+        {
+          "word": "the",
+          "start": 1811,
+          "end": 1881
+        },
+        {
+          "word": "smallest",
+          "start": 1927,
+          "end": 2415
+        },
+        {
+          "word": "part",
+          "start": 2496,
+          "end": 2810
+        },
+        {
+          "word": "of",
+          "start": 2844,
+          "end": 2902
+        },
+        {
+          "word": "a",
+          "start": 2949,
+          "end": 2972
+        },
+        {
+          "word": "release.",
+          "start": 3053,
+          "end": 3738
+        }
+      ],
+      "heard": "Updating version strings is the smallest part of a release."
+    },
+    {
+      "say": "Writes extension documentation that renders on docs.typo3.org, from guides.xml to screenshots.",
+      "show": "Writes extension documentation that renders on docs.typo3.org, from guides.xml to screenshots.",
+      "file": "voice-05.mp3",
+      "duration": 9509,
+      "words": [
+        {
+          "word": "Writes",
+          "start": 23,
+          "end": 395
+        },
+        {
+          "word": "extension",
+          "start": 464,
+          "end": 998
+        },
+        {
+          "word": "documentation",
+          "start": 1068,
+          "end": 1974
+        },
+        {
+          "word": "that",
+          "start": 2171,
+          "end": 2357
+        },
+        {
+          "word": "renders",
+          "start": 2426,
+          "end": 2740
+        },
+        {
+          "word": "on",
+          "start": 2786,
+          "end": 2879
+        },
+        {
+          "word": "docs.typo3.org,",
+          "start": 2961,
+          "end": 5700
+        },
+        {
+          "word": "from",
+          "start": 5805,
+          "end": 5991
+        },
+        {
+          "word": "guides.xml",
+          "start": 6084,
+          "end": 7721
+        },
+        {
+          "word": "to",
+          "start": 7814,
+          "end": 7883
+        },
+        {
+          "word": "screenshots.",
+          "start": 7964,
+          "end": 8951
+        }
+      ],
+      "heard": "Writes extension documentation that renders on docs.typo3.org from guides.xml to screenshots."
+    },
+    {
+      "say": "A wrong namespace in guides.xml stops a manual from rendering, so the skill generates that file instead of typing it.",
+      "show": "A wrong namespace in guides.xml stops a manual from rendering, so the skill generates that file instead of typing it.",
+      "file": "voice-06.mp3",
+      "duration": 9273,
+      "end": 8550,
+      "words": [
+        {
+          "word": "A",
+          "start": 23,
+          "end": 116
+        },
+        {
+          "word": "wrong",
+          "start": 197,
+          "end": 430
+        },
+        {
+          "word": "namespace",
+          "start": 511,
+          "end": 1173
+        },
+        {
+          "word": "in",
+          "start": 1219,
+          "end": 1300
+        },
+        {
+          "word": "guides.xml",
+          "start": 1393,
+          "end": 2891
+        },
+        {
+          "word": "stops",
+          "start": 3251,
+          "end": 3657
+        },
+        {
+          "word": "a",
+          "start": 3692,
+          "end": 3715
+        },
+        {
+          "word": "manual",
+          "start": 3796,
+          "end": 4191
+        },
+        {
+          "word": "from",
+          "start": 4238,
+          "end": 4377
+        },
+        {
+          "word": "rendering,",
+          "start": 4458,
+          "end": 5143
+        },
+        {
+          "word": "so",
+          "start": 5410,
+          "end": 5561
+        },
+        {
+          "word": "the",
+          "start": 5631,
+          "end": 5700
+        },
+        {
+          "word": "skill",
+          "start": 5747,
+          "end": 6026
+        },
+        {
+          "word": "generates",
+          "start": 6107,
+          "end": 6629
+        },
+        {
+          "word": "that",
+          "start": 6676,
+          "end": 6827
+        },
+        {
+          "word": "file",
+          "start": 6908,
+          "end": 7326
+        },
+        {
+          "word": "instead",
+          "start": 7361,
+          "end": 7709
+        },
+        {
+          "word": "of",
+          "start": 7732,
+          "end": 7790
+        },
+        {
+          "word": "typing",
+          "start": 7837,
+          "end": 8185
+        },
+        {
+          "word": "it.",
+          "start": 8255,
+          "end": 8568
+        }
+      ],
+      "heard": "A wrong namespace in guides.xml stops a manual from rendering, so the skill generates that file instead of typing it."
+    },
+    {
+      "say": "Helps contribute to typo three Core: Forge issues, Gerrit patches, cherry-picks and CI logs.",
+      "show": "Helps contribute to TYPO3 Core: Forge issues, Gerrit patches, cherry-picks and CI logs.",
+      "file": "voice-07.mp3",
+      "duration": 7549,
+      "end": 6940,
+      "words": [
+        {
+          "word": "Helps",
+          "start": 23,
+          "end": 348
+        },
+        {
+          "word": "contribute",
+          "start": 395,
+          "end": 952
+        },
+        {
+          "word": "to",
+          "start": 975,
+          "end": 1033
+        },
+        {
+          "word": "typo",
+          "start": 1115,
+          "end": 1486
+        },
+        {
+          "word": "three",
+          "start": 1556,
+          "end": 1858
+        },
+        {
+          "word": "Core:",
+          "start": 1904,
+          "end": 2392
+        },
+        {
+          "word": "Forge",
+          "start": 2624,
+          "end": 3042
+        },
+        {
+          "word": "issues,",
+          "start": 3088,
+          "end": 3680
+        },
+        {
+          "word": "Gerrit",
+          "start": 3878,
+          "end": 4238
+        },
+        {
+          "word": "patches,",
+          "start": 4307,
+          "end": 4934
+        },
+        {
+          "word": "cherry-picks",
+          "start": 5027,
+          "end": 5759
+        },
+        {
+          "word": "and",
+          "start": 5793,
+          "end": 5898
+        },
+        {
+          "word": "CI",
+          "start": 5979,
+          "end": 6327
+        },
+        {
+          "word": "logs.",
+          "start": 6420,
+          "end": 6943
+        }
+      ],
+      "heard": "helps contribute to TYPO3 core, forge issues, garret patches, cherry picks and CI logs."
+    },
+    {
+      "say": "Gerrit has its own rules, from work-in-progress pushes to keeping the Change-Id.",
+      "show": "Gerrit has its own rules, from work-in-progress pushes to keeping the Change-Id.",
+      "file": "voice-08.mp3",
+      "duration": 5616,
+      "words": [
+        {
+          "word": "Gerrit",
+          "start": 23,
+          "end": 395
+        },
+        {
+          "word": "has",
+          "start": 441,
+          "end": 546
+        },
+        {
+          "word": "its",
+          "start": 615,
+          "end": 731
+        },
+        {
+          "word": "own",
+          "start": 778,
+          "end": 987
+        },
+        {
+          "word": "rules,",
+          "start": 1057,
+          "end": 1625
+        },
+        {
+          "word": "from",
+          "start": 1730,
+          "end": 1892
+        },
+        {
+          "word": "work-in-progress",
+          "start": 1962,
+          "end": 2821
+        },
+        {
+          "word": "pushes",
+          "start": 2891,
+          "end": 3320
+        },
+        {
+          "word": "to",
+          "start": 3448,
+          "end": 3564
+        },
+        {
+          "word": "keeping",
+          "start": 3634,
+          "end": 3936
+        },
+        {
+          "word": "the",
+          "start": 3982,
+          "end": 4052
+        },
+        {
+          "word": "Change-Id.",
+          "start": 4098,
+          "end": 5132
+        }
+      ],
+      "heard": "Gerrit has its own rules, from work in progress pushes to keeping the change ID."
+    },
+    {
+      "say": "Assesses production readiness: supply-chain security, CI/CD hardening and quality gates.",
+      "show": "Assesses production readiness: supply-chain security, CI/CD hardening and quality gates.",
+      "file": "voice-09.mp3",
+      "duration": 7288,
+      "words": [
+        {
+          "word": "Assesses",
+          "start": 12,
+          "end": 580
+        },
+        {
+          "word": "production",
+          "start": 650,
+          "end": 1138
+        },
+        {
+          "word": "readiness:",
+          "start": 1207,
+          "end": 1904
+        },
+        {
+          "word": "supply-chain",
+          "start": 2136,
+          "end": 2810
+        },
+        {
+          "word": "security,",
+          "start": 2891,
+          "end": 3704
+        },
+        {
+          "word": "CI/CD",
+          "start": 3866,
+          "end": 4679
+        },
+        {
+          "word": "hardening",
+          "start": 4876,
+          "end": 5364
+        },
+        {
+          "word": "and",
+          "start": 5445,
+          "end": 5573
+        },
+        {
+          "word": "quality",
+          "start": 5654,
+          "end": 6060
+        },
+        {
+          "word": "gates.",
+          "start": 6130,
+          "end": 6745
+        }
+      ],
+      "heard": "assesses production readiness, supply chain security, CICD hardening and quality gates,"
+    },
+    {
+      "say": "It makes the build and signing of a release traceable, from SHA-pinned actions to signed artefacts.",
+      "show": "It makes the build and signing of a release traceable, from SHA-pinned actions to signed artefacts.",
+      "file": "voice-10.mp3",
+      "duration": 6687,
+      "words": [
+        {
+          "word": "It",
+          "start": 12,
+          "end": 174
+        },
+        {
+          "word": "makes",
+          "start": 221,
+          "end": 418
+        },
+        {
+          "word": "the",
+          "start": 453,
+          "end": 522
+        },
+        {
+          "word": "build",
+          "start": 592,
+          "end": 871
+        },
+        {
+          "word": "and",
+          "start": 917,
+          "end": 998
+        },
+        {
+          "word": "signing",
+          "start": 1080,
+          "end": 1463
+        },
+        {
+          "word": "of",
+          "start": 1509,
+          "end": 1556
+        },
+        {
+          "word": "a",
+          "start": 1602,
+          "end": 1625
+        },
+        {
+          "word": "release",
+          "start": 1695,
+          "end": 1997
+        },
+        {
+          "word": "traceable,",
+          "start": 2032,
+          "end": 2798
+        },
+        {
+          "word": "from",
+          "start": 2995,
+          "end": 3158
+        },
+        {
+          "word": "SHA-pinned",
+          "start": 3251,
+          "end": 3866
+        },
+        {
+          "word": "actions",
+          "start": 3936,
+          "end": 4528
+        },
+        {
+          "word": "to",
+          "start": 4598,
+          "end": 4714
+        },
+        {
+          "word": "signed",
+          "start": 4795,
+          "end": 5143
+        },
+        {
+          "word": "artefacts.",
+          "start": 5213,
+          "end": 6142
+        }
+      ],
+      "heard": "It makes the build and signing of a release traceable, from Eche Pinned Actions to Signed Artifacts."
+    },
+    {
+      "say": "Open source. Clone the skills, and help us improve them.",
+      "show": "Open source. Clone the skills, and help us improve them.",
+      "file": "voice-11.mp3",
+      "duration": 3944,
+      "end": 3710,
+      "words": [
+        {
+          "word": "Open",
+          "start": 46,
+          "end": 383
+        },
+        {
+          "word": "source.",
+          "start": 476,
+          "end": 1033
+        },
+        {
+          "word": "Clone",
+          "start": 1231,
+          "end": 1614
+        },
+        {
+          "word": "the",
+          "start": 1649,
+          "end": 1718
+        },
+        {
+          "word": "skills,",
+          "start": 1765,
+          "end": 2287
+        },
+        {
+          "word": "and",
+          "start": 2322,
+          "end": 2473
+        },
+        {
+          "word": "help",
+          "start": 2543,
+          "end": 2705
+        },
+        {
+          "word": "us",
+          "start": 2775,
+          "end": 2844
+        },
+        {
+          "word": "improve",
+          "start": 2914,
+          "end": 3332
+        },
+        {
+          "word": "them.",
+          "start": 3367,
+          "end": 3669
+        }
+      ],
+      "heard": "open source, clone the skills and help us improve them."
+    }
+  ]
+}

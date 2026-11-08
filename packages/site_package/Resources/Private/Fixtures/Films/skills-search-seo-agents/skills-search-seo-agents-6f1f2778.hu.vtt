@@ -1,0 +1,62 @@
+WEBVTT - Search, SEO and agents: agent skills for TYPO3 (hu)
+
+1
+00:00:02.040 --> 00:00:09.707
+Egy webhelynek ma három módon kell
+megtalálhatónak lennie: keresőmotorokkal, saját
+keresővel és MI-ügynökökkel.
+
+2
+00:00:10.807 --> 00:00:17.455
+Keresés, SEO és ágensek: négy skill TYPO3
+v14-hez.
+
+3
+00:00:18.755 --> 00:00:28.746
+Webhelytérképek, kanonikus URL-ek, hreflang,
+metacímkék, Open Graph és robots-szabályok az
+EXT:seo-val.
+
+4
+00:00:30.096 --> 00:00:38.781
+Ott kezd, ahol a tünet látszik: kevert nyelvi
+változatok a Google-ben, vagy csak a főoldalt
+tartalmazó webhelytérkép.
+
+5
+00:00:40.181 --> 00:00:48.083
+Az oldalt megjelenítő rekordokból készít
+schema.org JSON-LD-t, és frissítéskor is
+megőrzi.
+
+6
+00:00:49.433 --> 00:00:54.931
+A validátor nem talál hibát. A gráf azt mondja,
+amit az oldal mutat.
+
+7
+00:00:56.031 --> 00:01:04.115
+Működteti és hibakeresi az Apache Solr keresőt:
+indexelés, facetták, javaslatok, PDF-ek és
+elakadt sorok.
+
+8
+00:01:05.465 --> 00:01:10.963
+A dokumentumokat fogadó Solr-szerver még
+eldobhatja az ismeretlen mezőket.
+
+9
+00:01:12.363 --> 00:01:20.421
+Típusos WebMCP-eszközként teszi használhatóvá a
+keresést, navigációt és űrlapokat a böngészős
+ügynököknek.
+
+10
+00:01:21.771 --> 00:01:27.818
+Az ügynök kitölti az űrlapot. A hozzájárulás
+jelölőnégyzete üres marad; egy ember küldi el.
+
+11
+00:01:29.118 --> 00:01:33.075
+Nyílt forráskód. Klónozza a skilleket, és
+segítsen jobbá tenni őket.
