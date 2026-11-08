@@ -5,10 +5,10 @@
   "title": "Visual Editor Enhancements: overview film",
   "header": "Visual Editor Enhancements in 73 seconds",
   "description": "<p>See the Entries panel, the editing form and field settings in action. English narration with captions in English, German, Chinese and Hungarian.</p>",
-  "mp4": "visual-editor-23d98eff.mp4",
-  "poster": "visual-editor-poster-23d98eff.webp",
-  "vtt": "visual-editor-237cb15b.en.vtt",
-  "duration": 73.198,
+  "mp4": "visual-editor-da5d0874.mp4",
+  "poster": "visual-editor-poster-da5d0874.webp",
+  "vtt": "visual-editor-da5d0874.en.vtt",
+  "duration": 73.46,
   "width": 1920,
   "height": 1080,
   "fps": 30,
@@ -29,14 +29,14 @@
     },
     {
       "at": "0:21",
-      "text": "Click a title to edit its text and media in the TYPO3 form. Save, then close."
+      "text": "Rename an entry right in the list. For text and media, Edit in form opens the TYPO3 form."
     },
     {
       "at": "0:30",
       "text": "Add an entry below the list. New entries start hidden. Adding and removing save immediately."
     },
     {
-      "at": "0:37",
+      "at": "0:38",
       "text": "Field settings stay in their own panel. These changes wait for the next Save."
     },
     {
@@ -44,7 +44,7 @@
       "text": "Find new elements in the library, with live previews and search that forgives typos."
     },
     {
-      "at": "0:51",
+      "at": "0:52",
       "text": "The rich-text toolbar sits in one row above the text."
     },
     {
@@ -68,21 +68,21 @@
     ]
   },
   "bytes": {
-    "mp4": 4677894,
-    "poster": 37642,
-    "vtt": 1114,
+    "mp4": 4712059,
+    "poster": 38318,
+    "vtt": 1126,
     "captionTracks": {
-      "en": 1114,
-      "de": 1379,
-      "zh": 1168,
-      "hu": 1415
+      "en": 1126,
+      "de": 1399,
+      "zh": 1207,
+      "hu": 1454
     }
   },
   "generator": "packages/site_package/Build/Film/render-films.mjs",
   "captionTracks": {
-    "en": "visual-editor-237cb15b.en.vtt",
-    "de": "visual-editor-237cb15b.de.vtt",
-    "zh": "visual-editor-237cb15b.zh.vtt",
-    "hu": "visual-editor-237cb15b.hu.vtt"
+    "en": "visual-editor-da5d0874.en.vtt",
+    "de": "visual-editor-da5d0874.de.vtt",
+    "zh": "visual-editor-da5d0874.zh.vtt",
+    "hu": "visual-editor-da5d0874.hu.vtt"
   }
 }
