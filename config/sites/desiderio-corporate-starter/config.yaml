@@ -34,21 +34,8 @@ languages:
     fallbackType: strict
 rootPageId: 740
 routeEnhancers:
-  SkillDetail:
-    type: Extbase
-    extension: Skillflow
-    plugin: SkillDetail
-    limitToPages:
-      - 1066
-    routes:
-      - routePath: '/{skill}'
-        _controller: 'SkillDetail::show'
-    defaultController: 'SkillDetail::show'
-    aspects:
-      skill:
-        type: PersistedAliasMapper
-        tableName: tx_nrllm_skill
-        routeFieldName: name
+  # The skill detail page (1066) moved to the desiderio site with its
+  # SkillDetail enhancer (/ai/agentic-skills/find/skill/<name>/).
   PageTypeSuffix:
     type: PageType
     default: /

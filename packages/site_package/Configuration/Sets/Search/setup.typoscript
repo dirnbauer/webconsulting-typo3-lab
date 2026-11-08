@@ -1,96 +1,12 @@
 page.includeJSFooterlibs.solr-jquery >
 
-# --- skillflow: turn the Solr results plugin into a browsable skill directory ---
-# On the skill listing pages only (skills-shadcn + skills-typo3 under
-# desiderio-corporate-starter), show the full catalogue on the empty landing
-# query. Page-scoped so the site's general search is never forced to list everything.
-[page["uid"] in [1030, 1063]]
-plugin.tx_solr.search {
-    initializeWithEmptyQuery = 1
-    showResultsOfInitialEmptyQuery = 1
-    query.allowEmptyQuery = 1
-
-    # Skills search = skills ONLY. The shared core also holds pages + news, so
-    # restrict the listing query to skill documents and drop the generic
-    # "Content type" facet (every hit is a skill, the block would be noise).
-    query.filter.onlySkills = type:tx_nrllm_skill
-    faceting.facets.type >
-    # Source, tools and licence filter the catalogue (skillflow indexes tool
-    # names and licence expressions since 1.9.2). Trust and support listed
-    # bare values ("first_party", "partial"). Category and tags appear as soon
-    # as skills carry them. Sorting: every skill was imported the same day and
-    # has no author, so relevance and title remain.
-    faceting.facets {
-        trust >
-        support >
-    }
-    sorting.options {
-        type >
-        author >
-        created >
-        category >
-    }
-    # skillflow's own page sizes: full rows in the three-column card grid.
-    results.resultsPerPage = 12
-    results.resultsPerPageSwitchOptions = 12, 24, 48
-    # The skill detail body has its own readable code/prose presentation.
-    # EXT:solr's site highlighter adds sword_list[] to result links, which is
-    # unnecessary here and conflicts with strict Extbase route arguments.
-    results.siteHighlighting = 0
-}
-[END]
-
-# --- skillflow: typo3.org / extensions.typo3.org (TER) styled listing on /skills-typo3 ---
-# Page-scoped: override the EXT:solr view paths to the ported TER templates and load
-# Bootstrap 5 + FontAwesome + the TER theme CSS, only on this page.
-[page["uid"] == 1063]
-plugin.tx_solr.view {
-    templateRootPaths.300 = EXT:skillflow/Resources/Private/SolrTer/Templates/
-    partialRootPaths.300 = EXT:skillflow/Resources/Private/SolrTer/Partials/
-    layoutRootPaths.300 = EXT:skillflow/Resources/Private/SolrTer/Layouts/
-}
-page.includeCSS {
-    skillsTerBootstrap = https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css
-    skillsTerBootstrap.external = 1
-    skillsTerFontawesome = https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/css/all.min.css
-    skillsTerFontawesome.external = 1
-    skillsTerTheme = EXT:skillflow/Resources/Public/Css/skills-ter.css
-}
-# The "Filters" button on phones is a Bootstrap collapse toggle: without
-# Bootstrap's script it did nothing.
-page.includeJSFooterlibs {
-    skillsTerBootstrap = https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js
-    skillsTerBootstrap.external = 1
-    skillsTerBootstrap.integrity = sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz
-    skillsTerBootstrap.crossorigin = anonymous
-}
-[END]
-
-# --- skillflow: render the Skill detail Extbase plugin on the detail page (1066) ---
-# desiderio's lib.contentElement (FLUIDTEMPLATE, templateName=CType) does not know
-# skillflow_skilldetail; a page-scoped condition (evaluated after all set TS) renders
-# the Extbase plugin directly so the detail view works.
-# skillflow 1.8 ships the redesigned detail view itself (hero, copy-ID, sticky
-# details, TOC, abilities), translated and with its own assets, so the site
-# package no longer overrides the template.
-
-[page["uid"] == 1066]
-tt_content.skillflow_skilldetail >
-tt_content.skillflow_skilldetail = COA
-tt_content.skillflow_skilldetail.20 = EXTBASEPLUGIN
-tt_content.skillflow_skilldetail.20.extensionName = Skillflow
-tt_content.skillflow_skilldetail.20.pluginName = SkillDetail
-
-[END]
-
-# --- skillflow: link indexed skills to the detail page (uid 1066) ---
-# The result cards link via {document.url}; build it as a typolink to the detail
-# plugin page carrying the skill uid, which the SkillDetail route enhancer turns
-# into /skill/<identifier>.
-plugin.tx_solr.index.queue.skills.fields.url = TEXT
-plugin.tx_solr.index.queue.skills.fields.url {
-    typolink.parameter = 1066
-    typolink.additionalParams = &tx_skillflow_skilldetail[skill]={field:uid}
-    typolink.additionalParams.insertData = 1
-    typolink.returnLast = url
-}
+# --- skillflow: skills search pages and detail page ---
+# Skillflow (set webconsulting/skillflow-solr) configures its skills search on
+# the pages of the site settings skillflow.search.pages (theme look) and
+# skillflow.search.typo3Pages (typo3.org look), and links results to
+# skillflow.detailPage. The values live in config/sites/<site>/settings.yaml:
+# desiderio-corporate-starter lists 1063 (typo3.org look), desiderio lists
+# 1030 "Find a skill" and the detail page 1066 below /ai/agentic-skills.
+# The page-scoped TypoScript that used to sit here (skills-only query,
+# Bootstrap and FontAwesome from a CDN, the EXTBASEPLUGIN override on 1066,
+# the global result URL) is no longer needed.

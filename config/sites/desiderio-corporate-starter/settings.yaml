@@ -17,6 +17,13 @@ desiderio:
     legalPageIds: 750,751,752
   consent:
     privacyPageId: '751'
+# Skillflow skills search (set webconsulting/skillflow-solr): the typo3.org
+# look on /skills-typo3; results link to the skill detail page 1066, which
+# lives on the desiderio site below /ai/agentic-skills/find.
+skillflow:
+  search:
+    typo3Pages: '1063'
+  detailPage: 1066
 
 # TYPO3 trademark notice in the footer (Desiderio 4.35.0).
 desiderio.footer.trademarkNotice: true

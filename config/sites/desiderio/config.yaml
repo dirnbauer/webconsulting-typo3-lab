@@ -15,6 +15,10 @@ dependencies:
   - webconsulting/site-package-workos
   - webconsulting/agent-nexus
   - webconsulting/lab-statistics
+  # Skills index and the skills search on /ai/agentic-skills/find (1030,
+  # site settings skillflow.*). Listed after solr-defaults on purpose: its
+  # page-scoped search settings must load after EXT:solr's default TypoScript.
+  - webconsulting/skillflow-solr
 errorHandling:
   -
     errorCode: 404
@@ -72,6 +76,22 @@ languages:
     solr_core_read: core_hu
 rootPageId: 505
 routeEnhancers:
+  # Skill detail pages: /ai/agentic-skills/find/skill/<skill name>/ (1066).
+  SkillDetail:
+    type: Extbase
+    extension: Skillflow
+    plugin: SkillDetail
+    limitToPages:
+      - 1066
+    routes:
+      - routePath: '/{skill}'
+        _controller: 'SkillDetail::show'
+    defaultController: 'SkillDetail::show'
+    aspects:
+      skill:
+        type: PersistedAliasMapper
+        tableName: tx_nrllm_skill
+        routeFieldName: name
   # EXT:blog's post list pager (imported below) claims /page-{page} on every
   # page, so /news/page-2/ resolved to the blog pager and the news list stayed
   # on page 1. The blog post list lives on the success stories page only.

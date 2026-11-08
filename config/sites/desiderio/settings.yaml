@@ -34,5 +34,13 @@ desiderio.header.ctaSlug: ''
 # Compact footer tagline with the framework and design inspiration.
 desiderio.brand.tagline: 'shadcn/ui · TYPO3 v14 · inspired by Camino'
 
+# Skillflow skills search (set webconsulting/skillflow-solr): "Find a skill"
+# (1030) lists the skills, results link to the detail page 1066, and topic
+# links resolve to the group pages /ai/agentic-skills/<group> once they exist.
+# Skills also appear in the general search (/search, content type "Skills").
+skillflow.search.pages: '1030'
+skillflow.detailPage: 1066
+skillflow.search.groupPages: '/ai/agentic-skills'
+
 # TYPO3 trademark notice in the footer (Desiderio 4.35.0).
 desiderio.footer.trademarkNotice: true
