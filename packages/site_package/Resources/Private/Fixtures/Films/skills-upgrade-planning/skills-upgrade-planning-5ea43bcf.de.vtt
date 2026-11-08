@@ -1,0 +1,61 @@
+WEBVTT - Upgrade planning and migration: agent skills for TYPO3 (de)
+
+1
+00:00:02.040 --> 00:00:07.120
+Wie lange dauert das Upgrade, und was passiert,
+wenn ein Schritt scheitert?
+
+2
+00:00:08.220 --> 00:00:14.816
+Upgrade-Planung und Migration: vier Skills für
+TYPO3 v14.
+
+3
+00:00:16.116 --> 00:00:23.704
+Schätzt LTS-Upgrades je Extension, mit
+Risikofaktoren für die inkompatiblen Änderungen
+in v14.
+
+4
+00:00:25.054 --> 00:00:34.497
+Mit Zahlen je Extension plant es sich besser als
+nach Gefühl. Sie zeigen auch Rectors Ersparnis:
+15 bis 20 Prozent.
+
+5
+00:00:35.897 --> 00:00:45.209
+Bringt ein bereitgestelltes Projekt auf eine
+neue LTS: Site-Konfiguration, TypoScript,
+Templates, Docker und Datenbank.
+
+6
+00:00:46.559 --> 00:00:52.292
+Deckt das Projekt ab; typo3-extension-upgrade
+übernimmt den Extension-Code.
+
+7
+00:00:53.692 --> 00:01:02.430
+Führt einen Migrationsschritt mit Rücksetzpunkt
+aus: Composer, Rector, Fractor, Datenbank oder
+Daten.
+
+8
+00:01:03.780 --> 00:01:12.100
+Kleine, umkehrbare Schritte machen Fehlschläge
+günstig. Der Graph bestimmt, wie oft ein Schritt
+wiederholt werden darf.
+
+9
+00:01:13.500 --> 00:01:20.566
+Prüft vergangene oder unfertige Upgrade-Läufe:
+Was wurde getan, was ist offen, was ging schief?
+
+10
+00:01:21.916 --> 00:01:26.343
+Git kann einen Branch als fertig zeigen, obwohl
+der Lauf etwas anderes sagt.
+
+11
+00:01:27.943 --> 00:01:32.266
+Open Source. Klonen Sie die Skills und helfen
+Sie uns, sie zu verbessern.

@@ -1,0 +1,914 @@
+{
+  "voice": "George",
+  "delivery": {
+    "stability": 0.62,
+    "similarity_boost": 0.78,
+    "style": 0.18,
+    "speed": 0.9
+  },
+  "lines": [
+    {
+      "say": "How long will the upgrade take, and what happens when a step goes wrong?",
+      "show": "How long will the upgrade take, and what happens when a step goes wrong?",
+      "file": "voice-01.mp3",
+      "duration": 4780,
+      "words": [
+        {
+          "word": "How",
+          "start": 70,
+          "end": 255
+        },
+        {
+          "word": "long",
+          "start": 325,
+          "end": 499
+        },
+        {
+          "word": "will",
+          "start": 534,
+          "end": 662
+        },
+        {
+          "word": "the",
+          "start": 697,
+          "end": 766
+        },
+        {
+          "word": "upgrade",
+          "start": 836,
+          "end": 1312
+        },
+        {
+          "word": "take,",
+          "start": 1347,
+          "end": 1892
+        },
+        {
+          "word": "and",
+          "start": 2055,
+          "end": 2183
+        },
+        {
+          "word": "what",
+          "start": 2229,
+          "end": 2368
+        },
+        {
+          "word": "happens",
+          "start": 2438,
+          "end": 2786
+        },
+        {
+          "word": "when",
+          "start": 2821,
+          "end": 2949
+        },
+        {
+          "word": "a",
+          "start": 2984,
+          "end": 3007
+        },
+        {
+          "word": "step",
+          "start": 3077,
+          "end": 3355
+        },
+        {
+          "word": "goes",
+          "start": 3437,
+          "end": 3657
+        },
+        {
+          "word": "wrong?",
+          "start": 3704,
+          "end": 4249
+        }
+      ],
+      "heard": "How long will the upgrade take and what happens when a step goes wrong?"
+    },
+    {
+      "say": "Upgrade planning and migration: four skills for typo three version fourteen.",
+      "show": "Upgrade planning and migration: four skills for TYPO3 v14.",
+      "file": "voice-02.mp3",
+      "duration": 6296,
+      "words": [
+        {
+          "word": "Upgrade",
+          "start": 12,
+          "end": 580
+        },
+        {
+          "word": "planning",
+          "start": 615,
+          "end": 1022
+        },
+        {
+          "word": "and",
+          "start": 1103,
+          "end": 1207
+        },
+        {
+          "word": "migration:",
+          "start": 1289,
+          "end": 2171
+        },
+        {
+          "word": "four",
+          "start": 2485,
+          "end": 2763
+        },
+        {
+          "word": "skills",
+          "start": 2833,
+          "end": 3274
+        },
+        {
+          "word": "for",
+          "start": 3320,
+          "end": 3425
+        },
+        {
+          "word": "typo",
+          "start": 3471,
+          "end": 3831
+        },
+        {
+          "word": "three",
+          "start": 3913,
+          "end": 4354
+        },
+        {
+          "word": "version",
+          "start": 4481,
+          "end": 4888
+        },
+        {
+          "word": "fourteen.",
+          "start": 4969,
+          "end": 5759
+        }
+      ],
+      "heard": "Upgrade Planning and Migration – 4 Skills for TYPO3"
+    },
+    {
+      "say": "Estimates an LTS upgrade per extension, with risk multipliers for the version fourteen breaking changes.",
+      "show": "Estimates an LTS upgrade per extension, with risk multipliers for the v14 breaking changes.",
+      "file": "voice-03.mp3",
+      "duration": 7288,
+      "words": [
+        {
+          "word": "Estimates",
+          "start": 23,
+          "end": 569
+        },
+        {
+          "word": "an",
+          "start": 604,
+          "end": 673
+        },
+        {
+          "word": "LTS",
+          "start": 801,
+          "end": 1300
+        },
+        {
+          "word": "upgrade",
+          "start": 1405,
+          "end": 1904
+        },
+        {
+          "word": "per",
+          "start": 1939,
+          "end": 2090
+        },
+        {
+          "word": "extension,",
+          "start": 2159,
+          "end": 2926
+        },
+        {
+          "word": "with",
+          "start": 3088,
+          "end": 3274
+        },
+        {
+          "word": "risk",
+          "start": 3344,
+          "end": 3576
+        },
+        {
+          "word": "multipliers",
+          "start": 3646,
+          "end": 4238
+        },
+        {
+          "word": "for",
+          "start": 4284,
+          "end": 4377
+        },
+        {
+          "word": "the",
+          "start": 4412,
+          "end": 4481
+        },
+        {
+          "word": "version",
+          "start": 4528,
+          "end": 4876
+        },
+        {
+          "word": "fourteen",
+          "start": 4969,
+          "end": 5457
+        },
+        {
+          "word": "breaking",
+          "start": 5538,
+          "end": 5933
+        },
+        {
+          "word": "changes.",
+          "start": 6002,
+          "end": 6734
+        }
+      ],
+      "heard": "Estimates and LTS upgrade per extension, with risk multipliers for the version 14 breaking changes."
+    },
+    {
+      "say": "A number per extension is easier to plan with than a gut feeling, and it shows how much Rector saves: 15 to 20 per cent.",
+      "show": "A number per extension is easier to plan with than a gut feeling, and it shows how much Rector saves: 15 to 20 per cent.",
+      "file": "voice-04.mp3",
+      "duration": 9143,
+      "end": 8300,
+      "words": [
+        {
+          "word": "A",
+          "start": 23,
+          "end": 116
+        },
+        {
+          "word": "number",
+          "start": 221,
+          "end": 476
+        },
+        {
+          "word": "per",
+          "start": 546,
+          "end": 708
+        },
+        {
+          "word": "extension",
+          "start": 778,
+          "end": 1358
+        },
+        {
+          "word": "is",
+          "start": 1451,
+          "end": 1591
+        },
+        {
+          "word": "easier",
+          "start": 1660,
+          "end": 1974
+        },
+        {
+          "word": "to",
+          "start": 2020,
+          "end": 2078
+        },
+        {
+          "word": "plan",
+          "start": 2148,
+          "end": 2415
+        },
+        {
+          "word": "with",
+          "start": 2485,
+          "end": 2682
+        },
+        {
+          "word": "than",
+          "start": 2879,
+          "end": 3053
+        },
+        {
+          "word": "a",
+          "start": 3088,
+          "end": 3123
+        },
+        {
+          "word": "gut",
+          "start": 3193,
+          "end": 3413
+        },
+        {
+          "word": "feeling,",
+          "start": 3483,
+          "end": 4052
+        },
+        {
+          "word": "and",
+          "start": 4249,
+          "end": 4377
+        },
+        {
+          "word": "it",
+          "start": 4447,
+          "end": 4505
+        },
+        {
+          "word": "shows",
+          "start": 4551,
+          "end": 4865
+        },
+        {
+          "word": "how",
+          "start": 4934,
+          "end": 5050
+        },
+        {
+          "word": "much",
+          "start": 5120,
+          "end": 5317
+        },
+        {
+          "word": "Rector",
+          "start": 5399,
+          "end": 5735
+        },
+        {
+          "word": "saves:",
+          "start": 5805,
+          "end": 6420
+        },
+        {
+          "word": "15",
+          "start": 6618,
+          "end": 7140
+        },
+        {
+          "word": "to",
+          "start": 7187,
+          "end": 7256
+        },
+        {
+          "word": "20",
+          "start": 7338,
+          "end": 7605
+        },
+        {
+          "word": "per",
+          "start": 7651,
+          "end": 7779
+        },
+        {
+          "word": "cent.",
+          "start": 7814,
+          "end": 8313
+        }
+      ],
+      "heard": "A number per extension is easier to plan with than a gut feeling, and it shows how much Rector saves, 15 to 20%."
+    },
+    {
+      "say": "Moves a deployed project to a new LTS: site configuration, TypoScript, templates, Docker and database.",
+      "show": "Moves a deployed project to a new LTS: site configuration, TypoScript, templates, Docker and database.",
+      "file": "voice-05.mp3",
+      "duration": 9012,
+      "words": [
+        {
+          "word": "Moves",
+          "start": 23,
+          "end": 372
+        },
+        {
+          "word": "a",
+          "start": 406,
+          "end": 430
+        },
+        {
+          "word": "deployed",
+          "start": 499,
+          "end": 917
+        },
+        {
+          "word": "project",
+          "start": 964,
+          "end": 1428
+        },
+        {
+          "word": "to",
+          "start": 1509,
+          "end": 1625
+        },
+        {
+          "word": "a",
+          "start": 1718,
+          "end": 1741
+        },
+        {
+          "word": "new",
+          "start": 1834,
+          "end": 2055
+        },
+        {
+          "word": "LTS:",
+          "start": 2159,
+          "end": 3007
+        },
+        {
+          "word": "site",
+          "start": 3437,
+          "end": 3738
+        },
+        {
+          "word": "configuration,",
+          "start": 3762,
+          "end": 4772
+        },
+        {
+          "word": "TypoScript,",
+          "start": 4899,
+          "end": 5886
+        },
+        {
+          "word": "templates,",
+          "start": 5991,
+          "end": 6780
+        },
+        {
+          "word": "Docker",
+          "start": 6908,
+          "end": 7303
+        },
+        {
+          "word": "and",
+          "start": 7372,
+          "end": 7465
+        },
+        {
+          "word": "database.",
+          "start": 7535,
+          "end": 8359
+        }
+      ],
+      "heard": "Moves a deployed project to a new LTS Site configuration, typo script, templates, docker and database"
+    },
+    {
+      "say": "It covers the project; typo3-extension-upgrade covers extension code.",
+      "show": "It covers the project; typo3-extension-upgrade covers extension code.",
+      "file": "voice-06.mp3",
+      "duration": 5433,
+      "words": [
+        {
+          "word": "It",
+          "start": 35,
+          "end": 186
+        },
+        {
+          "word": "covers",
+          "start": 255,
+          "end": 580
+        },
+        {
+          "word": "the",
+          "start": 627,
+          "end": 697
+        },
+        {
+          "word": "project;",
+          "start": 743,
+          "end": 1347
+        },
+        {
+          "word": "typo3-extension-upgrade",
+          "start": 1474,
+          "end": 3379
+        },
+        {
+          "word": "covers",
+          "start": 3425,
+          "end": 3750
+        },
+        {
+          "word": "extension",
+          "start": 3796,
+          "end": 4331
+        },
+        {
+          "word": "code.",
+          "start": 4412,
+          "end": 4899
+        }
+      ],
+      "heard": "It covers the project, TYPO3 extension upgrade covers extension code,"
+    },
+    {
+      "say": "Carries out one migration step behind a rollback point: Composer, Rector, Frack-tor, database or data.",
+      "show": "Carries out one migration step behind a rollback point: Composer, Rector, Fractor, database or data.",
+      "file": "voice-07.mp3",
+      "duration": 8438,
+      "end": 7810,
+      "words": [
+        {
+          "word": "Carries",
+          "start": 35,
+          "end": 430
+        },
+        {
+          "word": "out",
+          "start": 464,
+          "end": 627
+        },
+        {
+          "word": "one",
+          "start": 708,
+          "end": 929
+        },
+        {
+          "word": "migration",
+          "start": 975,
+          "end": 1533
+        },
+        {
+          "word": "step",
+          "start": 1602,
+          "end": 1904
+        },
+        {
+          "word": "behind",
+          "start": 1985,
+          "end": 2322
+        },
+        {
+          "word": "a",
+          "start": 2392,
+          "end": 2415
+        },
+        {
+          "word": "rollback",
+          "start": 2496,
+          "end": 2902
+        },
+        {
+          "word": "point:",
+          "start": 2984,
+          "end": 3495
+        },
+        {
+          "word": "Composer,",
+          "start": 3982,
+          "end": 4760
+        },
+        {
+          "word": "Rector,",
+          "start": 4923,
+          "end": 5550
+        },
+        {
+          "word": "Frack-tor,",
+          "start": 5689,
+          "end": 6362
+        },
+        {
+          "word": "database",
+          "start": 6409,
+          "end": 7036
+        },
+        {
+          "word": "or",
+          "start": 7082,
+          "end": 7163
+        },
+        {
+          "word": "data.",
+          "start": 7233,
+          "end": 7814
+        }
+      ],
+      "heard": "carries out one migration step behind a rollback point. Composer, Rector, Fractor, Database or Data."
+    },
+    {
+      "say": "Small, reversible steps make a failed attempt cheap, and the graph decides how often a step may be retried.",
+      "show": "Small, reversible steps make a failed attempt cheap, and the graph decides how often a step may be retried.",
+      "file": "voice-08.mp3",
+      "duration": 8020,
+      "end": 7370,
+      "words": [
+        {
+          "word": "Small,",
+          "start": 23,
+          "end": 488
+        },
+        {
+          "word": "reversible",
+          "start": 522,
+          "end": 1149
+        },
+        {
+          "word": "steps",
+          "start": 1184,
+          "end": 1660
+        },
+        {
+          "word": "make",
+          "start": 1892,
+          "end": 2125
+        },
+        {
+          "word": "a",
+          "start": 2148,
+          "end": 2171
+        },
+        {
+          "word": "failed",
+          "start": 2264,
+          "end": 2647
+        },
+        {
+          "word": "attempt",
+          "start": 2682,
+          "end": 3088
+        },
+        {
+          "word": "cheap,",
+          "start": 3170,
+          "end": 3715
+        },
+        {
+          "word": "and",
+          "start": 3947,
+          "end": 4098
+        },
+        {
+          "word": "the",
+          "start": 4145,
+          "end": 4214
+        },
+        {
+          "word": "graph",
+          "start": 4261,
+          "end": 4598
+        },
+        {
+          "word": "decides",
+          "start": 4632,
+          "end": 5143
+        },
+        {
+          "word": "how",
+          "start": 5190,
+          "end": 5329
+        },
+        {
+          "word": "often",
+          "start": 5422,
+          "end": 5735
+        },
+        {
+          "word": "a",
+          "start": 5770,
+          "end": 5793
+        },
+        {
+          "word": "step",
+          "start": 5863,
+          "end": 6153
+        },
+        {
+          "word": "may",
+          "start": 6235,
+          "end": 6351
+        },
+        {
+          "word": "be",
+          "start": 6420,
+          "end": 6502
+        },
+        {
+          "word": "retried.",
+          "start": 6583,
+          "end": 7384
+        }
+      ],
+      "heard": "Small reversible steps make a failed attempt cheap, and the graph decides how often a step may be retried."
+    },
+    {
+      "say": "Reviews past or unfinished upgrade runs: what was done, what is open and what went wrong.",
+      "show": "Reviews past or unfinished upgrade runs: what was done, what is open and what went wrong.",
+      "file": "voice-09.mp3",
+      "duration": 6766,
+      "end": 6160,
+      "words": [
+        {
+          "word": "Reviews",
+          "start": 23,
+          "end": 488
+        },
+        {
+          "word": "past",
+          "start": 569,
+          "end": 975
+        },
+        {
+          "word": "or",
+          "start": 1045,
+          "end": 1126
+        },
+        {
+          "word": "unfinished",
+          "start": 1207,
+          "end": 1741
+        },
+        {
+          "word": "upgrade",
+          "start": 1788,
+          "end": 2252
+        },
+        {
+          "word": "runs:",
+          "start": 2299,
+          "end": 2891
+        },
+        {
+          "word": "what",
+          "start": 3320,
+          "end": 3506
+        },
+        {
+          "word": "was",
+          "start": 3553,
+          "end": 3669
+        },
+        {
+          "word": "done,",
+          "start": 3738,
+          "end": 4203
+        },
+        {
+          "word": "what",
+          "start": 4331,
+          "end": 4516
+        },
+        {
+          "word": "is",
+          "start": 4563,
+          "end": 4644
+        },
+        {
+          "word": "open",
+          "start": 4714,
+          "end": 5027
+        },
+        {
+          "word": "and",
+          "start": 5108,
+          "end": 5201
+        },
+        {
+          "word": "what",
+          "start": 5248,
+          "end": 5364
+        },
+        {
+          "word": "went",
+          "start": 5410,
+          "end": 5584
+        },
+        {
+          "word": "wrong.",
+          "start": 5631,
+          "end": 6130
+        }
+      ],
+      "heard": "reviews past or unfinished upgrade runs, what was done, what is open and what went wrong,"
+    },
+    {
+      "say": "Git may say a branch is done while the run says otherwise.",
+      "show": "Git may say a branch is done while the run says otherwise.",
+      "file": "voice-10.mp3",
+      "duration": 4127,
+      "words": [
+        {
+          "word": "Git",
+          "start": 12,
+          "end": 244
+        },
+        {
+          "word": "may",
+          "start": 313,
+          "end": 453
+        },
+        {
+          "word": "say",
+          "start": 522,
+          "end": 720
+        },
+        {
+          "word": "a",
+          "start": 789,
+          "end": 813
+        },
+        {
+          "word": "branch",
+          "start": 859,
+          "end": 1219
+        },
+        {
+          "word": "is",
+          "start": 1265,
+          "end": 1335
+        },
+        {
+          "word": "done",
+          "start": 1405,
+          "end": 1741
+        },
+        {
+          "word": "while",
+          "start": 1834,
+          "end": 2101
+        },
+        {
+          "word": "the",
+          "start": 2125,
+          "end": 2194
+        },
+        {
+          "word": "run",
+          "start": 2241,
+          "end": 2461
+        },
+        {
+          "word": "says",
+          "start": 2543,
+          "end": 2728
+        },
+        {
+          "word": "otherwise.",
+          "start": 2798,
+          "end": 3564
+        }
+      ],
+      "heard": "Git may say a branch is done while the run says otherwise."
+    },
+    {
+      "say": "Open source. Clone the skills, and help us improve them.",
+      "show": "Open source. Clone the skills, and help us improve them.",
+      "file": "voice-11.mp3",
+      "duration": 4023,
+      "words": [
+        {
+          "word": "Open",
+          "start": 35,
+          "end": 406
+        },
+        {
+          "word": "source.",
+          "start": 499,
+          "end": 1057
+        },
+        {
+          "word": "Clone",
+          "start": 1254,
+          "end": 1625
+        },
+        {
+          "word": "the",
+          "start": 1660,
+          "end": 1730
+        },
+        {
+          "word": "skills,",
+          "start": 1776,
+          "end": 2310
+        },
+        {
+          "word": "and",
+          "start": 2345,
+          "end": 2496
+        },
+        {
+          "word": "help",
+          "start": 2566,
+          "end": 2717
+        },
+        {
+          "word": "us",
+          "start": 2786,
+          "end": 2856
+        },
+        {
+          "word": "improve",
+          "start": 2926,
+          "end": 3344
+        },
+        {
+          "word": "them.",
+          "start": 3379,
+          "end": 3692
+        }
+      ],
+      "heard": "Open source, clone the skills and help us improve them."
+    }
+  ]
+}

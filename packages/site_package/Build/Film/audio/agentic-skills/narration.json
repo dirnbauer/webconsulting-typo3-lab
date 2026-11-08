@@ -8,114 +8,153 @@
   },
   "lines": [
     {
-      "say": "Your agent knows typo three, but not your project.",
-      "show": "Your agent knows TYPO3, but not your project.",
+      "say": "Your agent knows typo three, but not how good typo three work is done.",
+      "show": "Your agent knows TYPO3, but not how good TYPO3 work is done.",
       "file": "voice-01.mp3",
-      "duration": 3997,
+      "duration": 5381,
       "words": [
         {
           "word": "Your",
-          "start": 70,
-          "end": 302
+          "start": 81,
+          "end": 244
         },
         {
           "word": "agent",
-          "start": 383,
-          "end": 755
+          "start": 313,
+          "end": 685
         },
         {
           "word": "knows",
-          "start": 801,
-          "end": 1045
+          "start": 731,
+          "end": 1057
         },
         {
           "word": "typo",
-          "start": 1091,
-          "end": 1463
+          "start": 1126,
+          "end": 1486
         },
         {
           "word": "three,",
-          "start": 1544,
+          "start": 1567,
           "end": 2067
         },
         {
           "word": "but",
-          "start": 2194,
-          "end": 2345
+          "start": 2171,
+          "end": 2322
         },
         {
           "word": "not",
-          "start": 2380,
-          "end": 2496
+          "start": 2357,
+          "end": 2485
         },
         {
-          "word": "your",
-          "start": 2543,
-          "end": 2659
+          "word": "how",
+          "start": 2531,
+          "end": 2635
         },
         {
-          "word": "project.",
-          "start": 2705,
-          "end": 3437
-        }
-      ],
-      "heard": "Your agent knows typo 3, but not your project."
-    },
-    {
-      "say": "typo three skills: 61 skills for coding agents.",
-      "show": "typo3-skills: 61 skills for coding agents.",
-      "file": "voice-02.mp3",
-      "duration": 4310,
-      "words": [
+          "word": "good",
+          "start": 2728,
+          "end": 2984
+        },
         {
           "word": "typo",
-          "start": 23,
-          "end": 406
+          "start": 3053,
+          "end": 3413
         },
         {
           "word": "three",
-          "start": 476,
-          "end": 708
+          "start": 3495,
+          "end": 3727
+        },
+        {
+          "word": "work",
+          "start": 3773,
+          "end": 4040
+        },
+        {
+          "word": "is",
+          "start": 4110,
+          "end": 4191
+        },
+        {
+          "word": "done.",
+          "start": 4261,
+          "end": 4760
+        }
+      ],
+      "heard": "Your agent knows TYPO3, but not how good TYPO3 work is done."
+    },
+    {
+      "say": "typo three skills: 61 skills for coding agents, in twelve groups.",
+      "show": "typo3-skills: 61 skills for coding agents, in 12 groups.",
+      "file": "voice-02.mp3",
+      "duration": 5799,
+      "words": [
+        {
+          "word": "typo",
+          "start": 35,
+          "end": 441
+        },
+        {
+          "word": "three",
+          "start": 511,
+          "end": 766
         },
         {
           "word": "skills:",
-          "start": 743,
-          "end": 1393
+          "start": 813,
+          "end": 1498
         },
         {
           "word": "61",
-          "start": 1625,
-          "end": 2206
+          "start": 1695,
+          "end": 2229
         },
         {
           "word": "skills",
-          "start": 2334,
-          "end": 2775
+          "start": 2357,
+          "end": 2798
         },
         {
           "word": "for",
-          "start": 2821,
-          "end": 2926
+          "start": 2844,
+          "end": 2949
         },
         {
           "word": "coding",
-          "start": 2972,
-          "end": 3309
+          "start": 2995,
+          "end": 3344
         },
         {
-          "word": "agents.",
-          "start": 3379,
-          "end": 3982
+          "word": "agents,",
+          "start": 3413,
+          "end": 3889
+        },
+        {
+          "word": "in",
+          "start": 3936,
+          "end": 4087
+        },
+        {
+          "word": "twelve",
+          "start": 4156,
+          "end": 4516
+        },
+        {
+          "word": "groups.",
+          "start": 4551,
+          "end": 5155
         }
       ],
-      "heard": "TYPO3 Skills 61 Skills for Coding Agents",
-      "end": 4010
+      "heard": "TYPO3 skills, 61 skills for coding agents in 12 groups."
     },
     {
-      "say": "One clone, one install script, every client.",
-      "show": "One clone, one install script, every client.",
+      "say": "One clone, one install script: Claude Code, Codex, Cursor and Gemini.",
+      "show": "One clone, one install script: Claude Code, Codex, Cursor and Gemini.",
       "file": "voice-03.mp3",
-      "duration": 4258,
+      "duration": 6635,
       "words": [
         {
           "word": "One",
@@ -125,206 +164,500 @@
         {
           "word": "clone,",
           "start": 348,
-          "end": 871
+          "end": 894
         },
         {
           "word": "one",
-          "start": 1033,
-          "end": 1265
+          "start": 1057,
+          "end": 1300
         },
         {
           "word": "install",
-          "start": 1300,
-          "end": 1718
+          "start": 1335,
+          "end": 1765
         },
         {
-          "word": "script,",
-          "start": 1800,
-          "end": 2357
+          "word": "script:",
+          "start": 1846,
+          "end": 2450
         },
         {
-          "word": "every",
-          "start": 2496,
-          "end": 2752
+          "word": "Claude",
+          "start": 2810,
+          "end": 3228
         },
         {
-          "word": "client.",
-          "start": 2798,
-          "end": 3437
+          "word": "Code,",
+          "start": 3274,
+          "end": 3831
+        },
+        {
+          "word": "Codex,",
+          "start": 3994,
+          "end": 4737
+        },
+        {
+          "word": "Cursor",
+          "start": 4865,
+          "end": 5341
+        },
+        {
+          "word": "and",
+          "start": 5410,
+          "end": 5515
+        },
+        {
+          "word": "Gemini.",
+          "start": 5596,
+          "end": 6281
         }
       ],
-      "heard": "One clone, one install script, every client."
+      "heard": "one clone, one install script, Clawed code, Codex, Cursor and Gemini."
     },
     {
-      "say": "Upgrades, accessibility, Solar, structured data.",
-      "show": "Upgrades, accessibility, Solr, structured data.",
+      "say": "The typo three Dev Companion gives your agent version-aware typo three knowledge. Our skills add whole jobs on top.",
+      "show": "The TYPO3 Dev Companion gives your agent version-aware TYPO3 knowledge. Our skills add whole jobs on top.",
       "file": "voice-04.mp3",
-      "duration": 4310,
+      "duration": 8673,
       "words": [
         {
-          "word": "Upgrades,",
+          "word": "The",
           "start": 12,
-          "end": 697
+          "end": 128
         },
         {
-          "word": "accessibility,",
-          "start": 720,
-          "end": 1811
+          "word": "typo",
+          "start": 197,
+          "end": 557
         },
         {
-          "word": "Solar,",
-          "start": 1939,
+          "word": "three",
+          "start": 627,
+          "end": 906
+        },
+        {
+          "word": "Dev",
+          "start": 952,
+          "end": 1149
+        },
+        {
+          "word": "Companion",
+          "start": 1219,
+          "end": 1858
+        },
+        {
+          "word": "gives",
+          "start": 2090,
+          "end": 2310
+        },
+        {
+          "word": "your",
+          "start": 2345,
           "end": 2485
         },
         {
-          "word": "structured",
-          "start": 2566,
-          "end": 3088
+          "word": "agent",
+          "start": 2554,
+          "end": 2914
         },
         {
-          "word": "data.",
-          "start": 3123,
-          "end": 3762
+          "word": "version-aware",
+          "start": 2995,
+          "end": 3971
+        },
+        {
+          "word": "typo",
+          "start": 4017,
+          "end": 4423
+        },
+        {
+          "word": "three",
+          "start": 4505,
+          "end": 4760
+        },
+        {
+          "word": "knowledge.",
+          "start": 4795,
+          "end": 5410
+        },
+        {
+          "word": "Our",
+          "start": 5898,
+          "end": 6118
+        },
+        {
+          "word": "skills",
+          "start": 6188,
+          "end": 6629
+        },
+        {
+          "word": "add",
+          "start": 6711,
+          "end": 6920
+        },
+        {
+          "word": "whole",
+          "start": 6954,
+          "end": 7187
+        },
+        {
+          "word": "jobs",
+          "start": 7233,
+          "end": 7558
+        },
+        {
+          "word": "on",
+          "start": 7605,
+          "end": 7686
+        },
+        {
+          "word": "top.",
+          "start": 7767,
+          "end": 8266
         }
       ],
-      "heard": "Upgrades, accessibility, solar, structured data."
+      "heard": "The TYPO3 Dev Companion gives your agent version aware TYPO3 knowledge. Our skills add whole jobs on top."
     },
     {
-      "say": "Upgrades follow a sealed graph: 72 nodes, 206 edges.",
-      "show": "Upgrades follow a sealed graph: 72 nodes, 206 edges.",
+      "say": "Twelve groups: upgrades, content, editing, design, accessibility, search and security.",
+      "show": "Twelve groups: upgrades, content, editing, design, accessibility, search and security.",
       "file": "voice-05.mp3",
-      "duration": 5433,
+      "duration": 7602,
       "words": [
         {
-          "word": "Upgrades",
-          "start": 23,
-          "end": 592
+          "word": "Twelve",
+          "start": 35,
+          "end": 430
         },
         {
-          "word": "follow",
-          "start": 639,
-          "end": 882
+          "word": "groups:",
+          "start": 464,
+          "end": 987
+        },
+        {
+          "word": "upgrades,",
+          "start": 1184,
+          "end": 1939
+        },
+        {
+          "word": "content,",
+          "start": 2043,
+          "end": 2717
+        },
+        {
+          "word": "editing,",
+          "start": 2914,
+          "end": 3541
+        },
+        {
+          "word": "design,",
+          "start": 3611,
+          "end": 4365
+        },
+        {
+          "word": "accessibility,",
+          "start": 4493,
+          "end": 5538
+        },
+        {
+          "word": "search",
+          "start": 5642,
+          "end": 6002
+        },
+        {
+          "word": "and",
+          "start": 6037,
+          "end": 6107
+        },
+        {
+          "word": "security.",
+          "start": 6177,
+          "end": 7047
+        }
+      ],
+      "heard": "12 groups upgrades content editing design accessibility search and security"
+    },
+    {
+      "say": "They build on what the community teaches, at MTUG and typo threecamp München.",
+      "show": "They build on what the community teaches, at MTUG and TYPO3camp München.",
+      "file": "voice-06.mp3",
+      "duration": 5669,
+      "words": [
+        {
+          "word": "They",
+          "start": 23,
+          "end": 209
+        },
+        {
+          "word": "build",
+          "start": 279,
+          "end": 546
+        },
+        {
+          "word": "on",
+          "start": 592,
+          "end": 650
+        },
+        {
+          "word": "what",
+          "start": 685,
+          "end": 813
+        },
+        {
+          "word": "the",
+          "start": 848,
+          "end": 917
+        },
+        {
+          "word": "community",
+          "start": 952,
+          "end": 1416
+        },
+        {
+          "word": "teaches,",
+          "start": 1498,
+          "end": 2206
+        },
+        {
+          "word": "at",
+          "start": 2345,
+          "end": 2519
+        },
+        {
+          "word": "MTUG",
+          "start": 2601,
+          "end": 3077
+        },
+        {
+          "word": "and",
+          "start": 3146,
+          "end": 3239
+        },
+        {
+          "word": "typo",
+          "start": 3309,
+          "end": 3704
+        },
+        {
+          "word": "threecamp",
+          "start": 3773,
+          "end": 4354
+        },
+        {
+          "word": "München.",
+          "start": 4458,
+          "end": 5120
+        }
+      ],
+      "heard": "They build on what the community teaches at MTUG and TYPO3Camp München."
+    },
+    {
+      "say": "The upgrade run follows a sealed graph of 72 nodes and 206 edges.",
+      "show": "The upgrade run follows a sealed graph of 72 nodes and 206 edges.",
+      "file": "voice-07.mp3",
+      "duration": 5747,
+      "end": 5200,
+      "words": [
+        {
+          "word": "The",
+          "start": 23,
+          "end": 163
+        },
+        {
+          "word": "upgrade",
+          "start": 255,
+          "end": 731
+        },
+        {
+          "word": "run",
+          "start": 766,
+          "end": 987
+        },
+        {
+          "word": "follows",
+          "start": 1068,
+          "end": 1393
         },
         {
           "word": "a",
-          "start": 952,
-          "end": 975
+          "start": 1440,
+          "end": 1474
         },
         {
           "word": "sealed",
-          "start": 1045,
-          "end": 1382
+          "start": 1544,
+          "end": 1904
         },
         {
-          "word": "graph:",
-          "start": 1428,
-          "end": 1927
+          "word": "graph",
+          "start": 1950,
+          "end": 2299
+        },
+        {
+          "word": "of",
+          "start": 2334,
+          "end": 2403
         },
         {
           "word": "72",
-          "start": 2194,
-          "end": 2775
+          "start": 2485,
+          "end": 3019
         },
         {
-          "word": "nodes,",
-          "start": 2868,
-          "end": 3297
+          "word": "nodes",
+          "start": 3123,
+          "end": 3471
+        },
+        {
+          "word": "and",
+          "start": 3541,
+          "end": 3657
         },
         {
           "word": "206",
-          "start": 3379,
-          "end": 4133
+          "start": 3727,
+          "end": 4458
         },
         {
           "word": "edges.",
-          "start": 4238,
-          "end": 4818
+          "start": 4563,
+          "end": 5201
         }
       ],
-      "heard": "Upgrades follow a sealed graph, 72 nodes, 206 edges."
+      "heard": "The upgrade run follows a sealed graph of 72 nodes and 206 edges."
     },
     {
-      "say": "Twenty-two rules, such as: no claim without evidence.",
-      "show": "Twenty-two rules, such as: no claim without evidence.",
-      "file": "voice-06.mp3",
-      "duration": 4075,
+      "say": "Find a skill in seconds: search, filter by group, copy the install line.",
+      "show": "Find a skill in seconds: search, filter by group, copy the install line.",
+      "file": "voice-08.mp3",
+      "duration": 6217,
       "words": [
         {
-          "word": "Twenty-two",
-          "start": 23,
-          "end": 604
+          "word": "Find",
+          "start": 12,
+          "end": 313
         },
         {
-          "word": "rules,",
-          "start": 697,
-          "end": 1254
+          "word": "a",
+          "start": 360,
+          "end": 383
         },
         {
-          "word": "such",
-          "start": 1324,
-          "end": 1579
+          "word": "skill",
+          "start": 453,
+          "end": 778
         },
         {
-          "word": "as:",
-          "start": 1649,
-          "end": 2020
+          "word": "in",
+          "start": 859,
+          "end": 940
         },
         {
-          "word": "no",
-          "start": 2287,
-          "end": 2461
+          "word": "seconds:",
+          "start": 1033,
+          "end": 1730
         },
         {
-          "word": "claim",
-          "start": 2543,
-          "end": 2810
+          "word": "search,",
+          "start": 1962,
+          "end": 2577
         },
         {
-          "word": "without",
-          "start": 2856,
-          "end": 3146
+          "word": "filter",
+          "start": 2705,
+          "end": 3088
         },
         {
-          "word": "evidence.",
-          "start": 3216,
-          "end": 3889
+          "word": "by",
+          "start": 3135,
+          "end": 3286
+        },
+        {
+          "word": "group,",
+          "start": 3367,
+          "end": 3831
+        },
+        {
+          "word": "copy",
+          "start": 3959,
+          "end": 4272
+        },
+        {
+          "word": "the",
+          "start": 4342,
+          "end": 4412
+        },
+        {
+          "word": "install",
+          "start": 4481,
+          "end": 4957
+        },
+        {
+          "word": "line.",
+          "start": 5039,
+          "end": 5573
         }
       ],
-      "heard": "22 rules such as no claim without evidence"
+      "heard": "Find a skill in seconds, search, filter by group, copy the install line."
     },
     {
-      "say": "Open source. Clone it today.",
-      "show": "Open source. Clone it today.",
-      "file": "voice-07.mp3",
-      "duration": 2508,
+      "say": "Open source. Clone the skills, and help us improve them.",
+      "show": "Open source. Clone the skills, and help us improve them.",
+      "file": "voice-09.mp3",
+      "duration": 3944,
       "words": [
         {
           "word": "Open",
           "start": 35,
-          "end": 383
+          "end": 372
         },
         {
           "word": "source.",
-          "start": 476,
-          "end": 987
+          "start": 464,
+          "end": 1022
         },
         {
           "word": "Clone",
-          "start": 1184,
-          "end": 1509
+          "start": 1254,
+          "end": 1637
         },
         {
-          "word": "it",
-          "start": 1533,
-          "end": 1614
+          "word": "the",
+          "start": 1672,
+          "end": 1741
         },
         {
-          "word": "today.",
-          "start": 1660,
-          "end": 2194
+          "word": "skills,",
+          "start": 1788,
+          "end": 2345
+        },
+        {
+          "word": "and",
+          "start": 2380,
+          "end": 2508
+        },
+        {
+          "word": "help",
+          "start": 2577,
+          "end": 2717
+        },
+        {
+          "word": "us",
+          "start": 2786,
+          "end": 2856
+        },
+        {
+          "word": "improve",
+          "start": 2902,
+          "end": 3320
+        },
+        {
+          "word": "them.",
+          "start": 3355,
+          "end": 3634
         }
       ],
-      "heard": "Open source. Clone it today."
+      "heard": "(no transcript: fal-ai/whisper: 403 {\"detail\":\"User is locked. Reason: TOP_UP.\"})"
     }
   ]
 }

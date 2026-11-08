@@ -1,0 +1,55 @@
+WEBVTT - TYPO3 v14 development: agent skills for TYPO3 (hu)
+
+1
+00:00:02.040 --> 00:00:09.053
+Az ügynökök még régi tudásból írnak TYPO3-kódot.
+Ezek a skillek a tizennégyes verziót tanítják.
+
+2
+00:00:10.153 --> 00:00:17.637
+TYPO3 v14-fejlesztés: négy skill TYPO3 v14-hez.
+
+3
+00:00:18.937 --> 00:00:29.399
+Megmutatja a v14-es kód írását: vezérlők,
+ViewFactory, PSR-14-események, TCA, QueryBuilder
+és CLI.
+
+4
+00:00:30.749 --> 00:00:33.740
+Az ügynökök gyakran összekeverik a verziókat.
+
+5
+00:00:35.799 --> 00:00:42.786
+Verzióhoz igazított TypoScript-, TSconfig- és
+Fluid-referencia, helyi kereséssel.
+
+6
+00:00:44.136 --> 00:00:47.780
+A TypoScript-kulcsokra könnyű rosszul emlékezni.
+
+7
+00:00:49.186 --> 00:00:56.826
+v14-es backend Web Components elemeket készít
+Littel, import mapekkel és
+FormEngine-integrációval.
+
+8
+00:00:58.176 --> 00:01:03.674
+A jQuery-korszak backendkódját szabványos Web
+Components elemekké alakítja.
+
+9
+00:01:05.074 --> 00:01:13.446
+DDEV-vel indít és ér el helyi TYPO3-példányt,
+egy vagy több párhuzamos verzióhoz.
+
+10
+00:01:14.796 --> 00:01:19.040
+A legtöbb más skillnek futó példány kell a
+munkája ellenőrzéséhez.
+
+11
+00:01:20.640 --> 00:01:24.780
+Nyílt forráskód. Klónozza a skilleket, és
+segítsen jobbá tenni őket.

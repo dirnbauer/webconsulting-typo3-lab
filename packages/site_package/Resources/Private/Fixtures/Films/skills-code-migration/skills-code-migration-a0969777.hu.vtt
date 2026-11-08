@@ -1,0 +1,57 @@
+WEBVTT - Automated code migration: agent skills for TYPO3 (hu)
+
+1
+00:00:02.040 --> 00:00:08.636
+Negyven bővítmény, egy elavult API, és senki sem
+akarja kézzel javítani.
+
+2
+00:00:09.736 --> 00:00:15.914
+Automatizált kódmigráció: négy skill TYPO3
+v14-hez.
+
+3
+00:00:17.214 --> 00:00:27.023
+Újabb TYPO3 LTS-sel tesz kompatibilissé egy
+bővítményt, Extension Scanner, Rector, Fractor
+és PHPStan segítségével.
+
+4
+00:00:28.373 --> 00:00:33.767
+A hibás commit hookot javítandó ellenőrzésnek
+tekinti, nem megkerülendő akadálynak.
+
+5
+00:00:35.167 --> 00:00:43.852
+Rectorral javítja az elavult PHP-hívásokat:
+próbafutás, diffellenőrzés, alkalmazás, újabb
+próbafutás.
+
+6
+00:00:45.202 --> 00:00:52.451
+Alkalmazás, újabb próbafutás: egy generált fájl
+maradt. Még egyszer: a Rector kész.
+
+7
+00:00:53.551 --> 00:01:02.053
+Fractorral alakítja át a TypoScript, FlexForms,
+Fluid, YAML és XLIFF fájlokat v14 felé.
+
+8
+00:01:03.403 --> 00:01:08.745
+A FlexForm-, TypoScript- és Fluid-minták könnyen
+elkerülik a felülvizsgálat figyelmét.
+
+9
+00:01:10.145 --> 00:01:15.826
+Ugyanazt a változtatást sok bővítményen végzi el
+egyszerre, átnézhető adagokban.
+
+10
+00:01:17.176 --> 00:01:20.846
+Egy 500 fájlos commit nem ellenőrizhető.
+
+11
+00:01:22.446 --> 00:01:26.769
+Nyílt forráskód. Klónozza a skilleket, és
+segítsen jobbá tenni őket.

@@ -1,0 +1,698 @@
+{
+  "voice": "George",
+  "delivery": {
+    "stability": 0.62,
+    "similarity_boost": 0.78,
+    "style": 0.18,
+    "speed": 0.9
+  },
+  "lines": [
+    {
+      "say": "An accessibility report helps when every finding points to the template that causes it.",
+      "show": "An accessibility report helps when every finding points to the template that causes it.",
+      "file": "voice-01.mp3",
+      "duration": 6034,
+      "words": [
+        {
+          "word": "An",
+          "start": 46,
+          "end": 163
+        },
+        {
+          "word": "accessibility",
+          "start": 186,
+          "end": 964
+        },
+        {
+          "word": "report",
+          "start": 1045,
+          "end": 1509
+        },
+        {
+          "word": "helps",
+          "start": 1637,
+          "end": 1997
+        },
+        {
+          "word": "when",
+          "start": 2043,
+          "end": 2194
+        },
+        {
+          "word": "every",
+          "start": 2276,
+          "end": 2543
+        },
+        {
+          "word": "finding",
+          "start": 2612,
+          "end": 3030
+        },
+        {
+          "word": "points",
+          "start": 3111,
+          "end": 3413
+        },
+        {
+          "word": "to",
+          "start": 3448,
+          "end": 3518
+        },
+        {
+          "word": "the",
+          "start": 3599,
+          "end": 3669
+        },
+        {
+          "word": "template",
+          "start": 3715,
+          "end": 4203
+        },
+        {
+          "word": "that",
+          "start": 4238,
+          "end": 4354
+        },
+        {
+          "word": "causes",
+          "start": 4400,
+          "end": 4830
+        },
+        {
+          "word": "it.",
+          "start": 4899,
+          "end": 5201
+        }
+      ],
+      "heard": "An accessibility report helps when every finding points to the template that causes it."
+    },
+    {
+      "say": "Accessibility: three skills for typo three version fourteen.",
+      "show": "Accessibility: three skills for TYPO3 v14.",
+      "file": "voice-02.mp3",
+      "duration": 4833,
+      "end": 4320,
+      "words": [
+        {
+          "word": "Accessibility:",
+          "start": 35,
+          "end": 1161
+        },
+        {
+          "word": "three",
+          "start": 1265,
+          "end": 1544
+        },
+        {
+          "word": "skills",
+          "start": 1579,
+          "end": 2009
+        },
+        {
+          "word": "for",
+          "start": 2055,
+          "end": 2159
+        },
+        {
+          "word": "typo",
+          "start": 2206,
+          "end": 2566
+        },
+        {
+          "word": "three",
+          "start": 2647,
+          "end": 2972
+        },
+        {
+          "word": "version",
+          "start": 3053,
+          "end": 3425
+        },
+        {
+          "word": "fourteen.",
+          "start": 3506,
+          "end": 4272
+        }
+      ],
+      "heard": "Accessibility, three skills for TYPO3 version 14"
+    },
+    {
+      "say": "Scans with Playwright and axe-core and names the Fluid template behind each finding.",
+      "show": "Scans with Playwright and axe-core and names the Fluid template behind each finding.",
+      "file": "voice-03.mp3",
+      "duration": 5930,
+      "words": [
+        {
+          "word": "Scans",
+          "start": 23,
+          "end": 534
+        },
+        {
+          "word": "with",
+          "start": 569,
+          "end": 697
+        },
+        {
+          "word": "Playwright",
+          "start": 743,
+          "end": 1231
+        },
+        {
+          "word": "and",
+          "start": 1277,
+          "end": 1358
+        },
+        {
+          "word": "axe-core",
+          "start": 1440,
+          "end": 2136
+        },
+        {
+          "word": "and",
+          "start": 2229,
+          "end": 2438
+        },
+        {
+          "word": "names",
+          "start": 2531,
+          "end": 2879
+        },
+        {
+          "word": "the",
+          "start": 2926,
+          "end": 2995
+        },
+        {
+          "word": "Fluid",
+          "start": 3042,
+          "end": 3379
+        },
+        {
+          "word": "template",
+          "start": 3425,
+          "end": 3913
+        },
+        {
+          "word": "behind",
+          "start": 3959,
+          "end": 4284
+        },
+        {
+          "word": "each",
+          "start": 4365,
+          "end": 4598
+        },
+        {
+          "word": "finding.",
+          "start": 4667,
+          "end": 5329
+        }
+      ],
+      "heard": "scans with Playwright and Axecore and names the fluid template behind each finding."
+    },
+    {
+      "say": "The report lists each violation by page and drafts the accessibility statement.",
+      "show": "The report lists each violation by page and drafts the accessibility statement.",
+      "file": "voice-04.mp3",
+      "duration": 5695,
+      "words": [
+        {
+          "word": "The",
+          "start": 35,
+          "end": 128
+        },
+        {
+          "word": "report",
+          "start": 197,
+          "end": 615
+        },
+        {
+          "word": "lists",
+          "start": 685,
+          "end": 1022
+        },
+        {
+          "word": "each",
+          "start": 1103,
+          "end": 1312
+        },
+        {
+          "word": "violation",
+          "start": 1358,
+          "end": 1962
+        },
+        {
+          "word": "by",
+          "start": 2032,
+          "end": 2171
+        },
+        {
+          "word": "page",
+          "start": 2264,
+          "end": 2786
+        },
+        {
+          "word": "and",
+          "start": 2914,
+          "end": 3088
+        },
+        {
+          "word": "drafts",
+          "start": 3135,
+          "end": 3529
+        },
+        {
+          "word": "the",
+          "start": 3564,
+          "end": 3646
+        },
+        {
+          "word": "accessibility",
+          "start": 3692,
+          "end": 4481
+        },
+        {
+          "word": "statement.",
+          "start": 4551,
+          "end": 5166
+        }
+      ],
+      "heard": "The report lists each violation by page and drafts the accessibility statement."
+    },
+    {
+      "say": "Accessible patterns for Fluid, PHP and JavaScript, with a checklist to verify by hand.",
+      "show": "Accessible patterns for Fluid, PHP and JavaScript, with a checklist to verify by hand.",
+      "file": "voice-05.mp3",
+      "duration": 7367,
+      "words": [
+        {
+          "word": "Accessible",
+          "start": 12,
+          "end": 685
+        },
+        {
+          "word": "patterns",
+          "start": 731,
+          "end": 1184
+        },
+        {
+          "word": "for",
+          "start": 1231,
+          "end": 1335
+        },
+        {
+          "word": "Fluid,",
+          "start": 1405,
+          "end": 1974
+        },
+        {
+          "word": "PHP",
+          "start": 2101,
+          "end": 2717
+        },
+        {
+          "word": "and",
+          "start": 2914,
+          "end": 3030
+        },
+        {
+          "word": "JavaScript,",
+          "start": 3111,
+          "end": 4017
+        },
+        {
+          "word": "with",
+          "start": 4284,
+          "end": 4435
+        },
+        {
+          "word": "a",
+          "start": 4481,
+          "end": 4505
+        },
+        {
+          "word": "checklist",
+          "start": 4551,
+          "end": 5143
+        },
+        {
+          "word": "to",
+          "start": 5236,
+          "end": 5341
+        },
+        {
+          "word": "verify",
+          "start": 5422,
+          "end": 5898
+        },
+        {
+          "word": "by",
+          "start": 5979,
+          "end": 6153
+        },
+        {
+          "word": "hand.",
+          "start": 6246,
+          "end": 6815
+        }
+      ],
+      "heard": "Accessible patterns for Fluid, PHP and JavaScript with a checklist to verify by hand."
+    },
+    {
+      "say": "When a screen reader does not announce an accordion as expandable, this skill gives you the markup that fixes it.",
+      "show": "When a screen reader does not announce an accordion as expandable, this skill gives you the markup that fixes it.",
+      "file": "voice-06.mp3",
+      "duration": 7184,
+      "words": [
+        {
+          "word": "When",
+          "start": 23,
+          "end": 221
+        },
+        {
+          "word": "a",
+          "start": 255,
+          "end": 279
+        },
+        {
+          "word": "screen",
+          "start": 348,
+          "end": 673
+        },
+        {
+          "word": "reader",
+          "start": 755,
+          "end": 1022
+        },
+        {
+          "word": "does",
+          "start": 1068,
+          "end": 1219
+        },
+        {
+          "word": "not",
+          "start": 1265,
+          "end": 1416
+        },
+        {
+          "word": "announce",
+          "start": 1463,
+          "end": 1834
+        },
+        {
+          "word": "an",
+          "start": 1869,
+          "end": 1939
+        },
+        {
+          "word": "accordion",
+          "start": 1974,
+          "end": 2531
+        },
+        {
+          "word": "as",
+          "start": 2624,
+          "end": 2786
+        },
+        {
+          "word": "expandable,",
+          "start": 2868,
+          "end": 3750
+        },
+        {
+          "word": "this",
+          "start": 3982,
+          "end": 4203
+        },
+        {
+          "word": "skill",
+          "start": 4249,
+          "end": 4586
+        },
+        {
+          "word": "gives",
+          "start": 4667,
+          "end": 4853
+        },
+        {
+          "word": "you",
+          "start": 4888,
+          "end": 4969
+        },
+        {
+          "word": "the",
+          "start": 5016,
+          "end": 5085
+        },
+        {
+          "word": "markup",
+          "start": 5155,
+          "end": 5596
+        },
+        {
+          "word": "that",
+          "start": 5666,
+          "end": 5793
+        },
+        {
+          "word": "fixes",
+          "start": 5840,
+          "end": 6235
+        },
+        {
+          "word": "it.",
+          "start": 6316,
+          "end": 6629
+        }
+      ],
+      "heard": "When a screen reader does not announce an accordion as expandable, this skill gives you the markup that fixes it."
+    },
+    {
+      "say": "Accessible patterns for navigation, filters, tables, sticky headers and language switchers.",
+      "show": "Accessible patterns for navigation, filters, tables, sticky headers and language switchers.",
+      "file": "voice-07.mp3",
+      "duration": 6452,
+      "words": [
+        {
+          "word": "Accessible",
+          "start": 23,
+          "end": 685
+        },
+        {
+          "word": "patterns",
+          "start": 720,
+          "end": 1126
+        },
+        {
+          "word": "for",
+          "start": 1173,
+          "end": 1265
+        },
+        {
+          "word": "navigation,",
+          "start": 1335,
+          "end": 2206
+        },
+        {
+          "word": "filters,",
+          "start": 2334,
+          "end": 2856
+        },
+        {
+          "word": "tables,",
+          "start": 2891,
+          "end": 3564
+        },
+        {
+          "word": "sticky",
+          "start": 3762,
+          "end": 4168
+        },
+        {
+          "word": "headers",
+          "start": 4238,
+          "end": 4574
+        },
+        {
+          "word": "and",
+          "start": 4644,
+          "end": 4772
+        },
+        {
+          "word": "language",
+          "start": 4853,
+          "end": 5213
+        },
+        {
+          "word": "switchers.",
+          "start": 5236,
+          "end": 5886
+        }
+      ],
+      "heard": "Accessible patterns for navigation, filters, tables, sticky headers and language switches."
+    },
+    {
+      "say": "It works to W C A G 2.2 AA for sitepackage frontends, with a checklist for every content element.",
+      "show": "It works to WCAG 2.2 AA for sitepackage frontends, with a checklist for every content element.",
+      "file": "voice-08.mp3",
+      "duration": 8542,
+      "words": [
+        {
+          "word": "It",
+          "start": 12,
+          "end": 174
+        },
+        {
+          "word": "works",
+          "start": 209,
+          "end": 499
+        },
+        {
+          "word": "to",
+          "start": 534,
+          "end": 615
+        },
+        {
+          "word": "W",
+          "start": 697,
+          "end": 1057
+        },
+        {
+          "word": "C",
+          "start": 1126,
+          "end": 1254
+        },
+        {
+          "word": "A",
+          "start": 1451,
+          "end": 1649
+        },
+        {
+          "word": "G",
+          "start": 1776,
+          "end": 1974
+        },
+        {
+          "word": "2.2",
+          "start": 2206,
+          "end": 2856
+        },
+        {
+          "word": "AA",
+          "start": 2961,
+          "end": 3460
+        },
+        {
+          "word": "for",
+          "start": 3553,
+          "end": 3704
+        },
+        {
+          "word": "sitepackage",
+          "start": 3750,
+          "end": 4435
+        },
+        {
+          "word": "frontends,",
+          "start": 4470,
+          "end": 5190
+        },
+        {
+          "word": "with",
+          "start": 5387,
+          "end": 5561
+        },
+        {
+          "word": "a",
+          "start": 5608,
+          "end": 5631
+        },
+        {
+          "word": "checklist",
+          "start": 5677,
+          "end": 6188
+        },
+        {
+          "word": "for",
+          "start": 6235,
+          "end": 6339
+        },
+        {
+          "word": "every",
+          "start": 6409,
+          "end": 6676
+        },
+        {
+          "word": "content",
+          "start": 6745,
+          "end": 7175
+        },
+        {
+          "word": "element.",
+          "start": 7245,
+          "end": 7814
+        }
+      ],
+      "heard": "It works to WCAG 2.2 AA for site package frontends with a checklist for every content element."
+    },
+    {
+      "say": "Open source. Clone the skills, and help us improve them.",
+      "show": "Open source. Clone the skills, and help us improve them.",
+      "file": "voice-09.mp3",
+      "duration": 3944,
+      "words": [
+        {
+          "word": "Open",
+          "start": 23,
+          "end": 383
+        },
+        {
+          "word": "source.",
+          "start": 488,
+          "end": 1010
+        },
+        {
+          "word": "Clone",
+          "start": 1173,
+          "end": 1544
+        },
+        {
+          "word": "the",
+          "start": 1579,
+          "end": 1649
+        },
+        {
+          "word": "skills,",
+          "start": 1695,
+          "end": 2287
+        },
+        {
+          "word": "and",
+          "start": 2322,
+          "end": 2473
+        },
+        {
+          "word": "help",
+          "start": 2543,
+          "end": 2682
+        },
+        {
+          "word": "us",
+          "start": 2752,
+          "end": 2833
+        },
+        {
+          "word": "improve",
+          "start": 2879,
+          "end": 3297
+        },
+        {
+          "word": "them.",
+          "start": 3332,
+          "end": 3611
+        }
+      ],
+      "heard": "open source, clone the skills and help us improve them."
+    }
+  ]
+}

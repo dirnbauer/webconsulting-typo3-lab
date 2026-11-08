@@ -1,0 +1,96 @@
+{
+  "id": "skills-upgrade-planning",
+  "slug": "/ai/agentic-skills/upgrade-planning",
+  "placements": [
+    {
+      "slug": "/ai/agentic-skills/upgrade-planning"
+    }
+  ],
+  "title": "Upgrade planning and migration: agent skills for TYPO3",
+  "header": "Upgrade planning and migration in 95 seconds",
+  "description": "<p>Estimate the effort before you start, migrate one cause at a time with a rollback point, and learn from every run. For each skill: the prompt you would type and what it does. Narrated, with selectable captions.</p>",
+  "mp4": "skills-upgrade-planning-5ea43bcf.mp4",
+  "poster": "skills-upgrade-planning-poster-5ea43bcf.webp",
+  "vtt": "skills-upgrade-planning-5ea43bcf.en.vtt",
+  "duration": 95.226,
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "sound": true,
+  "alt": "Film, 95 seconds: Upgrade planning and migration, 4 agent skills for TYPO3 v14 (typo3-upgrade-effort-model, typo3-project-upgrade, typo3-upgrade-migration, typo3-upgrade-retrospective). Each skill with its own prompt and what it delivers. Narrated, with selectable captions.",
+  "transcript": [
+    {
+      "at": "0:02",
+      "text": "How long will the upgrade take, and what happens when a step goes wrong?"
+    },
+    {
+      "at": "0:08",
+      "text": "Upgrade planning and migration: four skills for TYPO3 v14."
+    },
+    {
+      "at": "0:16",
+      "text": "Estimates an LTS upgrade per extension, with risk multipliers for the v14 breaking changes."
+    },
+    {
+      "at": "0:25",
+      "text": "A number per extension is easier to plan with than a gut feeling, and it shows how much Rector saves: 15 to 20 per cent."
+    },
+    {
+      "at": "0:35",
+      "text": "Moves a deployed project to a new LTS: site configuration, TypoScript, templates, Docker and database."
+    },
+    {
+      "at": "0:46",
+      "text": "It covers the project; typo3-extension-upgrade covers extension code."
+    },
+    {
+      "at": "0:53",
+      "text": "Carries out one migration step behind a rollback point: Composer, Rector, Fractor, database or data."
+    },
+    {
+      "at": "1:03",
+      "text": "Small, reversible steps make a failed attempt cheap, and the graph decides how often a step may be retried."
+    },
+    {
+      "at": "1:13",
+      "text": "Reviews past or unfinished upgrade runs: what was done, what is open and what went wrong."
+    },
+    {
+      "at": "1:21",
+      "text": "Git may say a branch is done while the run says otherwise."
+    },
+    {
+      "at": "1:28",
+      "text": "Open source. Clone the skills, and help us improve them."
+    }
+  ],
+  "captions": {
+    "language": "en",
+    "label": "English",
+    "burnedIn": false,
+    "languages": [
+      "en",
+      "de",
+      "zh",
+      "hu"
+    ]
+  },
+  "bytes": {
+    "mp4": 4254032,
+    "poster": 31130,
+    "vtt": 1367,
+    "captionTracks": {
+      "en": 1367,
+      "de": 1456,
+      "zh": 1284,
+      "hu": 1492
+    }
+  },
+  "generator": "packages/site_package/Build/Film/render-films.mjs",
+  "captionTracks": {
+    "en": "skills-upgrade-planning-5ea43bcf.en.vtt",
+    "de": "skills-upgrade-planning-5ea43bcf.de.vtt",
+    "zh": "skills-upgrade-planning-5ea43bcf.zh.vtt",
+    "hu": "skills-upgrade-planning-5ea43bcf.hu.vtt"
+  }
+}

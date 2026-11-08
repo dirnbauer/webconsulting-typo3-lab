@@ -1,0 +1,61 @@
+WEBVTT - Design system and frontend: agent skills for TYPO3 (en)
+
+1
+00:00:02.040 --> 00:00:06.467
+A design system only helps when it reaches the
+content elements.
+
+2
+00:00:07.567 --> 00:00:13.797
+Design system and frontend: four skills for
+TYPO3 v14.
+
+3
+00:00:15.097 --> 00:00:23.991
+Turns shadcn/ui presets into Fluid content
+elements with semantic tokens, previews and seed
+data.
+
+4
+00:00:25.341 --> 00:00:30.474
+Switch the preset, switch to dark mode: every
+element follows.
+
+5
+00:00:32.991 --> 00:00:42.199
+Builds an accessible design-system page in your
+site, with design.md, tokens.json and a one-page
+PDF.
+
+6
+00:00:43.549 --> 00:00:51.451
+It asks which installation and which page to use
+before it writes, so nothing lands on a site you
+did not choose.
+
+7
+00:00:52.851 --> 00:00:59.655
+Sets up Vite 7 for TYPO3 sitepackages, with an
+entry per content element.
+
+8
+00:01:01.005 --> 00:01:11.049
+TYPO3 v14 removed the core’s own concatenation
+and compression of frontend assets, so a build
+tool now does that work.
+
+9
+00:01:12.449 --> 00:01:19.854
+Redraws and migrates extension icons to the v14
+line style, for light and dark mode.
+
+10
+00:01:21.204 --> 00:01:30.595
+Heavy, filled icons look foreign next to the v14
+core, and a module icon that vanishes in dark
+mode is a bug.
+
+11
+00:01:32.195 --> 00:01:36.570
+Open source. Clone the skills, and help us
+improve them.

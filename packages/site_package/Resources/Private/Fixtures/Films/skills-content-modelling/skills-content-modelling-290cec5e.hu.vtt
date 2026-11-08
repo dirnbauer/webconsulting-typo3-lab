@@ -1,0 +1,60 @@
+WEBVTT - Content modelling and data: agent skills for TYPO3 (hu)
+
+1
+00:00:02.040 --> 00:00:09.027
+Új tartalomtípusok, importált rekordok és
+fordítások, egyetlen kapcsolat sérülése nélkül.
+
+2
+00:00:10.127 --> 00:00:16.592
+Tartalommodellezés és adatok: négy skill TYPO3
+v14-hez.
+
+3
+00:00:17.892 --> 00:00:24.540
+Tartalomelemeket, rekordokat és oldaltípusokat
+definiál, mindet saját config.yaml fájlban.
+
+4
+00:00:25.890 --> 00:00:30.370
+A kedvcsináló megjelenik a varázslóban. A
+szerkesztő kitölti és menti.
+
+5
+00:00:33.540 --> 00:00:40.423
+PHP-ból, DataHandler segítségével hoz létre,
+módosít, fordít és töröl rekordokat.
+
+6
+00:00:41.773 --> 00:00:49.204
+A közvetlen INSERT jónak tűnik, amíg a
+hivatkozási index el nem avul, vagy az importált
+rekordok gazdátlanok nem lesznek.
+
+7
+00:00:50.604 --> 00:00:57.356
+Javítja a feliratokat és az XLIFF-fájlokat, az
+ICU MessageFormat többes számú alakjait is.
+
+8
+00:00:58.706 --> 00:01:06.947
+A képernyőn megjelenő nyers feliratkulcs vagy az
+összevonás utáni ismétlődő azonosítók apró
+hibák, amelyeket a szerkesztők látnak először.
+
+9
+00:01:08.347 --> 00:01:15.648
+Tematikus címkéket készít az EXT:news számára,
+és kulcsszavak alapján rendeli őket meglévő
+cikkekhez.
+
+10
+00:01:16.998 --> 00:01:26.676
+Kézzel már nem címkézhető méretű archívumokhoz
+készült, TYPO3 v14.3 és georgringer/news 14
+alatt.
+
+11
+00:01:28.276 --> 00:01:32.520
+Nyílt forráskód. Klónozza a skilleket, és
+segítsen jobbá tenni őket.

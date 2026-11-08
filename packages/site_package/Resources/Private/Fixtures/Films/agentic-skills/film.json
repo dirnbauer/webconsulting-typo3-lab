@@ -10,56 +10,82 @@
     }
   ],
   "title": "Agentic skills: overview film",
-  "header": "Agentic skills in 44 seconds",
-  "description": "<p>61 skills for coding agents. A narrated tour, recorded in this TYPO3 v14 lab, with English captions.</p>",
-  "mp4": "agentic-skills-f6d2d087.mp4",
-  "poster": "agentic-skills-poster-f6d2d087.webp",
-  "vtt": "agentic-skills-72e85ca2.en.vtt",
-  "duration": 44.183,
+  "header": "Agentic skills in a minute",
+  "description": "<p>What the 61 open skills teach a coding agent, how they work with the TYPO3 Dev Companion, the twelve groups, the community talks they build on and the skill search. Narrated, with selectable captions.</p>",
+  "mp4": "agentic-skills-dd486003.mp4",
+  "poster": "agentic-skills-poster-dd486003.webp",
+  "vtt": "agentic-skills-dd486003.en.vtt",
+  "duration": 73.467,
   "width": 1920,
   "height": 1080,
   "fps": 30,
   "sound": true,
-  "alt": "Overview film, 44 seconds: typo3-skills, 61 open-source skills that teach coding agents how we work with TYPO3. The install script, the skill catalogue in this lab, the upgrade graph with 72 nodes and 206 edges, and 22 always-on rules. Narrated, with English captions.",
+  "alt": "Overview film, 73 seconds: typo3-skills, 61 open-source skills that teach coding agents TYPO3 v14. The install script, the TYPO3 Dev Companion with the typo3-skills collection, twelve skill groups, the community talks at MTUG and TYPO3camp München, the upgrade graph with 72 nodes and 206 edges, and the skill search. Narrated, with selectable captions.",
   "transcript": [
     {
       "at": "0:02",
-      "text": "Your agent knows TYPO3, but not your project."
+      "text": "Your agent knows TYPO3, but not how good TYPO3 work is done."
     },
     {
-      "at": "0:07",
-      "text": "typo3-skills: 61 skills for coding agents."
+      "at": "0:08",
+      "text": "typo3-skills: 61 skills for coding agents, in 12 groups."
     },
     {
-      "at": "0:13",
-      "text": "One clone, one install script, every client."
-    },
-    {
-      "at": "0:18",
-      "text": "Upgrades, accessibility, Solr, structured data."
+      "at": "0:16",
+      "text": "One clone, one install script: Claude Code, Codex, Cursor and Gemini."
     },
     {
       "at": "0:24",
-      "text": "Upgrades follow a sealed graph: 72 nodes, 206 edges."
+      "text": "The TYPO3 Dev Companion gives your agent version-aware TYPO3 knowledge. Our skills add whole jobs on top."
     },
     {
-      "at": "0:31",
-      "text": "Twenty-two rules, such as: no claim without evidence."
+      "at": "0:34",
+      "text": "Twelve groups: upgrades, content, editing, design, accessibility, search and security."
     },
     {
-      "at": "0:37",
-      "text": "Open source. Clone it today."
+      "at": "0:43",
+      "text": "They build on what the community teaches, at MTUG and TYPO3camp München."
+    },
+    {
+      "at": "0:50",
+      "text": "The upgrade run follows a sealed graph of 72 nodes and 206 edges."
+    },
+    {
+      "at": "0:57",
+      "text": "Find a skill in seconds: search, filter by group, copy the install line."
+    },
+    {
+      "at": "1:05",
+      "text": "Open source. Clone the skills, and help us improve them."
     }
   ],
   "captions": {
     "language": "en",
     "label": "English",
-    "burnedIn": false
+    "burnedIn": false,
+    "languages": [
+      "en",
+      "de",
+      "zh",
+      "hu"
+    ]
   },
   "bytes": {
-    "mp4": 3343194,
-    "poster": 45310,
-    "vtt": 594
+    "mp4": 4269225,
+    "poster": 41910,
+    "vtt": 992,
+    "captionTracks": {
+      "en": 992,
+      "de": 1075,
+      "zh": 1055,
+      "hu": 1138
+    }
   },
-  "generator": "packages/site_package/Build/Film/render-films.mjs"
+  "generator": "packages/site_package/Build/Film/render-films.mjs",
+  "captionTracks": {
+    "en": "agentic-skills-dd486003.en.vtt",
+    "de": "agentic-skills-dd486003.de.vtt",
+    "zh": "agentic-skills-dd486003.zh.vtt",
+    "hu": "agentic-skills-dd486003.hu.vtt"
+  }
 }

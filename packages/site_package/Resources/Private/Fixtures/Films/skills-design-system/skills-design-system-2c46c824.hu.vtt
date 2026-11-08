@@ -1,0 +1,60 @@
+WEBVTT - Design system and frontend: agent skills for TYPO3 (hu)
+
+1
+00:00:02.040 --> 00:00:06.467
+A dizájnrendszer csak akkor segít, ha eljut a
+tartalomelemekig.
+
+2
+00:00:07.567 --> 00:00:13.797
+Dizájnrendszer és frontend: négy skill TYPO3
+v14-hez.
+
+3
+00:00:15.097 --> 00:00:23.991
+A shadcn/ui beállításaiból
+Fluid-tartalomelemeket készít szemantikus
+tokenekkel, előnézetekkel és mintaadatokkal.
+
+4
+00:00:25.341 --> 00:00:30.474
+Beállításváltás, sötét mód: minden elem követi.
+
+5
+00:00:32.991 --> 00:00:42.199
+Akadálymentes dizájnrendszer-oldalt készít a
+webhelyén, design.md, tokens.json és egyoldalas
+PDF kíséretében.
+
+6
+00:00:43.549 --> 00:00:51.451
+Írás előtt megkérdezi, melyik telepítést és
+oldalt használja, így semmi sem kerül nem
+választott webhelyre.
+
+7
+00:00:52.851 --> 00:00:59.655
+Vite 7-et állít be TYPO3-sitepackage-ekhez,
+tartalomelemenként külön belépési ponttal.
+
+8
+00:01:01.005 --> 00:01:11.049
+A TYPO3 v14 eltávolította a frontend-erőforrások
+saját összefűzését és tömörítését. Ezt most
+buildeszköz végzi.
+
+9
+00:01:12.449 --> 00:01:19.854
+Újrarajzolja és v14-es vonalas stílusra alakítja
+a bővítményikonokat, világos és sötét módhoz.
+
+10
+00:01:21.204 --> 00:01:30.595
+A tömör ikonok idegenül hatnak a v14 core
+mellett, a sötét módban eltűnő modulikon pedig
+hiba.
+
+11
+00:01:32.195 --> 00:01:36.570
+Nyílt forráskód. Klónozza a skilleket, és
+segítsen jobbá tenni őket.

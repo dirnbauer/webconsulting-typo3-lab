@@ -1,0 +1,88 @@
+{
+  "id": "skills-accessibility",
+  "slug": "/ai/agentic-skills/accessibility",
+  "placements": [
+    {
+      "slug": "/ai/agentic-skills/accessibility"
+    }
+  ],
+  "title": "Accessibility: agent skills for TYPO3",
+  "header": "Accessibility in 74 seconds",
+  "description": "<p>Scan against WCAG 2.2 AA with findings traced to their templates, fix markup at the source, and draft a statement for review. For each skill: the prompt you would type and what it does. Narrated, with selectable captions.</p>",
+  "mp4": "skills-accessibility-c67f50af.mp4",
+  "poster": "skills-accessibility-poster-c67f50af.webp",
+  "vtt": "skills-accessibility-c67f50af.en.vtt",
+  "duration": 74.231,
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "sound": true,
+  "alt": "Film, 74 seconds: Accessibility, 3 agent skills for TYPO3 v14 (typo3-wcag22-aa-agentic, typo3-accessibility, typo3-a11y). Each skill with its own prompt and what it delivers. Narrated, with selectable captions.",
+  "transcript": [
+    {
+      "at": "0:02",
+      "text": "An accessibility report helps when every finding points to the template that causes it."
+    },
+    {
+      "at": "0:09",
+      "text": "Accessibility: three skills for TYPO3 v14."
+    },
+    {
+      "at": "0:15",
+      "text": "Scans with Playwright and axe-core and names the Fluid template behind each finding."
+    },
+    {
+      "at": "0:23",
+      "text": "The report lists each violation by page and drafts the accessibility statement."
+    },
+    {
+      "at": "0:30",
+      "text": "Accessible patterns for Fluid, PHP and JavaScript, with a checklist to verify by hand."
+    },
+    {
+      "at": "0:39",
+      "text": "When a screen reader does not announce an accordion as expandable, this skill gives you the markup that fixes it."
+    },
+    {
+      "at": "0:48",
+      "text": "Accessible patterns for navigation, filters, tables, sticky headers and language switchers."
+    },
+    {
+      "at": "0:56",
+      "text": "It works to WCAG 2.2 AA for sitepackage frontends, with a checklist for every content element."
+    },
+    {
+      "at": "1:07",
+      "text": "Open source. Clone the skills, and help us improve them."
+    }
+  ],
+  "captions": {
+    "language": "en",
+    "label": "English",
+    "burnedIn": false,
+    "languages": [
+      "en",
+      "de",
+      "zh",
+      "hu"
+    ]
+  },
+  "bytes": {
+    "mp4": 3786727,
+    "poster": 42464,
+    "vtt": 1090,
+    "captionTracks": {
+      "en": 1090,
+      "de": 1147,
+      "zh": 1018,
+      "hu": 1221
+    }
+  },
+  "generator": "packages/site_package/Build/Film/render-films.mjs",
+  "captionTracks": {
+    "en": "skills-accessibility-c67f50af.en.vtt",
+    "de": "skills-accessibility-c67f50af.de.vtt",
+    "zh": "skills-accessibility-c67f50af.zh.vtt",
+    "hu": "skills-accessibility-c67f50af.hu.vtt"
+  }
+}

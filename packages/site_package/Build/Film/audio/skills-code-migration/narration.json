@@ -1,0 +1,789 @@
+{
+  "voice": "George",
+  "delivery": {
+    "stability": 0.62,
+    "similarity_boost": 0.78,
+    "style": 0.18,
+    "speed": 0.9
+  },
+  "lines": [
+    {
+      "say": "Forty extensions, one deprecated API, and nobody wants to fix it by hand.",
+      "show": "Forty extensions, one deprecated API, and nobody wants to fix it by hand.",
+      "file": "voice-01.mp3",
+      "duration": 6296,
+      "words": [
+        {
+          "word": "Forty",
+          "start": 70,
+          "end": 453
+        },
+        {
+          "word": "extensions,",
+          "start": 522,
+          "end": 1358
+        },
+        {
+          "word": "one",
+          "start": 1498,
+          "end": 1741
+        },
+        {
+          "word": "deprecated",
+          "start": 1788,
+          "end": 2415
+        },
+        {
+          "word": "API,",
+          "start": 2485,
+          "end": 3239
+        },
+        {
+          "word": "and",
+          "start": 3471,
+          "end": 3622
+        },
+        {
+          "word": "nobody",
+          "start": 3704,
+          "end": 3982
+        },
+        {
+          "word": "wants",
+          "start": 4029,
+          "end": 4226
+        },
+        {
+          "word": "to",
+          "start": 4261,
+          "end": 4319
+        },
+        {
+          "word": "fix",
+          "start": 4400,
+          "end": 4609
+        },
+        {
+          "word": "it",
+          "start": 4679,
+          "end": 4748
+        },
+        {
+          "word": "by",
+          "start": 4795,
+          "end": 4934
+        },
+        {
+          "word": "hand.",
+          "start": 5027,
+          "end": 5573
+        }
+      ],
+      "heard": "40 extensions, one deprecated API, and nobody wants to fix it by hand."
+    },
+    {
+      "say": "Automated code migration: four skills for typo three version fourteen.",
+      "show": "Automated code migration: four skills for TYPO3 v14.",
+      "file": "voice-02.mp3",
+      "duration": 5878,
+      "end": 5370,
+      "words": [
+        {
+          "word": "Automated",
+          "start": 23,
+          "end": 662
+        },
+        {
+          "word": "code",
+          "start": 743,
+          "end": 1033
+        },
+        {
+          "word": "migration:",
+          "start": 1068,
+          "end": 1858
+        },
+        {
+          "word": "four",
+          "start": 2055,
+          "end": 2310
+        },
+        {
+          "word": "skills",
+          "start": 2380,
+          "end": 2821
+        },
+        {
+          "word": "for",
+          "start": 2868,
+          "end": 2972
+        },
+        {
+          "word": "typo",
+          "start": 3019,
+          "end": 3379
+        },
+        {
+          "word": "three",
+          "start": 3460,
+          "end": 3901
+        },
+        {
+          "word": "version",
+          "start": 4063,
+          "end": 4470
+        },
+        {
+          "word": "fourteen.",
+          "start": 4551,
+          "end": 5341
+        }
+      ],
+      "heard": "Automated Code Migration – 4 Skills for TYPO3"
+    },
+    {
+      "say": "Makes one extension work with a newer typo three LTS, with Extension Scanner, Rector, Frack-tor and PHPStan.",
+      "show": "Makes one extension work with a newer TYPO3 LTS, with Extension Scanner, Rector, Fractor and PHPStan.",
+      "file": "voice-03.mp3",
+      "duration": 9509,
+      "words": [
+        {
+          "word": "Makes",
+          "start": 23,
+          "end": 313
+        },
+        {
+          "word": "one",
+          "start": 383,
+          "end": 580
+        },
+        {
+          "word": "extension",
+          "start": 615,
+          "end": 1173
+        },
+        {
+          "word": "work",
+          "start": 1242,
+          "end": 1521
+        },
+        {
+          "word": "with",
+          "start": 1591,
+          "end": 1707
+        },
+        {
+          "word": "a",
+          "start": 1753,
+          "end": 1776
+        },
+        {
+          "word": "newer",
+          "start": 1869,
+          "end": 2159
+        },
+        {
+          "word": "typo",
+          "start": 2206,
+          "end": 2577
+        },
+        {
+          "word": "three",
+          "start": 2659,
+          "end": 2972
+        },
+        {
+          "word": "LTS,",
+          "start": 3053,
+          "end": 3901
+        },
+        {
+          "word": "with",
+          "start": 4331,
+          "end": 4516
+        },
+        {
+          "word": "Extension",
+          "start": 4563,
+          "end": 5132
+        },
+        {
+          "word": "Scanner,",
+          "start": 5213,
+          "end": 5817
+        },
+        {
+          "word": "Rector,",
+          "start": 6049,
+          "end": 6629
+        },
+        {
+          "word": "Frack-tor",
+          "start": 6757,
+          "end": 7442
+        },
+        {
+          "word": "and",
+          "start": 7523,
+          "end": 7639
+        },
+        {
+          "word": "PHPStan.",
+          "start": 7721,
+          "end": 8986
+        }
+      ],
+      "heard": "makes one extension work with a newer TYPO3 LTS with extension scanner, rector, fractor and PHPS stand."
+    },
+    {
+      "say": "It treats a failing commit hook as a check to fix, not an obstacle to skip.",
+      "show": "It treats a failing commit hook as a check to fix, not an obstacle to skip.",
+      "file": "voice-04.mp3",
+      "duration": 5094,
+      "end": 4490,
+      "words": [
+        {
+          "word": "It",
+          "start": 35,
+          "end": 197
+        },
+        {
+          "word": "treats",
+          "start": 221,
+          "end": 488
+        },
+        {
+          "word": "a",
+          "start": 522,
+          "end": 557
+        },
+        {
+          "word": "failing",
+          "start": 639,
+          "end": 987
+        },
+        {
+          "word": "commit",
+          "start": 1057,
+          "end": 1347
+        },
+        {
+          "word": "hook",
+          "start": 1393,
+          "end": 1567
+        },
+        {
+          "word": "as",
+          "start": 1637,
+          "end": 1718
+        },
+        {
+          "word": "a",
+          "start": 1765,
+          "end": 1800
+        },
+        {
+          "word": "check",
+          "start": 1846,
+          "end": 2078
+        },
+        {
+          "word": "to",
+          "start": 2148,
+          "end": 2206
+        },
+        {
+          "word": "fix,",
+          "start": 2287,
+          "end": 2763
+        },
+        {
+          "word": "not",
+          "start": 2961,
+          "end": 3170
+        },
+        {
+          "word": "an",
+          "start": 3216,
+          "end": 3274
+        },
+        {
+          "word": "obstacle",
+          "start": 3320,
+          "end": 3773
+        },
+        {
+          "word": "to",
+          "start": 3808,
+          "end": 3866
+        },
+        {
+          "word": "skip.",
+          "start": 3947,
+          "end": 4458
+        }
+      ],
+      "heard": "It treats a failing commit hook as a check to fix, not an obstacle to skip."
+    },
+    {
+      "say": "Fixes deprecated PHP calls with Rector: dry run, review the diff, apply, dry run again.",
+      "show": "Fixes deprecated PHP calls with Rector: dry run, review the diff, apply, dry run again.",
+      "file": "voice-05.mp3",
+      "duration": 8385,
+      "words": [
+        {
+          "word": "Fixes",
+          "start": 12,
+          "end": 464
+        },
+        {
+          "word": "deprecated",
+          "start": 546,
+          "end": 1231
+        },
+        {
+          "word": "PHP",
+          "start": 1300,
+          "end": 1741
+        },
+        {
+          "word": "calls",
+          "start": 1939,
+          "end": 2334
+        },
+        {
+          "word": "with",
+          "start": 2403,
+          "end": 2566
+        },
+        {
+          "word": "Rector:",
+          "start": 2647,
+          "end": 3286
+        },
+        {
+          "word": "dry",
+          "start": 3599,
+          "end": 3901
+        },
+        {
+          "word": "run,",
+          "start": 3994,
+          "end": 4435
+        },
+        {
+          "word": "review",
+          "start": 4667,
+          "end": 4969
+        },
+        {
+          "word": "the",
+          "start": 5039,
+          "end": 5108
+        },
+        {
+          "word": "diff,",
+          "start": 5155,
+          "end": 5642
+        },
+        {
+          "word": "apply,",
+          "start": 5840,
+          "end": 6606
+        },
+        {
+          "word": "dry",
+          "start": 6699,
+          "end": 6954
+        },
+        {
+          "word": "run",
+          "start": 7036,
+          "end": 7198
+        },
+        {
+          "word": "again.",
+          "start": 7245,
+          "end": 7790
+        }
+      ],
+      "heard": "fixes deprecated PHP calls with Recta. Dry run. Review the diff. Apply. Dry run again."
+    },
+    {
+      "say": "Apply, dry-run again: one generated file left. Once more: Rector is done.",
+      "show": "Apply, dry-run again: one generated file left. Once more: Rector is done.",
+      "file": "voice-06.mp3",
+      "duration": 6949,
+      "end": 6580,
+      "words": [
+        {
+          "word": "Apply,",
+          "start": 35,
+          "end": 662
+        },
+        {
+          "word": "dry-run",
+          "start": 708,
+          "end": 1196
+        },
+        {
+          "word": "again:",
+          "start": 1231,
+          "end": 1753
+        },
+        {
+          "word": "one",
+          "start": 2113,
+          "end": 2357
+        },
+        {
+          "word": "generated",
+          "start": 2403,
+          "end": 2972
+        },
+        {
+          "word": "file",
+          "start": 3053,
+          "end": 3413
+        },
+        {
+          "word": "left.",
+          "start": 3460,
+          "end": 3994
+        },
+        {
+          "word": "Once",
+          "start": 4563,
+          "end": 4841
+        },
+        {
+          "word": "more:",
+          "start": 4888,
+          "end": 5294
+        },
+        {
+          "word": "Rector",
+          "start": 5492,
+          "end": 5863
+        },
+        {
+          "word": "is",
+          "start": 5933,
+          "end": 6014
+        },
+        {
+          "word": "done.",
+          "start": 6084,
+          "end": 6571
+        }
+      ],
+      "heard": "Apply dry run again. One generated file left. Once more, Rector is done."
+    },
+    {
+      "say": "Rewrites TypoScript, FlexForms, Fluid, YAML and XLIFF towards version fourteen with Frack-tor.",
+      "show": "Rewrites TypoScript, FlexForms, Fluid, YAML and XLIFF towards v14 with Fractor.",
+      "file": "voice-07.mp3",
+      "duration": 8202,
+      "end": 7580,
+      "words": [
+        {
+          "word": "Rewrites",
+          "start": 46,
+          "end": 534
+        },
+        {
+          "word": "TypoScript,",
+          "start": 604,
+          "end": 1602
+        },
+        {
+          "word": "FlexForms,",
+          "start": 1916,
+          "end": 2868
+        },
+        {
+          "word": "Fluid,",
+          "start": 2995,
+          "end": 3611
+        },
+        {
+          "word": "YAML",
+          "start": 3843,
+          "end": 4319
+        },
+        {
+          "word": "and",
+          "start": 4400,
+          "end": 4505
+        },
+        {
+          "word": "XLIFF",
+          "start": 4609,
+          "end": 5108
+        },
+        {
+          "word": "towards",
+          "start": 5178,
+          "end": 5584
+        },
+        {
+          "word": "version",
+          "start": 5631,
+          "end": 5968
+        },
+        {
+          "word": "fourteen",
+          "start": 6049,
+          "end": 6560
+        },
+        {
+          "word": "with",
+          "start": 6641,
+          "end": 6792
+        },
+        {
+          "word": "Frack-tor.",
+          "start": 6838,
+          "end": 7593
+        }
+      ],
+      "heard": "rewrites typoscript, flexforms, fluid, yaml, and xlif towards version 14 with Fractor."
+    },
+    {
+      "say": "FlexForm, TypoScript and Fluid patterns are easy to miss in a review.",
+      "show": "FlexForm, TypoScript and Fluid patterns are easy to miss in a review.",
+      "file": "voice-08.mp3",
+      "duration": 5042,
+      "words": [
+        {
+          "word": "FlexForm,",
+          "start": 12,
+          "end": 789
+        },
+        {
+          "word": "TypoScript",
+          "start": 859,
+          "end": 1695
+        },
+        {
+          "word": "and",
+          "start": 1741,
+          "end": 1858
+        },
+        {
+          "word": "Fluid",
+          "start": 1939,
+          "end": 2264
+        },
+        {
+          "word": "patterns",
+          "start": 2310,
+          "end": 2752
+        },
+        {
+          "word": "are",
+          "start": 2821,
+          "end": 2984
+        },
+        {
+          "word": "easy",
+          "start": 3030,
+          "end": 3262
+        },
+        {
+          "word": "to",
+          "start": 3309,
+          "end": 3367
+        },
+        {
+          "word": "miss",
+          "start": 3448,
+          "end": 3669
+        },
+        {
+          "word": "in",
+          "start": 3715,
+          "end": 3785
+        },
+        {
+          "word": "a",
+          "start": 3820,
+          "end": 3843
+        },
+        {
+          "word": "review.",
+          "start": 3924,
+          "end": 4528
+        }
+      ],
+      "heard": "Flexform, typoscript and fluid patterns are easy to miss in a review."
+    },
+    {
+      "say": "Applies one repeated change to many extensions at once, in reviewable batches.",
+      "show": "Applies one repeated change to many extensions at once, in reviewable batches.",
+      "file": "voice-09.mp3",
+      "duration": 5381,
+      "words": [
+        {
+          "word": "Applies",
+          "start": 35,
+          "end": 522
+        },
+        {
+          "word": "one",
+          "start": 615,
+          "end": 848
+        },
+        {
+          "word": "repeated",
+          "start": 917,
+          "end": 1347
+        },
+        {
+          "word": "change",
+          "start": 1393,
+          "end": 1834
+        },
+        {
+          "word": "to",
+          "start": 1869,
+          "end": 1927
+        },
+        {
+          "word": "many",
+          "start": 2009,
+          "end": 2183
+        },
+        {
+          "word": "extensions",
+          "start": 2252,
+          "end": 2798
+        },
+        {
+          "word": "at",
+          "start": 2833,
+          "end": 2902
+        },
+        {
+          "word": "once,",
+          "start": 2984,
+          "end": 3390
+        },
+        {
+          "word": "in",
+          "start": 3437,
+          "end": 3564
+        },
+        {
+          "word": "reviewable",
+          "start": 3634,
+          "end": 4110
+        },
+        {
+          "word": "batches.",
+          "start": 4145,
+          "end": 4818
+        }
+      ],
+      "heard": "applies one repeated change to many extensions at once in reviewable batches."
+    },
+    {
+      "say": "A 500-file commit cannot be reviewed.",
+      "show": "A 500-file commit cannot be reviewed.",
+      "file": "voice-10.mp3",
+      "duration": 3370,
+      "words": [
+        {
+          "word": "A",
+          "start": 23,
+          "end": 116
+        },
+        {
+          "word": "500-file",
+          "start": 221,
+          "end": 1126
+        },
+        {
+          "word": "commit",
+          "start": 1173,
+          "end": 1544
+        },
+        {
+          "word": "cannot",
+          "start": 1649,
+          "end": 1962
+        },
+        {
+          "word": "be",
+          "start": 2009,
+          "end": 2090
+        },
+        {
+          "word": "reviewed.",
+          "start": 2171,
+          "end": 2833
+        }
+      ],
+      "heard": "A 500-file commit cannot be reviewed."
+    },
+    {
+      "say": "Open source. Clone the skills, and help us improve them.",
+      "show": "Open source. Clone the skills, and help us improve them.",
+      "file": "voice-11.mp3",
+      "duration": 4023,
+      "words": [
+        {
+          "word": "Open",
+          "start": 23,
+          "end": 372
+        },
+        {
+          "word": "source.",
+          "start": 464,
+          "end": 998
+        },
+        {
+          "word": "Clone",
+          "start": 1161,
+          "end": 1533
+        },
+        {
+          "word": "the",
+          "start": 1567,
+          "end": 1637
+        },
+        {
+          "word": "skills,",
+          "start": 1672,
+          "end": 2276
+        },
+        {
+          "word": "and",
+          "start": 2345,
+          "end": 2508
+        },
+        {
+          "word": "help",
+          "start": 2577,
+          "end": 2740
+        },
+        {
+          "word": "us",
+          "start": 2810,
+          "end": 2891
+        },
+        {
+          "word": "improve",
+          "start": 2961,
+          "end": 3379
+        },
+        {
+          "word": "them.",
+          "start": 3413,
+          "end": 3704
+        }
+      ],
+      "heard": "Open source, clone the skills and help us improve them."
+    }
+  ]
+}

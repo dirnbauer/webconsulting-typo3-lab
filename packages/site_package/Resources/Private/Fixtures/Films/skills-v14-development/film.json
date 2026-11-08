@@ -1,0 +1,96 @@
+{
+  "id": "skills-v14-development",
+  "slug": "/ai/agentic-skills/v14-development",
+  "placements": [
+    {
+      "slug": "/ai/agentic-skills/v14-development"
+    }
+  ],
+  "title": "TYPO3 v14 development: agent skills for TYPO3",
+  "header": "TYPO3 v14 development in 88 seconds",
+  "description": "<p>Look up the v14 way before writing it, check TypoScript against its reference, build backend components with Lit, and run it all in DDEV. For each skill: the prompt you would type and what it does. Narrated, with selectable captions.</p>",
+  "mp4": "skills-v14-development-dbc8c6ac.mp4",
+  "poster": "skills-v14-development-poster-dbc8c6ac.webp",
+  "vtt": "skills-v14-development-dbc8c6ac.en.vtt",
+  "duration": 87.74,
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "sound": true,
+  "alt": "Film, 88 seconds: TYPO3 v14 development, 4 agent skills for TYPO3 v14 (typo3-v14-reference, typo3-typoscript-ref, typo3-webcomponents, typo3-ddev). Each skill with its own prompt and what it delivers. Narrated, with selectable captions.",
+  "transcript": [
+    {
+      "at": "0:02",
+      "text": "Agents still write TYPO3 code from old memory. These skills teach them version fourteen."
+    },
+    {
+      "at": "0:10",
+      "text": "TYPO3 v14 development: four skills for TYPO3 v14."
+    },
+    {
+      "at": "0:18",
+      "text": "Shows how v14 code is written: controllers, ViewFactory, PSR-14 events, TCA, QueryBuilder and CLI."
+    },
+    {
+      "at": "0:30",
+      "text": "Agents often mix up versions."
+    },
+    {
+      "at": "0:35",
+      "text": "A version-aware reference for TypoScript, TSconfig and Fluid, with a local lookup."
+    },
+    {
+      "at": "0:44",
+      "text": "TypoScript keys are easy to misremember."
+    },
+    {
+      "at": "0:49",
+      "text": "Builds v14 backend Web Components with Lit, import maps and FormEngine integration."
+    },
+    {
+      "at": "0:58",
+      "text": "It turns jQuery-era backend code into standard Web Components."
+    },
+    {
+      "at": "1:05",
+      "text": "Starts and reaches a local TYPO3 instance with DDEV, for one version or several side by side."
+    },
+    {
+      "at": "1:14",
+      "text": "Most other skills need a running instance to check their work."
+    },
+    {
+      "at": "1:20",
+      "text": "Open source. Clone the skills, and help us improve them."
+    }
+  ],
+  "captions": {
+    "language": "en",
+    "label": "English",
+    "burnedIn": false,
+    "languages": [
+      "en",
+      "de",
+      "zh",
+      "hu"
+    ]
+  },
+  "bytes": {
+    "mp4": 3971367,
+    "poster": 33512,
+    "vtt": 1178,
+    "captionTracks": {
+      "en": 1178,
+      "de": 1248,
+      "zh": 1164,
+      "hu": 1308
+    }
+  },
+  "generator": "packages/site_package/Build/Film/render-films.mjs",
+  "captionTracks": {
+    "en": "skills-v14-development-dbc8c6ac.en.vtt",
+    "de": "skills-v14-development-dbc8c6ac.de.vtt",
+    "zh": "skills-v14-development-dbc8c6ac.zh.vtt",
+    "hu": "skills-v14-development-dbc8c6ac.hu.vtt"
+  }
+}

@@ -1,0 +1,60 @@
+WEBVTT - Content modelling and data: agent skills for TYPO3 (de)
+
+1
+00:00:02.040 --> 00:00:09.027
+Neue Inhaltstypen, importierte Datensätze und
+Übersetzungen, ohne eine einzige Relation zu
+beschädigen.
+
+2
+00:00:10.127 --> 00:00:16.592
+Inhaltsmodellierung und Daten: vier Skills für
+TYPO3 v14.
+
+3
+00:00:17.892 --> 00:00:24.540
+Definiert Inhaltselemente, Datensätze und
+Seitentypen mit je einer config.yaml.
+
+4
+00:00:25.890 --> 00:00:30.370
+Der Teaser erscheint im Assistenten. Ein
+Redakteur füllt ihn aus und speichert.
+
+5
+00:00:33.540 --> 00:00:40.423
+Erstellt, ändert, übersetzt und löscht
+Datensätze aus PHP über DataHandler.
+
+6
+00:00:41.773 --> 00:00:49.204
+Direkte INSERTs wirken korrekt, bis der
+Referenzindex veraltet ist oder importierte
+Datensätze niemandem gehören.
+
+7
+00:00:50.604 --> 00:00:57.356
+Korrigiert Labels und XLIFF-Dateien, auch
+Pluralformen mit ICU MessageFormat.
+
+8
+00:00:58.706 --> 00:01:06.947
+Rohe Label-Schlüssel am Bildschirm oder doppelte
+IDs nach einem Merge: kleine Fehler, die
+Redakteure zuerst sehen.
+
+9
+00:01:08.347 --> 00:01:15.648
+Erstellt thematische Tags für EXT:news und
+ordnet sie bestehenden Artikeln nach
+Stichwörtern zu.
+
+10
+00:01:16.998 --> 00:01:26.676
+Für Archive, die zu groß zum manuellen Taggen
+sind, auf TYPO3 v14.3 mit georgringer/news 14.
+
+11
+00:01:28.276 --> 00:01:32.520
+Open Source. Klonen Sie die Skills und helfen
+Sie uns, sie zu verbessern.

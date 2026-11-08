@@ -1,0 +1,96 @@
+{
+  "id": "skills-proven-site-upgrade",
+  "slug": "/ai/agentic-skills/proven-site-upgrade",
+  "placements": [
+    {
+      "slug": "/ai/agentic-skills/proven-site-upgrade"
+    }
+  ],
+  "title": "Proven site upgrade: agent skills for TYPO3",
+  "header": "Proven site upgrade in 85 seconds",
+  "description": "<p>Upgrade a whole site from TYPO3 v12 or v13 to 14.3 LTS in a local DDEV copy, and prove that visitors see no difference. For each skill: the prompt you would type and what it does. Narrated, with selectable captions.</p>",
+  "mp4": "skills-proven-site-upgrade-87e43567.mp4",
+  "poster": "skills-proven-site-upgrade-poster-87e43567.webp",
+  "vtt": "skills-proven-site-upgrade-87e43567.en.vtt",
+  "duration": 85.163,
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "sound": true,
+  "alt": "Film, 85 seconds: Proven site upgrade, 4 agent skills for TYPO3 v14 (typo3-upgrade-run, typo3-upgrade-intake, typo3-upgrade-baseline, typo3-upgrade-closure). Each skill with its own prompt and what it delivers. Narrated, with selectable captions.",
+  "transcript": [
+    {
+      "at": "0:02",
+      "text": "An upgrade is done when visitors see no difference. Can you prove it?"
+    },
+    {
+      "at": "0:08",
+      "text": "Proven site upgrade: four skills for TYPO3 v14."
+    },
+    {
+      "at": "0:14",
+      "text": "Upgrades a site from v12 or v13 to 14.3 LTS and proves that visitors see no difference."
+    },
+    {
+      "at": "0:24",
+      "text": "The final proof of a real run: 360 screenshots, no undeclared difference."
+    },
+    {
+      "at": "0:33",
+      "text": "A read-only preflight of repository, runtime, database, files, extensions and risks."
+    },
+    {
+      "at": "0:41",
+      "text": "An upgrade that starts from the wrong database proves nothing."
+    },
+    {
+      "at": "0:47",
+      "text": "Captures responses, HTML and screenshots of the untouched site and seals them as Baseline A."
+    },
+    {
+      "at": "0:56",
+      "text": "A comparison is only as good as its reference."
+    },
+    {
+      "at": "1:01",
+      "text": "Compares the upgraded site with the baseline and closes only when nothing unexplained changed."
+    },
+    {
+      "at": "1:10",
+      "text": "It never accepts an unexplained difference and never refreshes the baseline to make one disappear."
+    },
+    {
+      "at": "1:18",
+      "text": "Open source. Clone the skills, and help us improve them."
+    }
+  ],
+  "captions": {
+    "language": "en",
+    "label": "English",
+    "burnedIn": false,
+    "languages": [
+      "en",
+      "de",
+      "zh",
+      "hu"
+    ]
+  },
+  "bytes": {
+    "mp4": 4226260,
+    "poster": 42230,
+    "vtt": 1242,
+    "captionTracks": {
+      "en": 1242,
+      "de": 1371,
+      "zh": 1181,
+      "hu": 1455
+    }
+  },
+  "generator": "packages/site_package/Build/Film/render-films.mjs",
+  "captionTracks": {
+    "en": "skills-proven-site-upgrade-87e43567.en.vtt",
+    "de": "skills-proven-site-upgrade-87e43567.de.vtt",
+    "zh": "skills-proven-site-upgrade-87e43567.zh.vtt",
+    "hu": "skills-proven-site-upgrade-87e43567.hu.vtt"
+  }
+}

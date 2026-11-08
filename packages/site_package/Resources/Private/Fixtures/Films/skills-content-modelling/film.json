@@ -1,0 +1,96 @@
+{
+  "id": "skills-content-modelling",
+  "slug": "/ai/agentic-skills/content-modelling",
+  "placements": [
+    {
+      "slug": "/ai/agentic-skills/content-modelling"
+    }
+  ],
+  "title": "Content modelling and data: agent skills for TYPO3",
+  "header": "Content modelling and data in 95 seconds",
+  "description": "<p>Define content types in one YAML file each, import and translate records the way TYPO3 expects, and tag news in bulk. For each skill: the prompt you would type and what it does. Narrated, with selectable captions.</p>",
+  "mp4": "skills-content-modelling-290cec5e.mp4",
+  "poster": "skills-content-modelling-poster-290cec5e.webp",
+  "vtt": "skills-content-modelling-290cec5e.en.vtt",
+  "duration": 95.48,
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "sound": true,
+  "alt": "Film, 95 seconds: Content modelling and data, 4 agent skills for TYPO3 v14 (typo3-content-blocks, typo3-datahandler, typo3-translations, typo3-news-tags). Each skill with its own prompt and what it delivers. Narrated, with selectable captions.",
+  "transcript": [
+    {
+      "at": "0:02",
+      "text": "New content types, imported records and translations, without breaking a single relation."
+    },
+    {
+      "at": "0:10",
+      "text": "Content modelling and data: four skills for TYPO3 v14."
+    },
+    {
+      "at": "0:17",
+      "text": "Defines content elements, records and page types in one config.yaml each."
+    },
+    {
+      "at": "0:25",
+      "text": "The teaser shows up in the wizard. An editor fills it in and saves."
+    },
+    {
+      "at": "0:33",
+      "text": "Creates, changes, translates and deletes records from PHP through DataHandler."
+    },
+    {
+      "at": "0:41",
+      "text": "Raw INSERTs look fine until the reference index is stale or imported records belong to nobody."
+    },
+    {
+      "at": "0:50",
+      "text": "Fixes labels and XLIFF files, including plural forms with ICU MessageFormat."
+    },
+    {
+      "at": "0:58",
+      "text": "A raw label key on screen or duplicate ids after a merge are small bugs that editors see first."
+    },
+    {
+      "at": "1:08",
+      "text": "Generates thematic tags for EXT:news and assigns them to existing articles by keyword."
+    },
+    {
+      "at": "1:17",
+      "text": "It is made for archives too large to tag by hand, on TYPO3 v14.3 with georgringer/news 14."
+    },
+    {
+      "at": "1:28",
+      "text": "Open source. Clone the skills, and help us improve them."
+    }
+  ],
+  "captions": {
+    "language": "en",
+    "label": "English",
+    "burnedIn": false,
+    "languages": [
+      "en",
+      "de",
+      "zh",
+      "hu"
+    ]
+  },
+  "bytes": {
+    "mp4": 4632449,
+    "poster": 37664,
+    "vtt": 1299,
+    "captionTracks": {
+      "en": 1299,
+      "de": 1417,
+      "zh": 1258,
+      "hu": 1538
+    }
+  },
+  "generator": "packages/site_package/Build/Film/render-films.mjs",
+  "captionTracks": {
+    "en": "skills-content-modelling-290cec5e.en.vtt",
+    "de": "skills-content-modelling-290cec5e.de.vtt",
+    "zh": "skills-content-modelling-290cec5e.zh.vtt",
+    "hu": "skills-content-modelling-290cec5e.hu.vtt"
+  }
+}

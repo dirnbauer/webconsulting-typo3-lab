@@ -1,0 +1,964 @@
+{
+  "voice": "George",
+  "delivery": {
+    "stability": 0.62,
+    "similarity_boost": 0.78,
+    "style": 0.18,
+    "speed": 0.9
+  },
+  "lines": [
+    {
+      "say": "A design system only helps when it reaches the content elements.",
+      "show": "A design system only helps when it reaches the content elements.",
+      "file": "voice-01.mp3",
+      "duration": 4127,
+      "words": [
+        {
+          "word": "A",
+          "start": 35,
+          "end": 104
+        },
+        {
+          "word": "design",
+          "start": 186,
+          "end": 546
+        },
+        {
+          "word": "system",
+          "start": 615,
+          "end": 987
+        },
+        {
+          "word": "only",
+          "start": 1080,
+          "end": 1324
+        },
+        {
+          "word": "helps",
+          "start": 1393,
+          "end": 1672
+        },
+        {
+          "word": "when",
+          "start": 1707,
+          "end": 1846
+        },
+        {
+          "word": "it",
+          "start": 1881,
+          "end": 1927
+        },
+        {
+          "word": "reaches",
+          "start": 1997,
+          "end": 2322
+        },
+        {
+          "word": "the",
+          "start": 2368,
+          "end": 2438
+        },
+        {
+          "word": "content",
+          "start": 2485,
+          "end": 2891
+        },
+        {
+          "word": "elements.",
+          "start": 2961,
+          "end": 3576
+        }
+      ],
+      "heard": "A design system only helps when it reaches the content elements."
+    },
+    {
+      "say": "Design system and frontend: four skills for typo three version fourteen.",
+      "show": "Design system and frontend: four skills for TYPO3 v14.",
+      "file": "voice-02.mp3",
+      "duration": 5930,
+      "words": [
+        {
+          "word": "Design",
+          "start": 23,
+          "end": 453
+        },
+        {
+          "word": "system",
+          "start": 522,
+          "end": 894
+        },
+        {
+          "word": "and",
+          "start": 940,
+          "end": 1010
+        },
+        {
+          "word": "frontend:",
+          "start": 1080,
+          "end": 1811
+        },
+        {
+          "word": "four",
+          "start": 2299,
+          "end": 2577
+        },
+        {
+          "word": "skills",
+          "start": 2647,
+          "end": 3088
+        },
+        {
+          "word": "for",
+          "start": 3135,
+          "end": 3239
+        },
+        {
+          "word": "typo",
+          "start": 3286,
+          "end": 3646
+        },
+        {
+          "word": "three",
+          "start": 3727,
+          "end": 4063
+        },
+        {
+          "word": "version",
+          "start": 4156,
+          "end": 4563
+        },
+        {
+          "word": "fourteen.",
+          "start": 4656,
+          "end": 5410
+        }
+      ],
+      "heard": "Design system and front end. Four skills for TYPO3 version 14."
+    },
+    {
+      "say": "Turns shad C N/ui presets into Fluid content elements with semantic tokens, previews and seed data.",
+      "show": "Turns shadcn/ui presets into Fluid content elements with semantic tokens, previews and seed data.",
+      "file": "voice-03.mp3",
+      "duration": 8594,
+      "end": 7760,
+      "words": [
+        {
+          "word": "Turns",
+          "start": 23,
+          "end": 406
+        },
+        {
+          "word": "shad",
+          "start": 453,
+          "end": 743
+        },
+        {
+          "word": "C",
+          "start": 824,
+          "end": 952
+        },
+        {
+          "word": "N/ui",
+          "start": 1219,
+          "end": 1776
+        },
+        {
+          "word": "presets",
+          "start": 1904,
+          "end": 2461
+        },
+        {
+          "word": "into",
+          "start": 2508,
+          "end": 2694
+        },
+        {
+          "word": "Fluid",
+          "start": 2786,
+          "end": 3146
+        },
+        {
+          "word": "content",
+          "start": 3216,
+          "end": 3669
+        },
+        {
+          "word": "elements",
+          "start": 3750,
+          "end": 4191
+        },
+        {
+          "word": "with",
+          "start": 4389,
+          "end": 4586
+        },
+        {
+          "word": "semantic",
+          "start": 4632,
+          "end": 5155
+        },
+        {
+          "word": "tokens,",
+          "start": 5224,
+          "end": 5875
+        },
+        {
+          "word": "previews",
+          "start": 6002,
+          "end": 6594
+        },
+        {
+          "word": "and",
+          "start": 6664,
+          "end": 6803
+        },
+        {
+          "word": "seed",
+          "start": 6885,
+          "end": 7140
+        },
+        {
+          "word": "data.",
+          "start": 7175,
+          "end": 7767
+        }
+      ],
+      "heard": "turns Shad CNUI presets into fluid content elements with semantic tokens, previews and seed data."
+    },
+    {
+      "say": "Switch the preset, switch to dark mode: every element follows.",
+      "show": "Switch the preset, switch to dark mode: every element follows.",
+      "file": "voice-04.mp3",
+      "duration": 4833,
+      "end": 4280,
+      "words": [
+        {
+          "word": "Switch",
+          "start": 12,
+          "end": 348
+        },
+        {
+          "word": "the",
+          "start": 395,
+          "end": 464
+        },
+        {
+          "word": "preset,",
+          "start": 534,
+          "end": 1184
+        },
+        {
+          "word": "switch",
+          "start": 1289,
+          "end": 1602
+        },
+        {
+          "word": "to",
+          "start": 1672,
+          "end": 1730
+        },
+        {
+          "word": "dark",
+          "start": 1811,
+          "end": 2090
+        },
+        {
+          "word": "mode:",
+          "start": 2171,
+          "end": 2601
+        },
+        {
+          "word": "every",
+          "start": 2868,
+          "end": 3146
+        },
+        {
+          "word": "element",
+          "start": 3216,
+          "end": 3564
+        },
+        {
+          "word": "follows.",
+          "start": 3634,
+          "end": 4284
+        }
+      ],
+      "heard": "Switch the preset, switch to dark mode, every element follows."
+    },
+    {
+      "say": "Builds an accessible design-system page in your site, with design.md, tokens.json and a one-page PDF.",
+      "show": "Builds an accessible design-system page in your site, with design.md, tokens.json and a one-page PDF.",
+      "file": "voice-05.mp3",
+      "duration": 8908,
+      "words": [
+        {
+          "word": "Builds",
+          "start": 23,
+          "end": 418
+        },
+        {
+          "word": "an",
+          "start": 453,
+          "end": 511
+        },
+        {
+          "word": "accessible",
+          "start": 534,
+          "end": 1138
+        },
+        {
+          "word": "design-system",
+          "start": 1173,
+          "end": 2009
+        },
+        {
+          "word": "page",
+          "start": 2078,
+          "end": 2438
+        },
+        {
+          "word": "in",
+          "start": 2473,
+          "end": 2543
+        },
+        {
+          "word": "your",
+          "start": 2612,
+          "end": 2740
+        },
+        {
+          "word": "site,",
+          "start": 2810,
+          "end": 3297
+        },
+        {
+          "word": "with",
+          "start": 3460,
+          "end": 3646
+        },
+        {
+          "word": "design.md,",
+          "start": 3692,
+          "end": 5027
+        },
+        {
+          "word": "tokens.json",
+          "start": 5259,
+          "end": 6560
+        },
+        {
+          "word": "and",
+          "start": 6641,
+          "end": 6757
+        },
+        {
+          "word": "a",
+          "start": 6803,
+          "end": 6827
+        },
+        {
+          "word": "one-page",
+          "start": 6920,
+          "end": 7465
+        },
+        {
+          "word": "PDF.",
+          "start": 7512,
+          "end": 8301
+        }
+      ],
+      "heard": "builds an accessible design system page in your site with design.md, tokens.json and a one-page PDF."
+    },
+    {
+      "say": "It asks which installation and which page to use before it writes, so nothing lands on a site you did not choose.",
+      "show": "It asks which installation and which page to use before it writes, so nothing lands on a site you did not choose.",
+      "file": "voice-06.mp3",
+      "duration": 7602,
+      "end": 6850,
+      "words": [
+        {
+          "word": "It",
+          "start": 23,
+          "end": 186
+        },
+        {
+          "word": "asks",
+          "start": 232,
+          "end": 569
+        },
+        {
+          "word": "which",
+          "start": 639,
+          "end": 848
+        },
+        {
+          "word": "installation",
+          "start": 917,
+          "end": 1637
+        },
+        {
+          "word": "and",
+          "start": 1707,
+          "end": 1823
+        },
+        {
+          "word": "which",
+          "start": 1869,
+          "end": 2043
+        },
+        {
+          "word": "page",
+          "start": 2113,
+          "end": 2485
+        },
+        {
+          "word": "to",
+          "start": 2519,
+          "end": 2589
+        },
+        {
+          "word": "use",
+          "start": 2694,
+          "end": 2984
+        },
+        {
+          "word": "before",
+          "start": 3030,
+          "end": 3355
+        },
+        {
+          "word": "it",
+          "start": 3390,
+          "end": 3460
+        },
+        {
+          "word": "writes,",
+          "start": 3495,
+          "end": 4063
+        },
+        {
+          "word": "so",
+          "start": 4331,
+          "end": 4470
+        },
+        {
+          "word": "nothing",
+          "start": 4551,
+          "end": 4830
+        },
+        {
+          "word": "lands",
+          "start": 4911,
+          "end": 5178
+        },
+        {
+          "word": "on",
+          "start": 5224,
+          "end": 5294
+        },
+        {
+          "word": "a",
+          "start": 5341,
+          "end": 5364
+        },
+        {
+          "word": "site",
+          "start": 5445,
+          "end": 5724
+        },
+        {
+          "word": "you",
+          "start": 5759,
+          "end": 5828
+        },
+        {
+          "word": "did",
+          "start": 5898,
+          "end": 6014
+        },
+        {
+          "word": "not",
+          "start": 6060,
+          "end": 6177
+        },
+        {
+          "word": "choose.",
+          "start": 6223,
+          "end": 6885
+        }
+      ],
+      "heard": "It asks which installation and which page to use before it writes, so nothing lands on a site you did not choose."
+    },
+    {
+      "say": "Sets up Vite 7 for typo three sitepackages, with an entry per content element.",
+      "show": "Sets up Vite 7 for TYPO3 sitepackages, with an entry per content element.",
+      "file": "voice-07.mp3",
+      "duration": 6504,
+      "words": [
+        {
+          "word": "Sets",
+          "start": 35,
+          "end": 360
+        },
+        {
+          "word": "up",
+          "start": 430,
+          "end": 546
+        },
+        {
+          "word": "Vite",
+          "start": 627,
+          "end": 917
+        },
+        {
+          "word": "7",
+          "start": 987,
+          "end": 1300
+        },
+        {
+          "word": "for",
+          "start": 1393,
+          "end": 1498
+        },
+        {
+          "word": "typo",
+          "start": 1544,
+          "end": 1950
+        },
+        {
+          "word": "three",
+          "start": 2032,
+          "end": 2310
+        },
+        {
+          "word": "sitepackages,",
+          "start": 2380,
+          "end": 3402
+        },
+        {
+          "word": "with",
+          "start": 3599,
+          "end": 3773
+        },
+        {
+          "word": "an",
+          "start": 3808,
+          "end": 3866
+        },
+        {
+          "word": "entry",
+          "start": 3936,
+          "end": 4261
+        },
+        {
+          "word": "per",
+          "start": 4342,
+          "end": 4551
+        },
+        {
+          "word": "content",
+          "start": 4656,
+          "end": 5132
+        },
+        {
+          "word": "element.",
+          "start": 5201,
+          "end": 5770
+        }
+      ],
+      "heard": "sets up VEET 7 for TYPO3 site packages with an entry per content element."
+    },
+    {
+      "say": "typo three version fourteen removed the core’s own concatenation and compression of frontend assets, so a build tool now does that work.",
+      "show": "TYPO3 v14 removed the core’s own concatenation and compression of frontend assets, so a build tool now does that work.",
+      "file": "voice-08.mp3",
+      "duration": 9744,
+      "end": 8990,
+      "words": [
+        {
+          "word": "typo",
+          "start": 23,
+          "end": 430
+        },
+        {
+          "word": "three",
+          "start": 511,
+          "end": 801
+        },
+        {
+          "word": "version",
+          "start": 871,
+          "end": 1219
+        },
+        {
+          "word": "fourteen",
+          "start": 1312,
+          "end": 1916
+        },
+        {
+          "word": "removed",
+          "start": 2183,
+          "end": 2589
+        },
+        {
+          "word": "the",
+          "start": 2612,
+          "end": 2682
+        },
+        {
+          "word": "core's",
+          "start": 2752,
+          "end": 3088
+        },
+        {
+          "word": "own",
+          "start": 3170,
+          "end": 3413
+        },
+        {
+          "word": "concatenation",
+          "start": 3495,
+          "end": 4423
+        },
+        {
+          "word": "and",
+          "start": 4470,
+          "end": 4551
+        },
+        {
+          "word": "compression",
+          "start": 4621,
+          "end": 5143
+        },
+        {
+          "word": "of",
+          "start": 5190,
+          "end": 5236
+        },
+        {
+          "word": "frontend",
+          "start": 5306,
+          "end": 5759
+        },
+        {
+          "word": "assets,",
+          "start": 5851,
+          "end": 6560
+        },
+        {
+          "word": "so",
+          "start": 6873,
+          "end": 7036
+        },
+        {
+          "word": "a",
+          "start": 7105,
+          "end": 7140
+        },
+        {
+          "word": "build",
+          "start": 7187,
+          "end": 7465
+        },
+        {
+          "word": "tool",
+          "start": 7500,
+          "end": 7767
+        },
+        {
+          "word": "now",
+          "start": 7860,
+          "end": 8011
+        },
+        {
+          "word": "does",
+          "start": 8081,
+          "end": 8243
+        },
+        {
+          "word": "that",
+          "start": 8278,
+          "end": 8417
+        },
+        {
+          "word": "work.",
+          "start": 8487,
+          "end": 9009
+        }
+      ],
+      "heard": "TYPO3 v14 removed the core's own concatenation and compression of front-end assets, so a build tool now does that work."
+    },
+    {
+      "say": "Redraws and migrates extension icons to the version fourteen line style, for light and dark mode.",
+      "show": "Redraws and migrates extension icons to the v14 line style, for light and dark mode.",
+      "file": "voice-09.mp3",
+      "duration": 7105,
+      "words": [
+        {
+          "word": "Redraws",
+          "start": 23,
+          "end": 639
+        },
+        {
+          "word": "and",
+          "start": 685,
+          "end": 755
+        },
+        {
+          "word": "migrates",
+          "start": 824,
+          "end": 1335
+        },
+        {
+          "word": "extension",
+          "start": 1382,
+          "end": 1927
+        },
+        {
+          "word": "icons",
+          "start": 2032,
+          "end": 2554
+        },
+        {
+          "word": "to",
+          "start": 2624,
+          "end": 2694
+        },
+        {
+          "word": "the",
+          "start": 2763,
+          "end": 2833
+        },
+        {
+          "word": "version",
+          "start": 2879,
+          "end": 3239
+        },
+        {
+          "word": "fourteen",
+          "start": 3332,
+          "end": 3808
+        },
+        {
+          "word": "line",
+          "start": 3889,
+          "end": 4156
+        },
+        {
+          "word": "style,",
+          "start": 4191,
+          "end": 4772
+        },
+        {
+          "word": "for",
+          "start": 4969,
+          "end": 5108
+        },
+        {
+          "word": "light",
+          "start": 5178,
+          "end": 5410
+        },
+        {
+          "word": "and",
+          "start": 5445,
+          "end": 5526
+        },
+        {
+          "word": "dark",
+          "start": 5596,
+          "end": 5886
+        },
+        {
+          "word": "mode.",
+          "start": 5968,
+          "end": 6455
+        }
+      ],
+      "heard": "redraws and migrates extension icons to the version 14 line style for light and dark mode,"
+    },
+    {
+      "say": "Heavy, filled icons look foreign next to the version fourteen core, and a module icon that vanishes in dark mode is a bug.",
+      "show": "Heavy, filled icons look foreign next to the v14 core, and a module icon that vanishes in dark mode is a bug.",
+      "file": "voice-10.mp3",
+      "duration": 9091,
+      "words": [
+        {
+          "word": "Heavy,",
+          "start": 35,
+          "end": 430
+        },
+        {
+          "word": "filled",
+          "start": 464,
+          "end": 778
+        },
+        {
+          "word": "icons",
+          "start": 859,
+          "end": 1463
+        },
+        {
+          "word": "look",
+          "start": 1695,
+          "end": 1904
+        },
+        {
+          "word": "foreign",
+          "start": 1985,
+          "end": 2368
+        },
+        {
+          "word": "next",
+          "start": 2403,
+          "end": 2647
+        },
+        {
+          "word": "to",
+          "start": 2670,
+          "end": 2717
+        },
+        {
+          "word": "the",
+          "start": 2786,
+          "end": 2856
+        },
+        {
+          "word": "version",
+          "start": 2902,
+          "end": 3286
+        },
+        {
+          "word": "fourteen",
+          "start": 3379,
+          "end": 3866
+        },
+        {
+          "word": "core,",
+          "start": 3959,
+          "end": 4493
+        },
+        {
+          "word": "and",
+          "start": 4621,
+          "end": 4772
+        },
+        {
+          "word": "a",
+          "start": 4841,
+          "end": 4865
+        },
+        {
+          "word": "module",
+          "start": 4934,
+          "end": 5364
+        },
+        {
+          "word": "icon",
+          "start": 5445,
+          "end": 5909
+        },
+        {
+          "word": "that",
+          "start": 5979,
+          "end": 6095
+        },
+        {
+          "word": "vanishes",
+          "start": 6165,
+          "end": 6676
+        },
+        {
+          "word": "in",
+          "start": 6745,
+          "end": 6827
+        },
+        {
+          "word": "dark",
+          "start": 6908,
+          "end": 7221
+        },
+        {
+          "word": "mode",
+          "start": 7303,
+          "end": 7628
+        },
+        {
+          "word": "is",
+          "start": 7674,
+          "end": 7802
+        },
+        {
+          "word": "a",
+          "start": 7848,
+          "end": 7872
+        },
+        {
+          "word": "bug.",
+          "start": 7941,
+          "end": 8452
+        }
+      ],
+      "heard": "Heavy filled icons look foreign next to the version 14 core and a module icon that vanishes in dark mode is a bug."
+    },
+    {
+      "say": "Open source. Clone the skills, and help us improve them.",
+      "show": "Open source. Clone the skills, and help us improve them.",
+      "file": "voice-11.mp3",
+      "duration": 4075,
+      "words": [
+        {
+          "word": "Open",
+          "start": 23,
+          "end": 395
+        },
+        {
+          "word": "source.",
+          "start": 499,
+          "end": 1033
+        },
+        {
+          "word": "Clone",
+          "start": 1196,
+          "end": 1602
+        },
+        {
+          "word": "the",
+          "start": 1637,
+          "end": 1707
+        },
+        {
+          "word": "skills,",
+          "start": 1753,
+          "end": 2310
+        },
+        {
+          "word": "and",
+          "start": 2334,
+          "end": 2485
+        },
+        {
+          "word": "help",
+          "start": 2554,
+          "end": 2728
+        },
+        {
+          "word": "us",
+          "start": 2798,
+          "end": 2879
+        },
+        {
+          "word": "improve",
+          "start": 2949,
+          "end": 3390
+        },
+        {
+          "word": "them.",
+          "start": 3425,
+          "end": 3738
+        }
+      ],
+      "heard": "open source, clone the skills and help us improve them."
+    }
+  ]
+}

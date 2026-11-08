@@ -1,0 +1,56 @@
+WEBVTT - Automated code migration: agent skills for TYPO3 (en)
+
+1
+00:00:02.040 --> 00:00:08.636
+Forty extensions, one deprecated API, and nobody
+wants to fix it by hand.
+
+2
+00:00:09.736 --> 00:00:15.914
+Automated code migration: four skills for TYPO3
+v14.
+
+3
+00:00:17.214 --> 00:00:27.023
+Makes one extension work with a newer TYPO3 LTS,
+with Extension Scanner, Rector, Fractor and
+PHPStan.
+
+4
+00:00:28.373 --> 00:00:33.767
+It treats a failing commit hook as a check to
+fix, not an obstacle to skip.
+
+5
+00:00:35.167 --> 00:00:43.852
+Fixes deprecated PHP calls with Rector: dry run,
+review the diff, apply, dry run again.
+
+6
+00:00:45.202 --> 00:00:52.451
+Apply, dry-run again: one generated file left.
+Once more: Rector is done.
+
+7
+00:00:53.551 --> 00:01:02.053
+Rewrites TypoScript, FlexForms, Fluid, YAML and
+XLIFF towards v14 with Fractor.
+
+8
+00:01:03.403 --> 00:01:08.745
+FlexForm, TypoScript and Fluid patterns are easy
+to miss in a review.
+
+9
+00:01:10.145 --> 00:01:15.826
+Applies one repeated change to many extensions
+at once, in reviewable batches.
+
+10
+00:01:17.176 --> 00:01:20.846
+A 500-file commit cannot be reviewed.
+
+11
+00:01:22.446 --> 00:01:26.769
+Open source. Clone the skills, and help us
+improve them.

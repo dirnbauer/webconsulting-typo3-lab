@@ -1,0 +1,62 @@
+WEBVTT - Upgrade planning and migration: agent skills for TYPO3 (hu)
+
+1
+00:00:02.040 --> 00:00:07.120
+Mennyi ideig tart a frissítés, és mi történik,
+ha egy lépés elromlik?
+
+2
+00:00:08.220 --> 00:00:14.816
+Frissítéstervezés és migráció: négy skill TYPO3
+v14-hez.
+
+3
+00:00:16.116 --> 00:00:23.704
+Bővítményenként becsüli az LTS-frissítést,
+kockázati szorzókkal a v14 inkompatibilis
+változásaihoz.
+
+4
+00:00:25.054 --> 00:00:34.497
+A bővítményenkénti számokkal könnyebb tervezni,
+mint megérzésből. A Rector megtakarítása is
+látszik: 15–20 százalék.
+
+5
+00:00:35.897 --> 00:00:45.209
+Új LTS-re állít át egy telepített projektet:
+webhelykonfiguráció, TypoScript, sablonok,
+Docker és adatbázis.
+
+6
+00:00:46.559 --> 00:00:52.292
+A projektet fedi le; a bővítménykódot a
+typo3-extension-upgrade kezeli.
+
+7
+00:00:53.692 --> 00:01:02.430
+Visszaállítási ponttal végez el egy migrációs
+lépést: Composer, Rector, Fractor, adatbázis
+vagy adatok.
+
+8
+00:01:03.780 --> 00:01:12.100
+A kis, visszafordítható lépések csökkentik a
+hibás kísérlet árát. Az ismétlések számáról a
+gráf dönt.
+
+9
+00:01:13.500 --> 00:01:20.566
+Átnézi a korábbi vagy befejezetlen
+frissítéseket: mi készült el, mi nyitott, és mi
+romlott el.
+
+10
+00:01:21.916 --> 00:01:26.343
+A Git szerint kész lehet egy ág, miközben a
+futás mást mutat.
+
+11
+00:01:27.943 --> 00:01:32.266
+Nyílt forráskód. Klónozza a skilleket, és
+segítsen jobbá tenni őket.

@@ -1,0 +1,843 @@
+{
+  "voice": "George",
+  "delivery": {
+    "stability": 0.62,
+    "similarity_boost": 0.78,
+    "style": 0.18,
+    "speed": 0.9
+  },
+  "lines": [
+    {
+      "say": "New content types, imported records and translations, without breaking a single relation.",
+      "show": "New content types, imported records and translations, without breaking a single relation.",
+      "file": "voice-01.mp3",
+      "duration": 6687,
+      "words": [
+        {
+          "word": "New",
+          "start": 35,
+          "end": 290
+        },
+        {
+          "word": "content",
+          "start": 372,
+          "end": 836
+        },
+        {
+          "word": "types,",
+          "start": 882,
+          "end": 1440
+        },
+        {
+          "word": "imported",
+          "start": 1579,
+          "end": 2183
+        },
+        {
+          "word": "records",
+          "start": 2264,
+          "end": 2728
+        },
+        {
+          "word": "and",
+          "start": 2763,
+          "end": 2844
+        },
+        {
+          "word": "translations,",
+          "start": 2891,
+          "end": 3901
+        },
+        {
+          "word": "without",
+          "start": 4063,
+          "end": 4400
+        },
+        {
+          "word": "breaking",
+          "start": 4447,
+          "end": 4795
+        },
+        {
+          "word": "a",
+          "start": 4841,
+          "end": 4865
+        },
+        {
+          "word": "single",
+          "start": 4934,
+          "end": 5271
+        },
+        {
+          "word": "relation.",
+          "start": 5317,
+          "end": 6037
+        }
+      ],
+      "heard": "new content types, imported records and translations without breaking a single relation."
+    },
+    {
+      "say": "Content modelling and data: four skills for typo three version fourteen.",
+      "show": "Content modelling and data: four skills for TYPO3 v14.",
+      "file": "voice-02.mp3",
+      "duration": 6165,
+      "words": [
+        {
+          "word": "Content",
+          "start": 23,
+          "end": 511
+        },
+        {
+          "word": "modelling",
+          "start": 557,
+          "end": 975
+        },
+        {
+          "word": "and",
+          "start": 1057,
+          "end": 1173
+        },
+        {
+          "word": "data:",
+          "start": 1254,
+          "end": 1927
+        },
+        {
+          "word": "four",
+          "start": 2357,
+          "end": 2635
+        },
+        {
+          "word": "skills",
+          "start": 2682,
+          "end": 3135
+        },
+        {
+          "word": "for",
+          "start": 3181,
+          "end": 3286
+        },
+        {
+          "word": "typo",
+          "start": 3332,
+          "end": 3704
+        },
+        {
+          "word": "three",
+          "start": 3785,
+          "end": 4261
+        },
+        {
+          "word": "version",
+          "start": 4423,
+          "end": 4830
+        },
+        {
+          "word": "fourteen.",
+          "start": 4911,
+          "end": 5642
+        }
+      ],
+      "heard": "Content modeling and data. Four skills for TYPO3 version 14."
+    },
+    {
+      "say": "Defines content elements, records and page types in one config.yaml each.",
+      "show": "Defines content elements, records and page types in one config.yaml each.",
+      "file": "voice-03.mp3",
+      "duration": 6348,
+      "words": [
+        {
+          "word": "Defines",
+          "start": 23,
+          "end": 546
+        },
+        {
+          "word": "content",
+          "start": 627,
+          "end": 1057
+        },
+        {
+          "word": "elements,",
+          "start": 1126,
+          "end": 1625
+        },
+        {
+          "word": "records",
+          "start": 1788,
+          "end": 2264
+        },
+        {
+          "word": "and",
+          "start": 2299,
+          "end": 2380
+        },
+        {
+          "word": "page",
+          "start": 2461,
+          "end": 2821
+        },
+        {
+          "word": "types",
+          "start": 2868,
+          "end": 3216
+        },
+        {
+          "word": "in",
+          "start": 3286,
+          "end": 3413
+        },
+        {
+          "word": "one",
+          "start": 3506,
+          "end": 3715
+        },
+        {
+          "word": "config.yaml",
+          "start": 3785,
+          "end": 5259
+        },
+        {
+          "word": "each.",
+          "start": 5352,
+          "end": 5817
+        }
+      ],
+      "heard": "defines content elements, records and page types in one config.yaml each."
+    },
+    {
+      "say": "The teaser shows up in the wizard. An editor fills it in and saves.",
+      "show": "The teaser shows up in the wizard. An editor fills it in and saves.",
+      "file": "voice-04.mp3",
+      "duration": 4180,
+      "words": [
+        {
+          "word": "The",
+          "start": 35,
+          "end": 151
+        },
+        {
+          "word": "teaser",
+          "start": 221,
+          "end": 569
+        },
+        {
+          "word": "shows",
+          "start": 615,
+          "end": 859
+        },
+        {
+          "word": "up",
+          "start": 906,
+          "end": 998
+        },
+        {
+          "word": "in",
+          "start": 1045,
+          "end": 1103
+        },
+        {
+          "word": "the",
+          "start": 1126,
+          "end": 1196
+        },
+        {
+          "word": "wizard.",
+          "start": 1231,
+          "end": 1695
+        },
+        {
+          "word": "An",
+          "start": 1892,
+          "end": 2043
+        },
+        {
+          "word": "editor",
+          "start": 2113,
+          "end": 2426
+        },
+        {
+          "word": "fills",
+          "start": 2473,
+          "end": 2728
+        },
+        {
+          "word": "it",
+          "start": 2775,
+          "end": 2856
+        },
+        {
+          "word": "in",
+          "start": 2926,
+          "end": 3053
+        },
+        {
+          "word": "and",
+          "start": 3135,
+          "end": 3239
+        },
+        {
+          "word": "saves.",
+          "start": 3320,
+          "end": 3936
+        }
+      ],
+      "heard": "The teaser shows up in the wizard, an editor fills it in and saves."
+    },
+    {
+      "say": "Creates, changes, translates and deletes records from PHP through DataHandler.",
+      "show": "Creates, changes, translates and deletes records from PHP through DataHandler.",
+      "file": "voice-05.mp3",
+      "duration": 6583,
+      "end": 5980,
+      "words": [
+        {
+          "word": "Creates,",
+          "start": 35,
+          "end": 720
+        },
+        {
+          "word": "changes,",
+          "start": 801,
+          "end": 1474
+        },
+        {
+          "word": "translates",
+          "start": 1521,
+          "end": 2241
+        },
+        {
+          "word": "and",
+          "start": 2287,
+          "end": 2403
+        },
+        {
+          "word": "deletes",
+          "start": 2473,
+          "end": 2844
+        },
+        {
+          "word": "records",
+          "start": 2926,
+          "end": 3379
+        },
+        {
+          "word": "from",
+          "start": 3402,
+          "end": 3529
+        },
+        {
+          "word": "PHP",
+          "start": 3611,
+          "end": 4122
+        },
+        {
+          "word": "through",
+          "start": 4609,
+          "end": 4888
+        },
+        {
+          "word": "DataHandler.",
+          "start": 4957,
+          "end": 5968
+        }
+      ],
+      "heard": "creates, changes, translates and deletes records from PHP through Data Handler."
+    },
+    {
+      "say": "Raw INSERTs look fine until the reference index is stale or imported records belong to nobody.",
+      "show": "Raw INSERTs look fine until the reference index is stale or imported records belong to nobody.",
+      "file": "voice-06.mp3",
+      "duration": 7131,
+      "end": 6540,
+      "words": [
+        {
+          "word": "Raw",
+          "start": 12,
+          "end": 267
+        },
+        {
+          "word": "INSERTs",
+          "start": 348,
+          "end": 975
+        },
+        {
+          "word": "look",
+          "start": 1045,
+          "end": 1231
+        },
+        {
+          "word": "fine",
+          "start": 1312,
+          "end": 1707
+        },
+        {
+          "word": "until",
+          "start": 1741,
+          "end": 1962
+        },
+        {
+          "word": "the",
+          "start": 2009,
+          "end": 2078
+        },
+        {
+          "word": "reference",
+          "start": 2148,
+          "end": 2531
+        },
+        {
+          "word": "index",
+          "start": 2577,
+          "end": 3019
+        },
+        {
+          "word": "is",
+          "start": 3100,
+          "end": 3181
+        },
+        {
+          "word": "stale",
+          "start": 3228,
+          "end": 3843
+        },
+        {
+          "word": "or",
+          "start": 4005,
+          "end": 4168
+        },
+        {
+          "word": "imported",
+          "start": 4249,
+          "end": 4818
+        },
+        {
+          "word": "records",
+          "start": 4899,
+          "end": 5341
+        },
+        {
+          "word": "belong",
+          "start": 5387,
+          "end": 5677
+        },
+        {
+          "word": "to",
+          "start": 5747,
+          "end": 5805
+        },
+        {
+          "word": "nobody.",
+          "start": 5886,
+          "end": 6536
+        }
+      ],
+      "heard": "Raw inserts look fine until the reference index is stale or imported records belong to nobody."
+    },
+    {
+      "say": "Fixes labels and XLIFF files, including plural forms with ICU MessageFormat.",
+      "show": "Fixes labels and XLIFF files, including plural forms with ICU MessageFormat.",
+      "file": "voice-07.mp3",
+      "duration": 6452,
+      "words": [
+        {
+          "word": "Fixes",
+          "start": 12,
+          "end": 476
+        },
+        {
+          "word": "labels",
+          "start": 557,
+          "end": 987
+        },
+        {
+          "word": "and",
+          "start": 1033,
+          "end": 1126
+        },
+        {
+          "word": "XLIFF",
+          "start": 1254,
+          "end": 1707
+        },
+        {
+          "word": "files,",
+          "start": 1753,
+          "end": 2357
+        },
+        {
+          "word": "including",
+          "start": 2554,
+          "end": 3053
+        },
+        {
+          "word": "plural",
+          "start": 3135,
+          "end": 3541
+        },
+        {
+          "word": "forms",
+          "start": 3634,
+          "end": 4005
+        },
+        {
+          "word": "with",
+          "start": 4040,
+          "end": 4180
+        },
+        {
+          "word": "ICU",
+          "start": 4261,
+          "end": 4760
+        },
+        {
+          "word": "MessageFormat.",
+          "start": 4853,
+          "end": 5909
+        }
+      ],
+      "heard": "fixes labels and xlif files, including plural forms with ICU message format,"
+    },
+    {
+      "say": "A raw label key on screen or duplicate ids after a merge are small bugs that editors see first.",
+      "show": "A raw label key on screen or duplicate ids after a merge are small bugs that editors see first.",
+      "file": "voice-08.mp3",
+      "duration": 7941,
+      "end": 7280,
+      "words": [
+        {
+          "word": "A",
+          "start": 23,
+          "end": 116
+        },
+        {
+          "word": "raw",
+          "start": 221,
+          "end": 441
+        },
+        {
+          "word": "label",
+          "start": 522,
+          "end": 882
+        },
+        {
+          "word": "key",
+          "start": 964,
+          "end": 1138
+        },
+        {
+          "word": "on",
+          "start": 1207,
+          "end": 1300
+        },
+        {
+          "word": "screen",
+          "start": 1382,
+          "end": 1869
+        },
+        {
+          "word": "or",
+          "start": 1997,
+          "end": 2159
+        },
+        {
+          "word": "duplicate",
+          "start": 2229,
+          "end": 2752
+        },
+        {
+          "word": "ids",
+          "start": 2798,
+          "end": 3344
+        },
+        {
+          "word": "after",
+          "start": 3483,
+          "end": 3843
+        },
+        {
+          "word": "a",
+          "start": 3913,
+          "end": 3936
+        },
+        {
+          "word": "merge",
+          "start": 4017,
+          "end": 4528
+        },
+        {
+          "word": "are",
+          "start": 4690,
+          "end": 4888
+        },
+        {
+          "word": "small",
+          "start": 4923,
+          "end": 5236
+        },
+        {
+          "word": "bugs",
+          "start": 5306,
+          "end": 5642
+        },
+        {
+          "word": "that",
+          "start": 5677,
+          "end": 5805
+        },
+        {
+          "word": "editors",
+          "start": 5875,
+          "end": 6304
+        },
+        {
+          "word": "see",
+          "start": 6351,
+          "end": 6560
+        },
+        {
+          "word": "first.",
+          "start": 6641,
+          "end": 7291
+        }
+      ],
+      "heard": "A raw label key on screen or duplicate IDs after a merge are small bugs that editors see first."
+    },
+    {
+      "say": "Generates thematic tags for EXT:news and assigns them to existing articles by keyword.",
+      "show": "Generates thematic tags for EXT:news and assigns them to existing articles by keyword.",
+      "file": "voice-09.mp3",
+      "duration": 7001,
+      "words": [
+        {
+          "word": "Generates",
+          "start": 23,
+          "end": 569
+        },
+        {
+          "word": "thematic",
+          "start": 615,
+          "end": 1091
+        },
+        {
+          "word": "tags",
+          "start": 1173,
+          "end": 1567
+        },
+        {
+          "word": "for",
+          "start": 1614,
+          "end": 1718
+        },
+        {
+          "word": "EXT:news",
+          "start": 1800,
+          "end": 2902
+        },
+        {
+          "word": "and",
+          "start": 3216,
+          "end": 3390
+        },
+        {
+          "word": "assigns",
+          "start": 3460,
+          "end": 3878
+        },
+        {
+          "word": "them",
+          "start": 3924,
+          "end": 4040
+        },
+        {
+          "word": "to",
+          "start": 4087,
+          "end": 4156
+        },
+        {
+          "word": "existing",
+          "start": 4249,
+          "end": 4807
+        },
+        {
+          "word": "articles",
+          "start": 4876,
+          "end": 5422
+        },
+        {
+          "word": "by",
+          "start": 5503,
+          "end": 5654
+        },
+        {
+          "word": "keyword.",
+          "start": 5747,
+          "end": 6455
+        }
+      ],
+      "heard": "generates thematic tags for ext news and assigns them to existing articles by keyword"
+    },
+    {
+      "say": "It is made for archives too large to tag by hand, on typo three version fourteen.3 with georgringer/news 14.",
+      "show": "It is made for archives too large to tag by hand, on TYPO3 v14.3 with georgringer/news 14.",
+      "file": "voice-10.mp3",
+      "duration": 9378,
+      "words": [
+        {
+          "word": "It",
+          "start": 12,
+          "end": 151
+        },
+        {
+          "word": "is",
+          "start": 197,
+          "end": 279
+        },
+        {
+          "word": "made",
+          "start": 360,
+          "end": 592
+        },
+        {
+          "word": "for",
+          "start": 615,
+          "end": 720
+        },
+        {
+          "word": "archives",
+          "start": 789,
+          "end": 1358
+        },
+        {
+          "word": "too",
+          "start": 1405,
+          "end": 1602
+        },
+        {
+          "word": "large",
+          "start": 1695,
+          "end": 2113
+        },
+        {
+          "word": "to",
+          "start": 2159,
+          "end": 2229
+        },
+        {
+          "word": "tag",
+          "start": 2299,
+          "end": 2566
+        },
+        {
+          "word": "by",
+          "start": 2635,
+          "end": 2798
+        },
+        {
+          "word": "hand,",
+          "start": 2891,
+          "end": 3402
+        },
+        {
+          "word": "on",
+          "start": 3564,
+          "end": 3738
+        },
+        {
+          "word": "typo",
+          "start": 3808,
+          "end": 4191
+        },
+        {
+          "word": "three",
+          "start": 4238,
+          "end": 4551
+        },
+        {
+          "word": "version",
+          "start": 4621,
+          "end": 5004
+        },
+        {
+          "word": "fourteen.3",
+          "start": 5085,
+          "end": 6293
+        },
+        {
+          "word": "with",
+          "start": 6525,
+          "end": 6734
+        },
+        {
+          "word": "georgringer/news",
+          "start": 6803,
+          "end": 8336
+        },
+        {
+          "word": "14.",
+          "start": 8371,
+          "end": 9091
+        }
+      ],
+      "heard": "It is made for archives too large to tag by hand on TYPO3 version 14. With Jorg Ringer, News 14."
+    },
+    {
+      "say": "Open source. Clone the skills, and help us improve them.",
+      "show": "Open source. Clone the skills, and help us improve them.",
+      "file": "voice-11.mp3",
+      "duration": 3944,
+      "words": [
+        {
+          "word": "Open",
+          "start": 12,
+          "end": 372
+        },
+        {
+          "word": "source.",
+          "start": 464,
+          "end": 998
+        },
+        {
+          "word": "Clone",
+          "start": 1231,
+          "end": 1614
+        },
+        {
+          "word": "the",
+          "start": 1649,
+          "end": 1718
+        },
+        {
+          "word": "skills,",
+          "start": 1765,
+          "end": 2299
+        },
+        {
+          "word": "and",
+          "start": 2322,
+          "end": 2473
+        },
+        {
+          "word": "help",
+          "start": 2543,
+          "end": 2694
+        },
+        {
+          "word": "us",
+          "start": 2740,
+          "end": 2810
+        },
+        {
+          "word": "improve",
+          "start": 2879,
+          "end": 3297
+        },
+        {
+          "word": "them.",
+          "start": 3332,
+          "end": 3622
+        }
+      ],
+      "heard": "Open source, clone the skills and help us improve them."
+    }
+  ]
+}

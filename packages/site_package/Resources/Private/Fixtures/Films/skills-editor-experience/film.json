@@ -1,0 +1,96 @@
+{
+  "id": "skills-editor-experience",
+  "slug": "/ai/agentic-skills/editor-experience",
+  "placements": [
+    {
+      "slug": "/ai/agentic-skills/editor-experience"
+    }
+  ],
+  "title": "Editor experience: agent skills for TYPO3",
+  "header": "Editor experience in 92 seconds",
+  "description": "<p>Editors type on the page, publish when they are ready, see records as cards and boards, and get a well-configured rich-text editor. For each skill: the prompt you would type and what it does. Narrated, with selectable captions.</p>",
+  "mp4": "skills-editor-experience-ded3856a.mp4",
+  "poster": "skills-editor-experience-poster-ded3856a.webp",
+  "vtt": "skills-editor-experience-ded3856a.en.vtt",
+  "duration": 91.827,
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "sound": true,
+  "alt": "Film, 92 seconds: Editor experience, 4 agent skills for TYPO3 v14 (typo3-visual-editor, typo3-workspaces, typo3-records-list-types, typo3-ckeditor5). Each skill with its own prompt and what it delivers. Narrated, with selectable captions.",
+  "transcript": [
+    {
+      "at": "0:02",
+      "text": "Editors want to click into the page and type, not fill in forms."
+    },
+    {
+      "at": "0:08",
+      "text": "Editor experience: four skills for TYPO3 v14."
+    },
+    {
+      "at": "0:14",
+      "text": "Prepares templates so editors click into the page and type, with every output traceable to its record."
+    },
+    {
+      "at": "0:23",
+      "text": "In the Visual Editor: click the headline, type, save. The record is updated."
+    },
+    {
+      "at": "0:31",
+      "text": "Prepares content in a workspace, then reviews and publishes it, with the file traps named."
+    },
+    {
+      "at": "0:39",
+      "text": "A preview that shows the live page, or images that lose their references on publishing, are the usual surprises."
+    },
+    {
+      "at": "0:49",
+      "text": "Shows records as grid, teaser, timeline or board views in the Records module, set in TSconfig."
+    },
+    {
+      "at": "0:58",
+      "text": "Grid, timeline, catalogue: editors switch views, and nothing in core is patched."
+    },
+    {
+      "at": "1:06",
+      "text": "Configures RTE presets and builds CKEditor 5 plugins for TYPO3."
+    },
+    {
+      "at": "1:14",
+      "text": "CKEditor 5 is a complete rewrite with no compatibility layer for version 4, so old plugins need a plan."
+    },
+    {
+      "at": "1:24",
+      "text": "Open source. Clone the skills, and help us improve them."
+    }
+  ],
+  "captions": {
+    "language": "en",
+    "label": "English",
+    "burnedIn": false,
+    "languages": [
+      "en",
+      "de",
+      "zh",
+      "hu"
+    ]
+  },
+  "bytes": {
+    "mp4": 4374074,
+    "poster": 36298,
+    "vtt": 1317,
+    "captionTracks": {
+      "en": 1317,
+      "de": 1445,
+      "zh": 1250,
+      "hu": 1487
+    }
+  },
+  "generator": "packages/site_package/Build/Film/render-films.mjs",
+  "captionTracks": {
+    "en": "skills-editor-experience-ded3856a.en.vtt",
+    "de": "skills-editor-experience-ded3856a.de.vtt",
+    "zh": "skills-editor-experience-ded3856a.zh.vtt",
+    "hu": "skills-editor-experience-ded3856a.hu.vtt"
+  }
+}

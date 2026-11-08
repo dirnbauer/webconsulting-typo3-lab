@@ -1,0 +1,96 @@
+{
+  "id": "skills-code-migration",
+  "slug": "/ai/agentic-skills/code-migration",
+  "placements": [
+    {
+      "slug": "/ai/agentic-skills/code-migration"
+    }
+  ],
+  "title": "Automated code migration: agent skills for TYPO3",
+  "header": "Automated code migration in 90 seconds",
+  "description": "<p>Rector rewrites the PHP, Fractor the TypoScript, Fluid and FlexForms, and one change rolls out to many extensions in reviewable batches. For each skill: the prompt you would type and what it does. Narrated, with selectable captions.</p>",
+  "mp4": "skills-code-migration-a0969777.mp4",
+  "poster": "skills-code-migration-poster-a0969777.webp",
+  "vtt": "skills-code-migration-a0969777.en.vtt",
+  "duration": 89.729,
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "sound": true,
+  "alt": "Film, 90 seconds: Automated code migration, 4 agent skills for TYPO3 v14 (typo3-extension-upgrade, typo3-rector, typo3-fractor, typo3-batch). Each skill with its own prompt and what it delivers. Narrated, with selectable captions.",
+  "transcript": [
+    {
+      "at": "0:02",
+      "text": "Forty extensions, one deprecated API, and nobody wants to fix it by hand."
+    },
+    {
+      "at": "0:09",
+      "text": "Automated code migration: four skills for TYPO3 v14."
+    },
+    {
+      "at": "0:17",
+      "text": "Makes one extension work with a newer TYPO3 LTS, with Extension Scanner, Rector, Fractor and PHPStan."
+    },
+    {
+      "at": "0:28",
+      "text": "It treats a failing commit hook as a check to fix, not an obstacle to skip."
+    },
+    {
+      "at": "0:35",
+      "text": "Fixes deprecated PHP calls with Rector: dry run, review the diff, apply, dry run again."
+    },
+    {
+      "at": "0:45",
+      "text": "Apply, dry-run again: one generated file left. Once more: Rector is done."
+    },
+    {
+      "at": "0:53",
+      "text": "Rewrites TypoScript, FlexForms, Fluid, YAML and XLIFF towards v14 with Fractor."
+    },
+    {
+      "at": "1:03",
+      "text": "FlexForm, TypoScript and Fluid patterns are easy to miss in a review."
+    },
+    {
+      "at": "1:10",
+      "text": "Applies one repeated change to many extensions at once, in reviewable batches."
+    },
+    {
+      "at": "1:17",
+      "text": "A 500-file commit cannot be reviewed."
+    },
+    {
+      "at": "1:22",
+      "text": "Open source. Clone the skills, and help us improve them."
+    }
+  ],
+  "captions": {
+    "language": "en",
+    "label": "English",
+    "burnedIn": false,
+    "languages": [
+      "en",
+      "de",
+      "zh",
+      "hu"
+    ]
+  },
+  "bytes": {
+    "mp4": 4457964,
+    "poster": 56430,
+    "vtt": 1219,
+    "captionTracks": {
+      "en": 1219,
+      "de": 1323,
+      "zh": 1216,
+      "hu": 1384
+    }
+  },
+  "generator": "packages/site_package/Build/Film/render-films.mjs",
+  "captionTracks": {
+    "en": "skills-code-migration-a0969777.en.vtt",
+    "de": "skills-code-migration-a0969777.de.vtt",
+    "zh": "skills-code-migration-a0969777.zh.vtt",
+    "hu": "skills-code-migration-a0969777.hu.vtt"
+  }
+}
