@@ -190,6 +190,18 @@ body { font-family: var(--sans); color: var(--ink); -webkit-font-smoothing: anti
 .finish .frame, .finish .term { box-shadow: 0 60px 140px -50px rgb(0 0 0 / 0.9), 0 0 0 1px rgb(0 0 0 / 0.4), 0 110px 220px -70px rgb(0 0 0 / 0.55); }
 .finish .frame::after, .finish .term::after { content: ''; position: absolute; inset: 0; z-index: 8; pointer-events: none; border-radius: inherit;
   background: linear-gradient(112deg, transparent calc(var(--sheen) * 170% - 75%), rgb(255 255 255 / 0.075) calc(var(--sheen) * 170% - 58%), transparent calc(var(--sheen) * 170% - 41%)); }
+/* Home style (SPEC.style = 'home'): the look of Desiderio's home page product film
+   (Build/Film/film.html in Desiderio): Inter and JetBrains Mono, a violet stage, upright
+   headlines at weight 650 with tight tracking; accent words keep the accent colour. */
+@font-face { font-family: "Inter Variable"; font-weight: 100 900; font-display: block; src: url(/vendor/webconsulting/desiderio/Resources/Public/Css/files/inter-latin-wght-normal.woff2) format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: "Inter Variable"; font-weight: 100 900; font-display: block; src: url(/vendor/webconsulting/desiderio/Resources/Public/Css/files/inter-latin-ext-wght-normal.woff2) format("woff2"); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+@font-face { font-family: "JetBrains Mono Variable"; font-weight: 100 800; font-display: block; src: url(/vendor/webconsulting/desiderio/Resources/Public/Css/files/jetbrains-mono-latin-wght-normal.woff2) format("woff2"); }
+html.style-home { --stage: #060608; --ink: #f5f5f7; --muted: #a1a1aa; --soft: #71717a; --line: rgb(255 255 255 / 0.1); --frame: #141417; --accent: #b9a4ff;
+  --sans: "Inter Variable", "PingFang SC", "Noto Sans SC", system-ui, sans-serif; --serif: var(--sans); --mono: "JetBrains Mono Variable", ui-monospace, Menlo, monospace; }
+html.style-home body { font-feature-settings: "cv11", "ss01"; }
+html.style-home :is(.headline, .start-head, .wordmark, .copy h2, .label b, .points-head, .grid-head, .end-head, .stats-head) { font-weight: 650; letter-spacing: -0.042em; }
+html.style-home :is(.wordmark, .start-head) { letter-spacing: -0.045em; }
+html.style-home :is(.headline, .serif, .wordmark, .end-head, .copy h2, .points-head, .grid-head, .start-head) em { font-style: normal; }
 </style>
 </head>
 <body>
@@ -221,6 +233,9 @@ const custom = [];
 const clips = [];
 const check = '<svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>';
 const arrow = '<svg viewBox="0 0 26 32"><path d="M2 2 L2 26 L8.5 20 L13 30 L17 28 L12.6 18.4 L21 18.4 Z" fill="#fff" stroke="#111" stroke-width="1.6" stroke-linejoin="round"/></svg>';
+// The home style sets its own stage, type and accent; an explicit SPEC.accent still wins.
+const HOME = SPEC.style === 'home';
+if (HOME) document.documentElement.classList.add('style-home');
 if (SPEC.accent) document.documentElement.style.setProperty('--accent', SPEC.accent);
 
 // ---------------------------------------------------------------------------
@@ -366,11 +381,13 @@ class Clip {
 // style lights up under. A film with a background of its own also gets the
 // finish (frame sheen, second shadow); SPEC.finish overrides that.
 // ---------------------------------------------------------------------------
-const PALETTE = SPEC.palette ?? ['#c7863f', '#4a57ff', '#2c5a52'];
-const BACKGROUND = SPEC.background ?? 'aurora';
+const PALETTE = SPEC.palette ?? (HOME ? ['#7b51da', '#3730a3', '#1d4ed8'] : ['#c7863f', '#4a57ff', '#2c5a52']);
+const BACKGROUND = SPEC.background ?? (HOME ? 'mesh' : 'aurora');
 const FINISH = SPEC.finish ?? BACKGROUND !== 'aurora';
 if (FINISH) stage.classList.add('finish');
-const paint = createBackground($('aura'), { style: BACKGROUND, palette: PALETTE, seed: SPEC.seed ?? 1 });
+// The home film runs its mesh a little stronger (Desiderio: backgroundGain 1.4).
+const GAIN = SPEC.backgroundGain ?? (HOME ? 1.4 : 1);
+const paint = createBackground($('aura'), { style: BACKGROUND, palette: PALETTE, seed: SPEC.seed ?? 1, ...(HOME ? { base: '#060608' } : {}) });
 let AURA = [];
 function auraAt(t) {
   let i = 0;
@@ -389,7 +406,7 @@ function focusAt(t) {
   const f = FOCI.findLast(({ a, b }) => t >= a && t < b);
   return f ? { x: f.x, y: f.y, k: smooth((t - f.a) / 700) * (1 - smooth((t - f.b + 500) / 500)) } : null;
 }
-custom.push((t) => paint(t, auraAt(t), { focus: focusAt(t) }));
+custom.push((t) => paint(t, auraAt(t) * GAIN, { focus: focusAt(t) }));
 // Light grain: it costs bits in every frame, so it stays faint.
 const grain = node('div', 'grain');
 grain.style.opacity = String(0.22 * Number(params.get('grain') ?? 1));

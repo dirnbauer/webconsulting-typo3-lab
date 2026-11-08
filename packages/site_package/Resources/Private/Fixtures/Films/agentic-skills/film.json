@@ -3,7 +3,10 @@
   "slug": "/ai/agentic-skills",
   "placements": [
     {
-      "slug": "/ai/agentic-skills"
+      "slug": "/ai/agentic-skills",
+      "after": {
+        "header": "Start with the ten superfeature skills"
+      }
     }
   ],
   "title": "Agentic skills: overview film",

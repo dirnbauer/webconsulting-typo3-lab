@@ -22,7 +22,8 @@ const SHOT = (name) => `Frontend/frontend-feature-skills-${name}.webp`;
 function skillsFilm({ urls, ...definition }) {
     const [id, spec] = featureFilm(definition);
     spec.scenes.filter((scene) => scene.type === 'shot').forEach((scene, index) => { scene.url = urls[index]; });
-    return [id, { ...spec, placements: [{ slug: spec.slug }] }];
+    // After the superfeature box, the hub's second element (Desiderio 4.35.0).
+    return [id, { ...spec, placements: [{ slug: spec.slug, after: { header: 'Start with the ten superfeature skills' } }] }];
 }
 
 export default Object.fromEntries([
