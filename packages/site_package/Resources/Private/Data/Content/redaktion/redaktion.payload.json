@@ -12,19 +12,19 @@
       "pid": 0,
       "match": {
         "pid": 0,
-        "slug": "/software/redaktion",
+        "slug": "/software/typewright",
         "sys_language_uid": 0
       },
       "set": {
-        "title": "Redaktion: a calm Mac workspace for TYPO3 content",
-        "nav_title": "Redaktion",
-        "slug": "/software/redaktion",
+        "title": "Typewright: a calm Mac workspace for TYPO3 content",
+        "nav_title": "Typewright",
+        "slug": "/software/typewright",
         "hidden": 0,
         "nav_hide": 0,
         "sys_language_uid": 0,
-        "seo_title": "Redaktion: TYPO3 news, pages, translations and media on your Mac",
-        "description": "Write TYPO3 news, build pages, translate content and manage images in one calm Mac app. Local drafts, TYPO3’s own rules and deliberate publishing.",
-        "abstract": "A focused Electron app and web editor for TYPO3: news with local drafts and offline editing, pages and content elements in every language, TYPO3 links and a media library with alt texts."
+        "seo_title": "Typewright: TYPO3 news, pages, translations and media on your Mac",
+        "description": "Write TYPO3 news, build pages, translate content and manage images in one calm Mac app. Fifteen features, local drafts, TYPO3’s own rules and deliberate publishing.",
+        "abstract": "Typewright is a calm Mac app and web editor for TYPO3: pages and content elements in every language, rich text that keeps TYPO3’s markup, links, media with alt texts, news with local drafts and workspace publishing."
       }
     },
     {
@@ -67,7 +67,7 @@
         "sys_language_uid": 0,
         "rowDescription": "redaktion:why",
         "header": "What does a desktop app add to TYPO3?",
-        "content": "<p>Writing often happens between meetings, on a train, or with an unstable connection. Redaktion keeps the current story and its local draft on your Mac. You can reopen previously loaded articles after an offline restart and continue writing.</p><p>Pages work the way TYPO3 shows them: one tree per site, columns from the backend layout and every language of a page side by side. Content elements, links and images follow TYPO3’s own rules, from the element wizard to the link types and the file list.</p>",
+        "content": "<p>Writing often happens between meetings, on a train, or with an unstable connection. Typewright keeps the current story and its local draft on your Mac. You can reopen previously loaded articles after an offline restart and continue writing.</p><p>Pages work the way TYPO3 shows them: one tree per site, columns from the backend layout and every language of a page side by side. Content elements, links and images follow TYPO3’s own rules, from the element wizard to the link types and the file list.</p>",
         "sidebar_content": "<h3>TYPO3 remains in charge</h3><p>Your backend user, permissions and workspace rules still apply. A local draft is not a server save. Nothing uploads or publishes in the background.</p><p>The backend remains the place for extension settings, user management, complete page configuration and collection entries that need adding or sorting.</p>",
         "sidebar_position": "right"
       }
@@ -75,11 +75,11 @@
     {
       "table": "tt_content",
       "action": "create",
-      "key": "NEW_redaktion_tour",
+      "key": "NEW_redaktion_tabs_build",
       "pid": "@NEW_redaktion_page",
       "match": {
         "pid": "@NEW_redaktion_page",
-        "rowDescription": "redaktion:tour",
+        "rowDescription": "redaktion:tabs_build",
         "sys_language_uid": 0
       },
       "set": {
@@ -88,30 +88,29 @@
         "colPos": 0,
         "hidden": 0,
         "sys_language_uid": 0,
-        "rowDescription": "redaktion:tour",
-        "header": "Pages, languages, links and media",
-        "subheadline": "Everything an editor needs for a page, with TYPO3’s own rules: the page tree, the backend layout, the element wizard, the link types and the file list."
+        "rowDescription": "redaktion:tabs_build",
+        "header": "Build pages the TYPO3 way",
+        "subheadline": "Features 1 to 5 of 15: the page tree, the page assistant, adding elements, moving and switching, page properties."
       },
       "_collection": {
         "field": "desiderio_featuretabs_items",
         "keys": [
-          "NEW_redaktion_tour_0",
-          "NEW_redaktion_tour_1",
-          "NEW_redaktion_tour_2",
-          "NEW_redaktion_tour_3",
-          "NEW_redaktion_tour_4",
-          "NEW_redaktion_tour_5"
+          "NEW_redaktion_tabs_build_0",
+          "NEW_redaktion_tabs_build_1",
+          "NEW_redaktion_tabs_build_2",
+          "NEW_redaktion_tabs_build_3",
+          "NEW_redaktion_tabs_build_4"
         ]
       }
     },
     {
       "table": "feature_tabs_items",
       "action": "create",
-      "key": "NEW_redaktion_tour_0",
+      "key": "NEW_redaktion_tabs_build_0",
       "pid": "@NEW_redaktion_page",
       "match": {
         "pid": "@NEW_redaktion_page",
-        "foreign_table_parent_uid": "@NEW_redaktion_tour",
+        "foreign_table_parent_uid": "@NEW_redaktion_tabs_build",
         "tab_label": "Pages",
         "sys_language_uid": 0
       },
@@ -119,16 +118,16 @@
         "tab_label": "Pages",
         "title": "Every page, every language, one view",
         "description": "<p>The tree shows each page once, the columns follow the page’s backend layout, and language tabs count what is translated. Type icons, thumbnails and short excerpts make long pages easy to scan.</p>",
-        "foreign_table_parent_uid": "@NEW_redaktion_tour",
+        "foreign_table_parent_uid": "@NEW_redaktion_tabs_build",
         "sys_language_uid": 0,
         "hidden": 0
       },
       "files": {
         "image": [
           {
-            "source": "EXT:site_package/Resources/Public/Images/Redaktion/redaktion-pages-685b1995.webp",
+            "source": "EXT:site_package/Resources/Public/Images/Redaktion/typewright-f01-400d1845.webp",
             "folder": "1:/user_upload/redaktion/",
-            "alternative": "Every page, every language, one view — webconsulting Redaktion with demo content from the TYPO3 lab.",
+            "alternative": "Every page, every language, one view — Typewright with demo content from the TYPO3 lab.",
             "title": "Every page, every language, one view",
             "description": "Actual macOS application with demo content from the TYPO3 lab."
           }
@@ -138,28 +137,28 @@
     {
       "table": "feature_tabs_items",
       "action": "create",
-      "key": "NEW_redaktion_tour_1",
+      "key": "NEW_redaktion_tabs_build_1",
       "pid": "@NEW_redaktion_page",
       "match": {
         "pid": "@NEW_redaktion_page",
-        "foreign_table_parent_uid": "@NEW_redaktion_tour",
+        "foreign_table_parent_uid": "@NEW_redaktion_tabs_build",
         "tab_label": "New page",
         "sys_language_uid": 0
       },
       "set": {
         "tab_label": "New page",
         "title": "A new page in five steps",
-        "description": "<p>Choose the position, the page type, title and URL path, the translations and a first element. New pages start hidden until you publish them.</p>",
-        "foreign_table_parent_uid": "@NEW_redaktion_tour",
+        "description": "<p>The page assistant asks for the position, the page type, the URL path, the translations you want and a first element. The new page starts hidden; you publish it when it is ready.</p>",
+        "foreign_table_parent_uid": "@NEW_redaktion_tabs_build",
         "sys_language_uid": 0,
         "hidden": 0
       },
       "files": {
         "image": [
           {
-            "source": "EXT:site_package/Resources/Public/Images/Redaktion/redaktion-assistant-c4e069cb.webp",
+            "source": "EXT:site_package/Resources/Public/Images/Redaktion/typewright-f02-d8310f25.webp",
             "folder": "1:/user_upload/redaktion/",
-            "alternative": "A new page in five steps — webconsulting Redaktion with demo content from the TYPO3 lab.",
+            "alternative": "A new page in five steps — Typewright with demo content from the TYPO3 lab.",
             "title": "A new page in five steps",
             "description": "Actual macOS application with demo content from the TYPO3 lab."
           }
@@ -169,29 +168,29 @@
     {
       "table": "feature_tabs_items",
       "action": "create",
-      "key": "NEW_redaktion_tour_2",
+      "key": "NEW_redaktion_tabs_build_2",
       "pid": "@NEW_redaktion_page",
       "match": {
         "pid": "@NEW_redaktion_page",
-        "foreign_table_parent_uid": "@NEW_redaktion_tour",
-        "tab_label": "Elements",
+        "foreign_table_parent_uid": "@NEW_redaktion_tabs_build",
+        "tab_label": "Add elements",
         "sys_language_uid": 0
       },
       "set": {
-        "tab_label": "Elements",
-        "title": "TYPO3’s own element wizard",
-        "description": "<p>The wizard lists the content elements your site offers, Content Blocks included, filtered by the rules of each column. Search, use the keyboard or pick a recent element; insert points place it exactly.</p>",
-        "foreign_table_parent_uid": "@NEW_redaktion_tour",
+        "tab_label": "Add elements",
+        "title": "Add an element with TYPO3’s own wizard",
+        "description": "<p>Choose where it goes, pick it from the same wizard as in the backend, Content Blocks included, and fill it in right away. The wizard shows only what the column of the backend layout allows.</p>",
+        "foreign_table_parent_uid": "@NEW_redaktion_tabs_build",
         "sys_language_uid": 0,
         "hidden": 0
       },
       "files": {
         "image": [
           {
-            "source": "EXT:site_package/Resources/Public/Images/Redaktion/redaktion-wizard-e3fd916b.webp",
+            "source": "EXT:site_package/Resources/Public/Images/Redaktion/typewright-f03-1f6e07a7.webp",
             "folder": "1:/user_upload/redaktion/",
-            "alternative": "TYPO3’s own element wizard — webconsulting Redaktion with demo content from the TYPO3 lab.",
-            "title": "TYPO3’s own element wizard",
+            "alternative": "Add an element with TYPO3’s own wizard — Typewright with demo content from the TYPO3 lab.",
+            "title": "Add an element with TYPO3’s own wizard",
             "description": "Actual macOS application with demo content from the TYPO3 lab."
           }
         ]
@@ -200,29 +199,29 @@
     {
       "table": "feature_tabs_items",
       "action": "create",
-      "key": "NEW_redaktion_tour_3",
+      "key": "NEW_redaktion_tabs_build_3",
       "pid": "@NEW_redaktion_page",
       "match": {
         "pid": "@NEW_redaktion_page",
-        "foreign_table_parent_uid": "@NEW_redaktion_tour",
-        "tab_label": "Translate",
+        "foreign_table_parent_uid": "@NEW_redaktion_tabs_build",
+        "tab_label": "Move and switch",
         "sys_language_uid": 0
       },
       "set": {
-        "tab_label": "Translate",
-        "title": "Translate next to the original",
-        "description": "<p>Missing translations are marked and created with TYPO3’s own command, one element or a whole page at a time. While you translate, the original text sits under each field.</p>",
-        "foreign_table_parent_uid": "@NEW_redaktion_tour",
+        "tab_label": "Move and switch",
+        "title": "Move, duplicate, hide and switch",
+        "description": "<p>Reorder elements within a column or move them to another, duplicate or hide them, and switch between the languages of a page with one tab. TYPO3’s own move and copy commands do the work.</p>",
+        "foreign_table_parent_uid": "@NEW_redaktion_tabs_build",
         "sys_language_uid": 0,
         "hidden": 0
       },
       "files": {
         "image": [
           {
-            "source": "EXT:site_package/Resources/Public/Images/Redaktion/redaktion-translate-db40c6ec.webp",
+            "source": "EXT:site_package/Resources/Public/Images/Redaktion/typewright-f04-6ae2026b.webp",
             "folder": "1:/user_upload/redaktion/",
-            "alternative": "Translate next to the original — webconsulting Redaktion with demo content from the TYPO3 lab.",
-            "title": "Translate next to the original",
+            "alternative": "Move, duplicate, hide and switch — Typewright with demo content from the TYPO3 lab.",
+            "title": "Move, duplicate, hide and switch",
             "description": "Actual macOS application with demo content from the TYPO3 lab."
           }
         ]
@@ -231,28 +230,152 @@
     {
       "table": "feature_tabs_items",
       "action": "create",
-      "key": "NEW_redaktion_tour_4",
+      "key": "NEW_redaktion_tabs_build_4",
       "pid": "@NEW_redaktion_page",
       "match": {
         "pid": "@NEW_redaktion_page",
-        "foreign_table_parent_uid": "@NEW_redaktion_tour",
+        "foreign_table_parent_uid": "@NEW_redaktion_tabs_build",
+        "tab_label": "Properties",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "tab_label": "Properties",
+        "title": "Page properties per language",
+        "description": "<p>Title, navigation title, URL path, SEO title and description, visibility and dates, edited per language right next to the content.</p>",
+        "foreign_table_parent_uid": "@NEW_redaktion_tabs_build",
+        "sys_language_uid": 0,
+        "hidden": 0
+      },
+      "files": {
+        "image": [
+          {
+            "source": "EXT:site_package/Resources/Public/Images/Redaktion/typewright-f05-6546df1c.webp",
+            "folder": "1:/user_upload/redaktion/",
+            "alternative": "Page properties per language — Typewright with demo content from the TYPO3 lab.",
+            "title": "Page properties per language",
+            "description": "Actual macOS application with demo content from the TYPO3 lab."
+          }
+        ]
+      }
+    },
+    {
+      "table": "tt_content",
+      "action": "create",
+      "key": "NEW_redaktion_tabs_write",
+      "pid": "@NEW_redaktion_page",
+      "match": {
+        "pid": "@NEW_redaktion_page",
+        "rowDescription": "redaktion:tabs_write",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "CType": "desiderio_featuretabs",
+        "header_layout": 2,
+        "colPos": 0,
+        "hidden": 0,
+        "sys_language_uid": 0,
+        "rowDescription": "redaktion:tabs_write",
+        "header": "Write, edit and link",
+        "subheadline": "Features 6 to 10 of 15: every field of an element, rich text that keeps TYPO3’s markup, links, news with media, local drafts and saving."
+      },
+      "_collection": {
+        "field": "desiderio_featuretabs_items",
+        "keys": [
+          "NEW_redaktion_tabs_write_0",
+          "NEW_redaktion_tabs_write_1",
+          "NEW_redaktion_tabs_write_2",
+          "NEW_redaktion_tabs_write_3",
+          "NEW_redaktion_tabs_write_4"
+        ]
+      }
+    },
+    {
+      "table": "feature_tabs_items",
+      "action": "create",
+      "key": "NEW_redaktion_tabs_write_0",
+      "pid": "@NEW_redaktion_page",
+      "match": {
+        "pid": "@NEW_redaktion_page",
+        "foreign_table_parent_uid": "@NEW_redaktion_tabs_write",
+        "tab_label": "Edit",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "tab_label": "Edit",
+        "title": "Every field of an element",
+        "description": "<p>The editor shows the fields TYPO3 defines for each element type: headers, text, links, files and Content Blocks collections such as tabs or questions, each item in its own order.</p>",
+        "foreign_table_parent_uid": "@NEW_redaktion_tabs_write",
+        "sys_language_uid": 0,
+        "hidden": 0
+      },
+      "files": {
+        "image": [
+          {
+            "source": "EXT:site_package/Resources/Public/Images/Redaktion/typewright-f06-1caa4061.webp",
+            "folder": "1:/user_upload/redaktion/",
+            "alternative": "Every field of an element — Typewright with demo content from the TYPO3 lab.",
+            "title": "Every field of an element",
+            "description": "Actual macOS application with demo content from the TYPO3 lab."
+          }
+        ]
+      }
+    },
+    {
+      "table": "feature_tabs_items",
+      "action": "create",
+      "key": "NEW_redaktion_tabs_write_1",
+      "pid": "@NEW_redaktion_page",
+      "match": {
+        "pid": "@NEW_redaktion_page",
+        "foreign_table_parent_uid": "@NEW_redaktion_tabs_write",
+        "tab_label": "Rich text",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "tab_label": "Rich text",
+        "title": "Rich text that keeps TYPO3’s markup",
+        "description": "<p>Abbreviations, sub- and superscript, language spans, classes on paragraphs and RTE images survive editing. Markup the editor cannot show opens as HTML instead of being dropped.</p>",
+        "foreign_table_parent_uid": "@NEW_redaktion_tabs_write",
+        "sys_language_uid": 0,
+        "hidden": 0
+      },
+      "files": {
+        "image": [
+          {
+            "source": "EXT:site_package/Resources/Public/Images/Redaktion/typewright-f07-ab188d61.webp",
+            "folder": "1:/user_upload/redaktion/",
+            "alternative": "Rich text that keeps TYPO3’s markup — Typewright with demo content from the TYPO3 lab.",
+            "title": "Rich text that keeps TYPO3’s markup",
+            "description": "Actual macOS application with demo content from the TYPO3 lab."
+          }
+        ]
+      }
+    },
+    {
+      "table": "feature_tabs_items",
+      "action": "create",
+      "key": "NEW_redaktion_tabs_write_2",
+      "pid": "@NEW_redaktion_page",
+      "match": {
+        "pid": "@NEW_redaktion_page",
+        "foreign_table_parent_uid": "@NEW_redaktion_tabs_write",
         "tab_label": "Links",
         "sys_language_uid": 0
       },
       "set": {
         "tab_label": "Links",
         "title": "Links the way TYPO3 stores them",
-        "description": "<p>Link to pages and their content, files, folders, web and e-mail addresses, phone numbers, and records such as news when your site configures them. Links keep TYPO3’s format, show their titles, and broken ones are marked.</p>",
-        "foreign_table_parent_uid": "@NEW_redaktion_tour",
+        "description": "<p>Link pages, content anchors, files, folders and records from TYPO3’s link browser, or press ⌘K in the text. Links keep TYPO3’s format and show their titles.</p>",
+        "foreign_table_parent_uid": "@NEW_redaktion_tabs_write",
         "sys_language_uid": 0,
         "hidden": 0
       },
       "files": {
         "image": [
           {
-            "source": "EXT:site_package/Resources/Public/Images/Redaktion/redaktion-links-b56892f1.webp",
+            "source": "EXT:site_package/Resources/Public/Images/Redaktion/typewright-f08-4364ecd4.webp",
             "folder": "1:/user_upload/redaktion/",
-            "alternative": "Links the way TYPO3 stores them — webconsulting Redaktion with demo content from the TYPO3 lab.",
+            "alternative": "Links the way TYPO3 stores them — Typewright with demo content from the TYPO3 lab.",
             "title": "Links the way TYPO3 stores them",
             "description": "Actual macOS application with demo content from the TYPO3 lab."
           }
@@ -262,29 +385,60 @@
     {
       "table": "feature_tabs_items",
       "action": "create",
-      "key": "NEW_redaktion_tour_5",
+      "key": "NEW_redaktion_tabs_write_3",
       "pid": "@NEW_redaktion_page",
       "match": {
         "pid": "@NEW_redaktion_page",
-        "foreign_table_parent_uid": "@NEW_redaktion_tour",
-        "tab_label": "Media",
+        "foreign_table_parent_uid": "@NEW_redaktion_tabs_write",
+        "tab_label": "News",
         "sys_language_uid": 0
       },
       "set": {
-        "tab_label": "Media",
-        "title": "A media library on TYPO3’s file list",
-        "description": "<p>Browse and search folders, upload by drag and drop, and maintain titles and alt texts in every language. You see where each file is used, and missing files are flagged.</p>",
-        "foreign_table_parent_uid": "@NEW_redaktion_tour",
+        "tab_label": "News",
+        "title": "Everything EXT:news offers",
+        "description": "<p>Images and videos with a preview choice, related links and files, categories, tags and related articles, SEO fields and every language of an article, around a calm writing surface.</p>",
+        "foreign_table_parent_uid": "@NEW_redaktion_tabs_write",
         "sys_language_uid": 0,
         "hidden": 0
       },
       "files": {
         "image": [
           {
-            "source": "EXT:site_package/Resources/Public/Images/Redaktion/redaktion-media-c3967a47.webp",
+            "source": "EXT:site_package/Resources/Public/Images/Redaktion/typewright-f09-15a37282.webp",
             "folder": "1:/user_upload/redaktion/",
-            "alternative": "A media library on TYPO3’s file list — webconsulting Redaktion with demo content from the TYPO3 lab.",
-            "title": "A media library on TYPO3’s file list",
+            "alternative": "Everything EXT:news offers — Typewright with demo content from the TYPO3 lab.",
+            "title": "Everything EXT:news offers",
+            "description": "Actual macOS application with demo content from the TYPO3 lab."
+          }
+        ]
+      }
+    },
+    {
+      "table": "feature_tabs_items",
+      "action": "create",
+      "key": "NEW_redaktion_tabs_write_4",
+      "pid": "@NEW_redaktion_page",
+      "match": {
+        "pid": "@NEW_redaktion_page",
+        "foreign_table_parent_uid": "@NEW_redaktion_tabs_write",
+        "tab_label": "Save",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "tab_label": "Save",
+        "title": "Local drafts, saving you can see",
+        "description": "<p>Drafts are kept on your Mac after a short pause and survive an offline restart. ⌘S sends them to TYPO3, and the save bar confirms with a check and the time.</p>",
+        "foreign_table_parent_uid": "@NEW_redaktion_tabs_write",
+        "sys_language_uid": 0,
+        "hidden": 0
+      },
+      "files": {
+        "image": [
+          {
+            "source": "EXT:site_package/Resources/Public/Images/Redaktion/typewright-f10-07891631.webp",
+            "folder": "1:/user_upload/redaktion/",
+            "alternative": "Local drafts, saving you can see — Typewright with demo content from the TYPO3 lab.",
+            "title": "Local drafts, saving you can see",
             "description": "Actual macOS application with demo content from the TYPO3 lab."
           }
         ]
@@ -293,32 +447,184 @@
     {
       "table": "tt_content",
       "action": "create",
-      "key": "NEW_redaktion_shot_alt",
+      "key": "NEW_redaktion_tabs_publish",
       "pid": "@NEW_redaktion_page",
       "match": {
         "pid": "@NEW_redaktion_page",
-        "rowDescription": "redaktion:shot_alt",
+        "rowDescription": "redaktion:tabs_publish",
         "sys_language_uid": 0
       },
       "set": {
-        "CType": "desiderio_textmedia",
+        "CType": "desiderio_featuretabs",
         "header_layout": 2,
         "colPos": 0,
         "hidden": 0,
         "sys_language_uid": 0,
-        "rowDescription": "redaktion:shot_alt",
-        "header": "Alt text where the image is used",
-        "content": "<p>Every image in a content element gets its own alternative text, title, description and link for that use. Empty fields fall back to the file’s metadata; a decorative image is marked on purpose and skipped by screen readers.</p><p><small>Actual application screenshot with demo content from the TYPO3 lab. The interface is in German.</small></p>",
-        "shadcn_layout": "media-above",
-        "media_rounded": 0
+        "rowDescription": "redaktion:tabs_publish",
+        "header": "Media, languages and publishing",
+        "subheadline": "Features 11 to 15 of 15: the media library, uploads, alt text per use, translation and workspaces."
+      },
+      "_collection": {
+        "field": "desiderio_featuretabs_items",
+        "keys": [
+          "NEW_redaktion_tabs_publish_0",
+          "NEW_redaktion_tabs_publish_1",
+          "NEW_redaktion_tabs_publish_2",
+          "NEW_redaktion_tabs_publish_3",
+          "NEW_redaktion_tabs_publish_4"
+        ]
+      }
+    },
+    {
+      "table": "feature_tabs_items",
+      "action": "create",
+      "key": "NEW_redaktion_tabs_publish_0",
+      "pid": "@NEW_redaktion_page",
+      "match": {
+        "pid": "@NEW_redaktion_page",
+        "foreign_table_parent_uid": "@NEW_redaktion_tabs_publish",
+        "tab_label": "Media",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "tab_label": "Media",
+        "title": "A media library on TYPO3’s file list",
+        "description": "<p>Browse folders, search files and edit metadata per language: titles, alternative texts and descriptions in TYPO3’s own file tables.</p>",
+        "foreign_table_parent_uid": "@NEW_redaktion_tabs_publish",
+        "sys_language_uid": 0,
+        "hidden": 0
       },
       "files": {
-        "media": [
+        "image": [
           {
-            "source": "EXT:site_package/Resources/Public/Images/Redaktion/redaktion-alt-efdd0f72.webp",
+            "source": "EXT:site_package/Resources/Public/Images/Redaktion/typewright-f11-3a746b71.webp",
             "folder": "1:/user_upload/redaktion/",
-            "alternative": "Alt text where the image is used — webconsulting Redaktion with demo content from the TYPO3 lab.",
+            "alternative": "A media library on TYPO3’s file list — Typewright with demo content from the TYPO3 lab.",
+            "title": "A media library on TYPO3’s file list",
+            "description": "Actual macOS application with demo content from the TYPO3 lab."
+          }
+        ]
+      }
+    },
+    {
+      "table": "feature_tabs_items",
+      "action": "create",
+      "key": "NEW_redaktion_tabs_publish_1",
+      "pid": "@NEW_redaktion_page",
+      "match": {
+        "pid": "@NEW_redaktion_page",
+        "foreign_table_parent_uid": "@NEW_redaktion_tabs_publish",
+        "tab_label": "Upload",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "tab_label": "Upload",
+        "title": "Upload straight into a field",
+        "description": "<p>Add files to the media library or to an element’s file field. Uploads show their progress, can be cancelled and land in TYPO3’s file storage.</p>",
+        "foreign_table_parent_uid": "@NEW_redaktion_tabs_publish",
+        "sys_language_uid": 0,
+        "hidden": 0
+      },
+      "files": {
+        "image": [
+          {
+            "source": "EXT:site_package/Resources/Public/Images/Redaktion/typewright-f12-13936c98.webp",
+            "folder": "1:/user_upload/redaktion/",
+            "alternative": "Upload straight into a field — Typewright with demo content from the TYPO3 lab.",
+            "title": "Upload straight into a field",
+            "description": "Actual macOS application with demo content from the TYPO3 lab."
+          }
+        ]
+      }
+    },
+    {
+      "table": "feature_tabs_items",
+      "action": "create",
+      "key": "NEW_redaktion_tabs_publish_2",
+      "pid": "@NEW_redaktion_page",
+      "match": {
+        "pid": "@NEW_redaktion_page",
+        "foreign_table_parent_uid": "@NEW_redaktion_tabs_publish",
+        "tab_label": "Alt text",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "tab_label": "Alt text",
+        "title": "Alt text where the image is used",
+        "description": "<p>Each use of an image gets its own alternative text, title, description and link. Empty fields fall back to the file’s metadata; decorative images are marked on purpose.</p>",
+        "foreign_table_parent_uid": "@NEW_redaktion_tabs_publish",
+        "sys_language_uid": 0,
+        "hidden": 0
+      },
+      "files": {
+        "image": [
+          {
+            "source": "EXT:site_package/Resources/Public/Images/Redaktion/typewright-f13-5c4bf08e.webp",
+            "folder": "1:/user_upload/redaktion/",
+            "alternative": "Alt text where the image is used — Typewright with demo content from the TYPO3 lab.",
             "title": "Alt text where the image is used",
+            "description": "Actual macOS application with demo content from the TYPO3 lab."
+          }
+        ]
+      }
+    },
+    {
+      "table": "feature_tabs_items",
+      "action": "create",
+      "key": "NEW_redaktion_tabs_publish_3",
+      "pid": "@NEW_redaktion_page",
+      "match": {
+        "pid": "@NEW_redaktion_page",
+        "foreign_table_parent_uid": "@NEW_redaktion_tabs_publish",
+        "tab_label": "Translate",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "tab_label": "Translate",
+        "title": "Translate next to the original",
+        "description": "<p>Pages, content and news: missing translations are created with TYPO3’s own localize command, and the original text sits right under each field while you translate.</p>",
+        "foreign_table_parent_uid": "@NEW_redaktion_tabs_publish",
+        "sys_language_uid": 0,
+        "hidden": 0
+      },
+      "files": {
+        "image": [
+          {
+            "source": "EXT:site_package/Resources/Public/Images/Redaktion/typewright-f14-8755aed8.webp",
+            "folder": "1:/user_upload/redaktion/",
+            "alternative": "Translate next to the original — Typewright with demo content from the TYPO3 lab.",
+            "title": "Translate next to the original",
+            "description": "Actual macOS application with demo content from the TYPO3 lab."
+          }
+        ]
+      }
+    },
+    {
+      "table": "feature_tabs_items",
+      "action": "create",
+      "key": "NEW_redaktion_tabs_publish_4",
+      "pid": "@NEW_redaktion_page",
+      "match": {
+        "pid": "@NEW_redaktion_page",
+        "foreign_table_parent_uid": "@NEW_redaktion_tabs_publish",
+        "tab_label": "Publish",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "tab_label": "Publish",
+        "title": "Workspaces with explicit approval",
+        "description": "<p>Save into a workspace, review every change in a list and publish with TYPO3’s own workspace commands, only after you confirm. The app reports what was published.</p>",
+        "foreign_table_parent_uid": "@NEW_redaktion_tabs_publish",
+        "sys_language_uid": 0,
+        "hidden": 0
+      },
+      "files": {
+        "image": [
+          {
+            "source": "EXT:site_package/Resources/Public/Images/Redaktion/typewright-f15-fffcf204.webp",
+            "folder": "1:/user_upload/redaktion/",
+            "alternative": "Workspaces with explicit approval — Typewright with demo content from the TYPO3 lab.",
+            "title": "Workspaces with explicit approval",
             "description": "Actual macOS application with demo content from the TYPO3 lab."
           }
         ]
@@ -474,142 +780,6 @@
     {
       "table": "tt_content",
       "action": "create",
-      "key": "NEW_redaktion_shot_editor",
-      "pid": "@NEW_redaktion_page",
-      "match": {
-        "pid": "@NEW_redaktion_page",
-        "rowDescription": "redaktion:shot_editor",
-        "sys_language_uid": 0
-      },
-      "set": {
-        "CType": "desiderio_textmedia",
-        "header_layout": 2,
-        "colPos": 0,
-        "hidden": 0,
-        "sys_language_uid": 0,
-        "rowDescription": "redaktion:shot_editor",
-        "header": "Room for the story",
-        "content": "<p>The real Mac app: articles on the left, a generous writing surface on the right. Rich text handles headings, lists, links, images and tables; HTML source remains available.</p><p><small>Actual application screenshot with demo content from the TYPO3 lab. The interface is in German.</small></p>",
-        "shadcn_layout": "media-above",
-        "media_rounded": 0
-      },
-      "files": {
-        "media": [
-          {
-            "source": "EXT:site_package/Resources/Public/Images/Redaktion/redaktion-native-5e39c7c2.webp",
-            "folder": "1:/user_upload/redaktion/",
-            "alternative": "Room for the story — webconsulting Redaktion with demo content from the TYPO3 lab.",
-            "title": "Room for the story",
-            "description": "Actual macOS application with demo content from the TYPO3 lab."
-          }
-        ]
-      }
-    },
-    {
-      "table": "tt_content",
-      "action": "create",
-      "key": "NEW_redaktion_shot_draft",
-      "pid": "@NEW_redaktion_page",
-      "match": {
-        "pid": "@NEW_redaktion_page",
-        "rowDescription": "redaktion:shot_draft",
-        "sys_language_uid": 0
-      },
-      "set": {
-        "CType": "desiderio_textmedia",
-        "header_layout": 2,
-        "colPos": 0,
-        "hidden": 0,
-        "sys_language_uid": 0,
-        "rowDescription": "redaktion:shot_draft",
-        "header": "Locally secured. Deliberately sent.",
-        "content": "<p>Writing focus removes the surrounding navigation. The local save state tells you your draft is on this Mac. The separate save action sends it to TYPO3 when a connection is available.</p><p><small>Actual application screenshot with demo content from the TYPO3 lab. The interface is in German.</small></p>",
-        "shadcn_layout": "media-above",
-        "media_rounded": 0
-      },
-      "files": {
-        "media": [
-          {
-            "source": "EXT:site_package/Resources/Public/Images/Redaktion/redaktion-local-draft-d1a44020.webp",
-            "folder": "1:/user_upload/redaktion/",
-            "alternative": "Locally secured. Deliberately sent. — webconsulting Redaktion with demo content from the TYPO3 lab.",
-            "title": "Locally secured. Deliberately sent.",
-            "description": "Actual macOS application with demo content from the TYPO3 lab."
-          }
-        ]
-      }
-    },
-    {
-      "table": "tt_content",
-      "action": "create",
-      "key": "NEW_redaktion_shot_preview",
-      "pid": "@NEW_redaktion_page",
-      "match": {
-        "pid": "@NEW_redaktion_page",
-        "rowDescription": "redaktion:shot_preview",
-        "sys_language_uid": 0
-      },
-      "set": {
-        "CType": "desiderio_textmedia",
-        "header_layout": 2,
-        "colPos": 0,
-        "hidden": 0,
-        "sys_language_uid": 0,
-        "rowDescription": "redaktion:shot_preview",
-        "header": "Read before you send",
-        "content": "<p>Switch from editing to a clean content preview. It helps check structure and wording; the live website’s design and rendering remain the responsibility of TYPO3.</p><p><small>Actual application screenshot with demo content from the TYPO3 lab. The interface is in German.</small></p>",
-        "shadcn_layout": "media-above",
-        "media_rounded": 0
-      },
-      "files": {
-        "media": [
-          {
-            "source": "EXT:site_package/Resources/Public/Images/Redaktion/redaktion-preview-47d061a8.webp",
-            "folder": "1:/user_upload/redaktion/",
-            "alternative": "Read before you send — webconsulting Redaktion with demo content from the TYPO3 lab.",
-            "title": "Read before you send",
-            "description": "Actual macOS application with demo content from the TYPO3 lab."
-          }
-        ]
-      }
-    },
-    {
-      "table": "tt_content",
-      "action": "create",
-      "key": "NEW_redaktion_shot_dark",
-      "pid": "@NEW_redaktion_page",
-      "match": {
-        "pid": "@NEW_redaktion_page",
-        "rowDescription": "redaktion:shot_dark",
-        "sys_language_uid": 0
-      },
-      "set": {
-        "CType": "desiderio_textmedia",
-        "header_layout": 2,
-        "colPos": 0,
-        "hidden": 0,
-        "sys_language_uid": 0,
-        "rowDescription": "redaktion:shot_dark",
-        "header": "A quiet workspace, day or night",
-        "content": "<p>Light and dark modes use the webconsulting design language shared by Ledger and T3 Ops. Your choice stays on this device.</p><p><small>Actual application screenshot with demo content from the TYPO3 lab. The interface is in German.</small></p>",
-        "shadcn_layout": "media-above",
-        "media_rounded": 0
-      },
-      "files": {
-        "media": [
-          {
-            "source": "EXT:site_package/Resources/Public/Images/Redaktion/redaktion-dark-b7f93839.webp",
-            "folder": "1:/user_upload/redaktion/",
-            "alternative": "A quiet workspace, day or night — webconsulting Redaktion with demo content from the TYPO3 lab.",
-            "title": "A quiet workspace, day or night",
-            "description": "Actual macOS application with demo content from the TYPO3 lab."
-          }
-        ]
-      }
-    },
-    {
-      "table": "tt_content",
-      "action": "create",
       "key": "NEW_redaktion_start",
       "pid": "@NEW_redaktion_page",
       "match": {
@@ -625,7 +795,7 @@
         "sys_language_uid": 0,
         "rowDescription": "redaktion:start",
         "header": "From the first connection to a published page",
-        "content": "<ol><li><strong>Connect:</strong> enter the HTTPS address of your TYPO3 installation and sign in with your backend administrator account. The Redaktion connector must be installed; news editing requires EXT:news.</li><li><strong>Write and build:</strong> pick an article or a page. Add elements from TYPO3’s element wizard, link pages and files, and add images with alt texts.</li><li><strong>Translate:</strong> switch the language tab, translate missing elements with one click and compare with the original under each field.</li><li><strong>Send:</strong> choose a workspace before editing when you want a review step. Saving sends the content to that workspace. Publishing requires a separate confirmation.</li></ol>",
+        "content": "<ol><li><strong>Connect:</strong> enter the HTTPS address of your TYPO3 installation and sign in with your backend administrator account. The Typewright connector must be installed; news editing requires EXT:news.</li><li><strong>Write and build:</strong> pick an article or a page. Add elements from TYPO3’s element wizard, link pages and files, and add images with alt texts.</li><li><strong>Translate:</strong> switch the language tab, translate missing elements with one click and compare with the original under each field.</li><li><strong>Send:</strong> choose a workspace before editing when you want a review step. Saving sends the content to that workspace. Publishing requires a separate confirmation.</li></ol>",
         "sidebar_position": "right",
         "sidebar_content": "<h3>Current beta</h3><p>This beta requires an active backend administrator account; scoped editor roles are not supported yet. The tested desktop build is for macOS on Apple Silicon. It is unsigned and not notarized. The browser version is built from the same source.</p><p>The connector is installed from the private GitLab repository. Ask us for access or a guided demonstration.</p>"
       }
@@ -647,7 +817,7 @@
         "hidden": 0,
         "sys_language_uid": 0,
         "rowDescription": "redaktion:faq",
-        "header": "Questions about Redaktion"
+        "header": "Questions about Typewright"
       },
       "_collection": {
         "field": "desiderio_accordion_items",
@@ -656,6 +826,8 @@
           "NEW_redaktion_faq_5",
           "NEW_redaktion_faq_6",
           "NEW_redaktion_faq_7",
+          "NEW_redaktion_faq_8",
+          "NEW_redaktion_faq_9",
           "NEW_redaktion_faq_1",
           "NEW_redaktion_faq_2",
           "NEW_redaktion_faq_3",
@@ -676,7 +848,7 @@
       },
       "set": {
         "title": "Can I replace the TYPO3 backend with this?",
-        "content": "<p>Not completely. Redaktion covers everyday editing: news, pages, content elements, translations, links and images. Use the backend for extension settings, user management, complete page configuration and collection entries that need adding or sorting.</p>",
+        "content": "<p>Not completely. Typewright covers everyday editing: news, pages, content elements, translations, links and images. Use the backend for extension settings, user management, complete page configuration and collection entries that need adding or sorting.</p>",
         "foreign_table_parent_uid": "@NEW_redaktion_faq",
         "sys_language_uid": 0,
         "hidden": 0
@@ -809,7 +981,45 @@
       },
       "set": {
         "title": "Who provides the app?",
-        "content": "<p>Redaktion is an independent webconsulting application for TYPO3. It is not an official product of TYPO3 GmbH or the TYPO3 Association.</p>",
+        "content": "<p>Typewright is an independent webconsulting application for TYPO3. It is not an official product of TYPO3 GmbH or the TYPO3 Association.</p>",
+        "foreign_table_parent_uid": "@NEW_redaktion_faq",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "accordion_items",
+      "action": "create",
+      "key": "NEW_redaktion_faq_8",
+      "pid": "@NEW_redaktion_page",
+      "match": {
+        "pid": "@NEW_redaktion_page",
+        "foreign_table_parent_uid": "@NEW_redaktion_faq",
+        "title": "What happens to markup the editor cannot show?",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "title": "What happens to markup the editor cannot show?",
+        "content": "<p>It stays. Abbreviations, sub- and superscript, language spans and classes are kept while you edit. A field with markup the visual editor cannot represent opens as HTML with a note, and switching to the visual editor asks first.</p>",
+        "foreign_table_parent_uid": "@NEW_redaktion_faq",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "accordion_items",
+      "action": "create",
+      "key": "NEW_redaktion_faq_9",
+      "pid": "@NEW_redaktion_page",
+      "match": {
+        "pid": "@NEW_redaktion_page",
+        "foreign_table_parent_uid": "@NEW_redaktion_faq",
+        "title": "Can I publish a workspace from the app?",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "title": "Can I publish a workspace from the app?",
+        "content": "<p>Yes, after you confirm. The review lists every change in the workspace, new records included. Publishing uses TYPO3’s own workspace commands and reports what was published and what TYPO3 refused.</p>",
         "foreign_table_parent_uid": "@NEW_redaktion_faq",
         "sys_language_uid": 0,
         "hidden": 0
@@ -857,12 +1067,12 @@
         "hidden": 0,
         "sys_language_uid": 0,
         "rowDescription": "redaktion:hub",
-        "header": "Redaktion: a calm Mac workspace for TYPO3 content",
-        "content": "<p>Write news, build pages, translate content and manage images in one focused app. Keep local drafts; TYPO3 controls permissions and publishing.</p>",
+        "header": "Typewright: a calm Mac workspace for TYPO3 content",
+        "content": "<p>Write news, build pages, translate content and manage images in one calm Mac app. Fifteen features, local drafts; TYPO3 controls permissions and publishing.</p>",
         "variant": "muted",
         "alignment": "left",
         "link": "@NEW_redaktion_page",
-        "link_text": "Discover Redaktion"
+        "link_text": "Discover Typewright"
       }
     }
   ]
