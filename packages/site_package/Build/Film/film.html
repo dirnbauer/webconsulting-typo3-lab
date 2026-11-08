@@ -115,6 +115,8 @@ body { font-family: var(--sans); color: var(--ink); -webkit-font-smoothing: anti
 /* Points */
 .points-head { position: absolute; left: 150px; top: 170px; width: 1620px; font-family: var(--serif); font-size: 72px; font-weight: 400; letter-spacing: -0.024em; line-height: 1.04; text-wrap: balance; }
 .points { position: absolute; left: 150px; top: 400px; width: 1620px; display: grid; grid-template-columns: repeat(2, 1fr); gap: 26px; }
+.points-few .points-head { top: 250px; }
+.points-few .points { top: 480px; }
 .point { display: flex; gap: 22px; align-items: flex-start; padding: 30px 32px; }
 .point .tick { flex: none; width: 40px; height: 40px; border-radius: 99px; display: grid; place-items: center; color: #0a0a0c; background: var(--accent); }
 .point .tick svg { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
@@ -173,6 +175,7 @@ body { font-family: var(--sans); color: var(--ink); -webkit-font-smoothing: anti
 .term-view { position: absolute; left: 0; right: 0; top: 46px; bottom: 0; overflow: hidden; }
 .term-body { position: absolute; left: 0; right: 0; top: 0; padding: 26px 34px 30px; font-family: var(--mono); font-size: 23px; line-height: 1.5; color: #d6d3cf; will-change: transform; }
 .term-line { white-space: pre-wrap; overflow-wrap: anywhere; min-height: 1.5em; }
+.term-compact .term-body { padding: 30px 40px 34px; font-size: 30px; line-height: 1.45; }
 .term-prompt { color: var(--ink); }
 .term-prompt .ps { color: var(--accent); margin-right: 0.6em; }
 .term-caret { display: inline-block; width: 0.62em; height: 1.2em; vertical-align: -0.22em; margin-left: 1px; background: var(--ink); }
@@ -646,7 +649,9 @@ builders.shot = (scene) => {
 
 builders.points = (scene) => {
   const { start, end } = scene;
-  const layer = node('section', 'layer persp');
+  // One or two cards (the skill group films: what is cool, why use it) sit in
+  // the middle of the frame instead of above an empty lower half.
+  const layer = node('section', scene.items.length <= 2 ? 'layer persp points-few' : 'layer persp');
   words('h2', 'points-head', layer, scene.head, start + 250, 70, [end - 420, end - 40], { y: 0.3, blur: 8 });
   const grid = node('div', 'points', layer);
   if (scene.items.length > 4) grid.style.gridTemplateColumns = 'repeat(3, 1fr)';
@@ -913,8 +918,15 @@ builders.terminal = (scene) => {
   const then = scene.then;
   const beside = then?.place === 'beside';
   const layer = node('section', 'layer persp');
-  const [x, y, w, h] = beside ? [120, 170, 880, 700] : [280, 160, 1360, 720];
-  const box = place(node('div', 'term', layer, `<div class="term-bar"><i></i><i></i><i></i><span class="term-title">${escape(scene.title ?? 'Claude Code')}</span></div><div class="term-view"><div class="term-body"></div></div><div class="term-dim"></div>`), x, y, w, h);
+  // Only a prompt, no output and no result (the skill group films' "You say"):
+  // a window around the typed lines, in larger type, instead of an empty one.
+  // ~62 characters a line at 30 px (word wrap leaves lines short).
+  const compact = !then && output.length === 0;
+  const rows = compact ? Math.max(1, Math.ceil(([...(scene.prompt ?? '')].length + 3) / 62)) : 0;
+  const [x, y, w, h] = beside ? [120, 170, 880, 700]
+    : compact ? [280, Math.round(470 - (148 + rows * 44) / 2), 1360, 148 + rows * 44]
+    : [280, 160, 1360, 720];
+  const box = place(node('div', compact ? 'term term-compact' : 'term', layer, `<div class="term-bar"><i></i><i></i><i></i><span class="term-title">${escape(scene.title ?? 'Claude Code')}</span></div><div class="term-view"><div class="term-body"></div></div><div class="term-dim"></div>`), x, y, w, h);
   life(box, start, end, { from: { y: 50, z: -180, rx: 8 }, exit: { y: -20, z: -60 }, blur: 12, inDur: 900, outDur: 480 });
   focusOn(box, start, end);
   if (scene.eyebrow) {

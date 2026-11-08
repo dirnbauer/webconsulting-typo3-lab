@@ -140,7 +140,7 @@ export const FOOTAGE = {
     },
     "typo3-backend-rights": {
         "aspect": 1.7777777777777777,
-        "url": "webconsulting-typo3-lab.ddev.site/typo3/module/users/management",
+        "url": "typo3-lab.webconsulting.at/typo3/module/users/management",
         "tag": "Backend",
         "focus": [
             0.16,
@@ -154,7 +154,7 @@ export const FOOTAGE = {
     },
     "typo3-content-blocks": {
         "clip": "wp6e-cb-wizard",
-        "url": "webconsulting-typo3-lab.ddev.site/typo3/module/web/layout",
+        "url": "typo3-lab.webconsulting.at/typo3/module/web/layout",
         "tag": "Backend",
         "segments": [
             [
@@ -216,7 +216,7 @@ export const FOOTAGE = {
     },
     "typo3-shadcn-content-elements": {
         "clip": "wp6e-shadcn-presets",
-        "url": "webconsulting-typo3-lab.ddev.site/content-types/plans-pricing/",
+        "url": "typo3-lab.webconsulting.at/content-types/plans-pricing/",
         "tag": "Frontend",
         "segments": [
             [
@@ -235,7 +235,7 @@ export const FOOTAGE = {
     },
     "typo3-visual-editor": {
         "clip": "wp6e-ve-inline",
-        "url": "webconsulting-typo3-lab.ddev.site/typo3/module/web/edit",
+        "url": "typo3-lab.webconsulting.at/typo3/module/web/edit",
         "tag": "Visual Editor",
         "segments": [
             [
@@ -294,7 +294,7 @@ export const FOOTAGE = {
     },
     "typo3-records-list-types": {
         "clip": "wp6e-records-views",
-        "url": "webconsulting-typo3-lab.ddev.site/typo3/module/content/records",
+        "url": "typo3-lab.webconsulting.at/typo3/module/content/records",
         "tag": "Records",
         "segments": [
             [
