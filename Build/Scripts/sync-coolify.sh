@@ -116,6 +116,12 @@ remote_backup() {
 status() {
     echo "Local DDEV:"
     ddev describe
+    if git remote get-url gitlab >/dev/null 2>&1; then
+        echo
+        echo "Remote refs (main):"
+        echo "  origin/main: $(git ls-remote origin refs/heads/main 2>/dev/null | cut -f1 || echo unknown)"
+        echo "  gitlab/main: $(git ls-remote gitlab refs/heads/main 2>/dev/null | cut -f1 || echo unknown)"
+    fi
     echo
     echo "Remote Coolify containers:"
     ssh "${SSH_OPTIONS[@]}" "${REMOTE_HOST}" \
@@ -257,6 +263,17 @@ deploy() {
     local before
     before="$(remote_image_tag || true)"
     echo "Currently deployed: ${before:-unknown}"
+
+    if [[ "${1:-}" != "--force" && "${before}" == gitlab.webconsulting.at:5050/* ]] && git remote get-url gitlab >/dev/null 2>&1; then
+        local origin_sha gitlab_sha
+        origin_sha="$(git ls-remote origin refs/heads/main | cut -f1)"
+        gitlab_sha="$(git ls-remote gitlab refs/heads/main 2>/dev/null | cut -f1 || true)"
+        if [[ -n "${origin_sha}" && -n "${gitlab_sha}" && "${origin_sha}" != "${gitlab_sha}" ]]; then
+            echo "Coolify runs prebuilt GitLab Runner images, and gitlab/main (${gitlab_sha:0:7}) differs from origin/main (${origin_sha:0:7})." >&2
+            echo "Push main to gitlab and wait for the GitLab build pipeline first, or pass 'deploy --force'." >&2
+            exit 1
+        fi
+    fi
 
     # POST, not GET: Coolify moved this endpoint and answers 405 on a GET.
     body="$(curl -sS -w $'\n%{http_code}' \

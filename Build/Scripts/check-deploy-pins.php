@@ -32,6 +32,50 @@ if (preg_match('/^ARG PHP_BASE_IMAGE=(\S+)$/m', $webDockerfile, $phpDefault) !==
     $problems[] = 'PHP_BASE_IMAGE defaults differ between Dockerfile.coolify and docker-compose.coolify.yml.';
 }
 
+$gitlabCiPath = $root . '/.gitlab-ci.yml';
+if (!is_file($gitlabCiPath)) {
+    $problems[] = '.gitlab-ci.yml is missing.';
+} else {
+    $gitlabCi = (string)file_get_contents($gitlabCiPath);
+    if (isset($phpDefault[1])) {
+        if (preg_match('/^\s*PHP_BASE_IMAGE:\s*"?([^"\s]+)"?\s*$/m', $gitlabCi, $gitlabPhp) !== 1) {
+            $problems[] = '.gitlab-ci.yml must declare PHP_BASE_IMAGE.';
+        } elseif ($gitlabPhp[1] !== $phpDefault[1]) {
+            $problems[] = 'PHP_BASE_IMAGE differs between Dockerfile.coolify and .gitlab-ci.yml.';
+        }
+    }
+    if (preg_match('/^FROM\s+(node:\S+)\s+AS\s+node-runtime$/m', $webDockerfile, $nodeRuntime) !== 1
+        || preg_match('/^\s*NODE_BASE_IMAGE:\s*"?([^"\s]+)"?\s*$/m', $gitlabCi, $gitlabNodeImage) !== 1) {
+        $problems[] = 'NODE_BASE_IMAGE must be declared in Dockerfile.coolify and .gitlab-ci.yml.';
+    } elseif ($nodeRuntime[1] !== $gitlabNodeImage[1]) {
+        $problems[] = 'NODE_BASE_IMAGE differs between Dockerfile.coolify and .gitlab-ci.yml.';
+    }
+    if (preg_match('/^ARG COMPOSER_VERSION=(\S+)$/m', $webDockerfile, $composerVer) !== 1
+        || preg_match('/^\s*COMPOSER_VERSION:\s*"?([^"\s]+)"?\s*$/m', $gitlabCi, $gitlabComposerVer) !== 1
+        || $composerVer[1] !== $gitlabComposerVer[1]) {
+        $problems[] = 'COMPOSER_VERSION must match between Dockerfile.coolify and .gitlab-ci.yml.';
+    }
+    if (preg_match('/^ARG NPM_VERSION=(\S+)$/m', $webDockerfile, $npmVer) !== 1
+        || preg_match('/^\s*NPM_VERSION:\s*"?([^"\s]+)"?\s*$/m', $gitlabCi, $gitlabNpmVer) !== 1
+        || $npmVer[1] !== $gitlabNpmVer[1]) {
+        $problems[] = 'NPM_VERSION must match between Dockerfile.coolify and .gitlab-ci.yml.';
+    }
+}
+
+$registryComposePath = $root . '/docker-compose.coolify.registry.yml';
+if (!is_file($registryComposePath)) {
+    $problems[] = 'docker-compose.coolify.registry.yml is missing.';
+} else {
+    $registryCompose = (string)file_get_contents($registryComposePath);
+    if (preg_match('/^\s+build:\s*$/m', $registryCompose) === 1) {
+        $problems[] = 'docker-compose.coolify.registry.yml must pull prebuilt images instead of declaring build: blocks.';
+    }
+    if (substr_count($registryCompose, 'pull_policy: always') < 2
+        || substr_count($registryCompose, '${SOURCE_COMMIT:-latest}') < 2) {
+        $problems[] = 'docker-compose.coolify.registry.yml must declare pull_policy: always and ${SOURCE_COMMIT:-latest} on both web and typo3-solr.';
+    }
+}
+
 $lock = json_decode((string)file_get_contents($lockPath), true, 512, JSON_THROW_ON_ERROR);
 $lockedReference = null;
 $lockedVersion = null;
