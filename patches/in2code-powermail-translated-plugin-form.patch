@@ -1,0 +1,82 @@
+diff --git a/Classes/Controller/FormController.php b/Classes/Controller/FormController.php
+--- a/Classes/Controller/FormController.php
++++ b/Classes/Controller/FormController.php
+@@ -52,6 +52,8 @@
+ use Throwable;
+ use TYPO3\CMS\Core\Configuration\Exception\ExtensionConfigurationExtensionNotConfiguredException;
+ use TYPO3\CMS\Core\Configuration\Exception\ExtensionConfigurationPathDoesNotExistException;
++use TYPO3\CMS\Core\Database\Connection;
++use TYPO3\CMS\Core\Database\ConnectionPool;
+ use TYPO3\CMS\Core\Mail\MailerInterface;
+ use TYPO3\CMS\Core\Type\ContextualFeedbackSeverity;
+ use TYPO3\CMS\Core\Utility\ArrayUtility;
+@@ -518,7 +520,10 @@
+             }
+ 
+             $formsToContent = GeneralUtility::intExplode(',', ($this->settings['main']['form'] ?? ''));
+-            if (!($formUid === null || in_array($formUid, $formsToContent, false))) {
++            if (!($formUid === null
++                || in_array($formUid, $formsToContent, false)
++                || (is_numeric($formUid) && in_array((int)$formUid, $this->getDefaultLanguageFormUids($formsToContent), true)))
++            ) {
+                 return true;
+             }
+         }
+@@ -526,6 +531,45 @@
+     }
+ 
+     /**
++     * The default-language forms that the given form records translate.
++     *
++     * A translated plugin names its form by the uid of the translation, but the form it renders -
++     * and so the form a visitor submits - reports the uid of the original, because Extbase gives a
++     * translated record the uid of its default-language record. Compared uid for uid, every
++     * submission on a translated page is sent back to the form: nothing saved, no error, status 200.
++     * The originals of the configured translations therefore count as configured, too.
++     *
++     * @param array<int, int> $formUids
++     * @return list<int>
++     */
++    protected function getDefaultLanguageFormUids(array $formUids): array
++    {
++        $formUids = array_values(array_filter($formUids, static fn (int $uid): bool => $uid > 0));
++        if ($formUids === []) {
++            return [];
++        }
++
++        $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable(Form::TABLE_NAME);
++        $parents = $queryBuilder
++            ->select('l10n_parent')
++            ->from(Form::TABLE_NAME)
++            ->where(
++                $queryBuilder->expr()->in('uid', $queryBuilder->createNamedParameter($formUids, Connection::PARAM_INT_ARRAY)),
++                $queryBuilder->expr()->gt('l10n_parent', $queryBuilder->createNamedParameter(0, Connection::PARAM_INT))
++            )
++            ->executeQuery()
++            ->fetchFirstColumn();
++
++        $uids = [];
++        foreach ($parents as $parent) {
++            if (is_numeric($parent)) {
++                $uids[] = (int)$parent;
++            }
++        }
++        return $uids;
++    }
++
++    /**
+      * Forward to formAction if no mail param given
+      */
+     protected function isMailParamEmpty(): bool
+@@ -547,7 +591,10 @@
+             return true;
+         }
+         $formsToContent = GeneralUtility::intExplode(',', $this->settings['main']['form']);
+-        if (in_array($mail->getForm()->getUid(), $formsToContent)) {
++        $formUid = $mail->getForm()->getUid();
++        if (in_array($formUid, $formsToContent)
++            || in_array((int)$formUid, $this->getDefaultLanguageFormUids($formsToContent), true)
++        ) {
+             return false;
+         }
+         return true;

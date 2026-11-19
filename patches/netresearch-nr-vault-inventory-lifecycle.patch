@@ -1,5 +1,5 @@
 diff --git a/Classes/Service/Doctor/Check/InventoryConsistencyCheck.php b/Classes/Service/Doctor/Check/InventoryConsistencyCheck.php
-index f48f6fb..76903db 100644
+index 0a9c4ff..8b90536 100644
 --- a/Classes/Service/Doctor/Check/InventoryConsistencyCheck.php
 +++ b/Classes/Service/Doctor/Check/InventoryConsistencyCheck.php
 @@ -16,7 +16,9 @@ use Netresearch\NrVault\Service\Doctor\DocsLink;
@@ -10,9 +10,9 @@ index f48f6fb..76903db 100644
  use TYPO3\CMS\Core\Database\ConnectionPool;
 +use UnexpectedValueException;
  
- /**
-  * Do the vault's tables still agree with each other?
-@@ -32,11 +34,12 @@ use TYPO3\CMS\Core\Database\ConnectionPool;
+ use function sprintf;
+ 
+@@ -34,11 +36,12 @@ use function sprintf;
   * Two comparisons, chosen because both are zero on a fresh installation and
   * non-zero only when rows are genuinely missing:
   *
@@ -30,7 +30,7 @@ index f48f6fb..76903db 100644
   * - **Access rows pointing at nothing.** An `uid_local` in either permission
   *   table with no secret behind it means the two were restored from different
   *   moments. The mirror case, a secret whose permission rows are gone, is not
-@@ -95,7 +98,8 @@ final readonly class InventoryConsistencyCheck implements ReadinessCheckInterfac
+@@ -97,7 +100,8 @@ final readonly class InventoryConsistencyCheck implements ReadinessCheckInterfac
          $id = 'inventory.missing_secrets';
  
          try {
@@ -40,7 +40,7 @@ index f48f6fb..76903db 100644
          } catch (DbalException $throwable) {
              return $this->unreadable($id, 'the audit log against the secret table', $throwable);
          }
-@@ -104,27 +108,42 @@ final readonly class InventoryConsistencyCheck implements ReadinessCheckInterfac
+@@ -106,27 +110,42 @@ final readonly class InventoryConsistencyCheck implements ReadinessCheckInterfac
              return Finding::pass(
                  id: $id,
                  summary: 'Every secret the audit log records as created is still stored.',
@@ -52,7 +52,7 @@ index f48f6fb..76903db 100644
 +        if ($counts['unexplainedMissingCount'] === 0) {
 +            return Finding::warning(
 +                id: $id,
-+                summary: \sprintf(
++                summary: sprintf(
 +                    '%d absent secret(s) have a successful delete after their latest successful create.',
 +                    $missing,
 +                ),
@@ -69,7 +69,7 @@ index f48f6fb..76903db 100644
  
          return Finding::critical(
              id: $id,
-             summary: \sprintf(
+             summary: sprintf(
 -                '%d secret(s) the audit log records as created have no row in the secret table.',
 -                $missing,
 +                '%d secret(s) have no row and no successful delete after their latest successful create.',
@@ -96,7 +96,7 @@ index f48f6fb..76903db 100644
          );
      }
  
-@@ -166,27 +185,30 @@ final readonly class InventoryConsistencyCheck implements ReadinessCheckInterfac
+@@ -168,27 +187,30 @@ final readonly class InventoryConsistencyCheck implements ReadinessCheckInterfac
      }
  
      /**
@@ -141,7 +141,7 @@ index f48f6fb..76903db 100644
              )
              ->from(self::AUDIT_TABLE, 'audit')
              ->leftJoin(
-@@ -197,8 +219,8 @@ final readonly class InventoryConsistencyCheck implements ReadinessCheckInterfac
+@@ -199,8 +221,8 @@ final readonly class InventoryConsistencyCheck implements ReadinessCheckInterfac
              )
              ->where(
                  $queryBuilder->expr()->eq(
@@ -152,7 +152,7 @@ index f48f6fb..76903db 100644
                  ),
                  $queryBuilder->expr()->neq(
                      'audit.secret_identifier',
-@@ -206,10 +228,31 @@ final readonly class InventoryConsistencyCheck implements ReadinessCheckInterfac
+@@ -208,10 +230,31 @@ final readonly class InventoryConsistencyCheck implements ReadinessCheckInterfac
                  ),
                  $queryBuilder->expr()->isNull('secret.uid'),
              )

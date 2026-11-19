@@ -1,0 +1,44 @@
+diff --git a/Configuration/Sets/PowermailCond/config.yaml b/Configuration/Sets/PowermailCond/config.yaml
+new file mode 100644
+--- /dev/null
++++ b/Configuration/Sets/PowermailCond/config.yaml
+@@ -0,0 +1,4 @@
++name: in2code/powermail-cond
++label: 'Powermail Conditions'
++dependencies:
++  - in2code/powermail-main
+diff --git a/Configuration/Sets/PowermailCond/labels.xlf b/Configuration/Sets/PowermailCond/labels.xlf
+new file mode 100644
+--- /dev/null
++++ b/Configuration/Sets/PowermailCond/labels.xlf
+@@ -0,0 +1,11 @@
++<?xml version="1.0" encoding="utf-8" standalone="yes"?>
++<xliff version="1.0">
++  <file source-language="en" datatype="plaintext" original="messages" date="2026-09-19T00:00:00Z" product-name="powermail_cond">
++    <header/>
++    <body>
++      <trans-unit id="set.label">
++        <source>Powermail Conditions</source>
++      </trans-unit>
++    </body>
++  </file>
++</xliff>
+diff --git a/Configuration/Sets/PowermailCond/setup.typoscript b/Configuration/Sets/PowermailCond/setup.typoscript
+new file mode 100644
+--- /dev/null
++++ b/Configuration/Sets/PowermailCond/setup.typoscript
+@@ -0,0 +1,1 @@
++@import 'EXT:powermail_cond/Configuration/TypoScript/setup.typoscript'
+diff --git a/Configuration/TypoScript/setup.typoscript b/Configuration/TypoScript/setup.typoscript
+--- a/Configuration/TypoScript/setup.typoscript
++++ b/Configuration/TypoScript/setup.typoscript
+@@ -46,3 +46,9 @@
+     pluginName = Pi1
+   }
+ }
++
++# Tells the form templates that powermail_cond is here. A theme that renders the conditions'
++# starting state with the page ({pc:conditions(form: form)} into #form-{uid}-actions) can check
++# {settings.powermailCond.prerender}: the fields a condition hides are then hidden from the first
++# paint, and the frontend script applies that state instead of asking the endpoint on load.
++plugin.tx_powermail.settings.setup.powermailCond.prerender = 1

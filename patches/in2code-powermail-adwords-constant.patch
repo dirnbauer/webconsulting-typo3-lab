@@ -1,0 +1,14 @@
+diff --git a/Resources/Private/Partials/Misc/GoogleAdwordsConversion.html b/Resources/Private/Partials/Misc/GoogleAdwordsConversion.html
+--- a/Resources/Private/Partials/Misc/GoogleAdwordsConversion.html
++++ b/Resources/Private/Partials/Misc/GoogleAdwordsConversion.html
+@@ -1,4 +1,9 @@
+-<f:if condition="{settings.marketing.googleAdwords._enable}">
++<f:comment>
++	Only when the constant resolved to 1. plugin.tx_powermail.settings.marketing.enable is defined by
++	the Marketing set only; with just the Main set the unreplaced constant text stays in place, a
++	non-empty string is true, and the snippet went out with raw placeholders.
++</f:comment>
++<f:if condition="{settings.marketing.googleAdwords._enable} == 1">
+ 	<script type="text/javascript">
+ 		var google_conversion_id = {settings.marketing.googleAdwords.google_conversion_id};
+ 		var google_conversion_language = "{settings.marketing.googleAdwords.google_conversion_language}";

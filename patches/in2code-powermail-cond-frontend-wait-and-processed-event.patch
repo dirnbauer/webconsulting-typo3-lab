@@ -1,0 +1,296 @@
+diff --git a/Resources/Public/JavaScript/PowermailCondition.js b/Resources/Public/JavaScript/PowermailCondition.js
+--- a/Resources/Public/JavaScript/PowermailCondition.js
++++ b/Resources/Public/JavaScript/PowermailCondition.js
+@@ -19,6 +19,36 @@
+    */
+   #excludedFieldsSelector = 'data-powermail-cond-excluded-fields';
+ 
++  /**
++   * The latest request to the condition endpoint; settles once its answer is applied or failed.
++   */
++  #pending = null;
++
++  /**
++   * Numbers the requests, so an answer that arrives after a newer request was sent is dropped.
++   */
++  #sequence = 0;
++
++  /**
++   * Set while a submission waits for the endpoint, so a second click does not send the form twice.
++   */
++  #submitting = false;
++
++  /**
++   * True from sending a request until the answer to the latest one is applied or has failed.
++   */
++  #pendingOpen = false;
++
++  /**
++   * The values the form started with, to notice values the browser restores afterwards.
++   */
++  #startValues = '';
++
++  /**
++   * How long a submission waits for a pending condition request before it goes ahead anyway.
++   */
++  static PENDING_TIMEOUT = 10000;
++
+   constructor(form) {
+     this.#form = form;
+     this.#form.powermailConditions = this;
+@@ -41,26 +71,50 @@
+     }
+ 
+     that.#fieldListener();
++    that.#stepListener();
+     that.#submitListener();
++    that.#startValues = that.#serializeValues();
+   }
+ 
+   /**
+-   * Prevents a specific race condition when submitting forms
++   * Ask again with the values the form holds now, e.g. after the back/forward cache restored it.
++   */
++  refresh = function () {
++    this.#submitting = false;
++    this.#sendFormValuesToPowermailCond();
++  }
++
++  /**
++   * Ask again only when the form holds other values than it started with (the browser restored
++   * earlier input), or when the page came back from the back/forward cache.
++   */
++  refreshIfChanged = function (restoredFromCache) {
++    if (restoredFromCache || this.#serializeValues() !== this.#startValues) {
++      this.refresh();
++    }
++  }
++
++  #serializeValues() {
++    const values = [...this.#collectFormValues().entries()].filter((entry) => typeof entry[1] === 'string');
++    return JSON.stringify(values);
++  }
++
++  /**
++   * Submits only once the conditions match what was entered last
+    *
+    * Technical background:
+-   * When a user's first action is to focus a field, enter a value, and immediately
+-   * click submit, it can cause problems. This sequence triggers #sendFormValuesToPowermailCond
+-   * and #enableAllFields, but the form submission cancels the network request to the
+-   * condition endpoint. As a result, all fields get enabled and transmitted for processing.
++   * A visitor's last change (typing into a field, then clicking submit) sends the form to the
++   * condition endpoint, and its answer decides which fields are hidden and disabled, and therefore
++   * not sent. Submitting before that answer arrives sends the fields as they were before the
++   * change. The endpoint can take a while - a condition may ask an external service - so waiting
++   * a fixed 50ms was not enough.
+    *
+    * How it works:
+-   * This listener checks if any form element is currently focused. If so, it:
+-   * 1. Blurs the focused input first
+-   * 2. Waits a brief moment (50ms)
+-   * 3. Then submits the form
++   * 1. A submission another listener refused (e.g. client-side validation) stays refused
++   * 2. The focused field is blurred, which fires "change" and asks the endpoint again
++   * 3. The pending request is awaited, for at most PENDING_TIMEOUT
++   * 4. Then the form is validated and submitted
+    *
+-   * This ensures field processing completes properly before submission, avoiding the race condition.
+-   *
+    * Other scripts may take over the submit as well (e.g. LUX form identification prevents the
+    * native submit and calls form.submit() after its tracking request). If both called form.submit(),
+    * the form would be sent twice. That's why the listener is bound to the document: in the bubbling
+@@ -85,24 +139,50 @@
+       }
+ 
+       event.preventDefault();
+-
+-      if (this.#blurActiveField()) {
+-        setTimeout(() => {
+-          if (this.#hasValidationErrors()) {
+-            return;
+-          }
+-
+-          this.#form.submit();
+-        }, 50);
++      if (this.#submitting) {
+         return;
+       }
+ 
+-      if (this.#hasValidationErrors()) {
++      this.#blurActiveField();
++      this.#submitting = true;
++      this.#afterPendingRequest().then(() => {
++        if (this.#hasValidationErrors()) {
++          this.#submitting = false;
++          return;
++        }
++
++        this.#form.submit();
++      });
++    });
++  }
++
++  /**
++   * Step buttons wait for a pending answer, too
++   *
++   * Leaving a field for "Next" fires "change" and asks the endpoint about what was just entered.
++   * Switching steps before that answer arrives shows the next step as the previous answer left
++   * it, and it reshuffles a moment later. So a step click while a request is pending is held
++   * back and repeated once the answer is applied.
++   */
++  #stepListener() {
++    this.#form.addEventListener('click', (event) => {
++      const button = event.target instanceof Element ? event.target.closest('[data-powermail-morestep-show]') : null;
++      if (button === null || !this.#pendingOpen || button.dataset.powermailCondReleased === 'true') {
+         return;
+       }
++      event.preventDefault();
++      event.stopImmediatePropagation();
++      this.#afterPendingRequest().then(() => {
++        button.dataset.powermailCondReleased = 'true';
++        button.click();
++        delete button.dataset.powermailCondReleased;
++      });
++    }, true);
++  }
+ 
+-      this.#form.submit();
+-    });
++  #afterPendingRequest() {
++    const timeout = new Promise((resolve) => setTimeout(resolve, PowermailCondition.PENDING_TIMEOUT));
++    return Promise.race([this.#pending || Promise.resolve(), timeout]);
+   }
+ 
+   /**
+@@ -153,8 +233,7 @@
+ 
+   #sendFormValuesToPowermailCond () {
+     const that = this;
+-    that.#enableAllFields();
+-    const dataToSend = new FormData(this.#form);
++    const dataToSend = this.#collectFormValues();
+ 
+     if (this.#form.hasAttribute(this.#excludedFieldsSelector)) {
+       // gather fields that should be excluded
+@@ -167,9 +246,15 @@
+       });
+     }
+ 
+-    fetch(this.#getAjaxUri(), {body: dataToSend, method: 'post'})
++    const sequence = ++this.#sequence;
++    this.#pendingOpen = true;
++    this.#pending = fetch(this.#getAjaxUri(), {body: dataToSend, method: 'post'})
+       .then((resp) => resp.json())
+       .then(function(data) {
++        if (sequence !== that.#sequence) {
++          // A newer request is on its way, and its answer describes the form as it is now.
++          return;
++        }
+         if (data.loopLimitReached === true) {
+           console.warn('Too many loops reached by parsing conditions and rules. Check for conflicting conditions.');
+         }
+@@ -178,6 +263,11 @@
+       })
+       .catch(function(error) {
+         console.log(error);
++      })
++      .finally(function() {
++        if (sequence === that.#sequence) {
++          that.#pendingOpen = false;
++        }
+       });
+   };
+ 
+@@ -221,13 +311,23 @@
+         fieldset.style.opacity = 1;
+       }
+     });
++
++    // Tell the page the conditions are applied, with the whole response. Other extensions can
++    // read what the endpoint added to it without a second request or wrapping fetch().
++    this.#form.dispatchEvent(new CustomEvent('powermailcond:processed', {bubbles: true, detail: data}));
+   };
+ 
+-  #enableAllFields() {
+-    const fields = this.#form.querySelectorAll('[disabled="disabled"]');
+-    fields.forEach((field) => {
+-      field.removeAttribute('disabled');
+-    });
++  /**
++   * Every value, including those of fields a condition disabled: the endpoint needs them to decide.
++   * The fields are disabled again straight away - left enabled while the request runs, they would
++   * be sent by a submission in the meantime although they are hidden.
++   */
++  #collectFormValues() {
++    const disabledFields = this.#form.querySelectorAll('[disabled="disabled"]');
++    disabledFields.forEach((field) => field.removeAttribute('disabled'));
++    const dataToSend = new FormData(this.#form);
++    disabledFields.forEach((field) => field.setAttribute('disabled', 'disabled'));
++    return dataToSend;
+   };
+ 
+   #getFieldsFromForm() {
+@@ -247,7 +347,10 @@
+   };
+ 
+   #showField(fieldMarker) {
+-    this.#getWrappingContainersByMarkerName(fieldMarker).forEach((container) => PowermailCondition.showElement(container));
++    this.#getWrappingContainersByMarkerName(fieldMarker).forEach((container) => {
++      PowermailCondition.showElement(container);
++      container.querySelectorAll('[type="submit"]').forEach((button) => button.removeAttribute('disabled'));
++    });
+     this.#getFieldsByMarker(fieldMarker).forEach((field) => {
+       field.removeAttribute('disabled');
+       this.#rerequireField(field);
+@@ -255,7 +358,12 @@
+   };
+ 
+   #hideField(fieldMarker) {
+-    this.#getWrappingContainersByMarkerName(fieldMarker).forEach((container) => PowermailCondition.hideElement(container));
++    this.#getWrappingContainersByMarkerName(fieldMarker).forEach((container) => {
++      PowermailCondition.hideElement(container);
++      // A submit button has no field name to be found by, and a hidden one still sends the form
++      // when Enter is pressed in a field (implicit submission) - unless it is disabled.
++      container.querySelectorAll('[type="submit"]').forEach((button) => button.setAttribute('disabled', 'disabled'));
++    });
+     this.#getFieldsByMarker(fieldMarker).forEach((field) => {
+       field.setAttribute('disabled', 'disabled');
+       this.#derequireField(field);
+@@ -341,7 +449,8 @@
+   };
+ 
+   #getMoreStepToggleByUid(pageUid) {
+-    return this.#form.querySelector(`.btn[data-powermail-fieldset="${pageUid}"]`)
++    // The step tab of that page, whatever classes a template gives it (not every theme uses .btn).
++    return this.#form.querySelector(`[data-powermail-fieldset="${pageUid}"]`)
+   }
+ 
+   static hideElement(element) {
+@@ -364,9 +473,25 @@
+ // of browsers, so when someone returns to a already filled out form,
+ // the values get checked properly instead of sendFormValuesToPowermailCond
+ // receiving a practically empty initial form state.
+-window.addEventListener('pageshow', () => {
++// A form whose starting state was rendered with the page (#form-{uid}-actions) gets it straight
++// away - the script is deferred, so the document is parsed - instead of at "pageshow", which
++// waits for every image; until then the fields a condition hides would be visible.
++document.querySelectorAll('.powermail_form').forEach(function(form) {
++  const formUid = form.querySelector('input.powermail_form_uid')?.value;
++  if (formUid && document.querySelector('#form-' + formUid + '-actions') !== null) {
++    new PowermailCondition(form).initialize();
++  }
++});
++
++window.addEventListener('pageshow', (event) => {
+   const forms = document.querySelectorAll('.powermail_form');
+   forms.forEach(function(form) {
++    // Started early, or restored from the back/forward cache with its listeners in place: a second
++    // set would send every change twice and submit twice. Ask again only if the values changed.
++    if (form.powermailConditions instanceof PowermailCondition) {
++      form.powermailConditions.refreshIfChanged(event.persisted);
++      return;
++    }
+     let powermailConditions = new PowermailCondition(form);
+     powermailConditions.initialize();
+   });

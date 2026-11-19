@@ -1,0 +1,154 @@
+diff --git a/Classes/Domain/Model/Rule.php b/Classes/Domain/Model/Rule.php
+--- a/Classes/Domain/Model/Rule.php
++++ b/Classes/Domain/Model/Rule.php
+@@ -8,7 +8,10 @@
+ use In2code\Powermail\Domain\Model\Form;
+ use In2code\Powermail\Domain\Model\Page;
+ use In2code\PowermailCond\Domain\Comparator\Comparison;
++use In2code\PowermailCond\Event\EvaluateRuleEvent;
++use Psr\EventDispatcher\EventDispatcherInterface;
+ use Throwable;
++use TYPO3\CMS\Core\Utility\GeneralUtility;
+ use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
+ 
+ class Rule extends AbstractEntity
+@@ -25,6 +28,12 @@
+     public const OPERATOR_CONTAINS_VALUE_FROM_FIELD = 8;
+     public const OPERATOR_NOT_CONTAINS_VALUE_FROM_FIELD = 9;
+ 
++    /**
++     * Operator values from here upwards belong to extensions that add their own operators.
++     * They are evaluated by a listener to {@see EvaluateRuleEvent} instead of by {@see Comparison}.
++     */
++    public const OPERATOR_THIRD_PARTY_OFFSET = 100;
++
+     protected string $title = '';
+ 
+     protected ?Field $startField = null;
+@@ -98,6 +107,12 @@
+                     $this->startField instanceof Field
+                     && $field->getUid() === $this->startField->getUid()
+                 ) {
++                    if ($this->ops >= self::OPERATOR_THIRD_PARTY_OFFSET) {
++                        if ($this->evaluateThirdPartyOperator($form, $field)) {
++                            return true;
++                        }
++                        continue;
++                    }
+                     $comparison = new Comparison($this->ops);
+                     if ($comparison->evaluate($field, $this->condString, $this->equalField)) {
+                         return true;
+@@ -107,4 +122,15 @@
+         }
+         return false;
+     }
++
++    /**
++     * Hand an operator this extension does not know about to whoever registered it.
++     */
++    protected function evaluateThirdPartyOperator(Form $form, Field $startField): bool
++    {
++        $event = new EvaluateRuleEvent($this, $form, $startField, $this->condString, $this->equalField);
++        GeneralUtility::makeInstance(EventDispatcherInterface::class)->dispatch($event);
++
++        return $event->getResult() ?? false;
++    }
+ }
+diff --git a/Classes/Event/EvaluateRuleEvent.php b/Classes/Event/EvaluateRuleEvent.php
+new file mode 100644
+--- /dev/null
++++ b/Classes/Event/EvaluateRuleEvent.php
+@@ -0,0 +1,81 @@
++<?php
++
++declare(strict_types=1);
++
++namespace In2code\PowermailCond\Event;
++
++use In2code\Powermail\Domain\Model\Field;
++use In2code\Powermail\Domain\Model\Form;
++use In2code\PowermailCond\Domain\Model\Rule;
++
++/**
++ * Dispatched for a rule whose operator is not one of the built-in ones.
++ *
++ * Operator values from {@see Rule::OPERATOR_THIRD_PARTY_OFFSET} upwards are reserved for
++ * extensions that add their own operators. Such an extension registers its operator in the
++ * TCA of tx_powermailcond_domain_model_rule and listens to this event to evaluate it.
++ *
++ * A listener that recognises the operator calls {@see self::setResult()}. A rule whose
++ * operator no listener recognises never applies.
++ */
++final class EvaluateRuleEvent
++{
++    private ?bool $result = null;
++
++    public function __construct(
++        private readonly Rule $rule,
++        private readonly Form $form,
++        private readonly Field $startField,
++        private readonly string $valueToMatch,
++        private readonly ?Field $equalField,
++    ) {
++    }
++
++    public function getRule(): Rule
++    {
++        return $this->rule;
++    }
++
++    public function getOperation(): int
++    {
++        return $this->rule->getOps();
++    }
++
++    /**
++     * The whole form, with every field already carrying the value the visitor submitted.
++     */
++    public function getForm(): Form
++    {
++        return $this->form;
++    }
++
++    public function getStartField(): Field
++    {
++        return $this->startField;
++    }
++
++    public function getValueToMatch(): string
++    {
++        return $this->valueToMatch;
++    }
++
++    public function getEqualField(): ?Field
++    {
++        return $this->equalField;
++    }
++
++    public function getResult(): ?bool
++    {
++        return $this->result;
++    }
++
++    public function setResult(?bool $result): void
++    {
++        $this->result = $result;
++    }
++
++    public function isHandled(): bool
++    {
++        return $this->result !== null;
++    }
++}
+diff --git a/Configuration/Services.yaml b/Configuration/Services.yaml
+--- a/Configuration/Services.yaml
++++ b/Configuration/Services.yaml
+@@ -6,7 +6,7 @@
+ 
+   In2code\PowermailCond\:
+     resource: '../Classes/*'
+-    exclude: '../Classes/Domain/Model/*'
++    exclude: '../Classes/{Domain/Model,Event}/*'
+ 
+   In2code\PowermailCond\UserFunc\GetPowermailFields:
+     public: true

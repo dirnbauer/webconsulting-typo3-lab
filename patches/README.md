@@ -15,20 +15,29 @@ and reinstall the affected dependency instead.
 | `apache-solr-for-typo3/solr` | Align legacy backend typography, spacing, borders, and colors with TYPO3 v14 design tokens. This patch contains CSS only and adds no behavior. |
 | `t3g/blog` | Replace the 28 legacy extension, module, plugin, record, and action icons with theme-aware TYPO3 v14 SVGs. |
 | `webconsulting/desiderio` | Keep server validation errors visible when the client-side summary is disabled; otherwise a rejected CAPTCHA returns to the form without an explanation. The required checkbox/radio message is upstream since Desiderio 4.27.2, so that patch is gone. |
+| `webconsulting/astryx-typo3` | Translate the German theme overview and keep localized page layouts. |
+| `webconsulting/records-list-types` | Pass the `PageLanguageInformationService` argument TYPO3 14.3.12 added to the core Records controller constructor; without it the Records module fails with an `ArgumentCountError`. Drop it once Records List Types releases the change (Types and Examples must keep the same version, `check-deploy-pins.php`). |
+| `in2code/powermail` | Two behaviours the lab relied on in our former fork: a translated plugin accepts the translated form it names (`translated-plugin-form`; otherwise every DE/ZH/HU submission is silently lost), and the Google Ads snippet renders only when the Marketing set enables it (`adwords-constant`). |
+| `in2code/powermail_cond` | Three behaviours from our former fork: the `EvaluateRuleEvent` rule-operator seam webcon_jev's operators 100-104 use, the `in2code/powermail-cond` site set with the `prerender` flag Desiderio's form template reads, and the frontend that waits for a pending condition request and dispatches `powermailcond:processed`. |
+| `netresearch/nr-vault` | Report a secret that is absent after a later successful delete as a warning, not as lost data (`inventory-lifecycle`, rebased on 1.10.0). The bounded-audit-range patch was dropped: 1.10.0 seeds a bounded verification from the nearest earlier row itself. |
 
 ## Forked dependencies
 
-Four third-party extensions are installed from our own forks
+Two third-party extensions are installed from our own forks
 (`github.com/dirnbauer/*`, mirrored to gitlab.webconsulting.at), because upstream
 has no release that works on our TYPO3 14 line. We pull upstream changes in; we
 never push, open pull requests or comment upstream.
 
 | Package | Fork, constraint | Why |
 | --- | --- | --- |
-| `in2code/powermail` | `dirnbauer/powermail`, `~14.0.3.8` | in2code's TYPO3 14 line is a paid early-access programme; the fork is our v14 port (no v14.3 deprecations since 14.0.3.2, lazy form relations again since 14.0.3.3). |
-| `in2code/powermail_cond` | `dirnbauer/powermail_cond`, `dev-typo3-v14` | Same situation; the fork adds the `EvaluateRuleEvent` seam webcon_jev uses. |
 | `studiomitte/friendlycaptcha` | `dirnbauer/friendlycaptcha-typo3`, `~2.3.0.1` | Upstream 2.3.0 declares TYPO3 14.3, but its Powermail validator never resolves the Extbase lazy proxies Powermail 14 returns and reads the plugin FlexForm without a null guard. Since 2026-09-23 the fork is upstream 2.3.0 plus that fix (16 files differ, down from 68). |
 | `studiomitte/solr-numbered-pagination` | `dirnbauer/solr_numbered_pagination`, `dev-main` | Upstream supports TYPO3 14 only on an untagged `main`; the fork carries it with a guard for the pagination type EXT:solr 14 hands to the event. |
+
+Powermail and Powermail Conditions come from in2code's Early Access Packagist
+(`https://in2code.repo.packagist.com/webconsulting/`, repository `in2code` in
+`composer.json`, restricted to those two packages) since TYPO3 14.3.12; the lab
+carries the behaviours it needs as the patches above. The token is a CI/build
+secret or an environment `COMPOSER_AUTH` only, never a file in this repository.
 
 **Tags.** Our fork releases are four-part tags, `<upstream line>.<our revision>`
 (`14.0.3.3`, `2.3.0.1`), consumed with `~` so Composer can only pick our revisions

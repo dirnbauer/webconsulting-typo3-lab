@@ -1,5 +1,5 @@
 {
-    "_hash": "6fb9e3fa7b21d3613989c9fa518f130c4936353a3620b2ac9c58aa6dd85cbd69",
+    "_hash": "7559ba72bb798cf6fb498f6480b69a8a59de659da1ba16ae11509eb67c839292",
     "patches": {
         "apache-solr-for-typo3/solr": [
             {
@@ -13,22 +13,66 @@
                 }
             }
         ],
-        "netresearch/nr-vault": [
+        "in2code/powermail": [
             {
-                "package": "netresearch/nr-vault",
-                "description": "Preserve predecessor context when verifying bounded audit ranges",
-                "url": "patches/netresearch-nr-vault-bounded-audit-range.patch",
-                "sha256": "3f1a27a1dd5a0fe7baa1527a7a197525a66dbc324bfe5fca1ddd508a18494333",
+                "package": "in2code/powermail",
+                "description": "Accept the default-language form of a translated plugin",
+                "url": "patches/in2code-powermail-translated-plugin-form.patch",
+                "sha256": "f59abf173bfaff9f67a138441efb973a9def666d71140f059234811d8c6dda19",
                 "depth": 1,
                 "extra": {
                     "provenance": "root"
                 }
             },
             {
+                "package": "in2code/powermail",
+                "description": "Render the Google Ads snippet only when the Marketing set enables it",
+                "url": "patches/in2code-powermail-adwords-constant.patch",
+                "sha256": "52f9981737f8963ae3f5ed8da3d741492f4e66739ffcae7d8f66afdae01fbd23",
+                "depth": 1,
+                "extra": {
+                    "provenance": "root"
+                }
+            }
+        ],
+        "in2code/powermail_cond": [
+            {
+                "package": "in2code/powermail_cond",
+                "description": "Let extensions evaluate their own rule operators",
+                "url": "patches/in2code-powermail-cond-evaluate-rule-event.patch",
+                "sha256": "ffbad188dbfc1e094fd975194d6f3e574f4cd3b455716aab67664ce7bc4ccbe6",
+                "depth": 1,
+                "extra": {
+                    "provenance": "root"
+                }
+            },
+            {
+                "package": "in2code/powermail_cond",
+                "description": "Provide the Powermail Conditions site set and the prerender flag",
+                "url": "patches/in2code-powermail-cond-site-set-prerender.patch",
+                "sha256": "e96d374bf9a2cd0914ea906576e5d51b46c9aab26f404e13fab5c99e0b43ccf8",
+                "depth": 1,
+                "extra": {
+                    "provenance": "root"
+                }
+            },
+            {
+                "package": "in2code/powermail_cond",
+                "description": "Wait for the condition endpoint and announce processed responses",
+                "url": "patches/in2code-powermail-cond-frontend-wait-and-processed-event.patch",
+                "sha256": "a8c82e51c016a4ed2ecad705ccae173fe51010c0e81288352fa43db2461e1601",
+                "depth": 1,
+                "extra": {
+                    "provenance": "root"
+                }
+            }
+        ],
+        "netresearch/nr-vault": [
+            {
                 "package": "netresearch/nr-vault",
                 "description": "Distinguish missing current credentials from historical deleted inventory",
                 "url": "patches/netresearch-nr-vault-inventory-lifecycle.patch",
-                "sha256": "cacbda59c929ac73890cb964b76668abcfeee0cb65551d449bf459501c936f89",
+                "sha256": "d9266cbccb70481e399569a6fe935ca88e89c72fccc0d25e971925dee226a032",
                 "depth": 1,
                 "extra": {
                     "provenance": "root"
@@ -41,6 +85,18 @@
                 "description": "Modernize blog backend, plugin, and record icons for TYPO3 v14",
                 "url": "patches/t3g-blog-typo3-v14-icons.patch",
                 "sha256": "9c172b2c86dd2898e9150d35bbb0682cc33e0870ef1ab4720b947195a578ee6a",
+                "depth": 1,
+                "extra": {
+                    "provenance": "root"
+                }
+            }
+        ],
+        "webconsulting/records-list-types": [
+            {
+                "package": "webconsulting/records-list-types",
+                "description": "Pass the page language service TYPO3 14.3.12 added to the core Records controller",
+                "url": "patches/webconsulting-records-list-types-typo3-14-3-12-constructor.patch",
+                "sha256": "9d9ec54a699eb92843cbbb562eec5d6b2688da842fe41aa709975bc4f5e1b2c4",
                 "depth": 1,
                 "extra": {
                     "provenance": "root"
