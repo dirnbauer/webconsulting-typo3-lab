@@ -107,6 +107,12 @@ There is no custom manifest reader, asset ViewHelper or server detector. The
 compiled manifest is the reliable default, so pages keep their CSS when no
 development process is running.
 
+`vite.config.js` keeps `resolve.preserveSymlinks: true`: manifest keys stay
+`vendor/webconsulting/<package>/…` whether `vendor/` holds a symlink
+(site_package, a clone linked by `Build/Scripts/lab-link.sh`) or a real copy
+(the production image). vite-asset-collector 2 no longer looks up the symlink
+target, so a manifest built without it fails with "Invalid asset file".
+
 ```bash
 ddev npm ci
 ddev vite build

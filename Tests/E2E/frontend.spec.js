@@ -52,6 +52,9 @@ async function roundSeeded(request) {
 
 const videoExtensionPattern = /\.(?:m4v|mov|mp4|og[gv]|webm)(?:[?#"']|$)/i;
 
+/** Upper bound for <link rel="preload" as="font"> per page (see the Vite block below). */
+const MAX_FONT_PRELOADS = 4;
+
 for (const target of pages) {
   test(`${target.name} renders its complete styled page`, async ({ page, request }) => {
     const browserErrors = [];
@@ -107,6 +110,28 @@ for (const target of pages) {
       expect(stylesheetResponse.status(), stylesheetUrl).toBeLessThan(400);
       expect(stylesheetResponse.headers()["content-type"] ?? "", stylesheetUrl).toContain("text/css");
     }
+
+    // The theme's script entry comes from the compiled manifest, never from a
+    // dev server, and every preload hint vite-asset-collector 2 adds
+    // (modulepreload for imports, preload for woff2 fonts) must resolve.
+    const viteScriptUrls = await page.locator('script[type="module"][src]').evaluateAll(
+      (scripts) => scripts.map((script) => script.src),
+    );
+    expect(viteScriptUrls.some((url) => url.includes("/_assets/vite/assets/Components.entry-"))).toBe(true);
+    expect(viteScriptUrls.some((url) => url.includes("@vite/client"))).toBe(false);
+    const preloadUrls = await page.locator('link[rel="modulepreload"], link[rel="preload"]').evaluateAll(
+      (links) => links.map((link) => link.href),
+    );
+    for (const preloadUrl of preloadUrls) {
+      const preloadResponse = await request.get(preloadUrl, { ignoreHTTPSErrors: true });
+      expect(preloadResponse.status(), preloadUrl).toBeLessThan(400);
+    }
+    // Collector 2 preloads every woff2 a CSS entry references by default:
+    // 22 for Desiderio and 48 for Astryx, the fonts of every preset, on every
+    // page. The themes opt out (<vite:asset.font preload="{false}" />) or name
+    // the few fonts worth it; more than MAX_FONT_PRELOADS means they did not.
+    const fontPreloads = await page.locator('link[rel="preload"][as="font"]').count();
+    expect(fontPreloads, "font preload hints").toBeLessThanOrEqual(MAX_FONT_PRELOADS);
 
     if (target.modernHeading) {
       await expect(visibleHeading).toHaveAttribute("data-slot", "typography");
