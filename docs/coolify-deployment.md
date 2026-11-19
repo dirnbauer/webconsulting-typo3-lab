@@ -15,12 +15,12 @@ provisioning with an explicit error instead of replacing uploaded files.
 
 ## Production PHP runtime
 
-Production uses PHP 8.5.12. The Dockerfile's `PHP_BASE_IMAGE` build argument
+Production uses PHP 8.5.13 (PHP's security release of 19 November 2026). The Dockerfile's `PHP_BASE_IMAGE` build argument
 and the matching Compose build argument allow an immutable base reference.
 PHP 8.5 includes OPcache in its core build, so it is no longer listed in
 `docker-php-ext-install`.
 
-The application uses the official PHP 8.5.12 Apache Trixie image, pinned by
+The application uses the official PHP 8.5.13 Apache Trixie image, pinned by
 digest in `Dockerfile.coolify`. Keep any Coolify `PHP_BASE_IMAGE` override
 aligned with that tested reference. Coolify itself uses its official vendor
 image.

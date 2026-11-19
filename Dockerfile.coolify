@@ -1,7 +1,7 @@
 # syntax=docker/dockerfile:1.10
 
 ARG COMPOSER_VERSION=2.10.3
-ARG PHP_BASE_IMAGE=php:8.5.12-apache-trixie@sha256:7cd25eb48f9763dfeabe8fda3939897aca2001802fadeafa1b602f26c735ef96
+ARG PHP_BASE_IMAGE=php:8.5.13-apache-trixie@sha256:f0c9ecc7b9e805cd37e1d9f385c78e8edd7766f62bce280b8c34370c3e8e6697
 FROM composer:${COMPOSER_VERSION}@sha256:b6dcd72ca98fa19d0e5b8476de179859704891fad06dd9e0b96833d4c430a5fc AS composer-runtime
 FROM node:26.12.1-bookworm-slim@sha256:28147155d47dc31abe0a46e0d12b59b2fb3d0a2dcc5dc65fce76a074180b16fe AS node-runtime
 FROM ${PHP_BASE_IMAGE}
