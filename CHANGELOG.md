@@ -4,6 +4,26 @@ All notable changes to Webconsulting TYPO3 Lab are documented in this file.
 
 ## Unreleased
 
+### vite-asset-collector 2.0.1, Desiderio 4.37.0 and Astryx 2.7.0 — 2026-11-21
+
+- `praetorius/vite-asset-collector` 2.0.1 (from 1.18.4), with Desiderio 4.37.0
+  and Astryx 2.7.0, which require `^2.0.1`. The lab renders no `<vite:*>` tag itself; site_package
+  only sets `useDevServer`/`devServerUri`, which 2.x reads unchanged.
+- `vite.config.js` states `resolve.preserveSymlinks: true`: 2.x no longer
+  falls back to an entry's symlink target, and the manifest must be keyed by
+  `vendor/webconsulting/<package>/…` for symlinked and copied packages alike.
+- 2.x would load CSS entries with priority (before `page.includeCSS`) and
+  preload every woff2 file; Desiderio and Astryx opt out in their page
+  shells, so stylesheet order and font loading stay as with 1.x. The frontend
+  E2E test checks the order, `modulepreload` for imports and at most four font
+  preloads per page.
+- Desiderio 4.37.0 presents Netresearch's AI chat on `/ai/ai-assistant` (slug
+  kept; de/zh/hu in the `ai-chat.json` memory fragments) and contains the
+  Powermail server-error change, so the lab patch
+  `webconsulting-desiderio-powermail-server-errors.patch` is gone. The
+  AI Assistant film is retired and the AI Assistant blog post says it is
+  history. The Netresearch talk has all ten screenshots.
+
 ### TYPO3 14.3.12, Powermail 14 from in2code and the Netresearch AI stack — 2026-11-20
 
 - TYPO3 14.3.12 (security release). Powermail 14.2.0 and Powermail

@@ -10,7 +10,10 @@ defined('TYPO3') or die();
 // running. Developers can opt into HMR explicitly by providing the URL, for
 // example TYPO3_VITE_DEV_SERVER=https://vite-webconsulting-typo3-lab.ddev.site.
 // This follows the extension's documented configuration and deliberately
-// contains no custom manifest reader or server detection.
+// contains no custom manifest reader or server detection. Collector 2 reads
+// both keys once per request (BuildViteContext, stored as the request
+// attribute vite.context); an explicit boolean skips its "auto" detection
+// through VITE_SERVER_RUNNING and the application context.
 $viteDevServerUri = trim((string)getenv('TYPO3_VITE_DEV_SERVER'));
 $GLOBALS['TYPO3_CONF_VARS']['EXTENSIONS']['vite_asset_collector']['useDevServer']
     = $viteDevServerUri !== '';
