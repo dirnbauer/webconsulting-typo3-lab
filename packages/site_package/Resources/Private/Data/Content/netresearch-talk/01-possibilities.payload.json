@@ -1,0 +1,623 @@
+{
+  "version": 1,
+  "site": "desiderio",
+  "root": 505,
+  "language": 0,
+  "languageCode": "en",
+  "_note": "Netresearch talk “KI in TYPO3” (Sebastian Mendel, Netresearch DTT GmbH, MTUG München, 9 November 2026), English translation by webconsulting. Applied only through sitepackage:seed-netresearch-talk, which reads every *.payload.json of this folder in name order, resolves pid 0 (/ai), {{page:/slug}} tokens and {{labstatus:id}} cells, drops image files that do not exist yet and orders the elements by their nrtalk:* markers. Built from the structured talk files by the talk-author tool; edit here afterwards.",
+  "records": [
+    {
+      "table": "pages",
+      "action": "create",
+      "key": "NEW_nrtalk_page_possibilities",
+      "pid": "@NEW_nrtalk_page",
+      "match": {
+        "pid": "@NEW_nrtalk_page",
+        "slug": "/ai/netresearch-talk/possibilities",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "slug": "/ai/netresearch-talk/possibilities",
+        "hidden": 0,
+        "nav_hide": 0,
+        "sys_language_uid": 0,
+        "title": "Possibilities: experience five applications",
+        "nav_title": "Possibilities",
+        "description": "Part 1 of the Netresearch talk: Cowriter, AI Search, Repurpose, the backend agent and Landingpage, five AI applications for TYPO3 shown in the demo.",
+        "abstract": "Five AI applications in TYPO3, from writing in the editor to a page draft from a briefing."
+      }
+    },
+    {
+      "table": "tt_content",
+      "action": "create",
+      "key": "NEW_nrtalk_possibilities_hero",
+      "pid": "@NEW_nrtalk_page_possibilities",
+      "match": {
+        "pid": "@NEW_nrtalk_page_possibilities",
+        "rowDescription": "nrtalk:possibilities:hero",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "CType": "desiderio_headerpage",
+        "colPos": 0,
+        "hidden": 0,
+        "sys_language_uid": 0,
+        "rowDescription": "nrtalk:possibilities:hero",
+        "eyebrow": "Talk, part 1",
+        "header": "What is possible with AI in TYPO3?",
+        "subheadline": "Possibilities: experience five applications",
+        "variant": "left"
+      }
+    },
+    {
+      "table": "tt_content",
+      "action": "create",
+      "key": "NEW_nrtalk_possibilities_credit",
+      "pid": "@NEW_nrtalk_page_possibilities",
+      "match": {
+        "pid": "@NEW_nrtalk_page_possibilities",
+        "rowDescription": "nrtalk:possibilities:credit",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "CType": "desiderio_benefitcards",
+        "colPos": 0,
+        "hidden": 0,
+        "sys_language_uid": 0,
+        "rowDescription": "nrtalk:possibilities:credit",
+        "frame_class": "muted",
+        "eyebrow": "Original source",
+        "header": "AI in TYPO3: problems, questions and requirements",
+        "subheadline": "A talk by Sebastian Mendel, Netresearch DTT GmbH, at MTUG – TYPO3 User Group München on 9 November 2026. This page is our English translation of the German original.",
+        "columns": "2"
+      },
+      "_collections": [
+        {
+          "field": "desiderio_benefitcards_items",
+          "keys": [
+            "NEW_nrtalk_possibilities_credit_0",
+            "NEW_nrtalk_possibilities_credit_1",
+            "NEW_nrtalk_possibilities_credit_2",
+            "NEW_nrtalk_possibilities_credit_3"
+          ]
+        }
+      ]
+    },
+    {
+      "table": "desiderio_icon_card_link",
+      "action": "create",
+      "key": "NEW_nrtalk_possibilities_credit_0",
+      "pid": "@NEW_nrtalk_page_possibilities",
+      "match": {
+        "pid": "@NEW_nrtalk_page_possibilities",
+        "foreign_table_parent_uid": "@NEW_nrtalk_possibilities_credit",
+        "tablenames": "tt_content",
+        "fieldname": "desiderio_benefitcards_items",
+        "sorting": 1,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "icon": "monitor",
+        "title": "Original slides",
+        "description": "<p>The German slides as Netresearch published them, slide by slide.</p>",
+        "link": "https://netresearch.github.io/modularer-ki-stack-page/vortraege/mtug-2026-11-09/",
+        "foreign_table_parent_uid": "@NEW_nrtalk_possibilities_credit",
+        "tablenames": "tt_content",
+        "fieldname": "desiderio_benefitcards_items",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "desiderio_icon_card_link",
+      "action": "create",
+      "key": "NEW_nrtalk_possibilities_credit_1",
+      "pid": "@NEW_nrtalk_page_possibilities",
+      "match": {
+        "pid": "@NEW_nrtalk_page_possibilities",
+        "foreign_table_parent_uid": "@NEW_nrtalk_possibilities_credit",
+        "tablenames": "tt_content",
+        "fieldname": "desiderio_benefitcards_items",
+        "sorting": 2,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "icon": "file-text",
+        "title": "Slides as PDF",
+        "description": "<p>The complete deck to download and print.</p>",
+        "link": "https://netresearch.github.io/modularer-ki-stack-page/vortraege/mtug-2026-11-09/MTUG-KI-in-TYPO3.pdf",
+        "foreign_table_parent_uid": "@NEW_nrtalk_possibilities_credit",
+        "tablenames": "tt_content",
+        "fieldname": "desiderio_benefitcards_items",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "desiderio_icon_card_link",
+      "action": "create",
+      "key": "NEW_nrtalk_possibilities_credit_2",
+      "pid": "@NEW_nrtalk_page_possibilities",
+      "match": {
+        "pid": "@NEW_nrtalk_page_possibilities",
+        "foreign_table_parent_uid": "@NEW_nrtalk_possibilities_credit",
+        "tablenames": "tt_content",
+        "fieldname": "desiderio_benefitcards_items",
+        "sorting": 3,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "icon": "git-branch",
+        "title": "Slide repository",
+        "description": "<p>Netresearch’s source of the slides and of the stack page, on GitHub.</p>",
+        "link": "https://github.com/netresearch/modularer-ki-stack-page",
+        "foreign_table_parent_uid": "@NEW_nrtalk_possibilities_credit",
+        "tablenames": "tt_content",
+        "fieldname": "desiderio_benefitcards_items",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "desiderio_icon_card_link",
+      "action": "create",
+      "key": "NEW_nrtalk_possibilities_credit_3",
+      "pid": "@NEW_nrtalk_page_possibilities",
+      "match": {
+        "pid": "@NEW_nrtalk_page_possibilities",
+        "foreign_table_parent_uid": "@NEW_nrtalk_possibilities_credit",
+        "tablenames": "tt_content",
+        "fieldname": "desiderio_benefitcards_items",
+        "sorting": 4,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "icon": "layers",
+        "title": "Modular AI stack",
+        "description": "<p>Netresearch’s overview of the ten modules, with current releases and requirements.</p>",
+        "link": "https://netresearch.github.io/modularer-ki-stack-page/",
+        "foreign_table_parent_uid": "@NEW_nrtalk_possibilities_credit",
+        "tablenames": "tt_content",
+        "fieldname": "desiderio_benefitcards_items",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "tt_content",
+      "action": "create",
+      "key": "NEW_nrtalk_possibilities_s04_editor",
+      "pid": "@NEW_nrtalk_page_possibilities",
+      "match": {
+        "pid": "@NEW_nrtalk_page_possibilities",
+        "rowDescription": "nrtalk:possibilities:s04_editor",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "CType": "desiderio_textmedia",
+        "colPos": 0,
+        "hidden": 0,
+        "sys_language_uid": 0,
+        "rowDescription": "nrtalk:possibilities:s04_editor",
+        "header": "Use AI right while editing",
+        "subheadline": "01 · Cowriter · Short paths in everyday editing",
+        "content": "<h3>In the editor</h3><p>The AI tools can be called directly in the text editor.</p><p>Link to Netresearch’s demo backend: login required.</p>",
+        "shadcn_layout": "media-right",
+        "media_rounded": 1,
+        "button_text": "Open the editor",
+        "button_link": "https://typo3-demo.netresearch.de/typo3/record/edit?edit%5Btt_content%5D%5B30%5D=edit"
+      },
+      "files": {
+        "media": [
+          {
+            "source": "EXT:site_package/Resources/Public/Images/NetresearchTalk/cowriter-editor.png",
+            "folder": "1:/user_upload/netresearch-talk/",
+            "alternative": "Cowriter’s AI tools in the toolbar of the rich text editor in this lab",
+            "title": "",
+            "description": "Our screenshot from this lab’s installation of the same extension."
+          }
+        ]
+      }
+    },
+    {
+      "table": "tt_content",
+      "action": "create",
+      "key": "NEW_nrtalk_possibilities_s04_fields",
+      "pid": "@NEW_nrtalk_page_possibilities",
+      "match": {
+        "pid": "@NEW_nrtalk_page_possibilities",
+        "rowDescription": "nrtalk:possibilities:s04_fields",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "CType": "desiderio_textmedia",
+        "colPos": 0,
+        "hidden": 0,
+        "sys_language_uid": 0,
+        "rowDescription": "nrtalk:possibilities:s04_fields",
+        "content": "<h3>On page fields</h3><p>Several suggestions for the SEO title are offered to choose from.</p><p>Link to Netresearch’s demo backend: login required.</p>",
+        "shadcn_layout": "media-left",
+        "media_rounded": 1,
+        "button_text": "Open page fields",
+        "button_link": "https://typo3-demo.netresearch.de/typo3/record/edit?edit%5Bpages%5D%5B9102%5D=edit"
+      },
+      "files": {
+        "media": [
+          {
+            "source": "EXT:site_package/Resources/Public/Images/NetresearchTalk/cowriter-seo.png",
+            "folder": "1:/user_upload/netresearch-talk/",
+            "alternative": "Cowriter suggestions for a page’s SEO title in this lab",
+            "title": "",
+            "description": "Our screenshot from this lab’s installation of the same extension."
+          }
+        ]
+      }
+    },
+    {
+      "table": "tt_content",
+      "action": "create",
+      "key": "NEW_nrtalk_possibilities_s05",
+      "pid": "@NEW_nrtalk_page_possibilities",
+      "match": {
+        "pid": "@NEW_nrtalk_page_possibilities",
+        "rowDescription": "nrtalk:possibilities:s05",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "CType": "desiderio_textmedia",
+        "colPos": 0,
+        "hidden": 0,
+        "sys_language_uid": 0,
+        "rowDescription": "nrtalk:possibilities:s05",
+        "header": "Answers from website content",
+        "subheadline": "02 · AI Search",
+        "content": "<ol><li>Trace an answer back to its source</li><li>Open the source hit</li><li>Show when the sources give no answer</li></ol><p>The answer links the source it used, so it can be checked.</p><p>Not installed in this lab: the screenshot is on the original slide.</p>",
+        "shadcn_layout": "media-right",
+        "media_rounded": 1,
+        "button_text": "View the slide",
+        "button_link": "https://netresearch.github.io/modularer-ki-stack-page/vortraege/mtug-2026-11-09/#/5"
+      }
+    },
+    {
+      "table": "tt_content",
+      "action": "create",
+      "key": "NEW_nrtalk_possibilities_s06",
+      "pid": "@NEW_nrtalk_page_possibilities",
+      "match": {
+        "pid": "@NEW_nrtalk_page_possibilities",
+        "rowDescription": "nrtalk:possibilities:s06",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "CType": "desiderio_textmedia",
+        "colPos": 0,
+        "hidden": 0,
+        "sys_language_uid": 0,
+        "rowDescription": "nrtalk:possibilities:s06",
+        "header": "One piece of content, several formats",
+        "subheadline": "03 · Repurpose",
+        "content": "<ol><li>The original source stays traceable</li><li>Diagram and podcast as results</li><li>Review each artefact individually</li></ol><p>Podcast and diagram use the same linked original source.</p><p>Not installed in this lab: the screenshot is on the original slide.</p><p><a href=\"https://typo3-demo.netresearch.de/typo3/module/web/nr-repurpose\">Open Repurpose</a> (demo backend, login required)</p>",
+        "shadcn_layout": "media-right",
+        "media_rounded": 1,
+        "button_text": "View the slide",
+        "button_link": "https://netresearch.github.io/modularer-ki-stack-page/vortraege/mtug-2026-11-09/#/6"
+      }
+    },
+    {
+      "table": "tt_content",
+      "action": "create",
+      "key": "NEW_nrtalk_possibilities_s07",
+      "pid": "@NEW_nrtalk_page_possibilities",
+      "match": {
+        "pid": "@NEW_nrtalk_page_possibilities",
+        "rowDescription": "nrtalk:possibilities:s07",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "CType": "desiderio_textmedia",
+        "colPos": 0,
+        "hidden": 0,
+        "sys_language_uid": 0,
+        "rowDescription": "nrtalk:possibilities:s07",
+        "header": "Talk to TYPO3 and let it handle tasks",
+        "subheadline": "04 · Backend agent · The chat as a workspace",
+        "content": "<ol><li>Ask questions about content in TYPO3</li><li>Request changes in natural language</li><li>For example, have it create a page draft</li></ol><p>The chat shows the request and the reply about the page draft.</p><p>Link to Netresearch’s demo backend: login required.</p><p>Installed in this lab: <a href=\"{{page:/ai/ai-assistant|/ai}}\">the AI chat</a>.</p>",
+        "shadcn_layout": "media-left",
+        "media_rounded": 1,
+        "button_text": "Open AI chat",
+        "button_link": "https://typo3-demo.netresearch.de/typo3/module/nr/mcp/agent/chat/conversation"
+      },
+      "files": {
+        "media": [
+          {
+            "source": "EXT:site_package/Resources/Public/Images/NetresearchTalk/agent-chat.png",
+            "folder": "1:/user_upload/netresearch-talk/",
+            "alternative": "The AI chat in this lab with a request for a page draft and the agent’s reply",
+            "title": "",
+            "description": "Our screenshot from this lab’s installation of the same extension."
+          }
+        ]
+      }
+    },
+    {
+      "table": "tt_content",
+      "action": "create",
+      "key": "NEW_nrtalk_possibilities_s08_backend",
+      "pid": "@NEW_nrtalk_page_possibilities",
+      "match": {
+        "pid": "@NEW_nrtalk_page_possibilities",
+        "rowDescription": "nrtalk:possibilities:s08_backend",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "CType": "desiderio_textmedia",
+        "colPos": 0,
+        "hidden": 0,
+        "sys_language_uid": 0,
+        "rowDescription": "nrtalk:possibilities:s08_backend",
+        "header": "From briefing to page draft",
+        "subheadline": "05 · Landingpage",
+        "content": "<h3>In the backend</h3><p>The generated page fields remain editable in the backend.</p>",
+        "shadcn_layout": "media-right",
+        "media_rounded": 1
+      },
+      "files": {
+        "media": [
+          {
+            "source": "EXT:site_package/Resources/Public/Images/NetresearchTalk/landingpage-backend.png",
+            "folder": "1:/user_upload/netresearch-talk/",
+            "alternative": "Page fields of a draft that Landingpage generated in this lab",
+            "title": "",
+            "description": "Our screenshot from this lab’s installation of the same extension."
+          }
+        ]
+      }
+    },
+    {
+      "table": "tt_content",
+      "action": "create",
+      "key": "NEW_nrtalk_possibilities_s08_preview",
+      "pid": "@NEW_nrtalk_page_possibilities",
+      "match": {
+        "pid": "@NEW_nrtalk_page_possibilities",
+        "rowDescription": "nrtalk:possibilities:s08_preview",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "CType": "desiderio_textmedia",
+        "colPos": 0,
+        "hidden": 0,
+        "sys_language_uid": 0,
+        "rowDescription": "nrtalk:possibilities:s08_preview",
+        "content": "<h3>In the preview</h3><p>The preview makes the page draft reviewable by editors.</p>",
+        "shadcn_layout": "media-left",
+        "media_rounded": 1
+      },
+      "files": {
+        "media": [
+          {
+            "source": "EXT:site_package/Resources/Public/Images/NetresearchTalk/landingpage-preview.png",
+            "folder": "1:/user_upload/netresearch-talk/",
+            "alternative": "Preview of the top section of a generated page draft in this lab",
+            "title": "",
+            "description": "Our screenshot from this lab’s installation of the same extension."
+          }
+        ]
+      }
+    },
+    {
+      "table": "tt_content",
+      "action": "create",
+      "key": "NEW_nrtalk_possibilities_s09",
+      "pid": "@NEW_nrtalk_page_possibilities",
+      "match": {
+        "pid": "@NEW_nrtalk_page_possibilities",
+        "rowDescription": "nrtalk:possibilities:s09",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "CType": "desiderio_definitionlist",
+        "colPos": 0,
+        "hidden": 0,
+        "sys_language_uid": 0,
+        "rowDescription": "nrtalk:possibilities:s09",
+        "header": "More possibilities in our demo",
+        "shadcn_layout": "stacked"
+      },
+      "_collections": [
+        {
+          "field": "desiderio_definitionlist_items",
+          "keys": [
+            "NEW_nrtalk_possibilities_s09_0",
+            "NEW_nrtalk_possibilities_s09_1",
+            "NEW_nrtalk_possibilities_s09_2",
+            "NEW_nrtalk_possibilities_s09_3",
+            "NEW_nrtalk_possibilities_s09_4",
+            "NEW_nrtalk_possibilities_s09_5"
+          ]
+        }
+      ]
+    },
+    {
+      "table": "definition_list_items",
+      "action": "create",
+      "key": "NEW_nrtalk_possibilities_s09_0",
+      "pid": "@NEW_nrtalk_page_possibilities",
+      "match": {
+        "pid": "@NEW_nrtalk_page_possibilities",
+        "foreign_table_parent_uid": "@NEW_nrtalk_possibilities_s09",
+        "sorting": 1,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "term": "Analyse errors",
+        "definition": "Examine logs in the chat and narrow down possible causes.",
+        "foreign_table_parent_uid": "@NEW_nrtalk_possibilities_s09",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "definition_list_items",
+      "action": "create",
+      "key": "NEW_nrtalk_possibilities_s09_1",
+      "pid": "@NEW_nrtalk_page_possibilities",
+      "match": {
+        "pid": "@NEW_nrtalk_page_possibilities",
+        "foreign_table_parent_uid": "@NEW_nrtalk_possibilities_s09",
+        "sorting": 2,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "term": "Research in the system",
+        "definition": "Ask questions about content, records and configuration.",
+        "foreign_table_parent_uid": "@NEW_nrtalk_possibilities_s09",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "definition_list_items",
+      "action": "create",
+      "key": "NEW_nrtalk_possibilities_s09_2",
+      "pid": "@NEW_nrtalk_page_possibilities",
+      "match": {
+        "pid": "@NEW_nrtalk_page_possibilities",
+        "foreign_table_parent_uid": "@NEW_nrtalk_possibilities_s09",
+        "sorting": 3,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "term": "Connect external systems",
+        "definition": "Use information and tools via MCP – DeepWiki, for example.",
+        "foreign_table_parent_uid": "@NEW_nrtalk_possibilities_s09",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "definition_list_items",
+      "action": "create",
+      "key": "NEW_nrtalk_possibilities_s09_3",
+      "pid": "@NEW_nrtalk_page_possibilities",
+      "match": {
+        "pid": "@NEW_nrtalk_page_possibilities",
+        "foreign_table_parent_uid": "@NEW_nrtalk_possibilities_s09",
+        "sorting": 4,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "term": "Images and alt texts",
+        "definition": "Generate images and add alt texts in German and English.",
+        "foreign_table_parent_uid": "@NEW_nrtalk_possibilities_s09",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "definition_list_items",
+      "action": "create",
+      "key": "NEW_nrtalk_possibilities_s09_4",
+      "pid": "@NEW_nrtalk_page_possibilities",
+      "match": {
+        "pid": "@NEW_nrtalk_page_possibilities",
+        "foreign_table_parent_uid": "@NEW_nrtalk_possibilities_s09",
+        "sorting": 5,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "term": "Translate content",
+        "definition": "Transfer even whole TYPO3 records into another language.",
+        "foreign_table_parent_uid": "@NEW_nrtalk_possibilities_s09",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "definition_list_items",
+      "action": "create",
+      "key": "NEW_nrtalk_possibilities_s09_5",
+      "pid": "@NEW_nrtalk_page_possibilities",
+      "match": {
+        "pid": "@NEW_nrtalk_page_possibilities",
+        "foreign_table_parent_uid": "@NEW_nrtalk_possibilities_s09",
+        "sorting": 6,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "term": "Operate forms",
+        "definition": "Phrase a weather query in natural language – with Browser AI.",
+        "foreign_table_parent_uid": "@NEW_nrtalk_possibilities_s09",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "tt_content",
+      "action": "create",
+      "key": "NEW_nrtalk_possibilities_s09_links",
+      "pid": "@NEW_nrtalk_page_possibilities",
+      "match": {
+        "pid": "@NEW_nrtalk_page_possibilities",
+        "rowDescription": "nrtalk:possibilities:s09_links",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "CType": "desiderio_callout",
+        "colPos": 0,
+        "hidden": 0,
+        "sys_language_uid": 0,
+        "rowDescription": "nrtalk:possibilities:s09_links",
+        "content": "<p>In Netresearch’s demo: <a href=\"https://typo3-demo.netresearch.de/typo3/module/nr/mcp/agent/chat/conversation\">AI chat</a> · <a href=\"https://github.com/netresearch/typo3-demo/blob/54656cc6a107af0f801c5cc1f51df300f9fc5eb4/data/seed-extensions.sql#L7933\">MCP example</a> · <a href=\"https://typo3-demo.netresearch.de/extensions/browser-ai-form-assistant\">Form demo</a> (demo backend, login required)</p>",
+        "variant": "info"
+      }
+    },
+    {
+      "table": "tt_content",
+      "action": "create",
+      "key": "NEW_nrtalk_possibilities_source",
+      "pid": "@NEW_nrtalk_page_possibilities",
+      "match": {
+        "pid": "@NEW_nrtalk_page_possibilities",
+        "rowDescription": "nrtalk:possibilities:source",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "CType": "desiderio_callout",
+        "colPos": 0,
+        "hidden": 0,
+        "sys_language_uid": 0,
+        "rowDescription": "nrtalk:possibilities:source",
+        "header": "Source",
+        "content": "<p>Sebastian Mendel, Netresearch DTT GmbH: “KI in TYPO3 – Probleme, Fragen und Anforderungen”, MTUG – TYPO3 User Group München, 9 November 2026, slides <a href=\"https://netresearch.github.io/modularer-ki-stack-page/vortraege/mtug-2026-11-09/#/3\">3</a> to <a href=\"https://netresearch.github.io/modularer-ki-stack-page/vortraege/mtug-2026-11-09/#/9\">9</a>. Translated into English by webconsulting.</p>",
+        "variant": "note"
+      }
+    },
+    {
+      "table": "tt_content",
+      "action": "create",
+      "key": "NEW_nrtalk_possibilities_pager",
+      "pid": "@NEW_nrtalk_page_possibilities",
+      "match": {
+        "pid": "@NEW_nrtalk_page_possibilities",
+        "rowDescription": "nrtalk:possibilities:pager",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "CType": "desiderio_ctasplit",
+        "colPos": 0,
+        "hidden": 0,
+        "sys_language_uid": 0,
+        "rowDescription": "nrtalk:possibilities:pager",
+        "left_title": "Netresearch talk",
+        "left_description": "<p>The talk at a glance, with the slides and the thanks.</p>",
+        "left_button_text": "Back to overview",
+        "left_button_link": "@NEW_nrtalk_page",
+        "right_title": "Questions about using AI",
+        "right_description": "<p>Questions about using AI: quality, effort, data and responsibility</p>",
+        "right_button_text": "Next part",
+        "right_button_link": "@NEW_nrtalk_page_questions"
+      }
+    }
+  ]
+}

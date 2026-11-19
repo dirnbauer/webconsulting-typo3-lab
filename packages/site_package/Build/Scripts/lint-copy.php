@@ -95,7 +95,7 @@ $report = static function (string $source, string $key, Finding $finding) use (&
  *
  * @param array<mixed> $data
  */
-$walk = static function (array $data, string $source, string $table, string $language, bool $library, string $path = '', string $field = '') use (&$walk, $checker, $options, $report): void {
+$walk = static function (array $data, string $source, string $table, string $language, bool $library, string $path = '', string $field = '', string $record = '') use (&$walk, $checker, $options, $report): void {
     foreach ($data as $key => $value) {
         $isField = is_string($key);
         $name = $isField ? $key : $field;
@@ -104,7 +104,7 @@ $walk = static function (array $data, string $source, string $table, string $lan
             continue;
         }
         if (is_array($value)) {
-            $walk($value, $source, $table, $language, $library, $location, $name);
+            $walk($value, $source, $table, $language, $library, $location, $name, $record);
             continue;
         }
         if (!is_string($value) || trim($value) === '' || $name === '') {
@@ -116,7 +116,9 @@ $walk = static function (array $data, string $source, string $table, string $lan
         }
         $role = FieldRole::fromField($name, $table);
         $text = CopyMetrics::plainText($value);
-        foreach ($checker->check($text, $role, $language, $options['site']) as $finding) {
+        // A quotation listed in a canon `quoted_copy` file (same record key, field and text) is exempt from the rules it names.
+        $waived = $record !== '' ? $checker->quotedRules($value, $language, $record, $name) : [];
+        foreach ($checker->check($text, $role, $language, $options['site'], false, $waived) as $finding) {
             $report($source, $location, $finding);
         }
         if ($library && preg_match('/\b(Desiderio|TYPO3|shadcn|Content Blocks?)\b/i', $text, $match) === 1) {
@@ -142,7 +144,7 @@ foreach ($files as $file) {
             if (is_array($record) && is_array($record['set'] ?? null)) {
                 $table = is_string($record['table'] ?? null) ? $record['table'] : 'tt_content';
                 $label = sprintf('records.%s(%s:%s)', (string)$index, $table, is_scalar($record['uid'] ?? null) ? (string)$record['uid'] : (is_scalar($record['key'] ?? null) ? (string)$record['key'] : 'new'));
-                $walk($record['set'], $file, $table, $language, false, $label);
+                $walk($record['set'], $file, $table, $language, false, $label, '', is_scalar($record['key'] ?? null) ? (string)$record['key'] : '');
             }
         }
     } else {

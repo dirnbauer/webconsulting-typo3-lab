@@ -1,0 +1,58 @@
+{
+  "version": 1,
+  "site": "desiderio",
+  "root": 505,
+  "language": 0,
+  "languageCode": "en",
+  "_note": "Netresearch talk “KI in TYPO3” (Sebastian Mendel, Netresearch DTT GmbH, MTUG München, 9 November 2026), English translation by webconsulting. Applied only through sitepackage:seed-netresearch-talk, which reads every *.payload.json of this folder in name order, resolves pid 0 (/ai), {{page:/slug}} tokens and {{labstatus:id}} cells, drops image files that do not exist yet and orders the elements by their nrtalk:* markers. Built from the structured talk files by the talk-author tool; edit here afterwards.",
+  "records": [
+    {
+      "table": "tt_content",
+      "action": "create",
+      "key": "NEW_nrtalk_hub_ai",
+      "pid": "{{page:/ai}}",
+      "match": {
+        "pid": "{{page:/ai}}",
+        "rowDescription": "nrtalk:hub-ai",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "CType": "desiderio_contenthighlight",
+        "colPos": 0,
+        "hidden": 0,
+        "sys_language_uid": 0,
+        "rowDescription": "nrtalk:hub-ai",
+        "header": "AI in TYPO3: the Netresearch talk",
+        "content": "<p>Sebastian Mendel at MTUG München, 9 November 2026: five AI applications, the open questions, the answers nr-llm gives and two ways for agents.</p>",
+        "variant": "bordered",
+        "alignment": "left",
+        "link": "@NEW_nrtalk_page",
+        "link_text": "Read the talk"
+      }
+    },
+    {
+      "table": "tt_content",
+      "action": "create",
+      "key": "NEW_nrtalk_hub_resources",
+      "pid": "{{page:/resources}}",
+      "match": {
+        "pid": "{{page:/resources}}",
+        "rowDescription": "nrtalk:hub-resources",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "CType": "desiderio_contenthighlight",
+        "colPos": 0,
+        "hidden": 0,
+        "sys_language_uid": 0,
+        "rowDescription": "nrtalk:hub-resources",
+        "header": "AI in TYPO3: the Netresearch talk",
+        "content": "<p>Sebastian Mendel at MTUG München, 9 November 2026: five AI applications, the open questions, the answers nr-llm gives and two ways for agents.</p>",
+        "variant": "bordered",
+        "alignment": "left",
+        "link": "@NEW_nrtalk_page",
+        "link_text": "Read the talk"
+      }
+    }
+  ]
+}

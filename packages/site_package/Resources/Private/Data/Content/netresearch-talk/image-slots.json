@@ -1,0 +1,99 @@
+{
+  "_note": "Screenshots the payload expects. None exists yet: the integration phase captures each one in THIS lab from our own installation of the Netresearch extension named, in light mode, saves it under the name given and reruns sitepackage:seed-netresearch-talk. The seeder skips a missing file (and says so). Never copy Netresearch’s screenshots. A file is imported by name once: to replace a capture later, give it a new name here and in the payload.",
+  "directory": "EXT:site_package/Resources/Public/Images/NetresearchTalk/",
+  "folder": "1:/user_upload/netresearch-talk/",
+  "slots": [
+    {
+      "file": "cowriter-editor.png",
+      "payloadAlt": "Cowriter’s AI tools in the toolbar of the rich text editor in this lab",
+      "shows": "The TYPO3 rich text editor (CKEditor) on a text element in this lab, with the Cowriter AI tools visible in the toolbar; light mode.",
+      "slides": [
+        4
+      ],
+      "extension": "t3_cowriter"
+    },
+    {
+      "file": "cowriter-seo.png",
+      "payloadAlt": "Cowriter suggestions for a page’s SEO title in this lab",
+      "shows": "Page properties of a page in this lab with Cowriter’s suggestions for the SEO title open, several suggestions to choose from.",
+      "slides": [
+        4
+      ],
+      "extension": "t3_cowriter"
+    },
+    {
+      "file": "agent-chat.png",
+      "payloadAlt": "The AI chat in this lab with a request for a page draft and the agent’s reply",
+      "shows": "The AI chat (nr-mcp-agent) in this lab’s backend: a request for a page draft in natural language and the agent’s reply.",
+      "slides": [
+        7
+      ],
+      "extension": "nr_mcp_agent"
+    },
+    {
+      "file": "landingpage-backend.png",
+      "payloadAlt": "Page fields of a draft that Landingpage generated in this lab",
+      "shows": "The page properties (SEO fields) of a page draft that nr-landingpage generated from a briefing in this lab; the generated values must be visibly fictional demo content.",
+      "slides": [
+        8
+      ],
+      "extension": "nr_landingpage"
+    },
+    {
+      "file": "landingpage-preview.png",
+      "payloadAlt": "Preview of the top section of a generated page draft in this lab",
+      "shows": "The frontend preview (top section) of the same generated draft in this lab.",
+      "slides": [
+        8
+      ],
+      "extension": "nr_landingpage"
+    },
+    {
+      "file": "llm-configurations.png",
+      "payloadAlt": "The list of nr-llm configurations in this lab’s backend",
+      "shows": "The nr-llm configurations module in this lab’s backend: the list of named configurations (or one opened), with model and parameters visible; no API key visible.",
+      "slides": [
+        15,
+        16
+      ],
+      "extension": "nr_llm"
+    },
+    {
+      "file": "llm-analytics.png",
+      "payloadAlt": "The nr-llm cost overview in this lab with requests, tokens and estimated costs",
+      "shows": "The nr-llm analytics (cost overview) module in this lab: requests, token usage and estimated costs over a period.",
+      "slides": [
+        22
+      ],
+      "extension": "nr_llm"
+    },
+    {
+      "file": "approval-card.png",
+      "payloadAlt": "An approval card in the AI chat of this lab for a planned page change",
+      "shows": "An open approval card in this lab’s AI chat: the agent asks to change a page field (for example an SEO title) and waits for approval.",
+      "slides": [
+        26
+      ],
+      "extension": "nr_mcp_agent"
+    },
+    {
+      "file": "llm-tools.png",
+      "payloadAlt": "The nr-llm tools module in this lab with tool groups and single tools",
+      "shows": "The nr-llm tools module in this lab’s backend: tool groups and individual tools with their enabled state.",
+      "slides": [
+        26,
+        28
+      ],
+      "extension": "nr_llm"
+    },
+    {
+      "file": "tool-trace.png",
+      "payloadAlt": "The expanded history of model and tool calls in this lab’s AI chat",
+      "shows": "The AI chat in this lab with the activity (tool trace) expanded: tool names, arguments and results of the model and tool calls.",
+      "slides": [
+        27
+      ],
+      "extension": "nr_mcp_agent"
+    }
+  ]
+}

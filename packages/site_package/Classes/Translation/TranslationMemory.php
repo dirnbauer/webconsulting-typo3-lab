@@ -69,6 +69,76 @@ final class TranslationMemory
     }
 
     /**
+     * The memory of a language with its fragments: `<lang>.json` plus every
+     * `<lang>.d/*.json` next to it, in file-name order. A fragment keeps a
+     * self-contained set of entries (one topic, e.g. a talk) out of the big
+     * shared file. An entry may repeat one from another file with the same
+     * translation; a different translation for the same source text is an
+     * error, never a silent override.
+     */
+    public static function fromFiles(string $path, string $language): self
+    {
+        $strings = self::fromFile($path, $language)->sourceStrings();
+        $origin = array_fill_keys(array_keys($strings), basename($path));
+        foreach (self::fragmentPaths($path, $language) as $fragment) {
+            $data = json_decode((string)file_get_contents($fragment), true);
+            if (!is_array($data) || ($data['language'] ?? null) !== $language) {
+                throw new \InvalidArgumentException(sprintf('%s is not a "%s" translation memory fragment.', $fragment, $language), 1790100002);
+            }
+            $keyed = [];
+            foreach ($strings as $source => $translation) {
+                $keyed[self::key($source)] = $source;
+            }
+            foreach (self::fromFile($fragment, $language)->sourceStrings() as $source => $translation) {
+                $existing = $keyed[self::key($source)] ?? null;
+                if ($existing !== null && $strings[$existing] !== $translation) {
+                    throw new \InvalidArgumentException(sprintf(
+                        '%s translates "%s" differently than %s.',
+                        basename(dirname($fragment)) . '/' . basename($fragment),
+                        mb_strimwidth($source, 0, 80, '…'),
+                        $origin[$existing]
+                    ), 1790100003);
+                }
+                if ($existing === null) {
+                    $strings[$source] = $translation;
+                    $origin[$source] = basename(dirname($fragment)) . '/' . basename($fragment);
+                    $keyed[self::key($source)] = $source;
+                }
+            }
+        }
+
+        return new self($language, $strings);
+    }
+
+    /**
+     * Fragment files of a memory: `<dir>/<lang>.d/*.json`, sorted.
+     *
+     * @return list<string>
+     */
+    public static function fragmentPaths(string $path, string $language): array
+    {
+        $paths = glob(dirname($path) . '/' . $language . '.d/*.json') ?: [];
+        sort($paths);
+
+        return $paths;
+    }
+
+    /**
+     * Source text as written => translation.
+     *
+     * @return array<string, string>
+     */
+    private function sourceStrings(): array
+    {
+        $strings = [];
+        foreach ($this->strings as $key => $translation) {
+            $strings[$this->sources[$key]] = $translation;
+        }
+
+        return $strings;
+    }
+
+    /**
      * The translation of a source text, the text itself when it has nothing
      * to translate (a number, a percentage), or null when it is missing.
      */

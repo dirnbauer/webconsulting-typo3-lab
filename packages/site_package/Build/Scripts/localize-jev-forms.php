@@ -89,7 +89,7 @@ $plans = [];
 
 // Resolve every label before creating anything. Missing text aborts the run.
 foreach (['zh' => 2, 'hu' => 3] as $code => $language) {
-    $memory = TranslationMemory::fromFile($root . '/packages/site_package/Resources/Private/Data/Translations/desiderio/' . $code . '.json', $code);
+    $memory = TranslationMemory::fromFiles($root . '/packages/site_package/Resources/Private/Data/Translations/desiderio/' . $code . '.json', $code);
     foreach ($sources as $table => $records) {
         foreach ($records as $source) {
             $changes = [];

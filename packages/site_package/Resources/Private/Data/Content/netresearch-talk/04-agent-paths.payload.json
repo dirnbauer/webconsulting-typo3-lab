@@ -1,0 +1,429 @@
+{
+  "version": 1,
+  "site": "desiderio",
+  "root": 505,
+  "language": 0,
+  "languageCode": "en",
+  "_note": "Netresearch talk “KI in TYPO3” (Sebastian Mendel, Netresearch DTT GmbH, MTUG München, 9 November 2026), English translation by webconsulting. Applied only through sitepackage:seed-netresearch-talk, which reads every *.payload.json of this folder in name order, resolves pid 0 (/ai), {{page:/slug}} tokens and {{labstatus:id}} cells, drops image files that do not exist yet and orders the elements by their nrtalk:* markers. Built from the structured talk files by the talk-author tool; edit here afterwards.",
+  "records": [
+    {
+      "table": "pages",
+      "action": "create",
+      "key": "NEW_nrtalk_page_agents",
+      "pid": "@NEW_nrtalk_page",
+      "match": {
+        "pid": "@NEW_nrtalk_page",
+        "slug": "/ai/netresearch-talk/agent-paths",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "slug": "/ai/netresearch-talk/agent-paths",
+        "hidden": 0,
+        "nav_hide": 0,
+        "sys_language_uid": 0,
+        "title": "Agent paths: comparing internal and external",
+        "nav_title": "Agent paths",
+        "description": "Part 4 of the Netresearch talk: an agent inside the TYPO3 backend or in your own assistant through MCP, and A2A as an outlook.",
+        "abstract": "Two ways for an agent to work with TYPO3, and A2A as an outlook."
+      }
+    },
+    {
+      "table": "tt_content",
+      "action": "create",
+      "key": "NEW_nrtalk_agents_hero",
+      "pid": "@NEW_nrtalk_page_agents",
+      "match": {
+        "pid": "@NEW_nrtalk_page_agents",
+        "rowDescription": "nrtalk:agents:hero",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "CType": "desiderio_headerpage",
+        "colPos": 0,
+        "hidden": 0,
+        "sys_language_uid": 0,
+        "rowDescription": "nrtalk:agents:hero",
+        "eyebrow": "Talk, part 4",
+        "header": "Agent paths",
+        "subheadline": "Agent paths: comparing internal and external",
+        "variant": "left"
+      }
+    },
+    {
+      "table": "tt_content",
+      "action": "create",
+      "key": "NEW_nrtalk_agents_credit",
+      "pid": "@NEW_nrtalk_page_agents",
+      "match": {
+        "pid": "@NEW_nrtalk_page_agents",
+        "rowDescription": "nrtalk:agents:credit",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "CType": "desiderio_benefitcards",
+        "colPos": 0,
+        "hidden": 0,
+        "sys_language_uid": 0,
+        "rowDescription": "nrtalk:agents:credit",
+        "frame_class": "muted",
+        "eyebrow": "Original source",
+        "header": "AI in TYPO3: problems, questions and requirements",
+        "subheadline": "A talk by Sebastian Mendel, Netresearch DTT GmbH, at MTUG – TYPO3 User Group München on 9 November 2026. This page is our English translation of the German original.",
+        "columns": "2"
+      },
+      "_collections": [
+        {
+          "field": "desiderio_benefitcards_items",
+          "keys": [
+            "NEW_nrtalk_agents_credit_0",
+            "NEW_nrtalk_agents_credit_1",
+            "NEW_nrtalk_agents_credit_2",
+            "NEW_nrtalk_agents_credit_3"
+          ]
+        }
+      ]
+    },
+    {
+      "table": "desiderio_icon_card_link",
+      "action": "create",
+      "key": "NEW_nrtalk_agents_credit_0",
+      "pid": "@NEW_nrtalk_page_agents",
+      "match": {
+        "pid": "@NEW_nrtalk_page_agents",
+        "foreign_table_parent_uid": "@NEW_nrtalk_agents_credit",
+        "tablenames": "tt_content",
+        "fieldname": "desiderio_benefitcards_items",
+        "sorting": 1,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "icon": "monitor",
+        "title": "Original slides",
+        "description": "<p>The German slides as Netresearch published them, slide by slide.</p>",
+        "link": "https://netresearch.github.io/modularer-ki-stack-page/vortraege/mtug-2026-11-09/",
+        "foreign_table_parent_uid": "@NEW_nrtalk_agents_credit",
+        "tablenames": "tt_content",
+        "fieldname": "desiderio_benefitcards_items",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "desiderio_icon_card_link",
+      "action": "create",
+      "key": "NEW_nrtalk_agents_credit_1",
+      "pid": "@NEW_nrtalk_page_agents",
+      "match": {
+        "pid": "@NEW_nrtalk_page_agents",
+        "foreign_table_parent_uid": "@NEW_nrtalk_agents_credit",
+        "tablenames": "tt_content",
+        "fieldname": "desiderio_benefitcards_items",
+        "sorting": 2,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "icon": "file-text",
+        "title": "Slides as PDF",
+        "description": "<p>The complete deck to download and print.</p>",
+        "link": "https://netresearch.github.io/modularer-ki-stack-page/vortraege/mtug-2026-11-09/MTUG-KI-in-TYPO3.pdf",
+        "foreign_table_parent_uid": "@NEW_nrtalk_agents_credit",
+        "tablenames": "tt_content",
+        "fieldname": "desiderio_benefitcards_items",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "desiderio_icon_card_link",
+      "action": "create",
+      "key": "NEW_nrtalk_agents_credit_2",
+      "pid": "@NEW_nrtalk_page_agents",
+      "match": {
+        "pid": "@NEW_nrtalk_page_agents",
+        "foreign_table_parent_uid": "@NEW_nrtalk_agents_credit",
+        "tablenames": "tt_content",
+        "fieldname": "desiderio_benefitcards_items",
+        "sorting": 3,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "icon": "git-branch",
+        "title": "Slide repository",
+        "description": "<p>Netresearch’s source of the slides and of the stack page, on GitHub.</p>",
+        "link": "https://github.com/netresearch/modularer-ki-stack-page",
+        "foreign_table_parent_uid": "@NEW_nrtalk_agents_credit",
+        "tablenames": "tt_content",
+        "fieldname": "desiderio_benefitcards_items",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "desiderio_icon_card_link",
+      "action": "create",
+      "key": "NEW_nrtalk_agents_credit_3",
+      "pid": "@NEW_nrtalk_page_agents",
+      "match": {
+        "pid": "@NEW_nrtalk_page_agents",
+        "foreign_table_parent_uid": "@NEW_nrtalk_agents_credit",
+        "tablenames": "tt_content",
+        "fieldname": "desiderio_benefitcards_items",
+        "sorting": 4,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "icon": "layers",
+        "title": "Modular AI stack",
+        "description": "<p>Netresearch’s overview of the ten modules, with current releases and requirements.</p>",
+        "link": "https://netresearch.github.io/modularer-ki-stack-page/",
+        "foreign_table_parent_uid": "@NEW_nrtalk_agents_credit",
+        "tablenames": "tt_content",
+        "fieldname": "desiderio_benefitcards_items",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "tt_content",
+      "action": "create",
+      "key": "NEW_nrtalk_agents_s30",
+      "pid": "@NEW_nrtalk_page_agents",
+      "match": {
+        "pid": "@NEW_nrtalk_page_agents",
+        "rowDescription": "nrtalk:agents:s30",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "CType": "desiderio_contentcolumns",
+        "colPos": 0,
+        "hidden": 0,
+        "sys_language_uid": 0,
+        "rowDescription": "nrtalk:agents:s30",
+        "header": "How can an agent work with TYPO3?",
+        "columns": "2"
+      },
+      "_collections": [
+        {
+          "field": "desiderio_contentcolumns_items",
+          "keys": [
+            "NEW_nrtalk_agents_s30_0",
+            "NEW_nrtalk_agents_s30_1"
+          ]
+        }
+      ]
+    },
+    {
+      "table": "content_columns_items",
+      "action": "create",
+      "key": "NEW_nrtalk_agents_s30_0",
+      "pid": "@NEW_nrtalk_page_agents",
+      "match": {
+        "pid": "@NEW_nrtalk_page_agents",
+        "foreign_table_parent_uid": "@NEW_nrtalk_agents_s30",
+        "sorting": 1,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "content": "<h3>In the TYPO3 backend</h3><p>Request in the backend<br>↓ Agent in TYPO3<br>↓ TYPO3 tools</p><p>For work directly in TYPO3.</p>",
+        "foreign_table_parent_uid": "@NEW_nrtalk_agents_s30",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "content_columns_items",
+      "action": "create",
+      "key": "NEW_nrtalk_agents_s30_1",
+      "pid": "@NEW_nrtalk_page_agents",
+      "match": {
+        "pid": "@NEW_nrtalk_page_agents",
+        "foreign_table_parent_uid": "@NEW_nrtalk_agents_s30",
+        "sorting": 2,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "content": "<h3>In your own assistant</h3><p>Request in the external assistant<br>↓ Agent and TYPO3 MCP server<br>↓ TYPO3 tools</p><p>For workflows in the assistant you already use.</p>",
+        "foreign_table_parent_uid": "@NEW_nrtalk_agents_s30",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "tt_content",
+      "action": "create",
+      "key": "NEW_nrtalk_agents_s30_notes",
+      "pid": "@NEW_nrtalk_page_agents",
+      "match": {
+        "pid": "@NEW_nrtalk_page_agents",
+        "rowDescription": "nrtalk:agents:s30_notes",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "CType": "desiderio_callout",
+        "colPos": 0,
+        "hidden": 0,
+        "sys_language_uid": 0,
+        "rowDescription": "nrtalk:agents:s30_notes",
+        "content": "<p><strong>MCP standardises tool access.</strong></p><p>Which permissions and approvals apply depends on the agent and the MCP server.</p><p><a href=\"https://modelcontextprotocol.io/docs/2026-07-28/learn/architecture\">Read about the MCP architecture</a> · <a href=\"https://github.com/hauptsacheNet/typo3-mcp-server\">Example: TYPO3 MCP Server</a></p>",
+        "variant": "warning"
+      }
+    },
+    {
+      "table": "tt_content",
+      "action": "create",
+      "key": "NEW_nrtalk_agents_s31",
+      "pid": "@NEW_nrtalk_page_agents",
+      "match": {
+        "pid": "@NEW_nrtalk_page_agents",
+        "rowDescription": "nrtalk:agents:s31",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "CType": "desiderio_featuretimeline",
+        "colPos": 0,
+        "hidden": 0,
+        "sys_language_uid": 0,
+        "rowDescription": "nrtalk:agents:s31",
+        "header": "A2A: one agent commissions another",
+        "subheadline": "A2A · Outlook"
+      },
+      "_collections": [
+        {
+          "field": "desiderio_featuretimeline_items",
+          "keys": [
+            "NEW_nrtalk_agents_s31_0",
+            "NEW_nrtalk_agents_s31_1",
+            "NEW_nrtalk_agents_s31_2"
+          ]
+        }
+      ]
+    },
+    {
+      "table": "feature_timeline_items",
+      "action": "create",
+      "key": "NEW_nrtalk_agents_s31_0",
+      "pid": "@NEW_nrtalk_page_agents",
+      "match": {
+        "pid": "@NEW_nrtalk_page_agents",
+        "foreign_table_parent_uid": "@NEW_nrtalk_agents_s31",
+        "sorting": 1,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "step": "01",
+        "title": "Hand over the request",
+        "description": "<p>The user's agent commissions a TYPO3 agent.</p>",
+        "foreign_table_parent_uid": "@NEW_nrtalk_agents_s31",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "feature_timeline_items",
+      "action": "create",
+      "key": "NEW_nrtalk_agents_s31_1",
+      "pid": "@NEW_nrtalk_page_agents",
+      "match": {
+        "pid": "@NEW_nrtalk_page_agents",
+        "foreign_table_parent_uid": "@NEW_nrtalk_agents_s31",
+        "sorting": 2,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "step": "02",
+        "title": "Work on the task",
+        "description": "<p>The TYPO3 agent works within its own area of responsibility.</p>",
+        "foreign_table_parent_uid": "@NEW_nrtalk_agents_s31",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "feature_timeline_items",
+      "action": "create",
+      "key": "NEW_nrtalk_agents_s31_2",
+      "pid": "@NEW_nrtalk_page_agents",
+      "match": {
+        "pid": "@NEW_nrtalk_page_agents",
+        "foreign_table_parent_uid": "@NEW_nrtalk_agents_s31",
+        "sorting": 3,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "step": "03",
+        "title": "Return the result",
+        "description": "<p>The commissioning agent receives a response.</p>",
+        "foreign_table_parent_uid": "@NEW_nrtalk_agents_s31",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "tt_content",
+      "action": "create",
+      "key": "NEW_nrtalk_agents_s31_notes",
+      "pid": "@NEW_nrtalk_page_agents",
+      "match": {
+        "pid": "@NEW_nrtalk_page_agents",
+        "rowDescription": "nrtalk:agents:s31_notes",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "CType": "desiderio_callout",
+        "colPos": 0,
+        "hidden": 0,
+        "sys_language_uid": 0,
+        "rowDescription": "nrtalk:agents:s31_notes",
+        "content": "<p>Outlook: identity, permissions and feedback must be settled between the agents.</p><p><a href=\"https://a2a-protocol.org/latest/topics/a2a-and-mcp/\">A2A and MCP: read the positioning</a></p>",
+        "variant": "info"
+      }
+    },
+    {
+      "table": "tt_content",
+      "action": "create",
+      "key": "NEW_nrtalk_agents_source",
+      "pid": "@NEW_nrtalk_page_agents",
+      "match": {
+        "pid": "@NEW_nrtalk_page_agents",
+        "rowDescription": "nrtalk:agents:source",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "CType": "desiderio_callout",
+        "colPos": 0,
+        "hidden": 0,
+        "sys_language_uid": 0,
+        "rowDescription": "nrtalk:agents:source",
+        "header": "Source",
+        "content": "<p>Sebastian Mendel, Netresearch DTT GmbH: “KI in TYPO3 – Probleme, Fragen und Anforderungen”, MTUG – TYPO3 User Group München, 9 November 2026, slides <a href=\"https://netresearch.github.io/modularer-ki-stack-page/vortraege/mtug-2026-11-09/#/29\">29</a> to <a href=\"https://netresearch.github.io/modularer-ki-stack-page/vortraege/mtug-2026-11-09/#/31\">31</a>. Translated into English by webconsulting.</p>",
+        "variant": "note"
+      }
+    },
+    {
+      "table": "tt_content",
+      "action": "create",
+      "key": "NEW_nrtalk_agents_pager",
+      "pid": "@NEW_nrtalk_page_agents",
+      "match": {
+        "pid": "@NEW_nrtalk_page_agents",
+        "rowDescription": "nrtalk:agents:pager",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "CType": "desiderio_ctasplit",
+        "colPos": 0,
+        "hidden": 0,
+        "sys_language_uid": 0,
+        "rowDescription": "nrtalk:agents:pager",
+        "left_title": "Answers and limits",
+        "left_description": "<p>Answers and limits: using nr-llm as the example</p>",
+        "left_button_text": "Previous part",
+        "left_button_link": "@NEW_nrtalk_page_answers",
+        "right_title": "Context & discussion",
+        "right_description": "<p>Context: other foundations and discussion</p>",
+        "right_button_text": "Next part",
+        "right_button_link": "@NEW_nrtalk_page_context"
+      }
+    }
+  ]
+}

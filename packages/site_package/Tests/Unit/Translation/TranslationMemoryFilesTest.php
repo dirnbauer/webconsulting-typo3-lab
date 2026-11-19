@@ -12,9 +12,15 @@ use Webconsulting\SitePackage\Translation\TranslationMemory;
 use Webconsulting\SitePackage\Translation\TranslationScope;
 
 /**
- * The shipped translation memories: every translation keeps the markup, the
- * code, the links and the placeholders of its source, and the German ones
- * address the reader with "Sie".
+ * The shipped translation memories and their fragments (`<lang>.d/*.json`):
+ * every translation keeps the markup, the code, the links and the
+ * placeholders of its source, the German ones address the reader with "Sie",
+ * and a fragment never contradicts the memory it extends.
+ *
+ * The one exception to "Sie": a quotation of third-party German that the
+ * canon lists in a `quoted_copy` file with the rule `address` (the
+ * Netresearch talk addresses its audience with "euch"). It is accepted in a
+ * fragment only, for exactly that German text; the shared memories stay strict.
  */
 final class TranslationMemoryFilesTest extends TestCase
 {
@@ -26,6 +32,38 @@ final class TranslationMemoryFilesTest extends TestCase
         foreach (glob(ContentTranslateCommand::MEMORY_DIRECTORY . '/*/*.json') ?: [] as $path) {
             if (basename($path) !== 'scope.json') {
                 yield basename(dirname($path)) . '/' . basename($path) => [$path, basename($path, '.json')];
+            }
+        }
+        foreach (glob(ContentTranslateCommand::MEMORY_DIRECTORY . '/*/*.d/*.json') ?: [] as $path) {
+            yield basename(dirname($path, 2)) . '/' . basename(dirname($path)) . '/' . basename($path) => [$path, basename(dirname($path), '.d')];
+        }
+    }
+
+    public function testFragmentsExtendTheirMemoryWithoutContradictingIt(): void
+    {
+        $memories = 0;
+        foreach (iterator_to_array(self::memoryFiles()) as [$path, $language]) {
+            if (str_ends_with(basename(dirname($path)), '.d')) {
+                continue;
+            }
+            $memories++;
+            // Throws on a fragment that translates a source differently.
+            $memory = TranslationMemory::fromFiles($path, $language);
+            self::assertGreaterThanOrEqual(TranslationMemory::fromFile($path, $language)->count(), $memory->count());
+        }
+        self::assertGreaterThan(0, $memories);
+    }
+
+    public function testQuotationsKeepingTheOriginalAddressAreNotInTheSharedMemories(): void
+    {
+        $canon = Canon::fromFile();
+        $quotations = array_values(array_filter($canon->quotedCopy, static fn (array $entry): bool => in_array('address', $entry['rules'], true)));
+        self::assertNotEmpty($quotations, 'the canon lists the quoted German that keeps "euch"');
+        foreach (glob(ContentTranslateCommand::MEMORY_DIRECTORY . '/*/de.json') ?: [] as $path) {
+            $translations = $this->strings($path, 'de');
+            foreach ($quotations as $quotation) {
+                self::assertSame('de', $quotation['language']);
+                self::assertNotContains($quotation['text'], $translations, 'a quotation belongs in a fragment, not in ' . basename(dirname($path)) . '/de.json');
             }
         }
     }
@@ -90,10 +128,15 @@ final class TranslationMemoryFilesTest extends TestCase
             self::assertNotSame('de', $language);
             return;
         }
-        $pattern = Canon::fromFile()->address['sie'] ?? '';
+        $canon = Canon::fromFile();
+        $pattern = $canon->address['sie'] ?? '';
         self::assertNotSame('', $pattern);
+        $fragment = str_ends_with(basename(dirname($path)), '.d');
         $informal = [];
         foreach ($this->strings($path, $language) as $translation) {
+            if ($fragment && in_array('address', $canon->quotedRules($translation, 'de'), true)) {
+                continue;
+            }
             if (preg_match('/' . $pattern . '/u', strip_tags($translation), $match) === 1) {
                 $informal[] = $match[0] . ' in: ' . mb_strimwidth(strip_tags($translation), 0, 80, '…');
             }
