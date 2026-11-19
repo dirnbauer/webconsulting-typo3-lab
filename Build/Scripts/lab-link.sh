@@ -39,7 +39,6 @@ webconsulting/records-list-examples records_list_examples
 webconsulting/webcon-easy-workspace webcon_easy_workspace
 webconsulting/webcon-templates webcon_templates
 webconsulting/skillspector skillspector
-webconsulting/typo3-ai-assistant ai_assistant
 webconsulting/webcon-jev webcon_jev
 webconsulting/agentation agentation
 webconsulting/docx-editor docx_editor
@@ -47,8 +46,6 @@ webconsulting/image-workbench image_workbench
 webconsulting/workos-auth workos_auth
 webconsulting/typo3-x402-paywall x402_paywall
 hn/typo3-mcp-server mcp_server
-in2code/powermail powermail
-in2code/powermail_cond powermail_cond
 studiomitte/friendlycaptcha friendlycaptcha
 studiomitte/solr-numbered-pagination solr_numbered_pagination
 '
