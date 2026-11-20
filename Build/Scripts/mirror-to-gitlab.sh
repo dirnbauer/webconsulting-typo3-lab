@@ -20,7 +20,6 @@ REPOS=(
   "$LAB"/packages/abilities
   "$LAB"/packages/agent_nexus
   "$LAB"/packages/agentation
-  "$LAB"/packages/ai_assistant
   "$LAB"/packages/astryx_typo3
   "$LAB"/packages/desiderio
   "$LAB"/packages/docx_editor
@@ -29,8 +28,6 @@ REPOS=(
   "$LAB"/packages/innesto
   "$LAB"/packages/llms_txt
   "$LAB"/packages/mcp_server
-  "$LAB"/packages/powermail
-  "$LAB"/packages/powermail_cond
   "$LAB"/packages/records_list_examples
   "$LAB"/packages/records_list_types
   "$LAB"/packages/skillflow
@@ -42,6 +39,13 @@ REPOS=(
   "$LAB"/packages/webcon_jev
   "$LAB"/packages/workos_auth
   "$LAB"/packages/x402_paywall
+  # No longer installed (2026-11-20): the Netresearch chat (nr-mcp-agent)
+  # replaced the AI assistant, and Powermail 14 comes from in2code's Early
+  # Access Packagist instead of our forks. Their clones stay, and so do their
+  # GitLab mirrors: an image of an older lab commit is rebuilt from them.
+  "$LAB"/packages/ai_assistant
+  "$LAB"/packages/powermail
+  "$LAB"/packages/powermail_cond
 )
 
 # Private and archived repositories are mirrored from bare clones instead:
