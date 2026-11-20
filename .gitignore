@@ -54,3 +54,10 @@ dump.sql.gz
 # Optional private Redaktion connector: local Composer profile only
 /.composer-redaktion-dev.json
 /.composer-redaktion-dev.lock
+
+# Composer credentials (in2code's Early Access Packagist, GitHub tokens) live in
+# the global Composer auth or in CI/Coolify secrets only. A project auth.json,
+# at any depth, must never be committed; DDEV's project homeadditions would
+# copy one into the web container from inside the repository.
+auth.json
+/.ddev/homeadditions/.composer/

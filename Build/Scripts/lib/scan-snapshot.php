@@ -9,14 +9,6 @@
 // string (beyond the one documented demo administrator's hash), more than one
 // account, or a key file in the files archive. E-mail domains and IPv4-like
 // values are reported for review and do not fail the run.
-$sensitive = trim((string)@file_get_contents($argv[1] ?? ''));
-$dir = rtrim($argv[2] ?? '/var/www/html/public/fileadmin/_downloads', '/');
-if ($sensitive === '' || !is_file("$dir/db-public.zip")) {
-    fwrite(STDERR, "usage: php scan-snapshot.php <pattern file> <download dir>\n");
-    exit(1);
-}
-$leaks = [];
-
 $secretPatterns = [
     'openai_key'    => '/\bsk-(?:proj-)?[A-Za-z0-9_-]{20,}/',
     'anthropic_key' => '/\bsk-ant-[A-Za-z0-9_-]{20,}/',
@@ -29,7 +21,30 @@ $secretPatterns = [
     'bearer'        => '/Bearer\s+[A-Za-z0-9._-]{20,}/',
     'password_hash' => '/\$(?:argon2id?|2y|2a)\$[^\s\'"]{20,}/',
     'fal_key'       => '/\b[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}:[0-9a-f]{32}\b/',
+    // Private Packagist tokens (in2code's Early Access repository for
+    // Powermail 14) are 60 lowercase hex characters. 32 (MD5), 40 (SHA-1) and
+    // 64 (SHA-256) hex strings are everywhere in a TYPO3 database and do not
+    // match. A false positive takes the downloads down, which is the safe way
+    // to fail.
+    'packagist_token' => '/(?<![0-9A-Fa-f])[0-9a-f]{60}(?![0-9A-Fa-f])/',
+    // A Composer auth block (COMPOSER_AUTH, auth.json; quotes escaped or not)
+    // or credentials in a repository URL.
+    'composer_auth' => '/http-basic\\\\?"\s*:\s*\{|\/\/[^\s"\'\/@:]+:[^\s"\'\/@]+@[A-Za-z0-9.-]*repo\.packagist\.com/',
 ];
+// Tests/Unit/Deployment/SnapshotSecretPatternsTest.php reads the patterns. The
+// script stays one file because sync-coolify.sh copies it alone into the
+// container.
+if (defined('SCAN_SNAPSHOT_PATTERNS_ONLY')) {
+    return $secretPatterns;
+}
+$sensitive = trim((string)@file_get_contents($argv[1] ?? ''));
+$dir = rtrim($argv[2] ?? '/var/www/html/public/fileadmin/_downloads', '/');
+if ($sensitive === '' || !is_file("$dir/db-public.zip")) {
+    fwrite(STDERR, "usage: php scan-snapshot.php <pattern file> <download dir>\n");
+    exit(1);
+}
+$leaks = [];
+
 // Business, product and placeholder domains that may appear in published content.
 $allowedDomains = '/(^|\.)(example\.(com|org|net)|webconsulting\.at|typo3\.(com|org)|test|localhost|invalid|vienna\.at)$/i';
 $emailRe = '/\b[A-Za-z0-9._%+-]+@([A-Za-z0-9-]+(?:\.[A-Za-z0-9-]+)*\.[A-Za-z]{2,})\b/';

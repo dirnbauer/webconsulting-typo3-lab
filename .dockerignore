@@ -1,6 +1,11 @@
 .git
 .env
 .env.*
+# Composer credentials never go into the build context: COPY . . would put them
+# into a layer. The in2code token reaches the image build as a BuildKit secret.
+auth.json
+**/auth.json
+.composer
 .abilities-demo-token
 .claude
 .DS_Store

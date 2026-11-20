@@ -30,9 +30,30 @@ fi
 
 echo "==> Updating Composer packages"
 echo "    composer update ${composer_args[*]} --no-interaction"
+# Powermail 14 comes from in2code's Early Access Packagist, which needs a
+# token. It is taken from COMPOSER_AUTH when the caller set one, else built from
+# the token file (default ~/.config/in2code/eap-packagist-token, outside every
+# repository). `docker exec -e COMPOSER_AUTH` copies the value from this
+# environment, so the token is never on a command line. Without either, the
+# container's own Composer auth applies (~/.ddev/homeadditions/.composer/auth.json,
+# global, see docs/coolify-deployment.md) or Composer stops at the in2code
+# repository.
+in2code_token_file="${IN2CODE_PACKAGIST_TOKEN_FILE:-$HOME/.config/in2code/eap-packagist-token}"
+if [ -z "${COMPOSER_AUTH:-}" ] && [ -s "${in2code_token_file}" ]; then
+  in2code_token="$(tr -d '\r\n' < "${in2code_token_file}")"
+  export COMPOSER_AUTH="{\"http-basic\":{\"in2code.repo.packagist.com\":{\"username\":\"token\",\"password\":\"${in2code_token}\"}}}"
+  unset in2code_token
+fi
 # The lab installs many packages from source. Local fixes belong in their
 # package repositories, not in vendor/, so dirty vendor checkouts are discarded.
-ddev exec env COMPOSER_DISCARD_CHANGES=true composer update "${composer_args[@]}" --no-interaction
+if [ -n "${COMPOSER_AUTH:-}" ]; then
+  docker exec -i -e COMPOSER_AUTH -e COMPOSER_DISCARD_CHANGES=true \
+    -u "$(id -u):$(id -g)" -w /var/www/html "ddev-${DDEV_SITENAME}-web" \
+    composer update "${composer_args[@]}" --no-interaction
+else
+  ddev exec env COMPOSER_DISCARD_CHANGES=true composer update "${composer_args[@]}" --no-interaction
+fi
+unset COMPOSER_AUTH
 
 echo "==> Running TYPO3 extension setup"
 ddev exec vendor/bin/typo3 extension:setup --no-interaction

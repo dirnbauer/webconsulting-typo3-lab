@@ -3,6 +3,11 @@ services:
     build:
       context: .
       dockerfile: Dockerfile.coolify
+      # Build-only secrets (GITLAB_EXTENSIONS_READ_KEY, IN2CODE_PACKAGIST_TOKEN)
+      # come from Coolify's "Use Docker Build Secrets" and are deliberately not
+      # listed in this file: a service `environment:` entry, even an empty one,
+      # would copy the saved value into the running container (docs/poppy.md,
+      # docs/coolify-deployment.md).
       args:
         PHP_BASE_IMAGE: ${PHP_BASE_IMAGE:-php:8.5.13-apache-trixie@sha256:f0c9ecc7b9e805cd37e1d9f385c78e8edd7766f62bce280b8c34370c3e8e6697}
     environment:
@@ -24,9 +29,20 @@ services:
       # setup before serving; data wizards and audit re-signing stay explicit.
       TYPO3_RUN_SETUP: ${TYPO3_RUN_SETUP:-1}
       TYPO3_FLUSH_PAGE_CACHE: ${TYPO3_FLUSH_PAGE_CACHE:-1}
+      # Netresearch AI Chat (EXT:nr_mcp_agent): write the chat's task uid into
+      # settings.php and keep TYPO3_CHAT_WORKERS `ai-chat:worker` processes
+      # alive (docker/coolify/entrypoint.sh, docs/ai-chat.md). The cleanup
+      # (`ai-chat:cleanup`, same retention as the old chat's) stays off, as it
+      # was: its first run deletes the archived conversations older than 90
+      # days, about a hundred from the earlier nr-mcp-agent install. Switching
+      # it on is an owner decision.
       TYPO3_CHAT_CLEANUP: '0'
+      TYPO3_CHAT_SETTINGS: ${TYPO3_CHAT_SETTINGS:-1}
+      TYPO3_CHAT_WORKERS: ${TYPO3_CHAT_WORKERS:-2}
       TYPO3_AGENTNEXUS_CLEANUP: '0'
-      TYPO3_RUN_WIZARDS: '0'
+      # Only the wizards the entrypoint names (nr-mcp-agent's message move and
+      # last-message time) and the "done" mark for nr-llm's skill digest wizard.
+      TYPO3_RUN_WIZARDS: ${TYPO3_RUN_WIZARDS:-1}
       TYPO3_LANGUAGE_UPDATE: ${TYPO3_LANGUAGE_UPDATE:-1}
       TYPO3_LANGUAGE_PACKS: ${TYPO3_LANGUAGE_PACKS:-de}
       TYPO3_LOG_MAX_BYTES: ${TYPO3_LOG_MAX_BYTES:-52428800}

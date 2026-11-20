@@ -8,6 +8,9 @@ FROM ${PHP_BASE_IMAGE}
 
 ARG NPM_VERSION=12.2.1
 
+# pcntl (below) is for the AI chat worker (ai-chat:worker,
+# docker/coolify/ai-chat-worker.sh): with it a turn stops at its time limit and
+# SIGTERM lets the running turn finish.
 ENV APACHE_DOCUMENT_ROOT=/var/www/html/public \
     COMPOSER_ALLOW_SUPERUSER=1 \
     COMPOSER_HOME=/tmp/composer \
@@ -49,7 +52,7 @@ RUN apt-get update \
         /etc/locale.gen \
     && locale-gen \
     && docker-php-ext-configure gd --with-freetype --with-jpeg --with-webp \
-    && docker-php-ext-install -j"$(nproc)" gd intl mysqli pdo_mysql soap zip \
+    && docker-php-ext-install -j"$(nproc)" gd intl mysqli pcntl pdo_mysql soap zip \
     && a2enmod deflate expires headers remoteip rewrite setenvif \
     && rm -rf /var/lib/apt/lists/*
 
@@ -68,20 +71,42 @@ RUN mkdir -p -m 0700 /root/.ssh \
 
 # Forward a repository-read SSH agent with `docker build --ssh default`.
 # BuildKit never copies the agent or private key into an image layer.
+#
+# Powermail and Powermail Conditions come from in2code's Early Access Packagist
+# for TYPO3 14 (composer.json repository "in2code"). Its token is a build-only
+# BuildKit secret, IN2CODE_PACKAGIST_TOKEN: Coolify injects it with "Use Docker
+# Build Secrets" (as an environment variable of this step), a local build passes
+# `--secret id=IN2CODE_PACKAGIST_TOKEN,src=$HOME/.config/in2code/eap-packagist-token`
+# (as a file). It exists only in this step's environment as COMPOSER_AUTH: no
+# file, layer, build argument or log line holds it, COMPOSER_HOME (/tmp/composer)
+# is deleted at the end of this step, and composer.lock records only
+# credential-free dist URLs. Never add `set -x` to this step.
 RUN --mount=type=ssh \
     --mount=type=secret,id=GITLAB_EXTENSIONS_READ_KEY,target=/root/.ssh/poppy-read-key,mode=0600 \
+    --mount=type=secret,id=IN2CODE_PACKAGIST_TOKEN,target=/run/secrets/in2code-packagist-token,mode=0400 \
     --mount=type=tmpfs,target=/run/poppy-build \
     if [ -s /root/.ssh/poppy-read-key ]; then \
         (cat /root/.ssh/poppy-read-key && printf '\n') > /run/poppy-build/key \
         && chmod 0600 /run/poppy-build/key \
         && export GIT_SSH_COMMAND='ssh -i /run/poppy-build/key -o IdentitiesOnly=yes -o BatchMode=yes'; \
     fi \
+    && in2code_token="$(printf '%s' "${IN2CODE_PACKAGIST_TOKEN:-}" | tr -d '\r\n')" \
+    && if [ -z "${in2code_token}" ] && [ -s /run/secrets/in2code-packagist-token ]; then \
+        in2code_token="$(tr -d '\r\n' < /run/secrets/in2code-packagist-token)"; \
+    fi \
+    && if [ -z "${in2code_token}" ]; then \
+        echo 'Missing build secret IN2CODE_PACKAGIST_TOKEN: the in2code Early Access Packagist token for Powermail 14 (docs/coolify-deployment.md).' >&2; \
+        exit 1; \
+    fi \
+    && export COMPOSER_AUTH="{\"http-basic\":{\"in2code.repo.packagist.com\":{\"username\":\"token\",\"password\":\"${in2code_token}\"}}}" \
+    && unset in2code_token IN2CODE_PACKAGIST_TOKEN \
     && composer install \
         --no-dev \
         --no-interaction \
         --no-progress \
         --optimize-autoloader \
         --prefer-dist \
+    && unset COMPOSER_AUTH \
     && npm ci --ignore-scripts \
     && npm run build \
     && apt-get purge -y --auto-remove $PHPIZE_DEPS linux-libc-dev \
