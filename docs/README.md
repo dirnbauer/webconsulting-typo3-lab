@@ -13,7 +13,7 @@ extension-specific behaviour remains in each extension repository.
 | [mcp-clients.md](mcp-clients.md) | Codex, Claude Code and Cursor stdio setup and troubleshooting. |
 | [workos-frontend-plugins.md](workos-frontend-plugins.md) | WorkOS page tree, Desiderio overrides and verification. |
 | [ai-content-examples.md](ai-content-examples.md) | LLM routing, Content Assistant and image examples. |
-| [ai-assistant.md](ai-assistant.md) | Backend AI chat (typo3-ai-assistant): approval flow, configuration, migration from typo3-shadcn-ui. |
+| [ai-chat.md](ai-chat.md) | Backend AI chat by Netresearch (nr-mcp-agent) and Cowriter: seed command, tools and approvals, worker processing, container start. |
 | [mcp-spec-2026-07-28-adoption.md](mcp-spec-2026-07-28-adoption.md) | MCP 2026-07-28 adoption record. |
 | [typo3-agentic-strategy-2026.md](typo3-agentic-strategy-2026.md) | Agentic TYPO3 strategy. |
 | [wordpress-abilities-vs-capability-manifests.md](wordpress-abilities-vs-capability-manifests.md) | Ability and capability model comparison. |

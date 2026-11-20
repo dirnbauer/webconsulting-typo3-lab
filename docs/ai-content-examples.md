@@ -8,12 +8,13 @@ reproducible through TYPO3 console commands:
 | `netresearch/nr-llm` | `0.35.0` |
 | `netresearch/nr-vault` | `0.16.0` |
 
-The lab no longer ships `netresearch/t3-cowriter` (removed 2026-09-26): rich-text
-fields use TYPO3's default preset and Desiderio's own `desiderio` preset.
+Netresearch's `netresearch/t3-cowriter` is back since 2026-11-20 (it was
+removed on 2026-09-26): the Desiderio preset and TYPO3's default preset carry
+its buttons (`packages/site_package/Configuration/RTE/`), and its six tasks
+come from `sitepackage:seed-ai-stack`.
 
-The backend chat is `webconsulting/typo3-ai-assistant`; it runs the
-installation's own MCP tools in-process through nr-llm's agent runtime. See
-[AI Assistant](ai-assistant.md).
+The backend chat is Netresearch's AI Chat (`netresearch/nr-mcp-agent`) on
+nr-llm's agent runtime and built-in tools. See [AI Chat](ai-chat.md).
 
 ## Configure models and examples
 

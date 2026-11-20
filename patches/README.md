@@ -37,7 +37,9 @@ Powermail and Powermail Conditions come from in2code's Early Access Packagist
 (`https://in2code.repo.packagist.com/webconsulting/`, repository `in2code` in
 `composer.json`, restricted to those two packages) since TYPO3 14.3.12; the lab
 carries the behaviours it needs as the patches above. The token is a CI/build
-secret or an environment `COMPOSER_AUTH` only, never a file in this repository.
+secret or an environment `COMPOSER_AUTH` only, never a file in this repository
+(`IN2CODE_PACKAGIST_TOKEN`, see `docs/coolify-deployment.md`). Our former forks
+keep their GitLab mirrors so that older lab commits can still be built.
 
 **Tags.** Our fork releases are four-part tags, `<upstream line>.<our revision>`
 (`14.0.3.3`, `2.3.0.1`), consumed with `~` so Composer can only pick our revisions

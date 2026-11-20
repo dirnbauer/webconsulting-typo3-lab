@@ -30,13 +30,48 @@ the production dependencies are also checked against the real 8.5.12 runtime.
 CI runs on PHP 8.5.12. The MariaDB pin matches the 11.8.9 image already running
 on the server, preserving that update during future deployments.
 
-Since 2026-10-27, the GitHub Powermail and Powermail Conditional forks are
-private. Composer installs their existing release commits from the private
-GitLab mirrors `extensions/powermail` and `extensions/powermail_cond` over SSH.
-Both mirrors allow the existing **TYPO3 Lab read-only Composer deploy** key
-(`GITLAB_EXTENSIONS_READ_KEY`), already used by CI and the BuildKit secret
-mount. Keep that key read-only and available only during the build. The
-Conditional `14.0.0` tag is present on both remotes at the same commit.
+### Powermail 14 from in2code's Early Access Packagist
+
+Since 2026-11-20, Powermail 14 and Powermail Conditions 14 come from in2code's
+Early Access Packagist for TYPO3 14 (`https://in2code.repo.packagist.com/webconsulting/`,
+repository `in2code` in `composer.json`, limited to `in2code/powermail` and
+`in2code/powermail_cond`; HTTP basic auth, user `token`). The behaviours our
+forks added are composer patches (`patches/README.md`). The forks' GitLab
+mirrors stay, so an image of an older commit can still be built.
+
+The token is a secret named `IN2CODE_PACKAGIST_TOKEN` (the bare 60-character
+token, never a JSON block) in exactly three places:
+
+| Where | How |
+|---|---|
+| GitHub Actions secret of this repository | the quality job writes it into the runner's global Composer auth, for `composer install` and `composer audit`, and deletes the in2code archives from the Composer cache before the cache is saved |
+| Coolify variable of the application | **Build Variable** on, **Available at Runtime** off, **Is Literal** on, locked (the same flags as `GITLAB_EXTENSIONS_READ_KEY`). Never listed in `docker-compose.coolify.yml`: a service `environment:` entry, even an empty one, copies the saved value into the running container |
+| The developer's own machine | `~/.config/in2code/eap-packagist-token` (0600), read by `ddev lab-update`; or `composer config --global --auth http-basic.in2code.repo.packagist.com token "$(tr -d '\n' < ~/.config/in2code/eap-packagist-token)"` on the host and the same block in `~/.ddev/homeadditions/.composer/auth.json` (global, outside every repository) for the DDEV web container |
+
+`Dockerfile.coolify` mounts it as a BuildKit secret in the one step that runs
+`composer install`, turns it into `COMPOSER_AUTH` in that step's environment
+and unsets it afterwards; no file, layer, build argument or log line holds it,
+and `composer.lock` records only credential-free dist URLs. Coolify's "Use
+Docker Build Secrets" delivers it as an environment variable; a local build
+passes it as a file:
+
+```bash
+docker buildx build -f Dockerfile.coolify --ssh default \
+  --secret id=IN2CODE_PACKAGIST_TOKEN,src="$HOME/.config/in2code/eap-packagist-token" \
+  -t typo3-lab-web:local .
+```
+
+Without the token the Coolify build stops before Composer runs with "Missing
+build secret IN2CODE_PACKAGIST_TOKEN" (the previous image keeps serving), and CI
+stops at "Configure private extension access". A project `auth.json` is
+git-ignored and docker-ignored, and `Build/Scripts/lib/scan-snapshot.php`
+fails a public snapshot that contains a 60-hex token or a Composer auth block.
+Set the Coolify variable before the change that needs it reaches `main`.
+If the token leaks: in2code revokes it, then replace the file, the GitHub
+secret and the Coolify variable, and deploy.
+
+`GITLAB_EXTENSIONS_READ_KEY` stays for the private GitLab repositories
+(`typo3-poppy`, `typo3-webcon-templates`).
 
 The startup INI disables `session.upload_progress.enabled` following the
 [PHP advisory of 2026-10-23](https://www.php.net/). This precaution covers the
@@ -174,13 +209,19 @@ step. A failed migration is logged and the container still serves, so the
 problem is visible in both the logs and the site rather than hidden behind a
 boot loop.
 
-On start the container also runs `ai-assistant:chat:cleanup`
-(`TYPO3_CHAT_CLEANUP=0` to skip). A chat turn runs inside the request that
-started it, so a request that dies leaves its conversation claimed; there is no
-cron daemon here to run a scheduler task, and at start nothing can be mid-turn.
-For the same reason it runs `agentnexus:cleanup` (`TYPO3_AGENTNEXUS_CLEANUP=0`),
-the data-only upgrade wizards listed in the entrypoint (`TYPO3_RUN_WIZARDS=0`),
-and `language:update` for the core language packs named in
+On start the container also prepares the Netresearch AI Chat
+([ai-chat.md](ai-chat.md)): it writes the chat's task uid into `settings.php`
+(`sitepackage:seed-ai-stack --settings-only`, `TYPO3_CHAT_SETTINGS=0` to skip),
+would run `ai-chat:cleanup --delete-after-days=90` if `TYPO3_CHAT_CLEANUP`
+were 1 (compose pins it to `'0'`: its first run deletes the archived
+conversations older than 90 days; see [ai-chat.md](ai-chat.md)), and last starts `TYPO3_CHAT_WORKERS` (default 2, `0` for none) supervised loops of
+`ai-chat:worker`: the chat cannot start a PHP process from a mod_php request.
+There is no cron daemon here to run a scheduler task, and at start nothing can
+be mid-turn. For the same reason it runs `agentnexus:cleanup`
+(`TYPO3_AGENTNEXUS_CLEANUP=0`), the data-only upgrade wizards named in the
+entrypoint, `nrMcpAgent_migrateMessagesToTable` and `nrMcpAgent_lastMessageTime`,
+plus the "done" mark for nr-llm's `nrllmAdr214SkillVersionDigest`, which must
+never run here (`TYPO3_RUN_WIZARDS=0` skips all three), and `language:update` for the core language packs named in
 `TYPO3_LANGUAGE_PACKS` (default `de`; `TYPO3_LANGUAGE_UPDATE=0` to skip), so
 the backend is German in full rather than only where extensions ship their own
 labels.
@@ -190,8 +231,11 @@ That matters: Coolify injects only what the compose file declares, so a variable
 set in its interface without a matching line there never reaches the container.
 
 Dropping columns is deliberately not automatic. Run it only after any upgrade
-wizard that reads the old data has finished — in particular AI Chat's
-`messagesToRows`, whose input is the `messages` column it would remove.
+wizard that reads the old data has finished — in particular nr-mcp-agent's
+`nrMcpAgent_migrateMessagesToTable`, whose input is the `messages` column it
+would remove. The tables of the removed `webcon_ai_assistant`
+(`tx_webconaiassistant_*`, `cache_webcon_ai_assistant_tools*`) and the old
+`tx_nrmcpagent_mcp_server` wait for the same deliberate cleanup.
 
 Two things to check after a deploy that changes the Solr image: the cores are
 created from the configsets that image serves, so a version change usually means
@@ -218,8 +262,9 @@ Skillflow 1.9.4 replaces Fractor's abandoned contracts dependency with a tested
 compatibility package maintained inside Skillflow's development tooling;
 normal Composer auditing remains enabled.
 
-Powermail 14.0.3.8 and the Conditional v14 branch contain every current public
-13.x fix. The nr-llm 0.41.3 / nr-vault 1.1.0 update preserves the existing vault
+Powermail 14.0.3.8 and the Conditional v14 branch (our forks, replaced by
+in2code's Powermail 14.2.0 and Conditions 14.0.1 on 2026-11-20) contained every
+current public 13.x fix. The nr-llm 0.41.3 / nr-vault 1.1.0 update preserves the existing vault
 schema, secret format and key material. Do not initialize or rotate the vault
 as part of deployment.
 
@@ -237,6 +282,9 @@ existing Composer Patches plugin during a fresh image build. They write no
 audit rows, secrets, keys, permissions or schema. The companion regression
 patch is `patches/tests/netresearch-nr-vault-diagnostics-tests.patch`; reproduce
 it in a clean nr-vault 1.1.0 test checkout after applying both runtime patches.
+(Since nr-vault 1.10.0, 2026-11-20, the bounded-audit fix is upstream and only
+the inventory-lifecycle patch remains; the test patch documents the 1.1.0
+state.)
 The four test files cover bounded links and epoch transitions, successful and
 failed deletions, re-created credentials, and a synthetic mixed-epoch migration
 that preserves secret rows. Remove a runtime patch only after an upstream

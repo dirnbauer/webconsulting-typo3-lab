@@ -13,7 +13,7 @@ content editing, search, forms, APIs and governed agent workflows.
 
 | Component | Version or policy |
 |---|---|
-| TYPO3 | `14.3.10` (minimum `^14.3.10`) |
+| TYPO3 | `14.3.12` (minimum `^14.3.12`) |
 | PHP | `8.5` minimum |
 | DDEV | `>=1.25.3`, Apache FPM, Mutagen |
 | Database | MariaDB `10.11` |
@@ -21,7 +21,8 @@ content editing, search, forms, APIs and governed agent workflows.
 | npm | `12.2.1`, pinned for DDEV, CI and production builds |
 | Frontend | Vite `8`, official TYPO3 plugin and asset collector |
 | Search | EXT:solr `14.0.2` against Apache Solr `10.0.0` through `ddev/ddev-typo3-solr` |
-| LLM stack | nr-llm `0.41.3`, nr-vault `1.1.0` |
+| AI stack (Netresearch) | nr-llm `0.51`, nr-vault `1.10`, AI Chat (nr-mcp-agent `0.39`), Cowriter `3.28`, landing pages, browser AI; see [AI Chat](docs/ai-chat.md) |
+| Forms | Powermail `14.2` and Powermail Conditions `14.0` from in2code's Early Access Packagist (token needed, see below) |
 | Browser regression | Playwright + axe-core, desktop and mobile Chromium |
 
 The Composer platform is PHP 8.5.12. Run Composer, npm and Vite inside DDEV so
@@ -30,7 +31,11 @@ native Node packages are installed for Linux rather than the host platform.
 ## Quick start
 
 Requirements: Docker or OrbStack, DDEV `>=1.25.3`, Git and the two demo-data
-artifacts described in [DDEV bootstrap](docs/ddev-bootstrap.md).
+artifacts described in [DDEV bootstrap](docs/ddev-bootstrap.md). Powermail 14
+comes from in2code's Early Access Packagist: `composer install` needs an in2code
+token in your global Composer auth (host `~/.composer/auth.json` and
+`~/.ddev/homeadditions/.composer/auth.json`, never a file in this repository;
+see [Coolify deployment](docs/coolify-deployment.md)).
 
 ```bash
 git clone https://github.com/dirnbauer/webconsulting-typo3-lab.git
@@ -49,6 +54,8 @@ ddev typo3 extension:setup
 ddev typo3 install:password:set --no-interaction   # prints this install's Install Tool password once
 ddev vite build
 ddev typo3 cache:flush
+ddev typo3 sitepackage:configure-ai-examples   # nr-llm models (needs an OpenAI key in nr-vault)
+ddev typo3 sitepackage:seed-ai-stack           # AI Chat, Cowriter tasks, chat tools
 ```
 
 Open `https://webconsulting-typo3-lab.ddev.site/typo3/`. The imported demo
@@ -249,7 +256,8 @@ prints the PHPStan level, CI, README and docs state of every own extension clone
 
 Thank you to the TYPO3 community; Simon Praetorius and the Vite integration
 contributors; the DDEV and TYPO3-Solr teams; the Content Blocks, Visual Editor,
-News, Blog and Powermail maintainers; Netresearch; and every extension author
+News, Blog and Powermail maintainers (in2code); Netresearch, whose AI stack
+(nr-llm, nr-vault, the AI Chat, Cowriter) runs this lab's AI features; and every extension author
 represented in `composer.lock`.
 
 Special thanks go to the Astryx team, Meta Open Source, the Facebook design-

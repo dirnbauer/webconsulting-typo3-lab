@@ -22,6 +22,12 @@ image layer.
 The trusted GitLab host key is pinned in `Build/SSH/known_hosts`. Local builds
 can instead forward an SSH agent with `docker build --ssh default`.
 
+The same Composer step has a second build-only secret since 2026-11-20,
+`IN2CODE_PACKAGIST_TOKEN` (in2code's Early Access Packagist for Powermail 14),
+with the same Coolify flags and the same rule: never in a service
+`environment:` block. It becomes `COMPOSER_AUTH` for that one step only; see
+[coolify-deployment.md](coolify-deployment.md).
+
 ## Try it online
 
 Open `/poppy/demo` after the lab login. Select Poppy or Pi Durable, click

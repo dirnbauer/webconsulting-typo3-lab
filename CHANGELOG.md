@@ -4,6 +4,46 @@ All notable changes to Webconsulting TYPO3 Lab are documented in this file.
 
 ## Unreleased
 
+### TYPO3 14.3.12, Powermail 14 from in2code and the Netresearch AI stack — 2026-11-20
+
+- TYPO3 14.3.12 (security release). Powermail 14.2.0 and Powermail
+  Conditions 14.0.1 come from in2code's Early Access Packagist instead of our
+  forks; the five behaviours the lab needs are composer patches. The token is
+  the build/CI secret `IN2CODE_PACKAGIST_TOKEN`: `Dockerfile.coolify` mounts it
+  as a BuildKit secret for the one Composer step, the Quality workflow writes
+  it into the runner's global Composer auth and keeps the in2code archives out
+  of the Composer cache, `ddev lab-update` passes it without a command line,
+  `auth.json` is git- and docker-ignored, and the public-snapshot scanner fails
+  on a 60-hex token or a Composer auth block.
+- Netresearch's AI stack: nr-llm 0.51, nr-vault 1.10, the AI Chat
+  (nr-mcp-agent 0.39), Cowriter 3.28, nr-landingpage 0.8 and nr-browser-ai
+  0.9. The AI Chat replaces our `webconsulting/typo3-ai-assistant`, which grew
+  out of it (docs/ai-chat.md).
+- `sitepackage:seed-ai-stack` (idempotent, records by identifier, DataHandler,
+  `--dry-run`): the chat's nr-llm configuration and task `backend-ai-chat`, the
+  six Cowriter tasks, the chat's tool switches (readers on, writers only with
+  nr-llm's approval step, default deny), the Netresearch modules for the group
+  `main`, and the chat's task uid in `settings.php` (`--settings-only` at every
+  container start, because the image rebuilds `settings.php`).
+- The chat runs its turns in `ai-chat:worker` processes in both environments:
+  mod_php's empty `PHP_BINARY` stops the extension's per-request processes in
+  production. The entrypoint keeps `TYPO3_CHAT_WORKERS` (2) supervised worker
+  loops, DDEV one loop from a post-start hook; the image gains `pcntl`.
+- Container start: `ai-chat:cleanup --delete-after-days=90` replaces
+  `ai-assistant:chat:cleanup` (same retention), the wizards
+  `nrMcpAgent_migrateMessagesToTable` and `nrMcpAgent_lastMessageTime` run by
+  name, and nr-llm's `nrllmAdr214SkillVersionDigest` is marked done without
+  running (`sitepackage:upgrade:mark-done`). Compose no longer pins
+  `TYPO3_RUN_WIZARDS` to 0; `TYPO3_CHAT_CLEANUP` stays pinned off (its first
+  run deletes about a hundred conversations older than 90 days).
+- Cowriter buttons in the Desiderio preset and TYPO3's default preset
+  (site_package presets that import the originals and append); the Desiderio
+  site gets the `netresearch/nr-landingpage` and `netresearch/browser-ai` sets.
+- Not installed after a rehearsal: nr-passkeys-be/-fe (passkey button on both
+  production login pages by default), nr-http-guard (blocks all outgoing
+  requests by default), nr-repurpose (needs ffmpeg and Chromium); nr-ai-search
+  is private.
+
 ### Visual Editor Enhancements 1.7.0, Desiderio 4.36.0 and the re-voiced film — 2026-11-08
 
 - Visual Editor Enhancements 1.7.0: entry rows on the page (user setting
