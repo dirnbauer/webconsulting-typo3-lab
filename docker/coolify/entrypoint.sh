@@ -101,13 +101,27 @@ fi
 # new tables but never copies data, and nobody runs the Upgrade module on this
 # host. A wizard that already ran is marked done and does nothing, so listing
 # it here costs one quick check per start. Keep the list to wizards that only
-# copy data; anything destructive stays a manual step.
+# copy data; anything destructive stays a manual step. Never call upgrade:run
+# without a wizard name: that would also run the ones below that must not run.
+#
+# nr-mcp-agent 0.39 (the Netresearch AI Chat): the messages of the chats from
+# its earlier install move from the conversation rows into their own table,
+# then each conversation gets its last-message time.
 if [ "${TYPO3_RUN_WIZARDS:-1}" = "1" ]; then
-    for wizard in webconAiAssistantMigrateFromShadcnUi; do
+    for wizard in nrMcpAgent_migrateMessagesToTable nrMcpAgent_lastMessageTime; do
         echo "entrypoint: upgrade wizard ${wizard}"
         su -s /bin/sh -c "cd /var/www/html && php -d memory_limit=1536M vendor/bin/typo3 upgrade:run ${wizard} --no-interaction" www-data \
             || echo "entrypoint: WARNING upgrade wizard ${wizard} failed" >&2
     done
+
+    # nr-llm's skill digest wizard (ADR-214) disables every skill whose stored
+    # frontmatter does not verify; it must never run here (the skills are kept
+    # by skillflow). It is marked done instead, as netresearch/typo3-demo does,
+    # so a later run without a wizard name cannot pick it up. A mark that
+    # exists already is left alone.
+    echo "entrypoint: marking nrllmAdr214SkillVersionDigest as done (it never runs here)"
+    su -s /bin/sh -c "cd /var/www/html && php -d memory_limit=1536M vendor/bin/typo3 sitepackage:upgrade:mark-done 'Netresearch\\NrLlm\\Updates\\SkillVersionDigestUpdateWizard' --no-interaction" www-data \
+        || echo "entrypoint: WARNING could not mark nrllmAdr214SkillVersionDigest as done" >&2
 fi
 
 # Core labels come from language packs that TYPO3 downloads into var/labels;
@@ -133,14 +147,28 @@ if [ "${TYPO3_FLUSH_PAGE_CACHE:-1}" = "1" ]; then
         || echo "entrypoint: WARNING page cache flush failed; pages may render from the previous release" >&2
 fi
 
-# A chat turn runs inside the request that started it, so a request that dies
-# leaves its conversation claimed and nothing but this command releases it.
-# There is no cron daemon in this container, so a scheduler task would never
-# fire; at start nothing can be mid-turn, which makes this the one moment the
-# release is certainly safe. The same run applies the retention windows.
+# The Netresearch AI Chat (EXT:nr_mcp_agent) finds the nr-llm task it runs on
+# by uid (llmTaskUid). The uid belongs to this database, and settings.php is
+# rebuilt from settings.php.example by every image, so the start writes it again
+# from the task's identifier ("backend-ai-chat"). It only reads the database and
+# writes that one setting; the records themselves come from the production data
+# run (sitepackage:seed-ai-stack, docs/content/seeding.md). Before that ran once,
+# the chat says it is not configured, and nothing else is affected.
+if [ "${TYPO3_CHAT_SETTINGS:-1}" = "1" ]; then
+    echo "entrypoint: pointing the AI chat at its nr-llm task"
+    su -s /bin/sh -c 'cd /var/www/html && php -d memory_limit=1536M vendor/bin/typo3 sitepackage:seed-ai-stack --settings-only --no-interaction' www-data \
+        || echo "entrypoint: WARNING the AI chat task setting could not be written; the chat may say it is not configured" >&2
+fi
+
+# A chat turn that dies leaves its conversation claimed, and only this command
+# releases it (after five minutes). There is no cron daemon in this container,
+# so a scheduler task would never fire; at start nothing can be mid-turn, which
+# makes this the one moment the release is certainly safe. The same run applies
+# the retention windows: conversations idle for autoArchiveDays (30) are
+# archived, archived ones are deleted after 90 days.
 if [ "${TYPO3_CHAT_CLEANUP:-1}" = "1" ]; then
     echo "entrypoint: releasing stuck chat conversations and applying retention"
-    su -s /bin/sh -c 'cd /var/www/html && php -d memory_limit=1536M vendor/bin/typo3 ai-assistant:chat:cleanup --archive-after=30 --delete-after=90 --no-interaction' www-data \
+    su -s /bin/sh -c 'cd /var/www/html && php -d memory_limit=1536M vendor/bin/typo3 ai-chat:cleanup --delete-after-days=90 --no-interaction' www-data \
         || echo "entrypoint: WARNING chat cleanup failed; stuck conversations stay claimed until the next start" >&2
 fi
 
@@ -152,5 +180,24 @@ if [ "${TYPO3_AGENTNEXUS_CLEANUP:-1}" = "1" ]; then
     su -s /bin/sh -c 'cd /var/www/html && php -d memory_limit=1536M vendor/bin/typo3 agentnexus:cleanup --no-interaction' www-data \
         || echo "entrypoint: WARNING Agent Nexus cleanup failed; old traffic stays until the next start" >&2
 fi
+
+# Chat workers (processingStrategy=worker, packages/site_package/
+# ext_localconf.php). Each loop keeps one `ai-chat:worker` alive and restarts it
+# whenever it ends (docker/coolify/ai-chat-worker.sh); one worker runs one turn
+# at a time, so TYPO3_CHAT_WORKERS is the number of chats that can answer at the
+# same moment. The loops run as www-data and are started last, after every
+# schema change; their output goes to the container log. They stop with the
+# container. 0 switches them off: the chat then queues every turn until a
+# worker exists, because the per-request fallback cannot start under mod_php.
+chat_workers="${TYPO3_CHAT_WORKERS:-2}"
+case "$chat_workers" in
+    ''|*[!0-9]*) echo "entrypoint: WARNING TYPO3_CHAT_WORKERS is not a number; starting none" >&2; chat_workers=0 ;;
+esac
+worker=0
+while [ "$worker" -lt "$chat_workers" ]; do
+    worker=$((worker + 1))
+    echo "entrypoint: starting AI chat worker loop ${worker} of ${chat_workers}"
+    su -s /bin/sh -c 'exec sh /var/www/html/docker/coolify/ai-chat-worker.sh' www-data </dev/null &
+done
 
 exec docker-php-entrypoint "$@"

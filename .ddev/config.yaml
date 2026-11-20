@@ -33,3 +33,14 @@ hooks:
         nohup flock -n var/lock/desiderio-library-warm.lock
         vendor/bin/typo3 desiderio:library:warm
         > var/log/desiderio-library-warm.log 2>&1 </dev/null &
+    # The Netresearch AI Chat runs its turns in `ai-chat:worker` processes
+    # (processingStrategy=worker, packages/site_package/ext_localconf.php), as
+    # in production: the same loop script docker/coolify/entrypoint.sh starts
+    # there keeps one worker alive and restarts it whenever it ends. The lock
+    # keeps a second `ddev start` from starting a second loop. Not a
+    # web_extra_daemons entry: that rebuilds the web image on every change.
+    - exec: >-
+        mkdir -p var/log var/lock;
+        nohup flock -n var/lock/ai-chat-worker.lock
+        sh docker/coolify/ai-chat-worker.sh
+        >> var/log/ai-chat-worker.log 2>&1 </dev/null &
