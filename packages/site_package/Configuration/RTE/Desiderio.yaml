@@ -1,0 +1,26 @@
+# The Desiderio preset with Netresearch's Cowriter (EXT:t3_cowriter).
+#
+# ext_localconf.php registers this file under the preset name "desiderio", so
+# every Desiderio content block field (richtextConfiguration: desiderio), the
+# backend form and the Visual Editor's frontend editor get it. Desiderio's own
+# file is imported unchanged; TYPO3 appends lists on import
+# (ArrayUtility::replaceAndAppendScalarValuesRecursive), so the module and the
+# toolbar items below are added behind Desiderio's, never in their place.
+#
+# cowriterImage is left out: it inserts through rte_ckeditor_image, which the
+# lab does not install.
+imports:
+    - { resource: 'EXT:desiderio/Configuration/RTE/Desiderio.yaml' }
+
+editor:
+  config:
+    importModules:
+      - { module: '@netresearch/t3_cowriter/cowriter', exports: ['Cowriter'] }
+
+    toolbar:
+      items:
+        - '|'
+        - cowriter
+        - cowriterVision
+        - cowriterTranslate
+        - cowriterTemplates

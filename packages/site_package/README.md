@@ -29,6 +29,8 @@ to `config/sites/desiderio/config.yaml`.
 | `Configuration/Sets/Camino/` | Camino wrapper |
 | `Configuration/Sets/Workos/` | WorkOS template paths, CType bridge, and CSS include |
 | `Classes/Command/SeedWorkosFrontendDemoCommand.php` | Idempotent DataHandler page/content seeder |
+| `Classes/AiStack/`, `Classes/Command/SeedAiStackCommand.php` | Netresearch AI Chat, Cowriter tasks and tool policy (`sitepackage:seed-ai-stack`) |
+| `Configuration/RTE/` | Desiderio and default RTE presets with Cowriter |
 | `Resources/Private/Extensions/WorkosAuth/` | Lab-owned WorkOS Fluid templates and partials |
 | `Resources/Public/Css/workos-shadcn.css` | Semantic WorkOS component styling |
 | `Configuration/TCA/Overrides/tt_content.php` | Address content-element icon, applied after the required `tt_address` package |
@@ -48,7 +50,10 @@ registration.
 The base Site Set enables the Admin Panel for authenticated backend users.
 `ext_localconf.php` selects compiled Vite assets by default. Rich-text fields
 use TYPO3's default RTE preset, and Desiderio's elements their own `desiderio`
-preset; the lab no longer ships t3-cowriter (removed 2026-09-26).
+preset; `ext_localconf.php` registers both names to `Configuration/RTE/`, which
+imports the original presets unchanged and appends Netresearch's Cowriter
+(module and buttons). The Visual Editor resolves the same names. It also sets
+the Netresearch AI Chat to `processingStrategy=worker` (`docs/ai-chat.md`).
 
 ## WorkOS demo data
 
@@ -86,6 +91,8 @@ These commands remain available for intentional demo-data maintenance:
 - `sitepackage:seed-utility-translations`: translations after a library reseed.
 - `sitepackage:content:translate --site=desiderio`: German, Chinese and Hungarian for every page, element, collection item, image text and record the Desiderio seeders create, from the translation memories in `Resources/Private/Data/Translations/<site>/` (English text → translation, so a reseed does not lose them). `--dry-run --missing=-` lists English texts without a translation.
 - `sitepackage:configure-ai-examples`: configured models and example records.
+- `sitepackage:seed-ai-stack`: the Netresearch AI Chat's configuration and task, the six Cowriter tasks, the chat's tool switches, the Netresearch modules for the group `main` and the chat's task uid in `settings.php`; records by identifier through DataHandler, `--dry-run`, a second run reports 0 changes, `--settings-only` for the container start (`docs/ai-chat.md`).
+- `sitepackage:upgrade:mark-done <wizard class>`: marks an upgrade wizard as done without running it (the container start does this for nr-llm's `nrllmAdr214SkillVersionDigest`).
 - `sitepackage:llm:generate-image`: optional provider-backed image generation.
 
 Run commands through `ddev typo3` and inspect `--help` for their options. Take a

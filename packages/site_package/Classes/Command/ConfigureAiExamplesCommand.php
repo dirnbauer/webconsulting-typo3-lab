@@ -361,8 +361,11 @@ PROMPT;
     }
 
     /**
-     * The lab no longer ships t3-cowriter (2026-09-26); earlier runs of this
-     * command created its ten tasks, which nothing uses any more.
+     * Earlier runs of this command created ten tasks named cowriter_* for the
+     * t3-cowriter the lab dropped on 2026-09-26; nothing uses them any more.
+     * Cowriter is back since 2026-11-20 with the six tasks of
+     * sitepackage:seed-ai-stack (improve-text, summarize, …), which this
+     * pattern does not match.
      */
     private function retireCowriterTasks(): void
     {

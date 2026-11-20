@@ -104,3 +104,22 @@ $GLOBALS['TYPO3_CONF_VARS']['LANG']['resourceOverrides']['de']['EXT:backend/Reso
     = 'EXT:site_package/Resources/Private/Language/Overrides/de.backend.xlf';
 $GLOBALS['TYPO3_CONF_VARS']['LANG']['resourceOverrides']['de']['EXT:backend/Resources/Private/Language/locallang_reset_password.xlf'][]
     = 'EXT:site_package/Resources/Private/Language/Overrides/de.backend_reset_password.xlf';
+
+// Netresearch AI Chat (EXT:nr_mcp_agent): every chat turn goes to a waiting
+// `ai-chat:worker`. The extension's default, "exec", starts a PHP process per
+// turn from the web request and takes the binary from PHP_BINARY, which is an
+// empty string under Apache's mod_php in the production image, so no turn
+// would ever run there. The workers run in both environments: the container
+// entrypoint keeps them alive in production (docker/coolify/ai-chat-worker.sh),
+// a DDEV post-start hook starts the same loop locally. Without a free worker
+// the extension still starts a process per turn, which works under DDEV's
+// php-fpm. The task the chat runs on (llmTaskUid) differs per database and is
+// written by sitepackage:seed-ai-stack; see docs/ai-chat.md.
+$GLOBALS['TYPO3_CONF_VARS']['EXTENSIONS']['nr_mcp_agent']['processingStrategy'] = 'worker';
+
+// Cowriter (EXT:t3_cowriter) in the rich text editors the lab uses: the
+// Desiderio preset (every Desiderio content block field) and TYPO3's default
+// preset. Both files import the original preset unchanged and append the
+// Cowriter module and buttons; the Visual Editor resolves the same preset names.
+$GLOBALS['TYPO3_CONF_VARS']['RTE']['Presets']['desiderio'] = 'EXT:site_package/Configuration/RTE/Desiderio.yaml';
+$GLOBALS['TYPO3_CONF_VARS']['RTE']['Presets']['default'] = 'EXT:site_package/Configuration/RTE/Default.yaml';

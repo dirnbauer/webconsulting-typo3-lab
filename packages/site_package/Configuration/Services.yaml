@@ -6,3 +6,12 @@ services:
 
   Webconsulting\SitePackage\:
     resource: '../Classes/*'
+
+  # sitepackage:seed-ai-stack: DataHandler, nr-llm's tool repositories and
+  # TYPO3's settings file in production; tests pass their own.
+  Webconsulting\SitePackage\AiStack\RecordWriter:
+    alias: Webconsulting\SitePackage\AiStack\DataHandlerRecordWriter
+  Webconsulting\SitePackage\AiStack\ToolStates:
+    alias: Webconsulting\SitePackage\AiStack\NrLlmToolStates
+  Webconsulting\SitePackage\AiStack\SettingStore:
+    alias: Webconsulting\SitePackage\AiStack\SystemSettingStore

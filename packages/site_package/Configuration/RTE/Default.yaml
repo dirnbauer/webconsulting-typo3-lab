@@ -1,0 +1,19 @@
+# TYPO3's default preset with Netresearch's Cowriter (EXT:t3_cowriter), for the
+# rich text fields that are not Desiderio's (core content types, news, blog).
+# Registered under the preset name "default" in ext_localconf.php; see
+# Desiderio.yaml next to this file for how the import appends.
+imports:
+    - { resource: 'EXT:rte_ckeditor/Configuration/RTE/Default.yaml' }
+
+editor:
+  config:
+    importModules:
+      - { module: '@netresearch/t3_cowriter/cowriter', exports: ['Cowriter'] }
+
+    toolbar:
+      items:
+        - '|'
+        - cowriter
+        - cowriterVision
+        - cowriterTranslate
+        - cowriterTemplates
