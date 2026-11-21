@@ -8,19 +8,9 @@ import { featureFilm } from './feature-film.mjs';
 const film = (definition) => featureFilm({ section: 'ai', music: 'focus', ...definition });
 
 export default Object.fromEntries([
-    film({
-        id: 'ai-assistant', page: 2084, name: 'AI Assistant',
-        accent: '#c4b5fd', palette: ['#7c5cff', '#2c5a52', '#c7863f'],
-        hook: { head: 'Answers hide <em>behind many clicks.</em>', say: 'Finding which pages sit below Features, or what the log recorded last night, takes a dozen clicks.' },
-        title: { sub: 'Ask TYPO3. Approve every change.', key: 'webconsulting/typo3-ai-assistant', say: 'The AI Assistant answers questions about your site, inside the TYPO3 backend.' },
-        shots: [
-            { image: 'Backend/feature-ai-assistant-answer-21458ce7.webp', eyebrow: 'Answer', head: 'Answers from the site’s own tools', say: 'It calls the site’s own tools with your permissions, shows the result, then answers in plain words.' },
-            { image: 'Backend/feature-ai-assistant-approval-d8e9abaf.webp', eyebrow: 'Approval', head: 'Every write waits for you', say: 'Every write stops and waits. Nothing changes until you approve it.' },
-            { image: 'Backend/feature-ai-assistant-changes-9a912e08.webp', eyebrow: 'Changes', head: 'Drafts, linked to the editor', say: 'Approved changes land as drafts in a workspace, listed with the conversation.' },
-            { image: 'Backend/feature-ai-assistant-toolbar-5b4526e6.webp', eyebrow: 'Toolbar', head: 'The chat follows you', say: 'The chat stays open across modules, and knows the page you are on.' },
-        ],
-        end: { head: 'An assistant that <em>asks first.</em>', cta: 'View on GitHub', url: 'github.com/dirnbauer/typo3-ai-assistant', install: 'composer require webconsulting/typo3-ai-assistant', note: 'Built on the MCP Server and the Abilities Registry', say: 'AI Assistant. You approve every change.' },
-    }),
+    // No film for /ai/ai-assistant since 2026-11-21: the page presents
+    // Netresearch's nr-mcp-agent now, and the old film showed our retired
+    // webconsulting/typo3-ai-assistant. A new cut needs new narration.
     film({
         id: 'nr-llm-manual', page: 1309, name: 'nr-llm',
         accent: '#86efac', palette: ['#2c5a52', '#7c5cff', '#c7863f'],
