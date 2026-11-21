@@ -1,5 +1,5 @@
 {
-    "_hash": "a428c75147216687d9f1a5b69b30934b8431f45cebab4b4c6a61d882c6287d72",
+    "_hash": "668954f0111507f6d4da64a6d82932c93f97110fde4942cdfec1438774e33530",
     "patches": {
         "apache-solr-for-typo3/solr": [
             {
@@ -85,18 +85,6 @@
                 "description": "Modernize blog backend, plugin, and record icons for TYPO3 v14",
                 "url": "patches/t3g-blog-typo3-v14-icons.patch",
                 "sha256": "9c172b2c86dd2898e9150d35bbb0682cc33e0870ef1ab4720b947195a578ee6a",
-                "depth": 1,
-                "extra": {
-                    "provenance": "root"
-                }
-            }
-        ],
-        "webconsulting/desiderio": [
-            {
-                "package": "webconsulting/desiderio",
-                "description": "Show server validation errors when the client summary is disabled",
-                "url": "patches/webconsulting-desiderio-powermail-server-errors.patch",
-                "sha256": "9c51495e43683018a9d27847edd4cd68ad8427c2baaaa76e444dda0b0232cc22",
                 "depth": 1,
                 "extra": {
                     "provenance": "root"

@@ -167,7 +167,7 @@
 		"netresearch/nr-vault": "^1.10",
 		"netresearch/t3-cowriter": "^3.28.8",
 		"paragonie/sodium_compat": "^2.5.2",
-		"praetorius/vite-asset-collector": "^1.18.4",
+		"praetorius/vite-asset-collector": "^2.0.1",
 		"sgalinski/sg-apicore": "^3.1.10",
 		"studiomitte/friendlycaptcha": "~2.3.0.4",
 		"studiomitte/solr-numbered-pagination": "^1.0.5",
@@ -208,8 +208,8 @@
 		"wapplersystems/multisite-belogin": "^14.2.0",
 		"webconsulting/agent-nexus": "^4.1.3",
 		"webconsulting/agentation": "^1.5.2",
-		"webconsulting/astryx-typo3": "^2.6.3",
-		"webconsulting/desiderio": "^4.36.0",
+		"webconsulting/astryx-typo3": "^2.7.0",
+		"webconsulting/desiderio": "^4.37.0",
 		"webconsulting/docx-editor": "^2.5.4",
 		"webconsulting/image-workbench": "^0.3.4",
 		"webconsulting/innesto": "^2.3.4",
@@ -253,9 +253,6 @@
 			},
 			"t3g/blog": {
 				"Modernize blog backend, plugin, and record icons for TYPO3 v14": "patches/t3g-blog-typo3-v14-icons.patch"
-			},
-			"webconsulting/desiderio": {
-				"Show server validation errors when the client summary is disabled": "patches/webconsulting-desiderio-powermail-server-errors.patch"
 			}
 		}
 	},
