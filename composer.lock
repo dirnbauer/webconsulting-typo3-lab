@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8f0ef8f268c2961d30d4f5eacca26599",
+    "content-hash": "580aa2e8d28587212d56d902d63a692e",
     "packages": [
         {
             "name": "apache-solr-for-typo3/solr",
@@ -12899,16 +12899,16 @@
         },
         {
             "name": "webconsulting/desiderio",
-            "version": "v4.37.0",
+            "version": "v4.38.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/desiderio.git",
-                "reference": "81adff07f6391d2744031f2a60ddafd1619a44ab"
+                "reference": "ab5094d89aeb80ac5c7da8897100bb2603e56a9a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/desiderio/zipball/81adff07f6391d2744031f2a60ddafd1619a44ab",
-                "reference": "81adff07f6391d2744031f2a60ddafd1619a44ab",
+                "url": "https://api.github.com/repos/dirnbauer/desiderio/zipball/ab5094d89aeb80ac5c7da8897100bb2603e56a9a",
+                "reference": "ab5094d89aeb80ac5c7da8897100bb2603e56a9a",
                 "shasum": ""
             },
             "require": {
@@ -12951,7 +12951,7 @@
             "extra": {
                 "typo3/cms": {
                     "extension-key": "desiderio",
-                    "version": "4.37.0",
+                    "version": "4.38.0",
                     "Package": {
                         "providesPackages": []
                     }
@@ -13002,7 +13002,7 @@
                 }
             ],
             "description": "Desiderio — shadcn/ui-inspired Fluid 5 component library, 244 Desiderio Content Blocks, and theme layer for TYPO3 14",
-            "time": "2026-11-21T12:21:04+00:00"
+            "time": "2026-11-21T18:47:07+00:00"
         },
         {
             "name": "webconsulting/docx-editor",
