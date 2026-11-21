@@ -63,10 +63,10 @@ export default {
         alt: 'Overview film, {duration} seconds: 11 AI tools for TYPO3 v14, in three groups: '
             + 'AI editors control, checked skills, and agents within limits. Narrated, with English captions.',
         scenes: [
-            { type: 'hook', head: 'AI changes <em>nobody approved.</em>', images: [tool(ai, 'ai-assistant').image, tool(ai, 'mcp-server').image, tool(ai, 'agent-nexus').image], say: 'An AI tool that writes straight to live pages leaves nobody to approve the change.' },
-            { type: 'title', eyebrow: 'AI for TYPO3 v14', name: 'AI tools', sub: '11 tools, with people in charge', key: `${HOST}/ai/`, image: tool(ai, 'ai-assistant').image, say: 'This lab runs 11 AI tools for TYPO3 v14, and people approve what they change.' },
-            group(ai, 'Editors in control', 'AI your editors <em>can control</em>', [['ai-assistant'], ['nr-llm-manual', 'n'], ['jev', 'jev']],
-                'The assistant asks before it writes, nr-llm keeps one model setup, and Jev sorts form messages.'),
+            { type: 'hook', head: 'AI changes <em>nobody approved.</em>', images: [tool(ai, 'skillflow').image, tool(ai, 'mcp-server').image, tool(ai, 'agent-nexus').image], say: 'An AI tool that writes straight to live pages leaves nobody to approve the change.' },
+            { type: 'title', eyebrow: 'AI for TYPO3 v14', name: 'AI tools', sub: '11 tools, with people in charge', key: `${HOST}/ai/`, image: tool(ai, 'mcp-server').image, say: 'This lab runs 11 AI tools for TYPO3 v14, and people approve what they change.' },
+            group(ai, 'Editors in control', 'AI your editors <em>can control</em>', [['nr-llm-manual'], ['jev', 'jev']],
+                'nr-llm keeps one model setup, and Jev sorts form messages.'),
             group(ai, 'Skills', 'Skills, checked <em>before they run</em>', [['skillflow'], ['skillspector', 'skillspector']],
                 'Skillflow runs review skills on drafts, and Skillspector checks each skill first.'),
             group(ai, 'Agents', 'Open TYPO3 to agents, <em>within limits</em>', [['mcp-server'], ['typo3-abilities', 'abilities'], ['agent-nexus', 'nexus'], ['agentation', 'agentation'], ['llms-txt', 'l']],
