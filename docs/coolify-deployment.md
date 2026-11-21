@@ -39,14 +39,47 @@ repository `in2code` in `composer.json`, limited to `in2code/powermail` and
 forks added are composer patches (`patches/README.md`). The forks' GitLab
 mirrors stay, so an image of an older commit can still be built.
 
-The token is a secret named `IN2CODE_PACKAGIST_TOKEN` (the bare 60-character
-token, never a JSON block) in exactly three places:
+The token (the bare 60-character token, never a JSON block) is in exactly two
+places (owner decision of 2026-11-21):
 
 | Where | How |
 |---|---|
-| GitHub Actions secret of this repository | the quality job writes it into the runner's global Composer auth, for `composer install` and `composer audit`, and deletes the in2code archives from the Composer cache before the cache is saved |
-| Coolify variable of the application | **Build Variable** on, **Available at Runtime** off, **Is Literal** on, locked (the same flags as `GITLAB_EXTENSIONS_READ_KEY`). Never listed in `docker-compose.coolify.yml`: a service `environment:` entry, even an empty one, copies the saved value into the running container |
-| The developer's own machine | `~/.config/in2code/eap-packagist-token` (0600), read by `ddev lab-update`; or `composer config --global --auth http-basic.in2code.repo.packagist.com token "$(tr -d '\n' < ~/.config/in2code/eap-packagist-token)"` on the host and the same block in `~/.ddev/homeadditions/.composer/auth.json` (global, outside every repository) for the DDEV web container |
+| Coolify variable `IN2CODE_PACKAGIST_TOKEN` of the application | **Build Variable** on, **Available at Runtime** off, **Is Literal** on, locked (the same flags as `GITLAB_EXTENSIONS_READ_KEY`). Never listed in `docker-compose.coolify.yml`: a service `environment:` entry, even an empty one, copies the saved value into the running container |
+| The developer's own machine | `~/.config/in2code/eap-packagist-token` (0600), outside every repository. `ddev lab-update` reads it; any other Composer command gets it as `COMPOSER_AUTH` for that one command (below). Not in an `auth.json`, not in `~/.ddev/homeadditions` |
+
+**GitHub has no copy.** The repository is public and in2code's Early Access
+packages are licensed: a GitHub secret would be one more place the token can
+leak from (workflow logs, a changed workflow on a branch, the Composer cache
+that `actions/cache` shares between branches), for a check the image build makes
+anyway. The Quality job therefore runs `Build/Scripts/ci-drop-private-packages.php`
+before `composer install`. In the runner's throw-away checkout only, it removes
+`in2code/powermail` and `in2code/powermail_cond` from `composer.json`, drops the
+`in2code` repository and their `extra.patches` entries, removes both packages
+from `composer.lock` and recomputes its `content-hash` exactly as Composer does,
+and removes their blocks from `patches.lock.json` with the `_hash`
+cweagans/composer-patches computes. It refuses to run outside GitHub Actions
+(`CI=true` and `GITHUB_ACTIONS=true`) unless `--force` is given, it is
+docker-ignored so the image build never sees it, and it fails when another
+locked package requires one of the two or when `composer.json` lists a private
+`composer` repository it does not know. Nothing in the lab's own code needs
+Powermail for PHP lint, PHPStan, PHPUnit or the frontend build.
+
+So CI checks everything except the two in2code packages. It no longer covers:
+that they install, that the five Powermail patches apply, and `composer audit`
+for those two. These are checked by the Coolify image build (`composer install`
+with `composer-exit-on-patch-failure`: a patch that no longer applies fails the
+build and the previous image keeps serving) and by a local run before each
+merge:
+
+```bash
+export COMPOSER_AUTH="{\"http-basic\":{\"in2code.repo.packagist.com\":{\"username\":\"token\",\"password\":\"$(tr -d '\r\n' < ~/.config/in2code/eap-packagist-token)\"}}}"
+ddev exec env COMPOSER_AUTH="$COMPOSER_AUTH" composer reinstall in2code/powermail in2code/powermail_cond
+ddev exec env COMPOSER_AUTH="$COMPOSER_AUTH" Build/Scripts/runTests.sh -s quality -p 8.5
+unset COMPOSER_AUTH
+```
+
+The Playwright Powermail journeys (`Tests/E2E/powermail.spec.js`, suite `e2e`)
+need a running lab and were never part of CI.
 
 `Dockerfile.coolify` mounts it as a BuildKit secret in the one step that runs
 `composer install`, turns it into `COMPOSER_AUTH` in that step's environment
@@ -62,13 +95,12 @@ docker buildx build -f Dockerfile.coolify --ssh default \
 ```
 
 Without the token the Coolify build stops before Composer runs with "Missing
-build secret IN2CODE_PACKAGIST_TOKEN" (the previous image keeps serving), and CI
-stops at "Configure private extension access". A project `auth.json` is
+build secret IN2CODE_PACKAGIST_TOKEN" (the previous image keeps serving). A project `auth.json` is
 git-ignored and docker-ignored, and `Build/Scripts/lib/scan-snapshot.php`
 fails a public snapshot that contains a 60-hex token or a Composer auth block.
 Set the Coolify variable before the change that needs it reaches `main`.
-If the token leaks: in2code revokes it, then replace the file, the GitHub
-secret and the Coolify variable, and deploy.
+If the token leaks: in2code revokes it, then replace the file and the Coolify
+variable, and deploy.
 
 `GITLAB_EXTENSIONS_READ_KEY` stays for the private GitLab repositories
 (`typo3-poppy`, `typo3-webcon-templates`).

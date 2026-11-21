@@ -34,10 +34,9 @@ echo "    composer update ${composer_args[*]} --no-interaction"
 # token. It is taken from COMPOSER_AUTH when the caller set one, else built from
 # the token file (default ~/.config/in2code/eap-packagist-token, outside every
 # repository). `docker exec -e COMPOSER_AUTH` copies the value from this
-# environment, so the token is never on a command line. Without either, the
-# container's own Composer auth applies (~/.ddev/homeadditions/.composer/auth.json,
-# global, see docs/coolify-deployment.md) or Composer stops at the in2code
-# repository.
+# environment, so the token is never on a command line. Without either,
+# Composer stops at the in2code repository. The token lives only in that file
+# and in Coolify, never in an auth.json (docs/coolify-deployment.md).
 in2code_token_file="${IN2CODE_PACKAGIST_TOKEN_FILE:-$HOME/.config/in2code/eap-packagist-token}"
 if [ -z "${COMPOSER_AUTH:-}" ] && [ -s "${in2code_token_file}" ]; then
   in2code_token="$(tr -d '\r\n' < "${in2code_token_file}")"

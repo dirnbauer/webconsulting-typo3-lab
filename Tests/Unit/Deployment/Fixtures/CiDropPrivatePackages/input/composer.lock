@@ -1,0 +1,85 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "cad1b1841182300d34153fff4597ee0c",
+    "packages": [
+        {
+            "name": "in2code/powermail",
+            "version": "14.2.0",
+            "dist": {
+                "type": "zip",
+                "url": "https://in2code.repo.packagist.com/webconsulting/dists/in2code/powermail/14.2.0.0/0000000000000000000000000000000000000000.zip",
+                "reference": "0000000000000000000000000000000000000000"
+            },
+            "require": {
+                "php": "^8.2",
+                "psr/log": "^3.0"
+            },
+            "replace": {
+                "typo3-ter/powermail": "self.version"
+            },
+            "type": "typo3-cms-extension",
+            "extra": {}
+        },
+        {
+            "name": "in2code/powermail_cond",
+            "version": "14.0.1",
+            "dist": {
+                "type": "zip",
+                "url": "https://in2code.repo.packagist.com/webconsulting/dists/in2code/powermail_cond/14.0.1.0/1111111111111111111111111111111111111111.zip",
+                "reference": "1111111111111111111111111111111111111111"
+            },
+            "require": {
+                "in2code/powermail": "^14.0 || @dev",
+                "php": "^8.2"
+            },
+            "type": "typo3-cms-extension"
+        },
+        {
+            "name": "psr/log",
+            "version": "3.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-fig/log.git",
+                "reference": "f16e1d5863e37f8d8c2a01719f5b34baa2b714d3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-fig/log/zipball/f16e1d5863e37f8d8c2a01719f5b34baa2b714d3",
+                "reference": "f16e1d5863e37f8d8c2a01719f5b34baa2b714d3",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=8.0.0"
+            },
+            "type": "library",
+            "extra": {},
+            "autoload": {
+                "psr-4": {
+                    "Psr\\Log\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Common interface for logging libraries",
+            "time": "2024-09-11T13:17:53+00:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": {},
+    "prefer-stable": true,
+    "prefer-lowest": false,
+    "platform": {},
+    "platform-dev": {},
+    "platform-overrides": {
+        "php": "8.5.12"
+    },
+    "plugin-api-version": "2.9.0"
+}

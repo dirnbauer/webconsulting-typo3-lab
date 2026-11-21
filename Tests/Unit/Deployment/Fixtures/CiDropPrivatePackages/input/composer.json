@@ -1,0 +1,40 @@
+{
+	"name": "example/ci-drop-fixture",
+	"type": "project",
+	"license": "GPL-2.0-or-later",
+	"description": "Fixture for Build/Scripts/ci-drop-private-packages.php",
+	"minimum-stability": "stable",
+	"prefer-stable": true,
+	"config": {
+		"platform": {
+			"php": "8.5.12"
+		}
+	},
+	"repositories": [
+		{
+			"name": "in2code",
+			"type": "composer",
+			"url": "https://in2code.repo.packagist.com/webconsulting/",
+			"only": ["in2code/powermail", "in2code/powermail_cond"]
+		},
+		{
+			"type": "vcs",
+			"url": "https://github.com/example/public-extension.git"
+		}
+	],
+	"require": {
+		"in2code/powermail": "^14.2",
+		"in2code/powermail_cond": "^14.0.1",
+		"psr/log": "^3.0"
+	},
+	"extra": {
+		"patches": {
+			"in2code/powermail": {
+				"Example powermail patch": "patches/in2code-powermail-example.patch"
+			},
+			"psr/log": {
+				"Example kept patch": "patches/psr-log-example.patch"
+			}
+		}
+	}
+}

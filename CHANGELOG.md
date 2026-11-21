@@ -8,13 +8,23 @@ All notable changes to Webconsulting TYPO3 Lab are documented in this file.
 
 - TYPO3 14.3.12 (security release). Powermail 14.2.0 and Powermail
   Conditions 14.0.1 come from in2code's Early Access Packagist instead of our
-  forks; the five behaviours the lab needs are composer patches. The token is
-  the build/CI secret `IN2CODE_PACKAGIST_TOKEN`: `Dockerfile.coolify` mounts it
-  as a BuildKit secret for the one Composer step, the Quality workflow writes
-  it into the runner's global Composer auth and keeps the in2code archives out
-  of the Composer cache, `ddev lab-update` passes it without a command line,
-  `auth.json` is git- and docker-ignored, and the public-snapshot scanner fails
-  on a 60-hex token or a Composer auth block.
+  forks; the five behaviours the lab needs are composer patches. The token
+  lives only in Coolify (build-only variable `IN2CODE_PACKAGIST_TOKEN`, mounted
+  by `Dockerfile.coolify` as a BuildKit secret for the one Composer step) and
+  in `~/.config/in2code/eap-packagist-token` on the developer's machine;
+  `ddev lab-update` passes it without a command line, `auth.json` is git- and
+  docker-ignored, and the public-snapshot scanner fails on a 60-hex token or a
+  Composer auth block.
+- GitHub has no copy of the token (owner decision of 2026-11-21). The Quality
+  job runs `Build/Scripts/ci-drop-private-packages.php` before
+  `composer install`: in the runner's throw-away checkout it removes Powermail
+  and Powermail Conditions, their repository and patches, and recomputes the
+  `composer.lock` content-hash and the `patches.lock.json` hash as Composer
+  and composer-patches do. It refuses to run outside GitHub Actions without
+  `--force`, is docker-ignored, and fails when another locked package needs
+  the two or an unknown private Composer repository appears. CI checks
+  everything else; the Coolify image build and a local run before each merge
+  (README, "Verification") check the full install with the five patches.
 - Netresearch's AI stack: nr-llm 0.51, nr-vault 1.10, the AI Chat
   (nr-mcp-agent 0.39), Cowriter 3.28, nr-landingpage 0.8 and nr-browser-ai
   0.9. The AI Chat replaces our `webconsulting/typo3-ai-assistant`, which grew

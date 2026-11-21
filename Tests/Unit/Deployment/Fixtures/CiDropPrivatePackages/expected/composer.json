@@ -1,0 +1,29 @@
+{
+	"name": "example/ci-drop-fixture",
+	"type": "project",
+	"license": "GPL-2.0-or-later",
+	"description": "Fixture for Build/Scripts/ci-drop-private-packages.php",
+	"minimum-stability": "stable",
+	"prefer-stable": true,
+	"config": {
+		"platform": {
+			"php": "8.5.12"
+		}
+	},
+	"repositories": [
+		{
+			"type": "vcs",
+			"url": "https://github.com/example/public-extension.git"
+		}
+	],
+	"require": {
+		"psr/log": "^3.0"
+	},
+	"extra": {
+		"patches": {
+			"psr/log": {
+				"Example kept patch": "patches/psr-log-example.patch"
+			}
+		}
+	}
+}

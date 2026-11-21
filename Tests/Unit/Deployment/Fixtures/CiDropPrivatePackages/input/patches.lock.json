@@ -1,0 +1,29 @@
+{
+    "_hash": "e4db34acbd92172567a0e94991b04a5220349ad1a5c6cf0d840cd9439b550d9f",
+    "patches": {
+        "in2code/powermail": [
+            {
+                "package": "in2code/powermail",
+                "description": "Example powermail patch",
+                "url": "patches/in2code-powermail-example.patch",
+                "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+                "depth": 1,
+                "extra": {
+                    "provenance": "root"
+                }
+            }
+        ],
+        "psr/log": [
+            {
+                "package": "psr/log",
+                "description": "Example kept patch",
+                "url": "patches/psr-log-example.patch",
+                "sha256": "1111111111111111111111111111111111111111111111111111111111111111",
+                "depth": 1,
+                "extra": {
+                    "provenance": "root"
+                }
+            }
+        ]
+    }
+}

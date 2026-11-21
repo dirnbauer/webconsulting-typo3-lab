@@ -32,10 +32,12 @@ native Node packages are installed for Linux rather than the host platform.
 
 Requirements: Docker or OrbStack, DDEV `>=1.25.3`, Git and the two demo-data
 artifacts described in [DDEV bootstrap](docs/ddev-bootstrap.md). Powermail 14
-comes from in2code's Early Access Packagist: `composer install` needs an in2code
-token in your global Composer auth (host `~/.composer/auth.json` and
-`~/.ddev/homeadditions/.composer/auth.json`, never a file in this repository;
-see [Coolify deployment](docs/coolify-deployment.md)).
+comes from in2code's Early Access Packagist: `composer install` needs the in2code
+token. It lives only in Coolify (build-only variable) and in
+`~/.config/in2code/eap-packagist-token` on the developer's machine, never in a
+file of this repository, an `auth.json` or GitHub; Composer gets it through
+`COMPOSER_AUTH` for the one command (see
+[Coolify deployment](docs/coolify-deployment.md)).
 
 ```bash
 git clone https://github.com/dirnbauer/webconsulting-typo3-lab.git
@@ -43,7 +45,9 @@ cd webconsulting-typo3-lab
 cp config/system/settings.php.example config/system/settings.php
 
 ddev start
-ddev composer install
+export COMPOSER_AUTH="{\"http-basic\":{\"in2code.repo.packagist.com\":{\"username\":\"token\",\"password\":\"$(tr -d '\r\n' < ~/.config/in2code/eap-packagist-token)\"}}}"
+ddev exec env COMPOSER_AUTH="$COMPOSER_AUTH" composer install
+unset COMPOSER_AUTH
 ddev npm ci
 ddev import-db --file=dump.sql.gz
 
@@ -192,6 +196,26 @@ ddev solrctl list
 The quality suite checks the local site package at PHPStan level 8 on
 PHP 8.5 and runs its PHPUnit tests. It also validates Composer and YAML,
 builds the frontend, and audits Composer/npm dependencies.
+
+GitHub Actions runs the same quality suite without Powermail and Powermail
+Conditions: GitHub has no copy of the in2code token, so
+`Build/Scripts/ci-drop-private-packages.php` removes the two packages, their
+repository and their patches from the runner's throw-away checkout first (it
+refuses to run anywhere else without `--force`). The full install, including
+the five Powermail patches, is checked by the Coolify image build and by this
+local run before each merge:
+
+```bash
+export COMPOSER_AUTH="{\"http-basic\":{\"in2code.repo.packagist.com\":{\"username\":\"token\",\"password\":\"$(tr -d '\r\n' < ~/.config/in2code/eap-packagist-token)\"}}}"
+ddev exec env COMPOSER_AUTH="$COMPOSER_AUTH" composer reinstall in2code/powermail in2code/powermail_cond
+ddev exec env COMPOSER_AUTH="$COMPOSER_AUTH" Build/Scripts/runTests.sh -s quality -p 8.5
+unset COMPOSER_AUTH
+```
+
+`composer reinstall` applies the five patches again
+(`composer-exit-on-patch-failure` stops on one that no longer applies), and the
+suite's `composer audit` reaches the in2code repository with the same
+`COMPOSER_AUTH`.
 
 Two checks cover mistakes that stay invisible until they reach production.
 `deployPins` compares the EXT:solr commit baked into the production Solr image

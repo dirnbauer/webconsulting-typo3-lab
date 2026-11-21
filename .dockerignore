@@ -5,6 +5,9 @@
 # into a layer. The in2code token reaches the image build as a BuildKit secret.
 auth.json
 **/auth.json
+# The CI-only script that drops Powermail from GitHub's throw-away checkout
+# must never run in the image build: the image carries Powermail and its patches.
+Build/Scripts/ci-drop-private-packages.php
 .composer
 .abilities-demo-token
 .claude

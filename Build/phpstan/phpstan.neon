@@ -9,6 +9,7 @@ parameters:
     paths:
         - ../../packages/site_package/Classes
         - ../../packages/site_package/Build/Scripts/lint-copy.php
+        - ../../Build/Scripts/ci-drop-private-packages.php
     excludePaths:
         analyseAndScan:
             - ../../vendor

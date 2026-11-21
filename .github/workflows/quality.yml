@@ -48,14 +48,9 @@ jobs:
       - name: Configure private extension access
         env:
           GITLAB_EXTENSIONS_READ_KEY: ${{ secrets.GITLAB_EXTENSIONS_READ_KEY }}
-          IN2CODE_PACKAGIST_TOKEN: ${{ secrets.IN2CODE_PACKAGIST_TOKEN }}
         run: |
           if [ -z "$GITLAB_EXTENSIONS_READ_KEY" ]; then
             echo '::error::Set GITLAB_EXTENSIONS_READ_KEY to a read-only deploy key for the private TYPO3 Lab extension repositories.'
-            exit 1
-          fi
-          if [ -z "$IN2CODE_PACKAGIST_TOKEN" ]; then
-            echo '::error::Set IN2CODE_PACKAGIST_TOKEN to the in2code Early Access Packagist token (Powermail 14 and Powermail Conditions 14, repository "in2code" in composer.json).'
             exit 1
           fi
           mkdir -p ~/.ssh
@@ -63,30 +58,23 @@ jobs:
           cp Build/SSH/known_hosts ~/.ssh/known_hosts
           printf '%s\n' "$GITLAB_EXTENSIONS_READ_KEY" > ~/.ssh/id_ed25519
           chmod 600 ~/.ssh/id_ed25519
-          # Global Composer auth of this throw-away runner, so both `composer
-          # install` and the suite's `composer audit` reach the private
-          # repository. Never run Composer with -vvv or print its global
-          # config in this job.
-          composer config --global --auth \
-            http-basic.in2code.repo.packagist.com token "$IN2CODE_PACKAGIST_TOKEN"
+
+      # Powermail 14 and Powermail Conditions 14 come from in2code's Early
+      # Access Packagist. Its token lives only in Coolify (build-only variable
+      # IN2CODE_PACKAGIST_TOKEN) and on the developer's machine; GitHub has no
+      # copy. This job therefore drops the two packages, their repository and
+      # their patches from the runner's throw-away checkout and checks
+      # everything else. The full install with the five Powermail patches is
+      # checked by the Coolify image build and by the local run before each
+      # merge (docs/coolify-deployment.md).
+      - name: Drop the licensed in2code packages from this checkout
+        run: php Build/Scripts/ci-drop-private-packages.php
 
       - name: Install dependencies
         run: composer install --no-interaction --no-progress --prefer-dist
 
       - name: Run quality suite
         run: Build/Scripts/runTests.sh -s quality
-
-      # The repository is public, and a pull request can restore a cache saved
-      # on main: the licensed Early Access archives must not be in the Composer
-      # cache that actions/cache saves after the last step.
-      - name: Keep the in2code archives out of the Composer cache
-        if: always()
-        run: |
-          rm -rf ~/.composer/cache/files/in2code
-          cache_files_dir="$(composer config --global cache-files-dir 2>/dev/null || true)"
-          if [ -n "$cache_files_dir" ]; then
-            rm -rf "$cache_files_dir/in2code"
-          fi
 
   node-quality:
     name: Node quality

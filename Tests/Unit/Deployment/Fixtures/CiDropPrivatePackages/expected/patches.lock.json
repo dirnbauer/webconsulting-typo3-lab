@@ -1,0 +1,17 @@
+{
+    "_hash": "4b93e2269abc2cc5ab9823b5e7891a7f4bf5a7b0bb375cd95279aee1dabb5de2",
+    "patches": {
+        "psr/log": [
+            {
+                "package": "psr/log",
+                "description": "Example kept patch",
+                "url": "patches/psr-log-example.patch",
+                "sha256": "1111111111111111111111111111111111111111111111111111111111111111",
+                "depth": 1,
+                "extra": {
+                    "provenance": "root"
+                }
+            }
+        ]
+    }
+}
