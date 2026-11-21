@@ -38,19 +38,23 @@ final class TalkOrdering
 
     /**
      * Whether a collection already holds exactly the wanted items in the
-     * wanted order with the sorting linking writes (1…n). Then linking again
-     * would change nothing, and a second run leaves it alone.
+     * wanted order and its parent counts them. Then linking again would
+     * change nothing, and a second run leaves it alone. The sorting values
+     * themselves do not matter: DataHandler renumbers them when it localizes
+     * the items (1, 9730, 15875 … after a translate run), and requiring 1…n
+     * made the next seed relink every collection.
      *
      * @param list<array{uid: int, sorting: int}> $rows the parent's items now
      * @param list<int> $wanted the payload's items in payload order
+     * @param int $stored the parent's collection field (DataHandler stores the item count)
      */
-    public static function collectionLinked(array $rows, array $wanted): bool
+    public static function collectionLinked(array $rows, array $wanted, int $stored): bool
     {
         usort($rows, static fn (array $a, array $b): int => [$a['sorting'], $a['uid']] <=> [$b['sorting'], $b['uid']]);
 
         return $wanted !== []
             && array_column($rows, 'uid') === $wanted
-            && array_column($rows, 'sorting') === range(1, count($wanted));
+            && $stored === count($wanted);
     }
 
     /**

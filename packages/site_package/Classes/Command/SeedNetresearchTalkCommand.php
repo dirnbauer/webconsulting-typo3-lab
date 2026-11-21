@@ -166,7 +166,7 @@ final class SeedNetresearchTalkCommand extends Command
                 foreach (TalkOrdering::leftovers($rows, $wanted) as $leftover) {
                     $io->warning(sprintf('%s:%d still belongs to %s:%d but is not in the payload; delete it in the backend if it is obsolete.', $childTable, $leftover, $table, $parentUid));
                 }
-                if (TalkOrdering::collectionLinked($rows, $wanted)) {
+                if (TalkOrdering::collectionLinked($rows, $wanted, $this->storedCount($table, $parentUid, $collection['field']))) {
                     continue;
                 }
                 $this->dataHandler([$table => [$parentUid => [$collection['field'] => implode(',', $wanted)]]], []);
@@ -264,6 +264,20 @@ final class SeedNetresearchTalkCommand extends Command
         }
 
         return $rows;
+    }
+
+    /**
+     * The value DataHandler stored in a parent's collection field: the item count.
+     */
+    private function storedCount(string $table, int $uid, string $field): int
+    {
+        $queryBuilder = $this->pool->getQueryBuilderForTable($table);
+        $queryBuilder->getRestrictions()->removeAll();
+        $value = $queryBuilder->select($field)->from($table)->where(
+            $queryBuilder->expr()->eq('uid', $queryBuilder->createNamedParameter($uid, Connection::PARAM_INT)),
+        )->executeQuery()->fetchOne();
+
+        return (int)self::text($value);
     }
 
     /**

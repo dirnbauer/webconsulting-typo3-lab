@@ -24,14 +24,16 @@ final class TalkOrderingTest extends TestCase
         );
     }
 
-    public function testACollectionIsLinkedWhenItHoldsTheItemsInOrderWithSorting1ToN(): void
+    public function testACollectionIsLinkedWhenItHoldsTheItemsInOrderAndTheParentCountsThem(): void
     {
-        self::assertTrue(TalkOrdering::collectionLinked([['uid' => 5, 'sorting' => 1], ['uid' => 6, 'sorting' => 2]], [5, 6]));
-        // Items created in this run still carry DataHandler's sorting.
-        self::assertFalse(TalkOrdering::collectionLinked([['uid' => 6, 'sorting' => 128], ['uid' => 5, 'sorting' => 256]], [5, 6]));
-        self::assertFalse(TalkOrdering::collectionLinked([['uid' => 5, 'sorting' => 2], ['uid' => 6, 'sorting' => 1]], [5, 6]));
-        self::assertFalse(TalkOrdering::collectionLinked([['uid' => 5, 'sorting' => 1]], [5, 6]));
-        self::assertFalse(TalkOrdering::collectionLinked([], []));
+        self::assertTrue(TalkOrdering::collectionLinked([['uid' => 5, 'sorting' => 1], ['uid' => 6, 'sorting' => 2]], [5, 6], 2));
+        // DataHandler renumbers the items when it localizes them; still linked.
+        self::assertTrue(TalkOrdering::collectionLinked([['uid' => 6, 'sorting' => 9730], ['uid' => 5, 'sorting' => 1]], [5, 6], 2));
+        // Items created in this run: right order, but the parent does not count them yet.
+        self::assertFalse(TalkOrdering::collectionLinked([['uid' => 5, 'sorting' => 128], ['uid' => 6, 'sorting' => 256]], [5, 6], 0));
+        self::assertFalse(TalkOrdering::collectionLinked([['uid' => 6, 'sorting' => 128], ['uid' => 5, 'sorting' => 256]], [5, 6], 2));
+        self::assertFalse(TalkOrdering::collectionLinked([['uid' => 5, 'sorting' => 1]], [5, 6], 1));
+        self::assertFalse(TalkOrdering::collectionLinked([], [], 0));
     }
 
     public function testLeftoversAreItemsThePayloadNoLongerNames(): void

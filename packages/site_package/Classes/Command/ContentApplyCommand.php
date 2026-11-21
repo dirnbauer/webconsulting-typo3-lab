@@ -20,6 +20,8 @@ use TYPO3\CMS\Core\Database\RelationHandler;
 use TYPO3\CMS\Core\DataHandling\DataHandler;
 use TYPO3\CMS\Core\Resource\Enum\DuplicationBehavior;
 use TYPO3\CMS\Core\Resource\StorageRepository;
+use TYPO3\CMS\Core\Schema\Capability\SystemInternalFieldCapability;
+use TYPO3\CMS\Core\Schema\Capability\TcaSchemaCapability;
 use TYPO3\CMS\Core\Schema\TcaSchemaFactory;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
@@ -35,6 +37,12 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
  * Record actions: `update` (default), `hide`, `delete` (soft delete through
  * DataHandler) and `create` (with `key`, `pid` and optional `match`, which
  * finds an existing row to update instead of creating a second one).
+ * `"_position": n` in a `match` picks the n-th matching row in stored order
+ * (the table's sortby field, then uid) instead of naming a field value: the
+ * way to find collection items whose own values repeat (two "–" cells of a
+ * table row). Never match on `sorting` itself: DataHandler renumbers the
+ * sorting of a collection's items when it localizes or links them, so a
+ * value from the first run is gone after a translate run.
  * A later record refers to a created one as `@<key>` in its `pid`, `match`
  * or `set` values (comma lists too): the uid when the row exists already,
  * its NEW placeholder in the run that creates it. So a post and its content
@@ -660,11 +668,21 @@ final class ContentApplyCommand extends Command
         if ($match === []) {
             return null;
         }
+        $position = self::matchPosition($match);
+        unset($match['_position']);
+        $schema = $this->tcaSchemaFactory->get($table);
         $queryBuilder = $this->connectionPool->getQueryBuilderForTable($table);
         $queryBuilder->getRestrictions()->removeAll();
         $queryBuilder->select('uid')->from($table)->where($queryBuilder->expr()->eq('deleted', 0));
-        if ($this->tcaSchemaFactory->get($table)->isWorkspaceAware()) {
+        if ($schema->isWorkspaceAware()) {
             $queryBuilder->andWhere($queryBuilder->expr()->eq('t3ver_wsid', 0));
+        }
+        if ($position !== null) {
+            $sortBy = $schema->hasCapability(TcaSchemaCapability::SortByField) ? $schema->getCapability(TcaSchemaCapability::SortByField) : null;
+            if ($sortBy instanceof SystemInternalFieldCapability) {
+                $queryBuilder->orderBy($sortBy->getFieldName());
+            }
+            $queryBuilder->addOrderBy('uid')->setFirstResult($position - 1);
         }
         foreach ($match as $field => $value) {
             $queryBuilder->andWhere($queryBuilder->expr()->eq($field, $queryBuilder->createNamedParameter(
@@ -675,6 +693,24 @@ final class ContentApplyCommand extends Command
         $uid = $queryBuilder->setMaxResults(1)->executeQuery()->fetchOne();
 
         return $uid === false ? null : (int)$this->scalar($uid);
+    }
+
+    /**
+     * The 1-based `_position` of a match, null when the match names none.
+     *
+     * @param array<string, mixed> $match
+     */
+    public static function matchPosition(array $match): ?int
+    {
+        if (!array_key_exists('_position', $match)) {
+            return null;
+        }
+        $position = $match['_position'];
+        if (!is_int($position) || $position < 1) {
+            throw new \InvalidArgumentException('A match "_position" must be an integer from 1.', 1794000301);
+        }
+
+        return $position;
     }
 
     /**

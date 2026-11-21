@@ -34,7 +34,7 @@ Add `"action"` to a record when it should not just be updated:
 |---|---|---|
 | `"delete"` | Remove a record (soft delete, restorable). Test leftovers, copied press images, elements a rewrite no longer needs. | `{"table":"tt_content","uid":1386,"expect":{…},"action":"delete"}` |
 | `"hide"` | Keep the record but take it off the page. | |
-| `"create"` | A new record, e.g. one more text element a new post needs. Give `key` (`NEW_…`), `pid` and `match` (fields that find it again, so a second run updates instead of duplicating). | `{"action":"create","table":"tt_content","key":"NEW_post88_intro","pid":88,"match":{"pid":88,"header":"…"},"set":{"CType":"text","colPos":0,"header":"…","bodytext":"<p>…</p>"}}` |
+| `"create"` | A new record, e.g. one more text element a new post needs. Give `key` (`NEW_…`), `pid` and `match` (fields that find it again, so a second run updates instead of duplicating). Collection items whose values repeat are found by `"_position": n` (the n-th matching row in stored order), never by `sorting`: DataHandler renumbers a collection's sorting when it localizes the items. | `{"action":"create","table":"tt_content","key":"NEW_post88_intro","pid":88,"match":{"pid":88,"header":"…"},"set":{"CType":"text","colPos":0,"header":"…","bodytext":"<p>…</p>"}}` |
 
 A later record can point at a record the payload creates with `@<key>`, in
 its `pid`, its `match` and its `set` values (comma lists too, e.g.
