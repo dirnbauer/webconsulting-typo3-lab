@@ -1,0 +1,155 @@
+/*
+ * The Netresearch AI Chat (EXT:nr_mcp_agent) in the shadcn/ui look, by CSS only.
+ *
+ * Registered in ext_localconf.php as a backend stylesheet, so TYPO3 loads it
+ * into every backend document: the module iframe (<nr-chat-app>) and the top
+ * frame, where the toolbar panel (<ai-chat-panel>) floats or docks. Every rule
+ * is therefore scoped to those two elements.
+ *
+ * Both are Lit components with a shadow root and no ::part(): selectors stop
+ * at the host, inherited values do not. The chat reads its colours from about
+ * forty --nr-chat-* custom properties that its theme declares on :host. A
+ * declaration on the host from the outer document beats the component's own
+ * :host rule (CSS Scoping, cascade by tree context), so the values below
+ * replace the theme. Nothing else is set: no box geometry, no JavaScript, no
+ * template override. Radii, paddings, font sizes, the monospace font and the
+ * icons inside the shadow roots cannot be reached this way.
+ *
+ * Values: shadcn/ui "new-york", base neutral, as Desiderio's default preset b0
+ * uses it (EXT:desiderio/Resources/Public/Css/shadcn-theme.css), including
+ * Desiderio's AA adjustments: --input is a 3:1 field boundary, --ring differs
+ * from --input, --muted-foreground is 0.542 and --destructive holds 4.5:1 as
+ * text. light-dark() follows the backend's colour scheme: TYPO3 writes
+ * data-color-scheme="light|dark" on <html> for an explicit user choice
+ * (color-scheme: only light|dark), and leaves it out for "auto", where
+ * :root { color-scheme: light dark } follows the operating system.
+ * color-scheme is inherited, so the hosts and their shadow roots resolve
+ * light-dark() the same way as the rest of the backend.
+ *
+ * Inter: SIL Open Font License 1.1, see fonts/OFL-Inter.txt. An @font-face in
+ * the document also serves text inside shadow roots.
+ */
+
+@font-face {
+  font-family: "Inter Variable";
+  font-style: normal;
+  font-display: swap;
+  font-weight: 100 900;
+  src: url("fonts/inter-latin-ext-wght-normal.woff2") format("woff2-variations");
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+@font-face {
+  font-family: "Inter Variable";
+  font-style: normal;
+  font-display: swap;
+  font-weight: 100 900;
+  src: url("fonts/inter-latin-wght-normal.woff2") format("woff2-variations");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+nr-chat-app,
+ai-chat-panel {
+  /* shadcn/ui tokens, preset b0 (light, dark) */
+  --webcon-chat-background: light-dark(oklch(1 0 0), oklch(0.145 0 0));
+  --webcon-chat-foreground: light-dark(oklch(0.145 0 0), oklch(0.985 0 0));
+  --webcon-chat-card: light-dark(oklch(1 0 0), oklch(0.205 0 0));
+  --webcon-chat-popover: light-dark(oklch(1 0 0), oklch(0.205 0 0));
+  --webcon-chat-primary: light-dark(oklch(0.205 0 0), oklch(0.922 0 0));
+  --webcon-chat-primary-foreground: light-dark(oklch(0.985 0 0), oklch(0.205 0 0));
+  --webcon-chat-secondary: light-dark(oklch(0.97 0 0), oklch(0.269 0 0));
+  --webcon-chat-secondary-foreground: light-dark(oklch(0.205 0 0), oklch(0.985 0 0));
+  --webcon-chat-muted: light-dark(oklch(0.97 0 0), oklch(0.269 0 0));
+  --webcon-chat-muted-foreground: light-dark(oklch(0.542 0 0), oklch(0.708 0 0));
+  --webcon-chat-accent: light-dark(oklch(0.97 0 0), oklch(0.269 0 0));
+  --webcon-chat-accent-foreground: light-dark(oklch(0.205 0 0), oklch(0.985 0 0));
+  --webcon-chat-destructive: light-dark(oklch(0.565 0.23 27.325), oklch(0.73 0.165 22.216));
+  --webcon-chat-border: light-dark(oklch(0.922 0 0), oklch(1 0 0 / 10%));
+  --webcon-chat-input: light-dark(oklch(0.63 0 0), oklch(0.61 0 0));
+  --webcon-chat-ring: light-dark(oklch(0.45 0 0), oklch(0.75 0 0));
+  --webcon-chat-sidebar: light-dark(oklch(0.985 0 0), oklch(0.205 0 0));
+  --webcon-chat-sidebar-accent: light-dark(oklch(0.97 0 0), oklch(0.269 0 0));
+  --webcon-chat-sidebar-accent-foreground: light-dark(oklch(0.205 0 0), oklch(0.985 0 0));
+  /* Desiderio's --d-primary-hover: darker in light, lighter in dark, so the
+     label keeps its contrast (never an 80% fade of primary). */
+  --webcon-chat-primary-hover: light-dark(oklch(0.32 0 0), oklch(0.83 0 0));
+  /* shadcn shadow-md: popovers and the floating panel */
+  --webcon-chat-shadow-md: 0 4px 6px -1px light-dark(oklch(0 0 0 / 0.1), oklch(0 0 0 / 0.25)), 0 2px 4px -2px light-dark(oklch(0 0 0 / 0.1), oklch(0 0 0 / 0.2));
+  --webcon-chat-font-sans: "Inter Variable", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  /* Surfaces: the page is background, side areas are sidebar, the assistant
+     bubble and tool traces are muted. */
+  --nr-chat-surface: var(--webcon-chat-background);
+  --nr-chat-surface-low: var(--webcon-chat-sidebar);
+  --nr-chat-surface-base: var(--webcon-chat-muted);
+  --nr-chat-surface-high: var(--webcon-chat-muted);
+  --nr-chat-surface-variant: var(--webcon-chat-muted);
+
+  /* Text */
+  --nr-chat-text: var(--webcon-chat-foreground);
+  --nr-chat-text-variant: var(--webcon-chat-muted-foreground);
+  /* Links are underlined by the chat itself; shadcn prose keeps them in the
+     text colour. */
+  --nr-chat-link: var(--webcon-chat-foreground);
+
+  /* Lines and interaction states (shadcn sidebar menu: hover and the active
+     row are sidebar-accent) */
+  --nr-chat-border: var(--webcon-chat-border);
+  --nr-chat-input-border: var(--webcon-chat-input);
+  --nr-chat-hover: var(--webcon-chat-accent);
+  --nr-chat-active: var(--webcon-chat-sidebar-accent);
+  --nr-chat-on-active: var(--webcon-chat-sidebar-accent-foreground);
+
+  /* Primary: user bubble, send and primary buttons, assistant avatar */
+  --nr-chat-accent: var(--webcon-chat-primary);
+  --nr-chat-on-accent: var(--webcon-chat-primary-foreground);
+  --nr-chat-accent-hover: var(--webcon-chat-primary-hover);
+  --nr-chat-focus-ring: var(--webcon-chat-ring);
+  --nr-chat-focus: var(--webcon-chat-ring);
+
+  /* Context chips above the composer: secondary for the page, card for the
+     element; the element marker is primary with a primary-foreground dot
+     instead of Netresearch's black and lime. */
+  --nr-chat-chip-page-bg: var(--webcon-chat-secondary);
+  --nr-chat-chip-page-text: var(--webcon-chat-secondary-foreground);
+  --nr-chat-chip-element-bg: var(--webcon-chat-card);
+  --nr-chat-chip-element-ink: var(--webcon-chat-foreground);
+  --nr-chat-chip-marker: var(--webcon-chat-primary);
+  --nr-chat-chip-accent: var(--webcon-chat-primary-foreground);
+
+  /* Status. shadcn has neutral and destructive only:
+     - neutral: secondary;
+     - info (approval header, "running" chips): the neutral shadcn Alert;
+     - danger: destructive text on a 10% destructive tint, as Desiderio's
+       --d-danger-muted / --d-danger-text;
+     - success and warning keep TYPO3's semantic tokens (theme.js defaults),
+       so a warning stays amber and a success green. */
+  --nr-chat-neutral-bg: var(--webcon-chat-secondary);
+  --nr-chat-neutral-text: var(--webcon-chat-secondary-foreground);
+  --nr-chat-info-bg: var(--webcon-chat-muted);
+  --nr-chat-info-text: var(--webcon-chat-foreground);
+  --nr-chat-danger-bg: color-mix(in oklch, var(--webcon-chat-destructive) 10%, var(--webcon-chat-background));
+  --nr-chat-danger-text: color-mix(in oklch, var(--webcon-chat-destructive), var(--webcon-chat-foreground) 30%);
+  --nr-chat-status-danger: var(--webcon-chat-destructive);
+
+  /* TYPO3 tokens the shadow styles read directly */
+  --typo3-font-family: var(--webcon-chat-font-sans);
+  --typo3-component-box-shadow-flyout: var(--webcon-chat-shadow-md);
+  --typo3-component-primary-color: var(--webcon-chat-primary);
+
+  /* Inherited properties with no custom property behind them: the only way
+     to colour the scrollbars and native checkboxes of the shadow roots, and
+     shadcn's antialiased text on macOS. */
+  scrollbar-color: color-mix(in oklch, var(--webcon-chat-foreground) 22%, transparent) transparent;
+  accent-color: var(--webcon-chat-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* The toolbar panel floats over the backend like a shadcn popover: its page
+   surface is --popover (white in light, one step above the page in dark), so
+   it stands apart from the dark backend behind it. Its contrast pairs are
+   measured with the module's in docs/ai-chat.md. */
+ai-chat-panel {
+  --nr-chat-surface: var(--webcon-chat-popover);
+}

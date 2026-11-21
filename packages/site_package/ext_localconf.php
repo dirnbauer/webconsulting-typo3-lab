@@ -117,6 +117,16 @@ $GLOBALS['TYPO3_CONF_VARS']['LANG']['resourceOverrides']['de']['EXT:backend/Reso
 // written by sitepackage:seed-ai-stack; see docs/ai-chat.md.
 $GLOBALS['TYPO3_CONF_VARS']['EXTENSIONS']['nr_mcp_agent']['processingStrategy'] = 'worker';
 
+// The same chat in the shadcn/ui look of Desiderio's default preset, by CSS
+// only: one backend stylesheet that sets the chat's --nr-chat-* colour
+// properties on its two host elements. TYPO3 loads every registered backend
+// stylesheet into each backend document, so it reaches the module iframe
+// (<nr-chat-app>) and the top frame with the toolbar panel (<ai-chat-panel>).
+// No template override, no JavaScript, nothing changed in the extension; the
+// file explains what CSS can and cannot reach through the shadow DOM.
+$GLOBALS['TYPO3_CONF_VARS']['BE']['stylesheets']['site_package_nr_chat_shadcn']
+    = 'EXT:site_package/Resources/Public/Css/Backend/nr-chat-shadcn.css';
+
 // Cowriter (EXT:t3_cowriter) in the rich text editors the lab uses: the
 // Desiderio preset (every Desiderio content block field) and TYPO3's default
 // preset. Both files import the original preset unchanged and append the
