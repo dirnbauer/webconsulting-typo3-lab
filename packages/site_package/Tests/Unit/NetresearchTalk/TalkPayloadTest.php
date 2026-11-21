@@ -262,6 +262,24 @@ final class TalkPayloadTest extends TestCase
     }
 
     /**
+     * The seeder replaces a stored screenshot whose content changed; it finds
+     * every one through images(): each slot once, with its fileadmin folder.
+     */
+    public function testImagesListsEveryScreenshotOnceWithItsFolder(): void
+    {
+        $slots = json_decode((string)file_get_contents(TalkPayload::DIRECTORY . '/image-slots.json'), true);
+        self::assertIsArray($slots);
+        $images = self::talk()->images();
+        $names = array_map(static fn (array $image): string => basename($image['source']), $images);
+        $declared = array_map(static fn (array $slot): string => (string)$slot['file'], $slots['slots']);
+        sort($names);
+        sort($declared);
+        self::assertSame($declared, $names);
+        self::assertSame(['1:/user_upload/netresearch-talk/'], array_values(array_unique(array_column($images, 'folder'))));
+        self::assertContains('EXT:site_package/Resources/Public/Images/NetresearchTalk/agent-chat.png', array_column($images, 'source'));
+    }
+
+    /**
      * DataHandler renumbers a collection's sorting when it localizes the
      * items, so a match on sorting found nothing after the first translate
      * run and the next seed created every item a second time (lab-nr,

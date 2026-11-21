@@ -211,6 +211,31 @@ final class TalkPayload
     }
 
     /**
+     * Every image file the payload references, once, with the folder
+     * content:apply stores it in (it imports a file by name only once).
+     *
+     * @return list<array{source: string, folder: string}>
+     */
+    public function images(): array
+    {
+        $images = [];
+        foreach ($this->records as $record) {
+            foreach (is_array($record['files'] ?? null) ? $record['files'] : [] as $references) {
+                foreach (is_array($references) ? $references : [] as $reference) {
+                    $source = is_array($reference) && is_string($reference['source'] ?? null) ? $reference['source'] : '';
+                    if ($source === '') {
+                        continue;
+                    }
+                    $folder = is_string($reference['folder'] ?? null) ? $reference['folder'] : '1:/content-images/';
+                    $images[$source . '|' . $folder] = ['source' => $source, 'folder' => $folder];
+                }
+            }
+        }
+
+        return array_values($images);
+    }
+
+    /**
      * Every link target the payload writes: link fields and href attributes.
      *
      * @return list<array{record: string, field: string, target: string}>

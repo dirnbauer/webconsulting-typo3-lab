@@ -7,9 +7,11 @@ namespace Webconsulting\SitePackage\Tests\Unit\Command;
 use Doctrine\DBAL\DriverManager;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\Console\Tester\CommandTester;
+use TYPO3\CMS\Core\Cache\CacheManager;
 use TYPO3\CMS\Core\Database\Connection;
 use TYPO3\CMS\Core\Database\ConnectionPool;
 use TYPO3\CMS\Core\Database\Query\Restriction\EmptyRestrictionContainer;
+use TYPO3\CMS\Core\Resource\StorageRepository;
 use TYPO3\CMS\Core\Site\SiteFinder;
 use Webconsulting\SitePackage\Command\ContentApplyCommand;
 use Webconsulting\SitePackage\Command\SeedNetresearchTalkCommand;
@@ -23,6 +25,12 @@ final class SeedNetresearchTalkCommandTest extends TestCase
         $connection = DriverManager::getConnection(['driver' => 'pdo_sqlite', 'memory' => true, 'wrapperClass' => Connection::class]);
         $connection->defaultRestrictionContainer = EmptyRestrictionContainer::class;
         $connection->executeStatement('CREATE TABLE pages (uid INTEGER PRIMARY KEY, pid INTEGER, slug TEXT, deleted INTEGER DEFAULT 0, sys_language_uid INTEGER DEFAULT 0, t3ver_wsid INTEGER DEFAULT 0)');
+        // References of a screenshot (sys_file 7) on two pages, a translation
+        // on the same page, a deleted and a workspace reference.
+        $connection->executeStatement('CREATE TABLE sys_file_reference (uid INTEGER PRIMARY KEY, pid INTEGER, uid_local INTEGER, deleted INTEGER DEFAULT 0, t3ver_wsid INTEGER DEFAULT 0)');
+        foreach ([[1, 9196, 7, 0, 0], [2, 9196, 7, 0, 0], [3, 9198, 7, 0, 0], [4, 9300, 7, 1, 0], [5, 9400, 7, 0, 3], [6, 9500, 8, 0, 0]] as [$uid, $pid, $file, $deleted, $workspace]) {
+            $connection->executeStatement('INSERT INTO sys_file_reference (uid, pid, uid_local, deleted, t3ver_wsid) VALUES (?, ?, ?, ?, ?)', [$uid, $pid, $file, $deleted, $workspace]);
+        }
         // Desiderio (505) on production uids, another site with the same slug,
         // a translation, a workspace version and a deleted page.
         foreach ([
@@ -35,7 +43,7 @@ final class SeedNetresearchTalkCommandTest extends TestCase
         $pool->method('getConnectionForTable')->willReturn($connection);
         // A new builder per query, as the real pool hands out.
         $pool->method('getQueryBuilderForTable')->willReturnCallback(static fn () => $connection->createQueryBuilder());
-        $this->seeder = new SeedNetresearchTalkCommand($pool, $this->createStub(SiteFinder::class));
+        $this->seeder = new SeedNetresearchTalkCommand($pool, $this->createStub(SiteFinder::class), $this->createStub(StorageRepository::class), $this->createStub(CacheManager::class));
     }
 
     private function command(): SeedNetresearchTalkCommand
@@ -51,6 +59,13 @@ final class SeedNetresearchTalkCommandTest extends TestCase
         self::assertIsInt($result);
 
         return $result;
+    }
+
+    public function testAReplacedScreenshotFlushesEveryLivePageThatShowsIt(): void
+    {
+        $pages = (new \ReflectionMethod($this->command(), 'pagesShowing'))->invoke($this->command(), 7);
+
+        self::assertSame([9196, 9198], $pages);
     }
 
     public function testTheParentIsFoundBySlugWithinTheDesideroSiteOnly(): void

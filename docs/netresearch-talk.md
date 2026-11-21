@@ -71,9 +71,14 @@ No file from the slides repository is copied. Screenshot slots are declared in
 `Resources/Private/Data/Content/netresearch-talk/image-slots.json` and are captured in **this
 lab** from our own installation of the same Netresearch extensions (light mode), saved to
 `packages/site_package/Resources/Public/Images/NetresearchTalk/<file>`. Until a file exists the
-seeder seeds the element without it and says so. A file is imported by name once
-(`1:/user_upload/netresearch-talk/`): to replace a capture later, give it a new name in the payload
-and in `image-slots.json`.
+seeder seeds the element without it and says so. Files are stored in
+`1:/user_upload/netresearch-talk/`. To replace a capture, overwrite the file under the same name
+and rerun the seeder: it replaces the stored copy whose SHA-1 differs in place (same `sys_file`
+uid, so every language keeps it; TYPO3 deletes the old processed variants, the new ones get new
+names) and flushes the pages that show it. No translate run is needed for that.
+
+The German chat captures (`agent-chat.png`, `approval-card.png`, `tool-trace.png`) show the "Sie"
+wording of the lab's label overrides (docs/ai-chat.md, "German wording").
 
 | File | Extension | Slides | Must show |
 |---|---|---|---|

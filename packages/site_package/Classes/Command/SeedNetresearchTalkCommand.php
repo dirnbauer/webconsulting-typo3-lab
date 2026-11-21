@@ -11,11 +11,14 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
+use TYPO3\CMS\Core\Cache\CacheManager;
 use TYPO3\CMS\Core\Core\Environment;
 use TYPO3\CMS\Core\Database\Connection;
 use TYPO3\CMS\Core\Database\ConnectionPool;
 use TYPO3\CMS\Core\Database\Query\QueryBuilder;
 use TYPO3\CMS\Core\DataHandling\DataHandler;
+use TYPO3\CMS\Core\Resource\File;
+use TYPO3\CMS\Core\Resource\StorageRepository;
 use TYPO3\CMS\Core\Site\SiteFinder;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use Webconsulting\SitePackage\NetresearchTalk\TalkOrdering;
@@ -40,6 +43,15 @@ use Webconsulting\SitePackage\NetresearchTalk\TalkPayload;
  *
  * Run it after desiderio:styleguide:seed and sitepackage:films:seed, then
  * translate the touched pages (docs/content/seeding.md).
+ *
+ * Screenshots keep their file names when they are recaptured. content:apply
+ * imports a file by name only once, so this command first compares every
+ * image the payload names with the file of that name in fileadmin and, where
+ * the SHA-1 differs, replaces the stored file in place (same sys_file uid, so
+ * every reference in every language keeps pointing at it). TYPO3 deletes the
+ * processed variants of a replaced file, and their new names carry the new
+ * modification time; the command then flushes the page caches of the pages
+ * that show the file.
  */
 #[AsCommand(name: 'sitepackage:seed-netresearch-talk', description: 'Publish the Netresearch talk pages below /ai and their cards on /ai and /resources.')]
 final class SeedNetresearchTalkCommand extends Command
@@ -47,8 +59,12 @@ final class SeedNetresearchTalkCommand extends Command
     public const PARENT_SLUG = '/ai';
     public const HUB_KEY = 'NEW_nrtalk_page';
 
-    public function __construct(private readonly ConnectionPool $pool, private readonly SiteFinder $sites)
-    {
+    public function __construct(
+        private readonly ConnectionPool $pool,
+        private readonly SiteFinder $sites,
+        private readonly StorageRepository $storages,
+        private readonly CacheManager $caches,
+    ) {
         parent::__construct();
     }
 
@@ -88,6 +104,7 @@ final class SeedNetresearchTalkCommand extends Command
         foreach ($notices as $notice) {
             $io->note($notice);
         }
+        $this->refreshImages($talk->images(), $dryRun, $io);
 
         $payloadFile = tempnam(Environment::getVarPath(), 'nrtalk-content-');
         $keysFile = tempnam(Environment::getVarPath(), 'nrtalk-keys-');
@@ -348,6 +365,83 @@ final class SeedNetresearchTalkCommand extends Command
         if ($handler->errorLog !== []) {
             throw new \RuntimeException('DataHandler: ' . implode(' ', $handler->errorLog), 1794000206);
         }
+    }
+
+    /**
+     * Replaces stored copies of the payload's images whose content changed
+     * since they were imported, and flushes the pages that show them.
+     *
+     * @param list<array{source: string, folder: string}> $images
+     */
+    private function refreshImages(array $images, bool $dryRun, SymfonyStyle $io): void
+    {
+        $tags = [];
+        foreach ($images as $image) {
+            $absolute = GeneralUtility::getFileAbsFileName($image['source']);
+            if ($absolute === '' || !is_file($absolute)) {
+                continue;
+            }
+            [$storageUid, $folderPath] = array_pad(explode(':', $image['folder'], 2), 2, '/');
+            $storage = $this->storages->findByUid((int)$storageUid);
+            $folderPath = '/' . trim($folderPath, '/') . '/';
+            if ($storage === null || !$storage->hasFolder($folderPath)) {
+                continue;
+            }
+            $folder = $storage->getFolder($folderPath);
+            $name = basename($absolute);
+            $stored = $folder->hasFile($name) ? $storage->getFileInFolder($name, $folder) : null;
+            if (!$stored instanceof File || $stored->getSha1() === sha1_file($absolute)) {
+                continue;
+            }
+            $pages = $this->pagesShowing($stored->getUid());
+            $io->writeln(sprintf('  %s image %s: its content changed (sys_file %d, shown on page(s) %s)', $dryRun ? 'Would replace' : 'Replacing', $name, $stored->getUid(), $pages === [] ? 'none' : implode(', ', $pages)));
+            if ($dryRun) {
+                continue;
+            }
+            // The local driver moves the given file into place: hand it a copy.
+            $copy = GeneralUtility::tempnam('nrtalk-image-', '.' . $stored->getExtension());
+            if (!copy($absolute, $copy)) {
+                throw new \RuntimeException(sprintf('Cannot copy %s.', $image['source']), 1794000208);
+            }
+            try {
+                $storage->replaceFile($stored, $copy);
+            } finally {
+                if (is_file($copy)) {
+                    @unlink($copy);
+                }
+            }
+            foreach ($pages as $page) {
+                $tags[] = 'pageId_' . $page;
+            }
+        }
+        if ($tags !== []) {
+            $this->caches->flushCachesInGroupByTags('pages', array_values(array_unique($tags)));
+        }
+    }
+
+    /**
+     * Pages with a live reference to the file, in any language.
+     *
+     * @return list<int>
+     */
+    private function pagesShowing(int $fileUid): array
+    {
+        $queryBuilder = $this->pool->getQueryBuilderForTable('sys_file_reference');
+        $queryBuilder->getRestrictions()->removeAll();
+        $pids = $queryBuilder
+            ->select('pid')
+            ->from('sys_file_reference')
+            ->where(
+                $queryBuilder->expr()->eq('uid_local', $queryBuilder->createNamedParameter($fileUid, Connection::PARAM_INT)),
+                $queryBuilder->expr()->eq('deleted', 0),
+                $queryBuilder->expr()->eq('t3ver_wsid', 0),
+            )
+            ->groupBy('pid')
+            ->orderBy('pid')
+            ->executeQuery()
+            ->fetchFirstColumn();
+
+        return array_values(array_filter(array_map(static fn (mixed $pid): int => (int)self::text($pid), $pids), static fn (int $pid): bool => $pid > 0));
     }
 
     private function pageWithinRootOrNull(string $slug, int $root): ?int
