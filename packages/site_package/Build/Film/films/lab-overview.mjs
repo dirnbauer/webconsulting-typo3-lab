@@ -15,6 +15,7 @@
 import ai from './ai.mjs';
 import { HOST, SHOTS } from './feature-film.mjs';
 import website from './features.mjs';
+import { CHAT } from './hubs.mjs';
 
 /** The /templates page's own screenshots (webcon-templates, Resources/Private/Fixtures/Overview). */
 const TEMPLATES = 'vendor/webconsulting/webcon-templates/Resources/Private/Fixtures/Overview/';
@@ -85,8 +86,8 @@ export default {
                 tool(website, 'workos', 'sign'),
             ], 'Seventeen website tools: design systems, blog and news, editing on the page, search, forms and sign-in.'),
             group('AI and agents', '11 AI tools, <em>people in charge</em>', '/ai/', [
-                tool(ai, 'skillflow'), tool(ai, 'mcp-server', 'm'), tool(ai, 'agent-nexus', 'agent'),
-            ], 'Eleven AI tools, with people in charge: skills, MCP and agent protocols.'),
+                CHAT, tool(ai, 'skillflow', 'skills'), tool(ai, 'mcp-server', 'm'), tool(ai, 'agent-nexus', 'agent'),
+            ], 'Eleven AI tools, with people in charge: an AI chat, skills, MCP and agent protocols.'),
             group('Software', 'Four products <em>we build and run</em>', '/software/', SOFTWARE,
                 'T3 Ops runs the fleet, Ledger closes the month, MedAtlas tracks medicine shortages, CapexOne Plus governs capital projects.'),
             group('Templates', 'Ten website templates, <em>each a live site</em>', '/templates/', TEMPLATE_SITES,

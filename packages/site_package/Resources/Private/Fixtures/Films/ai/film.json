@@ -3,17 +3,17 @@
   "page": 2229,
   "slug": "/ai",
   "title": "AI tools: overview film",
-  "header": "AI tools in 60 seconds",
+  "header": "AI tools in 64 seconds",
   "description": "<p>11 tools, with people in charge. A narrated tour, recorded in this TYPO3 v14 lab, with English captions.</p>",
-  "mp4": "ai-a4c964ec.mp4",
-  "poster": "ai-poster-a4c964ec.webp",
-  "vtt": "ai-2b5befef.en.vtt",
-  "duration": 59.693,
+  "mp4": "ai-d058bfa8.mp4",
+  "poster": "ai-poster-d058bfa8.webp",
+  "vtt": "ai-d058bfa8.en.vtt",
+  "duration": 64.186,
   "width": 1920,
   "height": 1080,
   "fps": 30,
   "sound": true,
-  "alt": "Overview film, 60 seconds: 11 AI tools for TYPO3 v14, in three groups: AI editors control, checked skills, and agents within limits. Narrated, with English captions.",
+  "alt": "Overview film, 64 seconds: 11 AI tools for TYPO3 v14, in three groups: AI editors control, checked skills, and agents within limits. Narrated, with English captions.",
   "transcript": [
     {
       "at": "0:02",
@@ -25,30 +25,48 @@
     },
     {
       "at": "0:18",
-      "text": "The assistant asks before it writes, nr-llm keeps one model setup, and Jev sorts form messages."
+      "text": "The AI chat asks before it writes, nr-llm keeps one model setup, and Jev sorts form messages."
     },
     {
-      "at": "0:27",
-      "text": "Skillflow runs review skills on drafts, and Skillspector checks each skill first."
+      "at": "0:28",
+      "text": "Agentic skills teach coding agents TYPO3, Skillflow runs review skills on drafts, and Skillspector checks each skill first."
     },
     {
-      "at": "0:35",
+      "at": "0:39",
       "text": "The MCP Server and the Abilities Registry let agents work within your rules. Agent Nexus shows five protocols, Agentation points at elements, and llms.txt maps the site."
     },
     {
-      "at": "0:51",
+      "at": "0:55",
       "text": "Try the AI tools on your own copy, with people in charge."
     }
   ],
   "captions": {
     "language": "en",
     "label": "English",
-    "burnedIn": false
+    "burnedIn": false,
+    "languages": [
+      "en",
+      "de",
+      "zh",
+      "hu"
+    ]
   },
   "bytes": {
-    "mp4": 4871904,
-    "poster": 25506,
-    "vtt": 804
+    "mp4": 5161906,
+    "poster": 25434,
+    "vtt": 843,
+    "captionTracks": {
+      "en": 843,
+      "de": 960,
+      "zh": 884,
+      "hu": 1042
+    }
   },
-  "generator": "packages/site_package/Build/Film/render-films.mjs"
+  "generator": "packages/site_package/Build/Film/render-films.mjs",
+  "captionTracks": {
+    "en": "ai-d058bfa8.en.vtt",
+    "de": "ai-d058bfa8.de.vtt",
+    "zh": "ai-d058bfa8.zh.vtt",
+    "hu": "ai-d058bfa8.hu.vtt"
+  }
 }

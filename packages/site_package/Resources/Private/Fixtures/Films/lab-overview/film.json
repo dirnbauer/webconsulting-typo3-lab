@@ -8,17 +8,17 @@
     }
   ],
   "title": "The webconsulting TYPO3 lab: overview film",
-  "header": "The webconsulting TYPO3 lab in 60 seconds",
+  "header": "The webconsulting TYPO3 lab in 59 seconds",
   "description": "<p>Everything in this lab in one film: website tools, AI tools, four software products, ten website templates and our strategy for agents on the web. Narrated, with English captions.</p>",
-  "mp4": "lab-overview-0b8a9894.mp4",
-  "poster": "lab-overview-poster-0b8a9894.webp",
-  "vtt": "lab-overview-a9e80bd2.en.vtt",
-  "duration": 59.615,
+  "mp4": "lab-overview-09e454c6.mp4",
+  "poster": "lab-overview-poster-09e454c6.webp",
+  "vtt": "lab-overview-09e454c6.en.vtt",
+  "duration": 59.301,
   "width": 1920,
   "height": 1080,
   "fps": 30,
   "sound": true,
-  "alt": "Overview film, 60 seconds: everything in the webconsulting TYPO3 v14 lab. It shows 17 website tools, 11 AI tools with people in charge and four software products: T3 Ops, Ledger, MedAtlas Austria and CapexOne Plus. It also shows ten website templates and the strategy for agents on the web. Narrated, with English captions.",
+  "alt": "Overview film, 59 seconds: everything in the webconsulting TYPO3 v14 lab. 17 website tools, 11 AI tools with people in charge, four software products (T3 Ops, Ledger, MedAtlas Austria, CapexOne Plus), ten website templates and the strategy for agents on the web. Narrated, with English captions.",
   "transcript": [
     {
       "at": "0:02",
@@ -34,10 +34,10 @@
     },
     {
       "at": "0:21",
-      "text": "Eleven AI tools, with people in charge: an assistant, skills, MCP and agent protocols."
+      "text": "Eleven AI tools, with people in charge: an AI chat, skills, MCP and agent protocols."
     },
     {
-      "at": "0:30",
+      "at": "0:29",
       "text": "T3 Ops runs the fleet, Ledger closes the month, MedAtlas tracks medicine shortages, CapexOne Plus governs capital projects."
     },
     {
@@ -49,19 +49,37 @@
       "text": "And a strategy for agents on the web."
     },
     {
-      "at": "0:52",
+      "at": "0:51",
       "text": "Download the whole lab and run it on your laptop."
     }
   ],
   "captions": {
     "language": "en",
     "label": "English",
-    "burnedIn": false
+    "burnedIn": false,
+    "languages": [
+      "en",
+      "de",
+      "zh",
+      "hu"
+    ]
   },
   "bytes": {
-    "mp4": 5438791,
+    "mp4": 5438879,
     "poster": 46044,
-    "vtt": 856
+    "vtt": 853,
+    "captionTracks": {
+      "en": 853,
+      "de": 919,
+      "zh": 885,
+      "hu": 961
+    }
   },
-  "generator": "packages/site_package/Build/Film/render-films.mjs"
+  "generator": "packages/site_package/Build/Film/render-films.mjs",
+  "captionTracks": {
+    "en": "lab-overview-09e454c6.en.vtt",
+    "de": "lab-overview-09e454c6.de.vtt",
+    "zh": "lab-overview-09e454c6.zh.vtt",
+    "hu": "lab-overview-09e454c6.hu.vtt"
+  }
 }

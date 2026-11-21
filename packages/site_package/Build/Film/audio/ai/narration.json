@@ -186,183 +186,222 @@
       "heard": "This lab runs 11 AI tools for TYPO3 version 14 and people approve what they change."
     },
     {
-      "say": "The assistant asks before it writes, N R L L M keeps one model setup, and Jev sorts form messages.",
-      "show": "The assistant asks before it writes, nr-llm keeps one model setup, and Jev sorts form messages.",
+      "say": "The AI chat asks before it writes, N R L L M keeps one model setup, and Jev sorts form messages.",
+      "show": "The AI chat asks before it writes, nr-llm keeps one model setup, and Jev sorts form messages.",
       "file": "voice-03.mp3",
-      "duration": 8359,
+      "duration": 9012,
       "words": [
         {
           "word": "The",
           "start": 23,
-          "end": 163
+          "end": 174
         },
         {
-          "word": "assistant",
-          "start": 209,
-          "end": 662
+          "word": "AI",
+          "start": 255,
+          "end": 592
+        },
+        {
+          "word": "chat",
+          "start": 673,
+          "end": 987
         },
         {
           "word": "asks",
-          "start": 743,
-          "end": 1173
+          "start": 1068,
+          "end": 1533
         },
         {
           "word": "before",
-          "start": 1242,
-          "end": 1544
+          "start": 1602,
+          "end": 1927
         },
         {
           "word": "it",
-          "start": 1579,
-          "end": 1637
+          "start": 1962,
+          "end": 2020
         },
         {
           "word": "writes,",
-          "start": 1672,
-          "end": 2183
+          "start": 2055,
+          "end": 2589
         },
         {
           "word": "N",
-          "start": 2450,
-          "end": 2682
+          "start": 2786,
+          "end": 3019
         },
         {
           "word": "R",
-          "start": 2786,
-          "end": 2949
+          "start": 3146,
+          "end": 3309
         },
         {
           "word": "L",
-          "start": 3030,
-          "end": 3193
+          "start": 3402,
+          "end": 3599
         },
         {
           "word": "L",
-          "start": 3297,
-          "end": 3460
+          "start": 3727,
+          "end": 3924
         },
         {
           "word": "M",
-          "start": 3553,
-          "end": 3750
+          "start": 3971,
+          "end": 4238
         },
         {
           "word": "keeps",
-          "start": 4063,
-          "end": 4377
+          "start": 4598,
+          "end": 4911
         },
         {
           "word": "one",
-          "start": 4458,
-          "end": 4679
+          "start": 4992,
+          "end": 5213
         },
         {
           "word": "model",
-          "start": 4725,
-          "end": 5016
+          "start": 5259,
+          "end": 5538
         },
         {
           "word": "setup,",
-          "start": 5085,
-          "end": 5666
+          "start": 5619,
+          "end": 6246
         },
         {
           "word": "and",
-          "start": 5828,
-          "end": 5991
+          "start": 6409,
+          "end": 6560
         },
         {
           "word": "Jev",
-          "start": 6084,
-          "end": 6339
+          "start": 6653,
+          "end": 6908
         },
         {
           "word": "sorts",
-          "start": 6420,
-          "end": 6711
+          "start": 7012,
+          "end": 7349
         },
         {
           "word": "form",
-          "start": 6757,
-          "end": 7012
+          "start": 7419,
+          "end": 7686
         },
         {
           "word": "messages.",
-          "start": 7059,
-          "end": 7802
+          "start": 7732,
+          "end": 8452
         }
       ],
-      "heard": "The assistant asks before it writes, NRLLM keeps one model set up and Jev sorts form messages.",
-      "end": 7800
+      "heard": "The AI chat asks before it writes, NRLLM keeps one model set up and Jev sorts form messages."
     },
     {
-      "say": "Skillflow runs review skills on drafts, and Skillspector checks each skill first.",
-      "show": "Skillflow runs review skills on drafts, and Skillspector checks each skill first.",
+      "say": "Agentic skills teach coding agents typo three, Skillflow runs review skills on drafts, and Skillspector checks each skill first.",
+      "show": "Agentic skills teach coding agents TYPO3, Skillflow runs review skills on drafts, and Skillspector checks each skill first.",
       "file": "voice-04.mp3",
-      "duration": 6452,
+      "duration": 10292,
       "words": [
         {
-          "word": "Skillflow",
+          "word": "Agentic",
           "start": 23,
-          "end": 673
-        },
-        {
-          "word": "runs",
-          "start": 755,
-          "end": 1033
-        },
-        {
-          "word": "review",
-          "start": 1115,
-          "end": 1416
+          "end": 592
         },
         {
           "word": "skills",
-          "start": 1486,
-          "end": 1881
+          "start": 639,
+          "end": 1022
+        },
+        {
+          "word": "teach",
+          "start": 1091,
+          "end": 1358
+        },
+        {
+          "word": "coding",
+          "start": 1428,
+          "end": 1788
+        },
+        {
+          "word": "agents",
+          "start": 1858,
+          "end": 2241
+        },
+        {
+          "word": "typo",
+          "start": 2310,
+          "end": 2694
+        },
+        {
+          "word": "three,",
+          "start": 2775,
+          "end": 3425
+        },
+        {
+          "word": "Skillflow",
+          "start": 3913,
+          "end": 4598
+        },
+        {
+          "word": "runs",
+          "start": 4679,
+          "end": 4992
+        },
+        {
+          "word": "review",
+          "start": 5074,
+          "end": 5387
+        },
+        {
+          "word": "skills",
+          "start": 5468,
+          "end": 5828
         },
         {
           "word": "on",
-          "start": 1950,
-          "end": 2043
+          "start": 5898,
+          "end": 5991
         },
         {
           "word": "drafts,",
-          "start": 2113,
-          "end": 2775
+          "start": 6060,
+          "end": 6734
         },
         {
           "word": "and",
-          "start": 2972,
-          "end": 3135
+          "start": 6896,
+          "end": 7047
         },
         {
           "word": "Skillspector",
-          "start": 3204,
-          "end": 3982
+          "start": 7129,
+          "end": 7918
         },
         {
           "word": "checks",
-          "start": 4029,
-          "end": 4400
+          "start": 7964,
+          "end": 8336
         },
         {
           "word": "each",
-          "start": 4505,
-          "end": 4737
+          "start": 8429,
+          "end": 8649
         },
         {
           "word": "skill",
-          "start": 4783,
-          "end": 5132
+          "start": 8684,
+          "end": 8975
         },
         {
           "word": "first.",
-          "start": 5236,
-          "end": 5886
+          "start": 9079,
+          "end": 9764
         }
       ],
-      "heard": "SkillFlow runs review skills on drafts and SkillSpectre checks each skill first."
+      "heard": "Agentic skills teach coding agents TYPO3, SkillFlow runs review skills on drafts, and SkillSpectre checks each skill first."
     },
     {
       "say": "The M C P Server and the Abilities Registry let agents work within your rules. Agent Nexus shows five protocols, Agentation points at elements, and L L M S dot text maps the site.",

@@ -3,18 +3,34 @@
  * each tool shown by the first screenshot of its own film.
  */
 
-import ai from './ai.mjs';
+import aiFilms from './ai.mjs';
 import docx from './docx-editor.mjs';
 import { HOST, SHOTS } from './feature-film.mjs';
 import website from './features.mjs';
+import skills from './skills.mjs';
 
 const features = { ...website, ...docx };
+const ai = { ...aiFilms, ...skills };
+
+/**
+ * /ai/ai-assistant presents Netresearch's chat (nr-mcp-agent) since 2026-11-21
+ * and has no film of its own: the hub films show its page's approval
+ * screenshot (Desiderio 4.37.0, captured in this lab with the shadcn/ui skin).
+ */
+export const CHAT = {
+    image: SHOTS + 'Backend/feature-ai-assistant-approval-cdd76457.webp',
+    name: 'AI chat by Netresearch',
+    note: 'Ask TYPO3, approve every change',
+    // The conversation and the approval card, without the chat list.
+    focus: [0.235, 0.09, 0.755, 0.75],
+};
 
 /** DOCX Editor's shots are clips; the hub shows its page tour screenshot instead. */
 const STILL = { 'docx-editor': SHOTS + 'Backend/feature-docx-editor-page-in-word-dbfe56d4.webp' };
 
 /** A tool of a hub group: its film's first shot, its name and the word that brings it up. */
 function tool(films, id, cue) {
+    if (id === 'ai-chat') return { ...CHAT, cue };
     const film = films[id];
     const shot = film.scenes.find((scene) => scene.type === 'shot');
     const title = film.scenes.find((scene) => scene.type === 'title');
@@ -63,12 +79,12 @@ export default {
         alt: 'Overview film, {duration} seconds: 11 AI tools for TYPO3 v14, in three groups: '
             + 'AI editors control, checked skills, and agents within limits. Narrated, with English captions.',
         scenes: [
-            { type: 'hook', head: 'AI changes <em>nobody approved.</em>', images: [tool(ai, 'skillflow').image, tool(ai, 'mcp-server').image, tool(ai, 'agent-nexus').image], say: 'An AI tool that writes straight to live pages leaves nobody to approve the change.' },
-            { type: 'title', eyebrow: 'AI for TYPO3 v14', name: 'AI tools', sub: '11 tools, with people in charge', key: `${HOST}/ai/`, image: tool(ai, 'mcp-server').image, say: 'This lab runs 11 AI tools for TYPO3 v14, and people approve what they change.' },
-            group(ai, 'Editors in control', 'AI your editors <em>can control</em>', [['nr-llm-manual'], ['jev', 'jev']],
-                'nr-llm keeps one model setup, and Jev sorts form messages.'),
-            group(ai, 'Skills', 'Skills, checked <em>before they run</em>', [['skillflow'], ['skillspector', 'skillspector']],
-                'Skillflow runs review skills on drafts, and Skillspector checks each skill first.'),
+            { type: 'hook', head: 'AI changes <em>nobody approved.</em>', images: [CHAT.image, tool(ai, 'mcp-server').image, tool(ai, 'agent-nexus').image], say: 'An AI tool that writes straight to live pages leaves nobody to approve the change.' },
+            { type: 'title', eyebrow: 'AI for TYPO3 v14', name: 'AI tools', sub: '11 tools, with people in charge', key: `${HOST}/ai/`, image: CHAT.image, say: 'This lab runs 11 AI tools for TYPO3 v14, and people approve what they change.' },
+            group(ai, 'Editors in control', 'AI your editors <em>can control</em>', [['ai-chat'], ['nr-llm-manual', 'n'], ['jev', 'jev']],
+                'The AI chat asks before it writes, nr-llm keeps one model setup, and Jev sorts form messages.'),
+            group(ai, 'Skills', 'Skills, checked <em>before they run</em>', [['agentic-skills'], ['skillflow', 'skillflow'], ['skillspector', 'skillspector']],
+                'Agentic skills teach coding agents TYPO3, Skillflow runs review skills on drafts, and Skillspector checks each skill first.'),
             group(ai, 'Agents', 'Open TYPO3 to agents, <em>within limits</em>', [['mcp-server'], ['typo3-abilities', 'abilities'], ['agent-nexus', 'nexus'], ['agentation', 'agentation'], ['llms-txt', 'l']],
                 'The MCP Server and the Abilities Registry let agents work within your rules. Agent Nexus shows five protocols, Agentation points at elements, and llms.txt maps the site.'),
             { type: 'end', head: 'Try the AI tools <em>on your own copy.</em>', cta: 'Get started free', url: `${HOST}/ai/`, note: 'Each tool shown working in this lab', say: 'Try the AI tools on your own copy, with people in charge.' },
