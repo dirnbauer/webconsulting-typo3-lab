@@ -1,0 +1,671 @@
+/*
+ * Start page proposal C, "Preset Theatre" (lab only, loaded by the
+ * HomeProposalSwitch for /#home=c). Presentation only: every section, text,
+ * link, film and image of the start page stays where it is.
+ *
+ * Idea: the page is a stage for Desiderio's theme presets. The hero becomes a
+ * framed stage with a lighting desk (lab-home.js) that switches the page's
+ * own preset, the way the site does it (body[data-shadcn-preset]); the
+ * sections below are staged as scenes with one focal element each.
+ *
+ * Rules kept: every rule is scoped to html[data-lab-home="c"]; no colour
+ * token is redeclared (only used); colour glows are chroma-driven like
+ * 22-modern-base.css, so the neutral b0 look stays black and white; motion
+ * only under prefers-reduced-motion: no-preference and only below 300 ms.
+ */
+
+/* ------------------------------------------------------------------ */
+/* 0. Shared values                                                    */
+/* ------------------------------------------------------------------ */
+html[data-lab-home="c"] {
+    /* the dock never hides a focused element (WCAG 2.4.11) */
+    scroll-padding-bottom: 5.5rem;
+}
+
+html[data-lab-home="c"] body {
+    --lh-mono: var(--d-font-mono, ui-monospace, SFMono-Regular, Menlo, monospace);
+    --lh-bezel-pad: 0.375rem;
+    --lh-r-outer: calc(var(--radius, 0.625rem) + 0.625rem);
+    --lh-r-inner: calc(var(--radius, 0.625rem) + 0.25rem);
+    --lh-hairline: color-mix(in oklch, var(--border) 100%, transparent);
+    --lh-mat: color-mix(in oklch, var(--muted) 65%, var(--background));
+    --lh-shadow: 0 1px 0 0 color-mix(in oklch, var(--foreground) 4%, transparent), 0 30px 70px -40px color-mix(in oklch, var(--foreground) 38%, transparent);
+    /* the preset's light: transparent for neutral presets (chroma 0) */
+    --lh-light-1: oklch(from var(--chart-1, var(--primary)) l c h / clamp(0, c * 1.6, 0.22));
+    --lh-light-2: oklch(from var(--chart-2, var(--primary)) l c h / clamp(0, c * 1.2, 0.16));
+    --lh-light-3: oklch(from var(--chart-3, var(--primary)) l c h / clamp(0, c * 1, 0.14));
+    --lh-spot-1: oklch(from var(--chart-1, var(--primary)) l c h / clamp(0, c * 12, 1));
+    --lh-spot-2: oklch(from var(--chart-2, var(--primary)) l c h / clamp(0, c * 12, 1));
+    --lh-spot-3: oklch(from var(--chart-3, var(--primary)) l c h / clamp(0, c * 12, 1));
+}
+
+/* Headings: one voice, tighter tracking, a little more presence. */
+html[data-lab-home="c"] .desiderio-corporate-start :is(.d-section-intro__heading, .pricing-three-tier__headline, .category-cards__headline, .how-to-steps__headline) {
+    font-size: clamp(1.875rem, 1.3rem + 1.6vw, 2.75rem);
+    line-height: 1.08;
+    letter-spacing: -0.03em;
+    text-wrap: balance;
+    overflow-wrap: break-word;
+}
+
+html[data-lab-home="c"] .desiderio-corporate-start :is(.d-section-intro__lead, .pricing-three-tier__description, .category-cards__description) {
+    text-wrap: pretty;
+}
+
+/* ------------------------------------------------------------------ */
+/* 1. Scene 1: the stage (hero)                                        */
+/* ------------------------------------------------------------------ */
+html[data-lab-home="c"] .hero--split {
+    position: relative;
+    isolation: isolate;
+}
+
+/* a quiet spotlight from above the stage, coloured only by a coloured preset */
+html[data-lab-home="c"] .hero--split::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background:
+        radial-gradient(48% 62% at 74% 18%, var(--lh-light-1), transparent 72%),
+        radial-gradient(30% 40% at 96% 70%, var(--lh-light-2), transparent 70%),
+        radial-gradient(34% 44% at 8% 92%, var(--lh-light-3), transparent 70%);
+    -webkit-mask-image: linear-gradient(to bottom, transparent, #000 22%, #000 80%, transparent);
+    mask-image: linear-gradient(to bottom, transparent, #000 22%, #000 80%, transparent);
+}
+
+html[data-lab-home="c"] .hero__headline {
+    font-size: clamp(2.375rem, 1.35rem + 3.3vw, 4.25rem);
+    line-height: 1.02;
+    letter-spacing: -0.04em;
+    text-wrap: balance;
+    overflow-wrap: break-word;
+    hyphens: manual;
+}
+
+html[data-lab-home="c"]:is(:lang(de), :lang(hu)) .hero__headline {
+    font-size: clamp(2.125rem, 1.3rem + 2.6vw, 3.5rem);
+}
+
+html[data-lab-home="c"]:lang(zh) .hero__headline,
+html[data-lab-home="c"] :lang(zh) .hero__headline {
+    letter-spacing: -0.01em;
+    line-height: 1.12;
+}
+
+html[data-lab-home="c"] .hero__subheadline {
+    max-width: 36rem;
+    text-wrap: pretty;
+}
+
+/* The framed stage: a mat (outer bezel) around the picture, with a slim
+   stage bar on top that lab-home.js fills with the preset's name. */
+html[data-lab-home="c"] .hero__media {
+    position: relative;
+    padding: 2.375rem var(--lh-bezel-pad) var(--lh-bezel-pad);
+    border-radius: var(--lh-r-outer);
+    background: var(--lh-mat);
+    box-shadow: 0 0 0 1px var(--lh-hairline), var(--lh-shadow);
+}
+
+html[data-lab-home="c"] .hero__media .hero__image {
+    border-radius: var(--lh-r-inner);
+    box-shadow: 0 0 0 1px var(--lh-hairline);
+}
+
+/* stage lighting on the picture: none for b0, a soft wash for coloured presets */
+html[data-lab-home="c"] .hero__media::after {
+    content: "";
+    position: absolute;
+    inset: 2.375rem var(--lh-bezel-pad) var(--lh-bezel-pad);
+    border-radius: var(--lh-r-inner);
+    pointer-events: none;
+    background: linear-gradient(140deg, var(--lh-light-1), transparent 55%, var(--lh-light-2));
+    mix-blend-mode: soft-light;
+}
+
+/* the stage bar: three chart dots (CSS, also without JS) and the slot */
+html[data-lab-home="c"] .hero__media::before {
+    content: "";
+    position: absolute;
+    top: 0.9375rem;
+    left: 0.875rem;
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 999px;
+    background: color-mix(in oklch, var(--lh-spot-1), var(--foreground) 25%);
+    box-shadow:
+        0.875rem 0 0 color-mix(in oklch, var(--lh-spot-2), var(--foreground) 45%),
+        1.75rem 0 0 color-mix(in oklch, var(--lh-spot-3), var(--foreground) 65%);
+}
+
+html[data-lab-home="c"] .lh-stagebar {
+    position: absolute;
+    inset: 0 0.875rem auto 3.5rem;
+    height: 2.375rem;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 0.75rem;
+    font-family: var(--lh-mono);
+    font-size: 0.75rem;
+    line-height: 1rem;
+    color: var(--muted-foreground);
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+html[data-lab-home="c"] .lh-stagebar__name {
+    color: var(--foreground);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    min-width: 0;
+}
+
+html[data-lab-home="c"] .lh-stagebar__type {
+    font-family: var(--d-font-heading, inherit);
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: var(--foreground);
+    letter-spacing: -0.01em;
+}
+
+html[data-lab-home="c"] .lh-stagebar__radius {
+    flex: none;
+    width: 0.875rem;
+    height: 0.875rem;
+    border: 1.5px solid var(--foreground);
+    border-right-color: transparent;
+    border-bottom-color: transparent;
+    border-radius: var(--radius, 0.625rem) 0 0 0;
+}
+
+/* ---- the lighting desk (built by lab-home.js) ----------------------- */
+html[data-lab-home="c"] body {
+    --lh-chip: 1.75rem;
+    --lh-chip-gap: 0.4375rem;
+    --lh-rail-cols: 8;
+    --lh-rail-h: calc(var(--lh-chip) * 2 + var(--lh-chip-gap));
+    --lh-desk-lines: 2;
+    --lh-desk-h: calc(1.5rem + 2 * var(--lh-desk-lines) * 1.25rem + 1.25rem + var(--lh-rail-h) + 2px);
+}
+
+@media (min-width: 640px) and (max-width: 767px), (min-width: 1152px) {
+    html[data-lab-home="c"] body {
+        --lh-rail-cols: 15;
+        --lh-rail-h: var(--lh-chip);
+        --lh-desk-lines: 1;
+    }
+}
+
+/* the desk's space is reserved before JS runs: no layout shift */
+html[data-lab-home="c"] .hero__content::after {
+    content: "";
+    display: block;
+    height: var(--lh-desk-h);
+    margin-top: 1.75rem;
+    border-radius: var(--lh-r-outer);
+}
+
+html[data-lab-home="c"] .hero__content:has(> .lh-desk)::after {
+    display: none;
+}
+
+html[data-lab-home="c"] .lh-desk {
+    box-sizing: border-box;
+    min-height: var(--lh-desk-h);
+    margin-top: 1.75rem;
+    padding: 0.75rem 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 0.625rem;
+    border-radius: var(--lh-r-outer);
+    background: color-mix(in oklch, var(--background) 82%, transparent);
+    box-shadow: 0 0 0 1px var(--lh-hairline);
+    max-width: 36rem;
+}
+
+html[data-lab-home="c"] .lh-desk__label {
+    margin: 0;
+    text-wrap: pretty;
+    font-family: var(--lh-mono);
+    font-size: 0.75rem;
+    line-height: 1.25rem;
+    letter-spacing: 0.02em;
+    color: var(--muted-foreground);
+}
+
+html[data-lab-home="c"] .lh-desk__rail {
+    display: grid;
+    grid-template-columns: repeat(var(--lh-rail-cols), var(--lh-chip));
+    gap: var(--lh-chip-gap);
+}
+
+html[data-lab-home="c"] .lh-chip {
+    all: unset;
+    box-sizing: border-box;
+    position: relative;
+    width: var(--lh-chip);
+    height: var(--lh-chip);
+    border-radius: 999px;
+    cursor: pointer;
+    display: grid;
+    place-items: center;
+}
+
+/* larger touch target without changing the layout (WCAG 2.5.8) */
+html[data-lab-home="c"] .lh-chip::before {
+    content: "";
+    position: absolute;
+    inset: -0.25rem;
+    border-radius: 999px;
+}
+
+html[data-lab-home="c"] .lh-chip__swatch {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border-radius: 999px;
+    background: conic-gradient(from 210deg, var(--primary) 0 50%, var(--chart-2, var(--primary)) 0 75%, var(--chart-4, var(--secondary)) 0);
+    box-shadow: inset 0 0 0 2px var(--background), 0 0 0 1px color-mix(in oklch, var(--foreground) 22%, transparent);
+}
+
+/* while preset-samples.css is on its way the swatch is a quiet grey disc */
+html[data-lab-home="c"]:not(.lh-samples) .lh-chip__swatch {
+    background: var(--muted);
+}
+
+html[data-lab-home="c"] .lh-chip[aria-checked="true"] {
+    box-shadow: 0 0 0 2px var(--background), 0 0 0 4px var(--foreground);
+}
+
+html[data-lab-home="c"] .lh-chip:focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 5px;
+}
+
+html[data-lab-home="c"] .lh-desk__now {
+    margin: 0;
+    font-size: 0.8125rem;
+    line-height: 1.25rem;
+    color: var(--muted-foreground);
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-end;
+    column-gap: 0.5rem;
+}
+
+html[data-lab-home="c"] .lh-desk__dot {
+    display: none;
+}
+
+@media (min-width: 640px) and (max-width: 767px), (min-width: 1152px) {
+    html[data-lab-home="c"] .lh-desk__dot {
+        display: inline;
+    }
+}
+
+html[data-lab-home="c"] .lh-desk__now strong {
+    color: var(--foreground);
+    font-weight: 600;
+}
+
+html[data-lab-home="c"] .lh-sr {
+    position: absolute !important;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* ---- the dock: the same desk, small, while the stage is out of view - */
+html[data-lab-home="c"] .lh-dock {
+    position: fixed;
+    z-index: 40;
+    left: 50%;
+    bottom: max(0.875rem, env(safe-area-inset-bottom));
+    translate: -50% 0;
+    max-width: calc(100vw - 2rem);
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    padding: 0.3125rem;
+    border-radius: 999px;
+    background: color-mix(in oklch, var(--background) 92%, transparent);
+    -webkit-backdrop-filter: blur(12px) saturate(1.4);
+    backdrop-filter: blur(12px) saturate(1.4);
+    box-shadow: 0 0 0 1px var(--lh-hairline), 0 18px 40px -22px color-mix(in oklch, var(--foreground) 45%, transparent);
+    color: var(--foreground);
+    font-size: 0.8125rem;
+    line-height: 1.25rem;
+}
+
+html[data-lab-home="c"] .lh-dock[data-open="false"] {
+    visibility: hidden;
+    opacity: 0;
+    translate: -50% 1rem;
+}
+
+html[data-lab-home="c"] .lh-dock__btn {
+    all: unset;
+    box-sizing: border-box;
+    display: inline-grid;
+    place-items: center;
+    min-width: 2.25rem;
+    height: 2.25rem;
+    border-radius: 999px;
+    cursor: pointer;
+    color: var(--foreground);
+}
+
+html[data-lab-home="c"] .lh-dock__btn svg {
+    width: 1rem;
+    height: 1rem;
+}
+
+html[data-lab-home="c"] .lh-dock__btn:focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+}
+
+html[data-lab-home="c"] .lh-dock__btn[hidden] {
+    display: none;
+}
+
+html[data-lab-home="c"] .lh-dock__now {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding-inline: 0.25rem 0.5rem;
+    min-width: 0;
+    white-space: nowrap;
+}
+
+html[data-lab-home="c"] .lh-dock__now .lh-chip__swatch {
+    flex: none;
+    width: 1.25rem;
+    height: 1.25rem;
+}
+
+html[data-lab-home="c"] .lh-dock__name {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-weight: 600;
+    max-width: 12rem;
+}
+
+html[data-lab-home="c"] .lh-dock__reset {
+    padding-inline: 0.75rem;
+    box-shadow: inset 0 0 0 1px var(--lh-hairline);
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+@media (hover: hover) and (pointer: fine) {
+    html[data-lab-home="c"] .lh-dock__btn:hover {
+        background: var(--muted);
+    }
+}
+
+@media (max-width: 479px) {
+    html[data-lab-home="c"] .lh-dock__name {
+        max-width: 7.5rem;
+    }
+}
+
+/* ------------------------------------------------------------------ */
+/* 2. Shared scene furniture: the double bezel                          */
+/* ------------------------------------------------------------------ */
+/* A second hairline a few pixels outside a card's own ring reads as a mat
+   around the card. outline follows border-radius in current browsers. */
+html[data-lab-home="c"] .desiderio-corporate-start :is(.feature-cards__item, .use-case-grid__item, .category-cards__card, .pricing-three-tier__plan, .feature-checklist__list) {
+    outline: 1px solid color-mix(in oklch, var(--border) 85%, transparent);
+    outline-offset: 0.3125rem;
+}
+
+/* screenshots and the film sit in a mat like the stage picture */
+html[data-lab-home="c"] .desiderio-corporate-start :is(.feature-alternating__media, .feature-video__player, .gallery__featured > .d-lightbox) {
+    padding: var(--lh-bezel-pad);
+    border-radius: var(--lh-r-outer);
+    background: var(--lh-mat);
+    box-shadow: 0 0 0 1px var(--lh-hairline), var(--lh-shadow);
+}
+
+html[data-lab-home="c"] .desiderio-corporate-start :is(.feature-alternating__media img, .feature-video__native, .gallery__featured > .d-lightbox img) {
+    border-radius: var(--lh-r-inner);
+}
+
+/* card copy at a readable size (the elements default to text-xs) */
+html[data-lab-home="c"] .desiderio-corporate-start :is(.feature-cards__description, .use-case-grid__description, .category-cards__card-desc) :where(p) {
+    font-size: 0.9375rem;
+    line-height: 1.6;
+}
+
+/* card index numbers, decorative (empty alt text: not read out) */
+html[data-lab-home="c"] .desiderio-corporate-start .feature-cards__grid {
+    counter-reset: lh-card;
+}
+
+html[data-lab-home="c"] .desiderio-corporate-start .feature-cards__item {
+    counter-increment: lh-card;
+    position: relative;
+}
+
+html[data-lab-home="c"] .desiderio-corporate-start .feature-cards__grid:not([data-lh-numbers]) .feature-cards__item::after {
+    content: counter(lh-card, decimal-leading-zero) / "";
+    position: absolute;
+    top: 0.875rem;
+    right: 1rem;
+    font-family: var(--lh-mono);
+    font-size: 0.75rem;
+    line-height: 1rem;
+    color: var(--muted-foreground);
+}
+
+html[data-lab-home="c"] .desiderio-corporate-start .feature-cards__grid:not([data-lh-numbers]) .feature-cards__title {
+    padding-right: 2rem;
+}
+
+/* ------------------------------------------------------------------ */
+/* 3. Scene by scene: one focal element each                            */
+/* ------------------------------------------------------------------ */
+
+/* Scene 2, the film: the screen, with the preset's light falling on it */
+html[data-lab-home="c"] .feature-video {
+    position: relative;
+    isolation: isolate;
+}
+
+html[data-lab-home="c"] .feature-video__player {
+    position: relative;
+    max-width: 68rem;
+    margin-inline: auto;
+}
+
+html[data-lab-home="c"] .feature-video__player::before {
+    content: "";
+    position: absolute;
+    inset: 12% -6% -10%;
+    z-index: -1;
+    pointer-events: none;
+    background: radial-gradient(50% 50% at 50% 60%, var(--lh-light-1), transparent 72%);
+    filter: blur(8px);
+}
+
+/* Scene 4, three steps: the screenshot is the focal point */
+html[data-lab-home="c"] .feature-alternating__title {
+    font-size: clamp(1.375rem, 1.1rem + 0.7vw, 1.75rem);
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+}
+
+/* Scene 7, the library: the counts become the focal numerals
+   (lab-home.js wraps the number that is already in each title) */
+html[data-lab-home="c"] .lh-num {
+    display: inline-block;
+    font-size: 2.25em;
+    line-height: 0.9;
+    font-weight: 700;
+    letter-spacing: -0.045em;
+    font-variant-numeric: tabular-nums;
+    vertical-align: -0.12em;
+    margin-inline-end: 0.12em;
+    color: var(--foreground);
+}
+
+html[data-lab-home="c"] .feature-cards__grid[data-lh-numbers] .feature-cards__title {
+    line-height: 1.6;
+}
+
+html[data-lab-home="c"] .feature-cards__grid[data-lh-numbers] .feature-cards__item {
+    box-shadow: inset 0 3px 0 0 var(--lh-spot-1), var(--d-surface-shadow, none), 0 0 0 1px color-mix(in oklch, var(--foreground) 10%, transparent);
+}
+
+/* inline cues (sections 6, 13, 15): a slim strip with the preset's mark */
+html[data-lab-home="c"] .cta-inline__bar {
+    position: relative;
+    border-radius: var(--lh-r-outer);
+    outline: 1px solid color-mix(in oklch, var(--border) 85%, transparent);
+    outline-offset: 0.3125rem;
+}
+
+html[data-lab-home="c"] .cta-inline__headline {
+    letter-spacing: -0.015em;
+}
+
+/* Scene 9, the gallery: the main picture is the stage, thumbs the reel */
+html[data-lab-home="c"] .gallery__featured > .d-lightbox {
+    display: block;
+}
+
+/* Scene 11, pricing: the recommended plan stands in the spotlight */
+html[data-lab-home="c"] .pricing-three-tier__grid {
+    position: relative;
+    isolation: isolate;
+}
+
+html[data-lab-home="c"] .pricing-three-tier__plan--recommended {
+    position: relative;
+    outline: 2px solid var(--foreground);
+    outline-offset: 0.3125rem;
+}
+
+html[data-lab-home="c"] .pricing-three-tier__item:has(.pricing-three-tier__plan--recommended)::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    inset: -5rem -6rem;
+    pointer-events: none;
+    background: radial-gradient(closest-side at 50% 50%, var(--lh-light-1), transparent);
+}
+
+html[data-lab-home="c"] .pricing-three-tier__item:has(.pricing-three-tier__plan--recommended) {
+    position: relative;
+}
+
+html[data-lab-home="c"] .pricing-three-tier__price {
+    letter-spacing: -0.04em;
+    font-variant-numeric: tabular-nums;
+}
+
+@media (min-width: 1024px) {
+    html[data-lab-home="c"] .pricing-three-tier__plan--recommended {
+        translate: 0 -0.5rem;
+    }
+}
+
+/* Scene 12, strategy: the intro stays in view beside the five points */
+@media (min-width: 1024px) {
+    html[data-lab-home="c"] .feature-checklist__intro {
+        position: sticky;
+        top: 7rem;
+        align-self: start;
+    }
+}
+
+html[data-lab-home="c"] .feature-checklist__items {
+    counter-reset: lh-point;
+}
+
+/* Scene 14, the lab: counts as mono tags */
+html[data-lab-home="c"] .category-cards__count {
+    font-family: var(--lh-mono);
+    letter-spacing: 0.01em;
+}
+
+/* Scene 16, setup: numbered steps carry the preset's primary */
+html[data-lab-home="c"] .how-to-steps__number {
+    background: var(--primary);
+    color: var(--primary-foreground);
+    border-color: transparent;
+    font-variant-numeric: tabular-nums;
+}
+
+html[data-lab-home="c"] .how-to-steps__media img {
+    border-radius: var(--lh-r-inner);
+    box-shadow: 0 0 0 1px var(--lh-hairline), 0 0 0 0.3125rem var(--lh-mat), 0 0 0 calc(0.3125rem + 1px) var(--lh-hairline);
+}
+
+/* Scene 17, the finale: left exactly as it is. Its description already sits
+   near the AA limit in two presets (see the report), so nothing is laid over it. */
+
+/* ------------------------------------------------------------------ */
+/* 4. Motion: only when it is welcome                                   */
+/* ------------------------------------------------------------------ */
+@media (prefers-reduced-motion: no-preference) {
+    html[data-lab-home="c"] .lh-dock {
+        transition: opacity var(--d-motion, 220ms) var(--d-ease, ease-out), translate var(--d-motion, 220ms) var(--d-ease, ease-out), visibility 0s linear 0s;
+    }
+
+    html[data-lab-home="c"] .lh-dock[data-open="false"] {
+        transition: opacity var(--d-motion-fast, 160ms) ease-in, translate var(--d-motion-fast, 160ms) ease-in, visibility 0s linear var(--d-motion-fast, 160ms);
+    }
+
+    html[data-lab-home="c"] .lh-chip__swatch {
+        transition: transform var(--d-motion-fast, 160ms) var(--d-ease, ease-out);
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+        html[data-lab-home="c"] .lh-chip:hover .lh-chip__swatch {
+            transform: scale(1.12);
+        }
+    }
+
+    html[data-lab-home="c"]::view-transition-old(root),
+    html[data-lab-home="c"]::view-transition-new(root) {
+        animation-duration: 280ms;
+        animation-timing-function: cubic-bezier(0.23, 1, 0.32, 1);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html[data-lab-home="c"]::view-transition-group(*),
+    html[data-lab-home="c"]::view-transition-old(*),
+    html[data-lab-home="c"]::view-transition-new(*) {
+        animation: none !important;
+    }
+}
+
+/* Windows high contrast: keep the controls visible */
+@media (forced-colors: active) {
+    html[data-lab-home="c"] .lh-chip__swatch {
+        forced-color-adjust: none;
+        border: 1px solid CanvasText;
+    }
+
+    html[data-lab-home="c"] .lh-chip[aria-checked="true"] {
+        outline: 3px solid Highlight;
+        outline-offset: 2px;
+    }
+
+    html[data-lab-home="c"] .lh-dock {
+        border: 1px solid CanvasText;
+    }
+}
