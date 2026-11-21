@@ -76,6 +76,10 @@ export COMPOSER_AUTH="{\"http-basic\":{\"in2code.repo.packagist.com\":{\"usernam
 # docker exec -e copies the value from this shell: never on a command line.
 web="ddev-$(ddev describe -j | jq -r .raw.name)-web"
 docker exec -e COMPOSER_AUTH -u "$(id -u):$(id -g)" -w /var/www/html "$web" composer reinstall in2code/powermail in2code/powermail_cond
+# reinstall rewrites vendor/composer/autoload_files.php without TYPO3's
+# autoload-include.php (TYPO3 then looks for vendor/typo3/sysext/*/):
+# dump-autoload restores it.
+docker exec -u "$(id -u):$(id -g)" -w /var/www/html "$web" composer dump-autoload
 docker exec -e COMPOSER_AUTH -u "$(id -u):$(id -g)" -w /var/www/html "$web" Build/Scripts/runTests.sh -s quality -p 8.5
 unset COMPOSER_AUTH
 ```
