@@ -183,7 +183,25 @@ jobs:
       group: deploy-typo3-lab
       cancel-in-progress: false
     steps:
+      # Coolify builds the tip of main (its app has no fixed commit), not the
+      # commit this run checked. When a newer commit reached main during this
+      # run, deploying now would ship it before its own checks finished, or
+      # after they failed. Its own run deploys it once it is green.
+      - name: Deploy only the commit these checks passed
+        id: tip
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          tip=$(gh api "repos/${GITHUB_REPOSITORY}/commits/main" --jq .sha)
+          if [ "${tip}" != "${GITHUB_SHA}" ]; then
+            echo "::notice::main moved on to ${tip} during this run; not deploying ${GITHUB_SHA}. The run of ${tip} deploys it."
+            echo "current=false" >> "${GITHUB_OUTPUT}"
+          else
+            echo "current=true" >> "${GITHUB_OUTPUT}"
+          fi
+
       - name: Ask Coolify to redeploy
+        if: steps.tip.outputs.current == 'true'
         env:
           COOLIFY_TOKEN: ${{ secrets.COOLIFY_TOKEN }}
           COOLIFY_URL: ${{ vars.COOLIFY_URL || 'https://coolify.webconsulting.at' }}
@@ -226,10 +244,12 @@ jobs:
           echo "Deployment queued for ${GITHUB_SHA}."
 
       # The host keeps the last three deployed versions (user rule, 2026-10-10).
-      # Coolify's retention is set to 6 images (web + Solr per version), but it
+      # Coolify's retention must be 6 images (web + Solr per version; app
+      # setting docker_images_to_keep, it read 3 on 2026-11-21), and Coolify
       # applies it only in its nightly cleanup, so several deploys in one day
       # used to pile up until the disk was full. Run that cleanup now.
       - name: Wait for the deployment, then keep the last three versions
+        if: steps.tip.outputs.current == 'true'
         env:
           COOLIFY_TOKEN: ${{ secrets.COOLIFY_TOKEN }}
           COOLIFY_URL: ${{ vars.COOLIFY_URL || 'https://coolify.webconsulting.at' }}
