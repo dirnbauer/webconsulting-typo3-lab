@@ -81,7 +81,7 @@ and in `image-slots.json`.
 | `cowriter-seo.png` | t3_cowriter | 4 | Page properties with Cowriter’s suggestions for the SEO title open, several to choose from |
 | `agent-chat.png` | nr_mcp_agent | 7 | The AI chat in this lab’s backend: a request for a page draft and the agent’s reply |
 | `landingpage-backend.png` | nr_landingpage | 8 | The page properties (SEO fields) of a draft nr-landingpage generated from a briefing; visibly fictional demo values |
-| `landingpage-preview.png` | nr_landingpage | 8 | The frontend preview (top section) of the same draft |
+| `landingpage-preview.png` | nr_landingpage | 8 | The frontend preview of the same draft, from its first generated section (the two `[Animation …]` helper elements nr-landingpage 0.x puts at the top render their headers in Desiderio, so the capture starts below them) |
 | `llm-configurations.png` | nr_llm | 15, 16 | The nr-llm configurations module: named configurations with model and parameters, no API key visible |
 | `llm-analytics.png` | nr_llm | 22 | The nr-llm cost overview: requests, token usage and estimated costs over a period |
 | `approval-card.png` | nr_mcp_agent | 26 | An open approval card in the AI chat for a planned page change (e.g. an SEO title) |
