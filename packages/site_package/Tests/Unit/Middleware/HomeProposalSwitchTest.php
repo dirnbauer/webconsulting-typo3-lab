@@ -25,14 +25,38 @@ final class HomeProposalSwitchTest extends TestCase
     ];
 
     #[Test]
-    public function putsOneScriptFirstIntoTheHead(): void
+    public function putsOneScriptRightAfterTheCharset(): void
     {
         $html = (string)HomeProposalSwitch::withSwitch('<html lang="en"><head data-x="1"><meta charset="utf-8"><link rel="stylesheet" href="/a.css"></head><body></body></html>', self::PROPOSALS);
 
-        self::assertStringStartsWith('<html lang="en"><head data-x="1"><script data-lab-home-switch>', $html);
+        self::assertStringStartsWith('<html lang="en"><head data-x="1"><meta charset="utf-8"><script data-lab-home-switch>', $html);
         self::assertSame(1, substr_count($html, '<script'));
         self::assertStringNotContainsString('data-lab-home=', $html, 'no attribute is rendered on the server');
-        self::assertLessThan(strpos($html, '<meta charset'), strpos($html, '</script>'));
+        self::assertLessThan(strpos($html, '<link'), strpos($html, '</script>'), 'before every stylesheet');
+    }
+
+    #[Test]
+    public function keepsTheCharsetWithinTheFirstKilobyte(): void
+    {
+        $html = (string)HomeProposalSwitch::withSwitch('<!DOCTYPE html><html><head><meta charset="utf-8"><title>x</title></head></html>', self::PROPOSALS);
+
+        self::assertSame(strlen('<!DOCTYPE html><html><head>'), strpos($html, '<meta charset'));
+    }
+
+    #[Test]
+    public function fallsBackToTheHeadTagWithoutACharsetInTheHead(): void
+    {
+        $html = (string)HomeProposalSwitch::withSwitch('<html><head><title>x</title></head><body><meta charset="utf-8"></body></html>', self::PROPOSALS);
+
+        self::assertStringStartsWith('<html><head><script data-lab-home-switch>', $html);
+    }
+
+    #[Test]
+    public function staysOutOfFrames(): void
+    {
+        // The Visual Editor and backend previews load the page in a frame on
+        // the same origin, where the stored choice would otherwise apply.
+        self::assertStringStartsWith('(function(d,w){if(w.top!==w)return;', HomeProposalSwitch::code(self::PROPOSALS));
     }
 
     #[Test]
@@ -95,17 +119,19 @@ final class HomeProposalSwitchTest extends TestCase
         self::assertFalse(HomeProposalSwitch::isStartPage($this->request($other, 1290)), 'the start page of another site');
         self::assertFalse(HomeProposalSwitch::isStartPage($this->request($desiderio, 505, ['type' => '1777200001'])), 'a page type');
         self::assertFalse(HomeProposalSwitch::isStartPage($this->request($desiderio, 505, ['elPreview' => 'x'])), 'an element preview');
+        self::assertFalse(HomeProposalSwitch::isStartPage($this->request($desiderio, 505, ['editMode' => '1'])), 'the Visual Editor');
+        self::assertFalse(HomeProposalSwitch::isStartPage($this->request($desiderio, 505, [], '1533906435')), 'a routed page type (sitemap.xml)');
         self::assertFalse(HomeProposalSwitch::isStartPage(new ServerRequest('https://example.org/')), 'no site');
     }
 
     /**
      * @param array<string, string> $query
      */
-    private function request(Site $site, int $pageId, array $query = []): ServerRequest
+    private function request(Site $site, int $pageId, array $query = [], string $pageType = '0'): ServerRequest
     {
         return (new ServerRequest('https://example.org/'))
             ->withAttribute('site', $site)
-            ->withAttribute('routing', new PageArguments($pageId, '0', []))
+            ->withAttribute('routing', new PageArguments($pageId, $pageType, []))
             ->withQueryParams($query);
     }
 }

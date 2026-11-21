@@ -96,3 +96,34 @@ for (const path of ["/resources/", "/astryx-typo3/"]) {
     expect(seen.home).toEqual([]);
   });
 }
+
+test("a stored choice stays out of frames (Visual Editor, backend preview)", async ({ page }) => {
+  const seen = watch(page);
+  await open(page, "/#home=c");
+  expect(await proposal(page)).toBe("c");
+  seen.home.length = 0;
+  // A same-origin page that frames the start page, like the Visual Editor does.
+  await open(page, "/resources/");
+  await page.evaluate(() => {
+    const frame = document.createElement("iframe");
+    frame.src = "/";
+    frame.id = "home-frame";
+    document.body.appendChild(frame);
+  });
+  const frame = page.frameLocator("#home-frame");
+  await expect(frame.locator("script[data-lab-home-switch]")).toHaveCount(1);
+  const handle = await page.locator("#home-frame").elementHandle();
+  const inner = await handle.contentFrame();
+  await inner.waitForLoadState("load");
+  expect(await inner.evaluate(() => document.documentElement.getAttribute("data-lab-home"))).toBeNull();
+  expect(seen.home).toEqual([]);
+  await open(page, "/#home=off");
+});
+
+test("the switch script follows the charset declaration", async ({ request }) => {
+  const html = await (await request.get("/")).text();
+  const charset = html.search(/<meta charset=/i);
+  expect(charset).toBeGreaterThan(-1);
+  expect(charset).toBeLessThan(1024);
+  expect(html.indexOf("<script data-lab-home-switch")).toBeGreaterThan(charset);
+});

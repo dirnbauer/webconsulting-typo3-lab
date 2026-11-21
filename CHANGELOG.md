@@ -12,6 +12,18 @@ All notable changes to Webconsulting TYPO3 Lab are documented in this file.
   high-density screens. 1x clients load the same files as before. No content
   or seed change; the new image sizes are processed on first render.
 
+### Start page proposals A, B and C (opt-in) — 2026-11-21
+
+- The Desiderio start page (root page, every language) carries one small
+  inline script (`HomeProposalSwitch` middleware, CSP hash via
+  `HomeProposalSwitchPolicy`). `#home=a|b|c` loads that proposal's
+  `Resources/Public/Home/<x>/lab-home.css|js` and remembers it in
+  localStorage; `#home=off` forgets it. Without a choice the page is
+  unchanged and loads nothing extra.
+- The script sits right after `<meta charset>`, never applies inside a frame
+  (Visual Editor, backend previews) nor to `?editMode` requests, and uses the
+  routed page type, so `sitemap.xml` gets neither script nor hash.
+
 ### Powermail check before each merge — 2026-11-21
 
 - `ddev check-powermail` (`Build/Scripts/check-powermail.sh`) proves locally
