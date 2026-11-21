@@ -1,0 +1,472 @@
+{
+  "version": 1,
+  "site": "desiderio",
+  "root": 505,
+  "language": 0,
+  "languageCode": "en",
+  "_note": "Netresearch talk “KI in TYPO3” (Sebastian Mendel, Netresearch DTT GmbH, MTUG München, 9 November 2026), English translation by webconsulting. Applied only through sitepackage:seed-netresearch-talk, which reads every *.payload.json of this folder in name order, resolves pid 0 (/ai), {{page:/slug}} tokens and {{labstatus:id}} cells, drops image files that do not exist yet and orders the elements by their nrtalk:* markers. Built from the structured talk files by the talk-author tool; edit here afterwards.",
+  "records": [
+    {
+      "table": "pages",
+      "action": "create",
+      "key": "NEW_nrtalk_page_sources",
+      "pid": "@NEW_nrtalk_page",
+      "match": {
+        "pid": "@NEW_nrtalk_page",
+        "slug": "/ai/netresearch-talk/sources-and-links",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "slug": "/ai/netresearch-talk/sources-and-links",
+        "hidden": 0,
+        "nav_hide": 0,
+        "sys_language_uid": 0,
+        "title": "Sources and links from the talk",
+        "nav_title": "Sources and links",
+        "description": "Every link from the Netresearch talk on AI in TYPO3: demos, the five applications, nr-llm, MCP, A2A and other AI layers for TYPO3.",
+        "abstract": "The demos, applications and sources of the talk in one place."
+      }
+    },
+    {
+      "table": "tt_content",
+      "action": "create",
+      "key": "NEW_nrtalk_sources_hero",
+      "pid": "@NEW_nrtalk_page_sources",
+      "match": {
+        "pid": "@NEW_nrtalk_page_sources",
+        "rowDescription": "nrtalk:sources:hero",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "CType": "desiderio_headerpage",
+        "colPos": 0,
+        "hidden": 0,
+        "sys_language_uid": 0,
+        "rowDescription": "nrtalk:sources:hero",
+        "eyebrow": "References",
+        "header": "Sources and links from the talk",
+        "subheadline": "To try out and read up on",
+        "variant": "left"
+      }
+    },
+    {
+      "table": "tt_content",
+      "action": "create",
+      "key": "NEW_nrtalk_sources_credit",
+      "pid": "@NEW_nrtalk_page_sources",
+      "match": {
+        "pid": "@NEW_nrtalk_page_sources",
+        "rowDescription": "nrtalk:sources:credit",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "CType": "desiderio_benefitcards",
+        "colPos": 0,
+        "hidden": 0,
+        "sys_language_uid": 0,
+        "rowDescription": "nrtalk:sources:credit",
+        "frame_class": "muted",
+        "eyebrow": "Original source",
+        "header": "AI in TYPO3: problems, questions and requirements",
+        "subheadline": "A talk by Sebastian Mendel, Netresearch DTT GmbH, at MTUG – TYPO3 User Group München on 9 November 2026. This page is our English translation of the German original.",
+        "columns": "2"
+      },
+      "_collections": [
+        {
+          "field": "desiderio_benefitcards_items",
+          "keys": [
+            "NEW_nrtalk_sources_credit_0",
+            "NEW_nrtalk_sources_credit_1",
+            "NEW_nrtalk_sources_credit_2",
+            "NEW_nrtalk_sources_credit_3"
+          ]
+        }
+      ]
+    },
+    {
+      "table": "desiderio_icon_card_link",
+      "action": "create",
+      "key": "NEW_nrtalk_sources_credit_0",
+      "pid": "@NEW_nrtalk_page_sources",
+      "match": {
+        "pid": "@NEW_nrtalk_page_sources",
+        "foreign_table_parent_uid": "@NEW_nrtalk_sources_credit",
+        "tablenames": "tt_content",
+        "fieldname": "desiderio_benefitcards_items",
+        "sorting": 1,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "icon": "monitor",
+        "title": "Original slides",
+        "description": "<p>The German slides as Netresearch published them, slide by slide.</p>",
+        "link": "https://netresearch.github.io/modularer-ki-stack-page/vortraege/mtug-2026-11-09/",
+        "foreign_table_parent_uid": "@NEW_nrtalk_sources_credit",
+        "tablenames": "tt_content",
+        "fieldname": "desiderio_benefitcards_items",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "desiderio_icon_card_link",
+      "action": "create",
+      "key": "NEW_nrtalk_sources_credit_1",
+      "pid": "@NEW_nrtalk_page_sources",
+      "match": {
+        "pid": "@NEW_nrtalk_page_sources",
+        "foreign_table_parent_uid": "@NEW_nrtalk_sources_credit",
+        "tablenames": "tt_content",
+        "fieldname": "desiderio_benefitcards_items",
+        "sorting": 2,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "icon": "file-text",
+        "title": "Slides as PDF",
+        "description": "<p>The complete deck to download and print.</p>",
+        "link": "https://netresearch.github.io/modularer-ki-stack-page/vortraege/mtug-2026-11-09/MTUG-KI-in-TYPO3.pdf",
+        "foreign_table_parent_uid": "@NEW_nrtalk_sources_credit",
+        "tablenames": "tt_content",
+        "fieldname": "desiderio_benefitcards_items",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "desiderio_icon_card_link",
+      "action": "create",
+      "key": "NEW_nrtalk_sources_credit_2",
+      "pid": "@NEW_nrtalk_page_sources",
+      "match": {
+        "pid": "@NEW_nrtalk_page_sources",
+        "foreign_table_parent_uid": "@NEW_nrtalk_sources_credit",
+        "tablenames": "tt_content",
+        "fieldname": "desiderio_benefitcards_items",
+        "sorting": 3,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "icon": "git-branch",
+        "title": "Slide repository",
+        "description": "<p>Netresearch’s source of the slides and of the stack page, on GitHub.</p>",
+        "link": "https://github.com/netresearch/modularer-ki-stack-page",
+        "foreign_table_parent_uid": "@NEW_nrtalk_sources_credit",
+        "tablenames": "tt_content",
+        "fieldname": "desiderio_benefitcards_items",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "desiderio_icon_card_link",
+      "action": "create",
+      "key": "NEW_nrtalk_sources_credit_3",
+      "pid": "@NEW_nrtalk_page_sources",
+      "match": {
+        "pid": "@NEW_nrtalk_page_sources",
+        "foreign_table_parent_uid": "@NEW_nrtalk_sources_credit",
+        "tablenames": "tt_content",
+        "fieldname": "desiderio_benefitcards_items",
+        "sorting": 4,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "icon": "layers",
+        "title": "Modular AI stack",
+        "description": "<p>Netresearch’s overview of the ten modules, with current releases and requirements.</p>",
+        "link": "https://netresearch.github.io/modularer-ki-stack-page/",
+        "foreign_table_parent_uid": "@NEW_nrtalk_sources_credit",
+        "tablenames": "tt_content",
+        "fieldname": "desiderio_benefitcards_items",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "tt_content",
+      "action": "create",
+      "key": "NEW_nrtalk_sources_s36",
+      "pid": "@NEW_nrtalk_page_sources",
+      "match": {
+        "pid": "@NEW_nrtalk_page_sources",
+        "rowDescription": "nrtalk:sources:s36",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "CType": "desiderio_contentcolumns",
+        "colPos": 0,
+        "hidden": 0,
+        "sys_language_uid": 0,
+        "rowDescription": "nrtalk:sources:s36",
+        "header": "Links to demos and applications",
+        "columns": "2"
+      },
+      "_collections": [
+        {
+          "field": "desiderio_contentcolumns_items",
+          "keys": [
+            "NEW_nrtalk_sources_s36_0",
+            "NEW_nrtalk_sources_s36_1"
+          ]
+        }
+      ]
+    },
+    {
+      "table": "content_columns_items",
+      "action": "create",
+      "key": "NEW_nrtalk_sources_s36_0",
+      "pid": "@NEW_nrtalk_page_sources",
+      "match": {
+        "pid": "@NEW_nrtalk_page_sources",
+        "foreign_table_parent_uid": "@NEW_nrtalk_sources_s36",
+        "sorting": 1,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "content": "<h3>Presentation and demo</h3><ul><li><a href=\"https://netresearch.github.io/modularer-ki-stack-page/vortraege/vorlage/\">Current event-neutral presentation</a></li><li><a href=\"https://github.com/netresearch/modularer-ki-stack-page/blob/main/talks/vorlage/QUELLEN.md#bildnachweise\">Image credits and capture dates</a></li><li><a href=\"https://typo3-demo.netresearch.de/\">Public TYPO3 demo</a></li><li><a href=\"https://typo3-demo.netresearch.de/typo3/main\">TYPO3 backend · login required</a></li><li><a href=\"https://www.netresearch.de/blog/ki-kennzeichnung-auf-websites-was-jetzt-wirklich-gekennzeichnet-werden-muss/\">Source article of the Repurpose example</a></li></ul>",
+        "foreign_table_parent_uid": "@NEW_nrtalk_sources_s36",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "content_columns_items",
+      "action": "create",
+      "key": "NEW_nrtalk_sources_s36_1",
+      "pid": "@NEW_nrtalk_page_sources",
+      "match": {
+        "pid": "@NEW_nrtalk_page_sources",
+        "foreign_table_parent_uid": "@NEW_nrtalk_sources_s36",
+        "sorting": 2,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "content": "<h3>Applications and descriptions</h3><ul><li><a href=\"https://github.com/netresearch/t3x-cowriter\">Cowriter</a></li><li><a href=\"https://typo3-demo.netresearch.de/extensions\">AI Search · demo overview</a></li><li><a href=\"https://github.com/netresearch/t3x-nr-repurpose\">Repurpose</a></li><li><a href=\"https://github.com/netresearch/t3x-nr-mcp-agent\">Backend agent</a></li><li><a href=\"https://github.com/netresearch/nr-landingpage\">Landingpage</a></li></ul>",
+        "foreign_table_parent_uid": "@NEW_nrtalk_sources_s36",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "tt_content",
+      "action": "create",
+      "key": "NEW_nrtalk_sources_s37",
+      "pid": "@NEW_nrtalk_page_sources",
+      "match": {
+        "pid": "@NEW_nrtalk_page_sources",
+        "rowDescription": "nrtalk:sources:s37",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "CType": "desiderio_contentcolumns",
+        "colPos": 0,
+        "hidden": 0,
+        "sys_language_uid": 0,
+        "rowDescription": "nrtalk:sources:s37",
+        "header": "Sources on AI foundations and MCP",
+        "columns": "2"
+      },
+      "_collections": [
+        {
+          "field": "desiderio_contentcolumns_items",
+          "keys": [
+            "NEW_nrtalk_sources_s37_0",
+            "NEW_nrtalk_sources_s37_1"
+          ]
+        }
+      ]
+    },
+    {
+      "table": "content_columns_items",
+      "action": "create",
+      "key": "NEW_nrtalk_sources_s37_0",
+      "pid": "@NEW_nrtalk_page_sources",
+      "match": {
+        "pid": "@NEW_nrtalk_page_sources",
+        "foreign_table_parent_uid": "@NEW_nrtalk_sources_s37",
+        "sorting": 1,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "content": "<h3>Technical foundation</h3><ul><li><a href=\"https://netresearch.github.io/modularer-ki-stack-page/\">Modular AI stack · modules and requirements</a></li><li><a href=\"https://github.com/netresearch/t3x-nr-llm\">nr-llm · project and documentation</a></li><li><a href=\"https://github.com/netresearch/t3x-nr-llm/tree/5b6fca6de8d9593638486c0baca9424934bdc231\">nr-llm 0.43.19 · checked on 6 Nov 2026</a></li><li><a href=\"https://modelcontextprotocol.io/docs/2026-07-28/learn/architecture\">MCP · client and server architecture</a></li><li><a href=\"https://a2a-protocol.org/latest/topics/a2a-and-mcp/\">A2A and MCP · official positioning</a></li><li><a href=\"https://symfony.com/doc/current/ai/components/platform.html\">Symfony AI Platform · PHP foundation</a></li></ul>",
+        "foreign_table_parent_uid": "@NEW_nrtalk_sources_s37",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "content_columns_items",
+      "action": "create",
+      "key": "NEW_nrtalk_sources_s37_1",
+      "pid": "@NEW_nrtalk_page_sources",
+      "match": {
+        "pid": "@NEW_nrtalk_page_sources",
+        "foreign_table_parent_uid": "@NEW_nrtalk_sources_s37",
+        "sorting": 2,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "content": "<h3>AI layers and MCP servers</h3><ul><li><a href=\"https://github.com/b13/aim\">b13 AiM · TYPO3 AI layer</a></li><li><a href=\"https://docs.typo3.org/p/nitsan/ns-t3af/main/en-us/Index.html\">NITSAN / T3Planet · AI Foundation</a></li><li><a href=\"https://www.louis.info/leistungen/technologien/typo3-extensions/\">LOUIS INTERNET · LIA Middleware AI</a></li><li><a href=\"https://docs.typo3.org/p/madj2k/t3-ai-assistant/main/en-us/Introduction/ArchitectureOverview.html\">Madj2k AI Core + TYPO3 AI Assistant</a></li><li><a href=\"https://github.com/hauptsacheNet/typo3-mcp-server\">hauptsache.net · TYPO3 MCP Server</a></li><li><a href=\"https://github.com/marekskopal/typo3-mcp-server\">Marek Skopal · TYPO3 MCP Server</a></li><li><a href=\"https://github.com/autodudesde/ai-suite#mcp-server-optional-sub-extension\">AutoDudes · AI Suite MCP (add-on)</a></li></ul>",
+        "foreign_table_parent_uid": "@NEW_nrtalk_sources_s37",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "tt_content",
+      "action": "create",
+      "key": "NEW_nrtalk_sources_all_links",
+      "pid": "@NEW_nrtalk_page_sources",
+      "match": {
+        "pid": "@NEW_nrtalk_page_sources",
+        "rowDescription": "nrtalk:sources:all_links",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "CType": "desiderio_contentcolumns",
+        "colPos": 0,
+        "hidden": 0,
+        "sys_language_uid": 0,
+        "rowDescription": "nrtalk:sources:all_links",
+        "header": "More links from the slides",
+        "columns": "3"
+      },
+      "_collections": [
+        {
+          "field": "desiderio_contentcolumns_items",
+          "keys": [
+            "NEW_nrtalk_sources_all_links_0",
+            "NEW_nrtalk_sources_all_links_1",
+            "NEW_nrtalk_sources_all_links_2"
+          ]
+        }
+      ]
+    },
+    {
+      "table": "content_columns_items",
+      "action": "create",
+      "key": "NEW_nrtalk_sources_all_links_0",
+      "pid": "@NEW_nrtalk_page_sources",
+      "match": {
+        "pid": "@NEW_nrtalk_page_sources",
+        "foreign_table_parent_uid": "@NEW_nrtalk_sources_all_links",
+        "sorting": 1,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "content": "<h3>Netresearch demo backend (login required)</h3><ul><li><a href=\"https://typo3-demo.netresearch.de/typo3/record/edit?edit%5Btt_content%5D%5B30%5D=edit\">Open the editor</a> (slide 4)</li><li><a href=\"https://typo3-demo.netresearch.de/typo3/record/edit?edit%5Bpages%5D%5B9102%5D=edit\">Open page fields</a> (slide 4)</li><li><a href=\"https://typo3-demo.netresearch.de/typo3/module/web/nr-repurpose\">Open Repurpose</a> (slide 6)</li><li><a href=\"https://typo3-demo.netresearch.de/typo3/module/nr/mcp/agent/chat/conversation\">Open AI chat</a> (slide 7)</li><li><a href=\"https://typo3-demo.netresearch.de/extensions/browser-ai-form-assistant\">Form demo</a> (slide 9)</li><li><a href=\"https://typo3-demo.netresearch.de/typo3/module/nrllm/configurations\">Open configurations</a> (slide 15)</li><li><a href=\"https://typo3-demo.netresearch.de/typo3/module/nrllm/analytics\">Open cost overview</a> (slide 22)</li><li><a href=\"https://typo3-demo.netresearch.de/typo3/module/nrllm/tools\">Open tools</a> (slide 26)</li></ul>",
+        "foreign_table_parent_uid": "@NEW_nrtalk_sources_all_links",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "content_columns_items",
+      "action": "create",
+      "key": "NEW_nrtalk_sources_all_links_1",
+      "pid": "@NEW_nrtalk_page_sources",
+      "match": {
+        "pid": "@NEW_nrtalk_page_sources",
+        "foreign_table_parent_uid": "@NEW_nrtalk_sources_all_links",
+        "sorting": 2,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "content": "<h3>nr-llm documentation and source code</h3><ul><li><a href=\"https://github.com/netresearch/t3x-nr-llm/blob/5b6fca6de8d9593638486c0baca9424934bdc231/Documentation/Administration/Tasks.rst\">Tasks: input and configuration</a> (slide 16)</li><li><a href=\"https://github.com/netresearch/t3x-nr-llm/blob/5b6fca6de8d9593638486c0baca9424934bdc231/Classes/Service/Feature/CompletionService.php\">How it works and source evidence</a> (slide 39)</li><li><a href=\"https://github.com/netresearch/t3x-nr-llm/blob/5b6fca6de8d9593638486c0baca9424934bdc231/Documentation/Developer/QualityEvaluation.rst\">How it works and source evidence</a> (slide 40)</li><li><a href=\"https://github.com/netresearch/t3x-nr-llm/blob/5b6fca6de8d9593638486c0baca9424934bdc231/Documentation/Administration/Skills.rst\">How it works and source evidence</a> (slide 41)</li><li><a href=\"https://github.com/netresearch/t3x-nr-llm/blob/5b6fca6de8d9593638486c0baca9424934bdc231/Documentation/Administration/McpServers.rst\">How it works and source evidence</a> (slide 42)</li><li><a href=\"https://github.com/netresearch/t3x-nr-llm/blob/5b6fca6de8d9593638486c0baca9424934bdc231/Classes/Service/Tool/ToolLoopService.php\">How it works and source evidence</a> (slide 43)</li><li><a href=\"https://github.com/netresearch/t3x-nr-llm/blob/5b6fca6de8d9593638486c0baca9424934bdc231/Classes/Service/Feature/CompletionServiceInterface.php\">Interfaces and source evidence</a> (slide 44)</li><li><a href=\"https://github.com/netresearch/t3x-nr-llm/blob/5b6fca6de8d9593638486c0baca9424934bdc231/Classes/Service/Tool/Builtin/SiteRagQueryTool.php\">Interfaces and source evidence</a> (slide 45)</li><li><a href=\"https://github.com/netresearch/t3x-nr-llm/blob/5b6fca6de8d9593638486c0baca9424934bdc231/Classes/Provider/AbstractProvider.php\">Interfaces and source evidence</a> (slide 46)</li><li><a href=\"https://github.com/netresearch/t3x-nr-llm/blob/5b6fca6de8d9593638486c0baca9424934bdc231/Documentation/Administration/Models.rst\">Model choice and capabilities</a> (slide 47)</li><li><a href=\"https://github.com/netresearch/t3x-nr-llm/blob/5b6fca6de8d9593638486c0baca9424934bdc231/Classes/Provider/Middleware/FallbackMiddleware.php\">Fallback in the source code</a> (slide 47)</li><li><a href=\"https://github.com/netresearch/t3x-nr-llm/blob/5b6fca6de8d9593638486c0baca9424934bdc231/Classes/Service/Tool/ToolCallPolicy.php\">Tool permissions in the source code</a> (slide 48)</li><li><a href=\"https://github.com/netresearch/t3x-nr-llm/blob/5b6fca6de8d9593638486c0baca9424934bdc231/Documentation/Administration/Tools.rst\">Write permissions and approvals</a> (slide 48)</li><li><a href=\"https://github.com/netresearch/t3x-nr-llm/blob/5b6fca6de8d9593638486c0baca9424934bdc231/Documentation/Administration/AgentRuns.rst\">Run timeline and limits</a> (slide 49)</li><li><a href=\"https://github.com/netresearch/t3x-nr-llm/blob/5b6fca6de8d9593638486c0baca9424934bdc231/Documentation/Administration/DataRetention.rst\">Retention and deletion run</a> (slide 49)</li><li><a href=\"https://github.com/netresearch/t3x-nr-llm/blob/5b6fca6de8d9593638486c0baca9424934bdc231/Documentation/Administration/UserBudgets.rst\">Budgets and their limits</a> (slide 51)</li><li><a href=\"https://github.com/netresearch/t3x-nr-llm/blob/5b6fca6de8d9593638486c0baca9424934bdc231/Documentation/Api/DecisionService.rst\">DecisionService and integration</a> (slide 56)</li><li><a href=\"https://github.com/netresearch/t3x-nr-llm/blob/5b6fca6de8d9593638486c0baca9424934bdc231/Classes/Domain/Enum/TrustZone.php\">Zones and assignment</a> (slide 57)</li><li><a href=\"https://github.com/netresearch/t3x-nr-llm/blob/5b6fca6de8d9593638486c0baca9424934bdc231/Classes/Service/Tool/ToolDataClassResolver.php\">Tool classes</a> (slide 57)</li><li><a href=\"https://github.com/netresearch/t3x-nr-llm/blob/5b6fca6de8d9593638486c0baca9424934bdc231/Documentation/Adr/Adr149CriteriaModeZoneFromTheResolvedModel.rst\">Dynamic model selection</a> (slide 58)</li><li><a href=\"https://github.com/netresearch/t3x-nr-llm/blob/5b6fca6de8d9593638486c0baca9424934bdc231/Classes/Service/Tool/Mcp/McpToolProvider.php\">MCP classification</a> (slide 58)</li><li><a href=\"https://github.com/netresearch/t3x-nr-llm/blob/5b6fca6de8d9593638486c0baca9424934bdc231/Documentation/Administration/TermLists.rst\">Term lists and exceptions</a> (slide 60)</li><li><a href=\"https://github.com/netresearch/t3x-nr-llm/blob/5b6fca6de8d9593638486c0baca9424934bdc231/Documentation/Adr/Adr063ProviderResilience.rst\">Circuit breaker and fallback</a> (slide 61)</li><li><a href=\"https://github.com/netresearch/t3x-nr-llm/blob/5b6fca6de8d9593638486c0baca9424934bdc231/ext_conf_template.txt\">Defaults</a> (slide 61)</li><li><a href=\"https://github.com/netresearch/t3x-nr-llm/blob/5b6fca6de8d9593638486c0baca9424934bdc231/Documentation/Adr/Adr030SpecializedServicesVaultMigration.rst\">Credentials via nr-vault</a> (slide 62)</li><li><a href=\"https://github.com/netresearch/t3x-nr-llm/blob/5b6fca6de8d9593638486c0baca9424934bdc231/Documentation/Adr/Adr089GuardrailBoundaryCompleteness.rst\">Masking and limits</a> (slide 62)</li><li><a href=\"https://github.com/netresearch/t3x-nr-llm/blob/5b6fca6de8d9593638486c0baca9424934bdc231/Documentation/Adr/Adr202APublicWebPageThroughAnAddressGuard.rst\">Web tool and address check</a> (slide 63)</li><li><a href=\"https://github.com/netresearch/t3x-nr-llm/blob/5b6fca6de8d9593638486c0baca9424934bdc231/Documentation/Adr/Adr172FourEyesApprovalPerConfiguration.rst\">Four-eyes rule</a> (slide 64)</li><li><a href=\"https://github.com/netresearch/t3x-nr-llm/blob/5b6fca6de8d9593638486c0baca9424934bdc231/Documentation/Adr/Adr184ApprovalBindsToTheStateItShowed.rst\">Preview binding</a> (slide 64)</li><li><a href=\"https://github.com/netresearch/t3x-nr-llm/blob/5b6fca6de8d9593638486c0baca9424934bdc231/Documentation/Adr/Adr132ApprovalAuditAndTurnBinding.rst\">Call and audit</a> (slide 64)</li><li><a href=\"https://github.com/netresearch/t3x-nr-llm/blob/5b6fca6de8d9593638486c0baca9424934bdc231/Documentation/Api/ToolInvocationPolicy.rst\">Custom tool rules</a> (slide 65)</li></ul>",
+        "foreign_table_parent_uid": "@NEW_nrtalk_sources_all_links",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "content_columns_items",
+      "action": "create",
+      "key": "NEW_nrtalk_sources_all_links_2",
+      "pid": "@NEW_nrtalk_page_sources",
+      "match": {
+        "pid": "@NEW_nrtalk_page_sources",
+        "foreign_table_parent_uid": "@NEW_nrtalk_sources_all_links",
+        "sorting": 3,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "content": "<h3>Standards, repositories and examples</h3><ul><li><a href=\"https://github.com/netresearch/typo3-demo/blob/54656cc6a107af0f801c5cc1f51df300f9fc5eb4/data/seed-extensions.sql#L7933\">MCP example</a> (slide 9)</li><li><a href=\"https://netresearch.github.io/modularer-ki-stack-page/vortraege/mtug-2026-11-09/pruefbeispiel/index.html\">Executed schema example</a> (slide 20)</li><li><a href=\"https://github.com/lochmueller/index\">Indexing framework</a> (slide 55)</li><li><a href=\"https://github.com/lochmueller/seal_ai\">SEAL / Symfony AI</a> (slide 55)</li><li><a href=\"https://github.com/boehmmatthias/smart-search\">RAG building blocks</a> (slide 55)</li><li><a href=\"https://github.com/netresearch/t3x-nr-repurpose/tree/09bc94e4deae0870b76671647b15cddf94998fb5\">Repurpose 0.14.0 · reviewed state</a> (slide 59)</li><li><a href=\"https://github.com/netresearch/t3x-nr-repurpose/pull/205\">PR 205 · implementation</a> (slide 59)</li></ul>",
+        "foreign_table_parent_uid": "@NEW_nrtalk_sources_all_links",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "tt_content",
+      "action": "create",
+      "key": "NEW_nrtalk_sources_images",
+      "pid": "@NEW_nrtalk_page_sources",
+      "match": {
+        "pid": "@NEW_nrtalk_page_sources",
+        "rowDescription": "nrtalk:sources:images",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "CType": "desiderio_contenthighlight",
+        "colPos": 0,
+        "hidden": 0,
+        "sys_language_uid": 0,
+        "rowDescription": "nrtalk:sources:images",
+        "header": "About the screenshots",
+        "content": "<p>The screenshots on these pages were taken in this lab, from our own installation of the same Netresearch extensions. The original slides show Netresearch’s captures from its demo; their credits are in the slide repository.</p>",
+        "variant": "muted",
+        "alignment": "left",
+        "link": "https://github.com/netresearch/modularer-ki-stack-page/blob/main/talks/vorlage/QUELLEN.md#bildnachweise",
+        "link_text": "Image credits"
+      }
+    },
+    {
+      "table": "tt_content",
+      "action": "create",
+      "key": "NEW_nrtalk_sources_source",
+      "pid": "@NEW_nrtalk_page_sources",
+      "match": {
+        "pid": "@NEW_nrtalk_page_sources",
+        "rowDescription": "nrtalk:sources:source",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "CType": "desiderio_callout",
+        "colPos": 0,
+        "hidden": 0,
+        "sys_language_uid": 0,
+        "rowDescription": "nrtalk:sources:source",
+        "header": "Source",
+        "content": "<p>Sebastian Mendel, Netresearch DTT GmbH: “KI in TYPO3 – Probleme, Fragen und Anforderungen”, MTUG – TYPO3 User Group München, 9 November 2026, slides <a href=\"https://netresearch.github.io/modularer-ki-stack-page/vortraege/mtug-2026-11-09/#/36\">36</a> to <a href=\"https://netresearch.github.io/modularer-ki-stack-page/vortraege/mtug-2026-11-09/#/37\">37</a>. Translated into English by webconsulting.</p>",
+        "variant": "note"
+      }
+    },
+    {
+      "table": "tt_content",
+      "action": "create",
+      "key": "NEW_nrtalk_sources_pager",
+      "pid": "@NEW_nrtalk_page_sources",
+      "match": {
+        "pid": "@NEW_nrtalk_page_sources",
+        "rowDescription": "nrtalk:sources:pager",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "CType": "desiderio_ctasplit",
+        "colPos": 0,
+        "hidden": 0,
+        "sys_language_uid": 0,
+        "rowDescription": "nrtalk:sources:pager",
+        "left_title": "Technical details",
+        "left_description": "<p>The 27 backup slides for follow-up questions, by audience.</p>",
+        "left_button_text": "Previous page",
+        "left_button_link": "@NEW_nrtalk_page_technical",
+        "right_title": "Modular AI stack",
+        "right_description": "<p>The ten Netresearch modules, their limits and who decides.</p>",
+        "right_button_text": "Next part",
+        "right_button_link": "@NEW_nrtalk_page_stack"
+      }
+    }
+  ]
+}

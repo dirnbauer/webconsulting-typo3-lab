@@ -232,6 +232,15 @@ sites:
   # German demo content of the element library (library.de.json files).
   element-library-de: { root: -1, language: de, address: sie }
 
+# Faithful quotations of third-party text (a talk, a vendor page) whose wording
+# is not ours to shorten. Each file lists exact texts with the payload record
+# and field they stand in and the rule groups waived for them: `limits`
+# (length, words, sentence length) or `address` (the German form of address).
+# lint-copy and the audit report a warning instead of the error; facts, banned
+# words and spelling still apply. Paths are relative to this file.
+quoted_copy:
+  - netresearch-talk/quoted-copy.json
+
 # German forms of address that each setting rejects.
 address:
   sie: '\b(du|dich|dein|deine|deinen|deinem|deiner|deines|euch|euer|eure|euren|eurem|eurer)\b'

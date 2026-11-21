@@ -1,0 +1,1541 @@
+{
+  "version": 1,
+  "site": "desiderio",
+  "root": 505,
+  "language": 0,
+  "languageCode": "en",
+  "_note": "Netresearch talk “KI in TYPO3” (Sebastian Mendel, Netresearch DTT GmbH, MTUG München, 9 November 2026), English translation by webconsulting. Applied only through sitepackage:seed-netresearch-talk, which reads every *.payload.json of this folder in name order, resolves pid 0 (/ai), {{page:/slug}} tokens and {{labstatus:id}} cells, drops image files that do not exist yet and orders the elements by their nrtalk:* markers. Built from the structured talk files by the talk-author tool; edit here afterwards.",
+  "records": [
+    {
+      "table": "pages",
+      "action": "create",
+      "key": "NEW_nrtalk_page_technical",
+      "pid": "@NEW_nrtalk_page",
+      "match": {
+        "pid": "@NEW_nrtalk_page",
+        "slug": "/ai/netresearch-talk/technical-details",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "slug": "/ai/netresearch-talk/technical-details",
+        "hidden": 0,
+        "nav_hide": 0,
+        "sys_language_uid": 0,
+        "title": "Technical details: the backup slides",
+        "nav_title": "Technical details",
+        "description": "The backup slides of the Netresearch talk on nr-llm: schema checks, skills, MCP, permissions, data classes, budgets, fallback and approvals in detail.",
+        "abstract": "How nr-llm checks, limits and approves, slide by slide, for development, integration and decisions."
+      }
+    },
+    {
+      "table": "tt_content",
+      "action": "create",
+      "key": "NEW_nrtalk_technical_hero",
+      "pid": "@NEW_nrtalk_page_technical",
+      "match": {
+        "pid": "@NEW_nrtalk_page_technical",
+        "rowDescription": "nrtalk:technical:hero",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "CType": "desiderio_headerpage",
+        "colPos": 0,
+        "hidden": 0,
+        "sys_language_uid": 0,
+        "rowDescription": "nrtalk:technical:hero",
+        "eyebrow": "Backup slides",
+        "header": "Follow-up questions: open the matching explanation",
+        "subheadline": "Backup · by audience and question",
+        "variant": "left"
+      }
+    },
+    {
+      "table": "tt_content",
+      "action": "create",
+      "key": "NEW_nrtalk_technical_credit",
+      "pid": "@NEW_nrtalk_page_technical",
+      "match": {
+        "pid": "@NEW_nrtalk_page_technical",
+        "rowDescription": "nrtalk:technical:credit",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "CType": "desiderio_benefitcards",
+        "colPos": 0,
+        "hidden": 0,
+        "sys_language_uid": 0,
+        "rowDescription": "nrtalk:technical:credit",
+        "frame_class": "muted",
+        "eyebrow": "Original source",
+        "header": "AI in TYPO3: problems, questions and requirements",
+        "subheadline": "A talk by Sebastian Mendel, Netresearch DTT GmbH, at MTUG – TYPO3 User Group München on 9 November 2026. This page is our English translation of the German original.",
+        "columns": "2"
+      },
+      "_collections": [
+        {
+          "field": "desiderio_benefitcards_items",
+          "keys": [
+            "NEW_nrtalk_technical_credit_0",
+            "NEW_nrtalk_technical_credit_1",
+            "NEW_nrtalk_technical_credit_2",
+            "NEW_nrtalk_technical_credit_3"
+          ]
+        }
+      ]
+    },
+    {
+      "table": "desiderio_icon_card_link",
+      "action": "create",
+      "key": "NEW_nrtalk_technical_credit_0",
+      "pid": "@NEW_nrtalk_page_technical",
+      "match": {
+        "pid": "@NEW_nrtalk_page_technical",
+        "foreign_table_parent_uid": "@NEW_nrtalk_technical_credit",
+        "tablenames": "tt_content",
+        "fieldname": "desiderio_benefitcards_items",
+        "sorting": 1,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "icon": "monitor",
+        "title": "Original slides",
+        "description": "<p>The German slides as Netresearch published them, slide by slide.</p>",
+        "link": "https://netresearch.github.io/modularer-ki-stack-page/vortraege/mtug-2026-11-09/",
+        "foreign_table_parent_uid": "@NEW_nrtalk_technical_credit",
+        "tablenames": "tt_content",
+        "fieldname": "desiderio_benefitcards_items",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "desiderio_icon_card_link",
+      "action": "create",
+      "key": "NEW_nrtalk_technical_credit_1",
+      "pid": "@NEW_nrtalk_page_technical",
+      "match": {
+        "pid": "@NEW_nrtalk_page_technical",
+        "foreign_table_parent_uid": "@NEW_nrtalk_technical_credit",
+        "tablenames": "tt_content",
+        "fieldname": "desiderio_benefitcards_items",
+        "sorting": 2,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "icon": "file-text",
+        "title": "Slides as PDF",
+        "description": "<p>The complete deck to download and print.</p>",
+        "link": "https://netresearch.github.io/modularer-ki-stack-page/vortraege/mtug-2026-11-09/MTUG-KI-in-TYPO3.pdf",
+        "foreign_table_parent_uid": "@NEW_nrtalk_technical_credit",
+        "tablenames": "tt_content",
+        "fieldname": "desiderio_benefitcards_items",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "desiderio_icon_card_link",
+      "action": "create",
+      "key": "NEW_nrtalk_technical_credit_2",
+      "pid": "@NEW_nrtalk_page_technical",
+      "match": {
+        "pid": "@NEW_nrtalk_page_technical",
+        "foreign_table_parent_uid": "@NEW_nrtalk_technical_credit",
+        "tablenames": "tt_content",
+        "fieldname": "desiderio_benefitcards_items",
+        "sorting": 3,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "icon": "git-branch",
+        "title": "Slide repository",
+        "description": "<p>Netresearch’s source of the slides and of the stack page, on GitHub.</p>",
+        "link": "https://github.com/netresearch/modularer-ki-stack-page",
+        "foreign_table_parent_uid": "@NEW_nrtalk_technical_credit",
+        "tablenames": "tt_content",
+        "fieldname": "desiderio_benefitcards_items",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "desiderio_icon_card_link",
+      "action": "create",
+      "key": "NEW_nrtalk_technical_credit_3",
+      "pid": "@NEW_nrtalk_page_technical",
+      "match": {
+        "pid": "@NEW_nrtalk_page_technical",
+        "foreign_table_parent_uid": "@NEW_nrtalk_technical_credit",
+        "tablenames": "tt_content",
+        "fieldname": "desiderio_benefitcards_items",
+        "sorting": 4,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "icon": "layers",
+        "title": "Modular AI stack",
+        "description": "<p>Netresearch’s overview of the ten modules, with current releases and requirements.</p>",
+        "link": "https://netresearch.github.io/modularer-ki-stack-page/",
+        "foreign_table_parent_uid": "@NEW_nrtalk_technical_credit",
+        "tablenames": "tt_content",
+        "fieldname": "desiderio_benefitcards_items",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "tt_content",
+      "action": "create",
+      "key": "NEW_nrtalk_technical_toc",
+      "pid": "@NEW_nrtalk_page_technical",
+      "match": {
+        "pid": "@NEW_nrtalk_page_technical",
+        "rowDescription": "nrtalk:technical:toc",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "CType": "desiderio_navtoc",
+        "colPos": 0,
+        "hidden": 0,
+        "sys_language_uid": 0,
+        "rowDescription": "nrtalk:technical:toc",
+        "header": "Backup slides by audience"
+      },
+      "_collections": [
+        {
+          "field": "desiderio_navtoc_items",
+          "keys": [
+            "NEW_nrtalk_technical_toc_0",
+            "NEW_nrtalk_technical_toc_1",
+            "NEW_nrtalk_technical_toc_2",
+            "NEW_nrtalk_technical_toc_3",
+            "NEW_nrtalk_technical_toc_4",
+            "NEW_nrtalk_technical_toc_5",
+            "NEW_nrtalk_technical_toc_6",
+            "NEW_nrtalk_technical_toc_7",
+            "NEW_nrtalk_technical_toc_8",
+            "NEW_nrtalk_technical_toc_9",
+            "NEW_nrtalk_technical_toc_10",
+            "NEW_nrtalk_technical_toc_11",
+            "NEW_nrtalk_technical_toc_12",
+            "NEW_nrtalk_technical_toc_13",
+            "NEW_nrtalk_technical_toc_14",
+            "NEW_nrtalk_technical_toc_15",
+            "NEW_nrtalk_technical_toc_16",
+            "NEW_nrtalk_technical_toc_17",
+            "NEW_nrtalk_technical_toc_18",
+            "NEW_nrtalk_technical_toc_19",
+            "NEW_nrtalk_technical_toc_20",
+            "NEW_nrtalk_technical_toc_21",
+            "NEW_nrtalk_technical_toc_22",
+            "NEW_nrtalk_technical_toc_23",
+            "NEW_nrtalk_technical_toc_24",
+            "NEW_nrtalk_technical_toc_25",
+            "NEW_nrtalk_technical_toc_26",
+            "NEW_nrtalk_technical_toc_27",
+            "NEW_nrtalk_technical_toc_28",
+            "NEW_nrtalk_technical_toc_29"
+          ]
+        }
+      ]
+    },
+    {
+      "table": "nav_toc_items",
+      "action": "create",
+      "key": "NEW_nrtalk_technical_toc_0",
+      "pid": "@NEW_nrtalk_page_technical",
+      "match": {
+        "pid": "@NEW_nrtalk_page_technical",
+        "foreign_table_parent_uid": "@NEW_nrtalk_technical_toc",
+        "sorting": 1,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "label": "Development",
+        "anchor": "group-1",
+        "level": "h2",
+        "foreign_table_parent_uid": "@NEW_nrtalk_technical_toc",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "nav_toc_items",
+      "action": "create",
+      "key": "NEW_nrtalk_technical_toc_1",
+      "pid": "@NEW_nrtalk_page_technical",
+      "match": {
+        "pid": "@NEW_nrtalk_page_technical",
+        "foreign_table_parent_uid": "@NEW_nrtalk_technical_toc",
+        "sorting": 2,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "label": "Formal requirements",
+        "anchor": "group-1",
+        "level": "h3",
+        "foreign_table_parent_uid": "@NEW_nrtalk_technical_toc",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "nav_toc_items",
+      "action": "create",
+      "key": "NEW_nrtalk_technical_toc_2",
+      "pid": "@NEW_nrtalk_page_technical",
+      "match": {
+        "pid": "@NEW_nrtalk_page_technical",
+        "foreign_table_parent_uid": "@NEW_nrtalk_technical_toc",
+        "sorting": 3,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "label": "Source checking",
+        "anchor": "group-1",
+        "level": "h3",
+        "foreign_table_parent_uid": "@NEW_nrtalk_technical_toc",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "nav_toc_items",
+      "action": "create",
+      "key": "NEW_nrtalk_technical_toc_3",
+      "pid": "@NEW_nrtalk_page_technical",
+      "match": {
+        "pid": "@NEW_nrtalk_page_technical",
+        "foreign_table_parent_uid": "@NEW_nrtalk_technical_toc",
+        "sorting": 4,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "label": "Term lists",
+        "anchor": "group-1",
+        "level": "h3",
+        "foreign_table_parent_uid": "@NEW_nrtalk_technical_toc",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "nav_toc_items",
+      "action": "create",
+      "key": "NEW_nrtalk_technical_toc_4",
+      "pid": "@NEW_nrtalk_page_technical",
+      "match": {
+        "pid": "@NEW_nrtalk_page_technical",
+        "foreign_table_parent_uid": "@NEW_nrtalk_technical_toc",
+        "sorting": 5,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "label": "Including skills",
+        "anchor": "group-1",
+        "level": "h3",
+        "foreign_table_parent_uid": "@NEW_nrtalk_technical_toc",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "nav_toc_items",
+      "action": "create",
+      "key": "NEW_nrtalk_technical_toc_5",
+      "pid": "@NEW_nrtalk_page_technical",
+      "match": {
+        "pid": "@NEW_nrtalk_page_technical",
+        "foreign_table_parent_uid": "@NEW_nrtalk_technical_toc",
+        "sorting": 6,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "label": "Your own extension",
+        "anchor": "group-1",
+        "level": "h3",
+        "foreign_table_parent_uid": "@NEW_nrtalk_technical_toc",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "nav_toc_items",
+      "action": "create",
+      "key": "NEW_nrtalk_technical_toc_6",
+      "pid": "@NEW_nrtalk_page_technical",
+      "match": {
+        "pid": "@NEW_nrtalk_page_technical",
+        "foreign_table_parent_uid": "@NEW_nrtalk_technical_toc",
+        "sorting": 7,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "label": "Context and knowledge",
+        "anchor": "group-1",
+        "level": "h3",
+        "foreign_table_parent_uid": "@NEW_nrtalk_technical_toc",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "nav_toc_items",
+      "action": "create",
+      "key": "NEW_nrtalk_technical_toc_7",
+      "pid": "@NEW_nrtalk_page_technical",
+      "match": {
+        "pid": "@NEW_nrtalk_page_technical",
+        "foreign_table_parent_uid": "@NEW_nrtalk_technical_toc",
+        "sorting": 8,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "label": "Switching models",
+        "anchor": "group-1",
+        "level": "h3",
+        "foreign_table_parent_uid": "@NEW_nrtalk_technical_toc",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "nav_toc_items",
+      "action": "create",
+      "key": "NEW_nrtalk_technical_toc_8",
+      "pid": "@NEW_nrtalk_page_technical",
+      "match": {
+        "pid": "@NEW_nrtalk_page_technical",
+        "foreign_table_parent_uid": "@NEW_nrtalk_technical_toc",
+        "sorting": 9,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "label": "Search and RAG foundations",
+        "anchor": "group-1",
+        "level": "h3",
+        "foreign_table_parent_uid": "@NEW_nrtalk_technical_toc",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "nav_toc_items",
+      "action": "create",
+      "key": "NEW_nrtalk_technical_toc_9",
+      "pid": "@NEW_nrtalk_page_technical",
+      "match": {
+        "pid": "@NEW_nrtalk_page_technical",
+        "foreign_table_parent_uid": "@NEW_nrtalk_technical_toc",
+        "sorting": 10,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "label": "AI Search and Repurpose",
+        "anchor": "group-1",
+        "level": "h3",
+        "foreign_table_parent_uid": "@NEW_nrtalk_technical_toc",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "nav_toc_items",
+      "action": "create",
+      "key": "NEW_nrtalk_technical_toc_10",
+      "pid": "@NEW_nrtalk_page_technical",
+      "match": {
+        "pid": "@NEW_nrtalk_page_technical",
+        "foreign_table_parent_uid": "@NEW_nrtalk_technical_toc",
+        "sorting": 11,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "label": "Integration",
+        "anchor": "group-2",
+        "level": "h2",
+        "foreign_table_parent_uid": "@NEW_nrtalk_technical_toc",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "nav_toc_items",
+      "action": "create",
+      "key": "NEW_nrtalk_technical_toc_11",
+      "pid": "@NEW_nrtalk_page_technical",
+      "match": {
+        "pid": "@NEW_nrtalk_page_technical",
+        "foreign_table_parent_uid": "@NEW_nrtalk_technical_toc",
+        "sorting": 12,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "label": "Tools via MCP",
+        "anchor": "group-2",
+        "level": "h3",
+        "foreign_table_parent_uid": "@NEW_nrtalk_technical_toc",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "nav_toc_items",
+      "action": "create",
+      "key": "NEW_nrtalk_technical_toc_12",
+      "pid": "@NEW_nrtalk_page_technical",
+      "match": {
+        "pid": "@NEW_nrtalk_page_technical",
+        "foreign_table_parent_uid": "@NEW_nrtalk_technical_toc",
+        "sorting": 13,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "label": "Errors and context limits",
+        "anchor": "group-2",
+        "level": "h3",
+        "foreign_table_parent_uid": "@NEW_nrtalk_technical_toc",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "nav_toc_items",
+      "action": "create",
+      "key": "NEW_nrtalk_technical_toc_13",
+      "pid": "@NEW_nrtalk_page_technical",
+      "match": {
+        "pid": "@NEW_nrtalk_page_technical",
+        "foreign_table_parent_uid": "@NEW_nrtalk_technical_toc",
+        "sorting": 14,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "label": "Circuit breaker and fallback",
+        "anchor": "group-2",
+        "level": "h3",
+        "foreign_table_parent_uid": "@NEW_nrtalk_technical_toc",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "nav_toc_items",
+      "action": "create",
+      "key": "NEW_nrtalk_technical_toc_14",
+      "pid": "@NEW_nrtalk_page_technical",
+      "match": {
+        "pid": "@NEW_nrtalk_page_technical",
+        "foreign_table_parent_uid": "@NEW_nrtalk_technical_toc",
+        "sorting": 15,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "label": "Data classes",
+        "anchor": "group-2",
+        "level": "h3",
+        "foreign_table_parent_uid": "@NEW_nrtalk_technical_toc",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "nav_toc_items",
+      "action": "create",
+      "key": "NEW_nrtalk_technical_toc_15",
+      "pid": "@NEW_nrtalk_page_technical",
+      "match": {
+        "pid": "@NEW_nrtalk_page_technical",
+        "foreign_table_parent_uid": "@NEW_nrtalk_technical_toc",
+        "sorting": 16,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "label": "Limits of the data check",
+        "anchor": "group-2",
+        "level": "h3",
+        "foreign_table_parent_uid": "@NEW_nrtalk_technical_toc",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "nav_toc_items",
+      "action": "create",
+      "key": "NEW_nrtalk_technical_toc_16",
+      "pid": "@NEW_nrtalk_page_technical",
+      "match": {
+        "pid": "@NEW_nrtalk_page_technical",
+        "foreign_table_parent_uid": "@NEW_nrtalk_technical_toc",
+        "sorting": 17,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "label": "Masking and vault",
+        "anchor": "group-2",
+        "level": "h3",
+        "foreign_table_parent_uid": "@NEW_nrtalk_technical_toc",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "nav_toc_items",
+      "action": "create",
+      "key": "NEW_nrtalk_technical_toc_17",
+      "pid": "@NEW_nrtalk_page_technical",
+      "match": {
+        "pid": "@NEW_nrtalk_page_technical",
+        "foreign_table_parent_uid": "@NEW_nrtalk_technical_toc",
+        "sorting": 18,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "label": "Web tool",
+        "anchor": "group-2",
+        "level": "h3",
+        "foreign_table_parent_uid": "@NEW_nrtalk_technical_toc",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "nav_toc_items",
+      "action": "create",
+      "key": "NEW_nrtalk_technical_toc_18",
+      "pid": "@NEW_nrtalk_page_technical",
+      "match": {
+        "pid": "@NEW_nrtalk_page_technical",
+        "foreign_table_parent_uid": "@NEW_nrtalk_technical_toc",
+        "sorting": 19,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "label": "Logs and deletion periods",
+        "anchor": "group-2",
+        "level": "h3",
+        "foreign_table_parent_uid": "@NEW_nrtalk_technical_toc",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "nav_toc_items",
+      "action": "create",
+      "key": "NEW_nrtalk_technical_toc_19",
+      "pid": "@NEW_nrtalk_page_technical",
+      "match": {
+        "pid": "@NEW_nrtalk_page_technical",
+        "foreign_table_parent_uid": "@NEW_nrtalk_technical_toc",
+        "sorting": 20,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "label": "Comparing AI layers",
+        "anchor": "group-2",
+        "level": "h3",
+        "foreign_table_parent_uid": "@NEW_nrtalk_technical_toc",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "nav_toc_items",
+      "action": "create",
+      "key": "NEW_nrtalk_technical_toc_20",
+      "pid": "@NEW_nrtalk_page_technical",
+      "match": {
+        "pid": "@NEW_nrtalk_page_technical",
+        "foreign_table_parent_uid": "@NEW_nrtalk_technical_toc",
+        "sorting": 21,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "label": "Decision",
+        "anchor": "group-3",
+        "level": "h2",
+        "foreign_table_parent_uid": "@NEW_nrtalk_technical_toc",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "nav_toc_items",
+      "action": "create",
+      "key": "NEW_nrtalk_technical_toc_21",
+      "pid": "@NEW_nrtalk_page_technical",
+      "match": {
+        "pid": "@NEW_nrtalk_page_technical",
+        "foreign_table_parent_uid": "@NEW_nrtalk_technical_toc",
+        "sorting": 22,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "label": "Evaluating quality",
+        "anchor": "group-3",
+        "level": "h3",
+        "foreign_table_parent_uid": "@NEW_nrtalk_technical_toc",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "nav_toc_items",
+      "action": "create",
+      "key": "NEW_nrtalk_technical_toc_22",
+      "pid": "@NEW_nrtalk_page_technical",
+      "match": {
+        "pid": "@NEW_nrtalk_page_technical",
+        "foreign_table_parent_uid": "@NEW_nrtalk_technical_toc",
+        "sorting": 23,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "label": "Agent workflow",
+        "anchor": "group-3",
+        "level": "h3",
+        "foreign_table_parent_uid": "@NEW_nrtalk_technical_toc",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "nav_toc_items",
+      "action": "create",
+      "key": "NEW_nrtalk_technical_toc_23",
+      "pid": "@NEW_nrtalk_page_technical",
+      "match": {
+        "pid": "@NEW_nrtalk_page_technical",
+        "foreign_table_parent_uid": "@NEW_nrtalk_technical_toc",
+        "sorting": 24,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "label": "Tool permissions",
+        "anchor": "group-3",
+        "level": "h3",
+        "foreign_table_parent_uid": "@NEW_nrtalk_technical_toc",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "nav_toc_items",
+      "action": "create",
+      "key": "NEW_nrtalk_technical_toc_24",
+      "pid": "@NEW_nrtalk_page_technical",
+      "match": {
+        "pid": "@NEW_nrtalk_page_technical",
+        "foreign_table_parent_uid": "@NEW_nrtalk_technical_toc",
+        "sorting": 25,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "label": "Bound approvals",
+        "anchor": "group-3",
+        "level": "h3",
+        "foreign_table_parent_uid": "@NEW_nrtalk_technical_toc",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "nav_toc_items",
+      "action": "create",
+      "key": "NEW_nrtalk_technical_toc_25",
+      "pid": "@NEW_nrtalk_page_technical",
+      "match": {
+        "pid": "@NEW_nrtalk_page_technical",
+        "foreign_table_parent_uid": "@NEW_nrtalk_technical_toc",
+        "sorting": 26,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "label": "Custom rules",
+        "anchor": "group-3",
+        "level": "h3",
+        "foreign_table_parent_uid": "@NEW_nrtalk_technical_toc",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "nav_toc_items",
+      "action": "create",
+      "key": "NEW_nrtalk_technical_toc_26",
+      "pid": "@NEW_nrtalk_page_technical",
+      "match": {
+        "pid": "@NEW_nrtalk_page_technical",
+        "foreign_table_parent_uid": "@NEW_nrtalk_technical_toc",
+        "sorting": 27,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "label": "Benefit and effort",
+        "anchor": "group-3",
+        "level": "h3",
+        "foreign_table_parent_uid": "@NEW_nrtalk_technical_toc",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "nav_toc_items",
+      "action": "create",
+      "key": "NEW_nrtalk_technical_toc_27",
+      "pid": "@NEW_nrtalk_page_technical",
+      "match": {
+        "pid": "@NEW_nrtalk_page_technical",
+        "foreign_table_parent_uid": "@NEW_nrtalk_technical_toc",
+        "sorting": 28,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "label": "Costs and budgets",
+        "anchor": "group-3",
+        "level": "h3",
+        "foreign_table_parent_uid": "@NEW_nrtalk_technical_toc",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "nav_toc_items",
+      "action": "create",
+      "key": "NEW_nrtalk_technical_toc_28",
+      "pid": "@NEW_nrtalk_page_technical",
+      "match": {
+        "pid": "@NEW_nrtalk_page_technical",
+        "foreign_table_parent_uid": "@NEW_nrtalk_technical_toc",
+        "sorting": 29,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "label": "Going live",
+        "anchor": "group-3",
+        "level": "h3",
+        "foreign_table_parent_uid": "@NEW_nrtalk_technical_toc",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "nav_toc_items",
+      "action": "create",
+      "key": "NEW_nrtalk_technical_toc_29",
+      "pid": "@NEW_nrtalk_page_technical",
+      "match": {
+        "pid": "@NEW_nrtalk_page_technical",
+        "foreign_table_parent_uid": "@NEW_nrtalk_technical_toc",
+        "sorting": 30,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "label": "Comparing MCP servers",
+        "anchor": "group-3",
+        "level": "h3",
+        "foreign_table_parent_uid": "@NEW_nrtalk_technical_toc",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "tt_content",
+      "action": "create",
+      "key": "NEW_nrtalk_technical_group1",
+      "pid": "@NEW_nrtalk_page_technical",
+      "match": {
+        "pid": "@NEW_nrtalk_page_technical",
+        "rowDescription": "nrtalk:technical:group1",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "CType": "desiderio_accordion",
+        "colPos": 0,
+        "hidden": 0,
+        "sys_language_uid": 0,
+        "rowDescription": "nrtalk:technical:group1",
+        "tx_desiderio_anchor": "group-1",
+        "header": "Development",
+        "allow_multiple": 1
+      },
+      "_collections": [
+        {
+          "field": "desiderio_accordion_items",
+          "keys": [
+            "NEW_nrtalk_technical_group1_0",
+            "NEW_nrtalk_technical_group1_1",
+            "NEW_nrtalk_technical_group1_2",
+            "NEW_nrtalk_technical_group1_3",
+            "NEW_nrtalk_technical_group1_4",
+            "NEW_nrtalk_technical_group1_5",
+            "NEW_nrtalk_technical_group1_6",
+            "NEW_nrtalk_technical_group1_7",
+            "NEW_nrtalk_technical_group1_8"
+          ]
+        }
+      ]
+    },
+    {
+      "table": "accordion_items",
+      "action": "create",
+      "key": "NEW_nrtalk_technical_group1_0",
+      "pid": "@NEW_nrtalk_page_technical",
+      "match": {
+        "pid": "@NEW_nrtalk_page_technical",
+        "foreign_table_parent_uid": "@NEW_nrtalk_technical_group1",
+        "sorting": 1,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "title": "Formal requirements are checked by machine",
+        "content": "<p><em>Backup · Development · nr-llm v0.43.19</em></p><ol><li><strong>Define the schema</strong> Define required fields, data types, permitted values and lengths.</li><li><strong>Generate the answer</strong> The application passes the schema to completeStructured().</li><li><strong>Check locally</strong> nr-llm checks the answer against the supported schema.</li><li><strong>Only on errors</strong> One repair attempt; then a valid result or an error.</li></ol><p><strong>A valid format does not yet prove a correct statement.</strong></p><p>Test example: permitted status values and at most 160 characters for the description.</p><p><a href=\"https://netresearch.github.io/modularer-ki-stack-page/vortraege/mtug-2026-11-09/pruefbeispiel/index.html\">Executed test example</a> · <a href=\"https://github.com/netresearch/t3x-nr-llm/blob/5b6fca6de8d9593638486c0baca9424934bdc231/Classes/Service/Feature/CompletionService.php\">How it works and source evidence</a></p><p><a href=\"https://netresearch.github.io/modularer-ki-stack-page/vortraege/mtug-2026-11-09/#/39\">Original slide 39</a></p>",
+        "open_by_default": 0,
+        "foreign_table_parent_uid": "@NEW_nrtalk_technical_group1",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "accordion_items",
+      "action": "create",
+      "key": "NEW_nrtalk_technical_group1_1",
+      "pid": "@NEW_nrtalk_page_technical",
+      "match": {
+        "pid": "@NEW_nrtalk_page_technical",
+        "foreign_table_parent_uid": "@NEW_nrtalk_technical_group1",
+        "sorting": 2,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "title": "How does nr-llm check faithfulness to the source?",
+        "content": "<p><em>Backup · nr-llm 0.43.19 · checked on 6 Nov 2026</em></p><ol><li><strong>The application supplies</strong> Request, finished draft and original sources; plus concrete test questions.</li><li><strong>nr-llm assesses</strong> The DecisionService has a model assess the criteria and returns a structured result.</li><li><strong>The application decides</strong> Thresholds, revision and human approval remain part of the workflow.</li></ol><p><strong>Available as a general service since 0.39. A check result is not proof of truth either.</strong></p><p>Example: “Is 4 November supported by the source?” This assessment was not run in the schema example.</p><p><a href=\"https://github.com/netresearch/t3x-nr-llm/blob/5b6fca6de8d9593638486c0baca9424934bdc231/Documentation/Api/DecisionService.rst\">DecisionService and integration</a></p><p><a href=\"https://netresearch.github.io/modularer-ki-stack-page/vortraege/mtug-2026-11-09/#/56\">Original slide 56</a></p>",
+        "open_by_default": 0,
+        "foreign_table_parent_uid": "@NEW_nrtalk_technical_group1",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "accordion_items",
+      "action": "create",
+      "key": "NEW_nrtalk_technical_group1_2",
+      "pid": "@NEW_nrtalk_page_technical",
+      "match": {
+        "pid": "@NEW_nrtalk_page_technical",
+        "foreign_table_parent_uid": "@NEW_nrtalk_technical_group1",
+        "sorting": 3,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "title": "What can term lists check?",
+        "content": "<p><em>Backup · Quality · nr-llm 0.43.19</em></p><p><strong>Define the scope</strong><br>Assign lists to the desired configurations. Without an assignment this list does not check the call.</p><p><strong>Match terms</strong><br>Blocked terms must not occur. Required terms must be contained in suitable text answers.</p><p><strong>Stop the output</strong><br>A violation blocks the checked output. In an agent run, an affected write call is neither offered nor executed.</p><p>Limit: paraphrases are not detected. In an agent run, write arguments are checked; chat text and required words are excluded.</p><p>Example: “Rabatt*” also matches “Rabattaktion”. Required words do not apply to short texts under 30 words or to JSON.</p><p><a href=\"https://github.com/netresearch/t3x-nr-llm/blob/5b6fca6de8d9593638486c0baca9424934bdc231/Documentation/Administration/TermLists.rst\">Term lists and exceptions</a></p><p><a href=\"https://netresearch.github.io/modularer-ki-stack-page/vortraege/mtug-2026-11-09/#/60\">Original slide 60</a></p>",
+        "open_by_default": 0,
+        "foreign_table_parent_uid": "@NEW_nrtalk_technical_group1",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "accordion_items",
+      "action": "create",
+      "key": "NEW_nrtalk_technical_group1_3",
+      "pid": "@NEW_nrtalk_page_technical",
+      "match": {
+        "pid": "@NEW_nrtalk_page_technical",
+        "foreign_table_parent_uid": "@NEW_nrtalk_technical_group1",
+        "sorting": 4,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "title": "Skills are included as prompt context",
+        "content": "<p><em>Backup · Development · nr-llm v0.43.19</em></p><ol><li><strong>Load the source</strong> Maintain the skill in the backend or sync it from GitHub; pin the version.</li><li><strong>Approve the content</strong> Check version and origin; approve the skills you want.</li><li><strong>Assign to the task</strong> Assign skills, or load approved skills when needed.</li><li><strong>Insert the text</strong> Approved + trusted: system message. Unreviewed always-skills: user context.</li></ol><p><strong>Skill text supplies context. Associated scripts and files are neither executed nor loaded.</strong></p><p>Skills assigned on demand need approval; process skills need an explicit call.</p><p><a href=\"https://github.com/netresearch/t3x-nr-llm/blob/5b6fca6de8d9593638486c0baca9424934bdc231/Documentation/Administration/Skills.rst\">How it works and source evidence</a></p><p><a href=\"https://netresearch.github.io/modularer-ki-stack-page/vortraege/mtug-2026-11-09/#/41\">Original slide 41</a></p>",
+        "open_by_default": 0,
+        "foreign_table_parent_uid": "@NEW_nrtalk_technical_group1",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "accordion_items",
+      "action": "create",
+      "key": "NEW_nrtalk_technical_group1_4",
+      "pid": "@NEW_nrtalk_page_technical",
+      "match": {
+        "pid": "@NEW_nrtalk_page_technical",
+        "foreign_table_parent_uid": "@NEW_nrtalk_technical_group1",
+        "sorting": 5,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "title": "How does your own extension integrate nr-llm?",
+        "content": "<p><em>Developer questions · nr-llm v0.43.19</em></p><ol><li><strong>Inject the service</strong> Use the matching nr-llm interface via TYPO3 dependency injection.</li><li><strong>Prepare the call</strong> Determine inputs, permissions and the desired configuration.</li><li><strong>Request the result</strong> A direct feature service or a recurring task with a prompt template.</li><li><strong>Process the result</strong> Handle errors, check the output and implement the business approval.</li></ol><p><strong>nr-llm takes care of the model connection. The extension designs the business workflow.</strong></p><p>Example: completeForConfiguration($prompt, $configuration) returns a CompletionResponse.</p><p><a href=\"https://github.com/netresearch/t3x-nr-llm/blob/5b6fca6de8d9593638486c0baca9424934bdc231/Classes/Service/Feature/CompletionServiceInterface.php\">Interfaces and source evidence</a></p><p><a href=\"https://netresearch.github.io/modularer-ki-stack-page/vortraege/mtug-2026-11-09/#/44\">Original slide 44</a></p>",
+        "open_by_default": 0,
+        "foreign_table_parent_uid": "@NEW_nrtalk_technical_group1",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "accordion_items",
+      "action": "create",
+      "key": "NEW_nrtalk_technical_group1_5",
+      "pid": "@NEW_nrtalk_page_technical",
+      "match": {
+        "pid": "@NEW_nrtalk_page_technical",
+        "foreign_table_parent_uid": "@NEW_nrtalk_technical_group1",
+        "sorting": 6,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "title": "Where do context and knowledge come from?",
+        "content": "<p><em>Developer questions · nr-llm v0.43.19</em></p><p><strong>Passed in</strong><br>Prompt, current content and skill texts come from the application.</p><p><strong>Looked up</strong><br>Search tools return excerpts with sources from existing TYPO3 searches.</p><p><strong>Maintained separately</strong><br>Index updates and persistent vector search remain separate integration tasks.</p><p><strong>The model sees sources that were provided or retrieved – no automatic body of knowledge.</strong></p><p><a href=\"https://github.com/netresearch/t3x-nr-llm/blob/5b6fca6de8d9593638486c0baca9424934bdc231/Classes/Service/Tool/Builtin/SiteRagQueryTool.php\">Interfaces and source evidence</a></p><p><a href=\"https://netresearch.github.io/modularer-ki-stack-page/vortraege/mtug-2026-11-09/#/45\">Original slide 45</a></p>",
+        "open_by_default": 0,
+        "foreign_table_parent_uid": "@NEW_nrtalk_technical_group1",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "accordion_items",
+      "action": "create",
+      "key": "NEW_nrtalk_technical_group1_6",
+      "pid": "@NEW_nrtalk_page_technical",
+      "match": {
+        "pid": "@NEW_nrtalk_page_technical",
+        "foreign_table_parent_uid": "@NEW_nrtalk_technical_group1",
+        "sorting": 7,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "title": "Switching models needs a suitability test",
+        "content": "<p><em>Backup · Integration · nr-llm v0.43.19</em></p><p><strong>Switch the connection</strong><br>The application uses a named configuration. Model and provider can be changed behind it.</p><p><strong>Check suitability</strong><br>Check required capabilities, context size and parameters; re-test typical tasks.</p><p><strong>Try out the fallback</strong><br>Test fallback configurations for outages. Check the data destination, quality and cost of every fallback.</p><p><strong>A shared interface does not make models interchangeable on the merits.</strong></p><p><a href=\"https://github.com/netresearch/t3x-nr-llm/blob/5b6fca6de8d9593638486c0baca9424934bdc231/Documentation/Administration/Models.rst\">Model choice and capabilities</a> · <a href=\"https://github.com/netresearch/t3x-nr-llm/blob/5b6fca6de8d9593638486c0baca9424934bdc231/Classes/Provider/Middleware/FallbackMiddleware.php\">Fallback in the source code</a></p><p><a href=\"https://netresearch.github.io/modularer-ki-stack-page/vortraege/mtug-2026-11-09/#/47\">Original slide 47</a></p>",
+        "open_by_default": 0,
+        "foreign_table_parent_uid": "@NEW_nrtalk_technical_group1",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "accordion_items",
+      "action": "create",
+      "key": "NEW_nrtalk_technical_group1_7",
+      "pid": "@NEW_nrtalk_page_technical",
+      "match": {
+        "pid": "@NEW_nrtalk_page_technical",
+        "foreign_table_parent_uid": "@NEW_nrtalk_technical_group1",
+        "sorting": 8,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "title": "Which foundations exist for your own knowledge search?",
+        "content": "<p><em>Backup · Development · Search and RAG infrastructure</em></p><p><strong>EXT:index</strong><br>Indexing framework for TYPO3 content: preparation and hand-over via events or webhooks.</p><p><strong>SEAL + seal_ai</strong><br>Search abstraction, embeddings and vector store; optional read-only MCP search access. seal_ai: proof of concept.</p><p><strong>smart_search</strong><br>Services for vectors, semantic search and RAG in your own extensions. Marked as alpha.</p><p><strong>These building blocks take care of knowledge access. An AI layer on its own does not maintain a search index.</strong></p><p><a href=\"https://github.com/lochmueller/index\">Indexing framework</a> · <a href=\"https://github.com/lochmueller/seal_ai\">SEAL / Symfony AI</a> · <a href=\"https://github.com/boehmmatthias/smart-search\">RAG building blocks</a></p><p><a href=\"https://netresearch.github.io/modularer-ki-stack-page/vortraege/mtug-2026-11-09/#/55\">Original slide 55</a></p>",
+        "open_by_default": 0,
+        "foreign_table_parent_uid": "@NEW_nrtalk_technical_group1",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "accordion_items",
+      "action": "create",
+      "key": "NEW_nrtalk_technical_group1_8",
+      "pid": "@NEW_nrtalk_page_technical",
+      "match": {
+        "pid": "@NEW_nrtalk_page_technical",
+        "foreign_table_parent_uid": "@NEW_nrtalk_technical_group1",
+        "sorting": 9,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "title": "How do applications use source checking?",
+        "content": "<p><em>Backup · nr-llm 0.43.19 · checked on 6 Nov 2026</em></p><p><strong>AI Search</strong><br>An anti-hallucination check is documented. Which nr-llm service it calls internally is not verified here.</p><p><strong>Repurpose: checkpoints</strong><br>PR 205: check the briefing against the original. Then compare every finished format text against the original again.</p><p><strong>Repurpose: workflow</strong><br>Check after shortening, before audio and media production. Keep automatic assessment separate from editorial approval.</p><p><strong>“Not checked” and “check failed” must not look like a passed result.</strong></p><p>The released Repurpose 0.14.0 lacks the semantic source comparison. PR 205 implements it but has not yet been merged or released.</p><p><a href=\"https://github.com/netresearch/t3x-nr-repurpose/tree/09bc94e4deae0870b76671647b15cddf94998fb5\">Repurpose 0.14.0 · reviewed state</a> · <a href=\"https://github.com/netresearch/t3x-nr-repurpose/pull/205\">PR 205 · implementation</a></p><p><a href=\"https://netresearch.github.io/modularer-ki-stack-page/vortraege/mtug-2026-11-09/#/59\">Original slide 59</a></p>",
+        "open_by_default": 0,
+        "foreign_table_parent_uid": "@NEW_nrtalk_technical_group1",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "tt_content",
+      "action": "create",
+      "key": "NEW_nrtalk_technical_group2",
+      "pid": "@NEW_nrtalk_page_technical",
+      "match": {
+        "pid": "@NEW_nrtalk_page_technical",
+        "rowDescription": "nrtalk:technical:group2",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "CType": "desiderio_accordion",
+        "colPos": 0,
+        "hidden": 0,
+        "sys_language_uid": 0,
+        "rowDescription": "nrtalk:technical:group2",
+        "tx_desiderio_anchor": "group-2",
+        "header": "Integration",
+        "allow_multiple": 1
+      },
+      "_collections": [
+        {
+          "field": "desiderio_accordion_items",
+          "keys": [
+            "NEW_nrtalk_technical_group2_0",
+            "NEW_nrtalk_technical_group2_1",
+            "NEW_nrtalk_technical_group2_2",
+            "NEW_nrtalk_technical_group2_3",
+            "NEW_nrtalk_technical_group2_4",
+            "NEW_nrtalk_technical_group2_5",
+            "NEW_nrtalk_technical_group2_6",
+            "NEW_nrtalk_technical_group2_7",
+            "NEW_nrtalk_technical_group2_8"
+          ]
+        }
+      ]
+    },
+    {
+      "table": "accordion_items",
+      "action": "create",
+      "key": "NEW_nrtalk_technical_group2_0",
+      "pid": "@NEW_nrtalk_page_technical",
+      "match": {
+        "pid": "@NEW_nrtalk_page_technical",
+        "foreign_table_parent_uid": "@NEW_nrtalk_technical_group2",
+        "sorting": 1,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "title": "MCP connects the agent with tools",
+        "content": "<p><em>Backup · Integration · nr-llm v0.43.19</em></p><ol><li><strong>The model proposes</strong> Chooses an offered tool and formulates its arguments.</li><li><strong>nr-llm checks</strong> Backend administrators only; additional permissions and approvals limit the call.</li><li><strong>The MCP client calls</strong> Sends the tool call via HTTP to the external server.</li><li><strong>The result flows back</strong> Text result or error becomes context for the next model step.</li></ol><p><strong>In this workflow TYPO3 is the MCP client. The external server executes the tool.</strong></p><p>Beforehand: configure the server, import the tool catalogue and enable individual tools.</p><p><a href=\"https://github.com/netresearch/t3x-nr-llm/blob/5b6fca6de8d9593638486c0baca9424934bdc231/Documentation/Administration/McpServers.rst\">How it works and source evidence</a></p><p><a href=\"https://netresearch.github.io/modularer-ki-stack-page/vortraege/mtug-2026-11-09/#/42\">Original slide 42</a></p>",
+        "open_by_default": 0,
+        "foreign_table_parent_uid": "@NEW_nrtalk_technical_group2",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "accordion_items",
+      "action": "create",
+      "key": "NEW_nrtalk_technical_group2_1",
+      "pid": "@NEW_nrtalk_page_technical",
+      "match": {
+        "pid": "@NEW_nrtalk_page_technical",
+        "foreign_table_parent_uid": "@NEW_nrtalk_technical_group2",
+        "sorting": 2,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "title": "What happens with errors or excess context?",
+        "content": "<p><em>Developer questions · nr-llm v0.43.19</em></p><p><strong>Connection disrupted</strong><br>Retry a limited number of times; depending on the error, use a configured fallback connection.</p><p><strong>Access wrong</strong><br>Correct authentication and configuration; report the error to the application.</p><p><strong>Context too large</strong><br>Old chat rounds can be dropped. The application has to split a single prompt appropriately.</p><p><strong>The application needs an error path; retries and fallback do not solve every problem.</strong></p><p><a href=\"https://github.com/netresearch/t3x-nr-llm/blob/5b6fca6de8d9593638486c0baca9424934bdc231/Classes/Provider/AbstractProvider.php\">Interfaces and source evidence</a></p><p><a href=\"https://netresearch.github.io/modularer-ki-stack-page/vortraege/mtug-2026-11-09/#/46\">Original slide 46</a></p>",
+        "open_by_default": 0,
+        "foreign_table_parent_uid": "@NEW_nrtalk_technical_group2",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "accordion_items",
+      "action": "create",
+      "key": "NEW_nrtalk_technical_group2_2",
+      "pid": "@NEW_nrtalk_page_technical",
+      "match": {
+        "pid": "@NEW_nrtalk_page_technical",
+        "foreign_table_parent_uid": "@NEW_nrtalk_technical_group2",
+        "sorting": 3,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "title": "What happens when a provider fails?",
+        "content": "<p><em>Backup · Effort and operations · nr-llm 0.43.19</em></p><p><strong>Error pause</strong><br>The circuit breaker counts suitable provider errors. After the configured threshold, further calls abort quickly for a while.</p><p><strong>Fallback path</strong><br>A configured fallback tries another target on connection errors, overload, server errors or an open circuit breaker.</p><p><strong>Check recovery</strong><br>After the pause, one probe call is allowed. Success closes the block; another error opens it again.</p><p>Limit: no availability guarantee. Authentication and configuration errors do not trigger an automatic fallback.</p><p>Default: a 30-second pause after five matching errors. Fallback targets have to be set up.</p><p><a href=\"https://github.com/netresearch/t3x-nr-llm/blob/5b6fca6de8d9593638486c0baca9424934bdc231/Documentation/Adr/Adr063ProviderResilience.rst\">Circuit breaker and fallback</a> · <a href=\"https://github.com/netresearch/t3x-nr-llm/blob/5b6fca6de8d9593638486c0baca9424934bdc231/ext_conf_template.txt\">Defaults</a></p><p><a href=\"https://netresearch.github.io/modularer-ki-stack-page/vortraege/mtug-2026-11-09/#/61\">Original slide 61</a></p>",
+        "open_by_default": 0,
+        "foreign_table_parent_uid": "@NEW_nrtalk_technical_group2",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "accordion_items",
+      "action": "create",
+      "key": "NEW_nrtalk_technical_group2_3",
+      "pid": "@NEW_nrtalk_page_technical",
+      "match": {
+        "pid": "@NEW_nrtalk_page_technical",
+        "foreign_table_parent_uid": "@NEW_nrtalk_technical_group2",
+        "sorting": 4,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "title": "Which data may go to which provider?",
+        "content": "<p><em>Backup · nr-llm 0.43.19 · checked on 6 Nov 2026</em></p><table><thead><tr><th>Data class</th><th>Global external</th><th>EU external</th><th>Privately hosted</th><th>Local</th></tr></thead><tbody><tr><td>Public content</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td></tr><tr><td>Editorial content</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td></tr><tr><td>Source code</td><td>No</td><td>Yes</td><td>Yes</td><td>Yes</td></tr><tr><td>Internal configuration</td><td>No</td><td>Yes</td><td>Yes</td><td>Yes</td></tr><tr><td>Operational data / logs</td><td>No</td><td>No</td><td>Yes</td><td>Yes</td></tr><tr><td>Credential-related data</td><td>No</td><td>No</td><td>No</td><td>Yes</td></tr></tbody></table><p>The model name does not determine the zone. Local open-source code is classified the same way as confidential project code.</p><p>Fixed policy: read_source and search_code belong to the class sourceCode. With externalGlobal + enforce they are blocked even for admins.</p><p><a href=\"https://github.com/netresearch/t3x-nr-llm/blob/5b6fca6de8d9593638486c0baca9424934bdc231/Classes/Domain/Enum/TrustZone.php\">Zones and assignment</a> · <a href=\"https://github.com/netresearch/t3x-nr-llm/blob/5b6fca6de8d9593638486c0baca9424934bdc231/Classes/Service/Tool/ToolDataClassResolver.php\">Tool classes</a></p><p><a href=\"https://netresearch.github.io/modularer-ki-stack-page/vortraege/mtug-2026-11-09/#/57\">Original slide 57</a></p>",
+        "open_by_default": 0,
+        "foreign_table_parent_uid": "@NEW_nrtalk_technical_group2",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "accordion_items",
+      "action": "create",
+      "key": "NEW_nrtalk_technical_group2_4",
+      "pid": "@NEW_nrtalk_page_technical",
+      "match": {
+        "pid": "@NEW_nrtalk_page_technical",
+        "foreign_table_parent_uid": "@NEW_nrtalk_technical_group2",
+        "sorting": 5,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "title": "Where are the limits of the data check?",
+        "content": "<p><em>Backup · nr-llm 0.43.19 · checked on 6 Nov 2026</em></p><p><strong>Declaration</strong><br>Free text is not classified automatically. Wrong information about data class or provider zone is not detected from the content.</p><p><strong>Tools</strong><br>The tool's own declaration takes precedence over the group class; otherwise the strictest class applies. MCP takes over the server class and enforces it even in observe mode.</p><p><strong>Actual destination</strong><br>Fallbacks count too. With dynamic model selection, some call paths can choose separately for checking and sending.</p><p><strong>No MCP import without a valid data class. The policy detects neither sensitive content nor the actual data location.</strong></p><p>Paths with a passed ModelResolution, including the DecisionService, bind checking and sending to the same resolution.</p><p><a href=\"https://github.com/netresearch/t3x-nr-llm/blob/5b6fca6de8d9593638486c0baca9424934bdc231/Documentation/Adr/Adr149CriteriaModeZoneFromTheResolvedModel.rst\">Dynamic model selection</a> · <a href=\"https://github.com/netresearch/t3x-nr-llm/blob/5b6fca6de8d9593638486c0baca9424934bdc231/Classes/Service/Tool/Mcp/McpToolProvider.php\">MCP classification</a></p><p><a href=\"https://netresearch.github.io/modularer-ki-stack-page/vortraege/mtug-2026-11-09/#/58\">Original slide 58</a></p>",
+        "open_by_default": 0,
+        "foreign_table_parent_uid": "@NEW_nrtalk_technical_group2",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "accordion_items",
+      "action": "create",
+      "key": "NEW_nrtalk_technical_group2_5",
+      "pid": "@NEW_nrtalk_page_technical",
+      "match": {
+        "pid": "@NEW_nrtalk_page_technical",
+        "foreign_table_parent_uid": "@NEW_nrtalk_technical_group2",
+        "sorting": 6,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "title": "How are credentials protected?",
+        "content": "<p><em>Backup · Data and requirements · nr-llm 0.43.19</em></p><p><strong>Store in the vault</strong><br>Configured API credentials point to a secret in nr-vault. The configuration contains its identifier.</p><p><strong>Insert at call time</strong><br>The secure HTTP client inserts the credential for the service call. The key does not belong in the model instruction.</p><p><strong>Mask text</strong><br>nr-llm replaces recognisable secret patterns in prompt, response and thinking. This masking is mandatory.</p><p>Limit: only known patterns are detected. Tool arguments and embeddings are excluded; personal data is not detected in general.</p><p>Example: store the API key as a vault reference instead of copying it into the system prompt.</p><p><a href=\"https://github.com/netresearch/t3x-nr-llm/blob/5b6fca6de8d9593638486c0baca9424934bdc231/Documentation/Adr/Adr030SpecializedServicesVaultMigration.rst\">Credentials via nr-vault</a> · <a href=\"https://github.com/netresearch/t3x-nr-llm/blob/5b6fca6de8d9593638486c0baca9424934bdc231/Documentation/Adr/Adr089GuardrailBoundaryCompleteness.rst\">Masking and limits</a></p><p><a href=\"https://netresearch.github.io/modularer-ki-stack-page/vortraege/mtug-2026-11-09/#/62\">Original slide 62</a></p>",
+        "open_by_default": 0,
+        "foreign_table_parent_uid": "@NEW_nrtalk_technical_group2",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "accordion_items",
+      "action": "create",
+      "key": "NEW_nrtalk_technical_group2_6",
+      "pid": "@NEW_nrtalk_page_technical",
+      "match": {
+        "pid": "@NEW_nrtalk_page_technical",
+        "foreign_table_parent_uid": "@NEW_nrtalk_technical_group2",
+        "sorting": 7,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "title": "How does the agent read external web pages?",
+        "content": "<p><em>Backup · Data and requirements · nr-llm 0.43.19</em></p><p><strong>Enable deliberately</strong><br>The web tool is switched off initially. Once enabled, a call requires human consent by default.</p><p><strong>Check the address</strong><br>The start address and every redirect go through the address check. Private target addresses are rejected even when the host is allowed.</p><p><strong>Limit the text</strong><br>The tool returns limited text and marks it as untrusted material. It does not execute web page JavaScript.</p><p>Limit: URL parameters can also transmit data. Publicly reachable internal services need additional blocking rules; the protection applies to this tool.</p><p>Example: read a public product page; its redirect to a private network address is rejected.</p><p><a href=\"https://github.com/netresearch/t3x-nr-llm/blob/5b6fca6de8d9593638486c0baca9424934bdc231/Documentation/Adr/Adr202APublicWebPageThroughAnAddressGuard.rst\">Web tool and address check</a></p><p><a href=\"https://netresearch.github.io/modularer-ki-stack-page/vortraege/mtug-2026-11-09/#/63\">Original slide 63</a></p>",
+        "open_by_default": 0,
+        "foreign_table_parent_uid": "@NEW_nrtalk_technical_group2",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "accordion_items",
+      "action": "create",
+      "key": "NEW_nrtalk_technical_group2_7",
+      "pid": "@NEW_nrtalk_page_technical",
+      "match": {
+        "pid": "@NEW_nrtalk_page_technical",
+        "foreign_table_parent_uid": "@NEW_nrtalk_technical_group2",
+        "sorting": 8,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "title": "Operations need metrics and deletion routines",
+        "content": "<p><em>Backup · Integration · nr-llm v0.43.19</em></p><p><strong>Evaluate usage</strong><br>View requests, tokens and estimated costs by provider, model and user.</p><p><strong>Trace runs</strong><br>Check metadata on status, steps, model calls and decisions in the run timeline.</p><p><strong>Operate retention</strong><br>Choose storage scope and retention periods. Have the deletion run executed regularly.</p><p><strong>Costs are estimates. A deletion period only takes effect through a scheduled deletion run.</strong></p><p><a href=\"https://github.com/netresearch/t3x-nr-llm/blob/5b6fca6de8d9593638486c0baca9424934bdc231/Documentation/Administration/AgentRuns.rst\">Run timeline and limits</a> · <a href=\"https://github.com/netresearch/t3x-nr-llm/blob/5b6fca6de8d9593638486c0baca9424934bdc231/Documentation/Administration/DataRetention.rst\">Retention and deletion run</a></p><p><a href=\"https://netresearch.github.io/modularer-ki-stack-page/vortraege/mtug-2026-11-09/#/49\">Original slide 49</a></p>",
+        "open_by_default": 0,
+        "foreign_table_parent_uid": "@NEW_nrtalk_technical_group2",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "accordion_items",
+      "action": "create",
+      "key": "NEW_nrtalk_technical_group2_8",
+      "pid": "@NEW_nrtalk_page_technical",
+      "match": {
+        "pid": "@NEW_nrtalk_page_technical",
+        "foreign_table_parent_uid": "@NEW_nrtalk_technical_group2",
+        "sorting": 9,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "title": "Which shared AI layer suits the integration?",
+        "content": "<p><em>Backup · Shared services with different focuses</em></p><table><thead><tr><th>Foundation</th><th>Focus</th><th>Check for the selection</th></tr></thead><tbody><tr><td><a href=\"https://github.com/netresearch/t3x-nr-llm\">Netresearch nr-llm</a></td><td>Services, configurations, tasks and tools</td><td>Suitable API and rules for your own application</td></tr><tr><td><a href=\"https://github.com/b13/aim\">b13 AiM · Alpha</a></td><td>AI proxy, routing and rules; Symfony AI bridges</td><td>Required bridges and changes to the alpha API</td></tr><tr><td><a href=\"https://docs.typo3.org/p/nitsan/ns-t3af/main/en-us/DeveloperGuide/ExtensionIntegration/Index.html\">T3Planet AI Foundation</a></td><td>Service API, providers, prompts, context and MCP</td><td>Integration of your own extension and operating model</td></tr><tr><td><a href=\"https://www.louis.info/leistungen/technologien/typo3-extensions/\">LIA Middleware AI</a></td><td>Central AI connection for extensions and custom development</td><td>Commercial; clarify API and licence with the vendor</td></tr><tr><td><a href=\"https://docs.typo3.org/p/madj2k/t3-ai-assistant/main/en-us/Introduction/ArchitectureOverview.html\">Madj2k AI Core + AI Assistant</a></td><td>PHP core and TYPO3 integration for assistance, pipelines and RAG</td><td>Fit with your own search or assistance workflow</td></tr></tbody></table><p><strong>Compare on a concrete task: interface, data path, permissions, costs and maintenance.</strong></p><p><a href=\"https://netresearch.github.io/modularer-ki-stack-page/vortraege/mtug-2026-11-09/#/53\">Original slide 53</a></p>",
+        "open_by_default": 0,
+        "foreign_table_parent_uid": "@NEW_nrtalk_technical_group2",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "tt_content",
+      "action": "create",
+      "key": "NEW_nrtalk_technical_group3",
+      "pid": "@NEW_nrtalk_page_technical",
+      "match": {
+        "pid": "@NEW_nrtalk_page_technical",
+        "rowDescription": "nrtalk:technical:group3",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "CType": "desiderio_accordion",
+        "colPos": 0,
+        "hidden": 0,
+        "sys_language_uid": 0,
+        "rowDescription": "nrtalk:technical:group3",
+        "tx_desiderio_anchor": "group-3",
+        "header": "Decision",
+        "allow_multiple": 1
+      },
+      "_collections": [
+        {
+          "field": "desiderio_accordion_items",
+          "keys": [
+            "NEW_nrtalk_technical_group3_0",
+            "NEW_nrtalk_technical_group3_1",
+            "NEW_nrtalk_technical_group3_2",
+            "NEW_nrtalk_technical_group3_3",
+            "NEW_nrtalk_technical_group3_4",
+            "NEW_nrtalk_technical_group3_5",
+            "NEW_nrtalk_technical_group3_6",
+            "NEW_nrtalk_technical_group3_7",
+            "NEW_nrtalk_technical_group3_8"
+          ]
+        }
+      ]
+    },
+    {
+      "table": "accordion_items",
+      "action": "create",
+      "key": "NEW_nrtalk_technical_group3_0",
+      "pid": "@NEW_nrtalk_page_technical",
+      "match": {
+        "pid": "@NEW_nrtalk_page_technical",
+        "foreign_table_parent_uid": "@NEW_nrtalk_technical_group3",
+        "sorting": 1,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "title": "Quality is measured on example tasks",
+        "content": "<p><em>Backup · Decision · nr-llm v0.43.19</em></p><ol><li><strong>Define test cases</strong> Collect typical tasks, expected statements and reference answers.</li><li><strong>Assess answers</strong> Check fixed rules; optionally the DecisionGrader assesses via the DecisionService.</li><li><strong>Compare runs</strong> Pass rate and assessments make regressions visible.</li></ol><p><strong>Evaluations run separately. A check within the workflow has to be built in by the application as well.</strong></p><p>Example: does the answer contain the documented opening hours and the expected format?</p><p><a href=\"https://github.com/netresearch/t3x-nr-llm/blob/5b6fca6de8d9593638486c0baca9424934bdc231/Documentation/Developer/QualityEvaluation.rst\">How it works and source evidence</a></p><p><a href=\"https://netresearch.github.io/modularer-ki-stack-page/vortraege/mtug-2026-11-09/#/40\">Original slide 40</a></p>",
+        "open_by_default": 0,
+        "foreign_table_parent_uid": "@NEW_nrtalk_technical_group3",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "accordion_items",
+      "action": "create",
+      "key": "NEW_nrtalk_technical_group3_1",
+      "pid": "@NEW_nrtalk_page_technical",
+      "match": {
+        "pid": "@NEW_nrtalk_page_technical",
+        "foreign_table_parent_uid": "@NEW_nrtalk_technical_group3",
+        "sorting": 2,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "title": "An agent works in a bounded loop",
+        "content": "<p><em>Backup · Development · nr-llm v0.43.19</em></p><ol><li><strong>Request</strong> Assemble goal, configuration, skills and permitted tools.</li><li><strong>Model</strong> Answers directly or proposes a tool call.</li><li><strong>Approval</strong> For calls that require approval, pause and wait for the decision.</li><li><strong>Tool</strong> Execute the permitted call and add the result to the history.</li><li><strong>Next round</strong> The model receives the result and decides the next step.</li></ol><p><strong>The model proposes steps; nr-llm controls execution, pauses and limits.</strong></p><p>↶ The tool result goes back to the model's decision – until there is an answer or a limit is reached.</p><p><a href=\"https://github.com/netresearch/t3x-nr-llm/blob/5b6fca6de8d9593638486c0baca9424934bdc231/Classes/Service/Tool/ToolLoopService.php\">How it works and source evidence</a></p><p><a href=\"https://netresearch.github.io/modularer-ki-stack-page/vortraege/mtug-2026-11-09/#/43\">Original slide 43</a></p>",
+        "open_by_default": 0,
+        "foreign_table_parent_uid": "@NEW_nrtalk_technical_group3",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "accordion_items",
+      "action": "create",
+      "key": "NEW_nrtalk_technical_group3_2",
+      "pid": "@NEW_nrtalk_page_technical",
+      "match": {
+        "pid": "@NEW_nrtalk_page_technical",
+        "foreign_table_parent_uid": "@NEW_nrtalk_technical_group3",
+        "sorting": 3,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "title": "Tool access needs several approvals",
+        "content": "<p><em>Backup · Integration · nr-llm v0.43.19</em></p><ol><li><strong>Enable the tool</strong> Enable the group and the individual tool centrally.</li><li><strong>Limit the task</strong> Limit groups per configuration and run; exclude individual tools.</li><li><strong>Check user permissions</strong> Per tool: check admin requirement or specific TYPO3 permissions.</li><li><strong>Confirm the change</strong> For the built-in writing tools, approve the planned change in advance.</li></ol><p><strong>A consent replaces neither user permissions nor tool and data limits.</strong></p><p>Data class and provider zone apply in addition: read_source is blocked with externalGlobal + enforce.</p><p><a href=\"https://github.com/netresearch/t3x-nr-llm/blob/5b6fca6de8d9593638486c0baca9424934bdc231/Classes/Service/Tool/ToolCallPolicy.php\">Tool permissions in the source code</a> · <a href=\"https://github.com/netresearch/t3x-nr-llm/blob/5b6fca6de8d9593638486c0baca9424934bdc231/Documentation/Administration/Tools.rst\">Write permissions and approvals</a></p><p><a href=\"https://netresearch.github.io/modularer-ki-stack-page/vortraege/mtug-2026-11-09/#/48\">Original slide 48</a></p>",
+        "open_by_default": 0,
+        "foreign_table_parent_uid": "@NEW_nrtalk_technical_group3",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "accordion_items",
+      "action": "create",
+      "key": "NEW_nrtalk_technical_group3_3",
+      "pid": "@NEW_nrtalk_page_technical",
+      "match": {
+        "pid": "@NEW_nrtalk_page_technical",
+        "foreign_table_parent_uid": "@NEW_nrtalk_technical_group3",
+        "sorting": 4,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "title": "What is a write approval bound to?",
+        "content": "<p><em>Backup · Control and responsibility · nr-llm 0.43.19</em></p><p><strong>A different person</strong><br>With the four-eyes rule enabled, the triggering backend user may not approve themselves. This also applies to administrators.</p><p><strong>Reviewed state</strong><br>The approval must match the pending calls. A preview that has changed in the meantime requires a new decision.</p><p><strong>Stored evidence</strong><br>Before a write step, the approval event must be stored. If that fails, the approved step is not executed.</p><p>Limit: four-eyes applies to backend users. State binding requires a successful tool preview; approval does not replace a review on the merits.</p><p>Example: a displayed original value changes during approval. The agent waits again with a new preview.</p><p><a href=\"https://github.com/netresearch/t3x-nr-llm/blob/5b6fca6de8d9593638486c0baca9424934bdc231/Documentation/Adr/Adr172FourEyesApprovalPerConfiguration.rst\">Four-eyes rule</a> · <a href=\"https://github.com/netresearch/t3x-nr-llm/blob/5b6fca6de8d9593638486c0baca9424934bdc231/Documentation/Adr/Adr184ApprovalBindsToTheStateItShowed.rst\">Preview binding</a> · <a href=\"https://github.com/netresearch/t3x-nr-llm/blob/5b6fca6de8d9593638486c0baca9424934bdc231/Documentation/Adr/Adr132ApprovalAuditAndTurnBinding.rst\">Call and audit</a></p><p><a href=\"https://netresearch.github.io/modularer-ki-stack-page/vortraege/mtug-2026-11-09/#/64\">Original slide 64</a></p>",
+        "open_by_default": 0,
+        "foreign_table_parent_uid": "@NEW_nrtalk_technical_group3",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "accordion_items",
+      "action": "create",
+      "key": "NEW_nrtalk_technical_group3_4",
+      "pid": "@NEW_nrtalk_page_technical",
+      "match": {
+        "pid": "@NEW_nrtalk_page_technical",
+        "foreign_table_parent_uid": "@NEW_nrtalk_technical_group3",
+        "sorting": 5,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "title": "How does the project add custom tool rules?",
+        "content": "<p><em>Backup · Control and responsibility · nr-llm 0.43.19</em></p><ol><li><strong>Develop the rule</strong> The application implements its own business condition through the interface for tool rules.</li><li><strong>Check before execution</strong> The rule assesses final arguments, acting user and target. It checks again even after human approval.</li><li><strong>Apply the decision</strong> A rejecting rule prevents the call. Errors in a rule also lead to rejection.</li></ol><p>Limit: without a custom rule there is no additional business check. The rule must explicitly reject required but missing target information.</p><p>Project example: this automation may only change records in the approved page area.</p><p><a href=\"https://github.com/netresearch/t3x-nr-llm/blob/5b6fca6de8d9593638486c0baca9424934bdc231/Documentation/Api/ToolInvocationPolicy.rst\">Custom tool rules</a></p><p><a href=\"https://netresearch.github.io/modularer-ki-stack-page/vortraege/mtug-2026-11-09/#/65\">Original slide 65</a></p>",
+        "open_by_default": 0,
+        "foreign_table_parent_uid": "@NEW_nrtalk_technical_group3",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "accordion_items",
+      "action": "create",
+      "key": "NEW_nrtalk_technical_group3_5",
+      "pid": "@NEW_nrtalk_page_technical",
+      "match": {
+        "pid": "@NEW_nrtalk_page_technical",
+        "foreign_table_parent_uid": "@NEW_nrtalk_technical_group3",
+        "sorting": 6,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "title": "When is a shared AI foundation worth it?",
+        "content": "<p><em>Decision · Criteria for a pilot</em></p><p><strong>Recurring work</strong><br>A concrete task comes up regularly. Content and workflow already live in TYPO3.</p><p><strong>Shared control</strong><br>Several applications need the same providers, models, budgets or approval rules.</p><p><strong>Measurable benefit</strong><br>In the pilot, compare time including rework, result quality and running costs with the previous workflow.</p><p><strong>Introduce it when the measured benefit justifies integration and operations.</strong></p><p><a href=\"https://netresearch.github.io/modularer-ki-stack-page/\">Compare modules and requirements</a></p><p><a href=\"https://netresearch.github.io/modularer-ki-stack-page/vortraege/mtug-2026-11-09/#/50\">Original slide 50</a></p>",
+        "open_by_default": 0,
+        "foreign_table_parent_uid": "@NEW_nrtalk_technical_group3",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "accordion_items",
+      "action": "create",
+      "key": "NEW_nrtalk_technical_group3_6",
+      "pid": "@NEW_nrtalk_page_technical",
+      "match": {
+        "pid": "@NEW_nrtalk_page_technical",
+        "foreign_table_parent_uid": "@NEW_nrtalk_technical_group3",
+        "sorting": 7,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "title": "How do we limit costs?",
+        "content": "<p><em>Decision · nr-llm v0.43.19 · checked features</em></p><p><strong>Before the call</strong><br>nr-llm checks configured user and configuration limits. Planned costs that are passed in are included in the check.</p><p><strong>After the call</strong><br>nr-llm records the reported usage. Estimated costs come from the response or the model prices.</p><p><strong>Add in operations</strong><br>Reconcile prices and the provider's invoice. For a hard cost limit, also plan a reservation or a block.</p><p><strong>Parallel calls can exceed the budget. The advance check does not guarantee a hard cost limit.</strong></p><p><a href=\"https://github.com/netresearch/t3x-nr-llm/blob/5b6fca6de8d9593638486c0baca9424934bdc231/Documentation/Administration/UserBudgets.rst\">Budgets and their limits</a></p><p><a href=\"https://netresearch.github.io/modularer-ki-stack-page/vortraege/mtug-2026-11-09/#/51\">Original slide 51</a></p>",
+        "open_by_default": 0,
+        "foreign_table_parent_uid": "@NEW_nrtalk_technical_group3",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "accordion_items",
+      "action": "create",
+      "key": "NEW_nrtalk_technical_group3_7",
+      "pid": "@NEW_nrtalk_page_technical",
+      "match": {
+        "pid": "@NEW_nrtalk_page_technical",
+        "foreign_table_parent_uid": "@NEW_nrtalk_technical_group3",
+        "sorting": 8,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "title": "What must be settled before productive use?",
+        "content": "<p><em>Decision · Recommendation for introduction</em></p><p><strong>Data flow</strong><br>Which data goes where? Define provider, region and retention for the model, fallback path and tools.</p><p><strong>Permissions and approval</strong><br>Who may read, write and publish? Name the responsible person and the approval step per workflow.</p><p><strong>Quality</strong><br>Test typical tasks and critical errors. Define in advance which results people must review.</p><p><strong>Operations</strong><br>Assign responsibility for costs, logs and updates. Define shutdown and procedure in case of outage.</p><p><strong>Go live once data paths, approvals, quality standard and operational responsibility are settled.</strong></p><p><a href=\"https://netresearch.github.io/modularer-ki-stack-page/\">Data flows and responsibility at a glance</a></p><p><a href=\"https://netresearch.github.io/modularer-ki-stack-page/vortraege/mtug-2026-11-09/#/52\">Original slide 52</a></p>",
+        "open_by_default": 0,
+        "foreign_table_parent_uid": "@NEW_nrtalk_technical_group3",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "accordion_items",
+      "action": "create",
+      "key": "NEW_nrtalk_technical_group3_8",
+      "pid": "@NEW_nrtalk_page_technical",
+      "match": {
+        "pid": "@NEW_nrtalk_page_technical",
+        "foreign_table_parent_uid": "@NEW_nrtalk_technical_group3",
+        "sorting": 9,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "title": "MCP servers: which access to TYPO3?",
+        "content": "<p><em>Backup · Integration · publicly reviewed project sources</em></p><p><strong>hauptsache.net</strong><br>Standalone server.<br>Edit records via workspaces; add your own PHP tools.</p><p><strong>Marek Skopal</strong><br>Standalone server.<br>Direct management as the main mode; workspaces optional and TCA tools extensible.</p><p><strong>AutoDudes MCP</strong><br>Add-on to the AI Suite.<br>Offers TYPO3 content and selected AI features through the suite's services and permissions.</p><p><strong>MCP gives assistants tool access. AI connection, permissions and approvals remain separate decisions.</strong></p><p><a href=\"https://github.com/hauptsacheNet/typo3-mcp-server\">hauptsache.net · MCP server</a> · <a href=\"https://github.com/marekskopal/typo3-mcp-server\">Marek Skopal · MCP server</a></p><p><a href=\"https://netresearch.github.io/modularer-ki-stack-page/vortraege/mtug-2026-11-09/#/54\">Original slide 54</a></p>",
+        "open_by_default": 0,
+        "foreign_table_parent_uid": "@NEW_nrtalk_technical_group3",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "tt_content",
+      "action": "create",
+      "key": "NEW_nrtalk_technical_source",
+      "pid": "@NEW_nrtalk_page_technical",
+      "match": {
+        "pid": "@NEW_nrtalk_page_technical",
+        "rowDescription": "nrtalk:technical:source",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "CType": "desiderio_callout",
+        "colPos": 0,
+        "hidden": 0,
+        "sys_language_uid": 0,
+        "rowDescription": "nrtalk:technical:source",
+        "header": "Source",
+        "content": "<p>Sebastian Mendel, Netresearch DTT GmbH: “KI in TYPO3 – Probleme, Fragen und Anforderungen”, MTUG – TYPO3 User Group München, 9 November 2026, slides <a href=\"https://netresearch.github.io/modularer-ki-stack-page/vortraege/mtug-2026-11-09/#/38\">38</a> to <a href=\"https://netresearch.github.io/modularer-ki-stack-page/vortraege/mtug-2026-11-09/#/65\">65</a>. Translated into English by webconsulting.</p>",
+        "variant": "note"
+      }
+    },
+    {
+      "table": "tt_content",
+      "action": "create",
+      "key": "NEW_nrtalk_technical_pager",
+      "pid": "@NEW_nrtalk_page_technical",
+      "match": {
+        "pid": "@NEW_nrtalk_page_technical",
+        "rowDescription": "nrtalk:technical:pager",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "CType": "desiderio_ctasplit",
+        "colPos": 0,
+        "hidden": 0,
+        "sys_language_uid": 0,
+        "rowDescription": "nrtalk:technical:pager",
+        "left_title": "Context & discussion",
+        "left_description": "<p>Context: other foundations and discussion</p>",
+        "left_button_text": "Previous part",
+        "left_button_link": "@NEW_nrtalk_page_context",
+        "right_title": "Sources and links",
+        "right_description": "<p>The demos, applications and sources the talk links.</p>",
+        "right_button_text": "Next page",
+        "right_button_link": "@NEW_nrtalk_page_sources"
+      }
+    }
+  ]
+}

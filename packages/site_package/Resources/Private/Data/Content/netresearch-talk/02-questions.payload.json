@@ -1,0 +1,427 @@
+{
+  "version": 1,
+  "site": "desiderio",
+  "root": 505,
+  "language": 0,
+  "languageCode": "en",
+  "_note": "Netresearch talk “KI in TYPO3” (Sebastian Mendel, Netresearch DTT GmbH, MTUG München, 9 November 2026), English translation by webconsulting. Applied only through sitepackage:seed-netresearch-talk, which reads every *.payload.json of this folder in name order, resolves pid 0 (/ai), {{page:/slug}} tokens and {{labstatus:id}} cells, drops image files that do not exist yet and orders the elements by their nrtalk:* markers. Built from the structured talk files by the talk-author tool; edit here afterwards.",
+  "records": [
+    {
+      "table": "pages",
+      "action": "create",
+      "key": "NEW_nrtalk_page_questions",
+      "pid": "@NEW_nrtalk_page",
+      "match": {
+        "pid": "@NEW_nrtalk_page",
+        "slug": "/ai/netresearch-talk/questions-before-you-start",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "slug": "/ai/netresearch-talk/questions-before-you-start",
+        "hidden": 0,
+        "nav_hide": 0,
+        "sys_language_uid": 0,
+        "title": "Questions about using AI",
+        "nav_title": "Questions about using AI",
+        "description": "Part 2 of the Netresearch talk: what to clarify before using AI in your own TYPO3, in four fields: quality, effort, data and responsibility.",
+        "abstract": "The questions to settle before AI runs in your own TYPO3."
+      }
+    },
+    {
+      "table": "tt_content",
+      "action": "create",
+      "key": "NEW_nrtalk_questions_hero",
+      "pid": "@NEW_nrtalk_page_questions",
+      "match": {
+        "pid": "@NEW_nrtalk_page_questions",
+        "rowDescription": "nrtalk:questions:hero",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "CType": "desiderio_headerpage",
+        "colPos": 0,
+        "hidden": 0,
+        "sys_language_uid": 0,
+        "rowDescription": "nrtalk:questions:hero",
+        "eyebrow": "Talk, part 2",
+        "header": "Questions about using AI",
+        "subheadline": "Questions about using AI: quality, effort, data and responsibility",
+        "variant": "left"
+      }
+    },
+    {
+      "table": "tt_content",
+      "action": "create",
+      "key": "NEW_nrtalk_questions_credit",
+      "pid": "@NEW_nrtalk_page_questions",
+      "match": {
+        "pid": "@NEW_nrtalk_page_questions",
+        "rowDescription": "nrtalk:questions:credit",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "CType": "desiderio_benefitcards",
+        "colPos": 0,
+        "hidden": 0,
+        "sys_language_uid": 0,
+        "rowDescription": "nrtalk:questions:credit",
+        "frame_class": "muted",
+        "eyebrow": "Original source",
+        "header": "AI in TYPO3: problems, questions and requirements",
+        "subheadline": "A talk by Sebastian Mendel, Netresearch DTT GmbH, at MTUG – TYPO3 User Group München on 9 November 2026. This page is our English translation of the German original.",
+        "columns": "2"
+      },
+      "_collections": [
+        {
+          "field": "desiderio_benefitcards_items",
+          "keys": [
+            "NEW_nrtalk_questions_credit_0",
+            "NEW_nrtalk_questions_credit_1",
+            "NEW_nrtalk_questions_credit_2",
+            "NEW_nrtalk_questions_credit_3"
+          ]
+        }
+      ]
+    },
+    {
+      "table": "desiderio_icon_card_link",
+      "action": "create",
+      "key": "NEW_nrtalk_questions_credit_0",
+      "pid": "@NEW_nrtalk_page_questions",
+      "match": {
+        "pid": "@NEW_nrtalk_page_questions",
+        "foreign_table_parent_uid": "@NEW_nrtalk_questions_credit",
+        "tablenames": "tt_content",
+        "fieldname": "desiderio_benefitcards_items",
+        "sorting": 1,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "icon": "monitor",
+        "title": "Original slides",
+        "description": "<p>The German slides as Netresearch published them, slide by slide.</p>",
+        "link": "https://netresearch.github.io/modularer-ki-stack-page/vortraege/mtug-2026-11-09/",
+        "foreign_table_parent_uid": "@NEW_nrtalk_questions_credit",
+        "tablenames": "tt_content",
+        "fieldname": "desiderio_benefitcards_items",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "desiderio_icon_card_link",
+      "action": "create",
+      "key": "NEW_nrtalk_questions_credit_1",
+      "pid": "@NEW_nrtalk_page_questions",
+      "match": {
+        "pid": "@NEW_nrtalk_page_questions",
+        "foreign_table_parent_uid": "@NEW_nrtalk_questions_credit",
+        "tablenames": "tt_content",
+        "fieldname": "desiderio_benefitcards_items",
+        "sorting": 2,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "icon": "file-text",
+        "title": "Slides as PDF",
+        "description": "<p>The complete deck to download and print.</p>",
+        "link": "https://netresearch.github.io/modularer-ki-stack-page/vortraege/mtug-2026-11-09/MTUG-KI-in-TYPO3.pdf",
+        "foreign_table_parent_uid": "@NEW_nrtalk_questions_credit",
+        "tablenames": "tt_content",
+        "fieldname": "desiderio_benefitcards_items",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "desiderio_icon_card_link",
+      "action": "create",
+      "key": "NEW_nrtalk_questions_credit_2",
+      "pid": "@NEW_nrtalk_page_questions",
+      "match": {
+        "pid": "@NEW_nrtalk_page_questions",
+        "foreign_table_parent_uid": "@NEW_nrtalk_questions_credit",
+        "tablenames": "tt_content",
+        "fieldname": "desiderio_benefitcards_items",
+        "sorting": 3,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "icon": "git-branch",
+        "title": "Slide repository",
+        "description": "<p>Netresearch’s source of the slides and of the stack page, on GitHub.</p>",
+        "link": "https://github.com/netresearch/modularer-ki-stack-page",
+        "foreign_table_parent_uid": "@NEW_nrtalk_questions_credit",
+        "tablenames": "tt_content",
+        "fieldname": "desiderio_benefitcards_items",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "desiderio_icon_card_link",
+      "action": "create",
+      "key": "NEW_nrtalk_questions_credit_3",
+      "pid": "@NEW_nrtalk_page_questions",
+      "match": {
+        "pid": "@NEW_nrtalk_page_questions",
+        "foreign_table_parent_uid": "@NEW_nrtalk_questions_credit",
+        "tablenames": "tt_content",
+        "fieldname": "desiderio_benefitcards_items",
+        "sorting": 4,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "icon": "layers",
+        "title": "Modular AI stack",
+        "description": "<p>Netresearch’s overview of the ten modules, with current releases and requirements.</p>",
+        "link": "https://netresearch.github.io/modularer-ki-stack-page/",
+        "foreign_table_parent_uid": "@NEW_nrtalk_questions_credit",
+        "tablenames": "tt_content",
+        "fieldname": "desiderio_benefitcards_items",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "tt_content",
+      "action": "create",
+      "key": "NEW_nrtalk_questions_s11",
+      "pid": "@NEW_nrtalk_page_questions",
+      "match": {
+        "pid": "@NEW_nrtalk_page_questions",
+        "rowDescription": "nrtalk:questions:s11",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "CType": "desiderio_featurenumbered",
+        "colPos": 0,
+        "hidden": 0,
+        "sys_language_uid": 0,
+        "rowDescription": "nrtalk:questions:s11",
+        "header": "What would we need to clarify before using it in our own TYPO3?",
+        "subheadline": "Questions about using AI"
+      },
+      "_collections": [
+        {
+          "field": "desiderio_featurenumbered_items",
+          "keys": [
+            "NEW_nrtalk_questions_s11_0",
+            "NEW_nrtalk_questions_s11_1"
+          ]
+        }
+      ]
+    },
+    {
+      "table": "feature_numbered_items",
+      "action": "create",
+      "key": "NEW_nrtalk_questions_s11_0",
+      "pid": "@NEW_nrtalk_page_questions",
+      "match": {
+        "pid": "@NEW_nrtalk_page_questions",
+        "foreign_table_parent_uid": "@NEW_nrtalk_questions_s11",
+        "sorting": 1,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "title": "From the examples just shown",
+        "foreign_table_parent_uid": "@NEW_nrtalk_questions_s11",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "feature_numbered_items",
+      "action": "create",
+      "key": "NEW_nrtalk_questions_s11_1",
+      "pid": "@NEW_nrtalk_page_questions",
+      "match": {
+        "pid": "@NEW_nrtalk_page_questions",
+        "foreign_table_parent_uid": "@NEW_nrtalk_questions_s11",
+        "sorting": 2,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "title": "From your own projects so far",
+        "foreign_table_parent_uid": "@NEW_nrtalk_questions_s11",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "tt_content",
+      "action": "create",
+      "key": "NEW_nrtalk_questions_s12",
+      "pid": "@NEW_nrtalk_page_questions",
+      "match": {
+        "pid": "@NEW_nrtalk_page_questions",
+        "rowDescription": "nrtalk:questions:s12",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "CType": "desiderio_benefitcards",
+        "colPos": 0,
+        "hidden": 0,
+        "sys_language_uid": 0,
+        "rowDescription": "nrtalk:questions:s12",
+        "header": "Four fields for our questions",
+        "subheadline": "Four fields for the discussion",
+        "columns": "2"
+      },
+      "_collections": [
+        {
+          "field": "desiderio_benefitcards_items",
+          "keys": [
+            "NEW_nrtalk_questions_s12_0",
+            "NEW_nrtalk_questions_s12_1",
+            "NEW_nrtalk_questions_s12_2",
+            "NEW_nrtalk_questions_s12_3"
+          ]
+        }
+      ]
+    },
+    {
+      "table": "desiderio_icon_card_link",
+      "action": "create",
+      "key": "NEW_nrtalk_questions_s12_0",
+      "pid": "@NEW_nrtalk_page_questions",
+      "match": {
+        "pid": "@NEW_nrtalk_page_questions",
+        "foreign_table_parent_uid": "@NEW_nrtalk_questions_s12",
+        "tablenames": "tt_content",
+        "fieldname": "desiderio_benefitcards_items",
+        "sorting": 1,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "icon": "badge-check",
+        "title": "Quality",
+        "description": "<p>Which errors can be detected automatically? What do people have to check?</p>",
+        "foreign_table_parent_uid": "@NEW_nrtalk_questions_s12",
+        "tablenames": "tt_content",
+        "fieldname": "desiderio_benefitcards_items",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "desiderio_icon_card_link",
+      "action": "create",
+      "key": "NEW_nrtalk_questions_s12_1",
+      "pid": "@NEW_nrtalk_page_questions",
+      "match": {
+        "pid": "@NEW_nrtalk_page_questions",
+        "foreign_table_parent_uid": "@NEW_nrtalk_questions_s12",
+        "tablenames": "tt_content",
+        "fieldname": "desiderio_benefitcards_items",
+        "sorting": 2,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "icon": "settings",
+        "title": "Effort and operations",
+        "description": "<p>What do we have to integrate and run? What does it cost?</p>",
+        "foreign_table_parent_uid": "@NEW_nrtalk_questions_s12",
+        "tablenames": "tt_content",
+        "fieldname": "desiderio_benefitcards_items",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "desiderio_icon_card_link",
+      "action": "create",
+      "key": "NEW_nrtalk_questions_s12_2",
+      "pid": "@NEW_nrtalk_page_questions",
+      "match": {
+        "pid": "@NEW_nrtalk_page_questions",
+        "foreign_table_parent_uid": "@NEW_nrtalk_questions_s12",
+        "tablenames": "tt_content",
+        "fieldname": "desiderio_benefitcards_items",
+        "sorting": 3,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "icon": "database",
+        "title": "Data and requirements",
+        "description": "<p>Which content may go where? Which legal and operational requirements apply?</p>",
+        "foreign_table_parent_uid": "@NEW_nrtalk_questions_s12",
+        "tablenames": "tt_content",
+        "fieldname": "desiderio_benefitcards_items",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "desiderio_icon_card_link",
+      "action": "create",
+      "key": "NEW_nrtalk_questions_s12_3",
+      "pid": "@NEW_nrtalk_page_questions",
+      "match": {
+        "pid": "@NEW_nrtalk_page_questions",
+        "foreign_table_parent_uid": "@NEW_nrtalk_questions_s12",
+        "tablenames": "tt_content",
+        "fieldname": "desiderio_benefitcards_items",
+        "sorting": 4,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "icon": "user-check",
+        "title": "Control and responsibility",
+        "description": "<p>Who may change things, who approves and who is responsible for the result?</p>",
+        "foreign_table_parent_uid": "@NEW_nrtalk_questions_s12",
+        "tablenames": "tt_content",
+        "fieldname": "desiderio_benefitcards_items",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "tt_content",
+      "action": "create",
+      "key": "NEW_nrtalk_questions_source",
+      "pid": "@NEW_nrtalk_page_questions",
+      "match": {
+        "pid": "@NEW_nrtalk_page_questions",
+        "rowDescription": "nrtalk:questions:source",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "CType": "desiderio_callout",
+        "colPos": 0,
+        "hidden": 0,
+        "sys_language_uid": 0,
+        "rowDescription": "nrtalk:questions:source",
+        "header": "Source",
+        "content": "<p>Sebastian Mendel, Netresearch DTT GmbH: “KI in TYPO3 – Probleme, Fragen und Anforderungen”, MTUG – TYPO3 User Group München, 9 November 2026, slides <a href=\"https://netresearch.github.io/modularer-ki-stack-page/vortraege/mtug-2026-11-09/#/10\">10</a> to <a href=\"https://netresearch.github.io/modularer-ki-stack-page/vortraege/mtug-2026-11-09/#/12\">12</a>. Translated into English by webconsulting.</p>",
+        "variant": "note"
+      }
+    },
+    {
+      "table": "tt_content",
+      "action": "create",
+      "key": "NEW_nrtalk_questions_pager",
+      "pid": "@NEW_nrtalk_page_questions",
+      "match": {
+        "pid": "@NEW_nrtalk_page_questions",
+        "rowDescription": "nrtalk:questions:pager",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "CType": "desiderio_ctasplit",
+        "colPos": 0,
+        "hidden": 0,
+        "sys_language_uid": 0,
+        "rowDescription": "nrtalk:questions:pager",
+        "left_title": "Possibilities",
+        "left_description": "<p>Possibilities: experience five applications</p>",
+        "left_button_text": "Previous part",
+        "left_button_link": "@NEW_nrtalk_page_possibilities",
+        "right_title": "Answers and limits",
+        "right_description": "<p>Answers and limits: using nr-llm as the example</p>",
+        "right_button_text": "Next part",
+        "right_button_link": "@NEW_nrtalk_page_answers"
+      }
+    }
+  ]
+}

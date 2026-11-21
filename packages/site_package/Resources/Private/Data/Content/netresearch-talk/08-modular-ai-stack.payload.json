@@ -1,0 +1,3396 @@
+{
+  "version": 1,
+  "site": "desiderio",
+  "root": 505,
+  "language": 0,
+  "languageCode": "en",
+  "_note": "Netresearch talk “KI in TYPO3” (Sebastian Mendel, Netresearch DTT GmbH, MTUG München, 9 November 2026), English translation by webconsulting. Applied only through sitepackage:seed-netresearch-talk, which reads every *.payload.json of this folder in name order, resolves pid 0 (/ai), {{page:/slug}} tokens and {{labstatus:id}} cells, drops image files that do not exist yet and orders the elements by their nrtalk:* markers. Built from the structured talk files by the talk-author tool; edit here afterwards.",
+  "records": [
+    {
+      "table": "pages",
+      "action": "create",
+      "key": "NEW_nrtalk_page_stack",
+      "pid": "@NEW_nrtalk_page",
+      "match": {
+        "pid": "@NEW_nrtalk_page",
+        "slug": "/ai/netresearch-talk/modular-ai-stack",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "slug": "/ai/netresearch-talk/modular-ai-stack",
+        "hidden": 0,
+        "nav_hide": 0,
+        "sys_language_uid": 0,
+        "title": "The modular AI stack by Netresearch",
+        "nav_title": "Modular AI stack",
+        "description": "Netresearch’s ten open-source modules for AI in TYPO3: role, maturity, requirements, dependencies and limits, and which ones run in this lab.",
+        "abstract": "Ten modules from Netresearch for AI in TYPO3, with their limits and owners."
+      }
+    },
+    {
+      "table": "tt_content",
+      "action": "create",
+      "key": "NEW_nrtalk_stack_hero",
+      "pid": "@NEW_nrtalk_page_stack",
+      "match": {
+        "pid": "@NEW_nrtalk_page_stack",
+        "rowDescription": "nrtalk:stack:hero",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "CType": "desiderio_headerpage",
+        "colPos": 0,
+        "hidden": 0,
+        "sys_language_uid": 0,
+        "rowDescription": "nrtalk:stack:hero",
+        "eyebrow": "Netresearch modules",
+        "header": "A modular AI stack for TYPO3",
+        "subheadline": "Introduce AI in TYPO3. Keep control of models, costs and access.",
+        "variant": "left"
+      }
+    },
+    {
+      "table": "tt_content",
+      "action": "create",
+      "key": "NEW_nrtalk_stack_credit",
+      "pid": "@NEW_nrtalk_page_stack",
+      "match": {
+        "pid": "@NEW_nrtalk_page_stack",
+        "rowDescription": "nrtalk:stack:credit",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "CType": "desiderio_benefitcards",
+        "colPos": 0,
+        "hidden": 0,
+        "sys_language_uid": 0,
+        "rowDescription": "nrtalk:stack:credit",
+        "frame_class": "muted",
+        "eyebrow": "Original source",
+        "header": "AI in TYPO3: problems, questions and requirements",
+        "subheadline": "A talk by Sebastian Mendel, Netresearch DTT GmbH, at MTUG – TYPO3 User Group München on 9 November 2026. The texts below come from Netresearch’s stack page, in Netresearch’s own English; the “In this lab” column is ours.",
+        "columns": "2"
+      },
+      "_collections": [
+        {
+          "field": "desiderio_benefitcards_items",
+          "keys": [
+            "NEW_nrtalk_stack_credit_0",
+            "NEW_nrtalk_stack_credit_1",
+            "NEW_nrtalk_stack_credit_2",
+            "NEW_nrtalk_stack_credit_3"
+          ]
+        }
+      ]
+    },
+    {
+      "table": "desiderio_icon_card_link",
+      "action": "create",
+      "key": "NEW_nrtalk_stack_credit_0",
+      "pid": "@NEW_nrtalk_page_stack",
+      "match": {
+        "pid": "@NEW_nrtalk_page_stack",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_credit",
+        "tablenames": "tt_content",
+        "fieldname": "desiderio_benefitcards_items",
+        "sorting": 1,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "icon": "monitor",
+        "title": "Original slides",
+        "description": "<p>The German slides as Netresearch published them, slide by slide.</p>",
+        "link": "https://netresearch.github.io/modularer-ki-stack-page/vortraege/mtug-2026-11-09/",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_credit",
+        "tablenames": "tt_content",
+        "fieldname": "desiderio_benefitcards_items",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "desiderio_icon_card_link",
+      "action": "create",
+      "key": "NEW_nrtalk_stack_credit_1",
+      "pid": "@NEW_nrtalk_page_stack",
+      "match": {
+        "pid": "@NEW_nrtalk_page_stack",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_credit",
+        "tablenames": "tt_content",
+        "fieldname": "desiderio_benefitcards_items",
+        "sorting": 2,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "icon": "file-text",
+        "title": "Slides as PDF",
+        "description": "<p>The complete deck to download and print.</p>",
+        "link": "https://netresearch.github.io/modularer-ki-stack-page/vortraege/mtug-2026-11-09/MTUG-KI-in-TYPO3.pdf",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_credit",
+        "tablenames": "tt_content",
+        "fieldname": "desiderio_benefitcards_items",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "desiderio_icon_card_link",
+      "action": "create",
+      "key": "NEW_nrtalk_stack_credit_2",
+      "pid": "@NEW_nrtalk_page_stack",
+      "match": {
+        "pid": "@NEW_nrtalk_page_stack",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_credit",
+        "tablenames": "tt_content",
+        "fieldname": "desiderio_benefitcards_items",
+        "sorting": 3,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "icon": "git-branch",
+        "title": "Slide repository",
+        "description": "<p>Netresearch’s source of the slides and of the stack page, on GitHub.</p>",
+        "link": "https://github.com/netresearch/modularer-ki-stack-page",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_credit",
+        "tablenames": "tt_content",
+        "fieldname": "desiderio_benefitcards_items",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "desiderio_icon_card_link",
+      "action": "create",
+      "key": "NEW_nrtalk_stack_credit_3",
+      "pid": "@NEW_nrtalk_page_stack",
+      "match": {
+        "pid": "@NEW_nrtalk_page_stack",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_credit",
+        "tablenames": "tt_content",
+        "fieldname": "desiderio_benefitcards_items",
+        "sorting": 4,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "icon": "layers",
+        "title": "Modular AI stack",
+        "description": "<p>Netresearch’s overview of the ten modules, with current releases and requirements.</p>",
+        "link": "https://netresearch.github.io/modularer-ki-stack-page/",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_credit",
+        "tablenames": "tt_content",
+        "fieldname": "desiderio_benefitcards_items",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "tt_content",
+      "action": "create",
+      "key": "NEW_nrtalk_stack_intro",
+      "pid": "@NEW_nrtalk_page_stack",
+      "match": {
+        "pid": "@NEW_nrtalk_page_stack",
+        "rowDescription": "nrtalk:stack:intro",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "CType": "desiderio_contenthighlight",
+        "colPos": 0,
+        "hidden": 0,
+        "sys_language_uid": 0,
+        "rowDescription": "nrtalk:stack:intro",
+        "header": "What to know before starting",
+        "content": "<p>Connect language models centrally, support your editors and add the functions you need. Ten open-source components can be combined to suit your use case. The independent browser assistant answers questions about the current page.</p><p><strong>Work with your existing TYPO3.</strong> The server-side AI foundation supports TYPO3 13.4 and 14.3. nr-repurpose requires TYPO3 14.3 and PHP 8.3.</p><p><strong>Start with a small scope.</strong> nr-llm with nr-vault for a shared provider connection. Passkeys and a backend agent are additional choices.</p><p><strong>Check maturity per module.</strong> From stable tools to alpha: status, release and evidence are listed in the comparison.</p>",
+        "variant": "muted",
+        "alignment": "left"
+      }
+    },
+    {
+      "table": "tt_content",
+      "action": "create",
+      "key": "NEW_nrtalk_stack_tasks",
+      "pid": "@NEW_nrtalk_page_stack",
+      "match": {
+        "pid": "@NEW_nrtalk_page_stack",
+        "rowDescription": "nrtalk:stack:tasks",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "CType": "desiderio_accordion",
+        "colPos": 0,
+        "hidden": 0,
+        "sys_language_uid": 0,
+        "rowDescription": "nrtalk:stack:tasks",
+        "header": "Which task do you want to address?",
+        "allow_multiple": 1
+      },
+      "_collections": [
+        {
+          "field": "desiderio_accordion_items",
+          "keys": [
+            "NEW_nrtalk_stack_tasks_0",
+            "NEW_nrtalk_stack_tasks_1",
+            "NEW_nrtalk_stack_tasks_2",
+            "NEW_nrtalk_stack_tasks_3"
+          ]
+        }
+      ]
+    },
+    {
+      "table": "accordion_items",
+      "action": "create",
+      "key": "NEW_nrtalk_stack_tasks_0",
+      "pid": "@NEW_nrtalk_page_stack",
+      "match": {
+        "pid": "@NEW_nrtalk_page_stack",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_tasks",
+        "sorting": 1,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "title": "Protect access, secrets and HTTP destinations",
+        "content": "<p>Credential management, optional passkeys and controlled outbound HTTP requests.</p><p>nr-vault manages API keys with envelope encryption. Passkeys add passwordless sign-in. nr-http-guard checks outbound HTTP destinations on the registered TYPO3 RequestFactory path and bound guard clients.</p><p><strong>Separate sign-in, permissions and HTTP protection</strong> Passkeys authenticate people; TYPO3 permissions define their access. Passkeys are optional for the AI foundation, but nr-passkeys-fe requires nr-passkeys-be. HTTP Guard does not automatically protect Vault: its optional adapter integration is needed. Independent SDK/Guzzle clients and direct cURL/socket calls are outside the protected path.</p>",
+        "open_by_default": 1,
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_tasks",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "accordion_items",
+      "action": "create",
+      "key": "NEW_nrtalk_stack_tasks_1",
+      "pid": "@NEW_nrtalk_page_stack",
+      "match": {
+        "pid": "@NEW_nrtalk_page_stack",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_tasks",
+        "sorting": 2,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "title": "Connect language models centrally",
+        "content": "<p>Manage providers, models, budgets and server-side usage.</p><p>nr-llm connects consuming extensions to configured language models. nr-mcp-agent adds a backend assistant and is at alpha maturity.</p><p><strong>The server-side path</strong> nr-llm requires nr-vault. The backend agent is optional. Built-in writing tools require approval. TYPO3 administrators set the approval requirement for remote MCP tools per server.</p>",
+        "open_by_default": 0,
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_tasks",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "accordion_items",
+      "action": "create",
+      "key": "NEW_nrtalk_stack_tasks_2",
+      "pid": "@NEW_nrtalk_page_stack",
+      "match": {
+        "pid": "@NEW_nrtalk_page_stack",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_tasks",
+        "sorting": 3,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "title": "Create editorial content",
+        "content": "<p>Write in the editor, repurpose sources and prepare landing pages.</p><p>cowriter assists writing in CKEditor. nr-repurpose turns existing sources into further formats. nr-landingpage guides the creation of a landing page.</p><p><strong>Check requirements before selecting</strong> nr-repurpose requires TYPO3 14.3 and PHP 8.3. Models must support the functions you need. Review drafts and sources before publication.</p>",
+        "open_by_default": 0,
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_tasks",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "accordion_items",
+      "action": "create",
+      "key": "NEW_nrtalk_stack_tasks_3",
+      "pid": "@NEW_nrtalk_page_stack",
+      "match": {
+        "pid": "@NEW_nrtalk_page_stack",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_tasks",
+        "sorting": 4,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "title": "Add channel publication",
+        "content": "<p>A separate integration to plan and verify.</p><p>No ready-made social publishing integration verified against the current stack is offered here.</p><p><strong>This integration boundary is open</strong> Older examples such as rx-scheduled-social, t3socials and pb_social are not recommendations for TYPO3 13.4/14.3. Importing a feed does not provide outbound publication.</p>",
+        "open_by_default": 0,
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_tasks",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "tt_content",
+      "action": "create",
+      "key": "NEW_nrtalk_stack_browser",
+      "pid": "@NEW_nrtalk_page_stack",
+      "match": {
+        "pid": "@NEW_nrtalk_page_stack",
+        "rowDescription": "nrtalk:stack:browser",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "CType": "desiderio_callout",
+        "colPos": 0,
+        "hidden": 0,
+        "sys_language_uid": 0,
+        "rowDescription": "nrtalk:stack:browser",
+        "header": "Browser AI is an independent path",
+        "content": "<p>nr-browser-ai answers questions about the current page directly on suitable devices running Chrome. It requires neither nr-llm, vault nor passkeys and has no central usage logs or budgets. An initial model download is needed; other visitors see the configured fallback.</p>",
+        "variant": "info"
+      }
+    },
+    {
+      "table": "tt_content",
+      "action": "create",
+      "key": "NEW_nrtalk_stack_modules",
+      "pid": "@NEW_nrtalk_page_stack",
+      "match": {
+        "pid": "@NEW_nrtalk_page_stack",
+        "rowDescription": "nrtalk:stack:modules",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "CType": "desiderio_datatable",
+        "colPos": 0,
+        "hidden": 0,
+        "sys_language_uid": 0,
+        "rowDescription": "nrtalk:stack:modules",
+        "header": "Compare all ten modules",
+        "show_header_row": 1,
+        "show_caption": 1,
+        "caption_text": "Role, maturity and boundary in Netresearch’s words; requirements from each module’s composer.json; current releases on the stack page."
+      },
+      "_collections": [
+        {
+          "field": "desiderio_datatable_column_definitions",
+          "keys": [
+            "NEW_nrtalk_stack_modules_definitions_0",
+            "NEW_nrtalk_stack_modules_definitions_1",
+            "NEW_nrtalk_stack_modules_definitions_2",
+            "NEW_nrtalk_stack_modules_definitions_3",
+            "NEW_nrtalk_stack_modules_definitions_4",
+            "NEW_nrtalk_stack_modules_definitions_5",
+            "NEW_nrtalk_stack_modules_definitions_6"
+          ]
+        },
+        {
+          "field": "desiderio_datatable_rows",
+          "keys": [
+            "NEW_nrtalk_stack_modules_rows_0",
+            "NEW_nrtalk_stack_modules_rows_1",
+            "NEW_nrtalk_stack_modules_rows_2",
+            "NEW_nrtalk_stack_modules_rows_3",
+            "NEW_nrtalk_stack_modules_rows_4",
+            "NEW_nrtalk_stack_modules_rows_5",
+            "NEW_nrtalk_stack_modules_rows_6",
+            "NEW_nrtalk_stack_modules_rows_7",
+            "NEW_nrtalk_stack_modules_rows_8",
+            "NEW_nrtalk_stack_modules_rows_9",
+            "NEW_nrtalk_stack_modules_rows_10"
+          ]
+        }
+      ]
+    },
+    {
+      "table": "data_table_columns",
+      "action": "create",
+      "key": "NEW_nrtalk_stack_modules_definitions_0",
+      "pid": "@NEW_nrtalk_page_stack",
+      "match": {
+        "pid": "@NEW_nrtalk_page_stack",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules",
+        "sorting": 1,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "column_label": "Module / task",
+        "column_align": "left",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "data_table_columns",
+      "action": "create",
+      "key": "NEW_nrtalk_stack_modules_definitions_1",
+      "pid": "@NEW_nrtalk_page_stack",
+      "match": {
+        "pid": "@NEW_nrtalk_page_stack",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules",
+        "sorting": 2,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "column_label": "Role",
+        "column_align": "left",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "data_table_columns",
+      "action": "create",
+      "key": "NEW_nrtalk_stack_modules_definitions_2",
+      "pid": "@NEW_nrtalk_page_stack",
+      "match": {
+        "pid": "@NEW_nrtalk_page_stack",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules",
+        "sorting": 3,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "column_label": "Maturity",
+        "column_align": "left",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "data_table_columns",
+      "action": "create",
+      "key": "NEW_nrtalk_stack_modules_definitions_3",
+      "pid": "@NEW_nrtalk_page_stack",
+      "match": {
+        "pid": "@NEW_nrtalk_page_stack",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules",
+        "sorting": 4,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "column_label": "PHP / TYPO3",
+        "column_align": "left",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "data_table_columns",
+      "action": "create",
+      "key": "NEW_nrtalk_stack_modules_definitions_4",
+      "pid": "@NEW_nrtalk_page_stack",
+      "match": {
+        "pid": "@NEW_nrtalk_page_stack",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules",
+        "sorting": 5,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "column_label": "Requires directly",
+        "column_align": "left",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "data_table_columns",
+      "action": "create",
+      "key": "NEW_nrtalk_stack_modules_definitions_5",
+      "pid": "@NEW_nrtalk_page_stack",
+      "match": {
+        "pid": "@NEW_nrtalk_page_stack",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules",
+        "sorting": 6,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "column_label": "Boundary",
+        "column_align": "left",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "data_table_columns",
+      "action": "create",
+      "key": "NEW_nrtalk_stack_modules_definitions_6",
+      "pid": "@NEW_nrtalk_page_stack",
+      "match": {
+        "pid": "@NEW_nrtalk_page_stack",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules",
+        "sorting": 7,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "column_label": "In this lab",
+        "column_align": "left",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "data_table_rows",
+      "action": "create",
+      "key": "NEW_nrtalk_stack_modules_rows_0",
+      "pid": "@NEW_nrtalk_page_stack",
+      "match": {
+        "pid": "@NEW_nrtalk_page_stack",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules",
+        "sorting": 1,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "row_label": "nr-vault",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules",
+        "sys_language_uid": 0,
+        "hidden": 0
+      },
+      "_collections": [
+        {
+          "field": "cells",
+          "keys": [
+            "NEW_nrtalk_stack_modules_rows_0_0",
+            "NEW_nrtalk_stack_modules_rows_0_1",
+            "NEW_nrtalk_stack_modules_rows_0_2",
+            "NEW_nrtalk_stack_modules_rows_0_3",
+            "NEW_nrtalk_stack_modules_rows_0_4",
+            "NEW_nrtalk_stack_modules_rows_0_5"
+          ]
+        }
+      ]
+    },
+    {
+      "table": "data_table_cells",
+      "action": "create",
+      "key": "NEW_nrtalk_stack_modules_rows_0_0",
+      "pid": "@NEW_nrtalk_page_stack",
+      "match": {
+        "pid": "@NEW_nrtalk_page_stack",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_0",
+        "sorting": 1,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "value": "Secret management",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_0",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "data_table_cells",
+      "action": "create",
+      "key": "NEW_nrtalk_stack_modules_rows_0_1",
+      "pid": "@NEW_nrtalk_page_stack",
+      "match": {
+        "pid": "@NEW_nrtalk_page_stack",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_0",
+        "sorting": 2,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "value": "Stable",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_0",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "data_table_cells",
+      "action": "create",
+      "key": "NEW_nrtalk_stack_modules_rows_0_2",
+      "pid": "@NEW_nrtalk_page_stack",
+      "match": {
+        "pid": "@NEW_nrtalk_page_stack",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_0",
+        "sorting": 3,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "value": "PHP 8.2+, TYPO3 13.4 or 14.3",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_0",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "data_table_cells",
+      "action": "create",
+      "key": "NEW_nrtalk_stack_modules_rows_0_3",
+      "pid": "@NEW_nrtalk_page_stack",
+      "match": {
+        "pid": "@NEW_nrtalk_page_stack",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_0",
+        "sorting": 4,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "value": "None",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_0",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "data_table_cells",
+      "action": "create",
+      "key": "NEW_nrtalk_stack_modules_rows_0_4",
+      "pid": "@NEW_nrtalk_page_stack",
+      "match": {
+        "pid": "@NEW_nrtalk_page_stack",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_0",
+        "sorting": 5,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "value": "Stores encrypted credentials and audit data; not a business knowledge store.",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_0",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "data_table_cells",
+      "action": "create",
+      "key": "NEW_nrtalk_stack_modules_rows_0_5",
+      "pid": "@NEW_nrtalk_page_stack",
+      "match": {
+        "pid": "@NEW_nrtalk_page_stack",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_0",
+        "sorting": 6,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "value": "{{labstatus:nr-vault}}",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_0",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "data_table_rows",
+      "action": "create",
+      "key": "NEW_nrtalk_stack_modules_rows_1",
+      "pid": "@NEW_nrtalk_page_stack",
+      "match": {
+        "pid": "@NEW_nrtalk_page_stack",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules",
+        "sorting": 2,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "row_label": "nr-http-guard",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules",
+        "sys_language_uid": 0,
+        "hidden": 0
+      },
+      "_collections": [
+        {
+          "field": "cells",
+          "keys": [
+            "NEW_nrtalk_stack_modules_rows_1_0",
+            "NEW_nrtalk_stack_modules_rows_1_1",
+            "NEW_nrtalk_stack_modules_rows_1_2",
+            "NEW_nrtalk_stack_modules_rows_1_3",
+            "NEW_nrtalk_stack_modules_rows_1_4",
+            "NEW_nrtalk_stack_modules_rows_1_5"
+          ]
+        }
+      ]
+    },
+    {
+      "table": "data_table_cells",
+      "action": "create",
+      "key": "NEW_nrtalk_stack_modules_rows_1_0",
+      "pid": "@NEW_nrtalk_page_stack",
+      "match": {
+        "pid": "@NEW_nrtalk_page_stack",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_1",
+        "sorting": 1,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "value": "Outbound HTTP requests and SSRF protection",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_1",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "data_table_cells",
+      "action": "create",
+      "key": "NEW_nrtalk_stack_modules_rows_1_1",
+      "pid": "@NEW_nrtalk_page_stack",
+      "match": {
+        "pid": "@NEW_nrtalk_page_stack",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_1",
+        "sorting": 2,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "value": "Alpha",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_1",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "data_table_cells",
+      "action": "create",
+      "key": "NEW_nrtalk_stack_modules_rows_1_2",
+      "pid": "@NEW_nrtalk_page_stack",
+      "match": {
+        "pid": "@NEW_nrtalk_page_stack",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_1",
+        "sorting": 3,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "value": "PHP 8.2+, TYPO3 13.4 or 14.3",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_1",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "data_table_cells",
+      "action": "create",
+      "key": "NEW_nrtalk_stack_modules_rows_1_3",
+      "pid": "@NEW_nrtalk_page_stack",
+      "match": {
+        "pid": "@NEW_nrtalk_page_stack",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_1",
+        "sorting": 4,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "value": "None",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_1",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "data_table_cells",
+      "action": "create",
+      "key": "NEW_nrtalk_stack_modules_rows_1_4",
+      "pid": "@NEW_nrtalk_page_stack",
+      "match": {
+        "pid": "@NEW_nrtalk_page_stack",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_1",
+        "sorting": 5,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "value": "Alpha: registered TYPO3 RequestFactory and bound guard clients after activation. Policy, exceptions and operating mode determine protection; Vault needs separate adapter integration, while independent HTTP clients remain outside.",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_1",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "data_table_cells",
+      "action": "create",
+      "key": "NEW_nrtalk_stack_modules_rows_1_5",
+      "pid": "@NEW_nrtalk_page_stack",
+      "match": {
+        "pid": "@NEW_nrtalk_page_stack",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_1",
+        "sorting": 6,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "value": "{{labstatus:nr-http-guard}}",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_1",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "data_table_rows",
+      "action": "create",
+      "key": "NEW_nrtalk_stack_modules_rows_2",
+      "pid": "@NEW_nrtalk_page_stack",
+      "match": {
+        "pid": "@NEW_nrtalk_page_stack",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules",
+        "sorting": 3,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "row_label": "nr-passkeys-be",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules",
+        "sys_language_uid": 0,
+        "hidden": 0
+      },
+      "_collections": [
+        {
+          "field": "cells",
+          "keys": [
+            "NEW_nrtalk_stack_modules_rows_2_0",
+            "NEW_nrtalk_stack_modules_rows_2_1",
+            "NEW_nrtalk_stack_modules_rows_2_2",
+            "NEW_nrtalk_stack_modules_rows_2_3",
+            "NEW_nrtalk_stack_modules_rows_2_4",
+            "NEW_nrtalk_stack_modules_rows_2_5"
+          ]
+        }
+      ]
+    },
+    {
+      "table": "data_table_cells",
+      "action": "create",
+      "key": "NEW_nrtalk_stack_modules_rows_2_0",
+      "pid": "@NEW_nrtalk_page_stack",
+      "match": {
+        "pid": "@NEW_nrtalk_page_stack",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_2",
+        "sorting": 1,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "value": "Backend sign-in",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_2",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "data_table_cells",
+      "action": "create",
+      "key": "NEW_nrtalk_stack_modules_rows_2_1",
+      "pid": "@NEW_nrtalk_page_stack",
+      "match": {
+        "pid": "@NEW_nrtalk_page_stack",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_2",
+        "sorting": 2,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "value": "Stable",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_2",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "data_table_cells",
+      "action": "create",
+      "key": "NEW_nrtalk_stack_modules_rows_2_2",
+      "pid": "@NEW_nrtalk_page_stack",
+      "match": {
+        "pid": "@NEW_nrtalk_page_stack",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_2",
+        "sorting": 3,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "value": "PHP 8.2+, TYPO3 12.4 to 14.3",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_2",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "data_table_cells",
+      "action": "create",
+      "key": "NEW_nrtalk_stack_modules_rows_2_3",
+      "pid": "@NEW_nrtalk_page_stack",
+      "match": {
+        "pid": "@NEW_nrtalk_page_stack",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_2",
+        "sorting": 4,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "value": "None",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_2",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "data_table_cells",
+      "action": "create",
+      "key": "NEW_nrtalk_stack_modules_rows_2_4",
+      "pid": "@NEW_nrtalk_page_stack",
+      "match": {
+        "pid": "@NEW_nrtalk_page_stack",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_2",
+        "sorting": 5,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "value": "Authenticates backend users; TYPO3 permissions still apply.",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_2",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "data_table_cells",
+      "action": "create",
+      "key": "NEW_nrtalk_stack_modules_rows_2_5",
+      "pid": "@NEW_nrtalk_page_stack",
+      "match": {
+        "pid": "@NEW_nrtalk_page_stack",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_2",
+        "sorting": 6,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "value": "{{labstatus:nr-passkeys-be}}",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_2",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "data_table_rows",
+      "action": "create",
+      "key": "NEW_nrtalk_stack_modules_rows_3",
+      "pid": "@NEW_nrtalk_page_stack",
+      "match": {
+        "pid": "@NEW_nrtalk_page_stack",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules",
+        "sorting": 4,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "row_label": "nr-passkeys-fe",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules",
+        "sys_language_uid": 0,
+        "hidden": 0
+      },
+      "_collections": [
+        {
+          "field": "cells",
+          "keys": [
+            "NEW_nrtalk_stack_modules_rows_3_0",
+            "NEW_nrtalk_stack_modules_rows_3_1",
+            "NEW_nrtalk_stack_modules_rows_3_2",
+            "NEW_nrtalk_stack_modules_rows_3_3",
+            "NEW_nrtalk_stack_modules_rows_3_4",
+            "NEW_nrtalk_stack_modules_rows_3_5"
+          ]
+        }
+      ]
+    },
+    {
+      "table": "data_table_cells",
+      "action": "create",
+      "key": "NEW_nrtalk_stack_modules_rows_3_0",
+      "pid": "@NEW_nrtalk_page_stack",
+      "match": {
+        "pid": "@NEW_nrtalk_page_stack",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_3",
+        "sorting": 1,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "value": "Frontend sign-in",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_3",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "data_table_cells",
+      "action": "create",
+      "key": "NEW_nrtalk_stack_modules_rows_3_1",
+      "pid": "@NEW_nrtalk_page_stack",
+      "match": {
+        "pid": "@NEW_nrtalk_page_stack",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_3",
+        "sorting": 2,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "value": "Stable",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_3",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "data_table_cells",
+      "action": "create",
+      "key": "NEW_nrtalk_stack_modules_rows_3_2",
+      "pid": "@NEW_nrtalk_page_stack",
+      "match": {
+        "pid": "@NEW_nrtalk_page_stack",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_3",
+        "sorting": 3,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "value": "PHP 8.2+, TYPO3 13.4 or 14.3",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_3",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "data_table_cells",
+      "action": "create",
+      "key": "NEW_nrtalk_stack_modules_rows_3_3",
+      "pid": "@NEW_nrtalk_page_stack",
+      "match": {
+        "pid": "@NEW_nrtalk_page_stack",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_3",
+        "sorting": 4,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "value": "nr-passkeys-be",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_3",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "data_table_cells",
+      "action": "create",
+      "key": "NEW_nrtalk_stack_modules_rows_3_4",
+      "pid": "@NEW_nrtalk_page_stack",
+      "match": {
+        "pid": "@NEW_nrtalk_page_stack",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_3",
+        "sorting": 5,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "value": "Authenticates frontend users; the site controls data access.",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_3",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "data_table_cells",
+      "action": "create",
+      "key": "NEW_nrtalk_stack_modules_rows_3_5",
+      "pid": "@NEW_nrtalk_page_stack",
+      "match": {
+        "pid": "@NEW_nrtalk_page_stack",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_3",
+        "sorting": 6,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "value": "{{labstatus:nr-passkeys-fe}}",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_3",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "data_table_rows",
+      "action": "create",
+      "key": "NEW_nrtalk_stack_modules_rows_4",
+      "pid": "@NEW_nrtalk_page_stack",
+      "match": {
+        "pid": "@NEW_nrtalk_page_stack",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules",
+        "sorting": 5,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "row_label": "nr-llm",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules",
+        "sys_language_uid": 0,
+        "hidden": 0
+      },
+      "_collections": [
+        {
+          "field": "cells",
+          "keys": [
+            "NEW_nrtalk_stack_modules_rows_4_0",
+            "NEW_nrtalk_stack_modules_rows_4_1",
+            "NEW_nrtalk_stack_modules_rows_4_2",
+            "NEW_nrtalk_stack_modules_rows_4_3",
+            "NEW_nrtalk_stack_modules_rows_4_4",
+            "NEW_nrtalk_stack_modules_rows_4_5"
+          ]
+        }
+      ]
+    },
+    {
+      "table": "data_table_cells",
+      "action": "create",
+      "key": "NEW_nrtalk_stack_modules_rows_4_0",
+      "pid": "@NEW_nrtalk_page_stack",
+      "match": {
+        "pid": "@NEW_nrtalk_page_stack",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_4",
+        "sorting": 1,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "value": "Shared model integration",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_4",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "data_table_cells",
+      "action": "create",
+      "key": "NEW_nrtalk_stack_modules_rows_4_1",
+      "pid": "@NEW_nrtalk_page_stack",
+      "match": {
+        "pid": "@NEW_nrtalk_page_stack",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_4",
+        "sorting": 2,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "value": "Beta",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_4",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "data_table_cells",
+      "action": "create",
+      "key": "NEW_nrtalk_stack_modules_rows_4_2",
+      "pid": "@NEW_nrtalk_page_stack",
+      "match": {
+        "pid": "@NEW_nrtalk_page_stack",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_4",
+        "sorting": 3,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "value": "PHP 8.2+, TYPO3 13.4 or 14.3",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_4",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "data_table_cells",
+      "action": "create",
+      "key": "NEW_nrtalk_stack_modules_rows_4_3",
+      "pid": "@NEW_nrtalk_page_stack",
+      "match": {
+        "pid": "@NEW_nrtalk_page_stack",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_4",
+        "sorting": 4,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "value": "nr-vault",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_4",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "data_table_cells",
+      "action": "create",
+      "key": "NEW_nrtalk_stack_modules_rows_4_4",
+      "pid": "@NEW_nrtalk_page_stack",
+      "match": {
+        "pid": "@NEW_nrtalk_page_stack",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_4",
+        "sorting": 5,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "value": "Controls connected server-side calls; model answers can be wrong.",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_4",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "data_table_cells",
+      "action": "create",
+      "key": "NEW_nrtalk_stack_modules_rows_4_5",
+      "pid": "@NEW_nrtalk_page_stack",
+      "match": {
+        "pid": "@NEW_nrtalk_page_stack",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_4",
+        "sorting": 6,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "value": "{{labstatus:nr-llm}}",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_4",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "data_table_rows",
+      "action": "create",
+      "key": "NEW_nrtalk_stack_modules_rows_5",
+      "pid": "@NEW_nrtalk_page_stack",
+      "match": {
+        "pid": "@NEW_nrtalk_page_stack",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules",
+        "sorting": 6,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "row_label": "nr-mcp-agent",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules",
+        "sys_language_uid": 0,
+        "hidden": 0
+      },
+      "_collections": [
+        {
+          "field": "cells",
+          "keys": [
+            "NEW_nrtalk_stack_modules_rows_5_0",
+            "NEW_nrtalk_stack_modules_rows_5_1",
+            "NEW_nrtalk_stack_modules_rows_5_2",
+            "NEW_nrtalk_stack_modules_rows_5_3",
+            "NEW_nrtalk_stack_modules_rows_5_4",
+            "NEW_nrtalk_stack_modules_rows_5_5"
+          ]
+        }
+      ]
+    },
+    {
+      "table": "data_table_cells",
+      "action": "create",
+      "key": "NEW_nrtalk_stack_modules_rows_5_0",
+      "pid": "@NEW_nrtalk_page_stack",
+      "match": {
+        "pid": "@NEW_nrtalk_page_stack",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_5",
+        "sorting": 1,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "value": "Backend assistant",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_5",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "data_table_cells",
+      "action": "create",
+      "key": "NEW_nrtalk_stack_modules_rows_5_1",
+      "pid": "@NEW_nrtalk_page_stack",
+      "match": {
+        "pid": "@NEW_nrtalk_page_stack",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_5",
+        "sorting": 2,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "value": "Alpha",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_5",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "data_table_cells",
+      "action": "create",
+      "key": "NEW_nrtalk_stack_modules_rows_5_2",
+      "pid": "@NEW_nrtalk_page_stack",
+      "match": {
+        "pid": "@NEW_nrtalk_page_stack",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_5",
+        "sorting": 3,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "value": "PHP 8.2+, TYPO3 13.4 or 14.3",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_5",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "data_table_cells",
+      "action": "create",
+      "key": "NEW_nrtalk_stack_modules_rows_5_3",
+      "pid": "@NEW_nrtalk_page_stack",
+      "match": {
+        "pid": "@NEW_nrtalk_page_stack",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_5",
+        "sorting": 4,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "value": "nr-llm",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_5",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "data_table_cells",
+      "action": "create",
+      "key": "NEW_nrtalk_stack_modules_rows_5_4",
+      "pid": "@NEW_nrtalk_page_stack",
+      "match": {
+        "pid": "@NEW_nrtalk_page_stack",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_5",
+        "sorting": 5,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "value": "Alpha for controlled evaluation. Built-in writing tools require approval. Remote MCP tools follow the approval requirement configured in TYPO3 for each server.",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_5",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "data_table_cells",
+      "action": "create",
+      "key": "NEW_nrtalk_stack_modules_rows_5_5",
+      "pid": "@NEW_nrtalk_page_stack",
+      "match": {
+        "pid": "@NEW_nrtalk_page_stack",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_5",
+        "sorting": 6,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "value": "{{labstatus:nr-mcp-agent}}",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_5",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "data_table_rows",
+      "action": "create",
+      "key": "NEW_nrtalk_stack_modules_rows_6",
+      "pid": "@NEW_nrtalk_page_stack",
+      "match": {
+        "pid": "@NEW_nrtalk_page_stack",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules",
+        "sorting": 7,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "row_label": "nr-browser-ai",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules",
+        "sys_language_uid": 0,
+        "hidden": 0
+      },
+      "_collections": [
+        {
+          "field": "cells",
+          "keys": [
+            "NEW_nrtalk_stack_modules_rows_6_0",
+            "NEW_nrtalk_stack_modules_rows_6_1",
+            "NEW_nrtalk_stack_modules_rows_6_2",
+            "NEW_nrtalk_stack_modules_rows_6_3",
+            "NEW_nrtalk_stack_modules_rows_6_4",
+            "NEW_nrtalk_stack_modules_rows_6_5"
+          ]
+        }
+      ]
+    },
+    {
+      "table": "data_table_cells",
+      "action": "create",
+      "key": "NEW_nrtalk_stack_modules_rows_6_0",
+      "pid": "@NEW_nrtalk_page_stack",
+      "match": {
+        "pid": "@NEW_nrtalk_page_stack",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_6",
+        "sorting": 1,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "value": "Questions about the current page",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_6",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "data_table_cells",
+      "action": "create",
+      "key": "NEW_nrtalk_stack_modules_rows_6_1",
+      "pid": "@NEW_nrtalk_page_stack",
+      "match": {
+        "pid": "@NEW_nrtalk_page_stack",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_6",
+        "sorting": 2,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "value": "Beta",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_6",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "data_table_cells",
+      "action": "create",
+      "key": "NEW_nrtalk_stack_modules_rows_6_2",
+      "pid": "@NEW_nrtalk_page_stack",
+      "match": {
+        "pid": "@NEW_nrtalk_page_stack",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_6",
+        "sorting": 3,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "value": "PHP 8.2+, TYPO3 12.4 to 14.3",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_6",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "data_table_cells",
+      "action": "create",
+      "key": "NEW_nrtalk_stack_modules_rows_6_3",
+      "pid": "@NEW_nrtalk_page_stack",
+      "match": {
+        "pid": "@NEW_nrtalk_page_stack",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_6",
+        "sorting": 4,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "value": "None",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_6",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "data_table_cells",
+      "action": "create",
+      "key": "NEW_nrtalk_stack_modules_rows_6_4",
+      "pid": "@NEW_nrtalk_page_stack",
+      "match": {
+        "pid": "@NEW_nrtalk_page_stack",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_6",
+        "sorting": 5,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "value": "Supported desktop Chrome and model download; no central logs.",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_6",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "data_table_cells",
+      "action": "create",
+      "key": "NEW_nrtalk_stack_modules_rows_6_5",
+      "pid": "@NEW_nrtalk_page_stack",
+      "match": {
+        "pid": "@NEW_nrtalk_page_stack",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_6",
+        "sorting": 6,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "value": "{{labstatus:nr-browser-ai}}",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_6",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "data_table_rows",
+      "action": "create",
+      "key": "NEW_nrtalk_stack_modules_rows_7",
+      "pid": "@NEW_nrtalk_page_stack",
+      "match": {
+        "pid": "@NEW_nrtalk_page_stack",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules",
+        "sorting": 8,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "row_label": "cowriter",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules",
+        "sys_language_uid": 0,
+        "hidden": 0
+      },
+      "_collections": [
+        {
+          "field": "cells",
+          "keys": [
+            "NEW_nrtalk_stack_modules_rows_7_0",
+            "NEW_nrtalk_stack_modules_rows_7_1",
+            "NEW_nrtalk_stack_modules_rows_7_2",
+            "NEW_nrtalk_stack_modules_rows_7_3",
+            "NEW_nrtalk_stack_modules_rows_7_4",
+            "NEW_nrtalk_stack_modules_rows_7_5"
+          ]
+        }
+      ]
+    },
+    {
+      "table": "data_table_cells",
+      "action": "create",
+      "key": "NEW_nrtalk_stack_modules_rows_7_0",
+      "pid": "@NEW_nrtalk_page_stack",
+      "match": {
+        "pid": "@NEW_nrtalk_page_stack",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_7",
+        "sorting": 1,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "value": "Writing in CKEditor",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_7",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "data_table_cells",
+      "action": "create",
+      "key": "NEW_nrtalk_stack_modules_rows_7_1",
+      "pid": "@NEW_nrtalk_page_stack",
+      "match": {
+        "pid": "@NEW_nrtalk_page_stack",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_7",
+        "sorting": 2,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "value": "Stable",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_7",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "data_table_cells",
+      "action": "create",
+      "key": "NEW_nrtalk_stack_modules_rows_7_2",
+      "pid": "@NEW_nrtalk_page_stack",
+      "match": {
+        "pid": "@NEW_nrtalk_page_stack",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_7",
+        "sorting": 3,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "value": "PHP 8.2+, TYPO3 13.4 or 14.3",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_7",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "data_table_cells",
+      "action": "create",
+      "key": "NEW_nrtalk_stack_modules_rows_7_3",
+      "pid": "@NEW_nrtalk_page_stack",
+      "match": {
+        "pid": "@NEW_nrtalk_page_stack",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_7",
+        "sorting": 4,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "value": "nr-llm",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_7",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "data_table_cells",
+      "action": "create",
+      "key": "NEW_nrtalk_stack_modules_rows_7_4",
+      "pid": "@NEW_nrtalk_page_stack",
+      "match": {
+        "pid": "@NEW_nrtalk_page_stack",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_7",
+        "sorting": 5,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "value": "Editors review generated content before accepting and publishing it.",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_7",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "data_table_cells",
+      "action": "create",
+      "key": "NEW_nrtalk_stack_modules_rows_7_5",
+      "pid": "@NEW_nrtalk_page_stack",
+      "match": {
+        "pid": "@NEW_nrtalk_page_stack",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_7",
+        "sorting": 6,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "value": "{{labstatus:t3-cowriter}}",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_7",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "data_table_rows",
+      "action": "create",
+      "key": "NEW_nrtalk_stack_modules_rows_8",
+      "pid": "@NEW_nrtalk_page_stack",
+      "match": {
+        "pid": "@NEW_nrtalk_page_stack",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules",
+        "sorting": 9,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "row_label": "nr-repurpose",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules",
+        "sys_language_uid": 0,
+        "hidden": 0
+      },
+      "_collections": [
+        {
+          "field": "cells",
+          "keys": [
+            "NEW_nrtalk_stack_modules_rows_8_0",
+            "NEW_nrtalk_stack_modules_rows_8_1",
+            "NEW_nrtalk_stack_modules_rows_8_2",
+            "NEW_nrtalk_stack_modules_rows_8_3",
+            "NEW_nrtalk_stack_modules_rows_8_4",
+            "NEW_nrtalk_stack_modules_rows_8_5"
+          ]
+        }
+      ]
+    },
+    {
+      "table": "data_table_cells",
+      "action": "create",
+      "key": "NEW_nrtalk_stack_modules_rows_8_0",
+      "pid": "@NEW_nrtalk_page_stack",
+      "match": {
+        "pid": "@NEW_nrtalk_page_stack",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_8",
+        "sorting": 1,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "value": "Turning content into further formats",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_8",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "data_table_cells",
+      "action": "create",
+      "key": "NEW_nrtalk_stack_modules_rows_8_1",
+      "pid": "@NEW_nrtalk_page_stack",
+      "match": {
+        "pid": "@NEW_nrtalk_page_stack",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_8",
+        "sorting": 2,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "value": "Alpha",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_8",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "data_table_cells",
+      "action": "create",
+      "key": "NEW_nrtalk_stack_modules_rows_8_2",
+      "pid": "@NEW_nrtalk_page_stack",
+      "match": {
+        "pid": "@NEW_nrtalk_page_stack",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_8",
+        "sorting": 3,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "value": "PHP 8.3+, TYPO3 14.3",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_8",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "data_table_cells",
+      "action": "create",
+      "key": "NEW_nrtalk_stack_modules_rows_8_3",
+      "pid": "@NEW_nrtalk_page_stack",
+      "match": {
+        "pid": "@NEW_nrtalk_page_stack",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_8",
+        "sorting": 4,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "value": "nr-llm, nr-vault",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_8",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "data_table_cells",
+      "action": "create",
+      "key": "NEW_nrtalk_stack_modules_rows_8_4",
+      "pid": "@NEW_nrtalk_page_stack",
+      "match": {
+        "pid": "@NEW_nrtalk_page_stack",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_8",
+        "sorting": 5,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "value": "Alpha; requires TYPO3 14.3/PHP 8.3 and suitable model capabilities.",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_8",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "data_table_cells",
+      "action": "create",
+      "key": "NEW_nrtalk_stack_modules_rows_8_5",
+      "pid": "@NEW_nrtalk_page_stack",
+      "match": {
+        "pid": "@NEW_nrtalk_page_stack",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_8",
+        "sorting": 6,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "value": "{{labstatus:nr-repurpose}}",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_8",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "data_table_rows",
+      "action": "create",
+      "key": "NEW_nrtalk_stack_modules_rows_9",
+      "pid": "@NEW_nrtalk_page_stack",
+      "match": {
+        "pid": "@NEW_nrtalk_page_stack",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules",
+        "sorting": 10,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "row_label": "nr-landingpage",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules",
+        "sys_language_uid": 0,
+        "hidden": 0
+      },
+      "_collections": [
+        {
+          "field": "cells",
+          "keys": [
+            "NEW_nrtalk_stack_modules_rows_9_0",
+            "NEW_nrtalk_stack_modules_rows_9_1",
+            "NEW_nrtalk_stack_modules_rows_9_2",
+            "NEW_nrtalk_stack_modules_rows_9_3",
+            "NEW_nrtalk_stack_modules_rows_9_4",
+            "NEW_nrtalk_stack_modules_rows_9_5"
+          ]
+        }
+      ]
+    },
+    {
+      "table": "data_table_cells",
+      "action": "create",
+      "key": "NEW_nrtalk_stack_modules_rows_9_0",
+      "pid": "@NEW_nrtalk_page_stack",
+      "match": {
+        "pid": "@NEW_nrtalk_page_stack",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_9",
+        "sorting": 1,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "value": "Preparing landing pages",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_9",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "data_table_cells",
+      "action": "create",
+      "key": "NEW_nrtalk_stack_modules_rows_9_1",
+      "pid": "@NEW_nrtalk_page_stack",
+      "match": {
+        "pid": "@NEW_nrtalk_page_stack",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_9",
+        "sorting": 2,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "value": "Beta",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_9",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "data_table_cells",
+      "action": "create",
+      "key": "NEW_nrtalk_stack_modules_rows_9_2",
+      "pid": "@NEW_nrtalk_page_stack",
+      "match": {
+        "pid": "@NEW_nrtalk_page_stack",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_9",
+        "sorting": 3,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "value": "PHP 8.2+, TYPO3 13.4 or 14.3",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_9",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "data_table_cells",
+      "action": "create",
+      "key": "NEW_nrtalk_stack_modules_rows_9_3",
+      "pid": "@NEW_nrtalk_page_stack",
+      "match": {
+        "pid": "@NEW_nrtalk_page_stack",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_9",
+        "sorting": 4,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "value": "nr-llm",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_9",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "data_table_cells",
+      "action": "create",
+      "key": "NEW_nrtalk_stack_modules_rows_9_4",
+      "pid": "@NEW_nrtalk_page_stack",
+      "match": {
+        "pid": "@NEW_nrtalk_page_stack",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_9",
+        "sorting": 5,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "value": "Beta; editorial review and approval before publication.",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_9",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "data_table_cells",
+      "action": "create",
+      "key": "NEW_nrtalk_stack_modules_rows_9_5",
+      "pid": "@NEW_nrtalk_page_stack",
+      "match": {
+        "pid": "@NEW_nrtalk_page_stack",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_9",
+        "sorting": 6,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "value": "{{labstatus:nr-landingpage}}",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_9",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "data_table_rows",
+      "action": "create",
+      "key": "NEW_nrtalk_stack_modules_rows_10",
+      "pid": "@NEW_nrtalk_page_stack",
+      "match": {
+        "pid": "@NEW_nrtalk_page_stack",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules",
+        "sorting": 11,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "row_label": "AI Search",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules",
+        "sys_language_uid": 0,
+        "hidden": 0
+      },
+      "_collections": [
+        {
+          "field": "cells",
+          "keys": [
+            "NEW_nrtalk_stack_modules_rows_10_0",
+            "NEW_nrtalk_stack_modules_rows_10_1",
+            "NEW_nrtalk_stack_modules_rows_10_2",
+            "NEW_nrtalk_stack_modules_rows_10_3",
+            "NEW_nrtalk_stack_modules_rows_10_4",
+            "NEW_nrtalk_stack_modules_rows_10_5"
+          ]
+        }
+      ]
+    },
+    {
+      "table": "data_table_cells",
+      "action": "create",
+      "key": "NEW_nrtalk_stack_modules_rows_10_0",
+      "pid": "@NEW_nrtalk_page_stack",
+      "match": {
+        "pid": "@NEW_nrtalk_page_stack",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_10",
+        "sorting": 1,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "value": "Answers from website content",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_10",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "data_table_cells",
+      "action": "create",
+      "key": "NEW_nrtalk_stack_modules_rows_10_1",
+      "pid": "@NEW_nrtalk_page_stack",
+      "match": {
+        "pid": "@NEW_nrtalk_page_stack",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_10",
+        "sorting": 2,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "value": "Not public",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_10",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "data_table_cells",
+      "action": "create",
+      "key": "NEW_nrtalk_stack_modules_rows_10_2",
+      "pid": "@NEW_nrtalk_page_stack",
+      "match": {
+        "pid": "@NEW_nrtalk_page_stack",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_10",
+        "sorting": 3,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "value": "–",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_10",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "data_table_cells",
+      "action": "create",
+      "key": "NEW_nrtalk_stack_modules_rows_10_3",
+      "pid": "@NEW_nrtalk_page_stack",
+      "match": {
+        "pid": "@NEW_nrtalk_page_stack",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_10",
+        "sorting": 4,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "value": "–",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_10",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "data_table_cells",
+      "action": "create",
+      "key": "NEW_nrtalk_stack_modules_rows_10_4",
+      "pid": "@NEW_nrtalk_page_stack",
+      "match": {
+        "pid": "@NEW_nrtalk_page_stack",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_10",
+        "sorting": 5,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "value": "Shown in the talk; not one of the ten stack modules.",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_10",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "data_table_cells",
+      "action": "create",
+      "key": "NEW_nrtalk_stack_modules_rows_10_5",
+      "pid": "@NEW_nrtalk_page_stack",
+      "match": {
+        "pid": "@NEW_nrtalk_page_stack",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_10",
+        "sorting": 6,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "value": "{{labstatus:ai-search}}",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_10",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "tt_content",
+      "action": "create",
+      "key": "NEW_nrtalk_stack_release_note",
+      "pid": "@NEW_nrtalk_page_stack",
+      "match": {
+        "pid": "@NEW_nrtalk_page_stack",
+        "rowDescription": "nrtalk:stack:release_note",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "CType": "desiderio_callout",
+        "colPos": 0,
+        "hidden": 0,
+        "sys_language_uid": 0,
+        "rowDescription": "nrtalk:stack:release_note",
+        "content": "<p>A GitHub release does not independently verify TER/Packagist availability. A selected stack must satisfy the intersection of all requirements. Maturity is not a security certification.</p>",
+        "variant": "note"
+      }
+    },
+    {
+      "table": "tt_content",
+      "action": "create",
+      "key": "NEW_nrtalk_stack_operating",
+      "pid": "@NEW_nrtalk_page_stack",
+      "match": {
+        "pid": "@NEW_nrtalk_page_stack",
+        "rowDescription": "nrtalk:stack:operating",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "CType": "desiderio_datatable",
+        "colPos": 0,
+        "hidden": 0,
+        "sys_language_uid": 0,
+        "rowDescription": "nrtalk:stack:operating",
+        "header": "Where is your data processed?",
+        "show_header_row": 1,
+        "show_caption": 1,
+        "caption_text": "The configured endpoint determines the operator and processing location. API compatibility alone says nothing about either. In a fallback chain, review every endpoint."
+      },
+      "_collections": [
+        {
+          "field": "desiderio_datatable_column_definitions",
+          "keys": [
+            "NEW_nrtalk_stack_operating_definitions_0",
+            "NEW_nrtalk_stack_operating_definitions_1",
+            "NEW_nrtalk_stack_operating_definitions_2",
+            "NEW_nrtalk_stack_operating_definitions_3"
+          ]
+        },
+        {
+          "field": "desiderio_datatable_rows",
+          "keys": [
+            "NEW_nrtalk_stack_operating_rows_0",
+            "NEW_nrtalk_stack_operating_rows_1",
+            "NEW_nrtalk_stack_operating_rows_2",
+            "NEW_nrtalk_stack_operating_rows_3",
+            "NEW_nrtalk_stack_operating_rows_4"
+          ]
+        }
+      ]
+    },
+    {
+      "table": "data_table_columns",
+      "action": "create",
+      "key": "NEW_nrtalk_stack_operating_definitions_0",
+      "pid": "@NEW_nrtalk_page_stack",
+      "match": {
+        "pid": "@NEW_nrtalk_page_stack",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_operating",
+        "sorting": 1,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "column_label": "Operating model",
+        "column_align": "left",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_operating",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "data_table_columns",
+      "action": "create",
+      "key": "NEW_nrtalk_stack_operating_definitions_1",
+      "pid": "@NEW_nrtalk_page_stack",
+      "match": {
+        "pid": "@NEW_nrtalk_page_stack",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_operating",
+        "sorting": 2,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "column_label": "Processing location",
+        "column_align": "left",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_operating",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "data_table_columns",
+      "action": "create",
+      "key": "NEW_nrtalk_stack_operating_definitions_2",
+      "pid": "@NEW_nrtalk_page_stack",
+      "match": {
+        "pid": "@NEW_nrtalk_page_stack",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_operating",
+        "sorting": 3,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "column_label": "Suitable for",
+        "column_align": "left",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_operating",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "data_table_columns",
+      "action": "create",
+      "key": "NEW_nrtalk_stack_operating_definitions_3",
+      "pid": "@NEW_nrtalk_page_stack",
+      "match": {
+        "pid": "@NEW_nrtalk_page_stack",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_operating",
+        "sorting": 4,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "column_label": "Check before use",
+        "column_align": "left",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_operating",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "data_table_rows",
+      "action": "create",
+      "key": "NEW_nrtalk_stack_operating_rows_0",
+      "pid": "@NEW_nrtalk_page_stack",
+      "match": {
+        "pid": "@NEW_nrtalk_page_stack",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_operating",
+        "sorting": 1,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "row_label": "External model provider",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_operating",
+        "sys_language_uid": 0,
+        "hidden": 0
+      },
+      "_collections": [
+        {
+          "field": "cells",
+          "keys": [
+            "NEW_nrtalk_stack_operating_rows_0_0",
+            "NEW_nrtalk_stack_operating_rows_0_1",
+            "NEW_nrtalk_stack_operating_rows_0_2"
+          ]
+        }
+      ]
+    },
+    {
+      "table": "data_table_cells",
+      "action": "create",
+      "key": "NEW_nrtalk_stack_operating_rows_0_0",
+      "pid": "@NEW_nrtalk_page_stack",
+      "match": {
+        "pid": "@NEW_nrtalk_page_stack",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_operating_rows_0",
+        "sorting": 1,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "value": "At the selected provider, in the contractually agreed region",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_operating_rows_0",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "data_table_cells",
+      "action": "create",
+      "key": "NEW_nrtalk_stack_operating_rows_0_1",
+      "pid": "@NEW_nrtalk_page_stack",
+      "match": {
+        "pid": "@NEW_nrtalk_page_stack",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_operating_rows_0",
+        "sorting": 2,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "value": "Wide choice of managed models",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_operating_rows_0",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "data_table_cells",
+      "action": "create",
+      "key": "NEW_nrtalk_stack_operating_rows_0_2",
+      "pid": "@NEW_nrtalk_page_stack",
+      "match": {
+        "pid": "@NEW_nrtalk_page_stack",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_operating_rows_0",
+        "sorting": 3,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "value": "Contract, region, retention and data transfer",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_operating_rows_0",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "data_table_rows",
+      "action": "create",
+      "key": "NEW_nrtalk_stack_operating_rows_1",
+      "pid": "@NEW_nrtalk_page_stack",
+      "match": {
+        "pid": "@NEW_nrtalk_page_stack",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_operating",
+        "sorting": 2,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "row_label": "Azure OpenAI",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_operating",
+        "sys_language_uid": 0,
+        "hidden": 0
+      },
+      "_collections": [
+        {
+          "field": "cells",
+          "keys": [
+            "NEW_nrtalk_stack_operating_rows_1_0",
+            "NEW_nrtalk_stack_operating_rows_1_1",
+            "NEW_nrtalk_stack_operating_rows_1_2"
+          ]
+        }
+      ]
+    },
+    {
+      "table": "data_table_cells",
+      "action": "create",
+      "key": "NEW_nrtalk_stack_operating_rows_1_0",
+      "pid": "@NEW_nrtalk_page_stack",
+      "match": {
+        "pid": "@NEW_nrtalk_page_stack",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_operating_rows_1",
+        "sorting": 1,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "value": "Worldwide, within a data zone or within an Azure geography, depending on the deployment type",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_operating_rows_1",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "data_table_cells",
+      "action": "create",
+      "key": "NEW_nrtalk_stack_operating_rows_1_1",
+      "pid": "@NEW_nrtalk_page_stack",
+      "match": {
+        "pid": "@NEW_nrtalk_page_stack",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_operating_rows_1",
+        "sorting": 2,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "value": "Teams with a suitable Azure agreement",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_operating_rows_1",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "data_table_cells",
+      "action": "create",
+      "key": "NEW_nrtalk_stack_operating_rows_1_2",
+      "pid": "@NEW_nrtalk_page_stack",
+      "match": {
+        "pid": "@NEW_nrtalk_page_stack",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_operating_rows_1",
+        "sorting": 3,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "value": "Deployment, capabilities and data handling of the specific service",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_operating_rows_1",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "data_table_rows",
+      "action": "create",
+      "key": "NEW_nrtalk_stack_operating_rows_2",
+      "pid": "@NEW_nrtalk_page_stack",
+      "match": {
+        "pid": "@NEW_nrtalk_page_stack",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_operating",
+        "sorting": 3,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "row_label": "OpenAI-compatible API",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_operating",
+        "sys_language_uid": 0,
+        "hidden": 0
+      },
+      "_collections": [
+        {
+          "field": "cells",
+          "keys": [
+            "NEW_nrtalk_stack_operating_rows_2_0",
+            "NEW_nrtalk_stack_operating_rows_2_1",
+            "NEW_nrtalk_stack_operating_rows_2_2"
+          ]
+        }
+      ]
+    },
+    {
+      "table": "data_table_cells",
+      "action": "create",
+      "key": "NEW_nrtalk_stack_operating_rows_2_0",
+      "pid": "@NEW_nrtalk_page_stack",
+      "match": {
+        "pid": "@NEW_nrtalk_page_stack",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_operating_rows_2",
+        "sorting": 1,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "value": "Internal or external, depending on the endpoint",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_operating_rows_2",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "data_table_cells",
+      "action": "create",
+      "key": "NEW_nrtalk_stack_operating_rows_2_1",
+      "pid": "@NEW_nrtalk_page_stack",
+      "match": {
+        "pid": "@NEW_nrtalk_page_stack",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_operating_rows_2",
+        "sorting": 2,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "value": "Managed or self-hosted compatible services",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_operating_rows_2",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "data_table_cells",
+      "action": "create",
+      "key": "NEW_nrtalk_stack_operating_rows_2_2",
+      "pid": "@NEW_nrtalk_page_stack",
+      "match": {
+        "pid": "@NEW_nrtalk_page_stack",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_operating_rows_2",
+        "sorting": 3,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "value": "Check operator, region and supported functions individually",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_operating_rows_2",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "data_table_rows",
+      "action": "create",
+      "key": "NEW_nrtalk_stack_operating_rows_3",
+      "pid": "@NEW_nrtalk_page_stack",
+      "match": {
+        "pid": "@NEW_nrtalk_page_stack",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_operating",
+        "sorting": 4,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "row_label": "Self-hosted: Ollama / vLLM / LocalAI",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_operating",
+        "sys_language_uid": 0,
+        "hidden": 0
+      },
+      "_collections": [
+        {
+          "field": "cells",
+          "keys": [
+            "NEW_nrtalk_stack_operating_rows_3_0",
+            "NEW_nrtalk_stack_operating_rows_3_1",
+            "NEW_nrtalk_stack_operating_rows_3_2"
+          ]
+        }
+      ]
+    },
+    {
+      "table": "data_table_cells",
+      "action": "create",
+      "key": "NEW_nrtalk_stack_operating_rows_3_0",
+      "pid": "@NEW_nrtalk_page_stack",
+      "match": {
+        "pid": "@NEW_nrtalk_page_stack",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_operating_rows_3",
+        "sorting": 1,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "value": "In the infrastructure you configure for it",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_operating_rows_3",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "data_table_cells",
+      "action": "create",
+      "key": "NEW_nrtalk_stack_operating_rows_3_1",
+      "pid": "@NEW_nrtalk_page_stack",
+      "match": {
+        "pid": "@NEW_nrtalk_page_stack",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_operating_rows_3",
+        "sorting": 2,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "value": "Prompts should be processed internally",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_operating_rows_3",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "data_table_cells",
+      "action": "create",
+      "key": "NEW_nrtalk_stack_operating_rows_3_2",
+      "pid": "@NEW_nrtalk_page_stack",
+      "match": {
+        "pid": "@NEW_nrtalk_page_stack",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_operating_rows_3",
+        "sorting": 3,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "value": "Check hardware, model maintenance, external fallbacks and tools",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_operating_rows_3",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "data_table_rows",
+      "action": "create",
+      "key": "NEW_nrtalk_stack_operating_rows_4",
+      "pid": "@NEW_nrtalk_page_stack",
+      "match": {
+        "pid": "@NEW_nrtalk_page_stack",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_operating",
+        "sorting": 5,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "row_label": "Browser AI",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_operating",
+        "sys_language_uid": 0,
+        "hidden": 0
+      },
+      "_collections": [
+        {
+          "field": "cells",
+          "keys": [
+            "NEW_nrtalk_stack_operating_rows_4_0",
+            "NEW_nrtalk_stack_operating_rows_4_1",
+            "NEW_nrtalk_stack_operating_rows_4_2"
+          ]
+        }
+      ]
+    },
+    {
+      "table": "data_table_cells",
+      "action": "create",
+      "key": "NEW_nrtalk_stack_operating_rows_4_0",
+      "pid": "@NEW_nrtalk_page_stack",
+      "match": {
+        "pid": "@NEW_nrtalk_page_stack",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_operating_rows_4",
+        "sorting": 1,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "value": "On the visitor’s supported device",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_operating_rows_4",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "data_table_cells",
+      "action": "create",
+      "key": "NEW_nrtalk_stack_operating_rows_4_1",
+      "pid": "@NEW_nrtalk_page_stack",
+      "match": {
+        "pid": "@NEW_nrtalk_page_stack",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_operating_rows_4",
+        "sorting": 2,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "value": "Questions about publicly visible page content",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_operating_rows_4",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "data_table_cells",
+      "action": "create",
+      "key": "NEW_nrtalk_stack_operating_rows_4_2",
+      "pid": "@NEW_nrtalk_page_stack",
+      "match": {
+        "pid": "@NEW_nrtalk_page_stack",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_operating_rows_4",
+        "sorting": 3,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "value": "Model download, browser coverage and fallback; no central audit trail",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_operating_rows_4",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "tt_content",
+      "action": "create",
+      "key": "NEW_nrtalk_stack_governance",
+      "pid": "@NEW_nrtalk_page_stack",
+      "match": {
+        "pid": "@NEW_nrtalk_page_stack",
+        "rowDescription": "nrtalk:stack:governance",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "CType": "desiderio_datatable",
+        "colPos": 0,
+        "hidden": 0,
+        "sys_language_uid": 0,
+        "rowDescription": "nrtalk:stack:governance",
+        "header": "Who decides what?",
+        "show_header_row": 1,
+        "show_caption": 1,
+        "caption_text": "Technical functions need owners. This proposed mapping covers the server-side nr-llm path; browser AI has no central usage logs."
+      },
+      "_collections": [
+        {
+          "field": "desiderio_datatable_column_definitions",
+          "keys": [
+            "NEW_nrtalk_stack_governance_definitions_0",
+            "NEW_nrtalk_stack_governance_definitions_1",
+            "NEW_nrtalk_stack_governance_definitions_2"
+          ]
+        },
+        {
+          "field": "desiderio_datatable_rows",
+          "keys": [
+            "NEW_nrtalk_stack_governance_rows_0",
+            "NEW_nrtalk_stack_governance_rows_1",
+            "NEW_nrtalk_stack_governance_rows_2",
+            "NEW_nrtalk_stack_governance_rows_3",
+            "NEW_nrtalk_stack_governance_rows_4",
+            "NEW_nrtalk_stack_governance_rows_5"
+          ]
+        }
+      ]
+    },
+    {
+      "table": "data_table_columns",
+      "action": "create",
+      "key": "NEW_nrtalk_stack_governance_definitions_0",
+      "pid": "@NEW_nrtalk_page_stack",
+      "match": {
+        "pid": "@NEW_nrtalk_page_stack",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_governance",
+        "sorting": 1,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "column_label": "Decision",
+        "column_align": "left",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_governance",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "data_table_columns",
+      "action": "create",
+      "key": "NEW_nrtalk_stack_governance_definitions_1",
+      "pid": "@NEW_nrtalk_page_stack",
+      "match": {
+        "pid": "@NEW_nrtalk_page_stack",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_governance",
+        "sorting": 2,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "column_label": "Owner",
+        "column_align": "left",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_governance",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "data_table_columns",
+      "action": "create",
+      "key": "NEW_nrtalk_stack_governance_definitions_2",
+      "pid": "@NEW_nrtalk_page_stack",
+      "match": {
+        "pid": "@NEW_nrtalk_page_stack",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_governance",
+        "sorting": 3,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "column_label": "Evidence",
+        "column_align": "left",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_governance",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "data_table_rows",
+      "action": "create",
+      "key": "NEW_nrtalk_stack_governance_rows_0",
+      "pid": "@NEW_nrtalk_page_stack",
+      "match": {
+        "pid": "@NEW_nrtalk_page_stack",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_governance",
+        "sorting": 1,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "row_label": "Approve providers and data flows",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_governance",
+        "sys_language_uid": 0,
+        "hidden": 0
+      },
+      "_collections": [
+        {
+          "field": "cells",
+          "keys": [
+            "NEW_nrtalk_stack_governance_rows_0_0",
+            "NEW_nrtalk_stack_governance_rows_0_1"
+          ]
+        }
+      ]
+    },
+    {
+      "table": "data_table_cells",
+      "action": "create",
+      "key": "NEW_nrtalk_stack_governance_rows_0_0",
+      "pid": "@NEW_nrtalk_page_stack",
+      "match": {
+        "pid": "@NEW_nrtalk_page_stack",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_governance_rows_0",
+        "sorting": 1,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "value": "Architecture and data protection",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_governance_rows_0",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "data_table_cells",
+      "action": "create",
+      "key": "NEW_nrtalk_stack_governance_rows_0_1",
+      "pid": "@NEW_nrtalk_page_stack",
+      "match": {
+        "pid": "@NEW_nrtalk_page_stack",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_governance_rows_0",
+        "sorting": 2,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "value": "Endpoints, contracts and fallback configuration",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_governance_rows_0",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "data_table_rows",
+      "action": "create",
+      "key": "NEW_nrtalk_stack_governance_rows_1",
+      "pid": "@NEW_nrtalk_page_stack",
+      "match": {
+        "pid": "@NEW_nrtalk_page_stack",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_governance",
+        "sorting": 2,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "row_label": "Set budgets",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_governance",
+        "sys_language_uid": 0,
+        "hidden": 0
+      },
+      "_collections": [
+        {
+          "field": "cells",
+          "keys": [
+            "NEW_nrtalk_stack_governance_rows_1_0",
+            "NEW_nrtalk_stack_governance_rows_1_1"
+          ]
+        }
+      ]
+    },
+    {
+      "table": "data_table_cells",
+      "action": "create",
+      "key": "NEW_nrtalk_stack_governance_rows_1_0",
+      "pid": "@NEW_nrtalk_page_stack",
+      "match": {
+        "pid": "@NEW_nrtalk_page_stack",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_governance_rows_1",
+        "sorting": 1,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "value": "Finance and administration",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_governance_rows_1",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "data_table_cells",
+      "action": "create",
+      "key": "NEW_nrtalk_stack_governance_rows_1_1",
+      "pid": "@NEW_nrtalk_page_stack",
+      "match": {
+        "pid": "@NEW_nrtalk_page_stack",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_governance_rows_1",
+        "sorting": 2,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "value": "nr-llm user budgets and estimated usage cost",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_governance_rows_1",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "data_table_rows",
+      "action": "create",
+      "key": "NEW_nrtalk_stack_governance_rows_2",
+      "pid": "@NEW_nrtalk_page_stack",
+      "match": {
+        "pid": "@NEW_nrtalk_page_stack",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_governance",
+        "sorting": 3,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "row_label": "Permit tools and writes",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_governance",
+        "sys_language_uid": 0,
+        "hidden": 0
+      },
+      "_collections": [
+        {
+          "field": "cells",
+          "keys": [
+            "NEW_nrtalk_stack_governance_rows_2_0",
+            "NEW_nrtalk_stack_governance_rows_2_1"
+          ]
+        }
+      ]
+    },
+    {
+      "table": "data_table_cells",
+      "action": "create",
+      "key": "NEW_nrtalk_stack_governance_rows_2_0",
+      "pid": "@NEW_nrtalk_page_stack",
+      "match": {
+        "pid": "@NEW_nrtalk_page_stack",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_governance_rows_2",
+        "sorting": 1,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "value": "Business owner and IT security",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_governance_rows_2",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "data_table_cells",
+      "action": "create",
+      "key": "NEW_nrtalk_stack_governance_rows_2_1",
+      "pid": "@NEW_nrtalk_page_stack",
+      "match": {
+        "pid": "@NEW_nrtalk_page_stack",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_governance_rows_2",
+        "sorting": 2,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "value": "Tool groups, TYPO3 permissions and approval decisions",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_governance_rows_2",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "data_table_rows",
+      "action": "create",
+      "key": "NEW_nrtalk_stack_governance_rows_3",
+      "pid": "@NEW_nrtalk_page_stack",
+      "match": {
+        "pid": "@NEW_nrtalk_page_stack",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_governance",
+        "sorting": 4,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "row_label": "Review logs and retention",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_governance",
+        "sys_language_uid": 0,
+        "hidden": 0
+      },
+      "_collections": [
+        {
+          "field": "cells",
+          "keys": [
+            "NEW_nrtalk_stack_governance_rows_3_0",
+            "NEW_nrtalk_stack_governance_rows_3_1"
+          ]
+        }
+      ]
+    },
+    {
+      "table": "data_table_cells",
+      "action": "create",
+      "key": "NEW_nrtalk_stack_governance_rows_3_0",
+      "pid": "@NEW_nrtalk_page_stack",
+      "match": {
+        "pid": "@NEW_nrtalk_page_stack",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_governance_rows_3",
+        "sorting": 1,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "value": "IT security and operator",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_governance_rows_3",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "data_table_cells",
+      "action": "create",
+      "key": "NEW_nrtalk_stack_governance_rows_3_1",
+      "pid": "@NEW_nrtalk_page_stack",
+      "match": {
+        "pid": "@NEW_nrtalk_page_stack",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_governance_rows_3",
+        "sorting": 2,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "value": "Server-side usage, tool calls and configured retention",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_governance_rows_3",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "data_table_rows",
+      "action": "create",
+      "key": "NEW_nrtalk_stack_governance_rows_4",
+      "pid": "@NEW_nrtalk_page_stack",
+      "match": {
+        "pid": "@NEW_nrtalk_page_stack",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_governance",
+        "sorting": 5,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "row_label": "Change models",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_governance",
+        "sys_language_uid": 0,
+        "hidden": 0
+      },
+      "_collections": [
+        {
+          "field": "cells",
+          "keys": [
+            "NEW_nrtalk_stack_governance_rows_4_0",
+            "NEW_nrtalk_stack_governance_rows_4_1"
+          ]
+        }
+      ]
+    },
+    {
+      "table": "data_table_cells",
+      "action": "create",
+      "key": "NEW_nrtalk_stack_governance_rows_4_0",
+      "pid": "@NEW_nrtalk_page_stack",
+      "match": {
+        "pid": "@NEW_nrtalk_page_stack",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_governance_rows_4",
+        "sorting": 1,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "value": "Architecture and business owner",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_governance_rows_4",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "data_table_cells",
+      "action": "create",
+      "key": "NEW_nrtalk_stack_governance_rows_4_1",
+      "pid": "@NEW_nrtalk_page_stack",
+      "match": {
+        "pid": "@NEW_nrtalk_page_stack",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_governance_rows_4",
+        "sorting": 2,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "value": "Capabilities, quality evaluation and new model data flow",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_governance_rows_4",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "data_table_rows",
+      "action": "create",
+      "key": "NEW_nrtalk_stack_governance_rows_5",
+      "pid": "@NEW_nrtalk_page_stack",
+      "match": {
+        "pid": "@NEW_nrtalk_page_stack",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_governance",
+        "sorting": 6,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "row_label": "Handle failures",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_governance",
+        "sys_language_uid": 0,
+        "hidden": 0
+      },
+      "_collections": [
+        {
+          "field": "cells",
+          "keys": [
+            "NEW_nrtalk_stack_governance_rows_5_0",
+            "NEW_nrtalk_stack_governance_rows_5_1"
+          ]
+        }
+      ]
+    },
+    {
+      "table": "data_table_cells",
+      "action": "create",
+      "key": "NEW_nrtalk_stack_governance_rows_5_0",
+      "pid": "@NEW_nrtalk_page_stack",
+      "match": {
+        "pid": "@NEW_nrtalk_page_stack",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_governance_rows_5",
+        "sorting": 1,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "value": "Operations and incident process",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_governance_rows_5",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "data_table_cells",
+      "action": "create",
+      "key": "NEW_nrtalk_stack_governance_rows_5_1",
+      "pid": "@NEW_nrtalk_page_stack",
+      "match": {
+        "pid": "@NEW_nrtalk_page_stack",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_governance_rows_5",
+        "sorting": 2,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "value": "Shutdown controls, error messages and a named contact",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_governance_rows_5",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "tt_content",
+      "action": "create",
+      "key": "NEW_nrtalk_stack_limits",
+      "pid": "@NEW_nrtalk_page_stack",
+      "match": {
+        "pid": "@NEW_nrtalk_page_stack",
+        "rowDescription": "nrtalk:stack:limits",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "CType": "desiderio_callout",
+        "colPos": 0,
+        "hidden": 0,
+        "sys_language_uid": 0,
+        "rowDescription": "nrtalk:stack:limits",
+        "header": "Limits and open work",
+        "content": "<ul><li>The modules support technical controls. That does not establish blanket conformity with the EU AI Act, NIST AI RMF or ISO/IEC 42001.</li><li>A shared interface does not guarantee equal model capabilities or equivalent answers. Switching provider requires suitable functions and a use-case evaluation.</li><li>Vault protects credentials. Business knowledge sources, search indexes, data permissions and source quality must be configured separately.</li><li>This page provides no evidence of savings, faultless answers or a production-ready social publishing integration.</li></ul>",
+        "variant": "warning"
+      }
+    },
+    {
+      "table": "tt_content",
+      "action": "create",
+      "key": "NEW_nrtalk_stack_faq",
+      "pid": "@NEW_nrtalk_page_stack",
+      "match": {
+        "pid": "@NEW_nrtalk_page_stack",
+        "rowDescription": "nrtalk:stack:faq",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "CType": "desiderio_accordion",
+        "colPos": 0,
+        "hidden": 0,
+        "sys_language_uid": 0,
+        "rowDescription": "nrtalk:stack:faq",
+        "header": "Frequently asked questions",
+        "allow_multiple": 1
+      },
+      "_collections": [
+        {
+          "field": "desiderio_accordion_items",
+          "keys": [
+            "NEW_nrtalk_stack_faq_0",
+            "NEW_nrtalk_stack_faq_1",
+            "NEW_nrtalk_stack_faq_2",
+            "NEW_nrtalk_stack_faq_3",
+            "NEW_nrtalk_stack_faq_4",
+            "NEW_nrtalk_stack_faq_5"
+          ]
+        }
+      ]
+    },
+    {
+      "table": "accordion_items",
+      "action": "create",
+      "key": "NEW_nrtalk_stack_faq_0",
+      "pid": "@NEW_nrtalk_page_stack",
+      "match": {
+        "pid": "@NEW_nrtalk_page_stack",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_faq",
+        "sorting": 1,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "title": "Do I need all ten modules?",
+        "content": "<p>No. nr-llm requires nr-vault. The backend agent and content tools are additional, individually selectable consumers of nr-llm. Passkeys and HTTP Guard are separate choices; nr-passkeys-fe requires nr-passkeys-be. HTTP Guard requires neither Vault nor passkeys. nr-browser-ai works independently. The table lists direct Netresearch dependencies and version requirements.</p>",
+        "open_by_default": 0,
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_faq",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "accordion_items",
+      "action": "create",
+      "key": "NEW_nrtalk_stack_faq_1",
+      "pid": "@NEW_nrtalk_page_stack",
+      "match": {
+        "pid": "@NEW_nrtalk_page_stack",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_faq",
+        "sorting": 2,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "title": "Does HTTP Guard automatically protect all outbound connections?",
+        "content": "<p>No. After activation, nr-http-guard covers the registered TYPO3 RequestFactory path and clients created by its guard factories. Configured policies, exceptions and enforce, observe or disabled modes still apply. Vault needs the optional adapter integration; independent SDK/Guzzle clients, early bootstrap requests and direct cURL/socket calls need their own integration. The published version is alpha for evaluation.</p>",
+        "open_by_default": 0,
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_faq",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "accordion_items",
+      "action": "create",
+      "key": "NEW_nrtalk_stack_faq_2",
+      "pid": "@NEW_nrtalk_page_stack",
+      "match": {
+        "pid": "@NEW_nrtalk_page_stack",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_faq",
+        "sorting": 3,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "title": "Where are API keys stored?",
+        "content": "<p>The local default adapter of nr-vault stores encrypted secret values and encrypted data keys in the database. The master key lives outside it. Consuming extensions use vault identifiers. The goal is to avoid plaintext keys, not database storage itself.</p>",
+        "open_by_default": 0,
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_faq",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "accordion_items",
+      "action": "create",
+      "key": "NEW_nrtalk_stack_faq_3",
+      "pid": "@NEW_nrtalk_page_stack",
+      "match": {
+        "pid": "@NEW_nrtalk_page_stack",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_faq",
+        "sorting": 4,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "title": "Do budgets and logs cover every use of AI?",
+        "content": "<p>User budgets and usage recording are available for server-side calls routed through nr-llm. The budget check uses recorded usage and any known cost estimate. Requests already in progress can exceed the limit. This accounting covers integrated calls only. nr-browser-ai runs locally in the browser and deliberately has no central usage history.</p>",
+        "open_by_default": 0,
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_faq",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "accordion_items",
+      "action": "create",
+      "key": "NEW_nrtalk_stack_faq_4",
+      "pid": "@NEW_nrtalk_page_stack",
+      "match": {
+        "pid": "@NEW_nrtalk_page_stack",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_faq",
+        "sorting": 5,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "title": "Can sensitive data stay inside our environment?",
+        "content": "<p>Suitable self-hosted models can support that. Review the complete data flow, including fallback configuration, tools and knowledge sources. OpenAI compatibility describes an interface, not a processing location.</p>",
+        "open_by_default": 0,
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_faq",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "accordion_items",
+      "action": "create",
+      "key": "NEW_nrtalk_stack_faq_5",
+      "pid": "@NEW_nrtalk_page_stack",
+      "match": {
+        "pid": "@NEW_nrtalk_page_stack",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_faq",
+        "sorting": 6,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "title": "What about social network publication?",
+        "content": "<p>It remains a separate integration project. Based on published package requirements, the earlier rx-scheduled-social, t3socials and pb_social examples are not recommendations for TYPO3 13.4/14.3. Verify maintenance, current channel APIs and approvals before choosing a solution.</p>",
+        "open_by_default": 0,
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_faq",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "tt_content",
+      "action": "create",
+      "key": "NEW_nrtalk_stack_links",
+      "pid": "@NEW_nrtalk_page_stack",
+      "match": {
+        "pid": "@NEW_nrtalk_page_stack",
+        "rowDescription": "nrtalk:stack:links",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "CType": "desiderio_resourcelibrary",
+        "colPos": 0,
+        "hidden": 0,
+        "sys_language_uid": 0,
+        "rowDescription": "nrtalk:stack:links",
+        "eyebrow": "Current state",
+        "header": "Technical starting points by module"
+      },
+      "_collections": [
+        {
+          "field": "desiderio_resourcelibrary_items",
+          "keys": [
+            "NEW_nrtalk_stack_links_0",
+            "NEW_nrtalk_stack_links_1",
+            "NEW_nrtalk_stack_links_2"
+          ]
+        }
+      ]
+    },
+    {
+      "table": "resource_library_items",
+      "action": "create",
+      "key": "NEW_nrtalk_stack_links_0",
+      "pid": "@NEW_nrtalk_page_stack",
+      "match": {
+        "pid": "@NEW_nrtalk_page_stack",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_links",
+        "sorting": 1,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "title": "Compare all ten modules",
+        "type_label": "Stack page",
+        "description": "<p>Current releases, requirements and sources of all ten modules, kept up to date by Netresearch.</p>",
+        "link": "https://netresearch.github.io/modularer-ki-stack-page/en/#reifegrad",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_links",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "resource_library_items",
+      "action": "create",
+      "key": "NEW_nrtalk_stack_links_1",
+      "pid": "@NEW_nrtalk_page_stack",
+      "match": {
+        "pid": "@NEW_nrtalk_page_stack",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_links",
+        "sorting": 2,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "title": "nr-llm architecture decisions (EN)",
+        "type_label": "Documentation",
+        "description": "<p>Why nr-llm works the way the talk describes, decision by decision.</p>",
+        "link": "https://github.com/netresearch/t3x-nr-llm/tree/main/Documentation/Adr",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_links",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "resource_library_items",
+      "action": "create",
+      "key": "NEW_nrtalk_stack_links_2",
+      "pid": "@NEW_nrtalk_page_stack",
+      "match": {
+        "pid": "@NEW_nrtalk_page_stack",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_links",
+        "sorting": 3,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "title": "Explore the open source portfolio",
+        "type_label": "Portfolio",
+        "description": "<p>All open-source projects of Netresearch, with their maintenance data.</p>",
+        "link": "https://netresearch.github.io/",
+        "foreign_table_parent_uid": "@NEW_nrtalk_stack_links",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "tt_content",
+      "action": "create",
+      "key": "NEW_nrtalk_stack_source",
+      "pid": "@NEW_nrtalk_page_stack",
+      "match": {
+        "pid": "@NEW_nrtalk_page_stack",
+        "rowDescription": "nrtalk:stack:source",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "CType": "desiderio_callout",
+        "colPos": 0,
+        "hidden": 0,
+        "sys_language_uid": 0,
+        "rowDescription": "nrtalk:stack:source",
+        "header": "Source",
+        "content": "<p>Netresearch DTT GmbH: <a href=\"https://netresearch.github.io/modularer-ki-stack-page/en/\">Modular AI stack for TYPO3</a>, page texts from content/en.yaml and content/de.yaml in the <a href=\"https://github.com/netresearch/modularer-ki-stack-page\">page repository</a>, November 2026. Requirements and dependencies: each module’s composer.json.</p>",
+        "variant": "note"
+      }
+    },
+    {
+      "table": "tt_content",
+      "action": "create",
+      "key": "NEW_nrtalk_stack_pager",
+      "pid": "@NEW_nrtalk_page_stack",
+      "match": {
+        "pid": "@NEW_nrtalk_page_stack",
+        "rowDescription": "nrtalk:stack:pager",
+        "sys_language_uid": 0
+      },
+      "set": {
+        "CType": "desiderio_ctasplit",
+        "colPos": 0,
+        "hidden": 0,
+        "sys_language_uid": 0,
+        "rowDescription": "nrtalk:stack:pager",
+        "left_title": "Sources and links",
+        "left_description": "<p>The demos, applications and sources the talk links.</p>",
+        "left_button_text": "Previous page",
+        "left_button_link": "@NEW_nrtalk_page_sources",
+        "right_title": "Netresearch talk",
+        "right_description": "<p>The talk at a glance, with the slides and the thanks.</p>",
+        "right_button_text": "Back to overview",
+        "right_button_link": "@NEW_nrtalk_page"
+      }
+    }
+  ]
+}

@@ -132,7 +132,7 @@ final class ContentAuditCommand extends Command
                 }
                 $itemFindings = $item->role === FieldRole::Alt && $plain === ''
                     ? [new Finding('warning', 'alt_missing', 'image has no alt text', $item->file)]
-                    : $checker->check($plain, $item->role, $languageCode, $siteKey, $page['legal']);
+                    : $checker->check($plain, $item->role, $languageCode, $siteKey, $page['legal'], $checker->quotedRules($plain, $languageCode));
                 foreach ($itemFindings as $finding) {
                     $finding->isError() ? $pageErrors++ : $pageWarnings++;
                     $rules[$finding->severity . ':' . $finding->rule] = ($rules[$finding->severity . ':' . $finding->rule] ?? 0) + 1;

@@ -26,7 +26,10 @@ use Webconsulting\SitePackage\Translation\TranslationScope;
  * Translates a seeded site from its translation memories.
  *
  * The memories live in `Resources/Private/Data/Translations/<site>/<iso>.json`
- * (source text => translation), next to a `scope.json` that says which pages
+ * (source text => translation), plus optional fragments in `<iso>.d/*.json`
+ * (one topic per file, e.g. `de.d/netresearch-talk.json`; a fragment may not
+ * translate a source text differently than another file), next to a
+ * `scope.json` that says which pages
  * other commands own and which record tables belong to the site. Because the
  * memory is keyed by text, not by uid, it survives a reseed: run the command
  * after the seeders and every page, element, collection item, image text and
@@ -185,7 +188,7 @@ final class ContentTranslateCommand extends Command
         $missingTotal = 0;
         $rows = [];
         foreach ($languages as $code => $languageId) {
-            $memory = TranslationMemory::fromFile($directory . '/' . $code . '.json', $code);
+            $memory = TranslationMemory::fromFiles($directory . '/' . $code . '.json', $code);
             $result = $this->translator->translate($root, $otherRoots, $languageId, $code, $memory, $scope, $dryRun, $filter);
             $rows[] = [
                 $code . ' (' . $languageId . ')',

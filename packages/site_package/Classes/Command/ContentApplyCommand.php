@@ -113,7 +113,8 @@ final class ContentApplyCommand extends Command
             ->addOption('dry-run', null, InputOption::VALUE_NONE, 'Show what would change, write nothing')
             ->addOption('only', null, InputOption::VALUE_REQUIRED, 'Only these records, e.g. tt_content:12,pages:4')
             ->addOption('force', null, InputOption::VALUE_NONE, 'Write even where current values differ from expect')
-            ->addOption('allow-production', null, InputOption::VALUE_NONE, 'Allow running in the Production context');
+            ->addOption('allow-production', null, InputOption::VALUE_NONE, 'Allow running in the Production context')
+            ->addOption('keys-file', null, InputOption::VALUE_REQUIRED, 'After a real run, write the uid of every `key` of a create record to this JSON file (for a command that wraps this one)');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output): int
@@ -168,6 +169,8 @@ final class ContentApplyCommand extends Command
             $io->success(sprintf('Dry run: %s.', $this->summary()));
             return Command::SUCCESS;
         }
+        /** @var array<array-key, mixed> $created NEW placeholder => uid of the records created below */
+        $created = [];
         if ($dataMap !== [] || $commandMap !== []) {
             $dataHandler = GeneralUtility::makeInstance(DataHandler::class);
             $dataHandler->start($dataMap, $commandMap);
@@ -180,6 +183,7 @@ final class ContentApplyCommand extends Command
                 return Command::FAILURE;
             }
 
+            $created = $dataHandler->substNEWwithIDs;
             // Second pass: relations to the records created above.
             $relationDataMap = [];
             foreach ($this->deferredRelations as $deferred) {
@@ -230,9 +234,39 @@ final class ContentApplyCommand extends Command
                 }
             }
         }
+        $keysFile = $input->getOption('keys-file');
+        if (is_string($keysFile) && $keysFile !== '') {
+            file_put_contents($keysFile, json_encode(self::resolvedKeys($this->keys, $created), JSON_THROW_ON_ERROR));
+        }
         $io->success(sprintf('%s. Flush caches next.', ucfirst($this->summary())));
 
         return Command::SUCCESS;
+    }
+
+    /**
+     * The uid behind every create record's `key`: the matched row, or the row
+     * DataHandler created for its NEW placeholder. A key whose record was not
+     * created (an error) is left out.
+     *
+     * @param array<string, int|string> $keys
+     * @param array<array-key, mixed> $substNEWwithIDs
+     * @return array<string, int>
+     */
+    public static function resolvedKeys(array $keys, array $substNEWwithIDs): array
+    {
+        $resolved = [];
+        foreach ($keys as $key => $target) {
+            if (is_int($target)) {
+                $resolved[$key] = $target;
+                continue;
+            }
+            $uid = $substNEWwithIDs[$target] ?? null;
+            if (is_int($uid) || (is_string($uid) && ctype_digit($uid))) {
+                $resolved[$key] = (int)$uid;
+            }
+        }
+
+        return $resolved;
     }
 
     /**

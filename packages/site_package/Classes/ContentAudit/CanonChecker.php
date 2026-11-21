@@ -20,9 +20,11 @@ final readonly class CanonChecker
      * @param string $text plain text (see CopyMetrics::plainText())
      * @param string $language `en` or `de`
      * @param string $siteKey key under `sites` in the canon, '' for none
+     * @param list<string> $waived rule groups a listed quotation is exempt from (Canon::quotedRules()):
+     *        `limits` skips length, word and sentence limits, `address` the form of address
      * @return list<Finding>
      */
-    public function check(string $text, FieldRole $role, string $language, string $siteKey = '', bool $legal = false): array
+    public function check(string $text, FieldRole $role, string $language, string $siteKey = '', bool $legal = false, array $waived = []): array
     {
         $text = trim($text);
         if ($text === '' || $role === FieldRole::Skip) {
@@ -30,8 +32,13 @@ final readonly class CanonChecker
         }
 
         $findings = [];
-        array_push($findings, ...$this->checkLimits($text, $role, $language, $legal));
-        array_push($findings, ...$this->checkPhrases(self::withoutCode($text), $role, $language, $siteKey));
+        if (!in_array('limits', $waived, true)) {
+            array_push($findings, ...$this->checkLimits($text, $role, $language, $legal));
+        }
+        array_push($findings, ...$this->checkPhrases(self::withoutCode($text), $role, $language, $siteKey, in_array('address', $waived, true)));
+        if ($waived !== []) {
+            $findings[] = new Finding('warning', 'quoted', sprintf('quotation: %s waived (quoted_copy)', implode(', ', $waived)), $text);
+        }
 
         return $findings;
     }
@@ -89,7 +96,7 @@ final readonly class CanonChecker
     /**
      * @return list<Finding>
      */
-    private function checkPhrases(string $text, FieldRole $role, string $language, string $siteKey): array
+    private function checkPhrases(string $text, FieldRole $role, string $language, string $siteKey, bool $addressWaived = false): array
     {
         $findings = [];
 
@@ -131,7 +138,7 @@ final readonly class CanonChecker
         }
 
         $site = $siteKey !== '' ? $this->canon->site($siteKey) : null;
-        if ($language === 'de' && $site !== null && $site['address'] !== '') {
+        if ($language === 'de' && $site !== null && $site['address'] !== '' && !$addressWaived) {
             $pattern = $this->canon->address[$site['address']] ?? '';
             if ($pattern !== '' && preg_match('/' . $pattern . '/u', $text, $match) === 1) {
                 $findings[] = new Finding('error', 'address', sprintf('this site addresses readers with "%s"', $site['address']), $match[0]);
@@ -145,6 +152,16 @@ final readonly class CanonChecker
         }
 
         return $findings;
+    }
+
+    /**
+     * Rule groups the canon waives for this exact quotation (see Canon::quotedRules()).
+     *
+     * @return list<string>
+     */
+    public function quotedRules(string $text, string $language, ?string $record = null, ?string $field = null): array
+    {
+        return $this->canon->quotedRules($text, $language, $record, $field);
     }
 
     /**

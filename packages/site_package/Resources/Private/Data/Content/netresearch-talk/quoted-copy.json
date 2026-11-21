@@ -1,0 +1,105 @@
+{
+  "_note": "Faithful quotations of the Netresearch talk and stack page (English: Netresearch’s own or our close translation; German: Netresearch’s original) that break a hard copy rule of canon.yaml. \"limits\": headline length or words; \"address\": the original German addresses the audience with euch/eure. lint-copy (payload: record key, field and text) and sitepackage:content:audit (live text and language) waive exactly these rules for exactly this text and report a warning instead. Facts, banned words and spelling still apply. Read by canon.yaml (quoted_copy). Only add an entry when changing the text would change a quoted statement.",
+  "entries": [
+    {
+      "payload": "00-hub.payload.json",
+      "record": "NEW_nrtalk_hub_agenda",
+      "field": "header",
+      "language": "de",
+      "text": "Was euch heute erwartet",
+      "rules": [
+        "address"
+      ]
+    },
+    {
+      "payload": "02-questions.payload.json",
+      "record": "NEW_nrtalk_questions_s11",
+      "field": "header",
+      "language": "en",
+      "text": "What would we need to clarify before using it in our own TYPO3?",
+      "rules": [
+        "limits"
+      ]
+    },
+    {
+      "payload": "02-questions.payload.json",
+      "record": "NEW_nrtalk_questions_s11",
+      "field": "header",
+      "language": "de",
+      "text": "Was müssten wir vor dem Einsatz im eigenen TYPO3 klären?",
+      "rules": [
+        "limits"
+      ]
+    },
+    {
+      "payload": "02-questions.payload.json",
+      "record": "NEW_nrtalk_questions_s11_1",
+      "field": "title",
+      "language": "de",
+      "text": "Aus euren bisherigen Projekten",
+      "rules": [
+        "address"
+      ]
+    },
+    {
+      "payload": "03-answers.payload.json",
+      "record": "NEW_nrtalk_answers_s24",
+      "field": "header",
+      "language": "en",
+      "text": "May the agent send source code to this provider?",
+      "rules": [
+        "limits"
+      ]
+    },
+    {
+      "payload": "05-context.payload.json",
+      "record": "NEW_nrtalk_context_s35_0",
+      "field": "title",
+      "language": "en",
+      "text": "Which of the questions you collected is still open?",
+      "rules": [
+        "limits"
+      ]
+    },
+    {
+      "payload": "05-context.payload.json",
+      "record": "NEW_nrtalk_context_s35_0",
+      "field": "title",
+      "language": "de",
+      "text": "Welche eurer gesammelten Fragen ist noch offen?",
+      "rules": [
+        "address"
+      ]
+    },
+    {
+      "payload": "08-modular-ai-stack.payload.json",
+      "record": "NEW_nrtalk_stack_faq_1",
+      "field": "title",
+      "language": "en",
+      "text": "Does HTTP Guard automatically protect all outbound connections?",
+      "rules": [
+        "limits"
+      ]
+    },
+    {
+      "payload": "08-modular-ai-stack.payload.json",
+      "record": "NEW_nrtalk_stack_faq_1",
+      "field": "title",
+      "language": "de",
+      "text": "Schützt HTTP Guard automatisch alle ausgehenden Verbindungen?",
+      "rules": [
+        "limits"
+      ]
+    },
+    {
+      "payload": "08-modular-ai-stack.payload.json",
+      "record": "NEW_nrtalk_stack_faq_3",
+      "field": "title",
+      "language": "en",
+      "text": "Do budgets and logs cover every use of AI?",
+      "rules": [
+        "limits"
+      ]
+    }
+  ]
+}

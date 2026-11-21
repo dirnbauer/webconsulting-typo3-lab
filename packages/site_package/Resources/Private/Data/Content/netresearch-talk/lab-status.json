@@ -1,0 +1,21 @@
+{
+  "_note": "The \"In this lab\" column of the module table on /ai/netresearch-talk/modular-ai-stack ({{labstatus:<id>}} cells). Ids are the stack page's module ids (cowriter is t3-cowriter), plus ai-search from the talk. Change a status here when a module is installed or dropped, rerun sitepackage:seed-netresearch-talk, then translate the page. A new label needs its de/zh/hu entries in the netresearch-talk fragments.",
+  "labels": {
+    "installed": "Installed",
+    "later": "Decided later",
+    "unavailable": "Not publicly available"
+  },
+  "modules": {
+    "nr-llm": "installed",
+    "nr-vault": "installed",
+    "nr-mcp-agent": "installed",
+    "t3-cowriter": "installed",
+    "nr-landingpage": "installed",
+    "nr-browser-ai": "installed",
+    "nr-repurpose": "later",
+    "nr-passkeys-be": "later",
+    "nr-passkeys-fe": "later",
+    "nr-http-guard": "later",
+    "ai-search": "unavailable"
+  }
+}

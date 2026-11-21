@@ -29,6 +29,8 @@ final readonly class Canon
      * @param array<string, array{root: int, language: string, address: string}> $sites
      * @param array<string, string> $address
      * @param array<string, array<string, string>> $glossary
+     * @param list<array{payload: string, record: string, field: string, text: string, language: string, rules: list<string>}> $quotedCopy
+     *        faithful quotations of third-party text whose listed rule groups are waived (see quotedRules())
      */
     public function __construct(
         public array $hardLimits,
@@ -43,6 +45,7 @@ final readonly class Canon
         public array $sites,
         public array $address,
         public array $glossary,
+        public array $quotedCopy = [],
     ) {}
 
     public static function fromFile(string $path = self::DEFAULT_PATH): self
@@ -52,13 +55,14 @@ final readonly class Canon
             throw new \InvalidArgumentException(sprintf('Canon %s is not a YAML map.', $path), 1790000001);
         }
 
-        return self::fromArray($data);
+        return self::fromArray($data, dirname($path));
     }
 
     /**
      * @param array<mixed> $data
+     * @param string $directory where the files of `quoted_copy` are, relative to it
      */
-    public static function fromArray(array $data): self
+    public static function fromArray(array $data, string $directory = ''): self
     {
         $limits = self::map($data['limits'] ?? []);
 
@@ -101,7 +105,67 @@ final readonly class Canon
             sites: $sites,
             address: self::stringMap($data['address'] ?? []),
             glossary: $glossary,
+            quotedCopy: self::quotedCopy(array_map(self::string(...), self::list($data['quoted_copy'] ?? [])), $directory),
         );
+    }
+
+    /**
+     * Rule groups waived for this text: `limits` (length, words, sentence
+     * length) and `address` (the German form of address). Only for an exact
+     * quotation listed in a `quoted_copy` file: a payload check names the
+     * record key and field as well; the audit of the live database, which
+     * has no payload keys, matches the text and the language.
+     *
+     * @return list<string>
+     */
+    public function quotedRules(string $text, string $language, ?string $record = null, ?string $field = null): array
+    {
+        $plain = trim(CopyMetrics::plainText($text));
+        $rules = [];
+        foreach ($this->quotedCopy as $entry) {
+            if ($entry['language'] !== $language || trim(CopyMetrics::plainText($entry['text'])) !== $plain) {
+                continue;
+            }
+            if ($record !== null && ($entry['record'] !== $record || $entry['field'] !== $field)) {
+                continue;
+            }
+            array_push($rules, ...$entry['rules']);
+        }
+
+        return array_values(array_unique($rules));
+    }
+
+    /**
+     * @param list<string> $files relative to $directory
+     * @return list<array{payload: string, record: string, field: string, text: string, language: string, rules: list<string>}>
+     */
+    private static function quotedCopy(array $files, string $directory): array
+    {
+        $entries = [];
+        foreach ($files as $file) {
+            $path = $directory . '/' . $file;
+            $data = is_file($path) ? json_decode((string)file_get_contents($path), true) : null;
+            if (!is_array($data) || !is_array($data['entries'] ?? null)) {
+                throw new \InvalidArgumentException(sprintf('quoted_copy file %s is missing or has no "entries".', $file), 1790000002);
+            }
+            foreach ($data['entries'] as $entry) {
+                $entry = self::map($entry);
+                $rules = array_values(array_intersect(array_map(self::string(...), self::list($entry['rules'] ?? [])), ['limits', 'address']));
+                if ($rules === [] || self::string($entry['text'] ?? '') === '') {
+                    throw new \InvalidArgumentException(sprintf('quoted_copy file %s: every entry needs a text and the rules it waives (limits, address).', $file), 1790000003);
+                }
+                $entries[] = [
+                    'payload' => self::string($entry['payload'] ?? ''),
+                    'record' => self::string($entry['record'] ?? ''),
+                    'field' => self::string($entry['field'] ?? ''),
+                    'text' => self::string($entry['text'] ?? ''),
+                    'language' => self::string($entry['language'] ?? 'en'),
+                    'rules' => $rules,
+                ];
+            }
+        }
+
+        return $entries;
     }
 
     /**
