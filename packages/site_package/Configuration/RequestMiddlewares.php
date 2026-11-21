@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 use Webconsulting\SitePackage\Middleware\BasicAuthSafeBackendDenial;
 use Webconsulting\SitePackage\Middleware\BasicAuthSafeFrontendEditDenial;
+use Webconsulting\SitePackage\Middleware\HomeProposalSwitch;
 use Webconsulting\SitePackage\Middleware\PreserveFrontendEditorSession;
 use Webconsulting\SitePackage\Middleware\SplitCombinedSolrTypeFilter;
 use Webconsulting\SitePackage\Middleware\TrademarkNotice;
@@ -51,6 +52,17 @@ return [
             'target' => TrademarkNotice::class,
             'after' => [
                 'typo3/cms-frontend/content-length-headers',
+                'typo3/cms-frontend/shortcut-and-mountpoint-redirect',
+            ],
+        ],
+        // Lab only: the switch between the start page proposals of the
+        // Desiderio site (#home=a|b|c). Inside csp-headers, so its inline
+        // script gets the request's nonce before the policy is compiled.
+        'webconsulting/site-package/home-proposal-switch' => [
+            'target' => HomeProposalSwitch::class,
+            'after' => [
+                'typo3/cms-frontend/content-length-headers',
+                'typo3/cms-frontend/csp-headers',
                 'typo3/cms-frontend/shortcut-and-mountpoint-redirect',
             ],
         ],
