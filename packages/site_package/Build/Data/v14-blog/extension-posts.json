@@ -604,30 +604,30 @@
                 "Backend"
             ],
             "featuredImage": {
-                "file": "feature-ai-assistant-start-fba0e7bd.webp",
-                "alternative": "AI Assistant module: conversation list, empty chat with suggested questions, and details with model, tools and limits."
+                "alternative": "AI Assistant module: conversation list, empty chat with suggested questions, and details with model, tools and limits.",
+                "source": "EXT:site_package/Resources/Public/Images/Blog/AiAssistant/feature-ai-assistant-start-fba0e7bd.webp"
             },
             "content": [
                 {
                     "header": "Answers hide behind too many clicks",
-                    "body": "<p>Say you want to know which pages sit below Features, or what the log recorded last night. Finding out means clicking through page trees, lists and logs. Most AI tools that could help want broad access to your site.</p><p>AI Assistant is a chat inside the TYPO3 v14 backend. It reads pages and records with the permissions of the signed-in user. When it wants to change something, it stops and asks.</p>"
+                    "body": "<p><strong>Update, November 2026:</strong> this lab no longer runs AI Assistant. Its backend chat is now <a href=\"https://github.com/netresearch/t3x-nr-mcp-agent\">nr-mcp-agent</a> by Netresearch, the original that AI Assistant grew out of, in our shadcn/ui skin. Read about it on <a href=\"/ai/ai-assistant\">AI chat by Netresearch</a>. The post below describes AI Assistant as it was.</p><p>Say you want to know which pages sit below Features, or what the log recorded last night. Finding out means clicking through page trees, lists and logs. Most AI tools that could help want broad access to your site.</p><p>AI Assistant is a chat inside the TYPO3 v14 backend. It reads pages and records with the permissions of the signed-in user. When it wants to change something, it stops and asks.</p>"
                 },
                 {
                     "header": "Answers come from the site's own tools",
                     "body": "<p>The assistant calls the tools of the MCP Server in process, as the signed-in backend user. There is no HTTP self-call and no tool server to register. It reads page trees, records, redirects and the system log. Each answer shows the tool calls it made and their results, then explains them in plain words.</p>",
                     "image": {
-                        "file": "feature-ai-assistant-answer-21458ce7.webp",
                         "alternative": "Chat with a question about the Features page tree, three read-only tool calls and the answer that lists every feature page.",
-                        "caption": "Three read-only tool calls, then an answer in plain words."
+                        "caption": "Three read-only tool calls, then an answer in plain words.",
+                        "source": "EXT:site_package/Resources/Public/Images/Blog/AiAssistant/feature-ai-assistant-answer-21458ce7.webp"
                     }
                 },
                 {
                     "header": "Every write stops and waits for you",
                     "body": "<p>A write pauses the turn and shows a card with the tool and its arguments. Approve, and it runs; deny, and nothing changes. Write tools stay off until an administrator enables them in nr-llm. User TSconfig can remove tools per backend group, but it can never add any.</p><p>Every record the assistant wrote is listed with the conversation, one click from the record editor. In our lab, an approved change lands as a draft in the Staging workspace.</p>",
                     "image": {
-                        "file": "feature-ai-assistant-approval-d8e9abaf.webp",
                         "alternative": "Approval card for a WriteTable call with its JSON arguments, Deny and Approve buttons, and a waiting notice in the details.",
-                        "caption": "Nothing is written until you approve the call."
+                        "caption": "Nothing is written until you approve the call.",
+                        "source": "EXT:site_package/Resources/Public/Images/Blog/AiAssistant/feature-ai-assistant-approval-d8e9abaf.webp"
                     }
                 },
                 {
@@ -1094,7 +1094,7 @@
                 },
                 {
                     "header": "AI your editors can control",
-                    "body": "<ul><li><a href=\"/14/ai-assistant-a-backend-chat-that-asks-first\"><strong>AI Assistant</strong></a>: a backend chat that reads your installation and asks before every write.</li><li><a href=\"/14/jev-forms-that-read-before-they-route\"><strong>Jev</strong></a>: typed AI decisions that show the right form fields and send mail to the right team.</li><li><a href=\"/14/skillflow-the-same-ai-review-for-every-draft\"><strong>Skillflow</strong></a>: runs agent skills on pages and workspace stages and keeps every report.</li><li><a href=\"/14/skillspector-security-checks-for-agent-skills\"><strong>Skillspector</strong></a>: checks agent skills for prompt injection, secrets, risky commands and licence problems.</li></ul>"
+                    "body": "<ul><li><a href=\"/ai/ai-assistant\"><strong>AI chat by Netresearch</strong></a>: the backend chat this lab runs now, nr-mcp-agent in our shadcn/ui skin. It asks before every write and replaced <a href=\"/14/ai-assistant-a-backend-chat-that-asks-first\">our AI Assistant</a>.</li><li><a href=\"/14/jev-forms-that-read-before-they-route\"><strong>Jev</strong></a>: typed AI decisions that show the right form fields and send mail to the right team.</li><li><a href=\"/14/skillflow-the-same-ai-review-for-every-draft\"><strong>Skillflow</strong></a>: runs agent skills on pages and workspace stages and keeps every report.</li><li><a href=\"/14/skillspector-security-checks-for-agent-skills\"><strong>Skillspector</strong></a>: checks agent skills for prompt injection, secrets, risky commands and licence problems.</li></ul>"
                 },
                 {
                     "header": "Agents that work under your rules",
