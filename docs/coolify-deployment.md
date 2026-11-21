@@ -121,7 +121,7 @@ file uploads and their existing size limits remain available.
 ## Coolify settings
 
 - Build strategy: Docker Compose
-- Compose file: `/docker-compose.coolify.yml`
+- Compose file: `/docker-compose.coolify.yml` (source build on the Coolify host) or `/docker-compose.coolify.registry.yml` (prebuilt images from the GitLab Runner — see [Offloading image builds to the GitLab Runner](#offloading-image-builds-to-the-gitlab-runner))
 - Public service: `web`, port `80`
 - Domain: `https://typo3-lab.webconsulting.at`
 - Health check: `/healthz` (the image health check supplies Basic Auth)
@@ -284,6 +284,62 @@ Two things to check after a deploy that changes the Solr image: the cores are
 created from the configsets that image serves, so a version change usually means
 recreating and reindexing them. `Build/Scripts/check-deploy-pins.php` guards the
 matching version; it does not reindex.
+
+## Offloading image builds to the GitLab Runner
+
+Building `Dockerfile.coolify` and `Dockerfile.solr.coolify` directly on the
+15.6 GB application host competes with Apache, Solr and Redmine for CPU, RAM
+and disk, and `docker-cleanup/run` clears the local BuildKit cache after every
+deploy so image dates stay accurate (~3 minutes of cold compilation per push).
+
+`.gitlab-ci.yml` and `docker-compose.coolify.registry.yml` move the entire
+build to the dedicated GitLab Runner on `gitlab.webconsulting.at`:
+
+1. **Quality stage (`typo3-14-quality`, `node-quality`)**: runs the same PHP 8.5.12,
+   Composer, Node 26.12.1 and `runTests.sh -s quality` gate as GitHub Actions
+   (skip with `GITLAB_SKIP_QUALITY=true` when GitHub Actions already gates `main`
+   before mirroring).
+2. **Build stage (`build-web`, `build-solr`)**: builds both images in parallel
+   with Docker Buildx / BuildKit, mounts `GITLAB_EXTENSIONS_READ_KEY` strictly as
+   a BuildKit secret (`--secret id=GITLAB_EXTENSIONS_READ_KEY,...`, never as a
+   build argument or layer file), keeps a persistent remote layer cache at
+   `:buildcache` (`mode=max`), and pushes immutable `:${CI_COMMIT_SHA}` tags
+   (plus `:latest` on `main`) to `gitlab.webconsulting.at:5050/extensions/webconsulting-typo3-lab/{web,solr}`.
+3. **Deploy stage (`deploy-coolify`)**: when `COOLIFY_GITLAB_DEPLOY=true`, triggers
+   `POST /api/v1/deploy?uuid=${COOLIFY_APP_UUID}`, waits for `finished`, verifies
+   `https://typo3-lab.webconsulting.at/` answers `401`/`200`, and runs the server
+   cleanup so the application host keeps only the newest three versions without
+   clearing the GitLab Runner's registry cache.
+
+Runtime configuration, volumes, memory limits and the pinned MariaDB image stay
+identical between `docker-compose.coolify.yml` and
+`docker-compose.coolify.registry.yml` (enforced by
+`Tests/Unit/Deployment/CoolifyComposeParityTest.php` and
+`Build/Scripts/check-deploy-pins.php`). Coolify injects `SOURCE_COMMIT` into
+Compose deployments, so `${TYPO3_LAB_IMAGE_TAG:-${SOURCE_COMMIT:-latest}}` with
+`pull_policy: always` pins each deployment to the exact commit built by the
+runner.
+
+### Cutover checklist (zero downtime, instant rollback)
+
+1. **GitLab CI/CD variables** (`extensions/webconsulting-typo3-lab` → Settings → CI/CD → Variables):
+   - `GITLAB_EXTENSIONS_READ_KEY`: the existing read-only SSH deploy key for private extension mirrors (masked/file).
+   - `COOLIFY_TOKEN`: API token with `read`, `write` and `deploy` permissions (masked, protected).
+   - `COOLIFY_GITLAB_DEPLOY`: `false` for the initial dry-run build, then `true` once the first images are pushed.
+   - Ensure the GitLab Runner's outbound IP is on Coolify's API allowlist (`Settings > Configuration > Allowed IPs`).
+2. **Registry pull token on the Coolify host (`49.13.173.37`)**: create a GitLab
+   Deploy Token (or group token) with `read_registry` only and log Docker in once
+   as `root`:
+
+```bash
+ssh root@49.13.173.37 'docker login gitlab.webconsulting.at:5050 -u <deploy-token-user> --password-stdin' < ~/.config/gitlab-registry-read-token
+```
+
+3. **Switch Coolify to the prebuilt Compose file**:
+   - Push `main` to `gitlab` (`Build/Scripts/mirror-to-gitlab.sh` or enable automatic mirroring from GitHub Actions by setting `GITLAB_MIRROR_SSH_KEY` and `GITLAB_CI_MIRROR=true`) and confirm `build-web` and `build-solr` succeed.
+   - Set GitHub Actions variable `COOLIFY_CI_DEPLOY=false` so GitHub no longer triggers a parallel deploy before GitLab finishes building the image.
+   - In Coolify, change **Compose File** from `/docker-compose.coolify.yml` to `/docker-compose.coolify.registry.yml`, set `COOLIFY_GITLAB_DEPLOY=true` in GitLab, and deploy.
+4. **Rollback to host builds at any time**: switch **Compose File** in Coolify back to `/docker-compose.coolify.yml` and set `COOLIFY_CI_DEPLOY=true` on GitHub (`COOLIFY_GITLAB_DEPLOY=false` on GitLab).
 
 ## Dependency refresh on 2026-10-23
 

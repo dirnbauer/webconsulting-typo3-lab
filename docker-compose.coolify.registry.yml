@@ -1,0 +1,148 @@
+# Prebuilt-image variant of docker-compose.coolify.yml.
+#
+# GitLab CI (.gitlab-ci.yml) builds Dockerfile.coolify and Dockerfile.solr.coolify
+# on the dedicated GitLab Runner with persistent BuildKit registry cache and
+# publishes commit-tagged images to gitlab.webconsulting.at:5050. Coolify pulls
+# those finished images instead of compiling PHP extensions, Composer packages,
+# and Vite bundles on the 15.6 GB application host.
+#
+# Runtime settings, volumes, memory bounds, and the pinned MariaDB image stay
+# byte-for-byte in parity with docker-compose.coolify.yml (enforced by
+# Tests/Unit/Deployment/CoolifyComposeParityTest.php and check-deploy-pins.php).
+
+services:
+  web:
+    image: ${TYPO3_LAB_WEB_IMAGE:-gitlab.webconsulting.at:5050/extensions/webconsulting-typo3-lab/web}:${TYPO3_LAB_IMAGE_TAG:-${SOURCE_COMMIT:-latest}}
+    pull_policy: always
+    environment:
+      BASIC_AUTH_PASSWORD: ${SERVICE_PASSWORD_BASIC}
+      BASIC_AUTH_USER: ${BASIC_AUTH_USER:-lab}
+      TYPO3_CONTEXT: Production
+      # Argon2id hash from `typo3 install:password:set --dry-run`. Empty keeps the
+      # standalone Install Tool locked; a hash in the secrets volume
+      # (/run/typo3-secrets/install-tool-password) takes precedence.
+      TYPO3_INSTALL_TOOL_PASSWORD_HASH: ${TYPO3_INSTALL_TOOL_PASSWORD_HASH:-}
+      # Opt-in only: pre-provision the exact current Vault master key in a
+      # runtime-readable 0400 file at /run/typo3-vault-secrets/master-key.
+      # No file is created, and invalid explicit paths stop startup/bootstrap.
+      TYPO3_VAULT_MASTER_KEY_FILE: ${TYPO3_VAULT_MASTER_KEY_FILE:-}
+      # Entrypoint switches. Coolify injects only what this file declares, so
+      # without these lines the documented overrides never reached the
+      # container and the defaults could not be changed at all.
+      # Dependency updates can add tables and columns. Apply additive schema
+      # setup before serving; data wizards and audit re-signing stay explicit.
+      TYPO3_RUN_SETUP: ${TYPO3_RUN_SETUP:-1}
+      TYPO3_FLUSH_PAGE_CACHE: ${TYPO3_FLUSH_PAGE_CACHE:-1}
+      TYPO3_CHAT_CLEANUP: '0'
+      TYPO3_AGENTNEXUS_CLEANUP: '0'
+      TYPO3_RUN_WIZARDS: '0'
+      TYPO3_LANGUAGE_UPDATE: ${TYPO3_LANGUAGE_UPDATE:-1}
+      TYPO3_LANGUAGE_PACKS: ${TYPO3_LANGUAGE_PACKS:-de}
+      TYPO3_LOG_MAX_BYTES: ${TYPO3_LOG_MAX_BYTES:-52428800}
+      # Workers x ~700 MB must stay under mem_limit below; see apache-mpm.conf.
+      APACHE_MAX_REQUEST_WORKERS: ${APACHE_MAX_REQUEST_WORKERS:-6}
+      APACHE_MAX_CONNECTIONS_PER_CHILD: ${APACHE_MAX_CONNECTIONS_PER_CHILD:-500}
+      # No TYPESAFE_API_KEY here, on purpose: the Jev token lives in nr-vault
+      # and the frontend reads it from there. (Coolify still loads every
+      # variable of the app into every service through its generated .env, so
+      # one kept in Coolify is present but unused - the vault is read first.)
+      # To replace the token, hand it to the one import command - see
+      # docs/coolify-deployment.md.
+      # Friendly Captcha sitekey and API key. The desiderio and
+      # mtug-camp-munich-2026 site configs read them as %env()%; empty, every
+      # captcha-protected form rejects its submissions. A changed value arrives
+      # with the next deploy, whose start clears the cached site configuration.
+      FRIENDLYCAPTCHA_SITE_KEY: ${FRIENDLYCAPTCHA_SITE_KEY:-}
+      FRIENDLYCAPTCHA_API_KEY: ${FRIENDLYCAPTCHA_API_KEY:-}
+      TYPO3_DB_DATABASE: typo3
+      TYPO3_DB_HOST: database
+      TYPO3_DB_PASSWORD: ${SERVICE_PASSWORD_DB}
+      TYPO3_DB_PORT: 3306
+      TYPO3_DB_USER: ${SERVICE_USER_DB}
+      # Mail: smtp needs TYPO3_MAIL_SMTP_SERVER (host:port); without it, mail
+      # stays in var/log/mail.mbox and nobody receives an email.
+      TYPO3_MAIL_TRANSPORT: ${TYPO3_MAIL_TRANSPORT:-mbox}
+      TYPO3_MAIL_SMTP_SERVER: ${TYPO3_MAIL_SMTP_SERVER:-}
+      TYPO3_MAIL_SMTP_ENCRYPT: ${TYPO3_MAIL_SMTP_ENCRYPT:-false}
+      TYPO3_MAIL_SMTP_USERNAME: ${TYPO3_MAIL_SMTP_USERNAME:-}
+      TYPO3_MAIL_SMTP_PASSWORD: ${TYPO3_MAIL_SMTP_PASSWORD:-}
+      TYPO3_MAIL_FROM_ADDRESS: ${TYPO3_MAIL_FROM_ADDRESS:-}
+      TYPO3_MAIL_FROM_NAME: ${TYPO3_MAIL_FROM_NAME:-}
+      TYPO3_WORKOS_API_KEY: ${TYPO3_WORKOS_API_KEY:-}
+      TYPO3_WORKOS_CLIENT_ID: ${TYPO3_WORKOS_CLIENT_ID:-}
+      TYPO3_WORKOS_COOKIE_PASSWORD: ${TYPO3_WORKOS_COOKIE_PASSWORD:-}
+      TYPO3_WORKOS_FRONTEND_DEFAULT_GROUP_UIDS: ${TYPO3_WORKOS_FRONTEND_DEFAULT_GROUP_UIDS:-}
+      TYPO3_WORKOS_FRONTEND_STORAGE_PID: ${TYPO3_WORKOS_FRONTEND_STORAGE_PID:-0}
+    depends_on:
+      database:
+        condition: service_healthy
+      typo3-solr:
+        condition: service_healthy
+    volumes:
+      - typo3_fileadmin:/var/www/html/public/fileadmin
+      - typo3_runtime:/var/www/html/var
+      - typo3_secrets:/run/typo3-secrets
+      # Passive while the opt-in flag is empty. Provision through a separate
+      # temporary RW admin mount; the application only ever mounts it read-only.
+      - typo3_vault_keys:/run/typo3-vault-secrets:ro
+    mem_limit: 5632m
+    memswap_limit: 5632m
+    labels:
+      - at.webconsulting.stack=typo3-lab
+    restart: unless-stopped
+
+  database:
+    image: 127.0.0.1:5000/webconsulting/security/mariadb-critical@sha256:684422f4031b7938c882c516a639a3513d565b4cd3a4a34146dcac9b7f0b6add
+    command:
+      - --character-set-server=utf8mb4
+      - --collation-server=utf8mb4_unicode_ci
+      # Preserve the 10.11 default used by SET NAMES utf8mb4 connections.
+      - --character-set-collations=utf8mb4=utf8mb4_general_ci
+      - --innodb-file-per-table=1
+      # The Content Blocks lab intentionally has a very wide tt_content table.
+      # Match the DDEV setting so a complete dump can be restored.
+      - --innodb-strict-mode=OFF
+      # The database is ~320 MB of data and index. At the 128 MB default it
+      # could not stay in memory; at 384 MB it does, with room to grow.
+      - --innodb-buffer-pool-size=384M
+    environment:
+      MARIADB_DATABASE: typo3
+      MARIADB_PASSWORD: ${SERVICE_PASSWORD_DB}
+      MARIADB_ROOT_PASSWORD: ${SERVICE_PASSWORD_ROOT}
+      MARIADB_USER: ${SERVICE_USER_DB}
+    volumes:
+      - typo3_database_maria118:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
+      interval: 10s
+      timeout: 5s
+      retries: 12
+      start_period: 30s
+    mem_limit: 1024m
+    memswap_limit: 1024m
+    labels:
+      - at.webconsulting.stack=typo3-lab
+    restart: unless-stopped
+
+  typo3-solr:
+    image: ${TYPO3_LAB_SOLR_IMAGE:-gitlab.webconsulting.at:5050/extensions/webconsulting-typo3-lab/solr}:${TYPO3_LAB_IMAGE_TAG:-${SOURCE_COMMIT:-latest}}
+    pull_policy: always
+    environment:
+      SOLR_HEAP: 1g
+      TYPO3_SOLR_ENABLED_CORES: english german hungarian chinese
+    volumes:
+      - typo3_solr:/var/solr/data
+    mem_limit: 1536m
+    memswap_limit: 1536m
+    labels:
+      - at.webconsulting.stack=typo3-lab
+    restart: unless-stopped
+
+volumes:
+  typo3_database:
+  typo3_database_maria118:
+  typo3_fileadmin:
+  typo3_runtime:
+  typo3_secrets:
+  typo3_vault_keys:
+  typo3_solr:
