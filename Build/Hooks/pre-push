@@ -1,0 +1,76 @@
+#!/usr/bin/env bash
+#
+# Opt-in pre-push hook of the lab (install: Build/Scripts/install-hooks.sh).
+#
+# GitHub CI cannot install Powermail 14 (the in2code token is not there by
+# decision), so `ddev check-powermail` must pass locally before a change to the
+# lock, the patches or the lab's Powermail files is merged. This hook notices
+# when the pushed commits change such a file (Build/Scripts/lib/powermail-check-paths.sh)
+# and the last full pass of the check in this checkout was for other content.
+#
+#   git config lab.powermailCheck block    (default) stop the push and say why
+#   git config lab.powermailCheck remind   print the reminder, push anyway
+#   git config lab.powermailCheck off      silent
+#   LAB_SKIP_POWERMAIL_CHECK=1 git push     one push without it (or git push --no-verify)
+#
+# It never runs the check itself: that needs the DDEV instance and takes
+# minutes, which a push should not hide.
+
+set -uo pipefail
+
+remote_name="${1:-origin}"
+root="$(git rev-parse --show-toplevel)" || exit 0
+lib="${root}/Build/Scripts/lib/powermail-check-paths.sh"
+# A branch from before the check existed: nothing to compare with.
+[[ -f "${lib}" ]] || exit 0
+# shellcheck source=Build/Scripts/lib/powermail-check-paths.sh
+source "${lib}"
+
+mode="$(git config --get lab.powermailCheck || echo block)"
+[[ "${mode}" == "off" ]] && exit 0
+if [[ "${LAB_SKIP_POWERMAIL_CHECK:-}" == "1" ]]; then
+  echo "pre-push: Powermail check skipped (LAB_SKIP_POWERMAIL_CHECK=1)." >&2
+  exit 0
+fi
+
+stamp="$(powermail_check_stamp_file "${root}")"
+missing=0
+
+while read -r local_ref local_sha remote_ref remote_sha; do
+  [[ -z "${local_sha:-}" || "${local_sha}" =~ ^0+$ ]] && continue   # branch deletion
+  if [[ "${remote_sha}" =~ ^0+$ ]] || ! git cat-file -e "${remote_sha}^{commit}" 2>/dev/null; then
+    # A new branch: compare with what the remote's main already has.
+    base="$(git merge-base "${local_sha}" "${remote_name}/main" 2>/dev/null || true)"
+  else
+    base="${remote_sha}"
+  fi
+  if [[ -n "${base}" ]]; then
+    changed="$(git diff --name-only "${base}" "${local_sha}")"
+  else
+    changed="$(git ls-tree -r --name-only --full-tree "${local_sha}")"
+  fi
+  relevant="$(printf '%s\n' "${changed}" | grep -E "${POWERMAIL_CHECK_PATHS_REGEX}" || true)"
+  [[ -z "${relevant}" ]] && continue
+
+  fingerprint="$(powermail_check_fingerprint_commit "${root}" "${local_sha}")"
+  if [[ -f "${stamp}" ]] && grep -qx "fingerprint ${fingerprint}" "${stamp}"; then
+    echo "pre-push: ddev check-powermail passed for this content ($(sed -n 's/^date //p' "${stamp}"), ${remote_ref#refs/heads/})." >&2
+    continue
+  fi
+  missing=1
+  {
+    echo "pre-push: ${local_ref#refs/heads/} -> ${remote_ref#refs/heads/} changes files GitHub CI cannot check (no in2code token there):"
+    printf '%s\n' "${relevant}" | sed 's/^/    /'
+    echo "  and 'ddev check-powermail' has not passed for this content in this checkout."
+  } >&2
+done
+
+[[ ${missing} -eq 0 ]] && exit 0
+{
+  echo
+  echo "  Run:   ddev check-powermail          (about 4 minutes; README, section Quality)"
+  echo "  Then push again. Skip once: LAB_SKIP_POWERMAIL_CHECK=1 git push"
+  echo "  Only remind from now on: git config lab.powermailCheck remind"
+} >&2
+[[ "${mode}" == "remind" ]] && exit 0
+exit 1

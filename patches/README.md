@@ -36,9 +36,11 @@ Powermail and Powermail Conditions come from in2code's Early Access Packagist
 carries the behaviours it needs as the patches above. The token lives only in
 Coolify (build-only variable `IN2CODE_PACKAGIST_TOKEN`) and on the developer's
 machine, reaching Composer as `COMPOSER_AUTH`; GitHub has no copy, so CI drops
-these two packages and their patches, and the Coolify build and the local run
-before each merge check that the patches apply (`docs/coolify-deployment.md`). Our former forks
-keep their GitLab mirrors so that older lab commits can still be built.
+these two packages and their patches. CI still checks their declarations
+(`Build/Scripts/check-patch-declarations.php`, before the drop); whether they
+apply is checked by `ddev check-powermail` before each merge and by the
+Coolify build (`docs/coolify-deployment.md`). Our former forks keep their
+GitLab mirrors so that older lab commits can still be built.
 
 **Tags.** Our fork releases are four-part tags, `<upstream line>.<our revision>`
 (`14.0.3.3`, `2.3.0.1`), consumed with `~` so Composer can only pick our revisions
@@ -63,6 +65,13 @@ composer patches-relock
 composer patches-repatch
 composer validate --strict
 composer install --dry-run
+```
+
+Then check it:
+
+```bash
+php Build/Scripts/check-patch-declarations.php   # declared, locked, well-formed (also in CI)
+ddev check-powermail                             # for the in2code patches: they apply, tests pass
 ```
 
 Commit the patch, `composer.json`, and `patches.lock.json` together whenever a

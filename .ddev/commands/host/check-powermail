@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+## Description: Prove Powermail before a merge: lock, reinstall with the five patches, audit, unit + E2E tests, no token left (CI cannot: no in2code token there)
+## Usage: check-powermail [--no-reinstall] [--no-e2e] [--full-token-scan]
+## Example: "ddev check-powermail" | "ddev check-powermail --no-e2e"
+
+# Everything lives in Build/Scripts/check-powermail.sh; this only makes it a
+# DDEV command, so DDEV_APPROOT, DDEV_SITENAME and DDEV_PRIMARY_URL name the
+# instance it checks.
+exec "${DDEV_APPROOT}/Build/Scripts/check-powermail.sh" "$@"

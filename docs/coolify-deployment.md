@@ -64,30 +64,48 @@ locked package requires one of the two or when `composer.json` lists a private
 `composer` repository it does not know. Nothing in the lab's own code needs
 Powermail for PHP lint, PHPStan, PHPUnit or the frontend build.
 
-So CI checks everything except the two in2code packages. It no longer covers:
-that they install, that the five Powermail patches apply, and `composer audit`
-for those two. These are checked by the Coolify image build (`composer install`
-with `composer-exit-on-patch-failure`: a patch that no longer applies fails the
-build and the previous image keeps serving) and by a local run before each
-merge:
+Before the drop, the Quality job runs `Build/Scripts/check-patch-declarations.php`,
+which needs no package code: every declared patch exists, is locked in
+`patches.lock.json` with its sha256 (and the file's `_hash` is the one
+cweagans/composer-patches computes), no patch file in `patches/` is undeclared,
+and every patch is a well-formed unified diff (relative paths inside the
+package, hunk line counts that match their headers).
+
+So CI does not cover: that the two packages install, that the five Powermail
+patches still apply to their code, `composer audit` for those two, and the
+Powermail unit and E2E tests against the real packages. Two places do:
+
+- **Before each merge, locally:** `ddev check-powermail`
+  (`Build/Scripts/check-powermail.sh`; README, "Powermail: the local check
+  before each merge"). It verifies the installed packages against the lock,
+  reinstalls them from in2code with their patches, proves the patches are in
+  the running code, runs the Powermail unit and E2E tests and the audit, and
+  finally proves no file holds the token. The opt-in pre-push hook
+  (`Build/Scripts/install-hooks.sh`) reminds whoever pushes a change to
+  `composer.lock`, `patches/` or the Powermail templates without a passing run.
+- **On every deploy, in the Coolify build:** `composer install` applies the
+  patches; cweagans/composer-patches 2 throws "No available patcher was able
+  to apply patch …" on a patch that does not apply and Composer exits non-zero
+  (2.x ignores the 1.x option `composer-exit-on-patch-failure`, still set in
+  `composer.json`, and always aborts). The `RUN` step fails, Coolify keeps the
+  previous image, and the GitHub deploy job turns red with a message that
+  points to `ddev check-powermail`. Proven on 2026-11-21 with a broken patch
+  in a scratch copy of the lab: `composer reinstall` stopped with that message
+  and exit code 1.
+
+Any other Composer command that must reach in2code (a first `composer install`,
+`composer update` of other packages, the full local quality suite with its
+`composer audit`) gets the token for that one command, from this shell's
+environment, never on a command line:
 
 ```bash
 export COMPOSER_AUTH="{\"http-basic\":{\"in2code.repo.packagist.com\":{\"username\":\"token\",\"password\":\"$(tr -d '\r\n' < ~/.config/in2code/eap-packagist-token)\"}}}"
-# docker exec -e copies the value from this shell: never on a command line.
 web="ddev-$(ddev describe -j | jq -r .raw.name)-web"
-docker exec -e COMPOSER_AUTH -u "$(id -u):$(id -g)" -w /var/www/html "$web" composer reinstall in2code/powermail in2code/powermail_cond
-# reinstall rewrites vendor/composer/autoload_files.php without TYPO3's
-# autoload-include.php (TYPO3 then looks for vendor/typo3/sysext/*/):
-# dump-autoload restores it.
-docker exec -u "$(id -u):$(id -g)" -w /var/www/html "$web" composer dump-autoload
 docker exec -e COMPOSER_AUTH -u "$(id -u):$(id -g)" -w /var/www/html "$web" Build/Scripts/runTests.sh -s quality -p 8.5
 unset COMPOSER_AUTH
 ```
 
-The Playwright Powermail journeys (`Tests/E2E/powermail.spec.js`, suite `e2e`)
-need a running lab and were never part of CI.
-
-`Dockerfile.coolify` mounts it as a BuildKit secret in the one step that runs
+`Dockerfile.coolify` mounts the token as a BuildKit secret in the one step that runs
 `composer install`, turns it into `COMPOSER_AUTH` in that step's environment
 and unsets it afterwards; no file, layer, build argument or log line holds it,
 and `composer.lock` records only credential-free dist URLs. Coolify's "Use

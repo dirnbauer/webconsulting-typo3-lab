@@ -4,6 +4,24 @@ All notable changes to Webconsulting TYPO3 Lab are documented in this file.
 
 ## Unreleased
 
+### Powermail check before each merge — 2026-11-21
+
+- `ddev check-powermail` (`Build/Scripts/check-powermail.sh`) proves locally
+  what GitHub CI cannot without the in2code token: the installed Powermail and
+  Powermail Conditions match composer.lock, a reinstall from in2code applies
+  all five patches, the running code contains them, the Powermail unit tests
+  (lab and webcon_jev at the locked commit) and E2E journeys pass, `composer
+  audit` covers both packages, and no file holds the token afterwards. One
+  PASS/FAIL table; it refuses to run in CI.
+- CI runs `Build/Scripts/check-patch-declarations.php` before dropping the
+  in2code packages: every declared patch exists, is locked with its sha256,
+  no patch file is undeclared, and every patch is a well-formed diff.
+- A failed Coolify deployment now tells the reader that a patch or token
+  problem in the image build needs `ddev check-powermail`.
+- Opt-in pre-push hook (`Build/Scripts/install-hooks.sh`) that stops a push
+  changing composer.lock, the patches or the Powermail templates without a
+  passing check for that content; pull request template with the same note.
+
 ### Fixes before the merge of the 2026-11-20 round — 2026-11-21
 
 - Production image: the PHP CLI gets an OPcache file cache

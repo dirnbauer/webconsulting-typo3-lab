@@ -198,34 +198,66 @@ The quality suite checks the local site package at PHPStan level 8 on
 PHP 8.5 and runs its PHPUnit tests. It also validates Composer and YAML,
 builds the frontend, and audits Composer/npm dependencies.
 
+### Powermail: the local check before each merge
+
 GitHub Actions runs the same quality suite without Powermail and Powermail
-Conditions: GitHub has no copy of the in2code token, so
+Conditions: GitHub has no copy of the in2code token (owner decision), so
 `Build/Scripts/ci-drop-private-packages.php` removes the two packages, their
 repository and their patches from the runner's throw-away checkout first (it
-refuses to run anywhere else without `--force`). The full install, including
-the five Powermail patches, is checked by the Coolify image build and by this
-local run before each merge:
+refuses to run anywhere else without `--force`). Before the drop, CI runs the
+one check that needs no in2code code, `Build/Scripts/check-patch-declarations.php`:
+every patch `composer.json` declares exists, is locked in `patches.lock.json`
+with its sha256, no patch file is undeclared, and each is a well-formed diff.
+
+Everything else about Powermail is one local command, against the DDEV
+instance of the checkout it runs in. Run it before every merge, and always when
+`composer.json`, `composer.lock`, `patches/` or the lab's Powermail templates,
+labels or E2E journeys changed:
 
 ```bash
-export COMPOSER_AUTH="{\"http-basic\":{\"in2code.repo.packagist.com\":{\"username\":\"token\",\"password\":\"$(tr -d '\r\n' < ~/.config/in2code/eap-packagist-token)\"}}}"
-# docker exec -e copies the value from this shell: never on a command line.
-web="ddev-$(ddev describe -j | jq -r .raw.name)-web"
-docker exec -e COMPOSER_AUTH -u "$(id -u):$(id -g)" -w /var/www/html "$web" composer reinstall in2code/powermail in2code/powermail_cond
-# reinstall rewrites vendor/composer/autoload_files.php without TYPO3's
-# autoload-include.php (TYPO3 then looks for vendor/typo3/sysext/*/):
-# dump-autoload restores it.
-docker exec -u "$(id -u):$(id -g)" -w /var/www/html "$web" composer dump-autoload
-docker exec -e COMPOSER_AUTH -u "$(id -u):$(id -g)" -w /var/www/html "$web" Build/Scripts/runTests.sh -s quality -p 8.5
-unset COMPOSER_AUTH
+ddev check-powermail
 ```
 
-`composer reinstall` applies the five patches again
-(`composer-exit-on-patch-failure` stops on one that no longer applies), and the
-suite's `composer audit` reaches the in2code repository with the same
-`COMPOSER_AUTH`. `runTests.sh` hands the variable only to its Composer steps
-and removes it for every other tool: PHPStan stores the process environment in
-its compiled container under `var/phpstan`, which once put the token into a
-file there.
+| Step | What it proves |
+|---|---|
+| Patch declarations | the static guard above, as in CI |
+| `composer validate` | composer.json and composer.lock agree |
+| Installed = lock | the installed version and dist reference of both in2code packages equal composer.lock; the lock's URLs carry no credentials |
+| Reinstall | `composer reinstall` from in2code's repository applies all five patches to the pristine archive (cweagans/composer-patches 2 aborts with "No available patcher was able to apply patch", exactly as in the Coolify build), then `dump-autoload` (reinstall drops TYPO3's `autoload-include.php` otherwise), opcache clear and `cache:flush` |
+| Patches applied | a scratch copy of each installed package is un-patched in reverse order without fuzz, so the running code contains every patch |
+| Unit tests | the lab's unit tests that touch Powermail, and webcon_jev's unit tests at the commit composer.lock pins, against this `vendor/` |
+| E2E | `Tests/E2E/powermail.spec.js` (Powermail validation, Conditions with Jev routing) and the Powermail page of `frontend.spec.js`, desktop and mobile, against the instance |
+| `composer audit` | including the two in2code packages |
+| No token left | no file in `var/` (PHPStan's container, logs), Composer's state, `config/`, `.ddev/`, the git working tree, or the container's `/tmp` and Composer directories contains the token |
+
+It prints one PASS/FAIL table and exits non-zero on failure (about four
+minutes). It refuses to run in CI. The token is read from
+`~/.config/in2code/eap-packagist-token` (or `IN2CODE_PACKAGIST_TOKEN_FILE`) and
+reaches only the Composer steps, as `docker exec -e COMPOSER_AUTH`; it is never
+an argument and never written. `--no-e2e`, `--no-reinstall` (offline, proves
+less) and `--full-token-scan` exist; only a full run counts for the hook below.
+The reinstall briefly removes Powermail from `vendor/`, so do not run it while
+someone tests forms on the same instance. On a shared rehearsal instance it
+takes `var/lock/rehearsal.lock` for its vendor and cache writes.
+
+Not covered: webcon_jev's functional tests (they need the TYPO3 testing
+framework, which the lab does not install) and a real form submission with mail
+delivery.
+
+**Opt-in reminder.** `Build/Scripts/install-hooks.sh` installs a git pre-push
+hook (`Build/Hooks/pre-push`; `--status`, `--remove`). It stops a push whose
+commits change one of the files above while the last full pass of
+`ddev check-powermail` in this checkout was for other content (it compares a
+fingerprint of those files). `git config lab.powermailCheck remind` only warns,
+`off` silences it, `LAB_SKIP_POWERMAIL_CHECK=1 git push` skips it once. Nothing
+installs it for you.
+
+The full local quality suite (`runTests.sh -s quality`) also reaches the in2code
+repository in its `composer audit` step; give it the token the way
+[Coolify deployment](docs/coolify-deployment.md) describes for any Composer
+command. `runTests.sh` hands the variable only to its Composer steps and removes
+it for every other tool: PHPStan stores the process environment in its compiled
+container under `var/phpstan`, which once put the token into a file there.
 
 Two checks cover mistakes that stay invisible until they reach production.
 `deployPins` compares the EXT:solr commit baked into the production Solr image

@@ -59,14 +59,22 @@ jobs:
           printf '%s\n' "$GITLAB_EXTENSIONS_READ_KEY" > ~/.ssh/id_ed25519
           chmod 600 ~/.ssh/id_ed25519
 
+      # The one check of the five Powermail patches GitHub can make without
+      # the in2code code: each declared patch exists, is locked with its sha256
+      # in patches.lock.json, and is a well-formed diff. It must run before the
+      # drop below removes their declarations.
+      - name: Check the patch declarations (including Powermail's)
+        run: php Build/Scripts/check-patch-declarations.php
+
       # Powermail 14 and Powermail Conditions 14 come from in2code's Early
       # Access Packagist. Its token lives only in Coolify (build-only variable
       # IN2CODE_PACKAGIST_TOKEN) and on the developer's machine; GitHub has no
       # copy. This job therefore drops the two packages, their repository and
       # their patches from the runner's throw-away checkout and checks
-      # everything else. The full install with the five Powermail patches is
-      # checked by the Coolify image build and by the local run before each
-      # merge (docs/coolify-deployment.md).
+      # everything else. Whether the five patches still apply, the in2code
+      # audit and the Powermail tests are checked by `ddev check-powermail`
+      # before each merge and by the Coolify image build
+      # (docs/coolify-deployment.md).
       - name: Drop the licensed in2code packages from this checkout
         run: php Build/Scripts/ci-drop-private-packages.php
 
@@ -280,7 +288,18 @@ jobs:
           done
 
           if [ "${state}" != "finished" ]; then
-            echo "::error::Coolify deployment ${deployment_uuid} ended as '${state:-unknown}'; the previous image keeps serving."
+            echo "::error::Coolify deployment ${deployment_uuid} ended as '${state:-unknown}'; the previous image keeps serving. Read the build log in Coolify. If composer install failed there ('No available patcher was able to apply patch', 'Missing build secret IN2CODE_PACKAGIST_TOKEN', a 401 from in2code's Packagist), this CI could not have seen it: it has no in2code token. Reproduce it locally with 'ddev check-powermail' (README, section Quality)."
+            {
+              echo '### Deployment failed'
+              echo
+              echo "Coolify deployment \`${deployment_uuid}\` ended as \`${state:-unknown}\`; the previous image keeps serving."
+              echo
+              echo 'This CI cannot install Powermail 14 (no in2code token here, by decision). A Powermail patch that no longer applies, or a missing token, shows up only in the Coolify build log. Reproduce and fix it locally:'
+              echo
+              echo '```bash'
+              echo 'ddev check-powermail'
+              echo '```'
+            } >> "${GITHUB_STEP_SUMMARY}"
             exit 1
           fi
           echo "Deployment ${deployment_uuid} finished."

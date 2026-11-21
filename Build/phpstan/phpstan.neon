@@ -10,6 +10,8 @@ parameters:
         - ../../packages/site_package/Classes
         - ../../packages/site_package/Build/Scripts/lint-copy.php
         - ../../Build/Scripts/ci-drop-private-packages.php
+        - ../../Build/Scripts/check-patch-declarations.php
+        - ../../Build/Scripts/check-powermail.php
     excludePaths:
         analyseAndScan:
             - ../../vendor
