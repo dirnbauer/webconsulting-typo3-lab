@@ -208,13 +208,13 @@
 		"wapplersystems/multisite-belogin": "^14.2.0",
 		"webconsulting/agent-nexus": "^4.1.3",
 		"webconsulting/agentation": "^1.5.2",
-		"webconsulting/astryx-typo3": "^2.6.2",
+		"webconsulting/astryx-typo3": "^2.6.3",
 		"webconsulting/desiderio": "^4.36.0",
 		"webconsulting/docx-editor": "^2.5.4",
 		"webconsulting/image-workbench": "^0.3.4",
 		"webconsulting/innesto": "^2.3.4",
-		"webconsulting/records-list-examples": "^2.0.2",
-		"webconsulting/records-list-types": "^2.0.2",
+		"webconsulting/records-list-examples": "^2.0.3",
+		"webconsulting/records-list-types": "^2.0.3",
 		"webconsulting/site-package": "^14.3.6",
 		"webconsulting/skillflow": "^1.10.1",
 		"webconsulting/skillspector": "^1.2.4",
@@ -254,14 +254,8 @@
 			"t3g/blog": {
 				"Modernize blog backend, plugin, and record icons for TYPO3 v14": "patches/t3g-blog-typo3-v14-icons.patch"
 			},
-			"webconsulting/records-list-types": {
-				"Pass the page language service TYPO3 14.3.12 added to the core Records controller": "patches/webconsulting-records-list-types-typo3-14-3-12-constructor.patch"
-			},
 			"webconsulting/desiderio": {
 				"Show server validation errors when the client summary is disabled": "patches/webconsulting-desiderio-powermail-server-errors.patch"
-			},
-			"webconsulting/astryx-typo3": {
-				"Translate the German theme overview and preserve localized page layouts": "patches/webconsulting-astryx-german-theme-overview.patch"
 			}
 		}
 	},

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "952cc6d86d34868fcf6a97dfa644184d",
+    "content-hash": "f67506e65e8d4e2f46ecff33207c9c1a",
     "packages": [
         {
             "name": "apache-solr-for-typo3/solr",
@@ -12811,22 +12811,22 @@
         },
         {
             "name": "webconsulting/astryx-typo3",
-            "version": "v2.6.2",
+            "version": "v2.6.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/astryx-typo3.git",
-                "reference": "c67305f9adb46e30507b5cd1c33c0d62a4481b88"
+                "reference": "01b19e3d0bde643d461693730424128819549f18"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/astryx-typo3/zipball/c67305f9adb46e30507b5cd1c33c0d62a4481b88",
-                "reference": "c67305f9adb46e30507b5cd1c33c0d62a4481b88",
+                "url": "https://api.github.com/repos/dirnbauer/astryx-typo3/zipball/01b19e3d0bde643d461693730424128819549f18",
+                "reference": "01b19e3d0bde643d461693730424128819549f18",
                 "shasum": ""
             },
             "require": {
                 "friendsoftypo3/content-blocks": "^2.2",
                 "php": "^8.4",
-                "praetorius/vite-asset-collector": "^1.18",
+                "praetorius/vite-asset-collector": "^1.18.4 || ^2.0.1",
                 "typo3/cms-core": "^14.3.7",
                 "typo3/cms-fluid": "^14.3.7",
                 "webconsulting/desiderio": "^4.29"
@@ -12849,7 +12849,7 @@
                 "typo3/cms": {
                     "extension-key": "astryx_typo3",
                     "web-dir": "public",
-                    "version": "2.6.2",
+                    "version": "2.6.3",
                     "Package": {
                         "providesPackages": []
                     }
@@ -12902,7 +12902,7 @@
                 }
             ],
             "description": "Astryx for TYPO3 — the Astryx design system, server-rendered for TYPO3 14: 250 Content Blocks, 205 Fluid components, 25 runtime-switchable themes, no JavaScript framework",
-            "time": "2026-11-05T12:01:53+00:00"
+            "time": "2026-11-20T00:23:29+00:00"
         },
         {
             "name": "webconsulting/desiderio",
@@ -13341,24 +13341,24 @@
         },
         {
             "name": "webconsulting/records-list-examples",
-            "version": "v2.0.2",
+            "version": "v2.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/typo3-records-list-examples.git",
-                "reference": "6f5c3513ffa46218a75ec350e925cd105b1be07a"
+                "reference": "988c1996d7e79889c28f866a6cf35af2d99c764d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/typo3-records-list-examples/zipball/6f5c3513ffa46218a75ec350e925cd105b1be07a",
-                "reference": "6f5c3513ffa46218a75ec350e925cd105b1be07a",
+                "url": "https://api.github.com/repos/dirnbauer/typo3-records-list-examples/zipball/988c1996d7e79889c28f866a6cf35af2d99c764d",
+                "reference": "988c1996d7e79889c28f866a6cf35af2d99c764d",
                 "shasum": ""
             },
             "require": {
                 "php": "^8.4",
-                "typo3/cms-backend": "^14.3",
-                "typo3/cms-core": "^14.3",
-                "typo3/cms-fluid": "^14.3",
-                "webconsulting/records-list-types": "2.0.2"
+                "typo3/cms-backend": "^14.3.11",
+                "typo3/cms-core": "^14.3.11",
+                "typo3/cms-fluid": "^14.3.11",
+                "webconsulting/records-list-types": "2.0.3"
             },
             "require-dev": {
                 "friendsofphp/php-cs-fixer": "^3.95.27",
@@ -13374,7 +13374,7 @@
             "extra": {
                 "typo3/cms": {
                     "extension-key": "records_list_examples",
-                    "version": "2.0.2"
+                    "version": "2.0.3"
                 }
             },
             "autoload": {
@@ -13426,27 +13426,27 @@
                 "issues": "https://github.com/dirnbauer/typo3-records-list-examples/issues",
                 "source": "https://github.com/dirnbauer/typo3-records-list-examples"
             },
-            "time": "2026-10-24T03:55:42+00:00"
+            "time": "2026-11-20T00:02:48+00:00"
         },
         {
             "name": "webconsulting/records-list-types",
-            "version": "v2.0.2",
+            "version": "v2.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dirnbauer/typo3-records-list-types.git",
-                "reference": "3f518b2d88b3dd14cb270d7ed8dc266f629e5cb5"
+                "reference": "a4d45ae0382041658a5611081f1b46269f43c71e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dirnbauer/typo3-records-list-types/zipball/3f518b2d88b3dd14cb270d7ed8dc266f629e5cb5",
-                "reference": "3f518b2d88b3dd14cb270d7ed8dc266f629e5cb5",
+                "url": "https://api.github.com/repos/dirnbauer/typo3-records-list-types/zipball/a4d45ae0382041658a5611081f1b46269f43c71e",
+                "reference": "a4d45ae0382041658a5611081f1b46269f43c71e",
                 "shasum": ""
             },
             "require": {
                 "php": "^8.4",
-                "typo3/cms-backend": "^14.3.7",
-                "typo3/cms-core": "^14.3.7",
-                "typo3/cms-fluid": "^14.3.7"
+                "typo3/cms-backend": "^14.3.11",
+                "typo3/cms-core": "^14.3.11",
+                "typo3/cms-fluid": "^14.3.11"
             },
             "require-dev": {
                 "friendsofphp/php-cs-fixer": "^3.95.27",
@@ -13464,7 +13464,7 @@
             "extra": {
                 "typo3/cms": {
                     "extension-key": "records_list_types",
-                    "version": "2.0.2",
+                    "version": "2.0.3",
                     "web-dir": "public"
                 }
             },
@@ -13517,7 +13517,7 @@
                 "issues": "https://github.com/dirnbauer/typo3-records-list-types/issues",
                 "source": "https://github.com/dirnbauer/typo3-records-list-types"
             },
-            "time": "2026-10-24T03:40:54+00:00"
+            "time": "2026-11-19T23:20:22+00:00"
         },
         {
             "name": "webconsulting/site-package",

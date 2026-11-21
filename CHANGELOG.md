@@ -43,6 +43,10 @@ All notable changes to Webconsulting TYPO3 Lab are documented in this file.
   production login pages by default), nr-http-guard (blocks all outgoing
   requests by default), nr-repurpose (needs ffmpeg and Chromium); nr-ai-search
   is private.
+- Records List Types and Examples 2.0.3 (the page language service of the
+  core Records controller since TYPO3 14.3.11, with the orphaned-language
+  warning) and Astryx 2.6.3 (German theme overview, localized page layouts).
+  Both lab patches are gone.
 
 ### Visual Editor Enhancements 1.7.0, Desiderio 4.36.0 and the re-voiced film — 2026-11-08
 

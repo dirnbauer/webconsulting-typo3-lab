@@ -1,5 +1,5 @@
 {
-    "_hash": "7559ba72bb798cf6fb498f6480b69a8a59de659da1ba16ae11509eb67c839292",
+    "_hash": "a428c75147216687d9f1a5b69b30934b8431f45cebab4b4c6a61d882c6287d72",
     "patches": {
         "apache-solr-for-typo3/solr": [
             {
@@ -91,36 +91,12 @@
                 }
             }
         ],
-        "webconsulting/records-list-types": [
-            {
-                "package": "webconsulting/records-list-types",
-                "description": "Pass the page language service TYPO3 14.3.12 added to the core Records controller",
-                "url": "patches/webconsulting-records-list-types-typo3-14-3-12-constructor.patch",
-                "sha256": "9d9ec54a699eb92843cbbb562eec5d6b2688da842fe41aa709975bc4f5e1b2c4",
-                "depth": 1,
-                "extra": {
-                    "provenance": "root"
-                }
-            }
-        ],
         "webconsulting/desiderio": [
             {
                 "package": "webconsulting/desiderio",
                 "description": "Show server validation errors when the client summary is disabled",
                 "url": "patches/webconsulting-desiderio-powermail-server-errors.patch",
                 "sha256": "9c51495e43683018a9d27847edd4cd68ad8427c2baaaa76e444dda0b0232cc22",
-                "depth": 1,
-                "extra": {
-                    "provenance": "root"
-                }
-            }
-        ],
-        "webconsulting/astryx-typo3": [
-            {
-                "package": "webconsulting/astryx-typo3",
-                "description": "Translate the German theme overview and preserve localized page layouts",
-                "url": "patches/webconsulting-astryx-german-theme-overview.patch",
-                "sha256": "375ff89f89d22094cf68fa80ca38942f5beca9fe18c099a008f0a042d94af90e",
                 "depth": 1,
                 "extra": {
                     "provenance": "root"
