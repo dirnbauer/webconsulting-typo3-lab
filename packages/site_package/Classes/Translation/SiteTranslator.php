@@ -8,6 +8,7 @@ use TYPO3\CMS\Core\Database\Connection;
 use TYPO3\CMS\Core\Database\ConnectionPool;
 use TYPO3\CMS\Core\Database\Query\QueryBuilder;
 use TYPO3\CMS\Core\DataHandling\DataHandler;
+use TYPO3\CMS\Core\DataHandling\Model\CorrelationId;
 use TYPO3\CMS\Core\DataHandling\TableColumnType;
 use TYPO3\CMS\Core\Schema\Capability\FieldCapability;
 use TYPO3\CMS\Core\Schema\Capability\LanguageAwareSchemaCapability;
@@ -16,6 +17,7 @@ use TYPO3\CMS\Core\Schema\Field\FieldTypeInterface;
 use TYPO3\CMS\Core\Schema\TcaSchema;
 use TYPO3\CMS\Core\Schema\TcaSchemaFactory;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Redirects\Service\SlugService;
 use Webconsulting\SitePackage\ContentAudit\ContentCollector;
 use Webconsulting\SitePackage\ContentAudit\FieldRole;
 
@@ -157,7 +159,7 @@ final class SiteTranslator
             // Translations mirror the stored source HTML; running the RTE
             // transformation again would change it on every run.
             $dataHandler->dontProcessTransformations = true;
-            $dataHandler->start($this->dataMap, []);
+            $dataHandler->start($this->dataMap, [], correlationId: self::correlationId());
             $dataHandler->process_datamap();
             $this->assertNoErrors($dataHandler, 'write translations');
         }
@@ -768,7 +770,7 @@ final class SiteTranslator
             return;
         }
         $dataHandler = $this->dataHandler();
-        $dataHandler->start([], $commands);
+        $dataHandler->start([], $commands, correlationId: self::correlationId());
         $dataHandler->process_cmdmap();
         $this->assertNoErrors($dataHandler, 'localize');
     }
@@ -778,6 +780,24 @@ final class SiteTranslator
         // Logging stays on: DataHandler only collects errors in errorLog
         // when it logs, and a localize that fails must stop the run.
         return GeneralUtility::makeInstance(DataHandler::class);
+    }
+
+    /**
+     * Marks the translator's DataHandler runs as slug updates of EXT:redirects
+     * (passed to DataHandler::start(), which replaces any id set before it).
+     *
+     * A new page translation gets its source's address (see planPage). Without
+     * this mark EXT:redirects treats that as a moved page: it creates redirects
+     * from the address localize generated a moment ago, rewrites the slugs of
+     * the sub-pages' translations to the parent's new prefix, and, when a new
+     * redirect shadows another one, puts a flash message into the backend
+     * session, which a CLI user does not have ("Call to a member function
+     * set() on null"). The translator never changes an existing translation's
+     * address, so no redirect is ever wanted from it.
+     */
+    public static function correlationId(): CorrelationId
+    {
+        return CorrelationId::forSubject('sitepackage-content-translate', SlugService::CORRELATION_ID_IDENTIFIER);
     }
 
     private function assertNoErrors(DataHandler $dataHandler, string $step): void
