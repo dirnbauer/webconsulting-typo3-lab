@@ -4,6 +4,31 @@ All notable changes to Webconsulting TYPO3 Lab are documented in this file.
 
 ## Unreleased
 
+### Fixes before the merge of the 2026-11-20 round — 2026-11-21
+
+- Production image: the PHP CLI gets an OPcache file cache
+  (`docker/coolify/php-cli.ini`, `/tmp/opcache`, emptied at every start).
+  Without it every `typo3` process compiled the ~250 MB TCA schema file and
+  held about 900 MB after boot, so the AI chat workers ended after every poll
+  (`--memory-limit=256`) and two loops rebooted TYPO3 non-stop. Apache does
+  not read the file.
+- Container start: `sitepackage:ai-chat:release-interrupted` marks the chat
+  turns that the last stop or an OOM kill interrupted as failed (Retry
+  button); a stop never reaches the workers as SIGTERM. `TYPO3_CHAT_RELEASE`
+  (default 1); `TYPO3_CHAT_CLEANUP` can be set in Coolify again (default 0).
+- Container start: the data wizards `nrLlm_stampProviderTrustZone`,
+  `nrLlm_providerApiTimeout120`, `nrLlm_embeddingModelDimensions` and
+  `nrMcpAgent_clearStoredApprovalNotice` run by name too;
+  `nrMcpAgent_lastMessageTime` only runs after the message move succeeded.
+- `runTests.sh` hands `COMPOSER_AUTH` only to its Composer steps: PHPStan
+  stores the process environment in `var/phpstan`, which once put the in2code
+  token into a file. The documented recipes use `docker exec -e`.
+- CI deploys only when the commit its checks passed is still the tip of main.
+- The talk seeder finds hidden pages (QueryBuilder without restrictions);
+  the hub and lab overview films no longer name the retired AI Assistant film
+  (the Node quality job was red); an E2E smoke test covers the talk pages and
+  `/ai/ai-assistant`.
+
 ### vite-asset-collector 2.0.1, Desiderio 4.37.0 and Astryx 2.7.0 — 2026-11-21
 
 - `praetorius/vite-asset-collector` 2.0.1 (from 1.18.4), with Desiderio 4.37.0
