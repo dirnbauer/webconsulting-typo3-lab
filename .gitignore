@@ -50,6 +50,8 @@ dump.sql.gz
 
 # Generated FAL copies of the Redaktion source screenshots
 /public/fileadmin/user_upload/redaktion/
+# Imported by sitepackage:seed-netresearch-talk from Resources/Public/Images/NetresearchTalk
+/public/fileadmin/user_upload/netresearch-talk/
 
 # Optional private Redaktion connector: local Composer profile only
 /.composer-redaktion-dev.json
