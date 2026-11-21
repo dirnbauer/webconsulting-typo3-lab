@@ -109,6 +109,14 @@ services:
     # host this was 3 workers under 2560m, where such a run did not fit; the
     # host has 15.6 GB since 2026-09-20. Raise the two together, and only with
     # the host's total in view: the other stacks hold limits of their own.
+    #
+    # The TYPO3_CHAT_WORKERS AI chat workers (2) live inside this budget too.
+    # With the CLI's OPcache file cache (docker/coolify/php-cli.ini) a booted
+    # worker holds 64 MB of PHP memory, peak 180 MB (measured in this image,
+    # 2026-11-21; ~370 MB RSS each under emulation), so the two cost well under
+    # 1 GB plus what one turn needs. Without the file cache each boot peaked at
+    # 1.25 GB and they rebooted non-stop. More workers or a heavier turn: raise
+    # the limit with this comment.
     mem_limit: 5632m
     memswap_limit: 5632m
     labels:
