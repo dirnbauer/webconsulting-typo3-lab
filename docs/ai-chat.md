@@ -61,8 +61,8 @@ fields that differ.
 | What | Value |
 |---|---|
 | nr-llm configuration `backend-ai-chat` | The lab's tool model `gpt-5-mini` (found by identifier; without it the default model if it can call tools, else the first active tool-capable one). The default GPT-5.6 Terra cannot: OpenAI refuses function tools with `reasoning_effort` on Chat Completions for it; temperature 0.3 (dropped by nr-llm for reasoning models); 4096 tokens; an identity and tool-use system prompt adapted from [netresearch/typo3-demo](https://github.com/netresearch/typo3-demo) that names this lab |
-| nr-llm task `backend-ai-chat` | Category system, points at that configuration; the chat runs on it |
-| Cowriter tasks | `improve-text`, `summarize`, `extend`, `fix-grammar`, `translate-en`, `translate-de` (category content, on the existing `content-assistant` configuration, in this order), as in typo3-demo; t3-cowriter ships none |
+| nr-llm task `backend-ai-chat` | Category system, points at that configuration; the chat runs on it. Its prompt also says: when you answer in German, address the user with "Sie" (the task prompt reaches every conversation, also on a site with its own `nrllm.configuration`) |
+| Cowriter tasks | `improve-text`, `summarize`, `extend`, `fix-grammar`, `translate-en`, `translate-de` (category content, on the existing `content-assistant` configuration, in this order), as in typo3-demo; t3-cowriter ships none. `translate-de` renders "you" as "Sie"; the others keep the address of the text they get |
 | Reading tools | As nr-llm ships them (nearly all on), plus `ask_choice`, `highlight_record` and `check_page_metadata`. The `*_raw` readers and `send_fal_file` stay off |
 | Writing tools | Only the editorial writers typo3-demo enables (drafts, metadata, alternative texts, file references, translations, moves, publish, delete, copy, redirects, cache, `fetch_external_url`), and each only while nr-llm still makes every call wait for approval. Any other writer is switched off. List: `packages/site_package/Classes/AiStack/ToolPolicy.php` |
 | Tool groups | The group of every tool that should be on is switched on |
@@ -92,6 +92,28 @@ identifier and writes the key again, nothing else. A value in
 `additional.php` read from the database at bootstrap would cost a query on
 every request and fail when the database is down; this costs one query per
 container start.
+
+## German wording: "Sie"
+
+The lab's German copy addresses the reader with "Sie". nr-mcp-agent, nr-llm
+and nr-landingpage ship German labels with "du" ("Wartet auf deine Freigabe",
+"Wähle eine Seite …"). `site_package` overrides exactly those units with
+TYPO3's label overrides (`$GLOBALS['TYPO3_CONF_VARS']['LANG']['resourceOverrides']`,
+the v14 name of `locallangXMLOverride`), by file and by translation domain:
+`Classes/Translation/FormalGermanLabels.php` lists the files, the units are in
+`Resources/Private/Language/Overrides/de.nr_*.xlf`. The chat's web components
+get their strings from `TYPO3.lang` (the backend hands them
+`locallang_chat.xlf`), so the overrides reach them too; nothing is compiled
+into the JavaScript. Changes need `cache:flush` (labels are cached).
+
+`Tests/Unit/Translation/FormalGermanLabelsTest.php` reads every German label
+the six Netresearch packages ship, applies the overrides and fails on an
+informal address (canon.yaml's `address.sie` pattern, "dir", du-imperatives,
+"Bitte jemanden …, …"). It also fails when an overridden unit disappears
+upstream or its English source changes. After a Netresearch update, run the
+unit tests: a new "du" label shows up there with its file and id.
+
+The model's answers follow the task prompt (see the table above).
 
 ## Processing: workers, in both environments
 

@@ -1,0 +1,354 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Overrides EXT:nr_mcp_agent/Resources/Private/Language/locallang_chat.xlf for German (site_package ext_localconf.php, Translation\FormalGermanLabels): the shipped German labels address the reader with "du"; the lab's German copy uses "Sie". Guard: Tests/Unit/Translation/FormalGermanLabelsTest.php. -->
+<xliff version="2.0" xmlns="urn:oasis:names:tc:xliff:document:2.0" srcLang="en" trgLang="de">
+  <file id="nr_mcp_agent_chat-formal-de">
+    <unit id="activity.approved">
+      <segment state="final">
+        <source>Approved by you</source>
+        <target>Von Ihnen freigegeben</target>
+      </segment>
+    </unit>
+    <unit id="activity.denied">
+      <segment state="final">
+        <source>Denied by you</source>
+        <target>Von Ihnen abgelehnt</target>
+      </segment>
+    </unit>
+    <unit id="activity.notPermittedHint">
+      <segment state="final">
+        <source>Switched off or for administrators only. Ask an administrator to allow it again.</source>
+        <target>Abgeschaltet oder nur für Administratoren. Bitten Sie die Administration, es wieder freizugeben.</target>
+      </segment>
+    </unit>
+    <unit id="activity.waiting">
+      <segment state="final">
+        <source>Waiting for your approval</source>
+        <target>Wartet auf Ihre Freigabe</target>
+      </segment>
+    </unit>
+    <unit id="activity.waitingInput">
+      <segment state="final">
+        <source>Waiting for your answer</source>
+        <target>Wartet auf Ihre Antwort</target>
+      </segment>
+    </unit>
+    <unit id="altText.markNotPermitted">
+      <segment state="final">
+        <source>You may not mark this image as decorative. You can have an alt text proposed instead.</source>
+        <target>Dieses Bild dürfen Sie nicht als dekorativ markieren. Sie können sich stattdessen einen Alt-Text vorschlagen lassen.</target>
+      </segment>
+    </unit>
+    <unit id="altText.note.analysisOff">
+      <segment state="final">
+        <source>Image analysis is switched off in the settings. The proposal is based on the page, the content element and the file name only. Check that it fits the image.</source>
+        <target>Die Bildanalyse ist in den Einstellungen abgeschaltet. Der Vorschlag beruht nur auf Seite, Inhaltselement und Dateiname. Prüfen Sie, ob er zum Bild passt.</target>
+      </segment>
+    </unit>
+    <unit id="altText.note.excludedFolder">
+      <segment state="final">
+        <source>Images from the folder %1$s are not sent to the AI. The proposal is based on the page, the content element and the file name only. Check that it fits the image.</source>
+        <target>Bilder aus dem Ordner %1$s werden nicht an die KI übertragen. Der Vorschlag beruht nur auf Seite, Inhaltselement und Dateiname. Prüfen Sie, ob er zum Bild passt.</target>
+      </segment>
+    </unit>
+    <unit id="altText.note.noVision">
+      <segment state="final">
+        <source>The image itself is not analysed: the AI provider of this chat cannot see images. The proposal is based on the page, the content element and the file name only. Check that it fits the image.</source>
+        <target>Das Bild selbst wird nicht ausgewertet: Der KI-Anbieter dieses Chats kann keine Bilder auswerten. Der Vorschlag beruht nur auf Seite, Inhaltselement und Dateiname. Prüfen Sie, ob er zum Bild passt.</target>
+      </segment>
+    </unit>
+    <unit id="altText.note.unreadable">
+      <segment state="final">
+        <source>The image could not be analysed. The proposal is based on the page, the content element and the file name only. Check that it fits the image.</source>
+        <target>Das Bild konnte nicht analysiert werden. Der Vorschlag beruht nur auf Seite, Inhaltselement und Dateiname. Prüfen Sie, ob er zum Bild passt.</target>
+      </segment>
+    </unit>
+    <unit id="altText.otherImage">
+      <segment state="final">
+        <source>This proposal concerns a different image than the one in this chat and cannot be applied here. You can deny it.</source>
+        <target>Dieser Vorschlag betrifft ein anderes Bild als das im Chat und kann hier nicht übernommen werden. Ablehnen können Sie ihn.</target>
+      </segment>
+    </unit>
+    <unit id="attachment.notSupported">
+      <segment state="final">
+        <source>Your LLM model does not support file attachments</source>
+        <target>Ihr LLM-Modell unterstützt keine Dateianhänge</target>
+      </segment>
+    </unit>
+    <unit id="chat.answerNotKept">
+      <segment state="final">
+        <source>The run finished after the remote agent answered, but its answer was not kept, so it cannot be shown here. Open the run under AI &gt; AI Tasks to see what it did.</source>
+        <target>Der Lauf ist fertig, nachdem der externe Agent geantwortet hat. Seine Antwort wurde aber nicht gespeichert und kann hier nicht angezeigt werden. Unter KI &gt; KI-Aufgaben sehen Sie, was der Lauf getan hat.</target>
+      </segment>
+    </unit>
+    <unit id="chat.approvalOwnNeedsPreview">
+      <segment state="final">
+        <source>You cannot approve this change yourself, because its preview could not be built with your rights. You can deny it here; someone with access to AI Tasks can approve it.</source>
+        <target>Diese Änderung können Sie nicht selbst freigeben, weil sich die Vorschau mit Ihren Rechten nicht erstellen ließ. Ablehnen können Sie sie hier; freigeben kann sie jemand mit Zugriff auf KI-Aufgaben.</target>
+      </segment>
+    </unit>
+    <unit id="chat.approvalPending">
+      <segment state="final">
+        <source>The following change is waiting for your approval</source>
+        <target>Folgende Änderung wartet auf Ihre Freigabe</target>
+      </segment>
+    </unit>
+    <unit id="chat.approvalPendingElsewhere">
+      <segment state="final">
+        <source>Waiting for approval. You cannot approve this step yourself: ask someone with access to AI Tasks to approve it.</source>
+        <target>Wartet auf eine Freigabe. Sie können diesen Schritt nicht selbst freigeben: Bitten Sie jemanden mit Zugriff auf KI-Aufgaben, ihn freizugeben.</target>
+      </segment>
+    </unit>
+    <unit id="chat.approvalSecondApprover">
+      <segment state="final">
+        <source>This change needs a second person: whoever started the step may not approve it. A colleague can approve it in AI Tasks; you can deny it here.</source>
+        <target>Diese Änderung braucht eine zweite Person: Wer den Schritt gestartet hat, darf ihn nicht freigeben. Eine Kollegin oder ein Kollege kann ihn in KI-Aufgaben freigeben; ablehnen können Sie ihn hier.</target>
+      </segment>
+    </unit>
+    <unit id="chat.empty.body">
+      <segment state="final">
+        <source>The assistant can look things up in this installation and act on them — find pages and content, explain how something is configured, and prepare changes for you to review.</source>
+        <target>Der Assistent kann in dieser Installation nachsehen und darin arbeiten: Seiten und Inhalte finden, erklären, wie etwas konfiguriert ist, und Änderungen vorbereiten, die Sie prüfen können.</target>
+      </segment>
+    </unit>
+    <unit id="chat.empty.hintTabs">
+      <segment state="final">
+        <source>Earlier conversations are in the row above; the ones that do not fit in it are under “More”.</source>
+        <target>Frühere Unterhaltungen stehen in der Leiste darüber; was dort keinen Platz hat, finden Sie unter „Weitere“.</target>
+      </segment>
+    </unit>
+    <unit id="chat.empty.title">
+      <segment state="final">
+        <source>Ask about this TYPO3 installation</source>
+        <target>Stellen Sie Fragen zu dieser TYPO3-Installation</target>
+      </segment>
+    </unit>
+    <unit id="chat.notAvailable">
+      <segment state="final">
+        <source>Chat not available. Please contact your administrator.</source>
+        <target>Chat nicht verfügbar. Bitte wenden Sie sich an Ihre Administration.</target>
+      </segment>
+    </unit>
+    <unit id="chat.pageGone">
+      <segment state="final">
+        <source>The page this guided tour is on has been deleted. The chat can be read but not continued. End the tour to go on as an ordinary chat.</source>
+        <target>Die Seite dieses Rundgangs wurde gelöscht. Der Chat lässt sich nachlesen, aber nicht fortsetzen. Beenden Sie den Rundgang, um als normaler Chat weiterzumachen.</target>
+      </segment>
+    </unit>
+    <unit id="chat.placeholder">
+      <segment state="final">
+        <source>Ask anything...</source>
+        <target>Fragen Sie einfach …</target>
+      </segment>
+    </unit>
+    <unit id="chat.roundLimit">
+      <segment state="final">
+        <source>The assistant stopped before it finished: it reached the most steps it may take for one answer. Send a message to let it go on.</source>
+        <target>Der Assistent hat angehalten, bevor er fertig war: Er hat die Höchstzahl an Schritten für eine Antwort erreicht. Schreiben Sie eine Nachricht, damit er weitermacht.</target>
+      </segment>
+    </unit>
+    <unit id="chat.stepOpen">
+      <segment state="final">
+        <source>The assistant is waiting for you. Reply with a message, or select "Continue" to go on with the next step of the tour.</source>
+        <target>Der Assistent wartet auf Sie. Antworten Sie mit einer Nachricht oder wählen Sie „Weiter“, damit der Rundgang mit dem nächsten Schritt fortfährt.</target>
+      </segment>
+    </unit>
+    <unit id="context.info.page">
+      <segment state="final">
+        <source>Scope: the whole page “%1$s”. Changes are made only after your confirmation.</source>
+        <target>Bereich: ganze Seite „%1$s“. Geändert wird nur nach Ihrer Bestätigung.</target>
+      </segment>
+    </unit>
+    <unit id="conversations.archiveConfirm">
+      <segment state="final">
+        <source>Archive this chat? You can find it later in the full chat module.</source>
+        <target>Diesen Chat archivieren? Sie finden ihn später im Chat-Modul.</target>
+      </segment>
+    </unit>
+    <unit id="conversations.empty">
+      <segment state="final">
+        <source>No chats yet. Start a new one!</source>
+        <target>Noch keine Chats. Starten Sie jetzt den ersten.</target>
+      </segment>
+    </unit>
+    <unit id="error.agentWait.runFailed">
+      <segment state="final">
+        <source>The run failed after it handed a step to a remote agent. Open it under AI &gt; AI Tasks to see what happened.</source>
+        <target>Der Lauf ist fehlgeschlagen, nachdem er einen Schritt an einen externen Agenten übergeben hatte. Unter KI &gt; KI-Aufgaben sehen Sie, was passiert ist.</target>
+      </segment>
+    </unit>
+    <unit id="error.altTextApprovalNotAllowed">
+      <segment state="final">
+        <source>You may not apply changes in the chat yourself, so the chat cannot save an alt text for you. Ask an administrator for the permission “Approve own changes in the chat”.</source>
+        <target>Sie dürfen Änderungen im Chat nicht selbst übernehmen, deshalb kann der Chat keinen Alt-Text für Sie speichern. Bitten Sie eine Administratorin oder einen Administrator um die Berechtigung „Eigene Änderungen im Chat freigeben“.</target>
+      </segment>
+    </unit>
+    <unit id="error.altTextHitDone">
+      <segment state="final">
+        <source>This image is no longer in your list: it may have an alt text or a decorative mark by now, or you may no longer change it. The list is updated.</source>
+        <target>Dieses Bild steht nicht mehr in Ihrer Liste: Es hat inzwischen vielleicht einen Alt-Text oder eine Markierung als dekorativ, oder Sie dürfen es nicht mehr ändern. Die Liste wird aktualisiert.</target>
+      </segment>
+    </unit>
+    <unit id="error.altTextLiveOnly">
+      <segment state="final">
+        <source>In this installation, the chat cannot save alt texts as drafts in a workspace: the configuration of image uses does not allow it. Switch to the live workspace to optimise images.</source>
+        <target>In dieser Installation kann der Chat Alt-Texte nicht als Entwurf in einer Arbeitsumgebung speichern: Die Konfiguration der Bildverwendungen lässt das nicht zu. Wechseln Sie in die Live-Arbeitsumgebung, um Bilder zu optimieren.</target>
+      </segment>
+    </unit>
+    <unit id="error.altTextNotPermitted">
+      <segment state="final">
+        <source>This image does not exist, or you may not edit it.</source>
+        <target>Dieses Bild gibt es nicht, oder Sie dürfen es nicht bearbeiten.</target>
+      </segment>
+    </unit>
+    <unit id="error.altTextSecondApprover">
+      <segment state="final">
+        <source>This chat's configuration requires a second person to approve every change, so it cannot save an alt text right away. Ask an administrator for another configuration.</source>
+        <target>Die Konfiguration dieses Chats verlangt für jede Änderung eine zweite Person, deshalb kann er keinen Alt-Text direkt speichern. Bitten Sie eine Administratorin oder einen Administrator um eine andere Konfiguration.</target>
+      </segment>
+    </unit>
+    <unit id="error.altTextWorkspace">
+      <segment state="final">
+        <source>You may not work in any workspace at the moment, so the chat cannot save alt texts. Ask an administrator for access to a workspace.</source>
+        <target>Sie dürfen zurzeit in keiner Arbeitsumgebung arbeiten, daher kann der Chat keine Alt-Texte speichern. Bitten Sie eine Administratorin oder einen Administrator um Zugang zu einer Arbeitsumgebung.</target>
+      </segment>
+    </unit>
+    <unit id="error.approvalNeedsPreview">
+      <segment state="final">
+        <source>You may not approve this change yourself: its preview could not be built with your rights. You can deny it, or someone with access to AI Tasks can approve it.</source>
+        <target>Sie dürfen diese Änderung nicht selbst freigeben: Die Vorschau der Änderung ließ sich mit Ihren Rechten nicht erstellen. Sie können sie ablehnen, oder jemand mit Zugriff auf KI-Aufgaben gibt sie frei.</target>
+      </segment>
+    </unit>
+    <unit id="error.approvalStillPendingElsewhere">
+      <segment state="final">
+        <source>This step is still waiting for an approval you cannot give yourself. Ask someone with access to AI Tasks to approve it — a message here does not approve it.</source>
+        <target>Dieser Schritt wartet noch auf eine Freigabe, die Sie nicht selbst erteilen können. Bitten Sie jemanden mit Zugriff auf KI-Aufgaben, ihn freizugeben – eine Nachricht hier erteilt keine Freigabe.</target>
+      </segment>
+    </unit>
+    <unit id="error.editStale">
+      <segment state="final">
+        <source>The conversation changed since it was loaded. It has been reloaded; edit the message again.</source>
+        <target>Die Unterhaltung hat sich seit dem Laden geändert und wurde neu geladen. Bitte bearbeiten Sie die Nachricht noch einmal.</target>
+      </segment>
+    </unit>
+    <unit id="error.handBack.approverNotPermitted">
+      <segment state="final">
+        <source>Your own permissions do not cover this change, so you may not approve it and nothing was carried out. Someone whose permissions cover it can approve it.</source>
+        <target>Ihre eigenen Rechte decken diese Änderung nicht ab, deshalb dürfen Sie sie nicht freigeben, und es wurde nichts ausgeführt. Freigeben kann jemand, dessen Rechte sie abdecken.</target>
+      </segment>
+    </unit>
+    <unit id="error.handBack.inputNotPermitted">
+      <segment state="final">
+        <source>Your own permissions do not cover the step this question belongs to, so the answer was not taken.</source>
+        <target>Ihre eigenen Rechte decken den Schritt nicht ab, zu dem diese Rückfrage gehört, deshalb wurde die Antwort nicht übernommen.</target>
+      </segment>
+    </unit>
+    <unit id="error.handBack.inputSiteConfig">
+      <segment state="final">
+        <source>The AI configuration the site of this page uses has changed, or can no longer be used, since this question was asked, so the answer was not taken. Write a new message to continue: the chat then works with the site's current configuration, or says why it cannot.</source>
+        <target>Die KI-Konfiguration, die die Site dieser Seite verwendet, hat sich seit dieser Rückfrage geändert oder ist nicht mehr nutzbar, deshalb wurde die Antwort nicht übernommen. Schreiben Sie eine neue Nachricht, um fortzufahren: Der Chat arbeitet dann mit der aktuellen Konfiguration der Site oder sagt, warum das nicht geht.</target>
+      </segment>
+    </unit>
+    <unit id="error.handBack.secondApprover">
+      <segment state="final">
+        <source>This change needs a second person: for this AI configuration, whoever started the step may not approve it. A colleague can approve it in AI Tasks; you can still deny it here.</source>
+        <target>Diese Änderung braucht eine zweite Person: Für diese KI-Konfiguration darf nicht freigeben, wer den Schritt gestartet hat. Eine Kollegin oder ein Kollege kann ihn in KI-Aufgaben freigeben; ablehnen können Sie ihn hier.</target>
+      </segment>
+    </unit>
+    <unit id="error.handBack.siteConfig">
+      <segment state="final">
+        <source>The AI configuration the site of this page uses has changed, or can no longer be used, since this proposal was made, so the decision was not carried out. The proposal stays open. Write a new message to continue: the chat then works with the site's current configuration, or says why it cannot.</source>
+        <target>Die KI-Konfiguration, die die Site dieser Seite verwendet, hat sich seit diesem Vorschlag geändert oder ist nicht mehr nutzbar, deshalb wurde die Entscheidung nicht ausgeführt. Der Vorschlag bleibt offen. Schreiben Sie eine neue Nachricht, um fortzufahren: Der Chat arbeitet dann mit der aktuellen Konfiguration der Site oder sagt, warum das nicht geht.</target>
+      </segment>
+    </unit>
+    <unit id="error.languageNotAccessible">
+      <segment state="final">
+        <source>This language does not exist on the page's site or you may not edit it, so no conversation was started.</source>
+        <target>Diese Sprache gibt es auf der Website der Seite nicht oder Sie dürfen sie nicht bearbeiten, deshalb wurde keine Unterhaltung gestartet.</target>
+      </segment>
+    </unit>
+    <unit id="error.notEditable">
+      <segment state="final">
+        <source>Only a message you wrote as text can be edited</source>
+        <target>Nur eine Nachricht, die Sie als Text geschrieben haben, lässt sich bearbeiten</target>
+      </segment>
+    </unit>
+    <unit id="error.pageGone">
+      <segment state="final">
+        <source>The page this guided tour is on has been deleted; end the tour to continue the chat.</source>
+        <target>Die Seite dieses Rundgangs wurde gelöscht. Beenden Sie den Rundgang, um den Chat fortzusetzen.</target>
+      </segment>
+    </unit>
+    <unit id="error.pageNotAccessible">
+      <segment state="final">
+        <source>You may not open this page, so no conversation was started about it.</source>
+        <target>Sie dürfen diese Seite nicht öffnen, deshalb wurde keine Unterhaltung zu ihr gestartet.</target>
+      </segment>
+    </unit>
+    <unit id="error.siteConfig.unusable">
+      <segment state="final">
+        <source>This page belongs to the site "%1$s", which uses its own AI configuration. That configuration cannot be used: it does not exist, is switched off, or is restricted to backend groups you are not in. For this site the chat does not switch to another configuration. An administrator can correct the configuration, or change the site setting "LLM configuration" (nrllm.configuration).</source>
+        <target>Diese Seite gehört zur Site „%1$s“, die eine eigene KI-Konfiguration verwendet. Diese Konfiguration ist nicht nutzbar: Es gibt sie nicht, sie ist ausgeschaltet oder auf Backend-Gruppen beschränkt, denen Sie nicht angehören. Für diese Site weicht der Chat nicht auf eine andere Konfiguration aus. Die Administration kann die Konfiguration korrigieren oder die Site-Einstellung „LLM-Konfiguration“ (nrllm.configuration) ändern.</target>
+      </segment>
+    </unit>
+    <unit id="export.roleUser">
+      <segment state="final">
+        <source>You</source>
+        <target>Sie</target>
+      </segment>
+    </unit>
+    <unit id="fal_picker_popup_blocked">
+      <segment state="final">
+        <source>Popup was blocked. Please disable your popup blocker.</source>
+        <target>Das Popup wurde blockiert. Bitte deaktivieren Sie Ihren Popup-Blocker.</target>
+      </segment>
+    </unit>
+    <unit id="guided.choosePageHint">
+      <segment state="final">
+        <source>Select the page to check in the page tree, then confirm it here.</source>
+        <target>Wählen Sie im Seitenbaum die Seite, die geprüft werden soll, und bestätigen Sie sie hier.</target>
+      </segment>
+    </unit>
+    <unit id="guided.choosePageThenWrite">
+      <segment state="final">
+        <source>Select the page in the page tree, then write what to do.</source>
+        <target>Wählen Sie die Seite im Seitenbaum und schreiben Sie dann, was zu tun ist.</target>
+      </segment>
+    </unit>
+    <unit id="instructions.help">
+      <segment state="final">
+        <source>They are added to the instructions configured for the chat, which stay in force and win where the two contradict each other. They apply from the next message on. The assistant's identity, its tools and permissions, and the rules about languages stay the same. Leave the field empty to remove them.</source>
+        <target>Diese Anweisungen ergänzen die für den Chat konfigurierten Anweisungen. Die konfigurierten bleiben gültig und haben Vorrang, wo sich beide widersprechen. Ihre Anweisungen gelten ab der nächsten Nachricht. Identität des Assistenten, seine Werkzeuge und Berechtigungen sowie die Regeln zu Sprachen bleiben gleich. Leeren Sie das Feld, um sie zu entfernen.</target>
+      </segment>
+    </unit>
+    <unit id="status.awaitingApproval">
+      <segment state="final">
+        <source>Waiting for your approval</source>
+        <target>Wartet auf Ihre Freigabe</target>
+      </segment>
+    </unit>
+    <unit id="status.awaitingInput">
+      <segment state="final">
+        <source>Waiting for your answer</source>
+        <target>Wartet auf Ihre Antwort</target>
+      </segment>
+    </unit>
+    <unit id="widget.description">
+      <segment state="final">
+        <source>Your last ten AI chats with their page, status and time: read them again or continue where you left off.</source>
+        <target>Ihre letzten zehn KI-Chats mit Seite, Status und Zeit: nachlesen oder dort weitermachen, wo Sie aufgehört haben.</target>
+      </segment>
+    </unit>
+    <unit id="widget.empty">
+      <segment state="final">
+        <source>No chats yet. Your conversations with the assistant appear here.</source>
+        <target>Noch keine Chats. Ihre Gespräche mit dem Assistenten erscheinen hier.</target>
+      </segment>
+    </unit>
+    <unit id="widget.hint">
+      <segment state="final">
+        <source>Look at earlier conversations or continue where you left off.</source>
+        <target>Sehen Sie sich frühere Gespräche an oder machen Sie dort weiter, wo Sie aufgehört haben.</target>
+      </segment>
+    </unit>
+  </file>
+</xliff>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Overrides EXT:nr_mcp_agent/Resources/Private/Language/locallang_alttext.xlf for German (site_package ext_localconf.php, Translation\FormalGermanLabels): the shipped German labels address the reader with "du"; the lab's German copy uses "Sie". Guard: Tests/Unit/Translation/FormalGermanLabelsTest.php. -->
+<xliff version="2.0" xmlns="urn:oasis:names:tc:xliff:document:2.0" srcLang="en" trgLang="de">
+  <file id="nr_mcp_agent_alttext-formal-de">
+    <unit id="info">
+      <segment state="final">
+        <source>An alt text has to fit the context the image is used in. The same image may therefore need different alt texts on different pages. Purely decorative images such as patterns or ornaments need no alt text. Mark them as decorative, and screen readers skip them.</source>
+        <target>Ein Alt-Text muss zum Kontext passen, in dem das Bild eingebunden ist. Dasselbe Bild kann deshalb auf verschiedenen Seiten unterschiedliche Alt-Texte brauchen. Rein dekorative Bilder wie Muster oder Schmuckgrafiken brauchen keinen Alt-Text. Markieren Sie solche Bilder als dekorativ, dann werden sie von Screenreadern übersprungen.</target>
+      </segment>
+    </unit>
+  </file>
+</xliff>

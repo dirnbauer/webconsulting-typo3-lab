@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Overrides EXT:nr_mcp_agent/Resources/Private/Language/locallang_dashboard.xlf for German (site_package ext_localconf.php, Translation\FormalGermanLabels): the shipped German labels address the reader with "du"; the lab's German copy uses "Sie". Guard: Tests/Unit/Translation/FormalGermanLabelsTest.php. -->
+<xliff version="2.0" xmlns="urn:oasis:names:tc:xliff:document:2.0" srcLang="en" trgLang="de">
+  <file id="nr_mcp_agent_dashboard-formal-de">
+    <unit id="create.description">
+      <segment state="final">
+        <source>Create new pages and news together with the AI assistant.</source>
+        <target>Legen Sie neue Seiten und News gemeinsam mit dem KI-Assistenten an.</target>
+      </segment>
+    </unit>
+    <unit id="create.hint">
+      <segment state="final">
+        <source>Your request waits in the chat until you complete and send it.</source>
+        <target>Ihre Anfrage wartet im Chat, bis Sie sie ergänzen und abschicken.</target>
+      </segment>
+    </unit>
+    <unit id="create.intro">
+      <segment state="final">
+        <source>Tell me what you need, and we’ll create it together.</source>
+        <target>Sagen Sie mir, was Sie brauchen, und wir legen es gemeinsam an.</target>
+      </segment>
+    </unit>
+    <unit id="create.none">
+      <segment state="final">
+        <source>I can’t create new content for you here yet. Your administrator can enable the tools for it.</source>
+        <target>Neue Inhalte kann ich hier noch nicht für Sie anlegen. Ihre Administration kann die passenden Werkzeuge freischalten.</target>
+      </segment>
+    </unit>
+    <unit id="descriptions.done">
+      <segment state="final">
+        <source>Every page you may edit has a meta description – great!</source>
+        <target>Alle Seiten, die Sie bearbeiten dürfen, haben eine Meta Description – sehr gut!</target>
+      </segment>
+    </unit>
+    <unit id="editPage.description">
+      <segment state="final">
+        <source>Choose a page in the page tree and change its content together with the AI assistant.</source>
+        <target>Wählen Sie eine Seite im Seitenbaum und ändern Sie ihre Inhalte gemeinsam mit dem KI-Assistenten.</target>
+      </segment>
+    </unit>
+    <unit id="editPage.intro">
+      <segment state="final">
+        <source>Choose a page, and we’ll change its content together.</source>
+        <target>Wählen Sie eine Seite, und wir ändern ihre Inhalte gemeinsam.</target>
+      </segment>
+    </unit>
+    <unit id="improve.description">
+      <segment state="final">
+        <source>Choose a guided tour; the AI assistant asks for the page and goes through it with you step by step.</source>
+        <target>Wählen Sie einen geführten Rundgang – der KI-Assistent fragt nach der Seite und geht sie Schritt für Schritt mit Ihnen durch.</target>
+      </segment>
+    </unit>
+    <unit id="improve.intro">
+      <segment state="final">
+        <source>Choose a page, and we’ll go through it together step by step.</source>
+        <target>Wählen Sie eine Seite, und wir gehen sie Schritt für Schritt gemeinsam durch.</target>
+      </segment>
+    </unit>
+    <unit id="improve.noSkills">
+      <segment state="final">
+        <source>No guided tours are set up yet. Your administrator can set them up.</source>
+        <target>Es sind noch keine geführten Rundgänge eingerichtet. Ihre Administration kann sie einrichten.</target>
+      </segment>
+    </unit>
+    <unit id="preset.description">
+      <segment state="final">
+        <source>Improve your website with the AI assistant: ask a question, edit a page, create content, return to your recent chats, see what is open, and go through a page or the whole website.</source>
+        <target>Verbessern Sie Ihre Website mit dem KI-Assistenten: eine eigene Frage, Seiten bearbeiten, Inhalte erstellen, Ihre letzten Chats, offene Baustellen und Prüfungen für eine Seite oder die ganze Website.</target>
+      </segment>
+    </unit>
+    <unit id="prompt.description">
+      <segment state="final">
+        <source>Ask the AI assistant a question of your own, without choosing a tour or a page first; the chat opens with your question.</source>
+        <target>Stellen Sie dem KI-Assistenten eine eigene Frage, ohne vorher einen Rundgang oder eine Seite zu wählen – der Chat öffnet sich mit Ihrer Frage.</target>
+      </segment>
+    </unit>
+    <unit id="prompt.placeholder">
+      <segment state="final">
+        <source>Ask the assistant …</source>
+        <target>Fragen Sie den Assistenten …</target>
+      </segment>
+    </unit>
+    <unit id="prompt.question">
+      <segment state="final">
+        <source>What would you like to do?</source>
+        <target>Was möchten Sie tun?</target>
+      </segment>
+    </unit>
+    <unit id="recommendations.description">
+      <segment state="final">
+        <source>What the AI assistant can count on your website, such as images without an alt text and pages without a meta description, and the points guided tours left open.</source>
+        <target>Was der KI-Assistent auf Ihrer Website zählen kann, etwa Bilder ohne Alt-Text und Seiten ohne Meta Description, und was aus geführten Rundgängen noch offen ist.</target>
+      </segment>
+    </unit>
+    <unit id="recommendations.intro">
+      <segment state="final">
+        <source>I’ve found a few things on your website that need work. Let’s tackle them together.</source>
+        <target>Ich habe auf Ihrer Website ein paar Baustellen entdeckt. Gehen wir sie gemeinsam an.</target>
+      </segment>
+    </unit>
+    <unit id="recommendations.points">
+      <segment state="final">
+        <source>Still open from your guided tours</source>
+        <target>Offen aus Ihren Rundgängen</target>
+      </segment>
+    </unit>
+    <unit id="recommendations.title">
+      <segment state="final">
+        <source>Recommended for your website</source>
+        <target>Für Ihre Website empfohlen</target>
+      </segment>
+    </unit>
+    <unit id="tasks.description">
+      <segment state="final">
+        <source>Start the tasks you do most often directly in the AI chat.</source>
+        <target>Starten Sie Ihre häufigsten Aufgaben direkt im KI-Chat.</target>
+      </segment>
+    </unit>
+    <unit id="tasks.empty">
+      <segment state="final">
+        <source>No frequent tasks are set up yet. Your administrator can set them up.</source>
+        <target>Es sind noch keine häufigen Aufgaben eingerichtet. Ihre Administration kann sie einrichten.</target>
+      </segment>
+    </unit>
+    <unit id="tasks.intro">
+      <segment state="final">
+        <source>Start the tasks you do most often in one click.</source>
+        <target>Starten Sie Ihre häufigsten Aufgaben mit einem Klick.</target>
+      </segment>
+    </unit>
+    <unit id="websiteCheck.intro">
+      <segment state="final">
+        <source>I check all pages at once and show you where something is missing.</source>
+        <target>Ich prüfe alle Seiten auf einmal und zeige Ihnen, wo es hakt.</target>
+      </segment>
+    </unit>
+  </file>
+</xliff>

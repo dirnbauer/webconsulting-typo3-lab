@@ -107,6 +107,19 @@ $GLOBALS['TYPO3_CONF_VARS']['LANG']['resourceOverrides']['de']['EXT:backend/Reso
     = 'EXT:site_package/Resources/Private/Language/Overrides/de.backend.xlf';
 $GLOBALS['TYPO3_CONF_VARS']['LANG']['resourceOverrides']['de']['EXT:backend/Resources/Private/Language/locallang_reset_password.xlf'][]
     = 'EXT:site_package/Resources/Private/Language/Overrides/de.backend_reset_password.xlf';
+// The SEO title field: the AI chat's approval card names it by this label.
+$GLOBALS['TYPO3_CONF_VARS']['LANG']['resourceOverrides']['de']['EXT:seo/Resources/Private/Language/db.xlf'][]
+    = 'EXT:site_package/Resources/Private/Language/Overrides/de.seo_db.xlf';
+
+// German labels of the Netresearch AI stack (chat, dashboard widgets, nr-llm,
+// Landingpage) in the "Sie" form: the shipped ones say "du". The list and
+// the reasons are in Translation\FormalGermanLabels.
+foreach (\Webconsulting\SitePackage\Translation\FormalGermanLabels::registrations() as $formalLabelKey => $formalLabelFiles) {
+    foreach ($formalLabelFiles as $formalLabelFile) {
+        $GLOBALS['TYPO3_CONF_VARS']['LANG']['resourceOverrides']['de'][$formalLabelKey][] = $formalLabelFile;
+    }
+}
+unset($formalLabelKey, $formalLabelFiles, $formalLabelFile);
 
 // Netresearch AI Chat (EXT:nr_mcp_agent): every chat turn goes to a waiting
 // `ai-chat:worker`. The extension's default, "exec", starts a PHP process per

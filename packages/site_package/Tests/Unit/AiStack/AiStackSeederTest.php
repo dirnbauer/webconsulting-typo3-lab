@@ -76,6 +76,10 @@ final class AiStackSeederTest extends TestCase
         self::assertIsArray($task);
         self::assertSame((int)$configuration['uid'], (int)$task['configuration_uid']);
         self::assertSame((string)$task['uid'], $this->settings->values['EXTENSIONS/nr_mcp_agent/llmTaskUid']);
+        self::assertSame(AiStackSeeder::CHAT_TASK_PROMPT, $task['prompt_template']);
+        self::assertStringContainsString('When you answer in German, address the user formally with "Sie", never with "du"', (string)$task['prompt_template'], 'the lab\'s German copy says "Sie"');
+        $translateDe = $this->connection->fetchOne("SELECT prompt_template FROM tx_nrllm_task WHERE identifier = 'translate-de'");
+        self::assertStringContainsString('address the reader formally with "Sie"', (string)$translateDe);
 
         $cowriter = $this->connection->fetchAllAssociative("SELECT identifier, configuration_uid, category FROM tx_nrllm_task WHERE category = 'content' ORDER BY sorting, uid");
         self::assertSame(['improve-text', 'summarize', 'extend', 'fix-grammar', 'translate-en', 'translate-de'], array_column($cowriter, 'identifier'));
@@ -128,6 +132,21 @@ final class AiStackSeederTest extends TestCase
         self::assertStringContainsString('update temperature, hidden', $changes[0]);
         self::assertStringContainsString('"summarize"', $changes[1]);
         self::assertSame(1, (int)$this->connection->fetchOne("SELECT COUNT(*) FROM tx_nrllm_configuration WHERE identifier = 'backend-ai-chat'"), 'no duplicate');
+    }
+
+    public function testAnInstallationSeededBeforeTheSieRuleGetsOnlyTheTwoPrompts(): void
+    {
+        $this->seeder()->seed(false);
+        $this->connection->executeStatement("UPDATE tx_nrllm_task SET prompt_template = 'Look facts up with the tools before you answer. Every change waits for the approval of the person in the chat; say what will change before you propose it.' WHERE identifier = 'backend-ai-chat'");
+        $this->connection->executeStatement("UPDATE tx_nrllm_task SET prompt_template = 'Translate the following text into German. Keep its tone and formatting, and return only the translation.' WHERE identifier = 'translate-de'");
+
+        $changes = $this->seeder()->seed(false);
+
+        self::assertCount(2, $changes, implode("\n", $changes));
+        self::assertStringContainsString('"backend-ai-chat"', $changes[0]);
+        self::assertStringContainsString('update prompt_template', $changes[0]);
+        self::assertStringContainsString('"translate-de"', $changes[1]);
+        self::assertSame([], $this->seeder()->seed(false), 'and the next run changes nothing');
     }
 
     public function testTwoLiveRecordsWithTheSameIdentifierStopTheSeed(): void

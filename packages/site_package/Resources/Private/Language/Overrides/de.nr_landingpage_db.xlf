@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Overrides EXT:nr_landingpage/Resources/Private/Language/locallang_db.xlf for German (site_package ext_localconf.php, Translation\FormalGermanLabels): the shipped German labels address the reader with "du"; the lab's German copy uses "Sie". Guard: Tests/Unit/Translation/FormalGermanLabelsTest.php. -->
+<xliff version="2.0" xmlns="urn:oasis:names:tc:xliff:document:2.0" srcLang="en" trgLang="de">
+  <file id="nr_landingpage_db-formal-de">
+    <unit id="tx_nrlandingpage_domain_model_template.system_prompt.description">
+      <segment state="final">
+        <source>Instructions that tell the AI how to write: tone, style, length, language, and constraints. Example: "Write in formal German, max 200 words per section, include a call-to-action." Tip: Use "Auto-optimize" to generate instructions from your template settings, or "Preview" to test the full output.</source>
+        <target>Anweisungen, die der KI sagen, wie sie schreiben soll: Tonalität, Stil, Länge, Sprache und Vorgaben. Beispiel: „Formelles Deutsch mit Sie-Anrede, max. 200 Wörter pro Abschnitt, mit Call-to-Action.“ Tipp: „Auto-optimieren“ generiert Anweisungen aus Ihren Vorlageneinstellungen, „Vorschau“ testet die komplette Ausgabe.</target>
+      </segment>
+    </unit>
+  </file>
+</xliff>

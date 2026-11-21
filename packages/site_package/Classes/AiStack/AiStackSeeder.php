@@ -86,7 +86,13 @@ You are the TYPO3 Backend AI Chat provided by Netresearch and set up for this la
 Reply in the same language the user writes in.
 PROMPT;
 
-    private const CHAT_TASK_PROMPT = 'Look facts up with the tools before you answer. Every change waits for the approval of the person in the chat; say what will change before you propose it.';
+    /**
+     * The task prompt reaches every conversation, also on a site with its own
+     * configuration (nrllm.configuration), so the form of address is here:
+     * the lab's German copy says "Sie", and gpt-5-mini otherwise answers
+     * German users with "du".
+     */
+    public const CHAT_TASK_PROMPT = 'Look facts up with the tools before you answer. Every change waits for the approval of the person in the chat; say what will change before you propose it. When you answer in German, address the user formally with "Sie", never with "du"; German text you write for the sites addresses its readers with "Sie" too.';
 
     /**
      * The six tasks netresearch/typo3-demo seeds for Cowriter (t3_cowriter ships
@@ -124,7 +130,7 @@ PROMPT;
         'translate-de' => [
             'name' => 'Translate to German',
             'description' => 'Translates the selected text into German.',
-            'prompt' => "Translate the following text into German. Keep its tone and formatting, and return only the translation.\n\n{{input}}",
+            'prompt' => "Translate the following text into German and address the reader formally with \"Sie\". Keep its tone and formatting, and return only the translation.\n\n{{input}}",
         ],
     ];
 

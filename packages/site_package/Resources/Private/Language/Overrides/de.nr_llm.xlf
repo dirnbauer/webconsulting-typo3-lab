@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Overrides EXT:nr_llm/Resources/Private/Language/locallang.xlf for German (site_package ext_localconf.php, Translation\FormalGermanLabels): the shipped German labels address the reader with "du"; the lab's German copy uses "Sie". Guard: Tests/Unit/Translation/FormalGermanLabelsTest.php. -->
+<xliff version="2.0" xmlns="urn:oasis:names:tc:xliff:document:2.0" srcLang="en" trgLang="de">
+  <file id="nr_llm-formal-de">
+    <unit id="analytics.health.reorder.off">
+      <segment state="final">
+        <source>Health-aware fallback reorder is OFF (the default). These scores are informational only — they change nothing about which provider is called. Turn on "Health-Aware Fallback Reorder" in the extension configuration to let them reprioritise the fallback chain.</source>
+        <target>Die zustandsabhängige Umsortierung der Fallback-Kette ist AUS (Voreinstellung). Diese Bewertungen sind reine Information – sie ändern nichts daran, welcher Provider aufgerufen wird. Schalten Sie „Health-Aware Fallback Reorder“ in der Extension-Konfiguration ein, damit sie die Fallback-Kette umsortieren.</target>
+      </segment>
+    </unit>
+    <unit id="governance.profile.DEVELOPMENT.description">
+      <segment state="final">
+        <source>Full content for debugging, short retention, and the data-class axis in observe so you see what would be blocked instead of being blocked.</source>
+        <target>Vollständige Inhalte zum Debuggen, kurze Aufbewahrung, und die Datenklassen-Achse im Beobachtungsmodus — Sie sehen, was blockiert würde, statt blockiert zu werden.</target>
+      </segment>
+    </unit>
+    <unit id="governance.simulator.actor.operator">
+      <segment state="final">
+        <source>You, the operator reading this page</source>
+        <target>Sie selbst, als die Person, die diese Seite liest</target>
+      </segment>
+    </unit>
+    <unit id="governance.simulator.lead">
+      <segment state="final">
+        <source>Ask the gates the runtime asks. This runs the real configuration-access rule, the real tool policy, the real input-context gate, the real routing decision and the real approval predicate, and folds their answers into one verdict. Pick a backend user to answer for someone other than yourself: the user is resolved read-only, nothing is executed as them, and nothing is written.</source>
+        <target>Fragen Sie die Gates, die auch die Laufzeit fragt. Hier laufen die echte Konfigurationszugriffs-Regel, die echte Tool-Policy, das echte Eingabekontext-Gate, die echte Routing-Entscheidung und das echte Freigabe-Prädikat, und ihre Antworten werden zu einem Urteil zusammengefasst. Wählen Sie einen Backend-Benutzer, um für jemand anderen als sich selbst zu antworten: Der Benutzer wird nur lesend aufgelöst, es wird nichts in seinem Namen ausgeführt und nichts geschrieben.</target>
+      </segment>
+    </unit>
+    <unit id="task.execute.intro.body">
+      <segment state="final">
+        <source>Run this task once and look at the result. The output is displayed below and stored nowhere — nothing in your content is changed, so this is the safe place to try a task out before other extensions or the API start using it.</source>
+        <target>Führt die Aufgabe einmal aus und zeigt das Ergebnis. Die Ausgabe erscheint weiter unten und wird nirgends gespeichert — an Ihren Inhalten ändert sich nichts. Hier probieren Sie eine Aufgabe also gefahrlos aus, bevor andere Extensions oder die API sie benutzen.</target>
+      </segment>
+    </unit>
+    <unit id="task.execute.intro.cost">
+      <segment state="final">
+        <source>It is a real request to the configured provider: it costs money and counts against your budget, exactly like a run triggered from anywhere else.</source>
+        <target>Das ist eine echte, kostenpflichtige Anfrage an den konfigurierten Provider. Die Anfrage zählt auf Ihr Budget, genau wie ein Lauf von irgendwo sonst.</target>
+      </segment>
+    </unit>
+    <unit id="task.execute.intro.needs.manual">
+      <segment state="final">
+        <source>text you type into the input field below</source>
+        <target>Text, den Sie unten ins Eingabefeld schreiben</target>
+      </segment>
+    </unit>
+    <unit id="test.deeplQuota.loading">
+      <segment state="final">
+        <source>Asking DeepL for the character quota…</source>
+        <target>Zeichenkontingent wird bei DeepL abgefragt …</target>
+      </segment>
+    </unit>
+    <unit id="testing">
+      <segment state="final">
+        <source>Testing...</source>
+        <target>Wird getestet …</target>
+      </segment>
+    </unit>
+  </file>
+</xliff>
