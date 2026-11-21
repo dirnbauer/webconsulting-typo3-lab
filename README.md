@@ -46,7 +46,8 @@ cp config/system/settings.php.example config/system/settings.php
 
 ddev start
 export COMPOSER_AUTH="{\"http-basic\":{\"in2code.repo.packagist.com\":{\"username\":\"token\",\"password\":\"$(tr -d '\r\n' < ~/.config/in2code/eap-packagist-token)\"}}}"
-ddev exec env COMPOSER_AUTH="$COMPOSER_AUTH" composer install
+# docker exec -e copies the value from this shell: never on a command line.
+docker exec -e COMPOSER_AUTH -u "$(id -u):$(id -g)" -w /var/www/html "ddev-$(ddev describe -j | jq -r .raw.name)-web" composer install
 unset COMPOSER_AUTH
 ddev npm ci
 ddev import-db --file=dump.sql.gz
@@ -207,15 +208,20 @@ local run before each merge:
 
 ```bash
 export COMPOSER_AUTH="{\"http-basic\":{\"in2code.repo.packagist.com\":{\"username\":\"token\",\"password\":\"$(tr -d '\r\n' < ~/.config/in2code/eap-packagist-token)\"}}}"
-ddev exec env COMPOSER_AUTH="$COMPOSER_AUTH" composer reinstall in2code/powermail in2code/powermail_cond
-ddev exec env COMPOSER_AUTH="$COMPOSER_AUTH" Build/Scripts/runTests.sh -s quality -p 8.5
+# docker exec -e copies the value from this shell: never on a command line.
+web="ddev-$(ddev describe -j | jq -r .raw.name)-web"
+docker exec -e COMPOSER_AUTH -u "$(id -u):$(id -g)" -w /var/www/html "$web" composer reinstall in2code/powermail in2code/powermail_cond
+docker exec -e COMPOSER_AUTH -u "$(id -u):$(id -g)" -w /var/www/html "$web" Build/Scripts/runTests.sh -s quality -p 8.5
 unset COMPOSER_AUTH
 ```
 
 `composer reinstall` applies the five patches again
 (`composer-exit-on-patch-failure` stops on one that no longer applies), and the
 suite's `composer audit` reaches the in2code repository with the same
-`COMPOSER_AUTH`.
+`COMPOSER_AUTH`. `runTests.sh` hands the variable only to its Composer steps
+and removes it for every other tool: PHPStan stores the process environment in
+its compiled container under `var/phpstan`, which once put the token into a
+file there.
 
 Two checks cover mistakes that stay invisible until they reach production.
 `deployPins` compares the EXT:solr commit baked into the production Solr image

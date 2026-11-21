@@ -16,6 +16,17 @@ done
 
 cd "${ROOT_DIR}"
 
+# COMPOSER_AUTH carries the in2code token (docs/coolify-deployment.md). Only the
+# Composer suites need it. Every other tool must never see it: PHPStan stores
+# the process environment in its compiled container under var/phpstan, and the
+# token must never land in a file. So it is kept for composerValidate and
+# composerAudit and removed from the environment of everything else, including
+# the nested runs of the quality suite.
+case "${SUITE}" in
+    composerValidate|composerAudit|quality|ci) ;;
+    *) unset COMPOSER_AUTH ;;
+esac
+
 if [[ -n "${PHP_VERSION}" ]]; then
     CURRENT_PHP_VERSION="$(php -r 'echo PHP_MAJOR_VERSION . "." . PHP_MINOR_VERSION;')"
     if [[ "${CURRENT_PHP_VERSION}" != "${PHP_VERSION}" ]]; then
