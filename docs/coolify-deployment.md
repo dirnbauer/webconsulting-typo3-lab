@@ -39,7 +39,7 @@ repository `in2code` in `composer.json`, limited to `in2code/powermail` and
 forks added are composer patches (`patches/README.md`). The forks' GitLab
 mirrors stay, so an image of an older commit can still be built.
 
-The token (the bare 60-character token, never a JSON block) is in exactly two
+The token (the bare token, never a JSON block) is in exactly two
 places (owner decision of 2026-11-21):
 
 | Where | How |
@@ -73,8 +73,10 @@ merge:
 
 ```bash
 export COMPOSER_AUTH="{\"http-basic\":{\"in2code.repo.packagist.com\":{\"username\":\"token\",\"password\":\"$(tr -d '\r\n' < ~/.config/in2code/eap-packagist-token)\"}}}"
-ddev exec env COMPOSER_AUTH="$COMPOSER_AUTH" composer reinstall in2code/powermail in2code/powermail_cond
-ddev exec env COMPOSER_AUTH="$COMPOSER_AUTH" Build/Scripts/runTests.sh -s quality -p 8.5
+# docker exec -e copies the value from this shell: never on a command line.
+web="ddev-$(ddev describe -j | jq -r .raw.name)-web"
+docker exec -e COMPOSER_AUTH -u "$(id -u):$(id -g)" -w /var/www/html "$web" composer reinstall in2code/powermail in2code/powermail_cond
+docker exec -e COMPOSER_AUTH -u "$(id -u):$(id -g)" -w /var/www/html "$web" Build/Scripts/runTests.sh -s quality -p 8.5
 unset COMPOSER_AUTH
 ```
 
@@ -245,15 +247,20 @@ On start the container also prepares the Netresearch AI Chat
 ([ai-chat.md](ai-chat.md)): it writes the chat's task uid into `settings.php`
 (`sitepackage:seed-ai-stack --settings-only`, `TYPO3_CHAT_SETTINGS=0` to skip),
 would run `ai-chat:cleanup --delete-after-days=90` if `TYPO3_CHAT_CLEANUP`
-were 1 (compose pins it to `'0'`: its first run deletes the archived
-conversations older than 90 days; see [ai-chat.md](ai-chat.md)), and last starts `TYPO3_CHAT_WORKERS` (default 2, `0` for none) supervised loops of
+were 1 (compose defaults it to 0: its first run deletes the archived
+conversations older than 90 days; see [ai-chat.md](ai-chat.md)), marks the chat
+turns that the last stop interrupted as failed
+(`sitepackage:ai-chat:release-interrupted`, `TYPO3_CHAT_RELEASE=0` to skip),
+and last starts `TYPO3_CHAT_WORKERS` (default 2, `0` for none) supervised loops of
 `ai-chat:worker`: the chat cannot start a PHP process from a mod_php request.
 There is no cron daemon here to run a scheduler task, and at start nothing can
 be mid-turn. For the same reason it runs `agentnexus:cleanup`
 (`TYPO3_AGENTNEXUS_CLEANUP=0`), the data-only upgrade wizards named in the
-entrypoint, `nrMcpAgent_migrateMessagesToTable` and `nrMcpAgent_lastMessageTime`,
-plus the "done" mark for nr-llm's `nrllmAdr214SkillVersionDigest`, which must
-never run here (`TYPO3_RUN_WIZARDS=0` skips all three), and `language:update` for the core language packs named in
+entrypoint (nr-llm's trust zone, API timeout and embedding sizes,
+nr-mcp-agent's approval notice, `nrMcpAgent_migrateMessagesToTable` and, after
+it, `nrMcpAgent_lastMessageTime`), plus the "done" mark for nr-llm's
+`nrllmAdr214SkillVersionDigest`, which must never run here
+(`TYPO3_RUN_WIZARDS=0` skips all of them), and `language:update` for the core language packs named in
 `TYPO3_LANGUAGE_PACKS` (default `de`; `TYPO3_LANGUAGE_UPDATE=0` to skip), so
 the backend is German in full rather than only where extensions ship their own
 labels.

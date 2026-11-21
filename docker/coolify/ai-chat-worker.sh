@@ -15,10 +15,17 @@
 #   process, nothing of one turn leaks into the next, and a changed setting
 #   applies from the next turn;
 # - after an hour without turns (--time-limit), above 256 MB of memory
-#   (--memory-limit). A booted, waiting worker uses about 35 MB (measured in
-#   DDEV, 2026-11-20). PHP's hard limit of 2 GB (as php.ini in production)
-#   only has to cover a boot on cold caches, which loads the large TCA schema:
-#   1 GB was not enough right after a cache flush in the rehearsal;
+#   (--memory-limit, checked after every poll). A booted, waiting worker holds
+#   about 40 MB, but only with the CLI's OPcache file cache (DDEV:
+#   .ddev/php/performance.ini; production image: docker/coolify/php-cli.ini).
+#   Without it every boot compiles the ~250 MB TCA schema file and holds about
+#   900 MB afterwards, so the worker ended after every poll and the loop
+#   rebooted TYPO3 non-stop (measured in the production image, 2026-11-21).
+#   The first boot after a start or a cache flush still compiles it, ends
+#   after one poll for that reason, and the next one starts warm.
+#   PHP's hard limit of 2 GB (as php.ini in production) only has to cover such
+#   a cold boot (peak about 1.25 GB): 1 GB was not enough right after a cache
+#   flush in the rehearsal;
 # - when a turn runs longer than ten minutes (--turn-limit; needs pcntl, which
 #   the image installs): that turn fails with a Retry button, never re-runs.
 # A worker that fails right away (database not reachable yet, broken code) is

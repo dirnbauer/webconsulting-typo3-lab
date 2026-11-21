@@ -1,6 +1,10 @@
 #!/bin/sh
 set -eu
 
+# Turns of the AI chat that were running when the previous container went down
+# were last touched before this moment (see the release step at the end).
+container_started=$(date +%s)
+
 # Opt-in custody validation must fail before startup writes or migrations.
 # Run as Apache's user so a root-readable but runtime-unreadable file fails.
 if [ -n "${TYPO3_VAULT_MASTER_KEY_FILE:-}" ]; then
@@ -66,6 +70,15 @@ rm -rf /var/www/html/var/cache/code
 mkdir -p /var/www/html/var/cache/code
 chown www-data:www-data /var/www/html/var/cache/code
 
+# The CLI's OPcache file cache (docker/coolify/php-cli.ini) for the same
+# reason: compiled code never outlives the start it was compiled in. It is
+# emptied here, after the root-run PHP above and before the first www-data CLI
+# step, so every compiled file in it belongs to www-data. PHP runs no CLI
+# script at all while the directory is missing or not writable, so it is
+# recreated, not just emptied.
+rm -rf /tmp/opcache
+install -d -o www-data -g www-data -m 0700 /tmp/opcache
+
 # TYPO3's FileWriter appends forever and nothing in the container rotates it:
 # var/log grew to 239 MB, a single file holding months of repeated warnings that
 # made the log useless to read and slow to search. Roll anything oversized at
@@ -104,15 +117,39 @@ fi
 # copy data; anything destructive stays a manual step. Never call upgrade:run
 # without a wizard name: that would also run the ones below that must not run.
 #
-# nr-mcp-agent 0.39 (the Netresearch AI Chat): the messages of the chats from
+# nr-llm (the AI stack's base): providers that predate the trust zone get one
+# stamped (without it a provider falls back to the strictest zone, and runs
+# lose their diagnostics, code and configuration tools), the never-applied 30 s
+# API timeout becomes 120 s, and well-known embedding models get their vector
+# size. nr-mcp-agent 0.39 (the Netresearch AI Chat): a stored English
+# "waiting for approval" sentence is cleared; the messages of the chats from
 # its earlier install move from the conversation rows into their own table,
-# then each conversation gets its last-message time.
+# then each conversation gets its last-message time. All of them only fill or
+# correct data and do nothing once done. Production had the first two done
+# before this list existed (2026-11-21).
+#
+# Left out on purpose: nrLlm_dataClassEnforcementObserveForExisting writes
+# extension configuration into settings.php, which every image rebuilds from
+# settings.php.example, so it would be marked done while its value is lost;
+# nrMcpAgent_dashboardWidgetSizes and nrMcpAgent_recentChatsWidgetSize
+# rearrange users' dashboards, which is a decision, not a data fix.
+run_wizard() {
+    echo "entrypoint: upgrade wizard $1"
+    su -s /bin/sh -c "cd /var/www/html && php -d memory_limit=1536M vendor/bin/typo3 upgrade:run $1 --no-interaction" www-data
+}
 if [ "${TYPO3_RUN_WIZARDS:-1}" = "1" ]; then
-    for wizard in nrMcpAgent_migrateMessagesToTable nrMcpAgent_lastMessageTime; do
-        echo "entrypoint: upgrade wizard ${wizard}"
-        su -s /bin/sh -c "cd /var/www/html && php -d memory_limit=1536M vendor/bin/typo3 upgrade:run ${wizard} --no-interaction" www-data \
-            || echo "entrypoint: WARNING upgrade wizard ${wizard} failed" >&2
+    for wizard in nrLlm_stampProviderTrustZone nrLlm_providerApiTimeout120 nrLlm_embeddingModelDimensions nrMcpAgent_clearStoredApprovalNotice; do
+        run_wizard "${wizard}" || echo "entrypoint: WARNING upgrade wizard ${wizard} failed" >&2
     done
+    # The last-message time is filled from the moved messages. Run on a
+    # transcript table that is still empty, it would find nothing to do and be
+    # marked done for good, so it only runs after the move succeeded.
+    if run_wizard nrMcpAgent_migrateMessagesToTable; then
+        run_wizard nrMcpAgent_lastMessageTime \
+            || echo "entrypoint: WARNING upgrade wizard nrMcpAgent_lastMessageTime failed" >&2
+    else
+        echo "entrypoint: WARNING upgrade wizard nrMcpAgent_migrateMessagesToTable failed; nrMcpAgent_lastMessageTime waits for the next start" >&2
+    fi
 
     # nr-llm's skill digest wizard (ADR-214) disables every skill whose stored
     # frontmatter does not verify; it must never run here (the skills are kept
@@ -170,6 +207,17 @@ if [ "${TYPO3_CHAT_CLEANUP:-1}" = "1" ]; then
     echo "entrypoint: releasing stuck chat conversations and applying retention"
     su -s /bin/sh -c 'cd /var/www/html && php -d memory_limit=1536M vendor/bin/typo3 ai-chat:cleanup --delete-after-days=90 --no-interaction' www-data \
         || echo "entrypoint: WARNING chat cleanup failed; stuck conversations stay claimed until the next start" >&2
+fi
+
+# The release of turns a container stop or an OOM kill interrupted (see
+# sitepackage:ai-chat:release-interrupted): only rows last touched before this
+# container started, and only running ones (locked, tool_loop); queued turns
+# stay for the workers. It runs whatever TYPO3_CHAT_CLEANUP says, because it
+# archives and deletes nothing.
+if [ "${TYPO3_CHAT_RELEASE:-1}" = "1" ]; then
+    echo "entrypoint: releasing AI chat turns interrupted by the last stop"
+    su -s /bin/sh -c "cd /var/www/html && php -d memory_limit=1536M vendor/bin/typo3 sitepackage:ai-chat:release-interrupted --before=${container_started} --no-interaction" www-data \
+        || echo "entrypoint: WARNING interrupted chat turns could not be released; they stay claimed" >&2
 fi
 
 # Agent Nexus logs every protocol request and keeps the objects the demos create

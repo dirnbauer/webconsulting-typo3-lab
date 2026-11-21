@@ -111,8 +111,12 @@ start there. Under DDEV's php-fpm `exec` works, which is why it did locally.
 | No free worker | the extension falls back to `exec`, which cannot start under mod_php: the turn waits for the next free worker | the fallback works |
 | Logs | container log (`docker logs`) | `var/log/ai-chat-worker.log` |
 
-A booted, idle worker uses about 35 MB. A setting saved in the backend makes
-every worker stop before its next turn and start again with it.
+A booted, idle worker uses about 40 MB, but only with the CLI's OPcache file
+cache (DDEV: `.ddev/php/performance.ini`; production image:
+`docker/coolify/php-cli.ini`). Without it each boot compiles the ~250 MB TCA
+schema file again and holds about 900 MB, above the worker's own
+`--memory-limit=256`, so it ends after every poll. A setting saved in the
+backend makes every worker stop before its next turn and start again with it.
 
 ## Container start (production)
 
@@ -122,9 +126,17 @@ logged and never stops the start:
 1. `extension:setup` (`TYPO3_RUN_SETUP`): nr-mcp-agent's tables, nr-llm's
    `tx_nrllm_ai_written` columns on `pages`/`tt_content` (without them pages and
    content cannot be saved).
-2. Upgrade wizards by name (`TYPO3_RUN_WIZARDS`): `nrMcpAgent_migrateMessagesToTable`
-   and `nrMcpAgent_lastMessageTime` for the conversations of the earlier
-   nr-mcp-agent install, then `sitepackage:upgrade:mark-done
+2. Upgrade wizards by name (`TYPO3_RUN_WIZARDS`): nr-llm's
+   `nrLlm_stampProviderTrustZone`, `nrLlm_providerApiTimeout120` and
+   `nrLlm_embeddingModelDimensions`, nr-mcp-agent's
+   `nrMcpAgent_clearStoredApprovalNotice`, then
+   `nrMcpAgent_migrateMessagesToTable` and, only when that succeeded,
+   `nrMcpAgent_lastMessageTime` for the conversations of the earlier
+   nr-mcp-agent install. All of them only fill or correct data. Not named:
+   `nrLlm_dataClassEnforcementObserveForExisting` (it writes extension
+   configuration into `settings.php`, which every image rebuilds) and the two
+   dashboard widget wizards (they rearrange users' dashboards). Then
+   `sitepackage:upgrade:mark-done
    'Netresearch\NrLlm\Updates\SkillVersionDigestUpdateWizard'`: nr-llm's
    `nrllmAdr214SkillVersionDigest` would disable every skill whose stored
    frontmatter does not verify, so it is marked done and never run, as in
@@ -138,10 +150,18 @@ logged and never stops the start:
    (`'0'`, since 2026-10-15). Its first run would delete the archived
    conversations older than 90 days: in the rehearsal database it archived 101
    and deleted 104 conversations of the earlier nr-mcp-agent install from
-   April to July. Switching it on (`${TYPO3_CHAT_CLEANUP:-1}`) is the owner's
-   decision. Without it, a turn whose process is killed mid-run (a container
-   stop) stays locked until the cleanup runs once.
-5. The chat worker loops (`TYPO3_CHAT_WORKERS`, 0 switches them off).
+   April to July. Switching it on (`TYPO3_CHAT_CLEANUP=1` in Coolify) is the
+   owner's decision.
+5. `sitepackage:ai-chat:release-interrupted --before=<container start>`
+   (`TYPO3_CHAT_RELEASE`, default 1): a container stop or an OOM kill never
+   reaches a worker as SIGTERM (Apache is PID 1; when it exits, the kernel kills
+   the rest), so a turn running at that moment keeps its conversation `locked`
+   and the chat answers "conversation is processing" for good. This step marks
+   `locked` and `tool_loop` rows last changed before the container started as
+   `failed` (Retry button), as the cleanup's five-minute timeout would, and
+   archives or deletes nothing. Queued turns (`processing`) stay for the
+   workers.
+6. The chat worker loops (`TYPO3_CHAT_WORKERS`, 0 switches them off).
 
 The records themselves (step "seed-ai-stack" in
 [content/seeding.md](content/seeding.md)) come from the production data run,
