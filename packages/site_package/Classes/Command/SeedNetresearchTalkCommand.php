@@ -14,6 +14,7 @@ use Symfony\Component\Console\Style\SymfonyStyle;
 use TYPO3\CMS\Core\Core\Environment;
 use TYPO3\CMS\Core\Database\Connection;
 use TYPO3\CMS\Core\Database\ConnectionPool;
+use TYPO3\CMS\Core\Database\Query\QueryBuilder;
 use TYPO3\CMS\Core\DataHandling\DataHandler;
 use TYPO3\CMS\Core\Site\SiteFinder;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
@@ -362,11 +363,22 @@ final class SeedNetresearchTalkCommand extends Command
      * The one live default-language page with this slug below the site root.
      * Slugs repeat across the installation's sites, and uids differ between
      * the lab and production.
+     *
+     * Hidden pages count: hiding the hub is the documented rollback, and a
+     * hidden /ai or ancestor must not make the seeder lose its pages.
+     * Connection::select() would drop them silently (it applies the default
+     * hidden/starttime/endtime restrictions), so both lookups use a
+     * QueryBuilder without restrictions and filter deleted and workspace rows
+     * themselves.
      */
     private function pageWithinRoot(string $slug, int $root): int
     {
-        $connection = $this->pool->getConnectionForTable('pages');
-        $candidates = $connection->select(['uid'], 'pages', ['slug' => $slug, 'deleted' => 0, 'sys_language_uid' => 0, 't3ver_wsid' => 0])->fetchFirstColumn();
+        $candidates = $this->livePages()
+            ->select('uid')
+            ->andWhere('slug = :slug', 'sys_language_uid = 0')
+            ->setParameter('slug', $slug)
+            ->executeQuery()
+            ->fetchFirstColumn();
         $matches = [];
         foreach ($candidates as $candidate) {
             $uid = (int)self::text($candidate);
@@ -377,7 +389,12 @@ final class SeedNetresearchTalkCommand extends Command
                     break;
                 }
                 $visited[$uid] = true;
-                $uid = (int)self::text($connection->select(['pid'], 'pages', ['uid' => $uid, 'deleted' => 0])->fetchOne());
+                $uid = (int)self::text($this->livePages()
+                    ->select('pid')
+                    ->andWhere('uid = :uid')
+                    ->setParameter('uid', $uid, Connection::PARAM_INT)
+                    ->executeQuery()
+                    ->fetchOne());
             }
         }
         if (count($matches) !== 1) {
@@ -385,6 +402,20 @@ final class SeedNetresearchTalkCommand extends Command
         }
 
         return $matches[0];
+    }
+
+    /**
+     * A pages query over every live row that is not deleted, hidden or not;
+     * the caller adds select() and its own conditions with andWhere().
+     */
+    private function livePages(): QueryBuilder
+    {
+        $queryBuilder = $this->pool->getQueryBuilderForTable('pages');
+        $queryBuilder->getRestrictions()->removeAll();
+
+        return $queryBuilder
+            ->from('pages')
+            ->where('deleted = 0', 't3ver_wsid = 0');
     }
 
     private static function text(mixed $value): string

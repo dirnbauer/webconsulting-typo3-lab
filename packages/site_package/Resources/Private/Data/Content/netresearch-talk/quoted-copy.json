@@ -72,6 +72,16 @@
       ]
     },
     {
+      "payload": "05-context.payload.json",
+      "record": "NEW_nrtalk_context_s35_2",
+      "field": "title",
+      "language": "de",
+      "text": "Welche Aufgabe würdet ihr als Erstes ausprobieren?",
+      "rules": [
+        "address"
+      ]
+    },
+    {
       "payload": "08-modular-ai-stack.payload.json",
       "record": "NEW_nrtalk_stack_faq_1",
       "field": "title",

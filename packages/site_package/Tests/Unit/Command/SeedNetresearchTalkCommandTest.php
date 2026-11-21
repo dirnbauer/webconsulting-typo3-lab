@@ -33,6 +33,8 @@ final class SeedNetresearchTalkCommandTest extends TestCase
         }
         $pool = $this->createStub(ConnectionPool::class);
         $pool->method('getConnectionForTable')->willReturn($connection);
+        // A new builder per query, as the real pool hands out.
+        $pool->method('getQueryBuilderForTable')->willReturnCallback(static fn () => $connection->createQueryBuilder());
         $this->seeder = new SeedNetresearchTalkCommand($pool, $this->createStub(SiteFinder::class));
     }
 
