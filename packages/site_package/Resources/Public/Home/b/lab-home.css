@@ -1,0 +1,465 @@
+/* Start page proposal B: "Layer Stack".
+
+   The page is a deck of planes lying on a desk. The opening hero is the
+   ground; every later section is a sheet with its own surface, a numbered
+   tab on its top edge and a soft shadow, and while scrolling each sheet
+   slides over the one before and pins under the header. The sheets it has
+   covered step back a little, so the top of the viewport shows the edges
+   of the last two layers like a stack seen from the side. A small layer
+   index on the right shows where you are and jumps to any layer.
+
+   Presentation only: the markup, the texts and the order stay as they are.
+   Every rule is scoped to html[data-lab-home="b"] (set by the switch before
+   first paint). The colours come from the preset's own tokens on <body>;
+   no shadcn token is redeclared. Without lab-home.js the page is the same
+   deck, only flat: the sheets do not pin (their height is unknown) and the
+   index is missing. Under prefers-reduced-motion the sheets never pin and
+   nothing moves: the layers are separated surfaces on the desk.
+
+   Selectors that must beat Desiderio's long seam and rise selectors (the
+   tab, the animation ranges) carry :not(#lsb-x), an id-level specificity
+   that matches every element. */
+
+/* ------------------------------------------------------------------ */
+/*  0. Measures                                                        */
+/* ------------------------------------------------------------------ */
+
+html[data-lab-home="b"] {
+    /* Header height, measured by lab-home.js; the fallback is the glass
+       header at 1440 px. */
+    --lsb-header: 77px;
+    /* Height of a sheet's tab above its top edge. */
+    --lsb-tab: 1.75rem;
+    /* How far a covered sheet steps back (up, behind the next one). Only a
+       translate: scaling the big sheets made Chromium re-raster them and
+       doubled the frame time while scrolling. */
+    --lsb-step: 9px;
+    /* The line a sheet pins to: under the header and its own tab. */
+    --lsb-pin: calc(var(--lsb-header) + var(--lsb-tab) + 2 * var(--lsb-step));
+    --lsb-gutter: clamp(0.5rem, 2.4vw, 2.5rem);
+    --lsb-plane-max: 92rem;
+    scroll-padding-top: calc(var(--lsb-pin) + 0.75rem);
+}
+
+/* Colours are mixed on <body>, where the preset sets its tokens. */
+html[data-lab-home="b"] body {
+    --lsb-r: calc(var(--radius, 0.625rem) * 2.4);
+    --lsb-desk: color-mix(in oklch, var(--muted) 62%, var(--background));
+    --lsb-dot: color-mix(in oklch, var(--foreground) 9%, transparent);
+    --lsb-edge: var(--border);
+    --lsb-shadow: color-mix(in oklch, var(--foreground) 16%, transparent);
+    --lsb-shadow-near: color-mix(in oklch, var(--foreground) 7%, transparent);
+    --lsb-lit: transparent;
+    /* Desiderio's section seams are replaced by the sheet edges. */
+    --d-seam-line: none;
+    --d-seam-mark: none;
+    --d-seam-grow: none;
+}
+
+html.dark[data-lab-home="b"] body {
+    --lsb-desk: color-mix(in oklch, var(--background) 62%, #000);
+    --lsb-dot: color-mix(in oklch, var(--foreground) 7%, transparent);
+    --lsb-shadow: color-mix(in oklch, #000 70%, transparent);
+    --lsb-shadow-near: color-mix(in oklch, #000 40%, transparent);
+    --lsb-lit: color-mix(in oklch, var(--foreground) 7%, transparent);
+}
+
+/* ------------------------------------------------------------------ */
+/*  1. The desk                                                        */
+/* ------------------------------------------------------------------ */
+
+html[data-lab-home="b"] .desiderio-main {
+    background-color: var(--lsb-desk);
+}
+
+html[data-lab-home="b"] .desiderio-main > .desiderio-corporate-start {
+    position: relative;
+    counter-reset: lsb;
+    padding-block-end: clamp(1.5rem, 4vw, 3.5rem);
+}
+
+/* A faint dot grid, like a canvas; it fades out under the opening copy. */
+html[data-lab-home="b"] .desiderio-main > .desiderio-corporate-start::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background-image: radial-gradient(circle at 1px 1px, var(--lsb-dot) 1px, transparent 1.6px);
+    background-size: 22px 22px;
+    -webkit-mask-image: linear-gradient(90deg, #000, transparent 22%, transparent 78%, #000);
+    mask-image: linear-gradient(90deg, #000, transparent 22%, transparent 78%, #000);
+}
+
+/* ------------------------------------------------------------------ */
+/*  2. The ground: the opening hero                                    */
+/* ------------------------------------------------------------------ */
+
+/* The hero stays on the desk (transparent, with Desiderio's horizon). The
+   photo becomes the top sheet of a small stack: two blank sheets step back
+   behind it, the same gesture the page makes while scrolling. */
+html[data-lab-home="b"] .desiderio-corporate-start > .desiderio-section.hero:first-of-type {
+    counter-increment: lsb;
+    padding-block-end: calc(var(--d-hero-y, 4rem) + var(--lsb-tab));
+}
+
+html[data-lab-home="b"] .desiderio-corporate-start > .hero:first-of-type .hero__media {
+    position: relative;
+    isolation: isolate;
+}
+
+html[data-lab-home="b"] .desiderio-corporate-start > .hero:first-of-type .hero__media::before,
+html[data-lab-home="b"] .desiderio-corporate-start > .hero:first-of-type .hero__media::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    border: 1px solid var(--lsb-edge);
+    border-radius: var(--d-radius-lg, var(--radius));
+    background-color: var(--background);
+    box-shadow: 0 1px 0 var(--lsb-lit) inset, 0 18px 40px -28px var(--lsb-shadow);
+    transform-origin: 50% 0;
+    pointer-events: none;
+}
+
+html[data-lab-home="b"] .desiderio-corporate-start > .hero:first-of-type .hero__media::before {
+    translate: 0 calc(-1.6 * var(--lsb-step));
+    scale: 0.95;
+}
+
+html[data-lab-home="b"] .desiderio-corporate-start > .hero:first-of-type .hero__media::after {
+    z-index: -2;
+    translate: 0 calc(-3.2 * var(--lsb-step));
+    scale: 0.9;
+    background-color: color-mix(in oklch, var(--background) 70%, var(--lsb-desk));
+}
+
+html[data-lab-home="b"] .desiderio-corporate-start > .hero:first-of-type .hero__image {
+    box-shadow: 0 28px 60px -34px var(--lsb-shadow), 0 2px 6px -2px var(--lsb-shadow-near);
+}
+
+/* ------------------------------------------------------------------ */
+/*  3. The sheets                                                      */
+/* ------------------------------------------------------------------ */
+
+html[data-lab-home="b"] .desiderio-corporate-start > .desiderio-section:not(:first-of-type) {
+    counter-increment: lsb;
+    width: min(100% - 2 * var(--lsb-gutter), var(--lsb-plane-max));
+    margin-inline: auto;
+    border: 1px solid var(--lsb-edge);
+    border-block-end: 0;
+    border-radius: var(--lsb-r) var(--lsb-r) 0 0;
+    box-shadow:
+        0 1px 0 var(--lsb-lit) inset,
+        0 -2px 6px -2px var(--lsb-shadow-near),
+        0 -26px 48px -30px var(--lsb-shadow);
+    transform-origin: 50% 0;
+}
+
+/* Sheets paint the page colour; the closing banner keeps its primary fill
+   and the steps keep their inset panel on top of the sheet. */
+html[data-lab-home="b"] .desiderio-corporate-start > .desiderio-section:not(:first-of-type, .cta-banner--primary, .cta-banner--dark, .cta-banner--muted) {
+    background-color: var(--background);
+}
+
+/* The last sheet lies flat on the desk with all four corners rounded. */
+html[data-lab-home="b"] .desiderio-corporate-start > .desiderio-section:last-of-type:not(:first-of-type) {
+    border-block-end: 1px solid var(--lsb-edge);
+    border-radius: var(--lsb-r);
+}
+
+/* The tab: number of the layer on the sheet's top edge, with a small
+   capsule in the preset's palette (primary ink in neutral presets, the
+   same formula as Desiderio's seam mark). */
+html[data-lab-home="b"]:not(#lsb-x) .desiderio-corporate-start > .desiderio-section:not(:first-of-type)::after {
+    content: counter(lsb, decimal-leading-zero);
+    position: absolute;
+    inset: auto auto 100% calc(max(0px, (100% - 80rem) / 2) + clamp(1rem, 2.4vw, 2rem));
+    display: flex;
+    align-items: center;
+    width: auto;
+    height: var(--lsb-tab);
+    margin-block-end: -1px;
+    padding: 1px 0.875rem 0 calc(0.75rem + 1.125rem + 0.5rem);
+    translate: none;
+    border: 1px solid var(--lsb-edge);
+    border-block-end: 0;
+    border-radius: calc(var(--lsb-r) * 0.55) calc(var(--lsb-r) * 0.55) 0 0;
+    font-family: var(--font-mono, ui-monospace, monospace);
+    font-size: 0.75rem;
+    font-weight: 600;
+    line-height: 1;
+    letter-spacing: 0.08em;
+    font-variant-numeric: tabular-nums;
+    color: var(--foreground);
+    background:
+        linear-gradient(90deg,
+            oklch(from var(--chart-1, var(--primary)) l c h / clamp(0, c * 12, 1)),
+            oklch(from var(--chart-2, var(--primary)) l c h / clamp(0, c * 12, 1)),
+            oklch(from var(--chart-3, var(--primary)) l c h / clamp(0, c * 12, 1)),
+            oklch(from var(--chart-4, var(--primary)) l c h / clamp(0, c * 12, 1)),
+            oklch(from var(--chart-5, var(--primary)) l c h / clamp(0, c * 12, 1)))
+            left 0.75rem center / 1.125rem 4px no-repeat,
+        linear-gradient(var(--primary), var(--primary)) left 0.75rem center / 1.125rem 4px no-repeat,
+        var(--background);
+    box-shadow: 0 1px 0 var(--lsb-lit) inset, 0 -12px 22px -18px var(--lsb-shadow);
+    -webkit-mask-image: none;
+    mask-image: none;
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* With the script: "02 / 17". */
+html[data-lab-home="b"]:not(#lsb-x) .desiderio-corporate-start > .desiderio-section[data-lsb-of]:not(:first-of-type)::after {
+    content: counter(lsb, decimal-leading-zero) "\2009/\2009" attr(data-lsb-of);
+}
+
+/* The closing banner is a primary sheet; its tab is too. */
+html[data-lab-home="b"]:not(#lsb-x) .desiderio-corporate-start > .desiderio-section.cta-banner--primary::after {
+    color: var(--primary-foreground);
+    background:
+        linear-gradient(var(--primary-foreground), var(--primary-foreground)) left 0.75rem center / 1.125rem 4px no-repeat,
+        var(--primary);
+    border-color: var(--primary);
+}
+
+/* The inline calls to action are slips: thin sheets between the big ones. */
+html[data-lab-home="b"] .desiderio-corporate-start > .desiderio-section.cta-inline {
+    padding-block: clamp(2rem, 4.5vw, 3.25rem);
+}
+
+/* The sections' own scroll rise is replaced by the sheets' motion. */
+html[data-lab-home="b"]:not(#lsb-x) .desiderio-corporate-start > .desiderio-section:not(:first-of-type) > .desiderio-container {
+    animation: none;
+}
+
+/* ------------------------------------------------------------------ */
+/*  4. Pinning and stepping back (only with motion allowed)            */
+/* ------------------------------------------------------------------ */
+
+/* lab-home.js writes each sheet's height to --lsb-h. A sheet that fits
+   pins under the header; a taller one scrolls through and pins with its
+   bottom edge on the viewport's bottom edge, so it is read in full before
+   the next sheet covers it. Without the height the pin line lies a
+   kilometre up, i.e. the sheet never pins. */
+@media (prefers-reduced-motion: no-preference) {
+    html[data-lab-home="b"] .desiderio-corporate-start > .desiderio-section {
+        position: sticky;
+        top: min(var(--lsb-pin), calc(100svh - var(--lsb-h, 1000000px)));
+    }
+
+    /* The hero pins at its own place under the header, so nothing moves
+       on load. */
+    html[data-lab-home="b"] .desiderio-corporate-start > .desiderio-section:first-of-type {
+        top: min(var(--lsb-header), calc(100svh - var(--lsb-h, 1000000px)));
+    }
+
+    @keyframes lsb-step-1 {
+        to {
+            translate: 0 calc(-1 * var(--lsb-step));
+        }
+    }
+
+    @keyframes lsb-step-2 {
+        to {
+            transform: translateY(calc(-1 * var(--lsb-step)));
+        }
+    }
+
+    /* A sheet goes blank while the last 40% of it is being covered, so the
+       edges stacked under the header are clean sheets, not half lines. */
+    @keyframes lsb-hush {
+        to {
+            opacity: 0;
+        }
+    }
+
+    /* lab-home.js names a view timeline on every sheet and points each
+       sheet's two animations at the next and the one after: while the next
+       sheet covers this one, it steps back once; while the one after
+       covers the next, it steps back again.
+       Scroll-linked, so it runs on the compositor and stops with the
+       finger. Browsers without scroll timelines keep the flat stack. */
+    @supports (animation-timeline: view()) {
+        html[data-lab-home="b"][data-lsb-on]:not(#lsb-x) .desiderio-corporate-start > .desiderio-section {
+            /* --lsb-run: how far a sheet travels from the viewport's bottom
+               edge to the pin line. --lsb-seen: how much of this sheet is on
+               screen while it is pinned. The step begins when the next
+               sheet has covered half of it, so a sheet that is still being
+               read does not move. */
+            --lsb-run: calc(100svh - var(--lsb-pin));
+            --lsb-seen: min(var(--lsb-h, 100svh), var(--lsb-run));
+            animation: lsb-step-1 linear both, lsb-step-2 linear both;
+            animation-range:
+                cover calc(var(--lsb-run) - 0.5 * var(--lsb-seen)) cover var(--lsb-run),
+                cover calc(var(--lsb-run) * 0.5) cover var(--lsb-run);
+        }
+
+        html[data-lab-home="b"][data-lsb-on]:not(#lsb-x) .desiderio-corporate-start > .desiderio-section > .desiderio-container {
+            animation: lsb-hush linear both;
+            animation-range: cover calc(var(--lsb-run) - 0.4 * var(--lsb-seen)) cover calc(var(--lsb-run) - 0.04 * var(--lsb-seen));
+        }
+    }
+}
+
+/* ------------------------------------------------------------------ */
+/*  5. The layer index                                                 */
+/* ------------------------------------------------------------------ */
+
+/* Built by lab-home.js: an ordered list of links to the layers' anchors,
+   named by each layer's heading. Shown where there is room beside the
+   sheets; on smaller screens the tabs carry the count. */
+html[data-lab-home="b"] .lsb-index {
+    display: none;
+}
+
+@media (min-width: 80rem) and (min-height: 40rem) {
+    /* Room for the index: the desk margin grows to 4.5rem. The content
+       column (80rem) keeps its width down to 89rem viewports. */
+    html[data-lab-home="b"] {
+        --lsb-gutter: max(4.5rem, 2.4vw);
+    }
+
+    html[data-lab-home="b"] .lsb-index {
+        display: block;
+        position: fixed;
+        /* In the desk's right margin, next to the sheets' edge. */
+        inset-inline-end: max(0.75rem, calc((100vw - min(100vw - 2 * var(--lsb-gutter), var(--lsb-plane-max))) / 2 - 4rem));
+        top: calc(50% + var(--lsb-header) / 2);
+        translate: 0 -50%;
+        z-index: 60;
+        padding: 0.375rem;
+        border: 1px solid var(--lsb-edge);
+        border-radius: calc(var(--radius, 0.625rem) * 1.6);
+        background-color: color-mix(in oklch, var(--background) 92%, transparent);
+        -webkit-backdrop-filter: blur(12px) saturate(1.4);
+        backdrop-filter: blur(12px) saturate(1.4);
+        box-shadow: 0 1px 0 var(--lsb-lit) inset, 0 18px 40px -26px var(--lsb-shadow);
+    }
+}
+
+html[data-lab-home="b"] .lsb-index ol {
+    display: grid;
+    gap: 1px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+html[data-lab-home="b"] .lsb-index a {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.25rem;
+    height: 1.375rem;
+    border-radius: calc(var(--radius, 0.625rem) * 0.8);
+    font-family: var(--font-mono, ui-monospace, monospace);
+    font-size: 0.6875rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    font-variant-numeric: tabular-nums;
+    text-decoration: none;
+    color: color-mix(in oklch, var(--muted-foreground) 70%, var(--foreground));
+    transition: background-color var(--d-motion-fast, 160ms) var(--d-ease, ease-out), color var(--d-motion-fast, 160ms) var(--d-ease, ease-out);
+}
+
+/* The number is a thin bar until it is current, hovered or focused:
+   the index reads as a stack of layers seen from the side. */
+html[data-lab-home="b"] .lsb-index__n {
+    display: block;
+}
+
+html[data-lab-home="b"] .lsb-index a[aria-current="location"] {
+    color: var(--primary-foreground);
+    background-color: var(--primary);
+}
+
+html[data-lab-home="b"] .lsb-index a:focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 1px;
+}
+
+/* The label is the layer's own heading. Screen readers always get it (it
+   is the link's name); sighted users see it as a pill on hover and focus. */
+html[data-lab-home="b"] .lsb-index__label {
+    position: absolute;
+    inset-inline-end: calc(100% + 0.75rem);
+    top: 50%;
+    translate: 0.25rem -50%;
+    max-width: 22rem;
+    overflow: hidden;
+    padding: 0.375rem 0.625rem;
+    border: 1px solid var(--lsb-edge);
+    border-radius: calc(var(--radius, 0.625rem) * 0.9);
+    background-color: var(--popover, var(--background));
+    color: var(--popover-foreground, var(--foreground));
+    box-shadow: 0 14px 30px -18px var(--lsb-shadow);
+    font-family: var(--font-sans, system-ui, sans-serif);
+    font-size: 0.8125rem;
+    font-weight: 500;
+    letter-spacing: 0;
+    line-height: 1.3;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity var(--d-motion-fast, 160ms) var(--d-ease, ease-out), translate var(--d-motion-fast, 160ms) var(--d-ease, ease-out);
+}
+
+html[data-lab-home="b"] .lsb-index a:focus-visible .lsb-index__label {
+    opacity: 1;
+    translate: 0 -50%;
+}
+
+@media (hover: hover) and (pointer: fine) {
+    html[data-lab-home="b"] .lsb-index a:hover {
+        color: var(--foreground);
+        background-color: var(--muted);
+    }
+
+    html[data-lab-home="b"] .lsb-index a[aria-current="location"]:hover {
+        color: var(--primary-foreground);
+        background-color: var(--d-primary-hover, var(--primary));
+    }
+
+    html[data-lab-home="b"] .lsb-index a:hover .lsb-index__label {
+        opacity: 1;
+        translate: 0 -50%;
+    }
+}
+
+/* ------------------------------------------------------------------ */
+/*  6. Small screens                                                   */
+/* ------------------------------------------------------------------ */
+
+@media (max-width: 40rem) {
+    html[data-lab-home="b"] {
+        --lsb-tab: 1.5rem;
+        --lsb-step: 7px;
+    }
+
+    html[data-lab-home="b"] body {
+        --lsb-r: calc(var(--radius, 0.625rem) * 1.8);
+    }
+
+    html[data-lab-home="b"]:not(#lsb-x) .desiderio-corporate-start > .desiderio-section:not(:first-of-type)::after {
+        font-size: 0.6875rem;
+        padding-inline: calc(0.625rem + 1rem + 0.4rem) 0.625rem;
+        background-position: left 0.625rem center, left 0.625rem center, 0 0;
+        background-size: 1rem 3px, 1rem 3px, auto;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html[data-lab-home="b"] .lsb-index a,
+    html[data-lab-home="b"] .lsb-index__label {
+        transition: none;
+    }
+}
+
+@media print {
+    html[data-lab-home="b"] .lsb-index {
+        display: none;
+    }
+}
