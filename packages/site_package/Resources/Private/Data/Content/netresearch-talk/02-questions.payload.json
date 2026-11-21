@@ -24,7 +24,8 @@
         "title": "Questions about using AI",
         "nav_title": "Questions about using AI",
         "description": "Part 2 of the Netresearch talk: what to clarify before using AI in your own TYPO3, in four fields: quality, effort, data and responsibility.",
-        "abstract": "The questions to settle before AI runs in your own TYPO3."
+        "abstract": "The questions to settle before AI runs in your own TYPO3.",
+        "tx_desiderio_h1_sronly": 1
       }
     },
     {
@@ -93,7 +94,7 @@
         "foreign_table_parent_uid": "@NEW_nrtalk_questions_credit",
         "tablenames": "tt_content",
         "fieldname": "desiderio_benefitcards_items",
-        "sorting": 1,
+        "_position": 1,
         "sys_language_uid": 0
       },
       "set": {
@@ -118,7 +119,7 @@
         "foreign_table_parent_uid": "@NEW_nrtalk_questions_credit",
         "tablenames": "tt_content",
         "fieldname": "desiderio_benefitcards_items",
-        "sorting": 2,
+        "_position": 2,
         "sys_language_uid": 0
       },
       "set": {
@@ -143,7 +144,7 @@
         "foreign_table_parent_uid": "@NEW_nrtalk_questions_credit",
         "tablenames": "tt_content",
         "fieldname": "desiderio_benefitcards_items",
-        "sorting": 3,
+        "_position": 3,
         "sys_language_uid": 0
       },
       "set": {
@@ -168,7 +169,7 @@
         "foreign_table_parent_uid": "@NEW_nrtalk_questions_credit",
         "tablenames": "tt_content",
         "fieldname": "desiderio_benefitcards_items",
-        "sorting": 4,
+        "_position": 4,
         "sys_language_uid": 0
       },
       "set": {
@@ -220,7 +221,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_questions",
         "foreign_table_parent_uid": "@NEW_nrtalk_questions_s11",
-        "sorting": 1,
+        "_position": 1,
         "sys_language_uid": 0
       },
       "set": {
@@ -238,7 +239,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_questions",
         "foreign_table_parent_uid": "@NEW_nrtalk_questions_s11",
-        "sorting": 2,
+        "_position": 2,
         "sys_language_uid": 0
       },
       "set": {
@@ -290,7 +291,7 @@
         "foreign_table_parent_uid": "@NEW_nrtalk_questions_s12",
         "tablenames": "tt_content",
         "fieldname": "desiderio_benefitcards_items",
-        "sorting": 1,
+        "_position": 1,
         "sys_language_uid": 0
       },
       "set": {
@@ -314,7 +315,7 @@
         "foreign_table_parent_uid": "@NEW_nrtalk_questions_s12",
         "tablenames": "tt_content",
         "fieldname": "desiderio_benefitcards_items",
-        "sorting": 2,
+        "_position": 2,
         "sys_language_uid": 0
       },
       "set": {
@@ -338,7 +339,7 @@
         "foreign_table_parent_uid": "@NEW_nrtalk_questions_s12",
         "tablenames": "tt_content",
         "fieldname": "desiderio_benefitcards_items",
-        "sorting": 3,
+        "_position": 3,
         "sys_language_uid": 0
       },
       "set": {
@@ -362,7 +363,7 @@
         "foreign_table_parent_uid": "@NEW_nrtalk_questions_s12",
         "tablenames": "tt_content",
         "fieldname": "desiderio_benefitcards_items",
-        "sorting": 4,
+        "_position": 4,
         "sys_language_uid": 0
       },
       "set": {

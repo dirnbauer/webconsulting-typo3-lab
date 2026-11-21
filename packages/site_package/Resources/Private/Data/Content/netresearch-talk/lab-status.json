@@ -1,8 +1,10 @@
 {
-  "_note": "The \"In this lab\" column of the module table on /ai/netresearch-talk/modular-ai-stack ({{labstatus:<id>}} cells). Ids are the stack page's module ids (cowriter is t3-cowriter), plus ai-search from the talk. Change a status here when a module is installed or dropped, rerun sitepackage:seed-netresearch-talk, then translate the page. A new label needs its de/zh/hu entries in the netresearch-talk fragments.",
+  "_note": "The \"In this lab\" column of the module table on /ai/netresearch-talk/modular-ai-stack ({{labstatus:<id>}} cells). Ids are the stack page's module ids (cowriter is t3-cowriter), plus ai-search (nr-ai-search) from the talk. A status that is not \"installed\" names the reason, neutrally: it is this installation's choice, not a judgement of the module. Keep the hub text (nrtalk:hub:lab in 00-hub.payload.json) in step. Change a status here when a module is installed or dropped, rerun sitepackage:seed-netresearch-talk, then translate the page. A new label needs its de/zh/hu entries in the netresearch-talk fragments.",
   "labels": {
     "installed": "Installed",
-    "later": "Decided later",
+    "needs-media-tools": "Not installed: needs ffmpeg and Chromium in the production image",
+    "adds-passkey-login": "Not installed: adds a passkey button to the production login by default",
+    "alpha-blocks-http": "Not installed: alpha release, blocks outgoing HTTP by default",
     "unavailable": "Not publicly available"
   },
   "modules": {
@@ -12,10 +14,10 @@
     "t3-cowriter": "installed",
     "nr-landingpage": "installed",
     "nr-browser-ai": "installed",
-    "nr-repurpose": "later",
-    "nr-passkeys-be": "later",
-    "nr-passkeys-fe": "later",
-    "nr-http-guard": "later",
+    "nr-repurpose": "needs-media-tools",
+    "nr-passkeys-be": "adds-passkey-login",
+    "nr-passkeys-fe": "adds-passkey-login",
+    "nr-http-guard": "alpha-blocks-http",
     "ai-search": "unavailable"
   }
 }

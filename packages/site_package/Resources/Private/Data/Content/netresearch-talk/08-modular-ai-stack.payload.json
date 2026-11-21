@@ -24,7 +24,8 @@
         "title": "The modular AI stack by Netresearch",
         "nav_title": "Modular AI stack",
         "description": "Netresearch’s ten open-source modules for AI in TYPO3: role, maturity, requirements, dependencies and limits, and which ones run in this lab.",
-        "abstract": "Ten modules from Netresearch for AI in TYPO3, with their limits and owners."
+        "abstract": "Ten modules from Netresearch for AI in TYPO3, with their limits and owners.",
+        "tx_desiderio_h1_sronly": 1
       }
     },
     {
@@ -93,7 +94,7 @@
         "foreign_table_parent_uid": "@NEW_nrtalk_stack_credit",
         "tablenames": "tt_content",
         "fieldname": "desiderio_benefitcards_items",
-        "sorting": 1,
+        "_position": 1,
         "sys_language_uid": 0
       },
       "set": {
@@ -118,7 +119,7 @@
         "foreign_table_parent_uid": "@NEW_nrtalk_stack_credit",
         "tablenames": "tt_content",
         "fieldname": "desiderio_benefitcards_items",
-        "sorting": 2,
+        "_position": 2,
         "sys_language_uid": 0
       },
       "set": {
@@ -143,7 +144,7 @@
         "foreign_table_parent_uid": "@NEW_nrtalk_stack_credit",
         "tablenames": "tt_content",
         "fieldname": "desiderio_benefitcards_items",
-        "sorting": 3,
+        "_position": 3,
         "sys_language_uid": 0
       },
       "set": {
@@ -168,7 +169,7 @@
         "foreign_table_parent_uid": "@NEW_nrtalk_stack_credit",
         "tablenames": "tt_content",
         "fieldname": "desiderio_benefitcards_items",
-        "sorting": 4,
+        "_position": 4,
         "sys_language_uid": 0
       },
       "set": {
@@ -244,7 +245,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_stack",
         "foreign_table_parent_uid": "@NEW_nrtalk_stack_tasks",
-        "sorting": 1,
+        "_position": 1,
         "sys_language_uid": 0
       },
       "set": {
@@ -264,7 +265,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_stack",
         "foreign_table_parent_uid": "@NEW_nrtalk_stack_tasks",
-        "sorting": 2,
+        "_position": 2,
         "sys_language_uid": 0
       },
       "set": {
@@ -284,7 +285,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_stack",
         "foreign_table_parent_uid": "@NEW_nrtalk_stack_tasks",
-        "sorting": 3,
+        "_position": 3,
         "sys_language_uid": 0
       },
       "set": {
@@ -304,7 +305,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_stack",
         "foreign_table_parent_uid": "@NEW_nrtalk_stack_tasks",
-        "sorting": 4,
+        "_position": 4,
         "sys_language_uid": 0
       },
       "set": {
@@ -397,7 +398,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_stack",
         "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules",
-        "sorting": 1,
+        "_position": 1,
         "sys_language_uid": 0
       },
       "set": {
@@ -416,7 +417,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_stack",
         "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules",
-        "sorting": 2,
+        "_position": 2,
         "sys_language_uid": 0
       },
       "set": {
@@ -435,7 +436,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_stack",
         "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules",
-        "sorting": 3,
+        "_position": 3,
         "sys_language_uid": 0
       },
       "set": {
@@ -454,7 +455,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_stack",
         "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules",
-        "sorting": 4,
+        "_position": 4,
         "sys_language_uid": 0
       },
       "set": {
@@ -473,7 +474,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_stack",
         "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules",
-        "sorting": 5,
+        "_position": 5,
         "sys_language_uid": 0
       },
       "set": {
@@ -492,7 +493,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_stack",
         "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules",
-        "sorting": 6,
+        "_position": 6,
         "sys_language_uid": 0
       },
       "set": {
@@ -511,7 +512,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_stack",
         "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules",
-        "sorting": 7,
+        "_position": 7,
         "sys_language_uid": 0
       },
       "set": {
@@ -530,7 +531,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_stack",
         "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules",
-        "sorting": 1,
+        "_position": 1,
         "sys_language_uid": 0
       },
       "set": {
@@ -561,7 +562,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_stack",
         "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_0",
-        "sorting": 1,
+        "_position": 1,
         "sys_language_uid": 0
       },
       "set": {
@@ -579,7 +580,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_stack",
         "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_0",
-        "sorting": 2,
+        "_position": 2,
         "sys_language_uid": 0
       },
       "set": {
@@ -597,7 +598,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_stack",
         "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_0",
-        "sorting": 3,
+        "_position": 3,
         "sys_language_uid": 0
       },
       "set": {
@@ -615,7 +616,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_stack",
         "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_0",
-        "sorting": 4,
+        "_position": 4,
         "sys_language_uid": 0
       },
       "set": {
@@ -633,7 +634,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_stack",
         "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_0",
-        "sorting": 5,
+        "_position": 5,
         "sys_language_uid": 0
       },
       "set": {
@@ -651,7 +652,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_stack",
         "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_0",
-        "sorting": 6,
+        "_position": 6,
         "sys_language_uid": 0
       },
       "set": {
@@ -669,7 +670,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_stack",
         "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules",
-        "sorting": 2,
+        "_position": 2,
         "sys_language_uid": 0
       },
       "set": {
@@ -700,7 +701,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_stack",
         "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_1",
-        "sorting": 1,
+        "_position": 1,
         "sys_language_uid": 0
       },
       "set": {
@@ -718,7 +719,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_stack",
         "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_1",
-        "sorting": 2,
+        "_position": 2,
         "sys_language_uid": 0
       },
       "set": {
@@ -736,7 +737,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_stack",
         "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_1",
-        "sorting": 3,
+        "_position": 3,
         "sys_language_uid": 0
       },
       "set": {
@@ -754,7 +755,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_stack",
         "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_1",
-        "sorting": 4,
+        "_position": 4,
         "sys_language_uid": 0
       },
       "set": {
@@ -772,7 +773,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_stack",
         "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_1",
-        "sorting": 5,
+        "_position": 5,
         "sys_language_uid": 0
       },
       "set": {
@@ -790,7 +791,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_stack",
         "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_1",
-        "sorting": 6,
+        "_position": 6,
         "sys_language_uid": 0
       },
       "set": {
@@ -808,7 +809,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_stack",
         "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules",
-        "sorting": 3,
+        "_position": 3,
         "sys_language_uid": 0
       },
       "set": {
@@ -839,7 +840,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_stack",
         "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_2",
-        "sorting": 1,
+        "_position": 1,
         "sys_language_uid": 0
       },
       "set": {
@@ -857,7 +858,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_stack",
         "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_2",
-        "sorting": 2,
+        "_position": 2,
         "sys_language_uid": 0
       },
       "set": {
@@ -875,7 +876,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_stack",
         "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_2",
-        "sorting": 3,
+        "_position": 3,
         "sys_language_uid": 0
       },
       "set": {
@@ -893,7 +894,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_stack",
         "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_2",
-        "sorting": 4,
+        "_position": 4,
         "sys_language_uid": 0
       },
       "set": {
@@ -911,7 +912,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_stack",
         "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_2",
-        "sorting": 5,
+        "_position": 5,
         "sys_language_uid": 0
       },
       "set": {
@@ -929,7 +930,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_stack",
         "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_2",
-        "sorting": 6,
+        "_position": 6,
         "sys_language_uid": 0
       },
       "set": {
@@ -947,7 +948,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_stack",
         "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules",
-        "sorting": 4,
+        "_position": 4,
         "sys_language_uid": 0
       },
       "set": {
@@ -978,7 +979,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_stack",
         "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_3",
-        "sorting": 1,
+        "_position": 1,
         "sys_language_uid": 0
       },
       "set": {
@@ -996,7 +997,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_stack",
         "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_3",
-        "sorting": 2,
+        "_position": 2,
         "sys_language_uid": 0
       },
       "set": {
@@ -1014,7 +1015,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_stack",
         "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_3",
-        "sorting": 3,
+        "_position": 3,
         "sys_language_uid": 0
       },
       "set": {
@@ -1032,7 +1033,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_stack",
         "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_3",
-        "sorting": 4,
+        "_position": 4,
         "sys_language_uid": 0
       },
       "set": {
@@ -1050,7 +1051,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_stack",
         "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_3",
-        "sorting": 5,
+        "_position": 5,
         "sys_language_uid": 0
       },
       "set": {
@@ -1068,7 +1069,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_stack",
         "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_3",
-        "sorting": 6,
+        "_position": 6,
         "sys_language_uid": 0
       },
       "set": {
@@ -1086,7 +1087,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_stack",
         "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules",
-        "sorting": 5,
+        "_position": 5,
         "sys_language_uid": 0
       },
       "set": {
@@ -1117,7 +1118,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_stack",
         "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_4",
-        "sorting": 1,
+        "_position": 1,
         "sys_language_uid": 0
       },
       "set": {
@@ -1135,7 +1136,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_stack",
         "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_4",
-        "sorting": 2,
+        "_position": 2,
         "sys_language_uid": 0
       },
       "set": {
@@ -1153,7 +1154,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_stack",
         "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_4",
-        "sorting": 3,
+        "_position": 3,
         "sys_language_uid": 0
       },
       "set": {
@@ -1171,7 +1172,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_stack",
         "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_4",
-        "sorting": 4,
+        "_position": 4,
         "sys_language_uid": 0
       },
       "set": {
@@ -1189,7 +1190,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_stack",
         "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_4",
-        "sorting": 5,
+        "_position": 5,
         "sys_language_uid": 0
       },
       "set": {
@@ -1207,7 +1208,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_stack",
         "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_4",
-        "sorting": 6,
+        "_position": 6,
         "sys_language_uid": 0
       },
       "set": {
@@ -1225,7 +1226,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_stack",
         "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules",
-        "sorting": 6,
+        "_position": 6,
         "sys_language_uid": 0
       },
       "set": {
@@ -1256,7 +1257,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_stack",
         "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_5",
-        "sorting": 1,
+        "_position": 1,
         "sys_language_uid": 0
       },
       "set": {
@@ -1274,7 +1275,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_stack",
         "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_5",
-        "sorting": 2,
+        "_position": 2,
         "sys_language_uid": 0
       },
       "set": {
@@ -1292,7 +1293,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_stack",
         "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_5",
-        "sorting": 3,
+        "_position": 3,
         "sys_language_uid": 0
       },
       "set": {
@@ -1310,7 +1311,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_stack",
         "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_5",
-        "sorting": 4,
+        "_position": 4,
         "sys_language_uid": 0
       },
       "set": {
@@ -1328,7 +1329,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_stack",
         "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_5",
-        "sorting": 5,
+        "_position": 5,
         "sys_language_uid": 0
       },
       "set": {
@@ -1346,7 +1347,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_stack",
         "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_5",
-        "sorting": 6,
+        "_position": 6,
         "sys_language_uid": 0
       },
       "set": {
@@ -1364,7 +1365,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_stack",
         "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules",
-        "sorting": 7,
+        "_position": 7,
         "sys_language_uid": 0
       },
       "set": {
@@ -1395,7 +1396,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_stack",
         "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_6",
-        "sorting": 1,
+        "_position": 1,
         "sys_language_uid": 0
       },
       "set": {
@@ -1413,7 +1414,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_stack",
         "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_6",
-        "sorting": 2,
+        "_position": 2,
         "sys_language_uid": 0
       },
       "set": {
@@ -1431,7 +1432,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_stack",
         "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_6",
-        "sorting": 3,
+        "_position": 3,
         "sys_language_uid": 0
       },
       "set": {
@@ -1449,7 +1450,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_stack",
         "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_6",
-        "sorting": 4,
+        "_position": 4,
         "sys_language_uid": 0
       },
       "set": {
@@ -1467,7 +1468,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_stack",
         "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_6",
-        "sorting": 5,
+        "_position": 5,
         "sys_language_uid": 0
       },
       "set": {
@@ -1485,7 +1486,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_stack",
         "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_6",
-        "sorting": 6,
+        "_position": 6,
         "sys_language_uid": 0
       },
       "set": {
@@ -1503,7 +1504,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_stack",
         "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules",
-        "sorting": 8,
+        "_position": 8,
         "sys_language_uid": 0
       },
       "set": {
@@ -1534,7 +1535,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_stack",
         "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_7",
-        "sorting": 1,
+        "_position": 1,
         "sys_language_uid": 0
       },
       "set": {
@@ -1552,7 +1553,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_stack",
         "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_7",
-        "sorting": 2,
+        "_position": 2,
         "sys_language_uid": 0
       },
       "set": {
@@ -1570,7 +1571,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_stack",
         "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_7",
-        "sorting": 3,
+        "_position": 3,
         "sys_language_uid": 0
       },
       "set": {
@@ -1588,7 +1589,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_stack",
         "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_7",
-        "sorting": 4,
+        "_position": 4,
         "sys_language_uid": 0
       },
       "set": {
@@ -1606,7 +1607,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_stack",
         "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_7",
-        "sorting": 5,
+        "_position": 5,
         "sys_language_uid": 0
       },
       "set": {
@@ -1624,7 +1625,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_stack",
         "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_7",
-        "sorting": 6,
+        "_position": 6,
         "sys_language_uid": 0
       },
       "set": {
@@ -1642,7 +1643,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_stack",
         "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules",
-        "sorting": 9,
+        "_position": 9,
         "sys_language_uid": 0
       },
       "set": {
@@ -1673,7 +1674,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_stack",
         "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_8",
-        "sorting": 1,
+        "_position": 1,
         "sys_language_uid": 0
       },
       "set": {
@@ -1691,7 +1692,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_stack",
         "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_8",
-        "sorting": 2,
+        "_position": 2,
         "sys_language_uid": 0
       },
       "set": {
@@ -1709,7 +1710,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_stack",
         "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_8",
-        "sorting": 3,
+        "_position": 3,
         "sys_language_uid": 0
       },
       "set": {
@@ -1727,7 +1728,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_stack",
         "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_8",
-        "sorting": 4,
+        "_position": 4,
         "sys_language_uid": 0
       },
       "set": {
@@ -1745,7 +1746,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_stack",
         "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_8",
-        "sorting": 5,
+        "_position": 5,
         "sys_language_uid": 0
       },
       "set": {
@@ -1763,7 +1764,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_stack",
         "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_8",
-        "sorting": 6,
+        "_position": 6,
         "sys_language_uid": 0
       },
       "set": {
@@ -1781,7 +1782,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_stack",
         "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules",
-        "sorting": 10,
+        "_position": 10,
         "sys_language_uid": 0
       },
       "set": {
@@ -1812,7 +1813,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_stack",
         "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_9",
-        "sorting": 1,
+        "_position": 1,
         "sys_language_uid": 0
       },
       "set": {
@@ -1830,7 +1831,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_stack",
         "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_9",
-        "sorting": 2,
+        "_position": 2,
         "sys_language_uid": 0
       },
       "set": {
@@ -1848,7 +1849,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_stack",
         "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_9",
-        "sorting": 3,
+        "_position": 3,
         "sys_language_uid": 0
       },
       "set": {
@@ -1866,7 +1867,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_stack",
         "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_9",
-        "sorting": 4,
+        "_position": 4,
         "sys_language_uid": 0
       },
       "set": {
@@ -1884,7 +1885,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_stack",
         "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_9",
-        "sorting": 5,
+        "_position": 5,
         "sys_language_uid": 0
       },
       "set": {
@@ -1902,7 +1903,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_stack",
         "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_9",
-        "sorting": 6,
+        "_position": 6,
         "sys_language_uid": 0
       },
       "set": {
@@ -1920,7 +1921,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_stack",
         "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules",
-        "sorting": 11,
+        "_position": 11,
         "sys_language_uid": 0
       },
       "set": {
@@ -1951,7 +1952,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_stack",
         "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_10",
-        "sorting": 1,
+        "_position": 1,
         "sys_language_uid": 0
       },
       "set": {
@@ -1969,7 +1970,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_stack",
         "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_10",
-        "sorting": 2,
+        "_position": 2,
         "sys_language_uid": 0
       },
       "set": {
@@ -1987,7 +1988,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_stack",
         "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_10",
-        "sorting": 3,
+        "_position": 3,
         "sys_language_uid": 0
       },
       "set": {
@@ -2005,7 +2006,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_stack",
         "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_10",
-        "sorting": 4,
+        "_position": 4,
         "sys_language_uid": 0
       },
       "set": {
@@ -2023,7 +2024,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_stack",
         "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_10",
-        "sorting": 5,
+        "_position": 5,
         "sys_language_uid": 0
       },
       "set": {
@@ -2041,7 +2042,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_stack",
         "foreign_table_parent_uid": "@NEW_nrtalk_stack_modules_rows_10",
-        "sorting": 6,
+        "_position": 6,
         "sys_language_uid": 0
       },
       "set": {
@@ -2122,7 +2123,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_stack",
         "foreign_table_parent_uid": "@NEW_nrtalk_stack_operating",
-        "sorting": 1,
+        "_position": 1,
         "sys_language_uid": 0
       },
       "set": {
@@ -2141,7 +2142,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_stack",
         "foreign_table_parent_uid": "@NEW_nrtalk_stack_operating",
-        "sorting": 2,
+        "_position": 2,
         "sys_language_uid": 0
       },
       "set": {
@@ -2160,7 +2161,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_stack",
         "foreign_table_parent_uid": "@NEW_nrtalk_stack_operating",
-        "sorting": 3,
+        "_position": 3,
         "sys_language_uid": 0
       },
       "set": {
@@ -2179,7 +2180,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_stack",
         "foreign_table_parent_uid": "@NEW_nrtalk_stack_operating",
-        "sorting": 4,
+        "_position": 4,
         "sys_language_uid": 0
       },
       "set": {
@@ -2198,7 +2199,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_stack",
         "foreign_table_parent_uid": "@NEW_nrtalk_stack_operating",
-        "sorting": 1,
+        "_position": 1,
         "sys_language_uid": 0
       },
       "set": {
@@ -2226,7 +2227,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_stack",
         "foreign_table_parent_uid": "@NEW_nrtalk_stack_operating_rows_0",
-        "sorting": 1,
+        "_position": 1,
         "sys_language_uid": 0
       },
       "set": {
@@ -2244,7 +2245,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_stack",
         "foreign_table_parent_uid": "@NEW_nrtalk_stack_operating_rows_0",
-        "sorting": 2,
+        "_position": 2,
         "sys_language_uid": 0
       },
       "set": {
@@ -2262,7 +2263,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_stack",
         "foreign_table_parent_uid": "@NEW_nrtalk_stack_operating_rows_0",
-        "sorting": 3,
+        "_position": 3,
         "sys_language_uid": 0
       },
       "set": {
@@ -2280,7 +2281,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_stack",
         "foreign_table_parent_uid": "@NEW_nrtalk_stack_operating",
-        "sorting": 2,
+        "_position": 2,
         "sys_language_uid": 0
       },
       "set": {
@@ -2308,7 +2309,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_stack",
         "foreign_table_parent_uid": "@NEW_nrtalk_stack_operating_rows_1",
-        "sorting": 1,
+        "_position": 1,
         "sys_language_uid": 0
       },
       "set": {
@@ -2326,7 +2327,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_stack",
         "foreign_table_parent_uid": "@NEW_nrtalk_stack_operating_rows_1",
-        "sorting": 2,
+        "_position": 2,
         "sys_language_uid": 0
       },
       "set": {
@@ -2344,7 +2345,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_stack",
         "foreign_table_parent_uid": "@NEW_nrtalk_stack_operating_rows_1",
-        "sorting": 3,
+        "_position": 3,
         "sys_language_uid": 0
       },
       "set": {
@@ -2362,7 +2363,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_stack",
         "foreign_table_parent_uid": "@NEW_nrtalk_stack_operating",
-        "sorting": 3,
+        "_position": 3,
         "sys_language_uid": 0
       },
       "set": {
@@ -2390,7 +2391,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_stack",
         "foreign_table_parent_uid": "@NEW_nrtalk_stack_operating_rows_2",
-        "sorting": 1,
+        "_position": 1,
         "sys_language_uid": 0
       },
       "set": {
@@ -2408,7 +2409,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_stack",
         "foreign_table_parent_uid": "@NEW_nrtalk_stack_operating_rows_2",
-        "sorting": 2,
+        "_position": 2,
         "sys_language_uid": 0
       },
       "set": {
@@ -2426,7 +2427,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_stack",
         "foreign_table_parent_uid": "@NEW_nrtalk_stack_operating_rows_2",
-        "sorting": 3,
+        "_position": 3,
         "sys_language_uid": 0
       },
       "set": {
@@ -2444,7 +2445,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_stack",
         "foreign_table_parent_uid": "@NEW_nrtalk_stack_operating",
-        "sorting": 4,
+        "_position": 4,
         "sys_language_uid": 0
       },
       "set": {
@@ -2472,7 +2473,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_stack",
         "foreign_table_parent_uid": "@NEW_nrtalk_stack_operating_rows_3",
-        "sorting": 1,
+        "_position": 1,
         "sys_language_uid": 0
       },
       "set": {
@@ -2490,7 +2491,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_stack",
         "foreign_table_parent_uid": "@NEW_nrtalk_stack_operating_rows_3",
-        "sorting": 2,
+        "_position": 2,
         "sys_language_uid": 0
       },
       "set": {
@@ -2508,7 +2509,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_stack",
         "foreign_table_parent_uid": "@NEW_nrtalk_stack_operating_rows_3",
-        "sorting": 3,
+        "_position": 3,
         "sys_language_uid": 0
       },
       "set": {
@@ -2526,7 +2527,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_stack",
         "foreign_table_parent_uid": "@NEW_nrtalk_stack_operating",
-        "sorting": 5,
+        "_position": 5,
         "sys_language_uid": 0
       },
       "set": {
@@ -2554,7 +2555,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_stack",
         "foreign_table_parent_uid": "@NEW_nrtalk_stack_operating_rows_4",
-        "sorting": 1,
+        "_position": 1,
         "sys_language_uid": 0
       },
       "set": {
@@ -2572,7 +2573,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_stack",
         "foreign_table_parent_uid": "@NEW_nrtalk_stack_operating_rows_4",
-        "sorting": 2,
+        "_position": 2,
         "sys_language_uid": 0
       },
       "set": {
@@ -2590,7 +2591,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_stack",
         "foreign_table_parent_uid": "@NEW_nrtalk_stack_operating_rows_4",
-        "sorting": 3,
+        "_position": 3,
         "sys_language_uid": 0
       },
       "set": {
@@ -2651,7 +2652,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_stack",
         "foreign_table_parent_uid": "@NEW_nrtalk_stack_governance",
-        "sorting": 1,
+        "_position": 1,
         "sys_language_uid": 0
       },
       "set": {
@@ -2670,7 +2671,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_stack",
         "foreign_table_parent_uid": "@NEW_nrtalk_stack_governance",
-        "sorting": 2,
+        "_position": 2,
         "sys_language_uid": 0
       },
       "set": {
@@ -2689,7 +2690,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_stack",
         "foreign_table_parent_uid": "@NEW_nrtalk_stack_governance",
-        "sorting": 3,
+        "_position": 3,
         "sys_language_uid": 0
       },
       "set": {
@@ -2708,7 +2709,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_stack",
         "foreign_table_parent_uid": "@NEW_nrtalk_stack_governance",
-        "sorting": 1,
+        "_position": 1,
         "sys_language_uid": 0
       },
       "set": {
@@ -2735,7 +2736,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_stack",
         "foreign_table_parent_uid": "@NEW_nrtalk_stack_governance_rows_0",
-        "sorting": 1,
+        "_position": 1,
         "sys_language_uid": 0
       },
       "set": {
@@ -2753,7 +2754,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_stack",
         "foreign_table_parent_uid": "@NEW_nrtalk_stack_governance_rows_0",
-        "sorting": 2,
+        "_position": 2,
         "sys_language_uid": 0
       },
       "set": {
@@ -2771,7 +2772,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_stack",
         "foreign_table_parent_uid": "@NEW_nrtalk_stack_governance",
-        "sorting": 2,
+        "_position": 2,
         "sys_language_uid": 0
       },
       "set": {
@@ -2798,7 +2799,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_stack",
         "foreign_table_parent_uid": "@NEW_nrtalk_stack_governance_rows_1",
-        "sorting": 1,
+        "_position": 1,
         "sys_language_uid": 0
       },
       "set": {
@@ -2816,7 +2817,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_stack",
         "foreign_table_parent_uid": "@NEW_nrtalk_stack_governance_rows_1",
-        "sorting": 2,
+        "_position": 2,
         "sys_language_uid": 0
       },
       "set": {
@@ -2834,7 +2835,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_stack",
         "foreign_table_parent_uid": "@NEW_nrtalk_stack_governance",
-        "sorting": 3,
+        "_position": 3,
         "sys_language_uid": 0
       },
       "set": {
@@ -2861,7 +2862,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_stack",
         "foreign_table_parent_uid": "@NEW_nrtalk_stack_governance_rows_2",
-        "sorting": 1,
+        "_position": 1,
         "sys_language_uid": 0
       },
       "set": {
@@ -2879,7 +2880,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_stack",
         "foreign_table_parent_uid": "@NEW_nrtalk_stack_governance_rows_2",
-        "sorting": 2,
+        "_position": 2,
         "sys_language_uid": 0
       },
       "set": {
@@ -2897,7 +2898,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_stack",
         "foreign_table_parent_uid": "@NEW_nrtalk_stack_governance",
-        "sorting": 4,
+        "_position": 4,
         "sys_language_uid": 0
       },
       "set": {
@@ -2924,7 +2925,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_stack",
         "foreign_table_parent_uid": "@NEW_nrtalk_stack_governance_rows_3",
-        "sorting": 1,
+        "_position": 1,
         "sys_language_uid": 0
       },
       "set": {
@@ -2942,7 +2943,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_stack",
         "foreign_table_parent_uid": "@NEW_nrtalk_stack_governance_rows_3",
-        "sorting": 2,
+        "_position": 2,
         "sys_language_uid": 0
       },
       "set": {
@@ -2960,7 +2961,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_stack",
         "foreign_table_parent_uid": "@NEW_nrtalk_stack_governance",
-        "sorting": 5,
+        "_position": 5,
         "sys_language_uid": 0
       },
       "set": {
@@ -2987,7 +2988,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_stack",
         "foreign_table_parent_uid": "@NEW_nrtalk_stack_governance_rows_4",
-        "sorting": 1,
+        "_position": 1,
         "sys_language_uid": 0
       },
       "set": {
@@ -3005,7 +3006,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_stack",
         "foreign_table_parent_uid": "@NEW_nrtalk_stack_governance_rows_4",
-        "sorting": 2,
+        "_position": 2,
         "sys_language_uid": 0
       },
       "set": {
@@ -3023,7 +3024,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_stack",
         "foreign_table_parent_uid": "@NEW_nrtalk_stack_governance",
-        "sorting": 6,
+        "_position": 6,
         "sys_language_uid": 0
       },
       "set": {
@@ -3050,7 +3051,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_stack",
         "foreign_table_parent_uid": "@NEW_nrtalk_stack_governance_rows_5",
-        "sorting": 1,
+        "_position": 1,
         "sys_language_uid": 0
       },
       "set": {
@@ -3068,7 +3069,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_stack",
         "foreign_table_parent_uid": "@NEW_nrtalk_stack_governance_rows_5",
-        "sorting": 2,
+        "_position": 2,
         "sys_language_uid": 0
       },
       "set": {
@@ -3140,7 +3141,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_stack",
         "foreign_table_parent_uid": "@NEW_nrtalk_stack_faq",
-        "sorting": 1,
+        "_position": 1,
         "sys_language_uid": 0
       },
       "set": {
@@ -3160,7 +3161,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_stack",
         "foreign_table_parent_uid": "@NEW_nrtalk_stack_faq",
-        "sorting": 2,
+        "_position": 2,
         "sys_language_uid": 0
       },
       "set": {
@@ -3180,7 +3181,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_stack",
         "foreign_table_parent_uid": "@NEW_nrtalk_stack_faq",
-        "sorting": 3,
+        "_position": 3,
         "sys_language_uid": 0
       },
       "set": {
@@ -3200,7 +3201,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_stack",
         "foreign_table_parent_uid": "@NEW_nrtalk_stack_faq",
-        "sorting": 4,
+        "_position": 4,
         "sys_language_uid": 0
       },
       "set": {
@@ -3220,7 +3221,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_stack",
         "foreign_table_parent_uid": "@NEW_nrtalk_stack_faq",
-        "sorting": 5,
+        "_position": 5,
         "sys_language_uid": 0
       },
       "set": {
@@ -3240,7 +3241,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_stack",
         "foreign_table_parent_uid": "@NEW_nrtalk_stack_faq",
-        "sorting": 6,
+        "_position": 6,
         "sys_language_uid": 0
       },
       "set": {
@@ -3290,7 +3291,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_stack",
         "foreign_table_parent_uid": "@NEW_nrtalk_stack_links",
-        "sorting": 1,
+        "_position": 1,
         "sys_language_uid": 0
       },
       "set": {
@@ -3311,7 +3312,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_stack",
         "foreign_table_parent_uid": "@NEW_nrtalk_stack_links",
-        "sorting": 2,
+        "_position": 2,
         "sys_language_uid": 0
       },
       "set": {
@@ -3332,7 +3333,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_stack",
         "foreign_table_parent_uid": "@NEW_nrtalk_stack_links",
-        "sorting": 3,
+        "_position": 3,
         "sys_language_uid": 0
       },
       "set": {

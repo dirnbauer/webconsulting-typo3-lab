@@ -24,7 +24,8 @@
         "title": "Context: other foundations and discussion",
         "nav_title": "Context & discussion",
         "description": "Part 5 of the Netresearch talk: other AI layers and MCP servers for TYPO3, four answers for your own start and the open questions.",
-        "abstract": "Other foundations for TYPO3, four answers for getting started and the open questions."
+        "abstract": "Other foundations for TYPO3, four answers for getting started and the open questions.",
+        "tx_desiderio_h1_sronly": 1
       }
     },
     {
@@ -93,7 +94,7 @@
         "foreign_table_parent_uid": "@NEW_nrtalk_context_credit",
         "tablenames": "tt_content",
         "fieldname": "desiderio_benefitcards_items",
-        "sorting": 1,
+        "_position": 1,
         "sys_language_uid": 0
       },
       "set": {
@@ -118,7 +119,7 @@
         "foreign_table_parent_uid": "@NEW_nrtalk_context_credit",
         "tablenames": "tt_content",
         "fieldname": "desiderio_benefitcards_items",
-        "sorting": 2,
+        "_position": 2,
         "sys_language_uid": 0
       },
       "set": {
@@ -143,7 +144,7 @@
         "foreign_table_parent_uid": "@NEW_nrtalk_context_credit",
         "tablenames": "tt_content",
         "fieldname": "desiderio_benefitcards_items",
-        "sorting": 3,
+        "_position": 3,
         "sys_language_uid": 0
       },
       "set": {
@@ -168,7 +169,7 @@
         "foreign_table_parent_uid": "@NEW_nrtalk_context_credit",
         "tablenames": "tt_content",
         "fieldname": "desiderio_benefitcards_items",
-        "sorting": 4,
+        "_position": 4,
         "sys_language_uid": 0
       },
       "set": {
@@ -220,7 +221,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_context",
         "foreign_table_parent_uid": "@NEW_nrtalk_context_s33",
-        "sorting": 1,
+        "_position": 1,
         "sys_language_uid": 0
       },
       "set": {
@@ -238,7 +239,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_context",
         "foreign_table_parent_uid": "@NEW_nrtalk_context_s33",
-        "sorting": 2,
+        "_position": 2,
         "sys_language_uid": 0
       },
       "set": {
@@ -311,7 +312,7 @@
         "foreign_table_parent_uid": "@NEW_nrtalk_context_s34",
         "tablenames": "tt_content",
         "fieldname": "desiderio_benefitcards_items",
-        "sorting": 1,
+        "_position": 1,
         "sys_language_uid": 0
       },
       "set": {
@@ -335,7 +336,7 @@
         "foreign_table_parent_uid": "@NEW_nrtalk_context_s34",
         "tablenames": "tt_content",
         "fieldname": "desiderio_benefitcards_items",
-        "sorting": 2,
+        "_position": 2,
         "sys_language_uid": 0
       },
       "set": {
@@ -359,7 +360,7 @@
         "foreign_table_parent_uid": "@NEW_nrtalk_context_s34",
         "tablenames": "tt_content",
         "fieldname": "desiderio_benefitcards_items",
-        "sorting": 3,
+        "_position": 3,
         "sys_language_uid": 0
       },
       "set": {
@@ -383,7 +384,7 @@
         "foreign_table_parent_uid": "@NEW_nrtalk_context_s34",
         "tablenames": "tt_content",
         "fieldname": "desiderio_benefitcards_items",
-        "sorting": 4,
+        "_position": 4,
         "sys_language_uid": 0
       },
       "set": {
@@ -457,7 +458,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_context",
         "foreign_table_parent_uid": "@NEW_nrtalk_context_s35",
-        "sorting": 1,
+        "_position": 1,
         "sys_language_uid": 0
       },
       "set": {
@@ -475,7 +476,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_context",
         "foreign_table_parent_uid": "@NEW_nrtalk_context_s35",
-        "sorting": 2,
+        "_position": 2,
         "sys_language_uid": 0
       },
       "set": {
@@ -493,7 +494,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_context",
         "foreign_table_parent_uid": "@NEW_nrtalk_context_s35",
-        "sorting": 3,
+        "_position": 3,
         "sys_language_uid": 0
       },
       "set": {

@@ -24,7 +24,8 @@
         "title": "Answers and limits: using nr-llm as the example",
         "nav_title": "Answers and limits",
         "description": "Part 3 of the Netresearch talk: eight answers nr-llm gives, from shared configurations to approvals, and where each answer reaches its limits.",
-        "abstract": "Eight answers from nr-llm and the limits of each one."
+        "abstract": "Eight answers from nr-llm and the limits of each one.",
+        "tx_desiderio_h1_sronly": 1
       }
     },
     {
@@ -93,7 +94,7 @@
         "foreign_table_parent_uid": "@NEW_nrtalk_answers_credit",
         "tablenames": "tt_content",
         "fieldname": "desiderio_benefitcards_items",
-        "sorting": 1,
+        "_position": 1,
         "sys_language_uid": 0
       },
       "set": {
@@ -118,7 +119,7 @@
         "foreign_table_parent_uid": "@NEW_nrtalk_answers_credit",
         "tablenames": "tt_content",
         "fieldname": "desiderio_benefitcards_items",
-        "sorting": 2,
+        "_position": 2,
         "sys_language_uid": 0
       },
       "set": {
@@ -143,7 +144,7 @@
         "foreign_table_parent_uid": "@NEW_nrtalk_answers_credit",
         "tablenames": "tt_content",
         "fieldname": "desiderio_benefitcards_items",
-        "sorting": 3,
+        "_position": 3,
         "sys_language_uid": 0
       },
       "set": {
@@ -168,7 +169,7 @@
         "foreign_table_parent_uid": "@NEW_nrtalk_answers_credit",
         "tablenames": "tt_content",
         "fieldname": "desiderio_benefitcards_items",
-        "sorting": 4,
+        "_position": 4,
         "sys_language_uid": 0
       },
       "set": {
@@ -225,7 +226,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_answers",
         "foreign_table_parent_uid": "@NEW_nrtalk_answers_toc",
-        "sorting": 1,
+        "_position": 1,
         "sys_language_uid": 0
       },
       "set": {
@@ -245,7 +246,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_answers",
         "foreign_table_parent_uid": "@NEW_nrtalk_answers_toc",
-        "sorting": 2,
+        "_position": 2,
         "sys_language_uid": 0
       },
       "set": {
@@ -265,7 +266,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_answers",
         "foreign_table_parent_uid": "@NEW_nrtalk_answers_toc",
-        "sorting": 3,
+        "_position": 3,
         "sys_language_uid": 0
       },
       "set": {
@@ -285,7 +286,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_answers",
         "foreign_table_parent_uid": "@NEW_nrtalk_answers_toc",
-        "sorting": 4,
+        "_position": 4,
         "sys_language_uid": 0
       },
       "set": {
@@ -305,7 +306,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_answers",
         "foreign_table_parent_uid": "@NEW_nrtalk_answers_toc",
-        "sorting": 5,
+        "_position": 5,
         "sys_language_uid": 0
       },
       "set": {
@@ -325,7 +326,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_answers",
         "foreign_table_parent_uid": "@NEW_nrtalk_answers_toc",
-        "sorting": 6,
+        "_position": 6,
         "sys_language_uid": 0
       },
       "set": {
@@ -345,7 +346,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_answers",
         "foreign_table_parent_uid": "@NEW_nrtalk_answers_toc",
-        "sorting": 7,
+        "_position": 7,
         "sys_language_uid": 0
       },
       "set": {
@@ -365,7 +366,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_answers",
         "foreign_table_parent_uid": "@NEW_nrtalk_answers_toc",
-        "sorting": 8,
+        "_position": 8,
         "sys_language_uid": 0
       },
       "set": {
@@ -437,7 +438,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_answers",
         "foreign_table_parent_uid": "@NEW_nrtalk_answers_s14",
-        "sorting": 1,
+        "_position": 1,
         "sys_language_uid": 0
       },
       "set": {
@@ -457,7 +458,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_answers",
         "foreign_table_parent_uid": "@NEW_nrtalk_answers_s14",
-        "sorting": 2,
+        "_position": 2,
         "sys_language_uid": 0
       },
       "set": {
@@ -477,7 +478,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_answers",
         "foreign_table_parent_uid": "@NEW_nrtalk_answers_s14",
-        "sorting": 3,
+        "_position": 3,
         "sys_language_uid": 0
       },
       "set": {
@@ -568,7 +569,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_answers",
         "foreign_table_parent_uid": "@NEW_nrtalk_answers_s15",
-        "sorting": 1,
+        "_position": 1,
         "sys_language_uid": 0
       },
       "set": {
@@ -588,7 +589,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_answers",
         "foreign_table_parent_uid": "@NEW_nrtalk_answers_s15",
-        "sorting": 2,
+        "_position": 2,
         "sys_language_uid": 0
       },
       "set": {
@@ -608,7 +609,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_answers",
         "foreign_table_parent_uid": "@NEW_nrtalk_answers_s15",
-        "sorting": 3,
+        "_position": 3,
         "sys_language_uid": 0
       },
       "set": {
@@ -628,7 +629,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_answers",
         "foreign_table_parent_uid": "@NEW_nrtalk_answers_s15",
-        "sorting": 4,
+        "_position": 4,
         "sys_language_uid": 0
       },
       "set": {
@@ -752,7 +753,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_answers",
         "foreign_table_parent_uid": "@NEW_nrtalk_answers_s16",
-        "sorting": 1,
+        "_position": 1,
         "sys_language_uid": 0
       },
       "set": {
@@ -770,11 +771,11 @@
       "match": {
         "pid": "@NEW_nrtalk_page_answers",
         "foreign_table_parent_uid": "@NEW_nrtalk_answers_s16",
-        "sorting": 2,
+        "_position": 2,
         "sys_language_uid": 0
       },
       "set": {
-        "content": "<h3>Central instruction in the configuration</h3><blockquote><p>Keep the language.<br>Do not add new facts.</p></blockquote><p>Shared text snippets add, for example, tone or target audience.</p>",
+        "content": "<h3>Central instruction in the configuration</h3>\r\n<blockquote><p>Keep the language.<br />Do not add new facts.</p></blockquote>\r\n<p>Shared text snippets add, for example, tone or target audience.</p>",
         "foreign_table_parent_uid": "@NEW_nrtalk_answers_s16",
         "sys_language_uid": 0,
         "hidden": 0
@@ -839,7 +840,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_answers",
         "foreign_table_parent_uid": "@NEW_nrtalk_answers_s17",
-        "sorting": 1,
+        "_position": 1,
         "sys_language_uid": 0
       },
       "set": {
@@ -858,7 +859,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_answers",
         "foreign_table_parent_uid": "@NEW_nrtalk_answers_s17",
-        "sorting": 2,
+        "_position": 2,
         "sys_language_uid": 0
       },
       "set": {
@@ -877,7 +878,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_answers",
         "foreign_table_parent_uid": "@NEW_nrtalk_answers_s17",
-        "sorting": 3,
+        "_position": 3,
         "sys_language_uid": 0
       },
       "set": {
@@ -896,7 +897,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_answers",
         "foreign_table_parent_uid": "@NEW_nrtalk_answers_s17",
-        "sorting": 4,
+        "_position": 4,
         "sys_language_uid": 0
       },
       "set": {
@@ -986,7 +987,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_answers",
         "foreign_table_parent_uid": "@NEW_nrtalk_answers_s18",
-        "sorting": 1,
+        "_position": 1,
         "sys_language_uid": 0
       },
       "set": {
@@ -1006,7 +1007,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_answers",
         "foreign_table_parent_uid": "@NEW_nrtalk_answers_s18",
-        "sorting": 2,
+        "_position": 2,
         "sys_language_uid": 0
       },
       "set": {
@@ -1026,7 +1027,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_answers",
         "foreign_table_parent_uid": "@NEW_nrtalk_answers_s18",
-        "sorting": 3,
+        "_position": 3,
         "sys_language_uid": 0
       },
       "set": {
@@ -1097,7 +1098,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_answers",
         "foreign_table_parent_uid": "@NEW_nrtalk_answers_s19",
-        "sorting": 1,
+        "_position": 1,
         "sys_language_uid": 0
       },
       "set": {
@@ -1116,7 +1117,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_answers",
         "foreign_table_parent_uid": "@NEW_nrtalk_answers_s19",
-        "sorting": 2,
+        "_position": 2,
         "sys_language_uid": 0
       },
       "set": {
@@ -1135,7 +1136,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_answers",
         "foreign_table_parent_uid": "@NEW_nrtalk_answers_s19",
-        "sorting": 3,
+        "_position": 3,
         "sys_language_uid": 0
       },
       "set": {
@@ -1154,7 +1155,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_answers",
         "foreign_table_parent_uid": "@NEW_nrtalk_answers_s19",
-        "sorting": 4,
+        "_position": 4,
         "sys_language_uid": 0
       },
       "set": {
@@ -1244,7 +1245,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_answers",
         "foreign_table_parent_uid": "@NEW_nrtalk_answers_s20",
-        "sorting": 1,
+        "_position": 1,
         "sys_language_uid": 0
       },
       "set": {
@@ -1262,7 +1263,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_answers",
         "foreign_table_parent_uid": "@NEW_nrtalk_answers_s20",
-        "sorting": 2,
+        "_position": 2,
         "sys_language_uid": 0
       },
       "set": {
@@ -1352,7 +1353,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_answers",
         "foreign_table_parent_uid": "@NEW_nrtalk_answers_s21",
-        "sorting": 1,
+        "_position": 1,
         "sys_language_uid": 0
       },
       "set": {
@@ -1371,7 +1372,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_answers",
         "foreign_table_parent_uid": "@NEW_nrtalk_answers_s21",
-        "sorting": 2,
+        "_position": 2,
         "sys_language_uid": 0
       },
       "set": {
@@ -1390,7 +1391,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_answers",
         "foreign_table_parent_uid": "@NEW_nrtalk_answers_s21",
-        "sorting": 3,
+        "_position": 3,
         "sys_language_uid": 0
       },
       "set": {
@@ -1409,7 +1410,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_answers",
         "foreign_table_parent_uid": "@NEW_nrtalk_answers_s21",
-        "sorting": 4,
+        "_position": 4,
         "sys_language_uid": 0
       },
       "set": {
@@ -1428,7 +1429,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_answers",
         "foreign_table_parent_uid": "@NEW_nrtalk_answers_s21",
-        "sorting": 5,
+        "_position": 5,
         "sys_language_uid": 0
       },
       "set": {
@@ -1557,7 +1558,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_answers",
         "foreign_table_parent_uid": "@NEW_nrtalk_answers_s23",
-        "sorting": 1,
+        "_position": 1,
         "sys_language_uid": 0
       },
       "set": {
@@ -1576,7 +1577,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_answers",
         "foreign_table_parent_uid": "@NEW_nrtalk_answers_s23",
-        "sorting": 2,
+        "_position": 2,
         "sys_language_uid": 0
       },
       "set": {
@@ -1595,7 +1596,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_answers",
         "foreign_table_parent_uid": "@NEW_nrtalk_answers_s23",
-        "sorting": 3,
+        "_position": 3,
         "sys_language_uid": 0
       },
       "set": {
@@ -1614,7 +1615,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_answers",
         "foreign_table_parent_uid": "@NEW_nrtalk_answers_s23",
-        "sorting": 4,
+        "_position": 4,
         "sys_language_uid": 0
       },
       "set": {
@@ -1633,7 +1634,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_answers",
         "foreign_table_parent_uid": "@NEW_nrtalk_answers_s23",
-        "sorting": 5,
+        "_position": 5,
         "sys_language_uid": 0
       },
       "set": {
@@ -1723,13 +1724,13 @@
       "match": {
         "pid": "@NEW_nrtalk_page_answers",
         "foreign_table_parent_uid": "@NEW_nrtalk_answers_s24",
-        "sorting": 1,
+        "_position": 1,
         "sys_language_uid": 0
       },
       "set": {
         "step": "Tool",
         "title": "Read source code",
-        "description": "<p>read_source<br>accesses project code.</p>",
+        "description": "<p>read_source<br />accesses project code.</p>",
         "foreign_table_parent_uid": "@NEW_nrtalk_answers_s24",
         "sys_language_uid": 0,
         "hidden": 0
@@ -1743,13 +1744,13 @@
       "match": {
         "pid": "@NEW_nrtalk_page_answers",
         "foreign_table_parent_uid": "@NEW_nrtalk_answers_s24",
-        "sorting": 2,
+        "_position": 2,
         "sys_language_uid": 0
       },
       "set": {
         "step": "Data class",
         "title": "Source code",
-        "description": "<p>sourceCode<br>is declared on the tool.</p>",
+        "description": "<p>sourceCode<br />is declared on the tool.</p>",
         "foreign_table_parent_uid": "@NEW_nrtalk_answers_s24",
         "sys_language_uid": 0,
         "hidden": 0
@@ -1763,13 +1764,13 @@
       "match": {
         "pid": "@NEW_nrtalk_page_answers",
         "foreign_table_parent_uid": "@NEW_nrtalk_answers_s24",
-        "sorting": 3,
+        "_position": 3,
         "sys_language_uid": 0
       },
       "set": {
         "step": "Provider zone",
         "title": "Global provider",
-        "description": "<p>externalGlobal<br>is not permitted for it.</p>",
+        "description": "<p>externalGlobal<br />is not permitted for it.</p>",
         "foreign_table_parent_uid": "@NEW_nrtalk_answers_s24",
         "sys_language_uid": 0,
         "hidden": 0
@@ -1791,7 +1792,7 @@
         "hidden": 0,
         "sys_language_uid": 0,
         "rowDescription": "nrtalk:answers:s24_notes",
-        "content": "<p><strong>Request:</strong> “Explain this TYPO3 class to me.”</p><p><strong>STOP:</strong> With enforce, the tool call is blocked.<br>This also applies to administrators.</p><p>Example: permanently assigned provider, correctly declared zone.<br>Free text does not automatically get a data class.</p>",
+        "content": "<p><strong>Request:</strong> “Explain this TYPO3 class to me.”</p>\r\n<p><strong>STOP:</strong> With enforce, the tool call is blocked.<br />This also applies to administrators.</p>\r\n<p>Example: permanently assigned provider, correctly declared zone.<br />Free text does not automatically get a data class.</p>",
         "variant": "danger"
       }
     },
@@ -1835,7 +1836,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_answers",
         "foreign_table_parent_uid": "@NEW_nrtalk_answers_s25",
-        "sorting": 1,
+        "_position": 1,
         "sys_language_uid": 0
       },
       "set": {
@@ -1854,7 +1855,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_answers",
         "foreign_table_parent_uid": "@NEW_nrtalk_answers_s25",
-        "sorting": 2,
+        "_position": 2,
         "sys_language_uid": 0
       },
       "set": {
@@ -1873,7 +1874,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_answers",
         "foreign_table_parent_uid": "@NEW_nrtalk_answers_s25",
-        "sorting": 3,
+        "_position": 3,
         "sys_language_uid": 0
       },
       "set": {
@@ -1892,7 +1893,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_answers",
         "foreign_table_parent_uid": "@NEW_nrtalk_answers_s25",
-        "sorting": 4,
+        "_position": 4,
         "sys_language_uid": 0
       },
       "set": {
@@ -1911,7 +1912,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_answers",
         "foreign_table_parent_uid": "@NEW_nrtalk_answers_s25",
-        "sorting": 5,
+        "_position": 5,
         "sys_language_uid": 0
       },
       "set": {
@@ -2109,7 +2110,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_answers",
         "foreign_table_parent_uid": "@NEW_nrtalk_answers_s28",
-        "sorting": 1,
+        "_position": 1,
         "sys_language_uid": 0
       },
       "set": {
@@ -2128,7 +2129,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_answers",
         "foreign_table_parent_uid": "@NEW_nrtalk_answers_s28",
-        "sorting": 2,
+        "_position": 2,
         "sys_language_uid": 0
       },
       "set": {
@@ -2147,7 +2148,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_answers",
         "foreign_table_parent_uid": "@NEW_nrtalk_answers_s28",
-        "sorting": 3,
+        "_position": 3,
         "sys_language_uid": 0
       },
       "set": {
@@ -2166,7 +2167,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_answers",
         "foreign_table_parent_uid": "@NEW_nrtalk_answers_s28",
-        "sorting": 4,
+        "_position": 4,
         "sys_language_uid": 0
       },
       "set": {
@@ -2185,7 +2186,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_answers",
         "foreign_table_parent_uid": "@NEW_nrtalk_answers_s28",
-        "sorting": 5,
+        "_position": 5,
         "sys_language_uid": 0
       },
       "set": {

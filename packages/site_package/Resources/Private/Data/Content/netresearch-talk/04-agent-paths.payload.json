@@ -24,7 +24,8 @@
         "title": "Agent paths: comparing internal and external",
         "nav_title": "Agent paths",
         "description": "Part 4 of the Netresearch talk: an agent inside the TYPO3 backend or in your own assistant through MCP, and A2A as an outlook.",
-        "abstract": "Two ways for an agent to work with TYPO3, and A2A as an outlook."
+        "abstract": "Two ways for an agent to work with TYPO3, and A2A as an outlook.",
+        "tx_desiderio_h1_sronly": 1
       }
     },
     {
@@ -93,7 +94,7 @@
         "foreign_table_parent_uid": "@NEW_nrtalk_agents_credit",
         "tablenames": "tt_content",
         "fieldname": "desiderio_benefitcards_items",
-        "sorting": 1,
+        "_position": 1,
         "sys_language_uid": 0
       },
       "set": {
@@ -118,7 +119,7 @@
         "foreign_table_parent_uid": "@NEW_nrtalk_agents_credit",
         "tablenames": "tt_content",
         "fieldname": "desiderio_benefitcards_items",
-        "sorting": 2,
+        "_position": 2,
         "sys_language_uid": 0
       },
       "set": {
@@ -143,7 +144,7 @@
         "foreign_table_parent_uid": "@NEW_nrtalk_agents_credit",
         "tablenames": "tt_content",
         "fieldname": "desiderio_benefitcards_items",
-        "sorting": 3,
+        "_position": 3,
         "sys_language_uid": 0
       },
       "set": {
@@ -168,7 +169,7 @@
         "foreign_table_parent_uid": "@NEW_nrtalk_agents_credit",
         "tablenames": "tt_content",
         "fieldname": "desiderio_benefitcards_items",
-        "sorting": 4,
+        "_position": 4,
         "sys_language_uid": 0
       },
       "set": {
@@ -220,11 +221,11 @@
       "match": {
         "pid": "@NEW_nrtalk_page_agents",
         "foreign_table_parent_uid": "@NEW_nrtalk_agents_s30",
-        "sorting": 1,
+        "_position": 1,
         "sys_language_uid": 0
       },
       "set": {
-        "content": "<h3>In the TYPO3 backend</h3><p>Request in the backend<br>↓ Agent in TYPO3<br>↓ TYPO3 tools</p><p>For work directly in TYPO3.</p>",
+        "content": "<h3>In the TYPO3 backend</h3>\r\n<p>Request in the backend<br />↓ Agent in TYPO3<br />↓ TYPO3 tools</p>\r\n<p>For work directly in TYPO3.</p>",
         "foreign_table_parent_uid": "@NEW_nrtalk_agents_s30",
         "sys_language_uid": 0,
         "hidden": 0
@@ -238,11 +239,11 @@
       "match": {
         "pid": "@NEW_nrtalk_page_agents",
         "foreign_table_parent_uid": "@NEW_nrtalk_agents_s30",
-        "sorting": 2,
+        "_position": 2,
         "sys_language_uid": 0
       },
       "set": {
-        "content": "<h3>In your own assistant</h3><p>Request in the external assistant<br>↓ Agent and TYPO3 MCP server<br>↓ TYPO3 tools</p><p>For workflows in the assistant you already use.</p>",
+        "content": "<h3>In your own assistant</h3>\r\n<p>Request in the external assistant<br />↓ Agent and TYPO3 MCP server<br />↓ TYPO3 tools</p>\r\n<p>For workflows in the assistant you already use.</p>",
         "foreign_table_parent_uid": "@NEW_nrtalk_agents_s30",
         "sys_language_uid": 0,
         "hidden": 0
@@ -306,7 +307,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_agents",
         "foreign_table_parent_uid": "@NEW_nrtalk_agents_s31",
-        "sorting": 1,
+        "_position": 1,
         "sys_language_uid": 0
       },
       "set": {
@@ -326,7 +327,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_agents",
         "foreign_table_parent_uid": "@NEW_nrtalk_agents_s31",
-        "sorting": 2,
+        "_position": 2,
         "sys_language_uid": 0
       },
       "set": {
@@ -346,7 +347,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_agents",
         "foreign_table_parent_uid": "@NEW_nrtalk_agents_s31",
-        "sorting": 3,
+        "_position": 3,
         "sys_language_uid": 0
       },
       "set": {

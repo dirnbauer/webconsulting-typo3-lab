@@ -24,7 +24,8 @@
         "title": "Sources and links from the talk",
         "nav_title": "Sources and links",
         "description": "Every link from the Netresearch talk on AI in TYPO3: demos, the five applications, nr-llm, MCP, A2A and other AI layers for TYPO3.",
-        "abstract": "The demos, applications and sources of the talk in one place."
+        "abstract": "The demos, applications and sources of the talk in one place.",
+        "tx_desiderio_h1_sronly": 1
       }
     },
     {
@@ -93,7 +94,7 @@
         "foreign_table_parent_uid": "@NEW_nrtalk_sources_credit",
         "tablenames": "tt_content",
         "fieldname": "desiderio_benefitcards_items",
-        "sorting": 1,
+        "_position": 1,
         "sys_language_uid": 0
       },
       "set": {
@@ -118,7 +119,7 @@
         "foreign_table_parent_uid": "@NEW_nrtalk_sources_credit",
         "tablenames": "tt_content",
         "fieldname": "desiderio_benefitcards_items",
-        "sorting": 2,
+        "_position": 2,
         "sys_language_uid": 0
       },
       "set": {
@@ -143,7 +144,7 @@
         "foreign_table_parent_uid": "@NEW_nrtalk_sources_credit",
         "tablenames": "tt_content",
         "fieldname": "desiderio_benefitcards_items",
-        "sorting": 3,
+        "_position": 3,
         "sys_language_uid": 0
       },
       "set": {
@@ -168,7 +169,7 @@
         "foreign_table_parent_uid": "@NEW_nrtalk_sources_credit",
         "tablenames": "tt_content",
         "fieldname": "desiderio_benefitcards_items",
-        "sorting": 4,
+        "_position": 4,
         "sys_language_uid": 0
       },
       "set": {
@@ -220,7 +221,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_sources",
         "foreign_table_parent_uid": "@NEW_nrtalk_sources_s36",
-        "sorting": 1,
+        "_position": 1,
         "sys_language_uid": 0
       },
       "set": {
@@ -238,7 +239,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_sources",
         "foreign_table_parent_uid": "@NEW_nrtalk_sources_s36",
-        "sorting": 2,
+        "_position": 2,
         "sys_language_uid": 0
       },
       "set": {
@@ -285,7 +286,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_sources",
         "foreign_table_parent_uid": "@NEW_nrtalk_sources_s37",
-        "sorting": 1,
+        "_position": 1,
         "sys_language_uid": 0
       },
       "set": {
@@ -303,7 +304,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_sources",
         "foreign_table_parent_uid": "@NEW_nrtalk_sources_s37",
-        "sorting": 2,
+        "_position": 2,
         "sys_language_uid": 0
       },
       "set": {
@@ -351,7 +352,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_sources",
         "foreign_table_parent_uid": "@NEW_nrtalk_sources_all_links",
-        "sorting": 1,
+        "_position": 1,
         "sys_language_uid": 0
       },
       "set": {
@@ -369,7 +370,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_sources",
         "foreign_table_parent_uid": "@NEW_nrtalk_sources_all_links",
-        "sorting": 2,
+        "_position": 2,
         "sys_language_uid": 0
       },
       "set": {
@@ -387,7 +388,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_sources",
         "foreign_table_parent_uid": "@NEW_nrtalk_sources_all_links",
-        "sorting": 3,
+        "_position": 3,
         "sys_language_uid": 0
       },
       "set": {

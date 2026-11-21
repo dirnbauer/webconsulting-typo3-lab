@@ -25,7 +25,8 @@
         "nav_title": "Netresearch talk",
         "description": "Sebastian Mendel on AI in TYPO3 at MTUG Munich: five applications, the open questions, the answers nr-llm gives and two ways for agents.",
         "abstract": "Sebastian Mendel’s MTUG talk on AI in TYPO3, in English, with the original slides and Netresearch’s modular AI stack.",
-        "seo_title": "AI in TYPO3: Sebastian Mendel’s Netresearch talk"
+        "seo_title": "AI in TYPO3: Sebastian Mendel’s Netresearch talk",
+        "tx_desiderio_h1_sronly": 1
       }
     },
     {
@@ -94,7 +95,7 @@
         "foreign_table_parent_uid": "@NEW_nrtalk_hub_credit",
         "tablenames": "tt_content",
         "fieldname": "desiderio_benefitcards_items",
-        "sorting": 1,
+        "_position": 1,
         "sys_language_uid": 0
       },
       "set": {
@@ -119,7 +120,7 @@
         "foreign_table_parent_uid": "@NEW_nrtalk_hub_credit",
         "tablenames": "tt_content",
         "fieldname": "desiderio_benefitcards_items",
-        "sorting": 2,
+        "_position": 2,
         "sys_language_uid": 0
       },
       "set": {
@@ -144,7 +145,7 @@
         "foreign_table_parent_uid": "@NEW_nrtalk_hub_credit",
         "tablenames": "tt_content",
         "fieldname": "desiderio_benefitcards_items",
-        "sorting": 3,
+        "_position": 3,
         "sys_language_uid": 0
       },
       "set": {
@@ -169,7 +170,7 @@
         "foreign_table_parent_uid": "@NEW_nrtalk_hub_credit",
         "tablenames": "tt_content",
         "fieldname": "desiderio_benefitcards_items",
-        "sorting": 4,
+        "_position": 4,
         "sys_language_uid": 0
       },
       "set": {
@@ -203,7 +204,7 @@
         "header": "Thank you, Sebastian Mendel and Netresearch",
         "content": "<p>Many thanks to Sebastian Mendel and Netresearch DTT GmbH for this talk, for publishing the slides and for nr-llm and the modular AI stack.</p><p>Content, structure and the screenshot concept are by Netresearch. The English translation and the page layout are by webconsulting. The opinions are the speaker’s.</p><p>The screenshots on these pages come from this lab: we installed the same Netresearch extensions and captured them here.</p>",
         "variant": "bordered",
-        "alignment": "left"
+        "alignment": "center"
       }
     },
     {
@@ -250,7 +251,7 @@
         "foreign_table_parent_uid": "@NEW_nrtalk_hub_agenda",
         "tablenames": "tt_content",
         "fieldname": "desiderio_benefitcards_items",
-        "sorting": 1,
+        "_position": 1,
         "sys_language_uid": 0
       },
       "set": {
@@ -275,7 +276,7 @@
         "foreign_table_parent_uid": "@NEW_nrtalk_hub_agenda",
         "tablenames": "tt_content",
         "fieldname": "desiderio_benefitcards_items",
-        "sorting": 2,
+        "_position": 2,
         "sys_language_uid": 0
       },
       "set": {
@@ -300,7 +301,7 @@
         "foreign_table_parent_uid": "@NEW_nrtalk_hub_agenda",
         "tablenames": "tt_content",
         "fieldname": "desiderio_benefitcards_items",
-        "sorting": 3,
+        "_position": 3,
         "sys_language_uid": 0
       },
       "set": {
@@ -325,7 +326,7 @@
         "foreign_table_parent_uid": "@NEW_nrtalk_hub_agenda",
         "tablenames": "tt_content",
         "fieldname": "desiderio_benefitcards_items",
-        "sorting": 4,
+        "_position": 4,
         "sys_language_uid": 0
       },
       "set": {
@@ -350,7 +351,7 @@
         "foreign_table_parent_uid": "@NEW_nrtalk_hub_agenda",
         "tablenames": "tt_content",
         "fieldname": "desiderio_benefitcards_items",
-        "sorting": 5,
+        "_position": 5,
         "sys_language_uid": 0
       },
       "set": {
@@ -375,7 +376,7 @@
         "foreign_table_parent_uid": "@NEW_nrtalk_hub_agenda",
         "tablenames": "tt_content",
         "fieldname": "desiderio_benefitcards_items",
-        "sorting": 6,
+        "_position": 6,
         "sys_language_uid": 0
       },
       "set": {
@@ -451,7 +452,7 @@
         "foreign_table_parent_uid": "@NEW_nrtalk_hub_more",
         "tablenames": "tt_content",
         "fieldname": "desiderio_benefitcards_items",
-        "sorting": 1,
+        "_position": 1,
         "sys_language_uid": 0
       },
       "set": {
@@ -476,7 +477,7 @@
         "foreign_table_parent_uid": "@NEW_nrtalk_hub_more",
         "tablenames": "tt_content",
         "fieldname": "desiderio_benefitcards_items",
-        "sorting": 2,
+        "_position": 2,
         "sys_language_uid": 0
       },
       "set": {
@@ -502,15 +503,59 @@
         "sys_language_uid": 0
       },
       "set": {
-        "CType": "desiderio_contenthighlight",
+        "CType": "desiderio_contentcolumns",
         "colPos": 0,
         "hidden": 0,
         "sys_language_uid": 0,
         "rowDescription": "nrtalk:hub:lab",
+        "frame_class": "muted",
         "header": "Netresearch’s extensions in this lab",
-        "content": "<p>This lab runs nr-llm and nr-vault, the AI chat nr-mcp-agent, Cowriter, Landingpage and Browser AI. See <a href=\"{{page:/ai/ai-assistant|/ai}}\">the AI chat</a> and <a href=\"{{page:/ai/nr-llm-manual|/ai}}\">the nr-llm setup</a>.</p>",
-        "variant": "muted",
-        "alignment": "left"
+        "columns": "2"
+      },
+      "_collections": [
+        {
+          "field": "desiderio_contentcolumns_items",
+          "keys": [
+            "NEW_nrtalk_hub_lab_0",
+            "NEW_nrtalk_hub_lab_1"
+          ]
+        }
+      ]
+    },
+    {
+      "table": "content_columns_items",
+      "action": "create",
+      "key": "NEW_nrtalk_hub_lab_0",
+      "pid": "@NEW_nrtalk_page",
+      "match": {
+        "pid": "@NEW_nrtalk_page",
+        "foreign_table_parent_uid": "@NEW_nrtalk_hub_lab",
+        "_position": 1,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "content": "<h3>Installed in this lab</h3><ul><li>nr-llm</li><li>nr-vault</li><li>nr-mcp-agent</li><li>t3-cowriter</li><li>nr-landingpage</li><li>nr-browser-ai</li></ul><p>See <a href=\"{{page:/ai/ai-assistant|/ai}}\">the AI chat</a> and <a href=\"{{page:/ai/nr-llm-manual|/ai}}\">the nr-llm setup</a>.</p>",
+        "foreign_table_parent_uid": "@NEW_nrtalk_hub_lab",
+        "sys_language_uid": 0,
+        "hidden": 0
+      }
+    },
+    {
+      "table": "content_columns_items",
+      "action": "create",
+      "key": "NEW_nrtalk_hub_lab_1",
+      "pid": "@NEW_nrtalk_page",
+      "match": {
+        "pid": "@NEW_nrtalk_page",
+        "foreign_table_parent_uid": "@NEW_nrtalk_hub_lab",
+        "_position": 2,
+        "sys_language_uid": 0
+      },
+      "set": {
+        "content": "<h3>Not installed in this lab</h3><ul><li>nr-repurpose: needs ffmpeg and Chromium in the production image</li><li>nr-passkeys-be and nr-passkeys-fe: by default they add a passkey button to the production login</li><li>nr-http-guard: an alpha release that blocks outgoing HTTP by default</li></ul><p>These reasons lie in our installation, not in the modules. nr-ai-search is not publicly available.</p>",
+        "foreign_table_parent_uid": "@NEW_nrtalk_hub_lab",
+        "sys_language_uid": 0,
+        "hidden": 0
       }
     },
     {

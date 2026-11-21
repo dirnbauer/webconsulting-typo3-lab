@@ -101,7 +101,13 @@ slide instead.
     `rowDescription` are `nrtalk:<page>:<name>`; the cards are `nrtalk:hub-ai` and
     `nrtalk:hub-resources`. `pid` 0 is `/ai`; `{{page:/slug|/fallback}}` is a link to an existing
     page (first slug that exists); `{{labstatus:<id>}}` is a cell of the module table.
-  - `lab-status.json`: the “In this lab” column (installed, decided later, not publicly available).
+  - `lab-status.json`: the “In this lab” column. Installed: nr-llm, nr-vault, nr-mcp-agent,
+    t3-cowriter, nr-landingpage, nr-browser-ai. Not installed, each with its reason (our
+    installation’s choice, not a judgement of the module): nr-repurpose (needs ffmpeg and Chromium
+    in the production image), nr-passkeys-be and nr-passkeys-fe (they add a passkey button to the
+    production login by default), nr-http-guard (alpha; blocks outgoing HTTP by default).
+    nr-ai-search: not publicly available. The hub text “Netresearch’s extensions in this lab”
+    (`nrtalk:hub:lab` in `00-hub.payload.json`) says the same; change both together.
   - `image-slots.json`, `quoted-copy.json`: see above.
 - `Classes/Command/SeedNetresearchTalkCommand.php` (`sitepackage:seed-netresearch-talk`),
   `Classes/NetresearchTalk/TalkPayload.php` (reads and resolves the payload),
@@ -111,22 +117,130 @@ slide instead.
   (de, zh, hu), merged with the shared memory by `TranslationMemory::fromFiles()`; a fragment that
   translates a source text differently than the shared memory stops the translate command.
 
-## Running it
+## Payload rules learnt from the first database run (2026-11-21, lab-nr)
+
+These hold for every edit of the payload and the fragments:
+
+1. **Rich text in its stored form.** TYPO3’s RTE transformation stores a rich-text value that
+   contains `<br>` with every `<br>` written as `<br />` and CRLF (`\r\n`) between its top-level
+   blocks (`</p>\r\n<p>`, `</h3>\r\n<blockquote>` …); values without `<br>` are stored as they
+   are. The payload holds that stored form (23 fields in 03, 04 and 06), otherwise every seed
+   reports them as updated. The memory key of such a text is the stored English text, and its
+   de/zh/hu values follow the same rule (the translate command writes translations without the
+   RTE transformation, so the value is stored exactly as the fragment has it). The rule is
+   applied by `packages/site_package/Build/Scripts/netresearch-talk-rte-form.py <worktree>`
+   (`--check <stored.jsonl>` proves it against values exported from the database as JSON lines
+   `{table, uid, field, value}`; `--apply` rewrites the payload and all three fragments in one
+   go, matching keys with their `t3://page?uid=` links normalised; idempotent). Re-run it after adding
+   rich text with `<br>`; then `sitepackage:seed-netresearch-talk` must report `0 updated`.
+2. **Collection items are matched by position.** Each item’s `match` is
+   `{pid, foreign_table_parent_uid, [tablenames, fieldname,] "_position": n, sys_language_uid: 0}`
+   with `n` = its place in the parent’s `_collections` list (`TalkPayloadTest` checks it).
+   Never match on `sorting`: DataHandler renumbers the items’ sorting when the translate command
+   localizes them (1, 9730, 15875 …), and a sorting match then created all 278 items again.
+3. **Translations keep the English slug.** `sitepackage:content:translate` gives a new page
+   translation its source’s slug and tells EXT:redirects to stay out (correlation id with the
+   redirects slug-update aspect, `SiteTranslator::correlationId()`). Before that fix the first
+   translate run created 22 redirects, rewrote the sub-pages’ slugs to title-based ones
+   (`/ai/netresearch-talk/questions-about-using-ai` …) and crashed in the CLI while EXT:redirects
+   stored a flash message (“Call to a member function set() on null”).
+4. **A key is the exact stored English text,** links included; `t3://page?uid=N` in a key may
+   carry any uid (the lookup ignores uids), so the lab’s uids in the fragments are fine on
+   production.
+
+5. **Layout.** Every talk page sets `tx_desiderio_h1_sronly`: the page title stays the one `h1`
+   (screen-reader only, as on the other `/ai` pages) and the header-page element right below is the
+   visible heading, directly followed by the attribution band. The hub’s thank-you is centred and
+   “Netresearch’s extensions in this lab” is a two-column element (installed | not installed with
+   the reasons) on a muted band, so no row ends half empty. Elements without a screenshot (AI
+   Search, Repurpose, and the slots until the captures exist) show their text column only.
+
+## Running it (lab)
 
 After `desiderio:styleguide:seed` and `sitepackage:films:seed` (a full styleguide seed removes the
-two cards from `/ai` and `/resources`; the talk pages themselves survive it):
+two cards from `/ai` and `/resources`; the talk pages themselves survive it). Every writing command
+runs alone: never next to another seeder or translate run.
 
 ```bash
 ddev exec php packages/site_package/Build/Scripts/lint-copy.php --site=desiderio packages/site_package/Resources/Private/Data/Content/netresearch-talk
 ddev exec vendor/bin/typo3 sitepackage:seed-netresearch-talk --dry-run
 ddev exec vendor/bin/typo3 sitepackage:seed-netresearch-talk
-ddev exec vendor/bin/typo3 sitepackage:seed-netresearch-talk     # second run: 0 changes, 0 moves
-UIDS=$(ddev mysql -N -e "SELECT uid FROM pages WHERE (slug LIKE '/ai/netresearch-talk%' OR slug IN ('/ai','/resources')) AND sys_language_uid=0 AND deleted=0 AND t3ver_wsid=0" | paste -sd, -)
-ddev exec vendor/bin/typo3 sitepackage:content:translate --site=desiderio --languages=de,zh,hu --pages=$UIDS --dry-run --missing=-
-ddev exec vendor/bin/typo3 sitepackage:content:translate --site=desiderio --languages=de,zh,hu --pages=$UIDS --fail-on-missing
+ddev exec vendor/bin/typo3 sitepackage:seed-netresearch-talk     # second run: 0 updated, 0 created, 0 linked, 0 moves
+# The hub by slug below /ai of site 505, and the two pages that carry a card
+HUB=$(ddev mysql -N -e "SELECT p.uid FROM pages p JOIN pages a ON a.uid=p.pid WHERE p.slug='/ai/netresearch-talk' AND a.slug='/ai' AND a.pid=505 AND p.sys_language_uid=0 AND p.deleted=0 AND p.t3ver_wsid=0")
+CARDS=$(ddev mysql -N -e "SELECT GROUP_CONCAT(DISTINCT pid) FROM tt_content WHERE rowDescription IN ('nrtalk:hub-ai','nrtalk:hub-resources') AND sys_language_uid=0 AND deleted=0 AND t3ver_wsid=0")
+ddev exec vendor/bin/typo3 sitepackage:content:translate --site=desiderio --languages=de,zh,hu --pages=$HUB --recursive --dry-run --missing=- --fail-on-missing
+ddev exec vendor/bin/typo3 sitepackage:content:translate --site=desiderio --languages=de,zh,hu --pages=$HUB --recursive --fail-on-missing
+ddev exec vendor/bin/typo3 sitepackage:content:translate --site=desiderio --languages=de,zh,hu --pages=$CARDS --fail-on-missing
+ddev exec vendor/bin/typo3 sitepackage:content:translate --site=desiderio --languages=de,zh,hu --pages=$HUB --recursive --dry-run   # 0 / 0 everywhere
 ddev exec vendor/bin/typo3 cache:flush
 ```
 
-Check that the `UIDS` query only returns pages below 505 (`/resources` exists in other sites too).
-On production add `--allow-production` and run it from a runner (`var/prod-run.sh`), never at the
-same time as another seeder or translate run.
+`--pages=$CARDS` has no `--recursive` on purpose: it translates `/ai` and `/resources` themselves
+(their new card), not every page below them.
+
+Measured on the rehearsal instance (lab-nr, 2026-11-21, from an empty talk, one run after the
+other): lint 1 s, seed dry run 1 s, seed 46 s (460 records, 71 collections, 128 moves), second
+seed 1 s (0 changes), translate dry run 4 s, translate of the nine pages in de, zh and hu 233 s
+(27 page translations, 354 element translations, about 2,280 fields), translate of `/ai` and
+`/resources` 5 s, both checks 9 s, seed after translate 1 s (0 changes), cache flush 11 s:
+**about 5 minutes in all**.
+
+## Production runbook
+
+Production answers 401 to the public (basic auth in front of the whole site), so the pages are
+not public after the run either. The data run belongs into the release that deploys this code
+(lab commit with `SeedNetresearchTalkCommand`, the payload and the fragments); prepare it as a
+runner folder `var/prod-netresearch-talk/` (template: `MAIN/var/prod-wp12-astryx-de/`) and start
+it with `sh var/prod-run.sh var/prod-netresearch-talk` once the deploy is healthy. The runner
+refuses to start while another seeder, translate or reindex runs on production; never start a
+second one by hand.
+
+Steps of `run.sh`, each `t3 <command>` as www-data in the web container with
+`php -d memory_limit=3G vendor/bin/typo3 … --allow-production`, timed per step:
+
+| # | Command | Lab | Production (≈ 4 × lab) |
+|---|---|---|---|
+| 0 | database backup of the touched tables (runner default) | – | ≈ 2 min |
+| 1 | `sitepackage:seed-netresearch-talk --allow-production --dry-run` (must list `460 created` on the first run, `0 skipped`) | 1 s | 5 s |
+| 2 | `sitepackage:seed-netresearch-talk --allow-production` | 46 s | ≈ 3 min |
+| 3 | `sitepackage:seed-netresearch-talk --allow-production` (second run: `0 updated, 0 created`, `0 collection(s) linked, 0 move(s)`; anything else stops the run) | 1 s | 10 s |
+| 4 | `HUB` and `CARDS` as above, with the runner’s SQL helper; check that `HUB` is one uid and `CARDS` two | – | – |
+| 5 | `sitepackage:content:translate --site=desiderio --languages=de,zh,hu --pages=$HUB --recursive --dry-run --fail-on-missing --allow-production` | 5 s | 20 s |
+| 6a–c | `sitepackage:content:translate --site=desiderio --languages=de --pages=$HUB --recursive --fail-on-missing --allow-production`, then the same with `zh`, then `hu` (one language per step, so a step can be resumed with `FROM=`) | 233 s together | ≈ 5 min each, ≈ 15 min together |
+| 7 | `sitepackage:content:translate --site=desiderio --languages=de,zh,hu --pages=$CARDS --fail-on-missing --allow-production` | 5 s | 30 s |
+| 8 | the dry run of 5 again, plus `--pages=$CARDS`: every count 0 | 9 s | 40 s |
+| 9 | `cache:flush` | 11 s | ≈ 1 min |
+| 10 | verify (below) | – | 1–2 min |
+
+Expected: **about 22–25 minutes including backup and verification**, inside the 30-minute limit
+for a production data run. The talk has no Solr step of its own: reindex `/ai` later with the
+next planned `sitepackage:solr:reindex --site=505 --index` (translate switches the record monitor
+off, so the new pages are not in the search before that).
+
+**Verify** (`verify.php` of the runner, or by hand with the basic-auth credentials from
+1Password, never in a public channel):
+
+- in the database: 9 default pages below `/ai` with the slugs of the table above, 9 translations
+  each in languages 1, 2 and 3 with the same slugs, no `sys_redirect` row created by the run
+  (`createdon` ≥ the run’s start), 118 default `tt_content` rows on the nine pages and 118 per
+  language, one `nrtalk:hub-ai` card on `/ai` and one `nrtalk:hub-resources` card on `/resources`
+  of site 505;
+- over HTTP (inside the container, `curl -s -o /dev/null -w '%{http_code}'` against
+  `http://localhost/…` with the site’s host header): all nine pages in `/`, `/de/`, `/zh/`, `/hu/`
+  answer 200 and contain exactly one `<h1`; `/ai/` and `/resources/` contain one link to
+  `/ai/netresearch-talk/` in each language;
+- the runner log ends with `ALL-DONE`.
+
+**Roll back** (no data loss, seconds): hide the hub page — page properties of
+`/ai/netresearch-talk` → “Page visible” off (or `sitepackage:content:apply` with a one-record
+payload `{"table":"pages","uid":<HUB>,"action":"hide"}`), then hide the two cards
+(`nrtalk:hub-ai`, `nrtalk:hub-resources`) the same way and `cache:flush`. Hiding the default page
+hides its translations; the sub-pages are below a hidden page and drop out of the menu. Showing it
+again later: unhide, or simply run the seeder again (it writes `hidden: 0`). A full removal is a
+DataHandler delete of the hub page (with its sub-pages) and of the two cards; the runner’s
+backup restores the touched tables if anything else went wrong.
+
+**Later changes** (a payload text, `lab-status.json`, a new screenshot): rerun steps 1–3, then
+translate only the page that changed (`--pages=<uid>` without `--recursive`, one language per
+step); that takes under a minute in the lab.

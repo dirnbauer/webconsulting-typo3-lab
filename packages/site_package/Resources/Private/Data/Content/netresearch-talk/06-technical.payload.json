@@ -24,7 +24,8 @@
         "title": "Technical details: the backup slides",
         "nav_title": "Technical details",
         "description": "The backup slides of the Netresearch talk on nr-llm: schema checks, skills, MCP, permissions, data classes, budgets, fallback and approvals in detail.",
-        "abstract": "How nr-llm checks, limits and approves, slide by slide, for development, integration and decisions."
+        "abstract": "How nr-llm checks, limits and approves, slide by slide, for development, integration and decisions.",
+        "tx_desiderio_h1_sronly": 1
       }
     },
     {
@@ -93,7 +94,7 @@
         "foreign_table_parent_uid": "@NEW_nrtalk_technical_credit",
         "tablenames": "tt_content",
         "fieldname": "desiderio_benefitcards_items",
-        "sorting": 1,
+        "_position": 1,
         "sys_language_uid": 0
       },
       "set": {
@@ -118,7 +119,7 @@
         "foreign_table_parent_uid": "@NEW_nrtalk_technical_credit",
         "tablenames": "tt_content",
         "fieldname": "desiderio_benefitcards_items",
-        "sorting": 2,
+        "_position": 2,
         "sys_language_uid": 0
       },
       "set": {
@@ -143,7 +144,7 @@
         "foreign_table_parent_uid": "@NEW_nrtalk_technical_credit",
         "tablenames": "tt_content",
         "fieldname": "desiderio_benefitcards_items",
-        "sorting": 3,
+        "_position": 3,
         "sys_language_uid": 0
       },
       "set": {
@@ -168,7 +169,7 @@
         "foreign_table_parent_uid": "@NEW_nrtalk_technical_credit",
         "tablenames": "tt_content",
         "fieldname": "desiderio_benefitcards_items",
-        "sorting": 4,
+        "_position": 4,
         "sys_language_uid": 0
       },
       "set": {
@@ -247,7 +248,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_technical",
         "foreign_table_parent_uid": "@NEW_nrtalk_technical_toc",
-        "sorting": 1,
+        "_position": 1,
         "sys_language_uid": 0
       },
       "set": {
@@ -267,7 +268,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_technical",
         "foreign_table_parent_uid": "@NEW_nrtalk_technical_toc",
-        "sorting": 2,
+        "_position": 2,
         "sys_language_uid": 0
       },
       "set": {
@@ -287,7 +288,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_technical",
         "foreign_table_parent_uid": "@NEW_nrtalk_technical_toc",
-        "sorting": 3,
+        "_position": 3,
         "sys_language_uid": 0
       },
       "set": {
@@ -307,7 +308,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_technical",
         "foreign_table_parent_uid": "@NEW_nrtalk_technical_toc",
-        "sorting": 4,
+        "_position": 4,
         "sys_language_uid": 0
       },
       "set": {
@@ -327,7 +328,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_technical",
         "foreign_table_parent_uid": "@NEW_nrtalk_technical_toc",
-        "sorting": 5,
+        "_position": 5,
         "sys_language_uid": 0
       },
       "set": {
@@ -347,7 +348,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_technical",
         "foreign_table_parent_uid": "@NEW_nrtalk_technical_toc",
-        "sorting": 6,
+        "_position": 6,
         "sys_language_uid": 0
       },
       "set": {
@@ -367,7 +368,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_technical",
         "foreign_table_parent_uid": "@NEW_nrtalk_technical_toc",
-        "sorting": 7,
+        "_position": 7,
         "sys_language_uid": 0
       },
       "set": {
@@ -387,7 +388,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_technical",
         "foreign_table_parent_uid": "@NEW_nrtalk_technical_toc",
-        "sorting": 8,
+        "_position": 8,
         "sys_language_uid": 0
       },
       "set": {
@@ -407,7 +408,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_technical",
         "foreign_table_parent_uid": "@NEW_nrtalk_technical_toc",
-        "sorting": 9,
+        "_position": 9,
         "sys_language_uid": 0
       },
       "set": {
@@ -427,7 +428,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_technical",
         "foreign_table_parent_uid": "@NEW_nrtalk_technical_toc",
-        "sorting": 10,
+        "_position": 10,
         "sys_language_uid": 0
       },
       "set": {
@@ -447,7 +448,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_technical",
         "foreign_table_parent_uid": "@NEW_nrtalk_technical_toc",
-        "sorting": 11,
+        "_position": 11,
         "sys_language_uid": 0
       },
       "set": {
@@ -467,7 +468,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_technical",
         "foreign_table_parent_uid": "@NEW_nrtalk_technical_toc",
-        "sorting": 12,
+        "_position": 12,
         "sys_language_uid": 0
       },
       "set": {
@@ -487,7 +488,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_technical",
         "foreign_table_parent_uid": "@NEW_nrtalk_technical_toc",
-        "sorting": 13,
+        "_position": 13,
         "sys_language_uid": 0
       },
       "set": {
@@ -507,7 +508,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_technical",
         "foreign_table_parent_uid": "@NEW_nrtalk_technical_toc",
-        "sorting": 14,
+        "_position": 14,
         "sys_language_uid": 0
       },
       "set": {
@@ -527,7 +528,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_technical",
         "foreign_table_parent_uid": "@NEW_nrtalk_technical_toc",
-        "sorting": 15,
+        "_position": 15,
         "sys_language_uid": 0
       },
       "set": {
@@ -547,7 +548,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_technical",
         "foreign_table_parent_uid": "@NEW_nrtalk_technical_toc",
-        "sorting": 16,
+        "_position": 16,
         "sys_language_uid": 0
       },
       "set": {
@@ -567,7 +568,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_technical",
         "foreign_table_parent_uid": "@NEW_nrtalk_technical_toc",
-        "sorting": 17,
+        "_position": 17,
         "sys_language_uid": 0
       },
       "set": {
@@ -587,7 +588,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_technical",
         "foreign_table_parent_uid": "@NEW_nrtalk_technical_toc",
-        "sorting": 18,
+        "_position": 18,
         "sys_language_uid": 0
       },
       "set": {
@@ -607,7 +608,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_technical",
         "foreign_table_parent_uid": "@NEW_nrtalk_technical_toc",
-        "sorting": 19,
+        "_position": 19,
         "sys_language_uid": 0
       },
       "set": {
@@ -627,7 +628,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_technical",
         "foreign_table_parent_uid": "@NEW_nrtalk_technical_toc",
-        "sorting": 20,
+        "_position": 20,
         "sys_language_uid": 0
       },
       "set": {
@@ -647,7 +648,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_technical",
         "foreign_table_parent_uid": "@NEW_nrtalk_technical_toc",
-        "sorting": 21,
+        "_position": 21,
         "sys_language_uid": 0
       },
       "set": {
@@ -667,7 +668,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_technical",
         "foreign_table_parent_uid": "@NEW_nrtalk_technical_toc",
-        "sorting": 22,
+        "_position": 22,
         "sys_language_uid": 0
       },
       "set": {
@@ -687,7 +688,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_technical",
         "foreign_table_parent_uid": "@NEW_nrtalk_technical_toc",
-        "sorting": 23,
+        "_position": 23,
         "sys_language_uid": 0
       },
       "set": {
@@ -707,7 +708,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_technical",
         "foreign_table_parent_uid": "@NEW_nrtalk_technical_toc",
-        "sorting": 24,
+        "_position": 24,
         "sys_language_uid": 0
       },
       "set": {
@@ -727,7 +728,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_technical",
         "foreign_table_parent_uid": "@NEW_nrtalk_technical_toc",
-        "sorting": 25,
+        "_position": 25,
         "sys_language_uid": 0
       },
       "set": {
@@ -747,7 +748,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_technical",
         "foreign_table_parent_uid": "@NEW_nrtalk_technical_toc",
-        "sorting": 26,
+        "_position": 26,
         "sys_language_uid": 0
       },
       "set": {
@@ -767,7 +768,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_technical",
         "foreign_table_parent_uid": "@NEW_nrtalk_technical_toc",
-        "sorting": 27,
+        "_position": 27,
         "sys_language_uid": 0
       },
       "set": {
@@ -787,7 +788,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_technical",
         "foreign_table_parent_uid": "@NEW_nrtalk_technical_toc",
-        "sorting": 28,
+        "_position": 28,
         "sys_language_uid": 0
       },
       "set": {
@@ -807,7 +808,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_technical",
         "foreign_table_parent_uid": "@NEW_nrtalk_technical_toc",
-        "sorting": 29,
+        "_position": 29,
         "sys_language_uid": 0
       },
       "set": {
@@ -827,7 +828,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_technical",
         "foreign_table_parent_uid": "@NEW_nrtalk_technical_toc",
-        "sorting": 30,
+        "_position": 30,
         "sys_language_uid": 0
       },
       "set": {
@@ -884,7 +885,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_technical",
         "foreign_table_parent_uid": "@NEW_nrtalk_technical_group1",
-        "sorting": 1,
+        "_position": 1,
         "sys_language_uid": 0
       },
       "set": {
@@ -904,7 +905,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_technical",
         "foreign_table_parent_uid": "@NEW_nrtalk_technical_group1",
-        "sorting": 2,
+        "_position": 2,
         "sys_language_uid": 0
       },
       "set": {
@@ -924,12 +925,12 @@
       "match": {
         "pid": "@NEW_nrtalk_page_technical",
         "foreign_table_parent_uid": "@NEW_nrtalk_technical_group1",
-        "sorting": 3,
+        "_position": 3,
         "sys_language_uid": 0
       },
       "set": {
         "title": "What can term lists check?",
-        "content": "<p><em>Backup · Quality · nr-llm 0.43.19</em></p><p><strong>Define the scope</strong><br>Assign lists to the desired configurations. Without an assignment this list does not check the call.</p><p><strong>Match terms</strong><br>Blocked terms must not occur. Required terms must be contained in suitable text answers.</p><p><strong>Stop the output</strong><br>A violation blocks the checked output. In an agent run, an affected write call is neither offered nor executed.</p><p>Limit: paraphrases are not detected. In an agent run, write arguments are checked; chat text and required words are excluded.</p><p>Example: “Rabatt*” also matches “Rabattaktion”. Required words do not apply to short texts under 30 words or to JSON.</p><p><a href=\"https://github.com/netresearch/t3x-nr-llm/blob/5b6fca6de8d9593638486c0baca9424934bdc231/Documentation/Administration/TermLists.rst\">Term lists and exceptions</a></p><p><a href=\"https://netresearch.github.io/modularer-ki-stack-page/vortraege/mtug-2026-11-09/#/60\">Original slide 60</a></p>",
+        "content": "<p><em>Backup · Quality · nr-llm 0.43.19</em></p>\r\n<p><strong>Define the scope</strong><br />Assign lists to the desired configurations. Without an assignment this list does not check the call.</p>\r\n<p><strong>Match terms</strong><br />Blocked terms must not occur. Required terms must be contained in suitable text answers.</p>\r\n<p><strong>Stop the output</strong><br />A violation blocks the checked output. In an agent run, an affected write call is neither offered nor executed.</p>\r\n<p>Limit: paraphrases are not detected. In an agent run, write arguments are checked; chat text and required words are excluded.</p>\r\n<p>Example: “Rabatt*” also matches “Rabattaktion”. Required words do not apply to short texts under 30 words or to JSON.</p>\r\n<p><a href=\"https://github.com/netresearch/t3x-nr-llm/blob/5b6fca6de8d9593638486c0baca9424934bdc231/Documentation/Administration/TermLists.rst\">Term lists and exceptions</a></p>\r\n<p><a href=\"https://netresearch.github.io/modularer-ki-stack-page/vortraege/mtug-2026-11-09/#/60\">Original slide 60</a></p>",
         "open_by_default": 0,
         "foreign_table_parent_uid": "@NEW_nrtalk_technical_group1",
         "sys_language_uid": 0,
@@ -944,7 +945,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_technical",
         "foreign_table_parent_uid": "@NEW_nrtalk_technical_group1",
-        "sorting": 4,
+        "_position": 4,
         "sys_language_uid": 0
       },
       "set": {
@@ -964,7 +965,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_technical",
         "foreign_table_parent_uid": "@NEW_nrtalk_technical_group1",
-        "sorting": 5,
+        "_position": 5,
         "sys_language_uid": 0
       },
       "set": {
@@ -984,12 +985,12 @@
       "match": {
         "pid": "@NEW_nrtalk_page_technical",
         "foreign_table_parent_uid": "@NEW_nrtalk_technical_group1",
-        "sorting": 6,
+        "_position": 6,
         "sys_language_uid": 0
       },
       "set": {
         "title": "Where do context and knowledge come from?",
-        "content": "<p><em>Developer questions · nr-llm v0.43.19</em></p><p><strong>Passed in</strong><br>Prompt, current content and skill texts come from the application.</p><p><strong>Looked up</strong><br>Search tools return excerpts with sources from existing TYPO3 searches.</p><p><strong>Maintained separately</strong><br>Index updates and persistent vector search remain separate integration tasks.</p><p><strong>The model sees sources that were provided or retrieved – no automatic body of knowledge.</strong></p><p><a href=\"https://github.com/netresearch/t3x-nr-llm/blob/5b6fca6de8d9593638486c0baca9424934bdc231/Classes/Service/Tool/Builtin/SiteRagQueryTool.php\">Interfaces and source evidence</a></p><p><a href=\"https://netresearch.github.io/modularer-ki-stack-page/vortraege/mtug-2026-11-09/#/45\">Original slide 45</a></p>",
+        "content": "<p><em>Developer questions · nr-llm v0.43.19</em></p>\r\n<p><strong>Passed in</strong><br />Prompt, current content and skill texts come from the application.</p>\r\n<p><strong>Looked up</strong><br />Search tools return excerpts with sources from existing TYPO3 searches.</p>\r\n<p><strong>Maintained separately</strong><br />Index updates and persistent vector search remain separate integration tasks.</p>\r\n<p><strong>The model sees sources that were provided or retrieved – no automatic body of knowledge.</strong></p>\r\n<p><a href=\"https://github.com/netresearch/t3x-nr-llm/blob/5b6fca6de8d9593638486c0baca9424934bdc231/Classes/Service/Tool/Builtin/SiteRagQueryTool.php\">Interfaces and source evidence</a></p>\r\n<p><a href=\"https://netresearch.github.io/modularer-ki-stack-page/vortraege/mtug-2026-11-09/#/45\">Original slide 45</a></p>",
         "open_by_default": 0,
         "foreign_table_parent_uid": "@NEW_nrtalk_technical_group1",
         "sys_language_uid": 0,
@@ -1004,12 +1005,12 @@
       "match": {
         "pid": "@NEW_nrtalk_page_technical",
         "foreign_table_parent_uid": "@NEW_nrtalk_technical_group1",
-        "sorting": 7,
+        "_position": 7,
         "sys_language_uid": 0
       },
       "set": {
         "title": "Switching models needs a suitability test",
-        "content": "<p><em>Backup · Integration · nr-llm v0.43.19</em></p><p><strong>Switch the connection</strong><br>The application uses a named configuration. Model and provider can be changed behind it.</p><p><strong>Check suitability</strong><br>Check required capabilities, context size and parameters; re-test typical tasks.</p><p><strong>Try out the fallback</strong><br>Test fallback configurations for outages. Check the data destination, quality and cost of every fallback.</p><p><strong>A shared interface does not make models interchangeable on the merits.</strong></p><p><a href=\"https://github.com/netresearch/t3x-nr-llm/blob/5b6fca6de8d9593638486c0baca9424934bdc231/Documentation/Administration/Models.rst\">Model choice and capabilities</a> · <a href=\"https://github.com/netresearch/t3x-nr-llm/blob/5b6fca6de8d9593638486c0baca9424934bdc231/Classes/Provider/Middleware/FallbackMiddleware.php\">Fallback in the source code</a></p><p><a href=\"https://netresearch.github.io/modularer-ki-stack-page/vortraege/mtug-2026-11-09/#/47\">Original slide 47</a></p>",
+        "content": "<p><em>Backup · Integration · nr-llm v0.43.19</em></p>\r\n<p><strong>Switch the connection</strong><br />The application uses a named configuration. Model and provider can be changed behind it.</p>\r\n<p><strong>Check suitability</strong><br />Check required capabilities, context size and parameters; re-test typical tasks.</p>\r\n<p><strong>Try out the fallback</strong><br />Test fallback configurations for outages. Check the data destination, quality and cost of every fallback.</p>\r\n<p><strong>A shared interface does not make models interchangeable on the merits.</strong></p>\r\n<p><a href=\"https://github.com/netresearch/t3x-nr-llm/blob/5b6fca6de8d9593638486c0baca9424934bdc231/Documentation/Administration/Models.rst\">Model choice and capabilities</a> · <a href=\"https://github.com/netresearch/t3x-nr-llm/blob/5b6fca6de8d9593638486c0baca9424934bdc231/Classes/Provider/Middleware/FallbackMiddleware.php\">Fallback in the source code</a></p>\r\n<p><a href=\"https://netresearch.github.io/modularer-ki-stack-page/vortraege/mtug-2026-11-09/#/47\">Original slide 47</a></p>",
         "open_by_default": 0,
         "foreign_table_parent_uid": "@NEW_nrtalk_technical_group1",
         "sys_language_uid": 0,
@@ -1024,12 +1025,12 @@
       "match": {
         "pid": "@NEW_nrtalk_page_technical",
         "foreign_table_parent_uid": "@NEW_nrtalk_technical_group1",
-        "sorting": 8,
+        "_position": 8,
         "sys_language_uid": 0
       },
       "set": {
         "title": "Which foundations exist for your own knowledge search?",
-        "content": "<p><em>Backup · Development · Search and RAG infrastructure</em></p><p><strong>EXT:index</strong><br>Indexing framework for TYPO3 content: preparation and hand-over via events or webhooks.</p><p><strong>SEAL + seal_ai</strong><br>Search abstraction, embeddings and vector store; optional read-only MCP search access. seal_ai: proof of concept.</p><p><strong>smart_search</strong><br>Services for vectors, semantic search and RAG in your own extensions. Marked as alpha.</p><p><strong>These building blocks take care of knowledge access. An AI layer on its own does not maintain a search index.</strong></p><p><a href=\"https://github.com/lochmueller/index\">Indexing framework</a> · <a href=\"https://github.com/lochmueller/seal_ai\">SEAL / Symfony AI</a> · <a href=\"https://github.com/boehmmatthias/smart-search\">RAG building blocks</a></p><p><a href=\"https://netresearch.github.io/modularer-ki-stack-page/vortraege/mtug-2026-11-09/#/55\">Original slide 55</a></p>",
+        "content": "<p><em>Backup · Development · Search and RAG infrastructure</em></p>\r\n<p><strong>EXT:index</strong><br />Indexing framework for TYPO3 content: preparation and hand-over via events or webhooks.</p>\r\n<p><strong>SEAL + seal_ai</strong><br />Search abstraction, embeddings and vector store; optional read-only MCP search access. seal_ai: proof of concept.</p>\r\n<p><strong>smart_search</strong><br />Services for vectors, semantic search and RAG in your own extensions. Marked as alpha.</p>\r\n<p><strong>These building blocks take care of knowledge access. An AI layer on its own does not maintain a search index.</strong></p>\r\n<p><a href=\"https://github.com/lochmueller/index\">Indexing framework</a> · <a href=\"https://github.com/lochmueller/seal_ai\">SEAL / Symfony AI</a> · <a href=\"https://github.com/boehmmatthias/smart-search\">RAG building blocks</a></p>\r\n<p><a href=\"https://netresearch.github.io/modularer-ki-stack-page/vortraege/mtug-2026-11-09/#/55\">Original slide 55</a></p>",
         "open_by_default": 0,
         "foreign_table_parent_uid": "@NEW_nrtalk_technical_group1",
         "sys_language_uid": 0,
@@ -1044,12 +1045,12 @@
       "match": {
         "pid": "@NEW_nrtalk_page_technical",
         "foreign_table_parent_uid": "@NEW_nrtalk_technical_group1",
-        "sorting": 9,
+        "_position": 9,
         "sys_language_uid": 0
       },
       "set": {
         "title": "How do applications use source checking?",
-        "content": "<p><em>Backup · nr-llm 0.43.19 · checked on 6 Nov 2026</em></p><p><strong>AI Search</strong><br>An anti-hallucination check is documented. Which nr-llm service it calls internally is not verified here.</p><p><strong>Repurpose: checkpoints</strong><br>PR 205: check the briefing against the original. Then compare every finished format text against the original again.</p><p><strong>Repurpose: workflow</strong><br>Check after shortening, before audio and media production. Keep automatic assessment separate from editorial approval.</p><p><strong>“Not checked” and “check failed” must not look like a passed result.</strong></p><p>The released Repurpose 0.14.0 lacks the semantic source comparison. PR 205 implements it but has not yet been merged or released.</p><p><a href=\"https://github.com/netresearch/t3x-nr-repurpose/tree/09bc94e4deae0870b76671647b15cddf94998fb5\">Repurpose 0.14.0 · reviewed state</a> · <a href=\"https://github.com/netresearch/t3x-nr-repurpose/pull/205\">PR 205 · implementation</a></p><p><a href=\"https://netresearch.github.io/modularer-ki-stack-page/vortraege/mtug-2026-11-09/#/59\">Original slide 59</a></p>",
+        "content": "<p><em>Backup · nr-llm 0.43.19 · checked on 6 Nov 2026</em></p>\r\n<p><strong>AI Search</strong><br />An anti-hallucination check is documented. Which nr-llm service it calls internally is not verified here.</p>\r\n<p><strong>Repurpose: checkpoints</strong><br />PR 205: check the briefing against the original. Then compare every finished format text against the original again.</p>\r\n<p><strong>Repurpose: workflow</strong><br />Check after shortening, before audio and media production. Keep automatic assessment separate from editorial approval.</p>\r\n<p><strong>“Not checked” and “check failed” must not look like a passed result.</strong></p>\r\n<p>The released Repurpose 0.14.0 lacks the semantic source comparison. PR 205 implements it but has not yet been merged or released.</p>\r\n<p><a href=\"https://github.com/netresearch/t3x-nr-repurpose/tree/09bc94e4deae0870b76671647b15cddf94998fb5\">Repurpose 0.14.0 · reviewed state</a> · <a href=\"https://github.com/netresearch/t3x-nr-repurpose/pull/205\">PR 205 · implementation</a></p>\r\n<p><a href=\"https://netresearch.github.io/modularer-ki-stack-page/vortraege/mtug-2026-11-09/#/59\">Original slide 59</a></p>",
         "open_by_default": 0,
         "foreign_table_parent_uid": "@NEW_nrtalk_technical_group1",
         "sys_language_uid": 0,
@@ -1101,7 +1102,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_technical",
         "foreign_table_parent_uid": "@NEW_nrtalk_technical_group2",
-        "sorting": 1,
+        "_position": 1,
         "sys_language_uid": 0
       },
       "set": {
@@ -1121,12 +1122,12 @@
       "match": {
         "pid": "@NEW_nrtalk_page_technical",
         "foreign_table_parent_uid": "@NEW_nrtalk_technical_group2",
-        "sorting": 2,
+        "_position": 2,
         "sys_language_uid": 0
       },
       "set": {
         "title": "What happens with errors or excess context?",
-        "content": "<p><em>Developer questions · nr-llm v0.43.19</em></p><p><strong>Connection disrupted</strong><br>Retry a limited number of times; depending on the error, use a configured fallback connection.</p><p><strong>Access wrong</strong><br>Correct authentication and configuration; report the error to the application.</p><p><strong>Context too large</strong><br>Old chat rounds can be dropped. The application has to split a single prompt appropriately.</p><p><strong>The application needs an error path; retries and fallback do not solve every problem.</strong></p><p><a href=\"https://github.com/netresearch/t3x-nr-llm/blob/5b6fca6de8d9593638486c0baca9424934bdc231/Classes/Provider/AbstractProvider.php\">Interfaces and source evidence</a></p><p><a href=\"https://netresearch.github.io/modularer-ki-stack-page/vortraege/mtug-2026-11-09/#/46\">Original slide 46</a></p>",
+        "content": "<p><em>Developer questions · nr-llm v0.43.19</em></p>\r\n<p><strong>Connection disrupted</strong><br />Retry a limited number of times; depending on the error, use a configured fallback connection.</p>\r\n<p><strong>Access wrong</strong><br />Correct authentication and configuration; report the error to the application.</p>\r\n<p><strong>Context too large</strong><br />Old chat rounds can be dropped. The application has to split a single prompt appropriately.</p>\r\n<p><strong>The application needs an error path; retries and fallback do not solve every problem.</strong></p>\r\n<p><a href=\"https://github.com/netresearch/t3x-nr-llm/blob/5b6fca6de8d9593638486c0baca9424934bdc231/Classes/Provider/AbstractProvider.php\">Interfaces and source evidence</a></p>\r\n<p><a href=\"https://netresearch.github.io/modularer-ki-stack-page/vortraege/mtug-2026-11-09/#/46\">Original slide 46</a></p>",
         "open_by_default": 0,
         "foreign_table_parent_uid": "@NEW_nrtalk_technical_group2",
         "sys_language_uid": 0,
@@ -1141,12 +1142,12 @@
       "match": {
         "pid": "@NEW_nrtalk_page_technical",
         "foreign_table_parent_uid": "@NEW_nrtalk_technical_group2",
-        "sorting": 3,
+        "_position": 3,
         "sys_language_uid": 0
       },
       "set": {
         "title": "What happens when a provider fails?",
-        "content": "<p><em>Backup · Effort and operations · nr-llm 0.43.19</em></p><p><strong>Error pause</strong><br>The circuit breaker counts suitable provider errors. After the configured threshold, further calls abort quickly for a while.</p><p><strong>Fallback path</strong><br>A configured fallback tries another target on connection errors, overload, server errors or an open circuit breaker.</p><p><strong>Check recovery</strong><br>After the pause, one probe call is allowed. Success closes the block; another error opens it again.</p><p>Limit: no availability guarantee. Authentication and configuration errors do not trigger an automatic fallback.</p><p>Default: a 30-second pause after five matching errors. Fallback targets have to be set up.</p><p><a href=\"https://github.com/netresearch/t3x-nr-llm/blob/5b6fca6de8d9593638486c0baca9424934bdc231/Documentation/Adr/Adr063ProviderResilience.rst\">Circuit breaker and fallback</a> · <a href=\"https://github.com/netresearch/t3x-nr-llm/blob/5b6fca6de8d9593638486c0baca9424934bdc231/ext_conf_template.txt\">Defaults</a></p><p><a href=\"https://netresearch.github.io/modularer-ki-stack-page/vortraege/mtug-2026-11-09/#/61\">Original slide 61</a></p>",
+        "content": "<p><em>Backup · Effort and operations · nr-llm 0.43.19</em></p>\r\n<p><strong>Error pause</strong><br />The circuit breaker counts suitable provider errors. After the configured threshold, further calls abort quickly for a while.</p>\r\n<p><strong>Fallback path</strong><br />A configured fallback tries another target on connection errors, overload, server errors or an open circuit breaker.</p>\r\n<p><strong>Check recovery</strong><br />After the pause, one probe call is allowed. Success closes the block; another error opens it again.</p>\r\n<p>Limit: no availability guarantee. Authentication and configuration errors do not trigger an automatic fallback.</p>\r\n<p>Default: a 30-second pause after five matching errors. Fallback targets have to be set up.</p>\r\n<p><a href=\"https://github.com/netresearch/t3x-nr-llm/blob/5b6fca6de8d9593638486c0baca9424934bdc231/Documentation/Adr/Adr063ProviderResilience.rst\">Circuit breaker and fallback</a> · <a href=\"https://github.com/netresearch/t3x-nr-llm/blob/5b6fca6de8d9593638486c0baca9424934bdc231/ext_conf_template.txt\">Defaults</a></p>\r\n<p><a href=\"https://netresearch.github.io/modularer-ki-stack-page/vortraege/mtug-2026-11-09/#/61\">Original slide 61</a></p>",
         "open_by_default": 0,
         "foreign_table_parent_uid": "@NEW_nrtalk_technical_group2",
         "sys_language_uid": 0,
@@ -1161,7 +1162,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_technical",
         "foreign_table_parent_uid": "@NEW_nrtalk_technical_group2",
-        "sorting": 4,
+        "_position": 4,
         "sys_language_uid": 0
       },
       "set": {
@@ -1181,12 +1182,12 @@
       "match": {
         "pid": "@NEW_nrtalk_page_technical",
         "foreign_table_parent_uid": "@NEW_nrtalk_technical_group2",
-        "sorting": 5,
+        "_position": 5,
         "sys_language_uid": 0
       },
       "set": {
         "title": "Where are the limits of the data check?",
-        "content": "<p><em>Backup · nr-llm 0.43.19 · checked on 6 Nov 2026</em></p><p><strong>Declaration</strong><br>Free text is not classified automatically. Wrong information about data class or provider zone is not detected from the content.</p><p><strong>Tools</strong><br>The tool's own declaration takes precedence over the group class; otherwise the strictest class applies. MCP takes over the server class and enforces it even in observe mode.</p><p><strong>Actual destination</strong><br>Fallbacks count too. With dynamic model selection, some call paths can choose separately for checking and sending.</p><p><strong>No MCP import without a valid data class. The policy detects neither sensitive content nor the actual data location.</strong></p><p>Paths with a passed ModelResolution, including the DecisionService, bind checking and sending to the same resolution.</p><p><a href=\"https://github.com/netresearch/t3x-nr-llm/blob/5b6fca6de8d9593638486c0baca9424934bdc231/Documentation/Adr/Adr149CriteriaModeZoneFromTheResolvedModel.rst\">Dynamic model selection</a> · <a href=\"https://github.com/netresearch/t3x-nr-llm/blob/5b6fca6de8d9593638486c0baca9424934bdc231/Classes/Service/Tool/Mcp/McpToolProvider.php\">MCP classification</a></p><p><a href=\"https://netresearch.github.io/modularer-ki-stack-page/vortraege/mtug-2026-11-09/#/58\">Original slide 58</a></p>",
+        "content": "<p><em>Backup · nr-llm 0.43.19 · checked on 6 Nov 2026</em></p>\r\n<p><strong>Declaration</strong><br />Free text is not classified automatically. Wrong information about data class or provider zone is not detected from the content.</p>\r\n<p><strong>Tools</strong><br />The tool's own declaration takes precedence over the group class; otherwise the strictest class applies. MCP takes over the server class and enforces it even in observe mode.</p>\r\n<p><strong>Actual destination</strong><br />Fallbacks count too. With dynamic model selection, some call paths can choose separately for checking and sending.</p>\r\n<p><strong>No MCP import without a valid data class. The policy detects neither sensitive content nor the actual data location.</strong></p>\r\n<p>Paths with a passed ModelResolution, including the DecisionService, bind checking and sending to the same resolution.</p>\r\n<p><a href=\"https://github.com/netresearch/t3x-nr-llm/blob/5b6fca6de8d9593638486c0baca9424934bdc231/Documentation/Adr/Adr149CriteriaModeZoneFromTheResolvedModel.rst\">Dynamic model selection</a> · <a href=\"https://github.com/netresearch/t3x-nr-llm/blob/5b6fca6de8d9593638486c0baca9424934bdc231/Classes/Service/Tool/Mcp/McpToolProvider.php\">MCP classification</a></p>\r\n<p><a href=\"https://netresearch.github.io/modularer-ki-stack-page/vortraege/mtug-2026-11-09/#/58\">Original slide 58</a></p>",
         "open_by_default": 0,
         "foreign_table_parent_uid": "@NEW_nrtalk_technical_group2",
         "sys_language_uid": 0,
@@ -1201,12 +1202,12 @@
       "match": {
         "pid": "@NEW_nrtalk_page_technical",
         "foreign_table_parent_uid": "@NEW_nrtalk_technical_group2",
-        "sorting": 6,
+        "_position": 6,
         "sys_language_uid": 0
       },
       "set": {
         "title": "How are credentials protected?",
-        "content": "<p><em>Backup · Data and requirements · nr-llm 0.43.19</em></p><p><strong>Store in the vault</strong><br>Configured API credentials point to a secret in nr-vault. The configuration contains its identifier.</p><p><strong>Insert at call time</strong><br>The secure HTTP client inserts the credential for the service call. The key does not belong in the model instruction.</p><p><strong>Mask text</strong><br>nr-llm replaces recognisable secret patterns in prompt, response and thinking. This masking is mandatory.</p><p>Limit: only known patterns are detected. Tool arguments and embeddings are excluded; personal data is not detected in general.</p><p>Example: store the API key as a vault reference instead of copying it into the system prompt.</p><p><a href=\"https://github.com/netresearch/t3x-nr-llm/blob/5b6fca6de8d9593638486c0baca9424934bdc231/Documentation/Adr/Adr030SpecializedServicesVaultMigration.rst\">Credentials via nr-vault</a> · <a href=\"https://github.com/netresearch/t3x-nr-llm/blob/5b6fca6de8d9593638486c0baca9424934bdc231/Documentation/Adr/Adr089GuardrailBoundaryCompleteness.rst\">Masking and limits</a></p><p><a href=\"https://netresearch.github.io/modularer-ki-stack-page/vortraege/mtug-2026-11-09/#/62\">Original slide 62</a></p>",
+        "content": "<p><em>Backup · Data and requirements · nr-llm 0.43.19</em></p>\r\n<p><strong>Store in the vault</strong><br />Configured API credentials point to a secret in nr-vault. The configuration contains its identifier.</p>\r\n<p><strong>Insert at call time</strong><br />The secure HTTP client inserts the credential for the service call. The key does not belong in the model instruction.</p>\r\n<p><strong>Mask text</strong><br />nr-llm replaces recognisable secret patterns in prompt, response and thinking. This masking is mandatory.</p>\r\n<p>Limit: only known patterns are detected. Tool arguments and embeddings are excluded; personal data is not detected in general.</p>\r\n<p>Example: store the API key as a vault reference instead of copying it into the system prompt.</p>\r\n<p><a href=\"https://github.com/netresearch/t3x-nr-llm/blob/5b6fca6de8d9593638486c0baca9424934bdc231/Documentation/Adr/Adr030SpecializedServicesVaultMigration.rst\">Credentials via nr-vault</a> · <a href=\"https://github.com/netresearch/t3x-nr-llm/blob/5b6fca6de8d9593638486c0baca9424934bdc231/Documentation/Adr/Adr089GuardrailBoundaryCompleteness.rst\">Masking and limits</a></p>\r\n<p><a href=\"https://netresearch.github.io/modularer-ki-stack-page/vortraege/mtug-2026-11-09/#/62\">Original slide 62</a></p>",
         "open_by_default": 0,
         "foreign_table_parent_uid": "@NEW_nrtalk_technical_group2",
         "sys_language_uid": 0,
@@ -1221,12 +1222,12 @@
       "match": {
         "pid": "@NEW_nrtalk_page_technical",
         "foreign_table_parent_uid": "@NEW_nrtalk_technical_group2",
-        "sorting": 7,
+        "_position": 7,
         "sys_language_uid": 0
       },
       "set": {
         "title": "How does the agent read external web pages?",
-        "content": "<p><em>Backup · Data and requirements · nr-llm 0.43.19</em></p><p><strong>Enable deliberately</strong><br>The web tool is switched off initially. Once enabled, a call requires human consent by default.</p><p><strong>Check the address</strong><br>The start address and every redirect go through the address check. Private target addresses are rejected even when the host is allowed.</p><p><strong>Limit the text</strong><br>The tool returns limited text and marks it as untrusted material. It does not execute web page JavaScript.</p><p>Limit: URL parameters can also transmit data. Publicly reachable internal services need additional blocking rules; the protection applies to this tool.</p><p>Example: read a public product page; its redirect to a private network address is rejected.</p><p><a href=\"https://github.com/netresearch/t3x-nr-llm/blob/5b6fca6de8d9593638486c0baca9424934bdc231/Documentation/Adr/Adr202APublicWebPageThroughAnAddressGuard.rst\">Web tool and address check</a></p><p><a href=\"https://netresearch.github.io/modularer-ki-stack-page/vortraege/mtug-2026-11-09/#/63\">Original slide 63</a></p>",
+        "content": "<p><em>Backup · Data and requirements · nr-llm 0.43.19</em></p>\r\n<p><strong>Enable deliberately</strong><br />The web tool is switched off initially. Once enabled, a call requires human consent by default.</p>\r\n<p><strong>Check the address</strong><br />The start address and every redirect go through the address check. Private target addresses are rejected even when the host is allowed.</p>\r\n<p><strong>Limit the text</strong><br />The tool returns limited text and marks it as untrusted material. It does not execute web page JavaScript.</p>\r\n<p>Limit: URL parameters can also transmit data. Publicly reachable internal services need additional blocking rules; the protection applies to this tool.</p>\r\n<p>Example: read a public product page; its redirect to a private network address is rejected.</p>\r\n<p><a href=\"https://github.com/netresearch/t3x-nr-llm/blob/5b6fca6de8d9593638486c0baca9424934bdc231/Documentation/Adr/Adr202APublicWebPageThroughAnAddressGuard.rst\">Web tool and address check</a></p>\r\n<p><a href=\"https://netresearch.github.io/modularer-ki-stack-page/vortraege/mtug-2026-11-09/#/63\">Original slide 63</a></p>",
         "open_by_default": 0,
         "foreign_table_parent_uid": "@NEW_nrtalk_technical_group2",
         "sys_language_uid": 0,
@@ -1241,12 +1242,12 @@
       "match": {
         "pid": "@NEW_nrtalk_page_technical",
         "foreign_table_parent_uid": "@NEW_nrtalk_technical_group2",
-        "sorting": 8,
+        "_position": 8,
         "sys_language_uid": 0
       },
       "set": {
         "title": "Operations need metrics and deletion routines",
-        "content": "<p><em>Backup · Integration · nr-llm v0.43.19</em></p><p><strong>Evaluate usage</strong><br>View requests, tokens and estimated costs by provider, model and user.</p><p><strong>Trace runs</strong><br>Check metadata on status, steps, model calls and decisions in the run timeline.</p><p><strong>Operate retention</strong><br>Choose storage scope and retention periods. Have the deletion run executed regularly.</p><p><strong>Costs are estimates. A deletion period only takes effect through a scheduled deletion run.</strong></p><p><a href=\"https://github.com/netresearch/t3x-nr-llm/blob/5b6fca6de8d9593638486c0baca9424934bdc231/Documentation/Administration/AgentRuns.rst\">Run timeline and limits</a> · <a href=\"https://github.com/netresearch/t3x-nr-llm/blob/5b6fca6de8d9593638486c0baca9424934bdc231/Documentation/Administration/DataRetention.rst\">Retention and deletion run</a></p><p><a href=\"https://netresearch.github.io/modularer-ki-stack-page/vortraege/mtug-2026-11-09/#/49\">Original slide 49</a></p>",
+        "content": "<p><em>Backup · Integration · nr-llm v0.43.19</em></p>\r\n<p><strong>Evaluate usage</strong><br />View requests, tokens and estimated costs by provider, model and user.</p>\r\n<p><strong>Trace runs</strong><br />Check metadata on status, steps, model calls and decisions in the run timeline.</p>\r\n<p><strong>Operate retention</strong><br />Choose storage scope and retention periods. Have the deletion run executed regularly.</p>\r\n<p><strong>Costs are estimates. A deletion period only takes effect through a scheduled deletion run.</strong></p>\r\n<p><a href=\"https://github.com/netresearch/t3x-nr-llm/blob/5b6fca6de8d9593638486c0baca9424934bdc231/Documentation/Administration/AgentRuns.rst\">Run timeline and limits</a> · <a href=\"https://github.com/netresearch/t3x-nr-llm/blob/5b6fca6de8d9593638486c0baca9424934bdc231/Documentation/Administration/DataRetention.rst\">Retention and deletion run</a></p>\r\n<p><a href=\"https://netresearch.github.io/modularer-ki-stack-page/vortraege/mtug-2026-11-09/#/49\">Original slide 49</a></p>",
         "open_by_default": 0,
         "foreign_table_parent_uid": "@NEW_nrtalk_technical_group2",
         "sys_language_uid": 0,
@@ -1261,7 +1262,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_technical",
         "foreign_table_parent_uid": "@NEW_nrtalk_technical_group2",
-        "sorting": 9,
+        "_position": 9,
         "sys_language_uid": 0
       },
       "set": {
@@ -1318,7 +1319,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_technical",
         "foreign_table_parent_uid": "@NEW_nrtalk_technical_group3",
-        "sorting": 1,
+        "_position": 1,
         "sys_language_uid": 0
       },
       "set": {
@@ -1338,7 +1339,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_technical",
         "foreign_table_parent_uid": "@NEW_nrtalk_technical_group3",
-        "sorting": 2,
+        "_position": 2,
         "sys_language_uid": 0
       },
       "set": {
@@ -1358,7 +1359,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_technical",
         "foreign_table_parent_uid": "@NEW_nrtalk_technical_group3",
-        "sorting": 3,
+        "_position": 3,
         "sys_language_uid": 0
       },
       "set": {
@@ -1378,12 +1379,12 @@
       "match": {
         "pid": "@NEW_nrtalk_page_technical",
         "foreign_table_parent_uid": "@NEW_nrtalk_technical_group3",
-        "sorting": 4,
+        "_position": 4,
         "sys_language_uid": 0
       },
       "set": {
         "title": "What is a write approval bound to?",
-        "content": "<p><em>Backup · Control and responsibility · nr-llm 0.43.19</em></p><p><strong>A different person</strong><br>With the four-eyes rule enabled, the triggering backend user may not approve themselves. This also applies to administrators.</p><p><strong>Reviewed state</strong><br>The approval must match the pending calls. A preview that has changed in the meantime requires a new decision.</p><p><strong>Stored evidence</strong><br>Before a write step, the approval event must be stored. If that fails, the approved step is not executed.</p><p>Limit: four-eyes applies to backend users. State binding requires a successful tool preview; approval does not replace a review on the merits.</p><p>Example: a displayed original value changes during approval. The agent waits again with a new preview.</p><p><a href=\"https://github.com/netresearch/t3x-nr-llm/blob/5b6fca6de8d9593638486c0baca9424934bdc231/Documentation/Adr/Adr172FourEyesApprovalPerConfiguration.rst\">Four-eyes rule</a> · <a href=\"https://github.com/netresearch/t3x-nr-llm/blob/5b6fca6de8d9593638486c0baca9424934bdc231/Documentation/Adr/Adr184ApprovalBindsToTheStateItShowed.rst\">Preview binding</a> · <a href=\"https://github.com/netresearch/t3x-nr-llm/blob/5b6fca6de8d9593638486c0baca9424934bdc231/Documentation/Adr/Adr132ApprovalAuditAndTurnBinding.rst\">Call and audit</a></p><p><a href=\"https://netresearch.github.io/modularer-ki-stack-page/vortraege/mtug-2026-11-09/#/64\">Original slide 64</a></p>",
+        "content": "<p><em>Backup · Control and responsibility · nr-llm 0.43.19</em></p>\r\n<p><strong>A different person</strong><br />With the four-eyes rule enabled, the triggering backend user may not approve themselves. This also applies to administrators.</p>\r\n<p><strong>Reviewed state</strong><br />The approval must match the pending calls. A preview that has changed in the meantime requires a new decision.</p>\r\n<p><strong>Stored evidence</strong><br />Before a write step, the approval event must be stored. If that fails, the approved step is not executed.</p>\r\n<p>Limit: four-eyes applies to backend users. State binding requires a successful tool preview; approval does not replace a review on the merits.</p>\r\n<p>Example: a displayed original value changes during approval. The agent waits again with a new preview.</p>\r\n<p><a href=\"https://github.com/netresearch/t3x-nr-llm/blob/5b6fca6de8d9593638486c0baca9424934bdc231/Documentation/Adr/Adr172FourEyesApprovalPerConfiguration.rst\">Four-eyes rule</a> · <a href=\"https://github.com/netresearch/t3x-nr-llm/blob/5b6fca6de8d9593638486c0baca9424934bdc231/Documentation/Adr/Adr184ApprovalBindsToTheStateItShowed.rst\">Preview binding</a> · <a href=\"https://github.com/netresearch/t3x-nr-llm/blob/5b6fca6de8d9593638486c0baca9424934bdc231/Documentation/Adr/Adr132ApprovalAuditAndTurnBinding.rst\">Call and audit</a></p>\r\n<p><a href=\"https://netresearch.github.io/modularer-ki-stack-page/vortraege/mtug-2026-11-09/#/64\">Original slide 64</a></p>",
         "open_by_default": 0,
         "foreign_table_parent_uid": "@NEW_nrtalk_technical_group3",
         "sys_language_uid": 0,
@@ -1398,7 +1399,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_technical",
         "foreign_table_parent_uid": "@NEW_nrtalk_technical_group3",
-        "sorting": 5,
+        "_position": 5,
         "sys_language_uid": 0
       },
       "set": {
@@ -1418,12 +1419,12 @@
       "match": {
         "pid": "@NEW_nrtalk_page_technical",
         "foreign_table_parent_uid": "@NEW_nrtalk_technical_group3",
-        "sorting": 6,
+        "_position": 6,
         "sys_language_uid": 0
       },
       "set": {
         "title": "When is a shared AI foundation worth it?",
-        "content": "<p><em>Decision · Criteria for a pilot</em></p><p><strong>Recurring work</strong><br>A concrete task comes up regularly. Content and workflow already live in TYPO3.</p><p><strong>Shared control</strong><br>Several applications need the same providers, models, budgets or approval rules.</p><p><strong>Measurable benefit</strong><br>In the pilot, compare time including rework, result quality and running costs with the previous workflow.</p><p><strong>Introduce it when the measured benefit justifies integration and operations.</strong></p><p><a href=\"https://netresearch.github.io/modularer-ki-stack-page/\">Compare modules and requirements</a></p><p><a href=\"https://netresearch.github.io/modularer-ki-stack-page/vortraege/mtug-2026-11-09/#/50\">Original slide 50</a></p>",
+        "content": "<p><em>Decision · Criteria for a pilot</em></p>\r\n<p><strong>Recurring work</strong><br />A concrete task comes up regularly. Content and workflow already live in TYPO3.</p>\r\n<p><strong>Shared control</strong><br />Several applications need the same providers, models, budgets or approval rules.</p>\r\n<p><strong>Measurable benefit</strong><br />In the pilot, compare time including rework, result quality and running costs with the previous workflow.</p>\r\n<p><strong>Introduce it when the measured benefit justifies integration and operations.</strong></p>\r\n<p><a href=\"https://netresearch.github.io/modularer-ki-stack-page/\">Compare modules and requirements</a></p>\r\n<p><a href=\"https://netresearch.github.io/modularer-ki-stack-page/vortraege/mtug-2026-11-09/#/50\">Original slide 50</a></p>",
         "open_by_default": 0,
         "foreign_table_parent_uid": "@NEW_nrtalk_technical_group3",
         "sys_language_uid": 0,
@@ -1438,12 +1439,12 @@
       "match": {
         "pid": "@NEW_nrtalk_page_technical",
         "foreign_table_parent_uid": "@NEW_nrtalk_technical_group3",
-        "sorting": 7,
+        "_position": 7,
         "sys_language_uid": 0
       },
       "set": {
         "title": "How do we limit costs?",
-        "content": "<p><em>Decision · nr-llm v0.43.19 · checked features</em></p><p><strong>Before the call</strong><br>nr-llm checks configured user and configuration limits. Planned costs that are passed in are included in the check.</p><p><strong>After the call</strong><br>nr-llm records the reported usage. Estimated costs come from the response or the model prices.</p><p><strong>Add in operations</strong><br>Reconcile prices and the provider's invoice. For a hard cost limit, also plan a reservation or a block.</p><p><strong>Parallel calls can exceed the budget. The advance check does not guarantee a hard cost limit.</strong></p><p><a href=\"https://github.com/netresearch/t3x-nr-llm/blob/5b6fca6de8d9593638486c0baca9424934bdc231/Documentation/Administration/UserBudgets.rst\">Budgets and their limits</a></p><p><a href=\"https://netresearch.github.io/modularer-ki-stack-page/vortraege/mtug-2026-11-09/#/51\">Original slide 51</a></p>",
+        "content": "<p><em>Decision · nr-llm v0.43.19 · checked features</em></p>\r\n<p><strong>Before the call</strong><br />nr-llm checks configured user and configuration limits. Planned costs that are passed in are included in the check.</p>\r\n<p><strong>After the call</strong><br />nr-llm records the reported usage. Estimated costs come from the response or the model prices.</p>\r\n<p><strong>Add in operations</strong><br />Reconcile prices and the provider's invoice. For a hard cost limit, also plan a reservation or a block.</p>\r\n<p><strong>Parallel calls can exceed the budget. The advance check does not guarantee a hard cost limit.</strong></p>\r\n<p><a href=\"https://github.com/netresearch/t3x-nr-llm/blob/5b6fca6de8d9593638486c0baca9424934bdc231/Documentation/Administration/UserBudgets.rst\">Budgets and their limits</a></p>\r\n<p><a href=\"https://netresearch.github.io/modularer-ki-stack-page/vortraege/mtug-2026-11-09/#/51\">Original slide 51</a></p>",
         "open_by_default": 0,
         "foreign_table_parent_uid": "@NEW_nrtalk_technical_group3",
         "sys_language_uid": 0,
@@ -1458,12 +1459,12 @@
       "match": {
         "pid": "@NEW_nrtalk_page_technical",
         "foreign_table_parent_uid": "@NEW_nrtalk_technical_group3",
-        "sorting": 8,
+        "_position": 8,
         "sys_language_uid": 0
       },
       "set": {
         "title": "What must be settled before productive use?",
-        "content": "<p><em>Decision · Recommendation for introduction</em></p><p><strong>Data flow</strong><br>Which data goes where? Define provider, region and retention for the model, fallback path and tools.</p><p><strong>Permissions and approval</strong><br>Who may read, write and publish? Name the responsible person and the approval step per workflow.</p><p><strong>Quality</strong><br>Test typical tasks and critical errors. Define in advance which results people must review.</p><p><strong>Operations</strong><br>Assign responsibility for costs, logs and updates. Define shutdown and procedure in case of outage.</p><p><strong>Go live once data paths, approvals, quality standard and operational responsibility are settled.</strong></p><p><a href=\"https://netresearch.github.io/modularer-ki-stack-page/\">Data flows and responsibility at a glance</a></p><p><a href=\"https://netresearch.github.io/modularer-ki-stack-page/vortraege/mtug-2026-11-09/#/52\">Original slide 52</a></p>",
+        "content": "<p><em>Decision · Recommendation for introduction</em></p>\r\n<p><strong>Data flow</strong><br />Which data goes where? Define provider, region and retention for the model, fallback path and tools.</p>\r\n<p><strong>Permissions and approval</strong><br />Who may read, write and publish? Name the responsible person and the approval step per workflow.</p>\r\n<p><strong>Quality</strong><br />Test typical tasks and critical errors. Define in advance which results people must review.</p>\r\n<p><strong>Operations</strong><br />Assign responsibility for costs, logs and updates. Define shutdown and procedure in case of outage.</p>\r\n<p><strong>Go live once data paths, approvals, quality standard and operational responsibility are settled.</strong></p>\r\n<p><a href=\"https://netresearch.github.io/modularer-ki-stack-page/\">Data flows and responsibility at a glance</a></p>\r\n<p><a href=\"https://netresearch.github.io/modularer-ki-stack-page/vortraege/mtug-2026-11-09/#/52\">Original slide 52</a></p>",
         "open_by_default": 0,
         "foreign_table_parent_uid": "@NEW_nrtalk_technical_group3",
         "sys_language_uid": 0,
@@ -1478,12 +1479,12 @@
       "match": {
         "pid": "@NEW_nrtalk_page_technical",
         "foreign_table_parent_uid": "@NEW_nrtalk_technical_group3",
-        "sorting": 9,
+        "_position": 9,
         "sys_language_uid": 0
       },
       "set": {
         "title": "MCP servers: which access to TYPO3?",
-        "content": "<p><em>Backup · Integration · publicly reviewed project sources</em></p><p><strong>hauptsache.net</strong><br>Standalone server.<br>Edit records via workspaces; add your own PHP tools.</p><p><strong>Marek Skopal</strong><br>Standalone server.<br>Direct management as the main mode; workspaces optional and TCA tools extensible.</p><p><strong>AutoDudes MCP</strong><br>Add-on to the AI Suite.<br>Offers TYPO3 content and selected AI features through the suite's services and permissions.</p><p><strong>MCP gives assistants tool access. AI connection, permissions and approvals remain separate decisions.</strong></p><p><a href=\"https://github.com/hauptsacheNet/typo3-mcp-server\">hauptsache.net · MCP server</a> · <a href=\"https://github.com/marekskopal/typo3-mcp-server\">Marek Skopal · MCP server</a></p><p><a href=\"https://netresearch.github.io/modularer-ki-stack-page/vortraege/mtug-2026-11-09/#/54\">Original slide 54</a></p>",
+        "content": "<p><em>Backup · Integration · publicly reviewed project sources</em></p>\r\n<p><strong>hauptsache.net</strong><br />Standalone server.<br />Edit records via workspaces; add your own PHP tools.</p>\r\n<p><strong>Marek Skopal</strong><br />Standalone server.<br />Direct management as the main mode; workspaces optional and TCA tools extensible.</p>\r\n<p><strong>AutoDudes MCP</strong><br />Add-on to the AI Suite.<br />Offers TYPO3 content and selected AI features through the suite's services and permissions.</p>\r\n<p><strong>MCP gives assistants tool access. AI connection, permissions and approvals remain separate decisions.</strong></p>\r\n<p><a href=\"https://github.com/hauptsacheNet/typo3-mcp-server\">hauptsache.net · MCP server</a> · <a href=\"https://github.com/marekskopal/typo3-mcp-server\">Marek Skopal · MCP server</a></p>\r\n<p><a href=\"https://netresearch.github.io/modularer-ki-stack-page/vortraege/mtug-2026-11-09/#/54\">Original slide 54</a></p>",
         "open_by_default": 0,
         "foreign_table_parent_uid": "@NEW_nrtalk_technical_group3",
         "sys_language_uid": 0,

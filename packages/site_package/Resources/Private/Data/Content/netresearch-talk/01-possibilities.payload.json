@@ -24,7 +24,8 @@
         "title": "Possibilities: experience five applications",
         "nav_title": "Possibilities",
         "description": "Part 1 of the Netresearch talk: Cowriter, AI Search, Repurpose, the backend agent and Landingpage, five AI applications for TYPO3 shown in the demo.",
-        "abstract": "Five AI applications in TYPO3, from writing in the editor to a page draft from a briefing."
+        "abstract": "Five AI applications in TYPO3, from writing in the editor to a page draft from a briefing.",
+        "tx_desiderio_h1_sronly": 1
       }
     },
     {
@@ -93,7 +94,7 @@
         "foreign_table_parent_uid": "@NEW_nrtalk_possibilities_credit",
         "tablenames": "tt_content",
         "fieldname": "desiderio_benefitcards_items",
-        "sorting": 1,
+        "_position": 1,
         "sys_language_uid": 0
       },
       "set": {
@@ -118,7 +119,7 @@
         "foreign_table_parent_uid": "@NEW_nrtalk_possibilities_credit",
         "tablenames": "tt_content",
         "fieldname": "desiderio_benefitcards_items",
-        "sorting": 2,
+        "_position": 2,
         "sys_language_uid": 0
       },
       "set": {
@@ -143,7 +144,7 @@
         "foreign_table_parent_uid": "@NEW_nrtalk_possibilities_credit",
         "tablenames": "tt_content",
         "fieldname": "desiderio_benefitcards_items",
-        "sorting": 3,
+        "_position": 3,
         "sys_language_uid": 0
       },
       "set": {
@@ -168,7 +169,7 @@
         "foreign_table_parent_uid": "@NEW_nrtalk_possibilities_credit",
         "tablenames": "tt_content",
         "fieldname": "desiderio_benefitcards_items",
-        "sorting": 4,
+        "_position": 4,
         "sys_language_uid": 0
       },
       "set": {
@@ -446,7 +447,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_possibilities",
         "foreign_table_parent_uid": "@NEW_nrtalk_possibilities_s09",
-        "sorting": 1,
+        "_position": 1,
         "sys_language_uid": 0
       },
       "set": {
@@ -465,7 +466,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_possibilities",
         "foreign_table_parent_uid": "@NEW_nrtalk_possibilities_s09",
-        "sorting": 2,
+        "_position": 2,
         "sys_language_uid": 0
       },
       "set": {
@@ -484,7 +485,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_possibilities",
         "foreign_table_parent_uid": "@NEW_nrtalk_possibilities_s09",
-        "sorting": 3,
+        "_position": 3,
         "sys_language_uid": 0
       },
       "set": {
@@ -503,7 +504,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_possibilities",
         "foreign_table_parent_uid": "@NEW_nrtalk_possibilities_s09",
-        "sorting": 4,
+        "_position": 4,
         "sys_language_uid": 0
       },
       "set": {
@@ -522,7 +523,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_possibilities",
         "foreign_table_parent_uid": "@NEW_nrtalk_possibilities_s09",
-        "sorting": 5,
+        "_position": 5,
         "sys_language_uid": 0
       },
       "set": {
@@ -541,7 +542,7 @@
       "match": {
         "pid": "@NEW_nrtalk_page_possibilities",
         "foreign_table_parent_uid": "@NEW_nrtalk_possibilities_s09",
-        "sorting": 6,
+        "_position": 6,
         "sys_language_uid": 0
       },
       "set": {

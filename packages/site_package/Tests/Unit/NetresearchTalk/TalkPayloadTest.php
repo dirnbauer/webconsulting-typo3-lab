@@ -261,6 +261,30 @@ final class TalkPayloadTest extends TestCase
         }
     }
 
+    /**
+     * DataHandler renumbers a collection's sorting when it localizes the
+     * items, so a match on sorting found nothing after the first translate
+     * run and the next seed created every item a second time (lab-nr,
+     * 2026-11-21: 278 duplicates). Items are found by their position.
+     */
+    public function testCollectionItemsAreMatchedByPositionNeverBySorting(): void
+    {
+        $byKey = [];
+        foreach (self::records() as $record) {
+            self::assertArrayNotHasKey('sorting', (array)($record['match'] ?? []), (string)$record['key']);
+            $byKey[(string)$record['key']] = $record;
+        }
+        foreach (self::records() as $record) {
+            foreach (TalkPayload::collections($record) as $collection) {
+                foreach ($collection['keys'] as $index => $key) {
+                    $match = (array)($byKey[$key]['match'] ?? []);
+                    self::assertSame($index + 1, $match['_position'] ?? null, $key . ' is item ' . ($index + 1) . ' of ' . $record['key']);
+                    self::assertSame('@' . $record['key'], $match['foreign_table_parent_uid'] ?? null, $key);
+                }
+            }
+        }
+    }
+
     public function testEveryLabStatusTokenHasAStatus(): void
     {
         $status = TalkPayload::labStatus();
