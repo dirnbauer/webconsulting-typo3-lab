@@ -1,7 +1,9 @@
 import { expect, test } from "@playwright/test";
 
 test("the first keyboard stop skips the shared page header", async ({ page }) => {
-  await page.goto("/", { waitUntil: "networkidle" });
+  // "load", not "networkidle": the start page's film plays in the first
+  // screen on phones and keeps the network busy while it streams.
+  await page.goto("/", { waitUntil: "load" });
 
   await page.keyboard.press("Tab");
   await expect(page.locator(".d-skip-link")).toBeFocused();
@@ -12,7 +14,9 @@ test("the first keyboard stop skips the shared page header", async ({ page }) =>
 
 test("keyboard users enter the mobile navigation and dismiss one level at a time", async ({ page }) => {
   test.skip((page.viewportSize()?.width ?? 1280) > 1024, "The menu toggle is only shown below the desktop breakpoint.");
-  await page.goto("/", { waitUntil: "networkidle" });
+  // "load", not "networkidle": the start page's film plays in the first
+  // screen on phones and keeps the network busy while it streams.
+  await page.goto("/", { waitUntil: "load" });
 
   const menuToggle = page.locator("[data-d-menu-toggle]");
   const nav = page.locator("[data-d-primary-nav]");
@@ -38,7 +42,9 @@ test("keyboard users enter the mobile navigation and dismiss one level at a time
 });
 
 test("the legal navigation announces the current page", async ({ page }) => {
-  await page.goto("/", { waitUntil: "networkidle" });
+  // "load", not "networkidle": the start page's film plays in the first
+  // screen on phones and keeps the network busy while it streams.
+  await page.goto("/", { waitUntil: "load" });
   const legalLink = page.locator(".desiderio-footer__legal-link").first();
   const href = await legalLink.getAttribute("href");
   expect(href).toBeTruthy();
@@ -47,7 +53,9 @@ test("the legal navigation announces the current page", async ({ page }) => {
 });
 
 test("selecting a colour scheme restores focus to its disclosure", async ({ page }) => {
-  await page.goto("/", { waitUntil: "networkidle" });
+  // "load", not "networkidle": the start page's film plays in the first
+  // screen on phones and keeps the network busy while it streams.
+  await page.goto("/", { waitUntil: "load" });
   const switcher = page.locator("[data-d-theme-switch]");
   const summary = switcher.locator("summary");
   await summary.focus();
