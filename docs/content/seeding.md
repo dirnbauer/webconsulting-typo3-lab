@@ -49,6 +49,9 @@ Then, after a `ddev snapshot`:
    7900–7909) and the form definitions (Form data folders 7920–7929, `form:<name>` in the report);
    it never touches the Desiderio sites, so it can run before or after steps 1–14. Then
    `ddev exec vendor/bin/typo3 desiderio:library:warm --site=template-<slug>` for each of the ten.
+   On the production host, where Basic Auth protects every request, warm through
+   `php -d memory_limit=3G Build/Scripts/warm-element-previews.php --site=<site>` (as www-data in
+   the web container): it adds the container's own Basic Auth to requests for the lab's host only.
    Never two seed runs at the same time; production: `--allow-production` in the web container.
 1. `ddev exec vendor/bin/typo3 desiderio:styleguide:seed`
 2. `ddev exec vendor/bin/typo3 sitepackage:seed-utility-translations` (always after 1: the styleguide seed replaces content in every language)

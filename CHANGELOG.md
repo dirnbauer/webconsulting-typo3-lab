@@ -4,6 +4,18 @@ All notable changes to Webconsulting TYPO3 Lab are documented in this file.
 
 ## Unreleased
 
+### Element preview warm-up behind Basic Auth — 2026-11-22
+
+- `Build/Scripts/warm-element-previews.php` runs `desiderio:library:warm` on
+  the production host, where Apache asks every request for the lab's Basic
+  Auth and the plain command got 401 for all 284 previews. With
+  `BASIC_AUTH_USER` and `BASIC_AUTH_PASSWORD` set (the web container has
+  both), requests to the lab's own host carry them; other hosts get nothing,
+  and nothing is written to a file. Without them (DDEV) it runs the command
+  unchanged. Production: `php -d memory_limit=3G
+  Build/Scripts/warm-element-previews.php --site=desiderio` as www-data in the
+  web container (284 warmed, 0 failed on 2026-11-22).
+
 ### Desiderio 4.38.0 — 2026-11-21
 
 - `webconsulting/desiderio` ^4.38.0 (was ^4.37.0): pictures get a `srcset`
