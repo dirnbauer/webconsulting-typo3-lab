@@ -978,8 +978,9 @@
         }
 
         /* Tiles in one row share its height; the shorter one spreads its
-           rows instead of leaving a blank foot. */
-        & [data-sw="tile"]:not([data-sw-size="full"]) > .desiderio-container {
+           rows instead of leaving a blank foot. (Pricing stretches its plan
+           cards itself and keeps its intro margins collapsed.) */
+        & [data-sw="tile"]:not([data-sw-size="full"], .pricing-three-tier) > .desiderio-container {
             display: flex;
             flex-direction: column;
             height: 100%;
