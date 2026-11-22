@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+	<file source-language="en" datatype="plaintext" original="EXT:site_package/Resources/Private/Language/stage_wall.xlf" product-name="site_package">
+		<body>
+			<trans-unit id="backendLayout.title">
+				<source>Desiderio start page: Stage and Wall</source>
+			</trans-unit>
+			<trans-unit id="backendLayout.main">
+				<source>Main content: stage (hero and film first), then the tiles of the wall</source>
+			</trans-unit>
+			<trans-unit id="layout.label">
+				<source>Width on the start page</source>
+			</trans-unit>
+			<trans-unit id="layout.description">
+				<source>A hero as the first element and a film directly after it form the stage. Every other element is a tile of a 12-column wall: tiles that fit share a row, a row that is not full widens its last tile. Docked elements sit under the tile above them, in its width. The default language decides; translations follow it.</source>
+			</trans-unit>
+			<trans-unit id="layout.auto">
+				<source>Full width (automatic)</source>
+			</trans-unit>
+			<trans-unit id="layout.span4">
+				<source>Tile: one third (4 of 12 columns)</source>
+			</trans-unit>
+			<trans-unit id="layout.span5">
+				<source>Tile: 5 of 12 columns</source>
+			</trans-unit>
+			<trans-unit id="layout.span6">
+				<source>Tile: half (6 of 12 columns)</source>
+			</trans-unit>
+			<trans-unit id="layout.span7">
+				<source>Tile: 7 of 12 columns</source>
+			</trans-unit>
+			<trans-unit id="layout.span8">
+				<source>Tile: two thirds (8 of 12 columns)</source>
+			</trans-unit>
+			<trans-unit id="layout.docked">
+				<source>Docked under the tile above (call to action)</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

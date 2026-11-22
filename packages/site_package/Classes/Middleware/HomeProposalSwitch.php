@@ -17,21 +17,27 @@ use TYPO3\CMS\Core\SystemResource\Publishing\UriGenerationOptions;
 use TYPO3\CMS\Core\SystemResource\SystemResourceFactory;
 
 /**
- * A switch between three presentation-only proposals for the start page of
- * the Desiderio site (its root page in every language), for the lab only.
+ * The start page switch of the Desiderio site (its root page in every
+ * language), for the lab: the start page is "Stage and Wall" (template
+ * Pages/StageWall, rendered on the server); the switch shows the earlier
+ * versions on the same markup instead, as the owner's rule for design
+ * alternatives asks.
+ *
+ *   #home=classic  the plain Desiderio start page (StageWall's stylesheet
+ *                  stands down while data-lab-home is set)
+ *   #home=b        proposal B "Layer Stack", #home=c proposal C "Preset
+ *                  Theatre": Resources/Public/Home/<x>/lab-home.css and .js
+ *   #home=a, #home=off  back to "Stage and Wall"
  *
  * One small inline script goes into the page head, right after
  * `<meta charset>` (the charset must stay within the first 1024 bytes). It
- * reads the
- * proposal from the URL fragment (`#home=a|b|c`, `#home=off` to leave),
- * remembers it in localStorage (`lab-home`), sets `data-lab-home` on the html
- * element before first paint and loads that proposal's
- * `Resources/Public/Home/<x>/lab-home.css` and `lab-home.js`. Without a
- * choice the page renders exactly as before: no attribute, no request. It
- * never applies inside a frame (Visual Editor, backend page preview) and not
- * to an edit-mode request, so a stored choice cannot leak into editing. The
- * fragment never reaches the server, so the page cache, the static file
- * cache and cHash see one and the same page.
+ * remembers the choice for the browser tab (sessionStorage `lab-home`; a
+ * shared link does not stick beyond the tab), sets `data-lab-home` on the
+ * html element before first paint and loads that proposal's files. Without a
+ * choice it does nothing. It never applies inside a frame (Visual Editor,
+ * backend page preview) and not to an edit-mode request, so editing always
+ * shows the real start page. The fragment never reaches the server, so the
+ * page cache, the static file cache and cHash see one and the same page.
  *
  * Content-Security-Policy: the lab's frontend policy uses neither nonces nor
  * collected hashes, so EventListener\HomeProposalSwitchPolicy lists this
@@ -42,7 +48,12 @@ use TYPO3\CMS\Core\SystemResource\SystemResourceFactory;
 final readonly class HomeProposalSwitch implements MiddlewareInterface
 {
     public const SITE_IDENTIFIER = 'desiderio';
-    public const PROPOSALS = ['a', 'b', 'c'];
+    /** Proposals with their own files. */
+    public const PROPOSALS = ['b', 'c'];
+    /** The plain start page; no files, the attribute alone. */
+    public const CLASSIC = 'classic';
+    /** Names that mean the start page itself. */
+    public const DEFAULT_NAMES = ['a', 'off'];
     public const STORAGE_KEY = 'lab-home';
     public const MARKER = 'data-lab-home-switch';
     private const RESOURCE = 'EXT:site_package/Resources/Public/Home/%s/lab-home.%s';
@@ -137,21 +148,27 @@ final readonly class HomeProposalSwitch implements MiddlewareInterface
      */
     public static function code(array $proposals): string
     {
-        $map = json_encode($proposals, JSON_THROW_ON_ERROR | JSON_UNESCAPED_SLASHES | JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT);
-        $names = implode('|', array_map(static fn (string $name): string => preg_quote($name, '/'), array_keys($proposals)));
+        $map = json_encode((object)$proposals, JSON_THROW_ON_ERROR | JSON_UNESCAPED_SLASHES | JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT);
+        $names = implode('|', array_map(
+            static fn (string $name): string => preg_quote($name, '/'),
+            [...self::DEFAULT_NAMES, ...array_keys($proposals), self::CLASSIC]
+        ));
         $key = json_encode(self::STORAGE_KEY, JSON_THROW_ON_ERROR);
-        // Reads #home=<x> (also among other fragment parts, "&"-separated),
-        // "off" forgets the choice. A changed #home= on the same page reloads,
-        // so a link can switch proposals.
+        $classic = json_encode(self::CLASSIC, JSON_THROW_ON_ERROR);
+        // Reads #home=<x> (also among other fragment parts, "&"-separated);
+        // "a" and "off" forget the choice. A changed #home= on the same page
+        // reloads, so a link can switch. The choice lives in the tab's
+        // sessionStorage; an older localStorage entry is removed.
         // Never inside a frame: the Visual Editor and backend previews share
         // the origin, and with it the stored choice.
-        return '(function(d,w){if(w.top!==w)return;var U=' . $map . ',K=' . $key . ',R=/(?:^#|&)home=(' . $names . '|off)(?=&|$)/;'
-            . 'function f(){var m=w.location.hash.match(R);return m?m[1]:null}'
-            . 'var h=f(),v=null;try{v=w.localStorage.getItem(K)}catch(e){}'
-            . 'if(h){v=h==="off"?null:h;try{v?w.localStorage.setItem(K,v):w.localStorage.removeItem(K)}catch(e){}}'
-            . 'w.addEventListener("hashchange",function(){var n=f();if(n&&(n==="off"?null:n)!==(v||null))w.location.reload()});'
-            . 'if(!v||!Object.prototype.hasOwnProperty.call(U,v))return;'
-            . 'd.documentElement.setAttribute("data-lab-home",v);'
+        return '(function(d,w){if(w.top!==w)return;var U=' . $map . ',K=' . $key . ',C=' . $classic . ',R=/(?:^#|&)home=(' . $names . ')(?=&|$)/,S=null;'
+            . 'try{S=w.sessionStorage;w.localStorage.removeItem(K)}catch(e){}'
+            . 'function f(){var m=w.location.hash.match(R);return m?(m[1]==="a"||m[1]==="off"?"":m[1]):null}'
+            . 'var h=f(),v=null;try{v=S&&S.getItem(K)}catch(e){}'
+            . 'if(h!==null){v=h||null;try{v?S.setItem(K,v):S.removeItem(K)}catch(e){}}'
+            . 'w.addEventListener("hashchange",function(){var n=f();if(n!==null&&(n||null)!==(v||null))w.location.reload()});'
+            . 'if(v!==C&&!(v&&Object.prototype.hasOwnProperty.call(U,v)))return;'
+            . 'd.documentElement.setAttribute("data-lab-home",v);if(v===C)return;'
             . 'var l=d.createElement("link");l.rel="stylesheet";l.href=U[v][0];l.setAttribute("blocking","render");d.head.appendChild(l);'
             . 'var s=d.createElement("script");s.src=U[v][1];s.async=false;d.head.appendChild(s)'
             . '})(document,window);';

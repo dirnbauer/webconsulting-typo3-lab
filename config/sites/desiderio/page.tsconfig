@@ -11,3 +11,39 @@ TCEFORM {
   pages.categories.PAGE_TSCONFIG_IDLIST < TCEFORM.tt_content.categories.PAGE_TSCONFIG_IDLIST
   sys_category.parent.PAGE_TSCONFIG_IDLIST < TCEFORM.tt_content.categories.PAGE_TSCONFIG_IDLIST
 }
+
+# The start page "Stage and Wall" (site_package Templates/Pages/StageWall,
+# set on the root page by sitepackage:home:stage-wall). One column like
+# Desiderio's start page layout, so the content stays where it is.
+mod.web_layout.BackendLayouts.StageWall {
+  title = LLL:EXT:site_package/Resources/Private/Language/stage_wall.xlf:backendLayout.title
+  config.backend_layout {
+    colCount = 1
+    rowCount = 1
+    rows.1.columns.1 {
+      name = LLL:EXT:site_package/Resources/Private/Language/stage_wall.xlf:backendLayout.main
+      colPos = 0
+      identifier = main
+    }
+  }
+}
+
+# On that page the element's "Layout" field picks its tile width
+# (Classes/StartPage/StageWallPlan: 204-208 = 4-8 of 12 columns, 290 = docked
+# under the tile above, 0 = full width).
+[tree.pagelayout == "pagets__StageWall"]
+  TCEFORM.tt_content.layout {
+    label = LLL:EXT:site_package/Resources/Private/Language/stage_wall.xlf:layout.label
+    description = LLL:EXT:site_package/Resources/Private/Language/stage_wall.xlf:layout.description
+    removeItems = 1,2,3
+    altLabels.0 = LLL:EXT:site_package/Resources/Private/Language/stage_wall.xlf:layout.auto
+    addItems {
+      204 = LLL:EXT:site_package/Resources/Private/Language/stage_wall.xlf:layout.span4
+      205 = LLL:EXT:site_package/Resources/Private/Language/stage_wall.xlf:layout.span5
+      206 = LLL:EXT:site_package/Resources/Private/Language/stage_wall.xlf:layout.span6
+      207 = LLL:EXT:site_package/Resources/Private/Language/stage_wall.xlf:layout.span7
+      208 = LLL:EXT:site_package/Resources/Private/Language/stage_wall.xlf:layout.span8
+      290 = LLL:EXT:site_package/Resources/Private/Language/stage_wall.xlf:layout.docked
+    }
+  }
+[END]

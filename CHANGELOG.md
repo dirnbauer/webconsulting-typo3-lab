@@ -4,6 +4,39 @@ All notable changes to Webconsulting TYPO3 Lab are documented in this file.
 
 ## Unreleased
 
+### Start page "Stage and Wall" — 2026-11-22
+
+- The Desiderio start page (root page, every language) is proposal A "Stage
+  and Wall", rendered on the server: backend layout `pagets__StageWall`
+  (site page TSconfig) with template `Pages/StageWall`. The template renders
+  the content area as Desiderio's start page does (same elements, order,
+  anchors, one sr-only h1) and puts each element's place on its own tags as
+  data attributes (`StartPage/StageWallPlan`, view helpers
+  `sp:stageWall.plan` / `sp:stageWall.cell`); `StageWall/stage-wall.css`
+  places by them and comes from the template's head, so no script inserts it
+  and nothing flashes. A hero first and a film after it form the stage; every
+  other element is a tile of a 12-column wall whose width the editor picks in
+  the element's "Layout" field on that page (204–208: 4–8 of 12 columns, 290:
+  docked under the tile above, 0: full width; default language decides). Rows
+  never leave a hole, so reordering or adding elements keeps a whole page.
+  The Visual Editor shows the wall with its widths and the stage as two
+  blocks. `sitepackage:home:stage-wall [--dry-run] [--revert]
+  [--allow-production]` sets the layout and the design's widths on the root
+  page found by site, and takes them back.
+- The switch now offers the earlier versions on top of it: `#home=classic`
+  (the plain Desiderio start page), `#home=b`, `#home=c`; `#home=a` or
+  `#home=off` return. The choice lasts for the browser tab (sessionStorage);
+  an entry of the earlier switch in localStorage is removed. Proposal A's
+  overlay files are gone (`Resources/Public/Home/a`).
+
+### Desiderio 4.39.0 — 2026-11-22
+
+- `webconsulting/desiderio` ^4.39.0 (was ^4.38.0): the page theme preset is
+  the same in every language (`l10n_mode` exclude). `/de/`, `/zh/` and `/hu/`
+  rendered the site setting (lagoon) instead of the root page's b0, and the
+  element chapters lost their presets in translations. Data step once per
+  installation: `desiderio:theme:sync-translations` (`--dry-run` lists).
+
 ### Desiderio 4.38.0 — 2026-11-21
 
 - `webconsulting/desiderio` ^4.38.0 (was ^4.37.0): pictures get a `srcset`

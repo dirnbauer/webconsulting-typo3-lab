@@ -1,0 +1,1181 @@
+/*
+ * The Desiderio start page "Stage and Wall" (template Pages/StageWall,
+ * backend layout pagets__StageWall). Loaded by that template only, in the
+ * head, so every language of the start page has it before the first paint.
+ *
+ *   Stage  The hero text stands centred above one large object: the product
+ *          film in a bezel on a softly lit floor. Its caption and the hero
+ *          photo sit in a side rail. The film tilts back a little and
+ *          flattens as it scrolls into place (CSS scroll timeline only).
+ *   Wall   Every other element is a tile of one 12-column editorial grid on
+ *          a quiet tinted ground: neighbours share a row, card stacks become
+ *          ruled cells, and calls to action dock under their tile as quiet
+ *          connectors.
+ *
+ * Placement: the template marks each element's root tag and its anchors with
+ * data attributes from Classes/StartPage/StageWallPlan (data-sw = hero, film,
+ * tile or connector; column, span, row and rows on the desktop grid; size =
+ * narrow, medium or full). Nothing here depends on the position or number of
+ * elements. The editor picks a tile's width in the element's "Layout" field.
+ * Below 75rem every tile takes the full width in page order. The hero and
+ * film sections (and their containers) use display: contents, so the hero
+ * text, the photo, the film caption and the player are placed on the stage
+ * directly; the DOM, the reading order and the tab order are the ones of the
+ * plain start page.
+ *
+ * In the Visual Editor (?editMode) the content area is a <ve-content-area>
+ * and every element sits in a <ve-content-element>: the wall keeps its tiles
+ * and widths (section 9), the stage is shown as two stacked blocks, so the
+ * editor's frames and toolbars keep a box to sit on.
+ *
+ * The lab's start page switch (#home=classic|b|c) sets data-lab-home on the
+ * html element: then nothing here applies.
+ *
+ * Colour: shadcn/Desiderio tokens only, mixed with color-mix() or relative
+ * oklch(); no colour token is redeclared. The page's own custom properties
+ * (--sw-*) are declared on the wrapper, inside <body>, where the presets set
+ * their tokens.
+ *
+ * Motion: one scroll-linked tilt (film) and 160-220 ms hover transitions,
+ * all inside prefers-reduced-motion: no-preference.
+ */
+
+:root:not([data-lab-home]) .desiderio-stage-wall {
+    /* ---------------------------------------------------------------- */
+    /*  0. Tokens                                                         */
+    /* ---------------------------------------------------------------- */
+    --sw-g: clamp(0.75rem, 0.35rem + 1vw, 1.25rem);
+    --sw-gutter: max(1rem, var(--sw-g));
+    --sw-max: 84rem;
+    --sw-col: calc((min(100% - 2 * var(--sw-gutter), var(--sw-max)) - 11 * var(--sw-g)) / 12);
+    --sw-pad: clamp(1.25rem, 0.75rem + 1.5vw, 2.25rem);
+    --sw-r: calc(var(--radius, 0.625rem) * 1.4 + 0.25rem);
+    --sw-row: clamp(0.75rem, 0.35rem + 1vw, 1.25rem);
+    --sw-lead: clamp(4rem, 3rem + 4vw, 7rem);
+    --sw-display: clamp(2.5rem, 1.15rem + 4.4vw, 5rem);
+    --sw-h2: clamp(1.5rem, 1.2rem + 0.75vw, 1.875rem);
+    --sw-ink-soft: color-mix(in oklch, var(--foreground) 72%, var(--muted-foreground));
+    --sw-wall: color-mix(in oklch, var(--muted) 72%, var(--background));
+    --sw-tile: var(--card);
+    --sw-line: var(--border);
+    --sw-lift: 0 1px 2px color-mix(in oklch, var(--foreground) 5%, transparent), 0 28px 56px -40px color-mix(in oklch, var(--foreground) 28%, transparent);
+    --sw-edge-light: inset 0 1px 0 color-mix(in oklch, var(--background) 70%, transparent);
+    /* The section seams belong to a stack of sections; tiles have edges. */
+    --d-seam-line: none;
+    --d-seam-mark: none;
+    --d-seam-grow: none;
+
+    position: relative;
+    z-index: 0;
+    display: grid;
+    grid-template-columns:
+        [full-start] minmax(calc(var(--sw-gutter) - var(--sw-g)), 1fr)
+        [wall-start] repeat(12, minmax(0, var(--sw-col)))
+        [wall-end] minmax(calc(var(--sw-gutter) - var(--sw-g)), 1fr) [full-end];
+    /* Phone: hero text, film, film caption, hero photo; the wall follows in
+       page order. Spacing comes from margins: a row gap would also open
+       around the zero-size anchors. */
+    grid-template-rows: [stage-start] auto auto auto auto [stage-end];
+    column-gap: var(--sw-g);
+    row-gap: 0;
+    padding-block-end: clamp(3rem, 6vw, 6rem);
+
+    &[data-sw-stage="hero"] { grid-template-rows: [stage-start] auto auto [stage-end]; }
+    &[data-sw-stage="none"] { grid-template-rows: none; }
+
+    :root.dark & {
+        --sw-wall: var(--background);
+        --sw-lift: 0 0 0 1px color-mix(in oklch, var(--foreground) 3%, transparent), 0 28px 56px -36px color-mix(in oklch, black 70%, transparent);
+        --sw-edge-light: inset 0 1px 0 color-mix(in oklch, var(--foreground) 7%, transparent);
+        --sw-ink-soft: color-mix(in oklch, var(--foreground) 78%, var(--muted-foreground));
+    }
+
+    /* ---------------------------------------------------------------- */
+    /*  1. Backdrops: stage light (::after) and the wall ground (::before) */
+    /* ---------------------------------------------------------------- */
+    /* Absolutely positioned on grid lines, so they take no grid cell.
+       Stage: a fine dot floor that fades out behind the headline and at the
+       foot of the stage, and one glow of the preset's primary behind the
+       film (alpha from chroma, so the neutral b0 preset gets none). In dark
+       mode a soft light falls from above (and follows a fine pointer, see
+       stage-wall.js); in light mode the page is already the light. */
+    &::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        grid-column: full-start / full-end;
+        grid-row: stage-start / stage-end;
+        z-index: -1;
+        pointer-events: none;
+        background:
+            radial-gradient(42% 30% at 50% 72%, oklch(from var(--primary) l c h / clamp(0, c * 0.9, 0.14)), transparent 70%),
+            radial-gradient(circle at 1px 1px, color-mix(in oklch, var(--foreground) 13%, transparent) 1px, transparent 1.6px) 0 0 / 22px 22px;
+        -webkit-mask-image:
+            radial-gradient(ellipse 62% 48% at 50% 26%, transparent 55%, #000 100%),
+            linear-gradient(to bottom, #000 70%, transparent);
+        -webkit-mask-composite: source-in;
+        mask-image:
+            radial-gradient(ellipse 62% 48% at 50% 26%, transparent 55%, #000 100%),
+            linear-gradient(to bottom, #000 70%, transparent);
+        mask-composite: intersect;
+    }
+
+    :root.dark &::after {
+        background:
+            radial-gradient(ellipse 55% 60% at var(--sw-mx, 50%) var(--sw-my, 0%), color-mix(in oklch, var(--foreground) 7%, transparent), transparent 72%),
+            radial-gradient(42% 30% at 50% 72%, oklch(from var(--primary) l c h / clamp(0, c * 0.9, 0.14)), transparent 70%),
+            radial-gradient(circle at 1px 1px, color-mix(in oklch, var(--foreground) 16%, transparent) 1px, transparent 1.6px) 0 0 / 22px 22px;
+        -webkit-mask-image: linear-gradient(to bottom, #000 70%, transparent);
+        mask-image: linear-gradient(to bottom, #000 70%, transparent);
+    }
+
+    &[data-sw-stage="none"]::after { content: none; }
+
+    &::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        inset-block-start: clamp(-6rem, -8vw, -3rem);
+        grid-column: full-start / full-end;
+        grid-row: stage-end / auto;
+        z-index: -1;
+        pointer-events: none;
+        background: linear-gradient(to bottom, transparent, var(--sw-wall) clamp(3rem, 8vw, 6rem));
+        border-block-end: 1px solid var(--sw-line);
+    }
+
+    &[data-sw-stage="none"]::before { inset-block-start: 0; }
+
+    /* Anchors share their element's cell: scroll targets stay with it. */
+    & > [data-sw-anchor] {
+        width: 0;
+        height: 0;
+        align-self: start;
+        justify-self: start;
+        scroll-margin-top: 6rem;
+    }
+
+    /* ---------------------------------------------------------------- */
+    /*  2. The stage                                                       */
+    /* ---------------------------------------------------------------- */
+    & > [data-sw="hero"],
+    & > [data-sw="hero"] > .desiderio-container,
+    & > [data-sw="hero"] .hero__grid,
+    & > [data-sw="film"],
+    & > [data-sw="film"] > .desiderio-container {
+        display: contents;
+    }
+
+    & > [data-sw-anchor="hero"],
+    & > [data-sw="hero"] .hero__content { grid-row: 1; }
+    & > [data-sw="film"] .feature-video__player { grid-row: 2; }
+    & > [data-sw-anchor="film"],
+    & > [data-sw="film"] .feature-video__intro { grid-row: 3; }
+    & > [data-sw="hero"] .hero__media { grid-row: 4; }
+    & > [data-sw-anchor="hero"],
+    & > [data-sw-anchor="film"],
+    & > [data-sw="hero"] .hero__content,
+    & > [data-sw="hero"] .hero__media,
+    & > [data-sw="film"] .feature-video__player,
+    & > [data-sw="film"] .feature-video__intro {
+        grid-column: wall-start / wall-end;
+    }
+
+    &[data-sw-stage="hero"] > [data-sw="hero"] .hero__media { grid-row: 2; }
+
+    & [data-sw="hero"] .hero__content {
+        justify-self: center;
+        /* A set width, not shrink-to-fit: when the web font arrives the
+           lines reflow inside the box instead of moving the box (CLS). */
+        width: min(100%, 60rem);
+        padding-block: clamp(2.75rem, 1.5rem + 5vh, 5.5rem) clamp(2.25rem, 1rem + 4vh, 3.75rem);
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    & [data-sw="hero"] .hero__headline {
+        margin-block: clamp(1rem, 0.6rem + 1vw, 1.5rem) clamp(1rem, 0.7rem + 0.8vw, 1.5rem);
+        font-size: var(--sw-display);
+        font-weight: 700;
+        line-height: 1.02;
+        letter-spacing: -0.042em;
+        text-wrap: balance;
+        max-width: 18ch;
+    }
+
+    /* The headline is lit from above: full ink at the top, a softer ink at
+       the bottom (still far above 4.5:1). Solid ink where clip-text is
+       missing. */
+    @supports ((-webkit-background-clip: text) or (background-clip: text)) {
+        & [data-sw="hero"] .hero__headline {
+            background-image: linear-gradient(180deg, var(--foreground) 30%, var(--sw-ink-soft) 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            /* Descenders of the last line stay inside the painted box. */
+            padding-block-end: 0.06em;
+        }
+    }
+
+    & [data-sw="hero"] .hero__subheadline {
+        max-width: 40rem;
+        margin-inline: auto;
+        margin-block-end: clamp(1.5rem, 1rem + 1.2vw, 2.25rem);
+        font-size: clamp(1.0625rem, 0.95rem + 0.4vw, 1.25rem);
+        line-height: 1.55;
+        text-wrap: pretty;
+    }
+
+    & [data-sw="hero"] .hero__actions {
+        justify-content: center;
+        gap: 0.75rem;
+    }
+
+    & [data-sw="hero"] .hero__actions > [data-slot="button"] {
+        min-height: 2.75rem;
+        padding-inline: 1.375rem;
+    }
+
+    /* The film: the object on the stage. */
+    & [data-sw="film"] .feature-video__player {
+        position: relative;
+        z-index: 1;
+        align-self: start;
+        padding: clamp(0.375rem, 0.2rem + 0.4vw, 0.625rem);
+        border-radius: calc(var(--sw-r) + clamp(0.375rem, 0.2rem + 0.4vw, 0.625rem));
+        border: 1px solid var(--sw-line);
+        background: linear-gradient(180deg, var(--card), color-mix(in oklch, var(--muted) 65%, var(--card)));
+        box-shadow:
+            var(--sw-edge-light),
+            0 2px 4px color-mix(in oklch, var(--foreground) 5%, transparent),
+            0 60px 120px -60px color-mix(in oklch, var(--foreground) 42%, transparent),
+            0 30px 60px -45px color-mix(in oklch, var(--foreground) 30%, transparent);
+        transform-origin: 50% 100%;
+    }
+
+    :root.dark & [data-sw="film"] .feature-video__player {
+        box-shadow:
+            var(--sw-edge-light),
+            0 0 0 1px color-mix(in oklch, var(--foreground) 4%, transparent),
+            0 60px 120px -50px color-mix(in oklch, black 85%, transparent),
+            0 0 90px -30px oklch(from var(--primary) l c h / clamp(0, c * 1.4, 0.3));
+    }
+
+    /* The floor the film stands on: a soft contact shadow. */
+    & [data-sw="film"] .feature-video__player::after {
+        content: "";
+        position: absolute;
+        z-index: -1;
+        inset-inline: 6%;
+        inset-block-end: -2.75rem;
+        height: 3.5rem;
+        border-radius: 50%;
+        background: radial-gradient(closest-side, color-mix(in oklch, var(--foreground) 16%, transparent), transparent);
+        pointer-events: none;
+    }
+
+    & [data-sw="film"] .feature-video__native {
+        border-radius: var(--sw-r);
+        border-color: color-mix(in oklch, var(--border) 60%, transparent);
+        background: var(--muted);
+    }
+
+    & [data-sw="film"] .feature-video__intro {
+        align-items: center;
+        text-align: center;
+        max-width: 40rem;
+        justify-self: center;
+        margin: clamp(2.5rem, 2rem + 2vw, 3.5rem) 0 0;
+        gap: 0.5rem;
+    }
+
+    & [data-sw="film"] .feature-video__intro .d-section-intro__heading {
+        font-size: var(--sw-h2);
+        letter-spacing: -0.03em;
+    }
+
+    & [data-sw="film"] .feature-video__intro .d-section-intro__lead {
+        font-size: var(--d-text-base, 1rem);
+        line-height: 1.6;
+    }
+
+    & [data-sw="hero"] .hero__media {
+        margin-block-start: clamp(1.5rem, 1rem + 2vw, 2.5rem);
+        justify-self: center;
+        width: min(100%, 36rem);
+        padding: 0.375rem;
+        border-radius: calc(var(--sw-r) + 0.375rem);
+        border: 1px solid var(--sw-line);
+        background: var(--card);
+        box-shadow: var(--sw-edge-light), var(--sw-lift);
+    }
+
+    & [data-sw="hero"] .hero__image {
+        border-radius: var(--sw-r);
+    }
+
+    /* ---------------------------------------------------------------- */
+    /*  3. The wall: tiles                                                 */
+    /* ---------------------------------------------------------------- */
+    & > [data-sw-anchor]:not([data-sw-anchor="hero"], [data-sw-anchor="film"]),
+    & > :is([data-sw="tile"], [data-sw="connector"]) {
+        grid-column: wall-start / wall-end;
+    }
+
+    & :is([data-sw="tile"], [data-sw="connector"]) {
+        position: relative;
+        min-width: 0;
+        margin: 0 0 var(--sw-row);
+        padding: var(--sw-pad);
+        border: 1px solid var(--sw-line);
+        border-radius: var(--sw-r);
+        background-color: var(--sw-tile);
+        box-shadow: var(--sw-edge-light), var(--sw-lift);
+        transition: border-color var(--d-motion, 220ms) var(--d-ease, ease);
+    }
+
+    /* The process panel of how-to-steps is a tile here, not an inset band. */
+    & :is([data-sw="tile"], [data-sw="connector"])::before,
+    & :is([data-sw="tile"], [data-sw="connector"])::after {
+        content: none;
+    }
+
+    /* Room between the stage and the first row of tiles. Below 75rem an
+       anchor has a row of its own above its tile and takes no room. */
+    & > [data-sw-lead="first"]:not([data-sw-anchor]) { margin-block-start: var(--sw-lead); }
+    &[data-sw-stage="none"] > [data-sw-lead="first"]:not([data-sw-anchor]) { margin-block-start: clamp(2rem, 1.5rem + 2vw, 3.5rem); }
+
+    & :is([data-sw="tile"], [data-sw="connector"]) > .desiderio-container {
+        width: 100%;
+        max-width: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+        & :is([data-sw="tile"], [data-sw="connector"]):not(.cta-banner):hover {
+            border-color: color-mix(in oklch, var(--ring) 35%, var(--sw-line));
+        }
+    }
+
+    & :is([data-sw="tile"], [data-sw="connector"]):not(.cta-banner):focus-within {
+        border-color: color-mix(in oklch, var(--ring) 55%, var(--sw-line));
+    }
+
+    /* Tile headings: start-aligned, one size, mono eyebrows. */
+    & [data-sw="tile"] :is(.d-section-intro, .pricing-three-tier__intro, .category-cards__intro, .feature-checklist__intro) {
+        align-items: flex-start;
+        text-align: start;
+        max-width: 44rem;
+        margin-inline: 0;
+        margin-block-end: clamp(1.25rem, 1rem + 1vw, 2rem);
+        gap: 0.5rem;
+    }
+
+    & [data-sw="tile"] :is(.d-section-intro, .pricing-three-tier__intro, .category-cards__intro) > * {
+        margin-inline: 0;
+    }
+
+    & [data-sw="tile"] :is(.d-section-intro__heading, .pricing-three-tier__headline, .category-cards__headline, .how-to-steps__headline) {
+        font-size: var(--sw-h2);
+        line-height: 1.15;
+        letter-spacing: -0.03em;
+        text-wrap: balance;
+    }
+
+    & [data-sw="tile"] :is(.d-section-intro__lead, .pricing-three-tier__description, .category-cards__description, .how-to-steps__intro) {
+        font-size: var(--d-text-base, 1rem);
+        line-height: 1.6;
+        max-width: 60ch;
+        color: var(--muted-foreground);
+    }
+
+    & [data-sw="tile"] :is(.d-section-intro__eyebrow, [class$="__eyebrow"]:not([data-slot="badge"])) {
+        font-family: var(--font-mono, ui-monospace, monospace);
+        font-size: 0.75rem;
+        letter-spacing: 0.08em;
+        font-weight: 500;
+    }
+
+    /* Card stacks inside a tile become ruled cells: a hairline above each,
+       no second frame. */
+    & [data-sw="tile"] :is(.feature-cards__grid, .use-case-grid__grid) > [data-slot="card"],
+    & [data-sw="tile"] .feature-checklist__body > [data-slot="card"],
+    & [data-sw="tile"] .category-cards__card {
+        padding: 1rem 0 0;
+        border: 0;
+        border-block-start: 1px solid var(--sw-line);
+        border-radius: 0;
+        background: transparent;
+        box-shadow: none;
+        transform: none;
+        gap: 0.5rem;
+    }
+
+    /* The flattened cells no longer draw the card's focus ring; the link
+       itself shows it. */
+    & [data-sw="tile"] :is(.use-case-grid__link, .category-cards__link):focus-visible {
+        outline: 2px solid var(--ring);
+        outline-offset: 3px;
+        border-radius: calc(var(--radius, 0.625rem) * 0.5);
+    }
+
+    & [data-sw="tile"] :is(.feature-cards__body, .use-case-grid__body) {
+        padding: 0;
+    }
+
+    & [data-sw="tile"] :is(.feature-cards__grid, .use-case-grid__grid, .category-cards__grid) {
+        gap: 1.25rem clamp(1.25rem, 0.75rem + 1.5vw, 2.25rem);
+    }
+
+    & [data-sw="tile"] .feature-cards__title {
+        font-size: 1.0625rem;
+        line-height: 1.4;
+        letter-spacing: -0.01em;
+    }
+
+    /* A long card list in a narrow tile is one numbered column (desktop);
+       the numbers are decoration, screen readers skip them. */
+    & [data-sw="tile"][data-sw-size="narrow"] .feature-cards__grid:has(> :nth-child(5)) {
+        counter-reset: sw-index;
+    }
+
+    & [data-sw="tile"][data-sw-size="narrow"] .feature-cards__grid:has(> :nth-child(5)) > [data-slot="card"] {
+        counter-increment: sw-index;
+    }
+
+    & [data-sw="tile"][data-sw-size="narrow"] .feature-cards__grid:has(> :nth-child(5)) .feature-cards__title::before {
+        content: counter(sw-index, decimal-leading-zero) / "";
+        display: block;
+        margin-block-end: 0.375rem;
+        font-family: var(--font-mono, ui-monospace, monospace);
+        font-size: 0.75rem;
+        font-weight: 500;
+        letter-spacing: 0.06em;
+        color: var(--muted-foreground);
+    }
+
+    /* Alternating feature rows: a list, picture beside text. */
+    & [data-sw="tile"] .feature-alternating__rows {
+        gap: 0;
+    }
+
+    & [data-sw="tile"] .feature-alternating__row {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 1rem;
+        padding-block: 1.25rem;
+        border-block-start: 1px solid var(--sw-line);
+        align-items: center;
+    }
+
+    & [data-sw="tile"] .feature-alternating__row:last-child {
+        padding-block-end: 0;
+    }
+
+    & [data-sw="tile"] .feature-alternating__row--reverse .feature-alternating__copy {
+        order: 0;
+    }
+
+    & [data-sw="tile"] .feature-alternating__media {
+        order: -1;
+    }
+
+    & [data-sw="tile"] .feature-alternating__image {
+        border-radius: calc(var(--sw-r) - 0.25rem);
+        outline: 1px solid color-mix(in oklch, var(--foreground) 8%, transparent);
+        outline-offset: -1px;
+        box-shadow: 0 18px 36px -28px color-mix(in oklch, var(--foreground) 45%, transparent);
+    }
+
+    & [data-sw="tile"] .feature-alternating__title {
+        font-size: 1.1875rem;
+        letter-spacing: -0.015em;
+    }
+
+    & [data-sw="tile"] .feature-alternating__copy {
+        display: flex;
+        flex-direction: column;
+        gap: 0.375rem;
+    }
+
+    & [data-sw="tile"] .gallery__browser {
+        max-width: none;
+    }
+
+    /* Pricing, the one loud moment: the recommended plan is lifted. */
+    & [data-sw="tile"] .pricing-three-tier__grid {
+        margin-block-start: 0.5rem;
+    }
+
+    & [data-sw="tile"] .pricing-three-tier__item [data-slot="card"] {
+        height: 100%;
+        background: var(--card);
+        box-shadow: 0 0 0 1px var(--sw-line);
+    }
+
+    & [data-sw="tile"] .pricing-three-tier__item:has(.pricing-three-tier__ribbon) [data-slot="card"] {
+        box-shadow:
+            0 0 0 2px var(--primary),
+            0 30px 60px -36px color-mix(in oklch, var(--foreground) 45%, transparent);
+    }
+
+    & [data-sw="tile"] .pricing-three-tier__price {
+        font-size: clamp(1.75rem, 1.4rem + 0.8vw, 2.25rem);
+        letter-spacing: -0.035em;
+        font-variant-numeric: tabular-nums;
+    }
+
+    /* A checklist under its heading. */
+    & [data-sw="tile"] .feature-checklist__layout {
+        display: block;
+    }
+
+    & [data-sw="tile"] .feature-checklist__body > [data-slot="card"] {
+        padding: 0;
+    }
+
+    & [data-sw="tile"] .feature-checklist__items {
+        padding: 0;
+    }
+
+    & [data-sw="tile"] .feature-checklist__list {
+        max-width: none;
+        margin-inline: 0;
+    }
+
+    & [data-sw="tile"] .category-cards__card {
+        display: flex;
+        flex-direction: column;
+    }
+
+    & [data-sw="tile"] .category-cards__link {
+        margin-block-start: auto;
+    }
+
+    & [data-sw="tile"] .how-to-steps__list {
+        max-width: none;
+    }
+
+    & [data-sw="tile"] .how-to-steps__image {
+        border-radius: calc(var(--sw-r) - 0.25rem);
+        outline: 1px solid color-mix(in oklch, var(--foreground) 8%, transparent);
+        outline-offset: -1px;
+    }
+
+    /* The closing band keeps its own primary surface. */
+    & [data-sw="tile"].cta-banner {
+        background-color: var(--primary);
+        border-color: transparent;
+        overflow: clip;
+        padding-block: clamp(2rem, 1.5rem + 2vw, 3.5rem);
+        box-shadow: 0 40px 80px -50px color-mix(in oklch, var(--foreground) 55%, transparent);
+    }
+
+    & [data-sw="tile"].cta-banner .cta-banner__headline {
+        font-size: clamp(1.625rem, 1.2rem + 1.2vw, 2.375rem);
+        letter-spacing: -0.035em;
+        text-wrap: balance;
+    }
+
+    /* ---------------------------------------------------------------- */
+    /*  4. Connectors: a call to action docked under its tile             */
+    /* ---------------------------------------------------------------- */
+    & :is([data-sw="tile"], [data-sw="connector"])[data-sw-dock] {
+        margin-block-end: 0;
+        border-end-start-radius: 0;
+        border-end-end-radius: 0;
+        box-shadow: var(--sw-edge-light);
+    }
+
+    & [data-sw="connector"] {
+        padding: clamp(0.875rem, 0.6rem + 0.6vw, 1.125rem) var(--sw-pad);
+        border-block-start: 1px dashed color-mix(in oklch, var(--foreground) 22%, transparent);
+        border-start-start-radius: 0;
+        border-start-end-radius: 0;
+        background-color: color-mix(in oklch, var(--muted) 55%, var(--sw-tile));
+    }
+
+    & :is([data-sw="tile"], [data-sw="connector"]) .cta-inline__bar {
+        padding: 0;
+        border: 0;
+        border-radius: 0;
+        background: transparent;
+        box-shadow: none;
+        gap: 0.5rem 1.5rem;
+    }
+
+    & :is([data-sw="tile"], [data-sw="connector"]) .cta-inline__headline {
+        font-size: 1rem;
+        line-height: 1.4;
+        letter-spacing: -0.01em;
+    }
+
+    & :is([data-sw="tile"], [data-sw="connector"]) .cta-inline__description {
+        font-size: 0.9375rem;
+        line-height: 1.5;
+        color: var(--muted-foreground);
+    }
+
+    /* The connector's link is a quiet outline button with an arrow. */
+    & :is([data-sw="tile"], [data-sw="connector"]) .cta-inline__bar > [data-slot="button"] {
+        flex-shrink: 0;
+        min-height: 2.5rem;
+        background: var(--sw-tile);
+        color: var(--foreground);
+        border: 1px solid color-mix(in oklch, var(--foreground) 22%, transparent);
+        box-shadow: none;
+        gap: 0.5rem;
+    }
+
+    & :is([data-sw="tile"], [data-sw="connector"]) .cta-inline__bar > [data-slot="button"]::after {
+        content: "→" / "";
+        transition: translate var(--d-motion-fast, 160ms) var(--d-ease, ease);
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+        & :is([data-sw="tile"], [data-sw="connector"]) .cta-inline__bar > [data-slot="button"]:hover {
+            background: var(--muted);
+            color: var(--foreground);
+        }
+
+        & :is([data-sw="tile"], [data-sw="connector"]) .cta-inline__bar > [data-slot="button"]:hover::after {
+            translate: 0.1875rem 0;
+        }
+    }
+
+    & :is([data-sw="tile"], [data-sw="connector"]) .cta-inline__bar > [data-slot="button"]:focus-visible {
+        outline: 2px solid var(--ring);
+        outline-offset: 2px;
+    }
+
+    /* ---------------------------------------------------------------- */
+    /*  5. Phone                                                          */
+    /* ---------------------------------------------------------------- */
+    @media (max-width: 47.99rem) {
+        & [data-sw="hero"] .hero__actions {
+            width: 100%;
+            flex-direction: column;
+            align-items: stretch;
+        }
+
+        & [data-sw="hero"] .hero__actions > [data-slot="button"] {
+            width: 100%;
+        }
+
+        & [data-sw="hero"] .hero__headline {
+            max-width: none;
+        }
+
+        & [data-sw="film"] .feature-video__player::after {
+            inset-block-end: -1.5rem;
+            height: 2rem;
+        }
+
+        & :is([data-sw="tile"], [data-sw="connector"]) .cta-inline__bar {
+            flex-direction: column;
+            align-items: flex-start;
+            text-align: start;
+        }
+
+        & :is([data-sw="tile"], [data-sw="connector"]) .cta-inline__description {
+            margin-inline: 0;
+        }
+
+        & [data-sw="tile"] :is(.feature-cards__grid, .use-case-grid__grid, .category-cards__grid) {
+            grid-template-columns: minmax(0, 1fr);
+        }
+
+        & [data-sw="tile"] .gallery__intro {
+            margin-block-end: 1rem;
+        }
+
+        & [data-sw="tile"].cta-banner .cta-banner__content {
+            align-items: flex-start;
+            text-align: start;
+        }
+
+        & [data-sw="tile"].cta-banner .cta-banner__text {
+            align-items: flex-start;
+        }
+
+        & [data-sw="tile"].cta-banner .cta-banner__action {
+            justify-content: flex-start;
+        }
+    }
+
+    /* ---------------------------------------------------------------- */
+    /*  6. Tablet: still one tile per row, two columns inside               */
+    /* ---------------------------------------------------------------- */
+    @media (min-width: 48rem) {
+        grid-template-rows: [stage-start] auto auto auto [stage-end];
+
+        & > [data-sw-anchor="film"],
+        & > [data-sw="film"] .feature-video__intro {
+            grid-row: 3;
+            grid-column: wall-start / span 7;
+            align-items: flex-start;
+            text-align: start;
+            justify-self: stretch;
+            align-self: center;
+            max-width: none;
+        }
+
+        & > [data-sw="film"] .feature-video__intro > * {
+            margin-inline: 0;
+        }
+
+        & > [data-sw="hero"] .hero__media {
+            grid-row: 3;
+            grid-column: span 5 / wall-end;
+            width: 100%;
+            margin-block-start: clamp(2.5rem, 2rem + 2vw, 3.5rem);
+            align-self: center;
+        }
+
+        &[data-sw-stage="hero"] > [data-sw="hero"] .hero__media {
+            grid-row: 2;
+            grid-column: wall-start / wall-end;
+            width: min(100%, 44rem);
+            justify-self: center;
+        }
+
+        & [data-sw="tile"] :is(.feature-cards__grid, .category-cards__grid) {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        & [data-sw="tile"] .use-case-grid__grid {
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+
+        & [data-sw="tile"] .feature-alternating__row {
+            grid-template-columns: minmax(0, 0.8fr) minmax(0, 1fr);
+            gap: clamp(1rem, 0.5rem + 1.5vw, 1.75rem);
+        }
+
+        & [data-sw="tile"] .how-to-steps__list {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 2rem clamp(1.25rem, 0.75rem + 1.5vw, 2.25rem);
+        }
+
+        & [data-sw="tile"] .how-to-steps__content {
+            display: flex;
+            flex-direction: column;
+        }
+
+        & [data-sw="tile"] .how-to-steps__media {
+            margin-block-start: auto;
+        }
+    }
+
+    /* ---------------------------------------------------------------- */
+    /*  7. Desktop: the stage with its rail, and the wall's rows          */
+    /* ---------------------------------------------------------------- */
+    @media (min-width: 75rem) {
+        grid-template-rows: [stage-start] auto auto auto [stage-end];
+
+        & [data-sw="hero"] .hero__content { padding-block-end: clamp(2.5rem, 1rem + 4vh, 4rem); }
+
+        /* Film left (8 columns), rail right (4): caption on top, photo below. */
+        & > [data-sw="film"] .feature-video__player {
+            grid-row: 2 / 4;
+            grid-column: wall-start / span 8;
+        }
+
+        & > [data-sw-anchor="film"],
+        & > [data-sw="film"] .feature-video__intro {
+            grid-row: 2;
+            grid-column: span 4 / wall-end;
+            margin: 0;
+            align-self: start;
+            padding-block-start: clamp(0.5rem, 2vh, 1.5rem);
+            padding-inline-start: clamp(0.5rem, 1vw, 1.25rem);
+        }
+
+        & > [data-sw="hero"] .hero__media {
+            grid-row: 3;
+            grid-column: span 4 / wall-end;
+            margin-block-start: 1.5rem;
+            align-self: end;
+            width: 100%;
+        }
+
+        /* Placement from the plan: column, span, first row and rows. */
+        & > [data-sw-row="1"] { grid-row-start: 1; }
+        & > [data-sw-row="2"] { grid-row-start: 2; }
+        & > [data-sw-row="3"] { grid-row-start: 3; }
+        & > [data-sw-row="4"] { grid-row-start: 4; }
+        & > [data-sw-row="5"] { grid-row-start: 5; }
+        & > [data-sw-row="6"] { grid-row-start: 6; }
+        & > [data-sw-row="7"] { grid-row-start: 7; }
+        & > [data-sw-row="8"] { grid-row-start: 8; }
+        & > [data-sw-row="9"] { grid-row-start: 9; }
+        & > [data-sw-row="10"] { grid-row-start: 10; }
+        & > [data-sw-row="11"] { grid-row-start: 11; }
+        & > [data-sw-row="12"] { grid-row-start: 12; }
+        & > [data-sw-row="13"] { grid-row-start: 13; }
+        & > [data-sw-row="14"] { grid-row-start: 14; }
+        & > [data-sw-row="15"] { grid-row-start: 15; }
+        & > [data-sw-row="16"] { grid-row-start: 16; }
+        & > [data-sw-row="17"] { grid-row-start: 17; }
+        & > [data-sw-row="18"] { grid-row-start: 18; }
+        & > [data-sw-row="19"] { grid-row-start: 19; }
+        & > [data-sw-row="20"] { grid-row-start: 20; }
+        & > [data-sw-row="21"] { grid-row-start: 21; }
+        & > [data-sw-row="22"] { grid-row-start: 22; }
+        & > [data-sw-row="23"] { grid-row-start: 23; }
+        & > [data-sw-row="24"] { grid-row-start: 24; }
+        & > [data-sw-row="25"] { grid-row-start: 25; }
+        & > [data-sw-row="26"] { grid-row-start: 26; }
+        & > [data-sw-row="27"] { grid-row-start: 27; }
+        & > [data-sw-row="28"] { grid-row-start: 28; }
+        & > [data-sw-row="29"] { grid-row-start: 29; }
+        & > [data-sw-row="30"] { grid-row-start: 30; }
+        & > [data-sw-row="31"] { grid-row-start: 31; }
+        & > [data-sw-row="32"] { grid-row-start: 32; }
+        & > [data-sw-row="33"] { grid-row-start: 33; }
+        & > [data-sw-row="34"] { grid-row-start: 34; }
+        & > [data-sw-row="35"] { grid-row-start: 35; }
+        & > [data-sw-row="36"] { grid-row-start: 36; }
+        & > [data-sw-row="37"] { grid-row-start: 37; }
+        & > [data-sw-row="38"] { grid-row-start: 38; }
+        & > [data-sw-row="39"] { grid-row-start: 39; }
+        & > [data-sw-row="40"] { grid-row-start: 40; }
+        & > [data-sw-row="41"] { grid-row-start: 41; }
+        & > [data-sw-row="42"] { grid-row-start: 42; }
+        & > [data-sw-row="43"] { grid-row-start: 43; }
+        & > [data-sw-row="44"] { grid-row-start: 44; }
+        & > [data-sw-row="45"] { grid-row-start: 45; }
+        & > [data-sw-row="46"] { grid-row-start: 46; }
+        & > [data-sw-row="47"] { grid-row-start: 47; }
+        & > [data-sw-row="48"] { grid-row-start: 48; }
+        & > [data-sw-row="49"] { grid-row-start: 49; }
+        & > [data-sw-row="50"] { grid-row-start: 50; }
+        & > [data-sw-row="51"] { grid-row-start: 51; }
+        & > [data-sw-row="52"] { grid-row-start: 52; }
+        & > [data-sw-row="53"] { grid-row-start: 53; }
+        & > [data-sw-row="54"] { grid-row-start: 54; }
+        & > [data-sw-row="55"] { grid-row-start: 55; }
+        & > [data-sw-row="56"] { grid-row-start: 56; }
+        & > [data-sw-row="57"] { grid-row-start: 57; }
+        & > [data-sw-row="58"] { grid-row-start: 58; }
+        & > [data-sw-row="59"] { grid-row-start: 59; }
+        & > [data-sw-row="60"] { grid-row-start: 60; }
+        & > [data-sw-col="1"] { grid-column-start: 2; }
+        & > [data-sw-col="2"] { grid-column-start: 3; }
+        & > [data-sw-col="3"] { grid-column-start: 4; }
+        & > [data-sw-col="4"] { grid-column-start: 5; }
+        & > [data-sw-col="5"] { grid-column-start: 6; }
+        & > [data-sw-col="6"] { grid-column-start: 7; }
+        & > [data-sw-col="7"] { grid-column-start: 8; }
+        & > [data-sw-col="8"] { grid-column-start: 9; }
+        & > [data-sw-col="9"] { grid-column-start: 10; }
+        & > [data-sw-col="10"] { grid-column-start: 11; }
+        & > [data-sw-col="11"] { grid-column-start: 12; }
+        & > [data-sw-col="12"] { grid-column-start: 13; }
+        & > [data-sw-span="4"] { grid-column-end: span 4; }
+        & > [data-sw-span="5"] { grid-column-end: span 5; }
+        & > [data-sw-span="6"] { grid-column-end: span 6; }
+        & > [data-sw-span="7"] { grid-column-end: span 7; }
+        & > [data-sw-span="8"] { grid-column-end: span 8; }
+        & > [data-sw-span="9"] { grid-column-end: span 9; }
+        & > [data-sw-span="10"] { grid-column-end: span 10; }
+        & > [data-sw-span="11"] { grid-column-end: span 11; }
+        & > [data-sw-span="12"] { grid-column-end: span 12; }
+        & > [data-sw-rows="2"] { grid-row-end: span 2; }
+        & > [data-sw-rows="3"] { grid-row-end: span 3; }
+        & > [data-sw-rows="4"] { grid-row-end: span 4; }
+        & > [data-sw-rows="5"] { grid-row-end: span 5; }
+        & > [data-sw-rows="6"] { grid-row-end: span 6; }
+
+        /* Every tile of the first row keeps the room below the stage, and
+           the anchors that share their cells. */
+        & > [data-sw-lead] { margin-block-start: var(--sw-lead); }
+        &[data-sw-stage="none"] > [data-sw-lead] { margin-block-start: clamp(2rem, 1.5rem + 2vw, 3.5rem); }
+
+        /* Inside the tiles, by width. */
+        & [data-sw="tile"][data-sw-size="narrow"] .feature-cards__grid {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        & [data-sw="tile"][data-sw-size="narrow"] .feature-cards__grid:has(> :nth-child(5)) {
+            grid-template-columns: minmax(0, 1fr);
+            gap: 1.125rem;
+        }
+
+        & [data-sw="tile"][data-sw-size="medium"] .feature-cards__grid {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        & [data-sw="tile"][data-sw-size="full"] .feature-cards__grid {
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+
+        & [data-sw="tile"][data-sw-size="full"] .feature-cards__grid:has(> :nth-child(4):last-child, > :nth-child(8):last-child) {
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+        }
+
+        /* A full-width card tile: heading left, lead right. */
+        & [data-sw="tile"][data-sw-size="full"].feature-cards .d-section-intro:has(.d-section-intro__lead) {
+            max-width: none;
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+            column-gap: 2.5rem;
+            align-items: end;
+        }
+
+        & [data-sw="tile"][data-sw-size="full"].feature-cards .d-section-intro > :not(.d-section-intro__lead) {
+            grid-column: 1;
+        }
+
+        & [data-sw="tile"][data-sw-size="full"].feature-cards .d-section-intro__lead {
+            grid-column: 2;
+            grid-row: 1 / span 2;
+            align-self: end;
+        }
+
+        & [data-sw="tile"]:not([data-sw-size="full"]) .feature-alternating__row {
+            grid-template-columns: minmax(0, 0.95fr) minmax(0, 1fr);
+        }
+
+        & [data-sw="tile"]:not([data-sw-size="full"]) .use-case-grid__grid {
+            grid-template-columns: minmax(0, 1fr);
+        }
+
+        & [data-sw="tile"]:not([data-sw-size="full"]) .use-case-grid__title,
+        & [data-sw="tile"]:not([data-sw-size="full"]) .category-cards__title {
+            font-size: 1.125rem;
+        }
+
+        & [data-sw="tile"]:not([data-sw-size="full"]) .category-cards__grid {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        & [data-sw="tile"][data-sw-size="full"] .category-cards__grid {
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+        }
+
+        & [data-sw="tile"][data-sw-size="full"] .how-to-steps__list {
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+
+        & [data-sw="tile"][data-sw-size="full"] .how-to-steps__list:has(> :nth-child(4):last-child, > :nth-child(8):last-child) {
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+        }
+
+        & [data-sw="tile"][data-sw-size="full"] .how-to-steps__item {
+            grid-template-columns: minmax(0, 1fr);
+            grid-template-rows: auto 1fr;
+            gap: 0.875rem;
+        }
+
+        & [data-sw="tile"] .how-to-steps__title {
+            font-size: 1.0625rem;
+            letter-spacing: -0.01em;
+            line-height: 1.4;
+        }
+
+        /* Tiles in one row share its height; the shorter one spreads its
+           rows instead of leaving a blank foot. */
+        & [data-sw="tile"]:not([data-sw-size="full"]) > .desiderio-container {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        & [data-sw="tile"]:not([data-sw-size="full"]) :is(.feature-cards__grid, .category-cards__grid, .use-case-grid__grid, .feature-alternating__rows) {
+            flex: 1 1 auto;
+            align-content: space-between;
+        }
+
+        & [data-sw="tile"]:not([data-sw-size="full"]) .feature-alternating__rows {
+            display: grid;
+        }
+
+        & [data-sw="tile"]:not([data-sw-size="full"]) :is(.feature-checklist__layout, .feature-checklist__body) {
+            flex: 1 1 auto;
+            display: flex;
+            flex-direction: column;
+        }
+
+        & [data-sw="tile"]:not([data-sw-size="full"]) .feature-checklist__body > [data-slot="card"] {
+            flex: 1 1 auto;
+        }
+
+        & [data-sw="tile"]:not([data-sw-size="full"]) .feature-checklist__items {
+            flex: 1 1 auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        /* A tile without an eyebrow drops its heading to the line of its
+           neighbour's heading. */
+        & [data-sw="tile"]:not([data-sw-size="full"]) .d-section-intro:not(:has(.d-section-intro__eyebrow)) {
+            padding-block-start: calc(0.75rem * 1.4 + 0.5rem);
+        }
+
+        /* A full-width gallery is a viewer: the big picture left, heading
+           and thumbnails right. */
+        & [data-sw="tile"][data-sw-size="full"].gallery > .desiderio-container {
+            display: grid;
+            grid-template-columns: minmax(0, 1.85fr) minmax(0, 1fr);
+            grid-template-rows: auto 1fr auto;
+            column-gap: clamp(1.5rem, 1rem + 1.5vw, 2.5rem);
+        }
+
+        & [data-sw="tile"][data-sw-size="full"].gallery .gallery__browser {
+            display: contents;
+        }
+
+        & [data-sw="tile"][data-sw-size="full"].gallery .gallery__intro {
+            grid-column: 2;
+            grid-row: 1;
+        }
+
+        & [data-sw="tile"][data-sw-size="full"].gallery .gallery__featured {
+            grid-column: 1;
+            grid-row: 1 / 4;
+            align-self: start;
+        }
+
+        & [data-sw="tile"][data-sw-size="full"].gallery .gallery__thumbs {
+            grid-column: 2;
+            grid-row: 2;
+            grid-template-columns: minmax(0, 1fr);
+            align-content: start;
+            gap: 0.5rem;
+        }
+
+        & [data-sw="tile"][data-sw-size="full"].gallery [data-d-scroll-controls] {
+            grid-column: 2;
+            grid-row: 3;
+        }
+
+        & [data-sw="tile"][data-sw-size="full"].gallery .gallery__thumb {
+            grid-template-columns: 6.5rem minmax(0, 1fr);
+            align-items: center;
+            gap: 0.875rem;
+        }
+
+        & [data-sw="tile"][data-sw-size="full"].gallery .gallery__thumb-label {
+            min-height: 0;
+            font-size: 0.875rem;
+        }
+    }
+
+    @media (min-width: 112.5rem) {
+        --sw-max: 92rem;
+    }
+
+    /* ---------------------------------------------------------------- */
+    /*  8. Motion                                                         */
+    /* ---------------------------------------------------------------- */
+    @media (prefers-reduced-motion: no-preference) {
+        @supports (animation-timeline: view()) {
+            & > [data-sw="film"] .feature-video__player {
+                animation: sw-stage linear both;
+                animation-timeline: view();
+                animation-range: cover 0% cover 48%;
+            }
+        }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        & :is([data-sw="tile"], [data-sw="connector"]),
+        & .cta-inline__bar > [data-slot="button"]::after {
+            transition: none;
+        }
+    }
+
+    /* ---------------------------------------------------------------- */
+    /*  9. Visual Editor (?editMode): tiles in their widths, the stage     */
+    /*     as two stacked blocks                                          */
+    /* ---------------------------------------------------------------- */
+    &:is(ve-content-area) {
+        grid-template-rows: none;
+        grid-auto-flow: row dense;
+
+        &::after { content: none; }
+        &::before { grid-row: auto; inset-block-start: 0; }
+
+        & > ve-content-element {
+            grid-column: wall-start / wall-end;
+            min-width: 0;
+        }
+
+        & > ve-content-element:has(> [data-sw-lead]) {
+            margin-block-start: clamp(2rem, 1.5rem + 2vw, 3.5rem);
+        }
+
+        /* Text being edited keeps a solid ink: transparent text (the lit
+           headline) would hide the caret and the editor's selection. */
+        & [data-sw="hero"] .hero__headline {
+            background-image: none;
+            -webkit-background-clip: border-box;
+            background-clip: border-box;
+            color: var(--foreground);
+        }
+
+        & [data-sw="hero"] .hero__grid {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        & [data-sw="hero"] .hero__media {
+            width: min(100%, 36rem);
+        }
+
+        & [data-sw="film"] .feature-video__player {
+            max-width: 64rem;
+            margin-inline: auto;
+        }
+
+        & [data-sw="film"] .feature-video__intro {
+            margin-inline: auto;
+        }
+
+        & :is([data-sw="tile"], [data-sw="connector"]) {
+            height: 100%;
+        }
+    }
+
+    @media (min-width: 75rem) {
+        &:is(ve-content-area) {
+            & > ve-content-element:has(> [data-sw-col="1"]) { grid-column-start: 2; }
+            & > ve-content-element:has(> [data-sw-col="2"]) { grid-column-start: 3; }
+            & > ve-content-element:has(> [data-sw-col="3"]) { grid-column-start: 4; }
+            & > ve-content-element:has(> [data-sw-col="4"]) { grid-column-start: 5; }
+            & > ve-content-element:has(> [data-sw-col="5"]) { grid-column-start: 6; }
+            & > ve-content-element:has(> [data-sw-col="6"]) { grid-column-start: 7; }
+            & > ve-content-element:has(> [data-sw-col="7"]) { grid-column-start: 8; }
+            & > ve-content-element:has(> [data-sw-col="8"]) { grid-column-start: 9; }
+            & > ve-content-element:has(> [data-sw-col="9"]) { grid-column-start: 10; }
+            & > ve-content-element:has(> [data-sw-col="10"]) { grid-column-start: 11; }
+            & > ve-content-element:has(> [data-sw-col="11"]) { grid-column-start: 12; }
+            & > ve-content-element:has(> [data-sw-col="12"]) { grid-column-start: 13; }
+            & > ve-content-element:has(> [data-sw-span="4"]) { grid-column-end: span 4; }
+            & > ve-content-element:has(> [data-sw-span="5"]) { grid-column-end: span 5; }
+            & > ve-content-element:has(> [data-sw-span="6"]) { grid-column-end: span 6; }
+            & > ve-content-element:has(> [data-sw-span="7"]) { grid-column-end: span 7; }
+            & > ve-content-element:has(> [data-sw-span="8"]) { grid-column-end: span 8; }
+            & > ve-content-element:has(> [data-sw-span="9"]) { grid-column-end: span 9; }
+            & > ve-content-element:has(> [data-sw-span="10"]) { grid-column-end: span 10; }
+            & > ve-content-element:has(> [data-sw-span="11"]) { grid-column-end: span 11; }
+            & > ve-content-element:has(> [data-sw-span="12"]) { grid-column-end: span 12; }
+            & > ve-content-element:has(> [data-sw-rows="2"]) { grid-row-end: span 2; }
+            & > ve-content-element:has(> [data-sw-rows="3"]) { grid-row-end: span 3; }
+            & > ve-content-element:has(> [data-sw-rows="4"]) { grid-row-end: span 4; }
+            & > ve-content-element:has(> [data-sw-rows="5"]) { grid-row-end: span 5; }
+            & > ve-content-element:has(> [data-sw-rows="6"]) { grid-row-end: span 6; }
+        }
+    }
+}
+
+@keyframes sw-stage {
+    from { transform: perspective(1600px) rotateX(13deg) scale(0.955); }
+    to { transform: none; }
+}

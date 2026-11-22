@@ -12,14 +12,13 @@ use TYPO3\CMS\Core\Site\Entity\Site;
 use Webconsulting\SitePackage\Middleware\HomeProposalSwitch;
 
 /**
- * The start page proposal switch: only on the Desiderio root page, one inline
- * script first in the head, with the nonce, and the proposals' files only
- * named in it (nothing is loaded without a choice).
+ * The start page switch: only on the Desiderio root page, one inline script
+ * first in the head, with the nonce, and the proposals' files only named in
+ * it (nothing is loaded without a choice; "Stage and Wall" is the page).
  */
 final class HomeProposalSwitchTest extends TestCase
 {
     private const PROPOSALS = [
-        'a' => ['/_assets/x/Home/a/lab-home.css', '/_assets/x/Home/a/lab-home.js'],
         'b' => ['/_assets/x/Home/b/lab-home.css', '/_assets/x/Home/b/lab-home.js'],
         'c' => ['/_assets/x/Home/c/lab-home.css', '/_assets/x/Home/c/lab-home.js'],
     ];
@@ -69,8 +68,12 @@ final class HomeProposalSwitchTest extends TestCase
             self::assertStringContainsString('"' . $files[1] . '"', $script);
         }
         self::assertStringContainsString('"lab-home"', $script);
-        self::assertStringContainsString('home=(a|b|c|off)', $script);
+        self::assertStringContainsString('home=(a|off|b|c|classic)', $script);
         self::assertStringContainsString('"data-lab-home"', $script);
+        // The choice is per tab; an entry of the earlier switch is removed.
+        self::assertStringContainsString('S=w.sessionStorage;w.localStorage.removeItem(K)', $script);
+        self::assertStringNotContainsString('localStorage.getItem', $script);
+        self::assertStringNotContainsString('localStorage.setItem', $script);
     }
 
     #[Test]
@@ -92,7 +95,7 @@ final class HomeProposalSwitchTest extends TestCase
     #[Test]
     public function keepsMarkupOutOfTheScript(): void
     {
-        $script = HomeProposalSwitch::script(['a' => ['/x</script><b>.css', '/x.js']]);
+        $script = HomeProposalSwitch::script(['b' => ['/x</script><b>.css', '/x.js']]);
 
         self::assertSame(1, substr_count($script, '</script>'));
         self::assertStringNotContainsString('<b>', $script);

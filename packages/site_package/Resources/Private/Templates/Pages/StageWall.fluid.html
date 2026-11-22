@@ -1,0 +1,43 @@
+<html
+    xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+    xmlns:sp="http://typo3.org/ns/Webconsulting/SitePackage/ViewHelpers"
+    data-namespace-typo3-fluid="true"
+>
+
+<f:layout name="Pages/Default"/>
+
+<f:comment>
+    The Desiderio start page "Stage and Wall" (backend layout pagets__StageWall,
+    set on the site's root page). Same content area and markup as Desiderio's
+    start page template (Presets/Corporate DesiderioStartpage): one
+    screen-reader-only h1, then every element as it renders anywhere else. The
+    elements get data attributes with their place (Classes/StartPage/
+    StageWallPlan): a hero first and a film after it form the stage, all other
+    elements are tiles of a 12-column wall whose width the editor picks in the
+    element's "Layout" field. The stylesheet places by those attributes; it is
+    loaded here, so only this page in its languages gets it, and it is in the
+    head before the first paint. The script only moves the stage light after
+    the pointer in dark mode.
+
+    The lab's start page switch (#home=classic|b|c, Middleware/
+    HomeProposalSwitch) sets data-lab-home on the html element; the stylesheet
+    stands down then and the plain start page shows, or proposal B or C on it.
+</f:comment>
+
+<f:section name="Main">
+    <h1 class="sr-only">{page.pageRecord.title}</h1>
+    <f:variable name="plan" value="{sp:stageWall.plan(area: content.main)}"/>
+    <div class="desiderio-corporate-start desiderio-stage-wall" data-sw-stage="{plan.stage}">
+        <!--TYPO3SEARCH_begin-->
+        <f:if condition="{content.main}">
+            <f:render.contentArea contentArea="{content.main}" recordAs="record">
+                <sp:stageWall.cell plan="{plan}" record="{record}"><f:render.record record="{record}"/></sp:stageWall.cell>
+            </f:render.contentArea>
+        </f:if>
+        <!--TYPO3SEARCH_end-->
+    </div>
+    <f:asset.css identifier="sitePackageStageWall" href="EXT:site_package/Resources/Public/StageWall/stage-wall.css"/>
+    <f:asset.script identifier="sitePackageStageWall" src="EXT:site_package/Resources/Public/StageWall/stage-wall.js" defer="defer"/>
+</f:section>
+
+</html>
