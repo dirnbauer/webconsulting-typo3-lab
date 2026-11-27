@@ -15,6 +15,7 @@ Build/Scripts/ci-drop-private-packages.php
 **/.git
 **/.DS_Store
 .github
+.gitlab-ci.yml
 .ddev
 .idea
 .cursor

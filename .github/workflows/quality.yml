@@ -110,6 +110,63 @@ jobs:
           npm audit --audit-level=high
           npm run test:tools
 
+  # Optional GitLab mirror after green quality checks on main. When image builds
+  # are offloaded to the GitLab Runner (.gitlab-ci.yml +
+  # docker-compose.coolify.registry.yml), fast-forwarding main on
+  # gitlab.webconsulting.at immediately starts the BuildKit build and Coolify
+  # deployment there without needing a local checkout.
+  gitlab-mirror-gate:
+    name: GitLab mirror configured?
+    needs: [typo3-14-quality, node-quality]
+    if: >-
+      github.ref == 'refs/heads/main'
+      && (github.event_name == 'push' || github.event_name == 'workflow_dispatch')
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    outputs:
+      configured: ${{ steps.check.outputs.configured }}
+    steps:
+      - name: Look for the GitLab push key and switch
+        id: check
+        env:
+          GITLAB_MIRROR_SSH_KEY: ${{ secrets.GITLAB_MIRROR_SSH_KEY }}
+          GITLAB_CI_MIRROR: ${{ vars.GITLAB_CI_MIRROR }}
+        run: |
+          if [ -n "${GITLAB_MIRROR_SSH_KEY}" ] && [ "${GITLAB_CI_MIRROR}" = "true" ]; then
+            echo 'configured=true' >> "${GITHUB_OUTPUT}"
+          else
+            echo 'configured=false' >> "${GITHUB_OUTPUT}"
+          fi
+
+  mirror-to-gitlab:
+    name: Mirror main to GitLab Runner
+    needs: [gitlab-mirror-gate]
+    if: needs.gitlab-mirror-gate.outputs.configured == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    concurrency:
+      group: mirror-typo3-lab-gitlab
+      cancel-in-progress: false
+    steps:
+      - name: Checkout full history for mirror push
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+
+      - name: Fast-forward main on gitlab.webconsulting.at
+        env:
+          GITLAB_MIRROR_SSH_KEY: ${{ secrets.GITLAB_MIRROR_SSH_KEY }}
+          GITLAB_MIRROR_URL: ${{ vars.GITLAB_MIRROR_URL || 'git@gitlab.webconsulting.at:extensions/webconsulting-typo3-lab.git' }}
+        run: |
+          mkdir -p ~/.ssh
+          chmod 0700 ~/.ssh
+          cp Build/SSH/known_hosts ~/.ssh/known_hosts
+          chmod 0600 ~/.ssh/known_hosts
+          (printf '%s\n' "${GITLAB_MIRROR_SSH_KEY}" && printf '\n') > ~/.ssh/id_ed25519
+          chmod 0600 ~/.ssh/id_ed25519
+          git push "${GITLAB_MIRROR_URL}" "${GITHUB_SHA}:refs/heads/main"
+          rm -f ~/.ssh/id_ed25519
+
 
 
   # Whether a deploy is even possible. This exists so the deploy job below can

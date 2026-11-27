@@ -1,0 +1,337 @@
+# Offload TYPO3 Lab image builds from the 15.6 GB Coolify application host to
+# the dedicated GitLab Runner, publish immutable commit-tagged images to the
+# GitLab Container Registry (gitlab.webconsulting.at:5050), and ask Coolify to
+# pull and start the finished images once both builds succeed.
+
+workflow:
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
+    - if: '$CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH'
+    - if: '$CI_PIPELINE_SOURCE == "web"'
+    - when: never
+
+stages:
+  - quality
+  - build
+  - deploy
+
+default:
+  interruptible: true
+
+variables:
+  # Keep runtime and tooling pins in lockstep with Dockerfile.coolify and
+  # .github/workflows/quality.yml; Build/Scripts/check-deploy-pins.php verifies both.
+  PHP_BASE_IMAGE: "php:8.5.12-apache-trixie@sha256:7cd25eb48f9763dfeabe8fda3939897aca2001802fadeafa1b602f26c735ef96"
+  NODE_BASE_IMAGE: "node:26.12.1-bookworm-slim@sha256:28147155d47dc31abe0a46e0d12b59b2fb3d0a2dcc5dc65fce76a074180b16fe"
+  COMPOSER_VERSION: "2.10.3"
+  COMPOSER_SHA256: "7a2d379d5b8ffdaa028580ef26494c36d2feef4b178d3dd1473a4dbc5e17c8d6"
+  NODE_VERSION: "26.12.1"
+  NPM_VERSION: "12.2.1"
+  DOCKER_VERSION: "27.5.1"
+  COMPOSER_CACHE_DIR: "$CI_PROJECT_DIR/.composer-cache"
+  NPM_CONFIG_CACHE: "$CI_PROJECT_DIR/.npm-cache"
+  WEB_IMAGE_REPO: "$CI_REGISTRY_IMAGE/web"
+  SOLR_IMAGE_REPO: "$CI_REGISTRY_IMAGE/solr"
+  COOLIFY_URL: "https://coolify.webconsulting.at"
+  COOLIFY_APP_UUID: "kj8tirxaijsk4cmzevgaphvr"
+  COOLIFY_SERVER_UUID: "j2islqjevpoywpdmlpbzrnsy"
+
+typo3-14-quality:
+  stage: quality
+  image: $PHP_BASE_IMAGE
+  timeout: 25m
+  rules:
+    - if: '$GITLAB_SKIP_QUALITY == "true"'
+      when: never
+    - when: on_success
+  cache:
+    key:
+      prefix: composer-npm
+      files:
+        - composer.lock
+        - package-lock.json
+    paths:
+      - .composer-cache/
+      - .npm-cache/
+  before_script:
+    # Never mutate a persistent shell/SSH runner host.
+    - test "${CI_DISPOSABLE_ENVIRONMENT:-}" = "true"
+    - |
+      if [ -z "${GITLAB_EXTENSIONS_READ_KEY:-}" ]; then
+        echo "ERROR: Set GITLAB_EXTENSIONS_READ_KEY in GitLab CI/CD Variables (read-only deploy key for private extension mirrors)." >&2
+        exit 1
+      fi
+    - apt-get update -qq
+    - DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends ca-certificates curl git libicu-dev libzip-dev openssh-client unzip xz-utils
+    - docker-php-ext-install -j"$(nproc)" intl zip >/dev/null
+    - |
+      php -r '
+        foreach (["intl", "mbstring", "pdo_sqlite", "simplexml", "zip"] as $ext) {
+          if (!extension_loaded($ext)) {
+            fwrite(STDERR, "Missing required PHP extension: {$ext}\n");
+            exit(1);
+          }
+        }
+      '
+    - |
+      composer_tmp="$(mktemp)"
+      curl --fail --silent --show-error --proto '=https' --tlsv1.2 \
+        "https://getcomposer.org/download/${COMPOSER_VERSION}/composer.phar" \
+        --output "${composer_tmp}"
+      printf '%s  %s\n' "${COMPOSER_SHA256}" "${composer_tmp}" | sha256sum --check -
+      install -m 0755 "${composer_tmp}" /usr/local/bin/composer
+      rm -f "${composer_tmp}"
+    - |
+      case "$(uname -m)" in
+        x86_64)
+          node_arch="x64"
+          node_sha256="6170b2d474e1c626f43cff3adc118df9fe3b573258a4fc3d850c8dbc6b079bbd"
+          ;;
+        aarch64|arm64)
+          node_arch="arm64"
+          node_sha256="42aa04922591ee5d4dbc7740d452621acf28508239daa512f5ee8c47ee224fdb"
+          ;;
+        *)
+          echo "Unsupported architecture for Node.js: $(uname -m)" >&2
+          exit 1
+          ;;
+      esac
+      node_dir="$(mktemp -d)"
+      node_archive="node-v${NODE_VERSION}-linux-${node_arch}.tar.xz"
+      curl --fail --silent --show-error --proto '=https' --tlsv1.2 \
+        "https://nodejs.org/dist/v${NODE_VERSION}/${node_archive}" \
+        --output "${node_dir}/${node_archive}"
+      printf '%s  %s\n' "${node_sha256}" "${node_dir}/${node_archive}" | sha256sum --check -
+      tar --extract --xz --file "${node_dir}/${node_archive}" --directory /usr/local --strip-components=1 --no-same-owner
+      rm -rf "${node_dir}"
+      npm install --global "npm@${NPM_VERSION}"
+    - mkdir -p ~/.ssh && chmod 0700 ~/.ssh
+    - cp Build/SSH/known_hosts ~/.ssh/known_hosts
+    - chmod 0600 ~/.ssh/known_hosts
+    - |
+      if [ -f "${GITLAB_EXTENSIONS_READ_KEY}" ]; then
+        cat "${GITLAB_EXTENSIONS_READ_KEY}" > ~/.ssh/id_ed25519
+      else
+        printf '%s\n' "${GITLAB_EXTENSIONS_READ_KEY}" > ~/.ssh/id_ed25519
+      fi
+      printf '\n' >> ~/.ssh/id_ed25519
+      chmod 0600 ~/.ssh/id_ed25519
+  script:
+    - npm ci
+    - COMPOSER_ALLOW_SUPERUSER=1 composer install --no-interaction --no-progress --prefer-dist
+    - Build/Scripts/runTests.sh -s quality -p 8.5
+  after_script:
+    - rm -f ~/.ssh/id_ed25519
+
+node-quality:
+  stage: quality
+  image: $NODE_BASE_IMAGE
+  timeout: 15m
+  rules:
+    - if: '$GITLAB_SKIP_QUALITY == "true"'
+      when: never
+    - when: on_success
+  cache:
+    key:
+      prefix: npm-root
+      files:
+        - package-lock.json
+    paths:
+      - .npm-cache/
+  before_script:
+    - test "${CI_DISPOSABLE_ENVIRONMENT:-}" = "true"
+    - npm install --global "npm@${NPM_VERSION}"
+  script:
+    - npm ci
+    - npm audit --audit-level=high
+    - npm run test:tools
+
+.docker-buildkit:
+  stage: build
+  image: docker:${DOCKER_VERSION}-cli
+  services:
+    - docker:${DOCKER_VERSION}-dind
+  timeout: 30m
+  needs:
+    - job: typo3-14-quality
+      optional: true
+    - job: node-quality
+      optional: true
+  rules:
+    - if: '$CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH'
+    - if: '$CI_PIPELINE_SOURCE == "web"'
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event" && $GITLAB_BUILD_MR_IMAGES == "true"'
+    - when: never
+  variables:
+    DOCKER_TLS_CERTDIR: "/certs"
+    DOCKER_BUILDKIT: "1"
+  before_script:
+    # Support both DinD (privileged runner) and mounted host socket (/var/run/docker.sock).
+    - |
+      if [ -S /var/run/docker.sock ]; then
+        export DOCKER_HOST="unix:///var/run/docker.sock"
+        unset DOCKER_TLS_CERTDIR DOCKER_TLS_VERIFY DOCKER_CERT_PATH
+      fi
+      if ! docker info >/dev/null 2>&1; then
+        echo "ERROR: Docker daemon is not reachable in this GitLab Runner job." >&2
+        echo "Enable either privileged = true (for docker:dind) or mount /var/run/docker.sock on the build runner." >&2
+        exit 1
+      fi
+    - printf '%s' "${CI_REGISTRY_PASSWORD}" | docker login -u "${CI_REGISTRY_USER}" --password-stdin "${CI_REGISTRY}"
+    - docker buildx create --use --driver docker-container --name "typo3-lab-${CI_JOB_ID}"
+    - docker buildx inspect --bootstrap >/dev/null
+  after_script:
+    - rm -f /tmp/gitlab-extensions-read-key
+    - docker buildx rm "typo3-lab-${CI_JOB_ID}" >/dev/null 2>&1 || true
+    - docker logout "${CI_REGISTRY}" >/dev/null 2>&1 || true
+
+build-web:
+  extends: .docker-buildkit
+  script:
+    - |
+      if [ -z "${GITLAB_EXTENSIONS_READ_KEY:-}" ]; then
+        echo "ERROR: GITLAB_EXTENSIONS_READ_KEY is required to install private GitLab extension mirrors during the image build." >&2
+        exit 1
+      fi
+      umask 077
+      if [ -f "${GITLAB_EXTENSIONS_READ_KEY}" ]; then
+        cat "${GITLAB_EXTENSIONS_READ_KEY}" > /tmp/gitlab-extensions-read-key
+      else
+        printf '%s\n' "${GITLAB_EXTENSIONS_READ_KEY}" > /tmp/gitlab-extensions-read-key
+      fi
+      printf '\n' >> /tmp/gitlab-extensions-read-key
+    - |
+      set -- \
+        --file Dockerfile.coolify \
+        --platform linux/amd64 \
+        --secret id=GITLAB_EXTENSIONS_READ_KEY,src=/tmp/gitlab-extensions-read-key \
+        --build-arg "PHP_BASE_IMAGE=${PHP_BASE_IMAGE}" \
+        --cache-from "type=registry,ref=${WEB_IMAGE_REPO}:buildcache" \
+        --cache-to "type=registry,ref=${WEB_IMAGE_REPO}:buildcache,mode=max" \
+        --tag "${WEB_IMAGE_REPO}:${CI_COMMIT_SHA}"
+      if [ "${CI_COMMIT_BRANCH:-}" = "${CI_DEFAULT_BRANCH}" ]; then
+        set -- "$@" --tag "${WEB_IMAGE_REPO}:latest"
+      fi
+      docker buildx build "$@" --push .
+
+build-solr:
+  extends: .docker-buildkit
+  script:
+    - |
+      set -- \
+        --file Dockerfile.solr.coolify \
+        --platform linux/amd64 \
+        --cache-from "type=registry,ref=${SOLR_IMAGE_REPO}:buildcache" \
+        --cache-to "type=registry,ref=${SOLR_IMAGE_REPO}:buildcache,mode=max" \
+        --tag "${SOLR_IMAGE_REPO}:${CI_COMMIT_SHA}"
+      if [ "${CI_COMMIT_BRANCH:-}" = "${CI_DEFAULT_BRANCH}" ]; then
+        set -- "$@" --tag "${SOLR_IMAGE_REPO}:latest"
+      fi
+      docker buildx build "$@" --push .
+
+deploy-coolify:
+  stage: deploy
+  image: alpine:3.23
+  interruptible: false
+  resource_group: coolify-typo3-lab
+  timeout: 35m
+  needs:
+    - job: build-web
+    - job: build-solr
+  rules:
+    - if: '$CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH && $COOLIFY_GITLAB_DEPLOY == "true"'
+    - when: never
+  before_script:
+    - apk add --no-cache ca-certificates curl jq
+  script:
+    - |
+      if [ -z "${COOLIFY_TOKEN:-}" ]; then
+        echo "ERROR: COOLIFY_TOKEN is not set in GitLab CI/CD Variables." >&2
+        exit 1
+      fi
+
+      status=$(curl -sS -o response.txt -w '%{http_code}' --max-time 60 \
+        -X POST \
+        -H "Authorization: Bearer ${COOLIFY_TOKEN}" \
+        "${COOLIFY_URL}/api/v1/deploy?uuid=${COOLIFY_APP_UUID}")
+
+      if [ "${status}" = "401" ]; then
+        echo "ERROR: Coolify rejected COOLIFY_TOKEN (wrong, expired, or revoked)." >&2
+        exit 1
+      fi
+      if [ "${status}" = "403" ]; then
+        runner_ip=$(curl -sS --max-time 10 https://api.ipify.org || echo unknown)
+        if grep -q 'not allowed to access the API' response.txt; then
+          echo "ERROR: Coolify's API IP allowlist rejected this GitLab Runner (${runner_ip}). Add the runner IP under Coolify Settings > Configuration > Allowed IPs." >&2
+        else
+          echo "ERROR: Coolify refused the deploy call from ${runner_ip}. Ensure COOLIFY_TOKEN has the 'deploy' and 'write' permissions. Response: $(cat response.txt)" >&2
+        fi
+        exit 1
+      fi
+      if [ "${status}" != "200" ] && [ "${status}" != "201" ]; then
+        echo "ERROR: Coolify answered ${status}: $(cat response.txt)" >&2
+        exit 1
+      fi
+
+      cat response.txt
+      echo "Deployment queued for prebuilt commit ${CI_COMMIT_SHA}."
+
+      deployment_uuid=$(jq -r '.deployments[0].deployment_uuid // empty' response.txt)
+      if [ -z "${deployment_uuid}" ]; then
+        echo "WARNING: Coolify returned no deployment_uuid; skipping poll."
+        exit 0
+      fi
+
+      state=""
+      for _ in $(seq 1 90); do
+        code=$(curl -sS -o deployment.json -w '%{http_code}' --max-time 30 \
+          -H "Authorization: Bearer ${COOLIFY_TOKEN}" \
+          "${COOLIFY_URL}/api/v1/deployments/${deployment_uuid}" || echo 000)
+        if [ "${code}" = "404" ]; then
+          echo "WARNING: Coolify returned 404 for deployment ${deployment_uuid} (already queued for this commit)."
+          break
+        fi
+        state=$(jq -r '.status // empty' deployment.json 2>/dev/null || true)
+        case "${state}" in
+          finished|failed|cancelled|cancelled-by-user) break ;;
+        esac
+        sleep 20
+      done
+
+      if [ -n "${state}" ] && [ "${state}" != "finished" ]; then
+        echo "ERROR: Coolify deployment ${deployment_uuid} ended as '${state}'; the previous image keeps serving." >&2
+        exit 1
+      fi
+      echo "Deployment ${deployment_uuid} finished."
+
+      edge=""
+      for _ in $(seq 1 30); do
+        edge=$(curl -s -o /dev/null -w '%{http_code}' --max-time 20 "https://typo3-lab.webconsulting.at/" || true)
+        if [ "${edge}" = "401" ] || [ "${edge}" = "200" ]; then
+          break
+        fi
+        sleep 20
+      done
+      if [ "${edge}" != "401" ] && [ "${edge}" != "200" ]; then
+        echo "ERROR: https://typo3-lab.webconsulting.at/ answered '${edge:-unreachable}' instead of 401/200." >&2
+        exit 1
+      fi
+      echo "Live edge check passed (${edge})."
+
+      cleanup_status=$(curl -sS -o cleanup.txt -w '%{http_code}' --max-time 60 \
+        -X POST \
+        -H "Authorization: Bearer ${COOLIFY_TOKEN}" \
+        -H 'Content-Type: application/json' \
+        -d '{"delete_unused_volumes":false,"delete_unused_networks":false}' \
+        "${COOLIFY_URL}/api/v1/servers/${COOLIFY_SERVER_UUID}/docker-cleanup/run" || echo 000)
+      case "${cleanup_status}" in
+        200|201|202)
+          echo "Coolify cleanup started: versions older than the newest three are removed on the app host."
+          ;;
+        403)
+          echo "WARNING: Coolify refused cleanup (token needs 'write' permission): $(cat cleanup.txt). Nightly cleanup still keeps three versions."
+          ;;
+        *)
+          echo "WARNING: Coolify cleanup answered ${cleanup_status}: $(cat cleanup.txt). Nightly cleanup still keeps three versions."
+          ;;
+      esac
