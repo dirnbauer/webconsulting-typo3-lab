@@ -27,6 +27,26 @@ htpasswd -bcB /etc/apache2/typo3-lab.htpasswd "${BASIC_AUTH_USER}" "${BASIC_AUTH
 chown root:www-data /etc/apache2/typo3-lab.htpasswd
 chmod 0640 /etc/apache2/typo3-lab.htpasswd
 
+# Addresses that skip the lab login (apache-vhost.conf includes this file in
+# its RequireAny). TYPO3_LAB_ALLOWED_IPS holds IPs or CIDR ranges, separated by
+# spaces or commas; it lives in Coolify, not in this public repository. Only
+# address characters are accepted, so the value can never inject directives.
+allowed_ips_conf=/etc/apache2/typo3-lab-allowed-ips.conf
+: > "$allowed_ips_conf"
+set -f
+for ip in $(printf '%s' "${TYPO3_LAB_ALLOWED_IPS:-}" | tr ',' ' '); do
+    case "$ip" in
+        *[!0-9A-Fa-f:./]*)
+            echo "entrypoint: ignoring invalid TYPO3_LAB_ALLOWED_IPS entry" >&2
+            ;;
+        *)
+            echo "Require ip $ip" >> "$allowed_ips_conf"
+            ;;
+    esac
+done
+set +f
+chmod 0644 "$allowed_ips_conf"
+
 mkdir -p \
     /run/typo3-secrets \
     /var/www/html/config/system \

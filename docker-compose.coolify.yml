@@ -13,6 +13,8 @@ services:
     environment:
       BASIC_AUTH_PASSWORD: ${SERVICE_PASSWORD_BASIC}
       BASIC_AUTH_USER: ${BASIC_AUTH_USER:-lab}
+      # IPs or CIDR ranges that skip the lab login (docker/coolify/entrypoint.sh).
+      TYPO3_LAB_ALLOWED_IPS: ${TYPO3_LAB_ALLOWED_IPS:-}
       TYPO3_CONTEXT: Production
       # Argon2id hash from `typo3 install:password:set --dry-run`. Empty keeps the
       # standalone Install Tool locked; a hash in the secrets volume
