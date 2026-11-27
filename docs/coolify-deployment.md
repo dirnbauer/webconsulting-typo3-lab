@@ -44,7 +44,7 @@ places (owner decision of 2026-11-21):
 
 | Where | How |
 |---|---|
-| Coolify variable `IN2CODE_PACKAGIST_TOKEN` of the application | **Build Variable** on, **Available at Runtime** off, **Is Literal** on, locked (the same flags as `GITLAB_EXTENSIONS_READ_KEY`). Never listed in `docker-compose.coolify.yml`: a service `environment:` entry, even an empty one, copies the saved value into the running container |
+| GitLab CI variable `IN2CODE_PACKAGIST_TOKEN` of `extensions/webconsulting-typo3-lab` (since 2026-11-27; before that a Coolify build variable) | Protected and masked, like `GITLAB_EXTENSIONS_READ_KEY` (a protected file variable). Only the web image job reads it. Never listed in `docker-compose.coolify.yml`: a service `environment:` entry copies the value into the running container |
 | The developer's own machine | `~/.config/in2code/eap-packagist-token` (0600), outside every repository. `ddev lab-update` reads it; any other Composer command gets it as `COMPOSER_AUTH` for that one command (below). Not in an `auth.json`, not in `~/.ddev/homeadditions` |
 
 **GitHub has no copy.** The repository is public and in2code's Early Access
@@ -83,12 +83,12 @@ Powermail unit and E2E tests against the real packages. Two places do:
   finally proves no file holds the token. The opt-in pre-push hook
   (`Build/Scripts/install-hooks.sh`) reminds whoever pushes a change to
   `composer.lock`, `patches/` or the Powermail templates without a passing run.
-- **On every deploy, in the Coolify build:** `composer install` applies the
+- **On every deploy, in the image build (GitLab CI):** `composer install` applies the
   patches; cweagans/composer-patches 2 throws "No available patcher was able
   to apply patch …" on a patch that does not apply and Composer exits non-zero
   (2.x ignores the 1.x option `composer-exit-on-patch-failure`, still set in
   `composer.json`, and always aborts). The `RUN` step fails, Coolify keeps the
-  previous image, and the GitHub deploy job turns red with a message that
+  previous image, and the GitLab image job turns red with a message that
   points to `ddev check-powermail`. Proven on 2026-11-21 with a broken patch
   in a scratch copy of the lab: `composer reinstall` stopped with that message
   and exit code 1.
@@ -118,7 +118,7 @@ docker buildx build -f Dockerfile.coolify --ssh default \
   -t typo3-lab-web:local .
 ```
 
-Without the token the Coolify build stops before Composer runs with "Missing
+Without the token the image build stops before Composer runs with "Missing
 build secret IN2CODE_PACKAGIST_TOKEN" (the previous image keeps serving). A project `auth.json` is
 git-ignored and docker-ignored, and `Build/Scripts/lib/scan-snapshot.php`
 fails a public snapshot that contains a 60-hex token or a Composer auth block.
@@ -204,38 +204,52 @@ ssh root@49.13.173.37 'docker exec $(docker ps --format "{{.Names}}" | grep "^we
 
 ## Deploy
 
-Pushes to `main` deploy through the Quality workflow's `deploy` job, after
-both test suites pass, so a red commit that reached `main` never becomes the
-live site. It needs a `COOLIFY_TOKEN` repository secret under
-Settings > Secrets and variables > Actions. `workflow_dispatch` on `main`
-deploys too, so the current commit can be redeployed from the Actions UI
-without an empty commit and without a laptop holding the token file.
-`COOLIFY_URL` and `COOLIFY_APP_UUID` can be set as repository variables if
-either ever changes.
+Since 2026-11-27 GitLab (`extensions/webconsulting-typo3-lab`) is the
+repository that deploys. Coolify never builds; GitLab CI builds the images and
+Coolify only pulls and starts them.
 
-Check the deployment job and confirm the running image with `status`:
-
-| `deploy` job | Meaning |
+| Branch | A push does |
 | --- | --- |
-| skipped | No `COOLIFY_TOKEN`, or `COOLIFY_CI_DEPLOY` is not `true`. Nothing was deployed. |
-| failed, 403 "not allowed to access the API" | Coolify's **API IP allowlist** rejected the runner. Nothing was deployed. |
-| failed, other 403 | The token lacks the **deploy** permission. Nothing was deployed. |
-| success | Coolify finished the deployment and the job requested image cleanup. |
+| feature branches | nothing automatic; the image jobs can be started by hand |
+| `develop` | builds `web` and `solr` as `:<commit>` and `:develop` |
+| `main` | builds `:<commit>` and `:main`, then `deploy-production` deploys exactly these images |
 
-CI deployments are enabled with `COOLIFY_CI_DEPLOY=true`; Coolify's API
-allowlist has admitted the runners since 2026-09-20. Coolify itself has no
-repository webhook, so the GitHub workflow supplies the deployment trigger.
+Work on `develop` (or a feature branch merged into it) and merge `develop`
+into `main` to go live. The images live in
+`gitlab.webconsulting.at:5050/extensions/webconsulting-typo3-lab/{web,solr}`.
+
+`deploy-production` (`Build/Scripts/gitlab-deploy.sh`) sets the Coolify
+variable `LAB_IMAGE_TAG` to the commit, which `docker-compose.coolify.yml` uses
+as the image tag, starts the deployment, waits for healthy containers and
+checks the public URL. To roll back, re-run `deploy-production` in an earlier
+`main` pipeline. Without `LAB_IMAGE_TAG` Coolify starts the newest `:main`.
+
+The web image is built with kaniko on the shared runner, without a Docker
+daemon. Kaniko ignores the BuildKit `--mount` secrets in `Dockerfile.coolify`,
+so the job writes `IN2CODE_PACKAGIST_TOKEN` and `GITLAB_EXTENSIONS_READ_KEY`
+(protected GitLab CI variables, so only `develop` and `main` build the web
+image) to `/kaniko/build-secrets`, which RUN steps can read and kaniko never
+stores in a layer. A local `docker buildx build` with `--secret` still works.
+
+Access the pipeline needs:
+
+- `COOLIFY_DEPLOY_TOKEN_B64`: protected, masked GitLab variable, base64 of a
+  Coolify API token with read, write and deploy.
+- Coolify reads `docker-compose.coolify.yml` from GitLab with the deploy key
+  `typo3-lab-gitlab-deploy-key`, and coolify-01 pulls the images as the GitLab
+  user `coolify-registry-pull` (Reporter).
+
+The GitHub Quality workflow still runs the test suites but no longer deploys.
 Confirm the deployed commit with `Build/Scripts/sync-coolify.sh status`.
 
-The command below is the manual equivalent. It refuses unless the Quality run
-for `origin/main` is green (`--force` skips that), asks Coolify to build, then
-waits for Coolify's verdict and for the site to answer:
+`Build/Scripts/sync-coolify.sh deploy` only restarts the images Coolify
+already runs:
 
 ```bash
 Build/Scripts/sync-coolify.sh deploy
 ```
 
-That asks Coolify to rebuild and redeploy the application from `main`. It needs
+It needs
 an API token created at <https://coolify.webconsulting.at/security/api-tokens>
 with the **deploy** permission — Coolify's permissions are granular and a token
 made without it authenticates fine, then answers 403 on the deploy call —

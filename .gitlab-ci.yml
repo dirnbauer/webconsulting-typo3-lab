@@ -1,0 +1,94 @@
+# Branches and what a push does (docs/coolify-deployment.md, "Deploy"):
+#   feature branches  nothing automatic; images on demand (manual jobs)
+#   develop           images web/solr:<commit> and :develop
+#   main              images :<commit> and :main, then the automatic deploy
+#                     of exactly these images to Coolify (deploy-production)
+# Coolify never builds this repository; it only pulls and starts the images.
+# The quality suite still runs on GitHub (.github/workflows/quality.yml).
+workflow:
+  rules:
+    - if: '$CI_COMMIT_BRANCH'
+
+stages: [image, deploy]
+
+default:
+  interruptible: false
+
+# Builds one image with kaniko (no Docker daemon, so the shared runner can
+# build unprivileged) and pushes <image>:<commit>; on develop and main also
+# <image>:<branch>.
+.image:
+  stage: image
+  image:
+    name: gcr.io/kaniko-project/executor:v1.24.0-debug@sha256:2562c4fe551399514277ffff7dcca9a3b1628c4ea38cb017d7286dc6ea52f4cd
+    entrypoint: [""]
+  resource_group: typo3-lab-image-build
+  timeout: 60 minutes
+  rules:
+    - if: '($CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH || $CI_COMMIT_BRANCH == "develop") && $CI_PIPELINE_SOURCE == "push"'
+    # Other branches can build an image on demand. The build secrets are
+    # protected variables, so the web image only builds on protected branches.
+    - if: '$CI_COMMIT_BRANCH'
+      when: manual
+      allow_failure: true
+  before_script:
+    - mkdir -p /kaniko/.docker
+    - printf '{"auths":{"%s":{"auth":"%s"}}}' "$CI_REGISTRY" "$(printf '%s:%s' "$CI_REGISTRY_USER" "$CI_JOB_TOKEN" | base64 | tr -d '\n')" > /kaniko/.docker/config.json
+  script:
+    - BRANCH_DESTINATION=""
+    - 'if [ "$CI_COMMIT_BRANCH" = "$CI_DEFAULT_BRANCH" ] || [ "$CI_COMMIT_BRANCH" = "develop" ]; then BRANCH_DESTINATION="--destination $CI_REGISTRY_IMAGE/$IMAGE:$CI_COMMIT_BRANCH"; fi'
+    - >-
+      /kaniko/executor
+      --context "$CI_PROJECT_DIR"
+      --dockerfile "$CI_PROJECT_DIR/$DOCKERFILE"
+      --custom-platform linux/amd64
+      --cache=true
+      --cache-repo "$CI_REGISTRY_IMAGE/cache"
+      --compressed-caching=false
+      --snapshot-mode=redo
+      --use-new-run
+      --label "org.opencontainers.image.revision=$CI_COMMIT_SHA"
+      --destination "$CI_REGISTRY_IMAGE/$IMAGE:$CI_COMMIT_SHA"
+      $BRANCH_DESTINATION
+
+web-image:
+  extends: .image
+  variables:
+    IMAGE: web
+    DOCKERFILE: Dockerfile.coolify
+  before_script:
+    - !reference [.image, before_script]
+    # Kaniko ignores Dockerfile.coolify's BuildKit secret mounts. RUN steps can
+    # read /kaniko, but kaniko never puts it into a layer or the cache, so the
+    # Dockerfile looks for both secrets in /kaniko/build-secrets.
+    - test -n "${IN2CODE_PACKAGIST_TOKEN:-}" || { echo "IN2CODE_PACKAGIST_TOKEN is missing (protected variable; protected branches only)" >&2; exit 1; }
+    - mkdir -p -m 0700 /kaniko/build-secrets
+    - printf '%s' "$IN2CODE_PACKAGIST_TOKEN" > /kaniko/build-secrets/in2code-packagist-token
+    - cp "$GITLAB_EXTENSIONS_READ_KEY" /kaniko/build-secrets/gitlab-extensions-read-key
+    - chmod 0600 /kaniko/build-secrets/*
+
+solr-image:
+  extends: .image
+  variables:
+    IMAGE: solr
+    DOCKERFILE: Dockerfile.solr.coolify
+
+# A push to main (normally the merge of develop) goes live without a click.
+# COOLIFY_DEPLOY_TOKEN_B64 is a protected variable, so only main can deploy.
+# To roll back, re-run this job in an earlier main pipeline.
+deploy-production:
+  stage: deploy
+  image: alpine:3.23
+  needs:
+    - job: web-image
+    - job: solr-image
+  resource_group: production-deploy
+  timeout: 45 minutes
+  environment:
+    name: production
+    url: https://typo3-lab.webconsulting.at
+  rules:
+    - if: '$CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH && $CI_PIPELINE_SOURCE == "push"'
+  script:
+    - apk add --no-cache curl jq >/dev/null
+    - sh Build/Scripts/gitlab-deploy.sh

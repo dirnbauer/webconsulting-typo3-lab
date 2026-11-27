@@ -25,8 +25,9 @@ usage() {
 Usage: Build/Scripts/sync-coolify.sh <status|deploy|publish-snapshot|publish-downloads-page|publish-poppy|push|pull> [--confirm|--force]
 
   status            Show the local DDEV and remote Coolify container state.
-  deploy            Ask Coolify to rebuild and redeploy the application from
-                    the current main branch, then wait for the new containers.
+  deploy            Ask Coolify to redeploy the images it already runs
+                    (LAB_IMAGE_TAG), then wait for the new containers. A new
+                    commit goes live through GitLab CI, not through this.
                     Code only: it does not touch the database or fileadmin.
                     Refuses unless the Quality run for origin/main is green;
                     'deploy --force' skips that check.
@@ -50,9 +51,9 @@ Usage: Build/Scripts/sync-coolify.sh <status|deploy|publish-snapshot|publish-dow
   pull --confirm    Back up DDEV, then replace its database and fileadmin
                     with exports from Coolify.
 
-Pushes to main deploy through the GitHub Quality workflow after both quality
-jobs pass. "deploy" is the manual equivalent; avoid starting it while CI is
-already deploying the same commit. "status" shows the running image tag.
+Pushes to main on GitLab build the images and deploy them (.gitlab-ci.yml).
+"deploy" only restarts the current images; avoid starting it while CI is
+deploying. "status" shows the running image tag.
 
 Environment:
   TYPO3_LAB_REMOTE_HOST     SSH target (default: root@49.13.173.37)

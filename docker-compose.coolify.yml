@@ -1,15 +1,12 @@
 services:
   web:
-    build:
-      context: .
-      dockerfile: Dockerfile.coolify
-      # Build-only secrets (GITLAB_EXTENSIONS_READ_KEY, IN2CODE_PACKAGIST_TOKEN)
-      # come from Coolify's "Use Docker Build Secrets" and are deliberately not
-      # listed in this file: a service `environment:` entry, even an empty one,
-      # would copy the saved value into the running container (docs/poppy.md,
-      # docs/coolify-deployment.md).
-      args:
-        PHP_BASE_IMAGE: ${PHP_BASE_IMAGE:-php:8.5.13-apache-trixie@sha256:f0c9ecc7b9e805cd37e1d9f385c78e8edd7766f62bce280b8c34370c3e8e6697}
+    # GitLab CI builds both images (Dockerfile.coolify, Dockerfile.solr.coolify)
+    # and its deploy job sets LAB_IMAGE_TAG to the commit; Coolify only pulls
+    # and starts them. Without the variable it starts the newest main image.
+    # The build secrets (GITLAB_EXTENSIONS_READ_KEY, IN2CODE_PACKAGIST_TOKEN)
+    # are GitLab CI variables and must never be listed here: a service
+    # `environment:` entry would copy the value into the running container.
+    image: gitlab.webconsulting.at:5050/extensions/webconsulting-typo3-lab/web:${LAB_IMAGE_TAG:-main}
     environment:
       BASIC_AUTH_PASSWORD: ${SERVICE_PASSWORD_BASIC}
       BASIC_AUTH_USER: ${BASIC_AUTH_USER:-lab}
@@ -163,9 +160,7 @@ services:
     restart: unless-stopped
 
   typo3-solr:
-    build:
-      context: .
-      dockerfile: Dockerfile.solr.coolify
+    image: gitlab.webconsulting.at:5050/extensions/webconsulting-typo3-lab/solr:${LAB_IMAGE_TAG:-main}
     environment:
       SOLR_HEAP: 1g
       TYPO3_SOLR_ENABLED_CORES: english german hungarian chinese
