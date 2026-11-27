@@ -4,7 +4,8 @@
 #   main              images :<commit> and :main, then the automatic deploy
 #                     of exactly these images to Coolify (deploy-production)
 # Coolify never builds this repository; it only pulls and starts the images.
-# The quality suite still runs on GitHub (.github/workflows/quality.yml).
+# GitLab mirrors main and develop to GitHub, where .github/workflows/quality.yml
+# runs the quality suite; deploy-production waits until it passed for the commit.
 workflow:
   rules:
     - if: '$CI_COMMIT_BRANCH'
@@ -87,7 +88,7 @@ deploy-production:
     - job: web-image
     - job: solr-image
   resource_group: production-deploy
-  timeout: 45 minutes
+  timeout: 75 minutes
   environment:
     name: production
     url: https://typo3-lab.webconsulting.at
@@ -95,4 +96,5 @@ deploy-production:
     - if: '$CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH && $CI_PIPELINE_SOURCE == "push"'
   script:
     - apk add --no-cache curl jq >/dev/null
+    - sh Build/Scripts/wait-github-quality.sh
     - sh Build/Scripts/gitlab-deploy.sh

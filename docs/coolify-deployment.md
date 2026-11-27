@@ -239,7 +239,12 @@ Access the pipeline needs:
   `typo3-lab-gitlab-deploy-key`, and coolify-01 pulls the images as the GitLab
   user `coolify-registry-pull` (Reporter).
 
-The GitHub Quality workflow still runs the test suites but no longer deploys.
+GitLab mirrors `main` and `develop` to the public GitHub repository (push
+mirror with a write deploy key, protected branches only, divergent refs kept).
+There the Quality workflow runs the test suites, and `deploy-production` first
+runs `Build/Scripts/wait-github-quality.sh`: it deploys only when both Quality
+jobs passed for exactly this commit, and stops on a failure or after 40
+minutes. Push to GitLab, not to GitHub; GitHub is a mirror.
 Confirm the deployed commit with `Build/Scripts/sync-coolify.sh status`.
 
 `Build/Scripts/sync-coolify.sh deploy` only restarts the images Coolify
