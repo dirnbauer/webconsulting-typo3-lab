@@ -29,22 +29,25 @@ chmod 0640 /etc/apache2/typo3-lab.htpasswd
 
 # Addresses that skip the lab login (apache-vhost.conf includes this file in
 # its RequireAny). TYPO3_LAB_ALLOWED_IPS holds IPs or CIDR ranges, separated by
-# spaces or commas; it lives in Coolify, not in this public repository. Only
-# address characters are accepted, so the value can never inject directives.
+# spaces or commas; it lives in Coolify, not in this public repository. PHP
+# validates every entry as a full IPv4 or IPv6 address with an optional prefix
+# (IPv4 /8 to /32, IPv6 /16 to /128), so a typo can neither inject directives,
+# break Apache's start nor open the lab to the whole internet (/0).
 allowed_ips_conf=/etc/apache2/typo3-lab-allowed-ips.conf
-: > "$allowed_ips_conf"
-set -f
-for ip in $(printf '%s' "${TYPO3_LAB_ALLOWED_IPS:-}" | tr ',' ' '); do
-    case "$ip" in
-        *[!0-9A-Fa-f:./]*)
-            echo "entrypoint: ignoring invalid TYPO3_LAB_ALLOWED_IPS entry" >&2
-            ;;
-        *)
-            echo "Require ip $ip" >> "$allowed_ips_conf"
-            ;;
-    esac
-done
-set +f
+TYPO3_LAB_ALLOWED_IPS="${TYPO3_LAB_ALLOWED_IPS:-}" php -r '
+    foreach (preg_split("/[\s,]+/", (string)getenv("TYPO3_LAB_ALLOWED_IPS"), -1, PREG_SPLIT_NO_EMPTY) as $entry) {
+        [$ip, $prefix] = array_pad(explode("/", $entry, 2), 2, null);
+        $v4 = filter_var($ip, FILTER_VALIDATE_IP, FILTER_FLAG_IPV4) !== false;
+        $v6 = !$v4 && filter_var($ip, FILTER_VALIDATE_IP, FILTER_FLAG_IPV6) !== false;
+        $ok = ($v4 || $v6) && ($prefix === null || (ctype_digit($prefix)
+            && (int)$prefix >= ($v4 ? 8 : 16) && (int)$prefix <= ($v4 ? 32 : 128)));
+        if ($ok) {
+            echo "Require ip ", $entry, "\n";
+        } else {
+            fwrite(STDERR, "entrypoint: ignoring invalid TYPO3_LAB_ALLOWED_IPS entry\n");
+        }
+    }
+' > "$allowed_ips_conf"
 chmod 0644 "$allowed_ips_conf"
 
 mkdir -p \

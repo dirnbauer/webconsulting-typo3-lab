@@ -62,6 +62,8 @@ web-image:
     # read /kaniko, but kaniko never puts it into a layer or the cache, so the
     # Dockerfile looks for both secrets in /kaniko/build-secrets.
     - test -n "${IN2CODE_PACKAGIST_TOKEN:-}" || { echo "IN2CODE_PACKAGIST_TOKEN is missing (protected variable; protected branches only)" >&2; exit 1; }
+    # A plain (non-file) variable would make cp print the key in its error.
+    - test -f "${GITLAB_EXTENSIONS_READ_KEY:-}" || { echo "GITLAB_EXTENSIONS_READ_KEY must be a protected File variable" >&2; exit 1; }
     - mkdir -p -m 0700 /kaniko/build-secrets
     - printf '%s' "$IN2CODE_PACKAGIST_TOKEN" > /kaniko/build-secrets/in2code-packagist-token
     - cp "$GITLAB_EXTENSIONS_READ_KEY" /kaniko/build-secrets/gitlab-extensions-read-key
@@ -74,11 +76,13 @@ solr-image:
     DOCKERFILE: Dockerfile.solr.coolify
 
 # A push to main (normally the merge of develop) goes live without a click.
-# COOLIFY_DEPLOY_TOKEN_B64 is a protected variable, so only main can deploy.
+# COOLIFY_DEPLOY_TOKEN_B64 is protected and scoped to the production
+# environment, so only this job on main can read it. GitLab's "Prevent
+# outdated deployment jobs" keeps an older pipeline from deploying last.
 # To roll back, re-run this job in an earlier main pipeline.
 deploy-production:
   stage: deploy
-  image: alpine:3.23
+  image: alpine:3.23@sha256:469c9ea410b9215eaee7976ba6c0639039b444be8e5d638f7abbada189971eb2
   needs:
     - job: web-image
     - job: solr-image

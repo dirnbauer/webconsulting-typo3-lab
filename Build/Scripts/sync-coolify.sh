@@ -248,9 +248,10 @@ deploy() {
 
     token="$(coolify_token)" || exit 2
 
-    # Coolify builds whatever origin/main is, so that is the commit to judge.
-    # CI's deploy job has this gate built in; a manual deployment had none, and
-    # on 2026-09-19 a commit with a red run went live because nothing checked.
+    # This restarts the images Coolify already runs (LAB_IMAGE_TAG); new commits
+    # go live through GitLab CI. The check below still refuses while the
+    # GitHub Quality run for origin/main is red (2026-09-19: a red commit went
+    # live because nothing checked).
     if [[ "${1:-}" != "--force" ]]; then
         require_green_ci
     fi

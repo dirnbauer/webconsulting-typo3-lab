@@ -1,7 +1,8 @@
 #!/bin/sh
 # GitLab CI deploy of the images this pipeline built (.gitlab-ci.yml,
-# deploy-production). Sets LAB_IMAGE_TAG in Coolify to the commit, which
-# docker-compose.coolify.yml uses as the tag of the web and Solr images,
+# deploy-production). Pins Coolify to this commit, so the compose file and the
+# images match, and sets LAB_IMAGE_TAG, which docker-compose.coolify.yml uses
+# as the tag of the web and Solr images. It then
 # starts the deployment, waits for it and for healthy containers, then checks
 # the public URL. Needs curl and jq.
 #
@@ -34,9 +35,13 @@ if [ "${build_pack}" != "dockercompose" ] || ! printf '%s' "${repository}" | gre
     exit 1
 fi
 
-echo "Setting LAB_IMAGE_TAG=${tag}"
-api PATCH "/applications/${app_uuid}/envs" -H 'Content-Type: application/json' \
-    -d "{\"key\":\"LAB_IMAGE_TAG\",\"value\":\"${tag}\",\"is_preview\":false}" >/dev/null
+echo "Pinning compose to ${tag} and setting LAB_IMAGE_TAG"
+api PATCH "/applications/${app_uuid}" -H 'Content-Type: application/json' \
+    -d "{\"git_commit_sha\":\"${tag}\"}" >/dev/null
+env_body="{\"key\":\"LAB_IMAGE_TAG\",\"value\":\"${tag}\",\"is_preview\":false}"
+# PATCH updates an existing variable; create it if Coolify does not know it yet.
+api PATCH "/applications/${app_uuid}/envs" -H 'Content-Type: application/json' -d "${env_body}" >/dev/null 2>&1 \
+    || api POST "/applications/${app_uuid}/envs" -H 'Content-Type: application/json' -d "${env_body}" >/dev/null
 
 deployment="$(api POST "/deploy?uuid=${app_uuid}&force=false" | json '.deployments[0].deployment_uuid // empty')"
 if [ -z "${deployment}" ]; then
@@ -77,7 +82,8 @@ if [ "${status}" != "running:healthy" ]; then
     exit 1
 fi
 
-# 401 is the lab login, i.e. Apache and TYPO3 answer behind it.
+# 401 is Apache's Basic Auth, so this only proves the proxy and Apache answer.
+# The container health check above covers TYPO3: it requests a real page.
 code="$(curl -s -o /dev/null -w '%{http_code}' --max-time 30 "${site_url}" || true)"
 case "${code}" in
     200|401) echo "${site_url} answers ${code}. Live: ${tag}" ;;
